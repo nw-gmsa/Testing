@@ -1,3 +1,8 @@
+# Examples 
+
+Are based on [North West Genomics Test Patients](https://nw-gmsa.github.io/testing.html#integration-testing)
+These patients are also registered on [NHS England Personal Demographics Service - FHIR API - Integration Environment](https://digital.nhs.uk/developer/api-catalogue/personal-demographics-service-fhir)
+
 # Sending HL7 v2 Message
 
 Note files must use CR or CRLF (not unix/mac LF)
