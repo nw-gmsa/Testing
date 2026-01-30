@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:f5f92b1a-71d2-49af-8a07-6e2c13c97188",
+      "fullUrl": "urn:uuid:13206ad2-4dba-4588-9c4c-08c16c3e004b",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:c41cbbe4-f494-403a-801b-9b7e91ea4389"
+            "reference": "urn:uuid:29b31aea-09c5-4d98-82c3-6f4d52a94cc1"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9bf7c316-bb02-4fe5-a511-ea4f19cf44bd",
+      "fullUrl": "urn:uuid:7114f679-6099-4a1f-8b7b-f48cbc9356b8",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -83,14 +83,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:faedd4a1-35f7-4312-9c33-942ab638676c",
+      "fullUrl": "urn:uuid:aab9d12f-22b6-42e3-97ae-270f9854f21c",
       "resource": {
         "resourceType": "PractitionerRole",
         "organization": {
-          "display": "Kingston Hospital NHS Foundation Trust",
+          "display": "Royal Marsden",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "RAX"
+            "value": "RPY"
           }
         },
         "practitioner": {
@@ -102,7 +102,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dfdc07da-92ce-4c59-9226-f53c56f977e0",
+      "fullUrl": "urn:uuid:db61b40c-9d76-4cad-9896-fe0f191bfa06",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -115,6 +115,36 @@
           ]
         },
         "effectiveDateTime": "2023-09-08",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "ODS"
+              }
+            },
+            "system": "https://nw-gmsa.github.io/Id/PLAC",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "16017160171"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "ODS"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+            "value": "ODS-16017160171-128462008-SNM3"
+          }
+        ],
         "performer": [
           {
             "identifier": {
@@ -144,12 +174,12 @@
             },
             "value": "9449307555"
           },
-          "reference": "urn:uuid:9bf7c316-bb02-4fe5-a511-ea4f19cf44bd"
+          "reference": "urn:uuid:7114f679-6099-4a1f-8b7b-f48cbc9356b8"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:74dfda7e-a8e6-42fb-9982-93319fdf20df",
+      "fullUrl": "urn:uuid:66f42e7b-bd56-43d7-9cf3-7a67f57cd555",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -162,6 +192,36 @@
           ]
         },
         "effectiveDateTime": "2023-09-08",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "ODS"
+              }
+            },
+            "system": "https://nw-gmsa.github.io/Id/PLAC",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "16017160171"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "ODS"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+            "value": "ODS-16017160171-6574001-SNM3"
+          }
+        ],
         "performer": [
           {
             "identifier": {
@@ -191,12 +251,12 @@
             },
             "value": "9449307555"
           },
-          "reference": "urn:uuid:9bf7c316-bb02-4fe5-a511-ea4f19cf44bd"
+          "reference": "urn:uuid:7114f679-6099-4a1f-8b7b-f48cbc9356b8"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:6c2657ae-f06a-4677-a5e2-877fac3eeaee",
+      "fullUrl": "urn:uuid:9701bf09-7886-4028-9564-44290f731ee0",
       "resource": {
         "resourceType": "Specimen",
         "collection": {
@@ -236,7 +296,7 @@
             },
             "value": "9449307555"
           },
-          "reference": "urn:uuid:9bf7c316-bb02-4fe5-a511-ea4f19cf44bd"
+          "reference": "urn:uuid:7114f679-6099-4a1f-8b7b-f48cbc9356b8"
         },
         "type": {
           "coding": [
@@ -250,7 +310,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c41cbbe4-f494-403a-801b-9b7e91ea4389",
+      "fullUrl": "urn:uuid:29b31aea-09c5-4d98-82c3-6f4d52a94cc1",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2023-09-08",
@@ -273,6 +333,26 @@
             }
           ]
         },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "ODS"
+              }
+            },
+            "system": "https://nw-gmsa.github.io/Id/PLAC",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "16017160171"
+          }
+        ],
         "intent": "order",
         "note": [
           {
@@ -300,11 +380,11 @@
           }
         ],
         "requester": {
-          "reference": "urn:uuid:faedd4a1-35f7-4312-9c33-942ab638676c"
+          "reference": "urn:uuid:aab9d12f-22b6-42e3-97ae-270f9854f21c"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:6c2657ae-f06a-4677-a5e2-877fac3eeaee",
+            "reference": "urn:uuid:9701bf09-7886-4028-9564-44290f731ee0",
             "type": "Specimen"
           }
         ],
@@ -328,15 +408,15 @@
             },
             "value": "9449307555"
           },
-          "reference": "urn:uuid:9bf7c316-bb02-4fe5-a511-ea4f19cf44bd"
+          "reference": "urn:uuid:7114f679-6099-4a1f-8b7b-f48cbc9356b8"
         },
         "supportingInfo": [
           {
-            "reference": "urn:uuid:dfdc07da-92ce-4c59-9226-f53c56f977e0",
+            "reference": "urn:uuid:db61b40c-9d76-4cad-9896-fe0f191bfa06",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:74dfda7e-a8e6-42fb-9982-93319fdf20df",
+            "reference": "urn:uuid:66f42e7b-bd56-43d7-9cf3-7a67f57cd555",
             "type": "Observation"
           }
         ]
