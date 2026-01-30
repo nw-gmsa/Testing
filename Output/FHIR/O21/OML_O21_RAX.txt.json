@@ -1,0 +1,351 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:9d806bbb-248f-4b4f-85bb-286b368c00d6",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/LIMS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJZ"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:c4f300ca-e45b-4be2-9734-4e2eee8bd7f7"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RAX"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.north-west.england.nhs.uk/Endpoint/HIVE",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4a2c4e25-11df-4506-93d4-acb94757312e",
+      "resource": {
+        "resourceType": "Patient",
+        "address": [
+          {
+            "line": [
+              "2 Barclay Close",
+              "Fetcham"
+            ],
+            "postalCode": "KT22 9SY"
+          }
+        ],
+        "birthDate": "2011-03-19",
+        "gender": "unknown",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X26"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9449307555"
+          }
+        ],
+        "name": [
+          {
+            "family": "Hadjkiss",
+            "given": [
+              "Zelma"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f17d2ba8-d9a0-4d21-b6d1-4726dfbfa3a6",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "organization": {
+          "display": "Kingston Hospital NHS Foundation Trust",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RAX"
+          }
+        },
+        "practitioner": {
+          "display": "Smith, Hazel",
+          "identifier": {
+            "value": "9999999998"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9ad10d30-362b-42a0-b209-ae90ef276f7c",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "128462008",
+              "display": "Metastatic malignant neoplasm (disorder)",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        },
+        "effectiveDateTime": "2023-09-08",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X26"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9449307555"
+          },
+          "reference": "urn:uuid:4a2c4e25-11df-4506-93d4-acb94757312e"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:697b8810-155f-41e6-96e1-918bc167d32e",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "6574001",
+              "display": "Necrosis (morphologic abnormality)",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        },
+        "effectiveDateTime": "2023-09-08",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X26"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9449307555"
+          },
+          "reference": "urn:uuid:4a2c4e25-11df-4506-93d4-acb94757312e"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b86621d8-293c-44c4-a6ed-24d0a633c056",
+      "resource": {
+        "resourceType": "Specimen",
+        "collection": {
+          "collectedDateTime": "2023-09-09T11:00:00+00:00"
+        },
+        "identifier": [
+          {
+            "system": "https://nw-gmsa.github.io/Id/PLAC",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RA257630"
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X26"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9449307555"
+          },
+          "reference": "urn:uuid:4a2c4e25-11df-4506-93d4-acb94757312e"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "364611000000101",
+              "display": "Tissue resection sample",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c4f300ca-e45b-4be2-9734-4e2eee8bd7f7",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "authoredOn": "2023-09-08",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "M119.5",
+              "display": "Multi Target NGS Panel Small",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "intent": "order",
+        "note": [
+          {
+            "text": "Free text for diagnosis/reason for referral, transplant, life status at time of request details/ e.g. malignant tumour - molecular assessment will aid management\\n"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "363358000",
+                "display": "Malignant tumour of lung",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "relapse",
+                "display": "Relapse",
+                "system": "https://fhir.nhs.uk/CodeSystem/reasonfortesting-genomics"
+              }
+            ]
+          }
+        ],
+        "requester": {
+          "reference": "urn:uuid:f17d2ba8-d9a0-4d21-b6d1-4726dfbfa3a6"
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:b86621d8-293c-44c4-a6ed-24d0a633c056",
+            "type": "Specimen"
+          }
+        ],
+        "status": "active",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X26"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9449307555"
+          },
+          "reference": "urn:uuid:4a2c4e25-11df-4506-93d4-acb94757312e"
+        },
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:9ad10d30-362b-42a0-b209-ae90ef276f7c",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:697b8810-155f-41e6-96e1-918bc167d32e",
+            "type": "Observation"
+          }
+        ]
+      }
+    }
+  ],
+  "identifier": {
+    "value": "156bb6ab-15e7-42f3-a819-ecd16a5b4fbd"
+  },
+  "timestamp": "2024-10-13T10:33:00+00:00",
+  "type": "message"
+}
