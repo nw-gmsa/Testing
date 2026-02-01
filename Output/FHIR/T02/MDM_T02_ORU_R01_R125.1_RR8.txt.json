@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:f5bfbacd-7a91-4282-ad91-3a507531859a",
+            "fullUrl": "urn:uuid:68ccc162-f7c4-4394-b37b-406c2d376f52",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:57fc7f9b-3d8b-4447-9c2d-ecc4102bd84e"
+                        "reference": "urn:uuid:409f9d74-cc78-4590-b360-a6488757f1f1"
                     }
                 ],
                 "sender": {
@@ -32,13 +32,13 @@
                     }
                 },
                 "source": {
-                    "endpoint": "https://fhir.north-west.england.nhs.uk/Endpoint/IGENE",
+                    "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/IGENE",
                     "software": "NW GLH"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:f5220d89-e202-404f-9da4-543451cae37b",
+            "fullUrl": "urn:uuid:db150d3e-90e7-4a0a-8b80-838cd81494fd",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -73,7 +73,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:da9c7f62-b430-4267-b522-c01787a2a0eb",
+            "fullUrl": "urn:uuid:be95cd85-e289-496a-ba36-dad096a0aefa",
             "resource": {
                 "resourceType": "Binary",
                 "contentType": "application/pdf",
@@ -81,14 +81,14 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:9303c43d-178d-438e-a6f7-93fd3890c38c",
+            "fullUrl": "urn:uuid:36473b5d-83b6-40b7-b092-380c727c418d",
             "resource": {
                 "resourceType": "DocumentReference",
                 "content": [
                     {
                         "attachment": {
                             "contentType": "application/pdf",
-                            "url": "urn:uuid:da9c7f62-b430-4267-b522-c01787a2a0eb"
+                            "url": "urn:uuid:be95cd85-e289-496a-ba36-dad096a0aefa"
                         }
                     }
                 ],
@@ -113,8 +113,30 @@
                                 },
                                 "value": "1000152872"
                             },
-                            "reference": "urn:uuid:efd58274-6376-44e0-b8fe-df57e6088477",
+                            "reference": "urn:uuid:2e34ef7a-32ca-434b-a8dd-fe838664b86c",
                             "type": "ServiceRequest"
+                        },
+                        {
+                            "identifier": {
+                                "assigner": {
+                                    "identifier": {
+                                        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                        "value": "699X0"
+                                    }
+                                },
+                                "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                                "type": {
+                                    "coding": [
+                                        {
+                                            "code": "FILL",
+                                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                        }
+                                    ]
+                                },
+                                "value": "T25-0209"
+                            },
+                            "reference": "urn:uuid:409f9d74-cc78-4590-b360-a6488757f1f1",
+                            "type": "DiagnosticReport"
                         }
                     ]
                 },
@@ -134,7 +156,7 @@
                                 "value": "699X0"
                             }
                         },
-                        "system": "https://fhir.north-west.england.nhs.uk/iGene/ReportIdentifier",
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
                         "type": {
                             "coding": [
                                 {
@@ -160,7 +182,7 @@
                         },
                         "value": "9737383222"
                     },
-                    "reference": "urn:uuid:f5220d89-e202-404f-9da4-543451cae37b"
+                    "reference": "urn:uuid:db150d3e-90e7-4a0a-8b80-838cd81494fd"
                 },
                 "type": {
                     "coding": [
@@ -174,12 +196,12 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:77e27fd5-fc13-4976-a9db-6c32f4a4aae3",
+            "fullUrl": "urn:uuid:a4b8ba8a-47fa-402a-b8ec-f9cac328e127",
             "resource": {
                 "resourceType": "Specimen",
                 "identifier": [
                     {
-                        "system": "https://nw-gmsa.github.io/Id/PLAC",
+                        "system": "https://fhir.nwgenomics.nhs.uk/Id/PLAC",
                         "type": {
                             "coding": [
                                 {
@@ -206,12 +228,12 @@
                         },
                         "value": "9737383222"
                     },
-                    "reference": "urn:uuid:f5220d89-e202-404f-9da4-543451cae37b"
+                    "reference": "urn:uuid:db150d3e-90e7-4a0a-8b80-838cd81494fd"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:efd58274-6376-44e0-b8fe-df57e6088477",
+            "fullUrl": "urn:uuid:2e34ef7a-32ca-434b-a8dd-fe838664b86c",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "category": [
@@ -274,7 +296,7 @@
                 },
                 "specimen": [
                     {
-                        "reference": "urn:uuid:77e27fd5-fc13-4976-a9db-6c32f4a4aae3",
+                        "reference": "urn:uuid:a4b8ba8a-47fa-402a-b8ec-f9cac328e127",
                         "type": "Specimen"
                     }
                 ],
@@ -292,12 +314,12 @@
                         },
                         "value": "9737383222"
                     },
-                    "reference": "urn:uuid:f5220d89-e202-404f-9da4-543451cae37b"
+                    "reference": "urn:uuid:db150d3e-90e7-4a0a-8b80-838cd81494fd"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:57fc7f9b-3d8b-4447-9c2d-ecc4102bd84e",
+            "fullUrl": "urn:uuid:409f9d74-cc78-4590-b360-a6488757f1f1",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -320,7 +342,7 @@
                             },
                             "value": "1000152872"
                         },
-                        "reference": "urn:uuid:efd58274-6376-44e0-b8fe-df57e6088477",
+                        "reference": "urn:uuid:2e34ef7a-32ca-434b-a8dd-fe838664b86c",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -357,7 +379,7 @@
                                 "value": "699X0"
                             }
                         },
-                        "system": "https://fhir.north-west.england.nhs.uk/iGene/ReportIdentifier",
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
                         "type": {
                             "coding": [
                                 {
@@ -383,7 +405,7 @@
                 "presentedForm": [
                     {
                         "contentType": "application/pdf",
-                        "url": "urn:uuid:da9c7f62-b430-4267-b522-c01787a2a0eb"
+                        "url": "urn:uuid:be95cd85-e289-496a-ba36-dad096a0aefa"
                     }
                 ],
                 "resultsInterpreter": [
@@ -393,7 +415,7 @@
                 ],
                 "specimen": [
                     {
-                        "reference": "urn:uuid:77e27fd5-fc13-4976-a9db-6c32f4a4aae3",
+                        "reference": "urn:uuid:a4b8ba8a-47fa-402a-b8ec-f9cac328e127",
                         "type": "Specimen"
                     }
                 ],
@@ -411,7 +433,7 @@
                         },
                         "value": "9737383222"
                     },
-                    "reference": "urn:uuid:f5220d89-e202-404f-9da4-543451cae37b"
+                    "reference": "urn:uuid:db150d3e-90e7-4a0a-8b80-838cd81494fd"
                 }
             }
         }
