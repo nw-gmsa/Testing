@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:f85c20dc-f12c-4b72-94db-49d18a3bb6e2",
+            "fullUrl": "urn:uuid:43a44e95-f9c2-439e-b613-ad09cd0c756c",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:cd33012e-4d83-4c30-8e11-c78f1868fb23"
+                        "reference": "urn:uuid:4b11a299-b637-4ee5-af94-055f6700b88b"
                     }
                 ],
                 "sender": {
@@ -38,7 +38,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:7ebfc771-4db1-4816-83fb-13f6156ed7e6",
+            "fullUrl": "urn:uuid:ccfae1ac-ef43-4b9a-b275-efe8c44f8c48",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -78,6 +78,23 @@
                             ]
                         },
                         "value": "1234567"
+                    },
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "RBS"
+                            }
+                        },
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "A12345"
                     }
                 ],
                 "name": [
@@ -91,7 +108,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:e46a479f-672c-49d2-b328-6e789a781736",
+            "fullUrl": "urn:uuid:e1dfbe09-874d-46ca-a287-daf4d833208f",
             "resource": {
                 "resourceType": "Binary",
                 "contentType": "application/pdf",
@@ -99,14 +116,14 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:f0abb085-9b96-4d9d-b395-5c82c4ce5967",
+            "fullUrl": "urn:uuid:13ea30d3-1669-4a1b-95c5-c4fe56cff79d",
             "resource": {
                 "resourceType": "DocumentReference",
                 "content": [
                     {
                         "attachment": {
                             "contentType": "application/pdf",
-                            "url": "urn:uuid:e46a479f-672c-49d2-b328-6e789a781736"
+                            "url": "urn:uuid:e1dfbe09-874d-46ca-a287-daf4d833208f"
                         }
                     }
                 ],
@@ -130,7 +147,7 @@
                                 },
                                 "value": "1000152867"
                             },
-                            "reference": "urn:uuid:3359fc89-8a51-4c0f-89f7-b96a36c11ef6",
+                            "reference": "urn:uuid:f22d2dc0-f6ed-46b9-a663-d138d35606cd",
                             "type": "ServiceRequest"
                         },
                         {
@@ -152,7 +169,7 @@
                                 },
                                 "value": "T25-0207"
                             },
-                            "reference": "urn:uuid:cd33012e-4d83-4c30-8e11-c78f1868fb23",
+                            "reference": "urn:uuid:4b11a299-b637-4ee5-af94-055f6700b88b",
                             "type": "DiagnosticReport"
                         }
                     ],
@@ -161,10 +178,9 @@
                             "assigner": {
                                 "identifier": {
                                     "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                                    "value": "R0A"
+                                    "value": "RBS"
                                 }
                             },
-                            "system": "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
                             "type": {
                                 "coding": [
                                     {
@@ -173,7 +189,7 @@
                                     }
                                 ]
                             },
-                            "value": "1234567"
+                            "value": "A12345"
                         }
                     }
                 },
@@ -219,7 +235,7 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:7ebfc771-4db1-4816-83fb-13f6156ed7e6"
+                    "reference": "urn:uuid:ccfae1ac-ef43-4b9a-b275-efe8c44f8c48"
                 },
                 "type": {
                     "coding": [
@@ -233,7 +249,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:12b9dc6e-2bdb-44c0-8259-06c7c74d0c6a",
+            "fullUrl": "urn:uuid:904ae999-f421-4543-b6a5-c517746f03b6",
             "resource": {
                 "resourceType": "Specimen",
                 "identifier": [
@@ -264,12 +280,12 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:7ebfc771-4db1-4816-83fb-13f6156ed7e6"
+                    "reference": "urn:uuid:ccfae1ac-ef43-4b9a-b275-efe8c44f8c48"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:3359fc89-8a51-4c0f-89f7-b96a36c11ef6",
+            "fullUrl": "urn:uuid:f22d2dc0-f6ed-46b9-a663-d138d35606cd",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "category": [
@@ -331,7 +347,7 @@
                 },
                 "specimen": [
                     {
-                        "reference": "urn:uuid:12b9dc6e-2bdb-44c0-8259-06c7c74d0c6a",
+                        "reference": "urn:uuid:904ae999-f421-4543-b6a5-c517746f03b6",
                         "type": "Specimen"
                     }
                 ],
@@ -349,12 +365,12 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:7ebfc771-4db1-4816-83fb-13f6156ed7e6"
+                    "reference": "urn:uuid:ccfae1ac-ef43-4b9a-b275-efe8c44f8c48"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:cd33012e-4d83-4c30-8e11-c78f1868fb23",
+            "fullUrl": "urn:uuid:4b11a299-b637-4ee5-af94-055f6700b88b",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -376,7 +392,7 @@
                             },
                             "value": "1000152867"
                         },
-                        "reference": "urn:uuid:3359fc89-8a51-4c0f-89f7-b96a36c11ef6",
+                        "reference": "urn:uuid:f22d2dc0-f6ed-46b9-a663-d138d35606cd",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -439,7 +455,7 @@
                 "presentedForm": [
                     {
                         "contentType": "application/pdf",
-                        "url": "urn:uuid:e46a479f-672c-49d2-b328-6e789a781736"
+                        "url": "urn:uuid:e1dfbe09-874d-46ca-a287-daf4d833208f"
                     }
                 ],
                 "resultsInterpreter": [
@@ -449,7 +465,7 @@
                 ],
                 "specimen": [
                     {
-                        "reference": "urn:uuid:12b9dc6e-2bdb-44c0-8259-06c7c74d0c6a",
+                        "reference": "urn:uuid:904ae999-f421-4543-b6a5-c517746f03b6",
                         "type": "Specimen"
                     }
                 ],
@@ -467,7 +483,7 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:7ebfc771-4db1-4816-83fb-13f6156ed7e6"
+                    "reference": "urn:uuid:ccfae1ac-ef43-4b9a-b275-efe8c44f8c48"
                 }
             }
         }
