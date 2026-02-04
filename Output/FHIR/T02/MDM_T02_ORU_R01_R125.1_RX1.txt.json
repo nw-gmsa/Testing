@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:1b70d14f-5c78-42e6-afa4-8e52762a790e",
+            "fullUrl": "urn:uuid:5d3f5ea4-4416-47d0-9117-b9eb341fd0fd",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:a5d7e8dc-f025-4ee4-9ed0-e75cd672d4f9"
+                        "reference": "urn:uuid:ddc10a5d-9e87-41c4-9b01-63506b176378"
                     }
                 ],
                 "sender": {
@@ -38,7 +38,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:372941a9-6d3f-440e-8c84-c1fe54f47418",
+            "fullUrl": "urn:uuid:3bd21619-4e60-4355-9a3a-7bc352bdcec6",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -60,6 +60,23 @@
                             ]
                         },
                         "value": "9737383265"
+                    },
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "RX1"
+                            }
+                        },
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "1234567"
                     }
                 ],
                 "name": [
@@ -73,7 +90,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:41c4ae6b-802c-4120-857d-9669d0e10eb2",
+            "fullUrl": "urn:uuid:fedbfcb3-b9a6-4cca-818e-a2162d66e234",
             "resource": {
                 "resourceType": "Binary",
                 "contentType": "application/pdf",
@@ -81,14 +98,14 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:5911e03b-4ac0-4b1e-9e83-694945e91653",
+            "fullUrl": "urn:uuid:5039d30f-0abf-41e4-8632-d819601e5c60",
             "resource": {
                 "resourceType": "DocumentReference",
                 "content": [
                     {
                         "attachment": {
                             "contentType": "application/pdf",
-                            "url": "urn:uuid:41c4ae6b-802c-4120-857d-9669d0e10eb2"
+                            "url": "urn:uuid:fedbfcb3-b9a6-4cca-818e-a2162d66e234"
                         }
                     }
                 ],
@@ -102,7 +119,6 @@
                                         "value": "RX1"
                                     }
                                 },
-                                "system": "https://fhir.nwgenomics.nhs.uk/Id/PLAC",
                                 "type": {
                                     "coding": [
                                         {
@@ -113,7 +129,7 @@
                                 },
                                 "value": "100152874"
                             },
-                            "reference": "urn:uuid:4f86354b-a894-4ab7-9839-118660103f77",
+                            "reference": "urn:uuid:f1037557-03d4-4721-8ec0-d049e8ccf010",
                             "type": "ServiceRequest"
                         },
                         {
@@ -135,10 +151,29 @@
                                 },
                                 "value": "T25-0211"
                             },
-                            "reference": "urn:uuid:a5d7e8dc-f025-4ee4-9ed0-e75cd672d4f9",
+                            "reference": "urn:uuid:ddc10a5d-9e87-41c4-9b01-63506b176378",
                             "type": "DiagnosticReport"
                         }
-                    ]
+                    ],
+                    "sourcePatientInfo": {
+                        "identifier": {
+                            "assigner": {
+                                "identifier": {
+                                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                    "value": "RX1"
+                                }
+                            },
+                            "type": {
+                                "coding": [
+                                    {
+                                        "code": "MR",
+                                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                    }
+                                ]
+                            },
+                            "value": "1234567"
+                        }
+                    }
                 },
                 "custodian": {
                     "identifier": {
@@ -182,7 +217,7 @@
                         },
                         "value": "9737383265"
                     },
-                    "reference": "urn:uuid:372941a9-6d3f-440e-8c84-c1fe54f47418"
+                    "reference": "urn:uuid:3bd21619-4e60-4355-9a3a-7bc352bdcec6"
                 },
                 "type": {
                     "coding": [
@@ -196,12 +231,11 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:19b813b6-11ec-4f2d-8f41-d07aa8527b09",
+            "fullUrl": "urn:uuid:b41ddea4-84c7-4db2-8c60-4e1ee5214633",
             "resource": {
                 "resourceType": "Specimen",
                 "identifier": [
                     {
-                        "system": "https://fhir.nwgenomics.nhs.uk/Id/PLAC",
                         "type": {
                             "coding": [
                                 {
@@ -228,12 +262,12 @@
                         },
                         "value": "9737383265"
                     },
-                    "reference": "urn:uuid:372941a9-6d3f-440e-8c84-c1fe54f47418"
+                    "reference": "urn:uuid:3bd21619-4e60-4355-9a3a-7bc352bdcec6"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:4f86354b-a894-4ab7-9839-118660103f77",
+            "fullUrl": "urn:uuid:f1037557-03d4-4721-8ec0-d049e8ccf010",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "category": [
@@ -263,7 +297,6 @@
                                 "value": "RX1"
                             }
                         },
-                        "system": "https://fhir.nwgenomics.nhs.uk/Id/PLAC",
                         "type": {
                             "coding": [
                                 {
@@ -296,7 +329,7 @@
                 },
                 "specimen": [
                     {
-                        "reference": "urn:uuid:19b813b6-11ec-4f2d-8f41-d07aa8527b09",
+                        "reference": "urn:uuid:b41ddea4-84c7-4db2-8c60-4e1ee5214633",
                         "type": "Specimen"
                     }
                 ],
@@ -314,12 +347,12 @@
                         },
                         "value": "9737383265"
                     },
-                    "reference": "urn:uuid:372941a9-6d3f-440e-8c84-c1fe54f47418"
+                    "reference": "urn:uuid:3bd21619-4e60-4355-9a3a-7bc352bdcec6"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:a5d7e8dc-f025-4ee4-9ed0-e75cd672d4f9",
+            "fullUrl": "urn:uuid:ddc10a5d-9e87-41c4-9b01-63506b176378",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -331,7 +364,6 @@
                                     "value": "RX1"
                                 }
                             },
-                            "system": "https://fhir.nwgenomics.nhs.uk/Id/PLAC",
                             "type": {
                                 "coding": [
                                     {
@@ -342,7 +374,7 @@
                             },
                             "value": "100152874"
                         },
-                        "reference": "urn:uuid:4f86354b-a894-4ab7-9839-118660103f77",
+                        "reference": "urn:uuid:f1037557-03d4-4721-8ec0-d049e8ccf010",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -405,7 +437,7 @@
                 "presentedForm": [
                     {
                         "contentType": "application/pdf",
-                        "url": "urn:uuid:41c4ae6b-802c-4120-857d-9669d0e10eb2"
+                        "url": "urn:uuid:fedbfcb3-b9a6-4cca-818e-a2162d66e234"
                     }
                 ],
                 "resultsInterpreter": [
@@ -415,7 +447,7 @@
                 ],
                 "specimen": [
                     {
-                        "reference": "urn:uuid:19b813b6-11ec-4f2d-8f41-d07aa8527b09",
+                        "reference": "urn:uuid:b41ddea4-84c7-4db2-8c60-4e1ee5214633",
                         "type": "Specimen"
                     }
                 ],
@@ -433,7 +465,7 @@
                         },
                         "value": "9737383265"
                     },
-                    "reference": "urn:uuid:372941a9-6d3f-440e-8c84-c1fe54f47418"
+                    "reference": "urn:uuid:3bd21619-4e60-4355-9a3a-7bc352bdcec6"
                 }
             }
         }
