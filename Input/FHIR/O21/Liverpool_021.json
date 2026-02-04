@@ -86,18 +86,6 @@
             "resource": {
                 "resourceType": "Patient",
                 "id": "dc969479-f38b-4837-91d1-6a1ad9f23660",
-                "contained": [
-                    {
-                        "resourceType": "Organization",
-                        "id": "1",
-                        "identifier": [
-                            {
-                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                                "value": "REP"
-                            }
-                        ]
-                    }
-                ],
                 "identifier": [
                     {
                         "type": {
@@ -111,7 +99,12 @@
                         "system": "https://liverpoolwomens.nhs.uk/Id/medical-record-number",
                         "value": "W0007125",
                         "assigner": {
-                            "reference": "#1"
+                            "identifier": [
+                                {
+                                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                    "value": "REP"
+                                }
+                            ]
                         }
                     }
                 ],
