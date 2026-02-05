@@ -38,168 +38,105 @@
   </thead>
   <tbody>
     <tr>
-      <th>21</th>
+      <th>20</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:cfcc20e1-b2f8-4f9d-a16d-21a30bdc32eb among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Organization, https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole</td>
+      <td>Unable to find a profile match for urn:uuid:faad9c4e-fff9-4ee5-970e-012a40ea6cf5 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Organization, https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole</td>
       <td>[Bundle.entry[7].resource.requester]</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>19</th>
       <td>error</td>
       <td>value</td>
       <td>The pattern [system http://terminology.hl7.org/CodeSystem/v2-0203, code AN, and display 'Account number'] defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalProviderSpellIdentifier|0.1.0 not found. Issues: [ValidationMessage[level=ERROR,type=VALUE,location=Bundle.entry[7].resource.encounter.identifier.type.coding.code,message=Value is 'VN' but is fixed to 'AN' in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalProviderSpellIdentifier|0.1.0#Identifier], ValidationMessage[level=ERROR,type=VALUE,location=Bundle.entry[7].resource.encounter.identifier.type.coding.display,message=Missing element 'display' - required by fixed value assigned in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalProviderSpellIdentifier|0.1.0]]</td>
       <td>[Bundle.entry[7].resource.encounter.identifier.type]</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>12</th>
       <td>error</td>
       <td>invalid</td>
       <td>Wrong Display Name 'Multi Target NGS Panel Small' for https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#M119.5. There are no valid display names found for language(s) 'en'. Default display is 'null'</td>
       <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.code.coding[0].display]</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/HIVE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/HIVE' - change from https: to http:</td>
-      <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>information</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'Laboratory Order' (http://hl7.eu/fhir/laboratory/ValueSet/lab-orderCodes-eu-lab|0.1.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#M119.5)</td>
-      <td>[Bundle.entry[7].resource.code]</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[7].resource.supportingInfo[1]]</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[7].resource.supportingInfo[0]]</td>
-    </tr>
-    <tr>
       <th>22</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:cfcc20e1-b2f8-4f9d-a16d-21a30bdc32eb matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole|0.1.0</td>
-      <td>[Bundle.entry[7].resource.requester]</td>
-    </tr>
-    <tr>
-      <th>23</th>
       <td>information</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'Genomic Clinical Indication Codes' (https://fhir.nwgenomics.nhs.uk/ValueSet/GenomicClinicalIndicationCodes|0.1.0), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/reasonfortesting-genomics#relapse)</td>
       <td>[Bundle.entry[7].resource.reasonCode[1]]</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>warning</td>
+      <th>18</th>
+      <td>information</td>
       <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type]</td>
+      <td>None of the codings provided are in the value set 'Laboratory Order' (http://hl7.eu/fhir/laboratory/ValueSet/lab-orderCodes-eu-lab|0.1.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#M119.5)</td>
+      <td>[Bundle.entry[7].resource.code]</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/]</td>
+      <th>17</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[7].resource.supportingInfo[1]]</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[4].resource/*Observation/null*/.subject.identifier.type]</td>
+      <th>16</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[7].resource.supportingInfo[0]]</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[6].resource/*Specimen/null*/]</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[3].resource/*PractitionerRole/null*/]</td>
+      <th>21</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:faad9c4e-fff9-4ee5-970e-012a40ea6cf5 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole|0.1.0</td>
+      <td>[Bundle.entry[7].resource.requester]</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>15</th>
       <td>warning</td>
       <td>not-found</td>
       <td>A definition for CodeSystem 'https://fhir.nhs.uk/CodeSystem/reasonfortesting-genomics' could not be found, so the code cannot be validated</td>
       <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.reasonCode[1].coding[0].system]</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>13</th>
       <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/]</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>8</th>
       <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[2].resource/*Encounter/null*/]</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>6</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[4].resource/*Observation/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[2].resource/*Encounter/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[1].resource/*Patient/null*/]</td>
-    </tr>
-    <tr>
-      <th>2</th>
+      <th>1</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[1].resource/*Patient/null*/.identifier[0].type]</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[0].resource/*MessageHeader/null*/]</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[4].resource/*Observation/null*/]</td>
-    </tr>
-    <tr>
-      <th>11</th>
+      <th>10</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
