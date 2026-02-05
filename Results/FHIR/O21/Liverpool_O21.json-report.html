@@ -38,301 +38,399 @@
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>error</td>
-      <td>invalid</td>
-      <td>The property identifier must be an Object, not an Array (at Bundle.entry[2].resource.identifier[0].assigner.identifier)</td>
-      <td>[Bundle.entry[2].resource.identifier[0].assigner.identifier]</td>
-    </tr>
-    <tr>
-      <th>114</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Observation.code: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td>
-      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>MessageHeader.source.endpoint: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/MessageHeader|4.0.1)</td>
-      <td>[Bundle.entry[0].resource/*MessageHeader/64001.1*/.source]</td>
-    </tr>
-    <tr>
-      <th>142</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td>
-      <td>[Bundle.entry[1].resource.subject]</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>ServiceRequest.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1)</td>
-      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/]</td>
-    </tr>
-    <tr>
-      <th>113</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Observation.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td>
-      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
-    </tr>
-    <tr>
-      <th>140</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>ServiceRequest.requester: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td>
-      <td>[Bundle.entry[1].resource]</td>
-    </tr>
-    <tr>
-      <th>139</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>ServiceRequest.category: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td>
-      <td>[Bundle.entry[1].resource]</td>
-    </tr>
-    <tr>
-      <th>138</th>
+      <th>135</th>
       <td>error</td>
       <td>structure</td>
       <td>ServiceRequest.status: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td>
       <td>[Bundle.entry[1].resource]</td>
     </tr>
     <tr>
-      <th>137</th>
+      <th>1</th>
       <td>error</td>
       <td>structure</td>
-      <td>ServiceRequest.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td>
-      <td>[Bundle.entry[1].resource]</td>
+      <td>MessageHeader.source.endpoint: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/MessageHeader|4.0.1)</td>
+      <td>[Bundle.entry[0].resource/*MessageHeader/64001.1*/.source]</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>3</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>ServiceRequest.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1)</td>
+      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/]</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Unable to find a profile match for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td>
+      <td>[Bundle.entry[1].resource.subject]</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Observation.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td>
+      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
+    </tr>
+    <tr>
+      <th>8</th>
       <td>error</td>
       <td>invariant</td>
       <td>Constraint failed: cpt-2: 'A system is required if a value is provided.'</td>
       <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.telecom[0]]</td>
     </tr>
     <tr>
-      <th>144</th>
+      <th>137</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
-      <td>[Bundle.entry[1].resource.encounter]</td>
+      <td>ServiceRequest.requester: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td>
+      <td>[Bundle.entry[1].resource]</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>136</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>ServiceRequest.category: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td>
+      <td>[Bundle.entry[1].resource]</td>
+    </tr>
+    <tr>
+      <th>11</th>
       <td>error</td>
       <td>invalid</td>
       <td>No definition could be found for URL value 'http://hl7.org/fhir/v3/MaritalStatus'</td>
       <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus.coding[0].system]</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>111</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Observation.code: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td>
+      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
+    </tr>
+    <tr>
+      <th>13</th>
       <td>error</td>
       <td>structure</td>
       <td>Encounter.class: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1)</td>
       <td>[Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/]</td>
     </tr>
     <tr>
-      <th>97</th>
-      <td>information</td>
+      <th>141</th>
+      <td>error</td>
       <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.encounter]</td>
+      <td>Unable to find a profile match for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
+      <td>[Bundle.entry[1].resource.encounter]</td>
     </tr>
     <tr>
-      <th>102</th>
-      <td>information</td>
+      <th>134</th>
+      <td>error</td>
       <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.subject]</td>
+      <td>ServiceRequest.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td>
+      <td>[Bundle.entry[1].resource]</td>
     </tr>
     <tr>
-      <th>109</th>
+      <th>106</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
       <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.encounter]</td>
     </tr>
     <tr>
-      <th>108</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.subject]</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.subject]</td>
-    </tr>
-    <tr>
-      <th>103</th>
+      <th>52</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.encounter]</td>
+      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.encounter]</td>
     </tr>
     <tr>
-      <th>91</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>78</th>
+      <th>51</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.subject]</td>
+      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.subject]</td>
     </tr>
     <tr>
-      <th>85</th>
+      <th>142</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.encounter]</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td>
+      <td>[Bundle.entry[1].resource.encounter]</td>
     </tr>
     <tr>
-      <th>84</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.subject]</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>115</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/.subject]</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.subject]</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>90</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.subject]</td>
-    </tr>
-    <tr>
-      <th>116</th>
+      <th>113</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
       <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/.encounter]</td>
     </tr>
     <tr>
-      <th>122</th>
+      <th>57</th>
       <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:4c886a05-cb86-4e6a-8ae5-d39741b10aa3' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.subject]</td>
     </tr>
     <tr>
-      <th>119</th>
+      <th>46</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.subject]</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>116</th>
       <td>information</td>
       <td>informational</td>
       <td>Entry 'urn:uuid:25bd2167-0d87-4870-98e4-60cf003bf64c' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[22]]</td>
     </tr>
     <tr>
-      <th>143</th>
+      <th>112</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/.subject]</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.subject]</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.subject]</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.subject]</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:b6a33885-b293-4b87-9ba1-d92ee0ba00d2' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.subject]</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.subject]</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.subject]</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.subject]</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>information</td>
+      <td>not-found</td>
+      <td>Can't find 'urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31' in the bundle (Bundle.entry[1].resource.supportingInfo[0])</td>
+      <td>[Bundle]</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:f42cae76-a9e1-420c-bea8-70c343c81e9b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>140</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient|0.1.0</td>
       <td>[Bundle.entry[1].resource.subject]</td>
     </tr>
     <tr>
-      <th>141</th>
+      <th>4</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.subject]</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>138</th>
       <td>information</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'Laboratory Order' (http://hl7.eu/fhir/laboratory/ValueSet/lab-orderCodes-eu-lab|0.1.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R250.1)</td>
       <td>[Bundle.entry[1].resource.code]</td>
     </tr>
     <tr>
-      <th>136</th>
+      <th>14</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/.subject]</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[4].resource/*Specimen/25bd2167-0d87-4870-98e4-60cf003bf64c*/.subject]</td>
+    </tr>
+    <tr>
+      <th>133</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[1].resource.supportingInfo[0]]</td>
     </tr>
     <tr>
-      <th>135</th>
+      <th>132</th>
       <td>information</td>
       <td>informational</td>
       <td>Entry 'urn:uuid:463f52d7-cb0b-4d86-ba1b-192eae68d094' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[22]]</td>
     </tr>
     <tr>
-      <th>134</th>
+      <th>131</th>
       <td>information</td>
       <td>informational</td>
       <td>Entry 'urn:uuid:43faf774-ba70-4676-851d-36bf6a9805f4' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[22]]</td>
     </tr>
     <tr>
-      <th>133</th>
+      <th>130</th>
       <td>information</td>
       <td>informational</td>
       <td>Entry 'urn:uuid:e624e9a0-eda7-422c-a3ab-8e7a6bd72dab' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[22]]</td>
     </tr>
     <tr>
-      <th>132</th>
+      <th>21</th>
       <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:63a9efa4-0acd-4b49-8ea6-200795fec4ec' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.subject]</td>
     </tr>
     <tr>
-      <th>131</th>
+      <th>22</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
+      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.encounter]</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.subject]</td>
+    </tr>
+    <tr>
+      <th>128</th>
       <td>information</td>
       <td>informational</td>
       <td>Entry 'urn:uuid:0e46bffc-9e96-4ff0-9a5e-fc5c55b93d17' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[22]]</td>
     </tr>
     <tr>
-      <th>130</th>
+      <th>127</th>
       <td>information</td>
       <td>informational</td>
       <td>Entry 'urn:uuid:0edcb96b-775b-49ab-a047-b2bfdde7d88a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
@@ -342,722 +440,456 @@
       <th>129</th>
       <td>information</td>
       <td>informational</td>
-      <td>Entry 'urn:uuid:2abc1877-58ce-4960-a463-b8102a7e6af5' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>Entry 'urn:uuid:63a9efa4-0acd-4b49-8ea6-200795fec4ec' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[22]]</td>
     </tr>
     <tr>
-      <th>128</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:c82cd9ba-0974-41e1-bb51-b98911eee315' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:521d44f6-2f10-4fc8-8f11-5f883e593c5d' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>126</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:1186e629-7c64-4cb0-a24b-f716cd605d1b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:4ca1fd1c-690f-4e64-abd8-ad9baf97a227' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>124</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:dd91944a-d8aa-4a47-964d-b0ab43e1985a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:228d8277-2bf3-4637-9248-88e9d294ae70' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>60</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.subject]</td>
-    </tr>
-    <tr>
-      <th>121</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:f42cae76-a9e1-420c-bea8-70c343c81e9b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>120</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:b6a33885-b293-4b87-9ba1-d92ee0ba00d2' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[22]]</td>
-    </tr>
-    <tr>
-      <th>118</th>
-      <td>information</td>
-      <td>not-found</td>
-      <td>Can't find 'urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31' in the bundle (Bundle.entry[1].resource.supportingInfo[0])</td>
-      <td>[Bundle]</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.subject]</td>
-    </tr>
-    <tr>
-      <th>145</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td>
-      <td>[Bundle.entry[1].resource.encounter]</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.subject]</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.subject]</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[4].resource/*Specimen/25bd2167-0d87-4870-98e4-60cf003bf64c*/.subject]</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.encounter]</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/.subject]</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.subject]</td>
-    </tr>
-    <tr>
-      <th>30</th>
+      <th>27</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
       <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.subject]</td>
     </tr>
     <tr>
-      <th>36</th>
+      <th>119</th>
       <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.subject]</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:4c886a05-cb86-4e6a-8ae5-d39741b10aa3' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
     </tr>
     <tr>
-      <th>37</th>
+      <th>120</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:228d8277-2bf3-4637-9248-88e9d294ae70' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:dd91944a-d8aa-4a47-964d-b0ab43e1985a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>34</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
       <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.encounter]</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>33</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.subject]</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:2abc1877-58ce-4960-a463-b8102a7e6af5' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:4ca1fd1c-690f-4e64-abd8-ad9baf97a227' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:1186e629-7c64-4cb0-a24b-f716cd605d1b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:521d44f6-2f10-4fc8-8f11-5f883e593c5d' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.subject]</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:c82cd9ba-0974-41e1-bb51-b98911eee315' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[22]]</td>
+    </tr>
+    <tr>
+      <th>28</th>
       <td>information</td>
       <td>structure</td>
       <td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td>
-      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.encounter]</td>
+      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.encounter]</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.subject]</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.subject]</td>
-    </tr>
-    <tr>
-      <th>117</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/]</td>
-    </tr>
-    <tr>
-      <th>105</th>
+      <th>90</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/]</td>
+      <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/]</td>
     </tr>
     <tr>
-      <th>33</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/]</td>
-    </tr>
-    <tr>
-      <th>111</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
-    </tr>
-    <tr>
-      <th>110</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/]</td>
-    </tr>
-    <tr>
-      <th>106</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/]</td>
-    </tr>
-    <tr>
-      <th>107</th>
+      <th>104</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
       <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>112</th>
+      <th>91</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/]</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/]</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/]</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>The URL 'https://tools.ietf.org/html/rfc4122' should not be used with the UUID 'b4130d36-79d8-4b27-9813-418ab2e3a30d'. Prefix the value with 'urn:uuid:' and use the system value 'urn:ietf:rfc:3986' instead</td>
-      <td>[Bundle.identifier]</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[0].resource/*MessageHeader/64001.1*/]</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>Unknown Code 'R250.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
-      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.code.coding[0].code]</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>warning</td>
-      <td>required</td>
-      <td>URN reference is not locally contained within the bundle urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31</td>
-      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.supportingInfo[0]]</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/]</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>warning</td>
-      <td>structure</td>
-      <td>A Reference without an actual reference or identifier should have a display</td>
-      <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.identifier[0].assigner]</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>warning</td>
-      <td>not-found</td>
-      <td>A definition for CodeSystem 'http://hl7.org/fhir/v3/MaritalStatus' could not be found, so the code cannot be validated</td>
-      <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus.coding[0].system]</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'MaritalStatus' (http://hl7.org/fhir/ValueSet/marital-status|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://hl7.org/fhir/v3/MaritalStatus#S)</td>
-      <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus]</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/]</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[4].resource/*Specimen/25bd2167-0d87-4870-98e4-60cf003bf64c*/]</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/]</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/]</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>104</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/]</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/]</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/]</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/]</td>
-    </tr>
-    <tr>
-      <th>56</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/]</td>
-    </tr>
-    <tr>
-      <th>101</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/]</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/]</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/]</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/]</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/]</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/]</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/]</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/]</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/]</td>
-    </tr>
-    <tr>
-      <th>62</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/]</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/]</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/]</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/]</td>
-    </tr>
-    <tr>
-      <th>76</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/]</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/]</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/]</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
       <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/]</td>
     </tr>
     <tr>
-      <th>40</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/]</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>95</th>
+      <th>92</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
       <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>94</th>
+      <th>103</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/]</td>
+      <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/]</td>
     </tr>
     <tr>
-      <th>93</th>
+      <th>102</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/]</td>
+      <td>[Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/]</td>
     </tr>
     <tr>
-      <th>92</th>
-      <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/]</td>
-    </tr>
-    <tr>
-      <th>39</th>
+      <th>108</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have a performer</td>
-      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/]</td>
+      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
     </tr>
     <tr>
-      <th>89</th>
+      <th>96</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/]</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/]</td>
+    </tr>
+    <tr>
+      <th>98</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.code.coding[0]]</td>
+      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>87</th>
+      <th>97</th>
       <td>warning</td>
       <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/]</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>The URL 'https://tools.ietf.org/html/rfc4122' should not be used with the UUID 'b4130d36-79d8-4b27-9813-418ab2e3a30d'. Prefix the value with 'urn:uuid:' and use the system value 'urn:ietf:rfc:3986' instead</td>
+      <td>[Bundle.identifier]</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
       <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/]</td>
     </tr>
     <tr>
-      <th>86</th>
+      <th>38</th>
       <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
-      <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/]</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>44</th>
+      <th>37</th>
       <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
       <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/]</td>
     </tr>
     <tr>
-      <th>45</th>
+      <th>36</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/]</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/]</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/]</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/]</td>
+    </tr>
+    <tr>
+      <th>42</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have a performer</td>
       <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/]</td>
     </tr>
     <tr>
-      <th>83</th>
+      <th>24</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/]</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/]</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/]</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'MaritalStatus' (http://hl7.org/fhir/ValueSet/marital-status|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://hl7.org/fhir/v3/MaritalStatus#S)</td>
+      <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus]</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>warning</td>
+      <td>not-found</td>
+      <td>A definition for CodeSystem 'http://hl7.org/fhir/v3/MaritalStatus' could not be found, so the code cannot be validated</td>
+      <td>[Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus.coding[0].system]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>warning</td>
+      <td>required</td>
+      <td>URN reference is not locally contained within the bundle urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31</td>
+      <td>[Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.supportingInfo[0]]</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/]</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/]</td>
+    </tr>
+    <tr>
+      <th>80</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
       <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>82</th>
+      <th>79</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
       <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/]</td>
     </tr>
     <tr>
-      <th>81</th>
+      <th>78</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have a performer</td>
       <td>[Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/]</td>
     </tr>
     <tr>
-      <th>80</th>
+      <th>74</th>
       <td>warning</td>
-      <td>invariant</td>
-      <td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
       <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/]</td>
     </tr>
     <tr>
-      <th>88</th>
+      <th>72</th>
       <td>warning</td>
       <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/]</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/]</td>
     </tr>
     <tr>
-      <th>100</th>
+      <th>68</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>67</th>
       <td>warning</td>
       <td>invalid</td>
       <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/]</td>
+      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/]</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/]</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/]</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/]</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/]</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/]</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
+      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/]</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>Best Practice Recommendation: In general, all observations should have a performer</td>
+      <td>[Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/]</td>
     </tr>
   </tbody>
 </table>
