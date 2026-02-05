@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:5ea127c0-5f7b-49e5-82ae-1c471687f985",
+            "fullUrl": "urn:uuid:323d6955-6dec-4d6e-b2a3-bd2fb9783bc6",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:41b6b84c-3d2d-4e02-bc13-e41b3a04483b"
+                        "reference": "urn:uuid:2f66d505-9f83-4221-99a0-fe0b71c5ae7d"
                     }
                 ],
                 "sender": {
@@ -38,7 +38,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:9b526753-244a-4632-b93c-b526843bc25b",
+            "fullUrl": "urn:uuid:d716f339-5875-4cd8-ad2e-644f30b75db9",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -91,7 +91,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:96b563af-4b31-4c76-8663-e98dae9cb479",
+            "fullUrl": "urn:uuid:286fa9c2-669f-47e1-a350-4b54b06f13e3",
             "resource": {
                 "resourceType": "Binary",
                 "contentType": "application/pdf",
@@ -99,18 +99,22 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:e3d62277-a4cd-4804-9d84-99a6ff6cf82c",
+            "fullUrl": "urn:uuid:8293ce22-df6e-4567-a7dd-3f4d514553e0",
             "resource": {
                 "resourceType": "DocumentReference",
                 "content": [
                     {
                         "attachment": {
                             "contentType": "application/pdf",
-                            "url": "urn:uuid:96b563af-4b31-4c76-8663-e98dae9cb479"
+                            "url": "urn:uuid:286fa9c2-669f-47e1-a350-4b54b06f13e3"
                         }
                     }
                 ],
                 "context": {
+                    "period": {
+                        "end": "2025-11-06T15:45:25+00:00",
+                        "start": "2025-11-06T15:45:25+00:00"
+                    },
                     "related": [
                         {
                             "identifier": {
@@ -131,7 +135,7 @@
                                 },
                                 "value": "T25-01ZX"
                             },
-                            "reference": "urn:uuid:5e71021e-13d5-41d2-b57b-60414467e766",
+                            "reference": "urn:uuid:d8163c9a-4181-4911-be91-107a2c734494",
                             "type": "ServiceRequest"
                         },
                         {
@@ -153,7 +157,7 @@
                                 },
                                 "value": "T25-01ZX"
                             },
-                            "reference": "urn:uuid:41b6b84c-3d2d-4e02-bc13-e41b3a04483b",
+                            "reference": "urn:uuid:2f66d505-9f83-4221-99a0-fe0b71c5ae7d",
                             "type": "DiagnosticReport"
                         }
                     ],
@@ -220,7 +224,7 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:9b526753-244a-4632-b93c-b526843bc25b"
+                    "reference": "urn:uuid:d716f339-5875-4cd8-ad2e-644f30b75db9"
                 },
                 "type": {
                     "coding": [
@@ -234,7 +238,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:234630b7-136e-4be3-bea1-b6f673643a81",
+            "fullUrl": "urn:uuid:838e4eca-7105-4cba-9ce9-38c54480691d",
             "resource": {
                 "resourceType": "Specimen",
                 "identifier": [
@@ -265,12 +269,12 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:9b526753-244a-4632-b93c-b526843bc25b"
+                    "reference": "urn:uuid:d716f339-5875-4cd8-ad2e-644f30b75db9"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:5e71021e-13d5-41d2-b57b-60414467e766",
+            "fullUrl": "urn:uuid:d8163c9a-4181-4911-be91-107a2c734494",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "authoredOn": "2025-10-02",
@@ -333,7 +337,7 @@
                 },
                 "specimen": [
                     {
-                        "reference": "urn:uuid:234630b7-136e-4be3-bea1-b6f673643a81",
+                        "reference": "urn:uuid:838e4eca-7105-4cba-9ce9-38c54480691d",
                         "type": "Specimen"
                     }
                 ],
@@ -351,12 +355,12 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:9b526753-244a-4632-b93c-b526843bc25b"
+                    "reference": "urn:uuid:d716f339-5875-4cd8-ad2e-644f30b75db9"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:41b6b84c-3d2d-4e02-bc13-e41b3a04483b",
+            "fullUrl": "urn:uuid:2f66d505-9f83-4221-99a0-fe0b71c5ae7d",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -379,7 +383,7 @@
                             },
                             "value": "T25-01ZX"
                         },
-                        "reference": "urn:uuid:5e71021e-13d5-41d2-b57b-60414467e766",
+                        "reference": "urn:uuid:d8163c9a-4181-4911-be91-107a2c734494",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -442,7 +446,7 @@
                 "presentedForm": [
                     {
                         "contentType": "application/pdf",
-                        "url": "urn:uuid:96b563af-4b31-4c76-8663-e98dae9cb479"
+                        "url": "urn:uuid:286fa9c2-669f-47e1-a350-4b54b06f13e3"
                     }
                 ],
                 "resultsInterpreter": [
@@ -452,7 +456,7 @@
                 ],
                 "specimen": [
                     {
-                        "reference": "urn:uuid:234630b7-136e-4be3-bea1-b6f673643a81",
+                        "reference": "urn:uuid:838e4eca-7105-4cba-9ce9-38c54480691d",
                         "type": "Specimen"
                     }
                 ],
@@ -470,7 +474,7 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:9b526753-244a-4632-b93c-b526843bc25b"
+                    "reference": "urn:uuid:d716f339-5875-4cd8-ad2e-644f30b75db9"
                 }
             }
         }
