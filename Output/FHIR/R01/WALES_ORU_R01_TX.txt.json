@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:34bd57ab-60a6-4e08-a8dc-ec1db23b6de5",
+      "fullUrl": "urn:uuid:a0967f32-da4b-40c0-8692-9c82924df12a",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:3f45e683-8b9b-4926-958d-ff807e7a0c67"
+            "reference": "urn:uuid:8b12b635-0f68-4d7f-944a-2de166a4fa83"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:17ee792b-a8cd-496c-ae75-c985ad6fda43",
+      "fullUrl": "urn:uuid:94351280-56c3-405d-b481-ea915369f32a",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -105,7 +105,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c0ade3e7-e2cf-45a0-9bac-6897dad9526b",
+      "fullUrl": "urn:uuid:c26b4564-5211-4170-b83d-6ba3ce1ff17d",
       "resource": {
         "resourceType": "Encounter",
         "class": {
@@ -132,20 +132,16 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:17ee792b-a8cd-496c-ae75-c985ad6fda43"
+          "reference": "urn:uuid:94351280-56c3-405d-b481-ea915369f32a"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:ea1c2529-b617-40fb-9c90-28ba80d37522",
+      "fullUrl": "urn:uuid:bd4a55cd-9a0b-4d7f-9ce2-41272eb0b4e3",
       "resource": {
         "resourceType": "Observation",
         "code": {
-          "coding": [
-            {
-              "display": "Report Line 1"
-            }
-          ]
+          "text": "Report Line 1"
         },
         "effectiveDateTime": "2018-05-24T00:00:00+00:00",
         "identifier": [
@@ -190,13 +186,13 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:17ee792b-a8cd-496c-ae75-c985ad6fda43"
+          "reference": "urn:uuid:94351280-56c3-405d-b481-ea915369f32a"
         },
-        "valueString": "Specimen received: Mid Stream Urine\\n\\nAccession Number(s) U18S999001A\\nWhite Blood Cell Count 10-99 x10\\S\\6/L\\nRed Blood Cell Count >=100 x10\\S\\6/L\\n\\n>= 10\\S\\8 cfu/L Escherichia coli (ECOL)\\n\\n Antibiotic/Culture: ECOL\\n ------------------- ------\\n Nitrofurantoin S\\n Trimethoprim S\\n Amoxicillin R\\n"
+        "valueString": "Specimen received: Mid Stream Urine\\n\\nAccession Number(s) U18S999001A\\nWhite Blood Cell Count 10-99 x10/S/6/L\\nRed Blood Cell Count >=100 x10/S/6/L\\n\\n>= 10/S/8 cfu/L Escherichia coli (ECOL)\\n\\nAntibiotic/Culture: ECOL\\n------------------- ------\\nNitrofurantoin S\\nTrimethoprim S\\nAmoxicillin R\\n"
       }
     },
     {
-      "fullUrl": "urn:uuid:74b19f3f-37ee-4620-bb29-3dde93890ef0",
+      "fullUrl": "urn:uuid:2d9dad91-9372-495f-9df8-86eb5f6fd9ff",
       "resource": {
         "resourceType": "Specimen",
         "collection": {
@@ -236,7 +232,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:17ee792b-a8cd-496c-ae75-c985ad6fda43"
+          "reference": "urn:uuid:94351280-56c3-405d-b481-ea915369f32a"
         },
         "type": {
           "coding": [
@@ -250,7 +246,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5916686d-6715-4a45-805b-c53f760c09df",
+      "fullUrl": "urn:uuid:0ef9df29-1652-47af-b580-1c2963d607d6",
       "resource": {
         "resourceType": "ServiceRequest",
         "category": [
@@ -267,12 +263,12 @@
           "coding": [
             {
               "code": "M0007",
-              "display": "Urine MC\\T\\S"
+              "display": "Urine MC/T/S"
             }
           ]
         },
         "encounter": {
-          "reference": "urn:uuid:c0ade3e7-e2cf-45a0-9bac-6897dad9526b"
+          "reference": "urn:uuid:c26b4564-5211-4170-b83d-6ba3ce1ff17d"
         },
         "identifier": [
           {
@@ -290,7 +286,7 @@
         "intent": "order",
         "specimen": [
           {
-            "reference": "urn:uuid:74b19f3f-37ee-4620-bb29-3dde93890ef0",
+            "reference": "urn:uuid:2d9dad91-9372-495f-9df8-86eb5f6fd9ff",
             "type": "Specimen"
           }
         ],
@@ -314,12 +310,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:17ee792b-a8cd-496c-ae75-c985ad6fda43"
+          "reference": "urn:uuid:94351280-56c3-405d-b481-ea915369f32a"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:3f45e683-8b9b-4926-958d-ff807e7a0c67",
+      "fullUrl": "urn:uuid:8b12b635-0f68-4d7f-944a-2de166a4fa83",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -335,7 +331,7 @@
               },
               "value": "8005372251-1-M0007"
             },
-            "reference": "urn:uuid:5916686d-6715-4a45-805b-c53f760c09df",
+            "reference": "urn:uuid:0ef9df29-1652-47af-b580-1c2963d607d6",
             "type": "ServiceRequest"
           }
         ],
@@ -353,13 +349,13 @@
           "coding": [
             {
               "code": "M0007",
-              "display": "Urine MC\\T\\S"
+              "display": "Urine MC/T/S"
             }
           ]
         },
         "effectiveDateTime": "2018-05-24T00:00:00+00:00",
         "encounter": {
-          "reference": "urn:uuid:c0ade3e7-e2cf-45a0-9bac-6897dad9526b"
+          "reference": "urn:uuid:c26b4564-5211-4170-b83d-6ba3ce1ff17d"
         },
         "identifier": [
           {
@@ -387,13 +383,13 @@
         ],
         "result": [
           {
-            "reference": "urn:uuid:ea1c2529-b617-40fb-9c90-28ba80d37522",
+            "reference": "urn:uuid:bd4a55cd-9a0b-4d7f-9ce2-41272eb0b4e3",
             "type": "Observation"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:74b19f3f-37ee-4620-bb29-3dde93890ef0",
+            "reference": "urn:uuid:2d9dad91-9372-495f-9df8-86eb5f6fd9ff",
             "type": "Specimen"
           }
         ],
@@ -417,7 +413,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:17ee792b-a8cd-496c-ae75-c985ad6fda43"
+          "reference": "urn:uuid:94351280-56c3-405d-b481-ea915369f32a"
         }
       }
     }
