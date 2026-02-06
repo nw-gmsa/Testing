@@ -1,0 +1,539 @@
+{
+  "resourceType" : "OperationOutcome",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/.identifier[0].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*ServiceRequest/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*ServiceRequest/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/</td><td>Structural Issue</td><td>DiagnosticReport.code: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/.performer[0]</td><td>Structural Issue</td><td>A Reference without an actual reference or identifier should have a display</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6]</td><td>Informational Note</td><td>Entry 'urn:uuid:7d6ca6ee-b324-4a25-bd81-85ec425f15ab' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[4].resource.performer[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[4].resource.result[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource</td><td>Structural Issue</td><td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource</td><td>Structural Issue</td><td>DiagnosticReport.code: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource</td><td>Structural Issue</td><td>DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td><td/><td>InstanceValidator</td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-file",
+    "valueString" : "Output/FHIR/R01/SHIRE_ORU_R01_RM3.txt.json"
+  }],
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 6
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6"
+    }],
+    "severity" : "warning",
+    "code" : "invariant",
+    "details" : {
+      "text" : "Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)"
+    },
+    "expression" : ["Bundle.entry[0].resource/*MessageHeader/null*/"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 54
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 14
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Terminology_TX_NoValid_2_CC"
+    }],
+    "severity" : "warning",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)"
+    },
+    "expression" : ["Bundle.entry[1].resource/*Patient/null*/.identifier[0].type"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 42
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6"
+    }],
+    "severity" : "warning",
+    "code" : "invariant",
+    "details" : {
+      "text" : "Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)"
+    },
+    "expression" : ["Bundle.entry[1].resource/*Patient/null*/"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 94
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+    }],
+    "severity" : "warning",
+    "code" : "invalid",
+    "details" : {
+      "text" : "Best Practice Recommendation: In general, all observations should have an effective[x] ()"
+    },
+    "expression" : ["Bundle.entry[2].resource/*Observation/null*/"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 118
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 14
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Terminology_TX_NoValid_2_CC"
+    }],
+    "severity" : "warning",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)"
+    },
+    "expression" : ["Bundle.entry[2].resource/*Observation/null*/.subject.identifier.type"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 94
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6"
+    }],
+    "severity" : "warning",
+    "code" : "invariant",
+    "details" : {
+      "text" : "Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)"
+    },
+    "expression" : ["Bundle.entry[2].resource/*Observation/null*/"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 152
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 14
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Terminology_TX_NoValid_2_CC"
+    }],
+    "severity" : "warning",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)"
+    },
+    "expression" : ["Bundle.entry[3].resource/*ServiceRequest/null*/.subject.identifier.type"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 135
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6"
+    }],
+    "severity" : "warning",
+    "code" : "invariant",
+    "details" : {
+      "text" : "Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)"
+    },
+    "expression" : ["Bundle.entry[3].resource/*ServiceRequest/null*/"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 168
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Validation_VAL_Profile_Minimum"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "DiagnosticReport.code: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1)"
+    },
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 216
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 14
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Terminology_TX_NoValid_2_CC"
+    }],
+    "severity" : "warning",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)"
+    },
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 182
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Reference_REF_NoDisplay"
+    }],
+    "severity" : "warning",
+    "code" : "structure",
+    "details" : {
+      "text" : "A Reference without an actual reference or identifier should have a display"
+    },
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/.performer[0]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 168
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6"
+    }],
+    "severity" : "warning",
+    "code" : "invariant",
+    "details" : {
+      "text" : "Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)"
+    },
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 133
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 6
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "BUNDLE_BUNDLE_ENTRY_REVERSE_MSG"
+    }],
+    "severity" : "information",
+    "code" : "informational",
+    "details" : {
+      "text" : "Entry 'urn:uuid:7d6ca6ee-b324-4a25-bd81-85ec425f15ab' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)"
+    },
+    "expression" : ["Bundle.entry[6]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 182
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Details_for__matching_against_Profile_"
+    }],
+    "severity" : "information",
+    "code" : "informational",
+    "details" : {
+      "text" : "This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)"
+    },
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 207
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Details_for__matching_against_Profile_"
+    }],
+    "severity" : "information",
+    "code" : "informational",
+    "details" : {
+      "text" : "This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)"
+    },
+    "expression" : ["Bundle.entry[4].resource.result[0]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 168
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Validation_VAL_Profile_Minimum"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
+    },
+    "expression" : ["Bundle.entry[4].resource"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 168
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Validation_VAL_Profile_Minimum"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "DiagnosticReport.code: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
+    },
+    "expression" : ["Bundle.entry[4].resource"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 168
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 8
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Validation_VAL_Profile_Minimum"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
+    },
+    "expression" : ["Bundle.entry[4].resource"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 182
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Extension_EXTP_Context_Wrong_VER"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)"
+    },
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 182
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Validation_VAL_Profile_Minimum"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
+    },
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 182
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Validation_VAL_Profile_Minimum"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
+    },
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 182
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Extension_EXTP_Context_Wrong"
+    }],
+    "severity" : "error",
+    "code" : "structure",
+    "details" : {
+      "text" : "The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)"
+    },
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
+  }]
+}

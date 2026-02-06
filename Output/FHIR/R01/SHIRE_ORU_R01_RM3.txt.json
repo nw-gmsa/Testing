@@ -1,0 +1,236 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:214a2e22-321a-41a7-a53e-6865e05eac4c",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/HODS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "HODS"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:f721977e-3a22-48c9-81e5-dd317fd05823"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "CPP"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5a63075d-d52c-4ca7-9aeb-625d918fa40e",
+      "resource": {
+        "resourceType": "Patient",
+        "address": [
+          {
+            "postalCode": "BL1 1RU"
+          }
+        ],
+        "birthDate": "1985-05-13",
+        "gender": "male",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383273"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RM3"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "1234567"
+          }
+        ],
+        "name": [
+          {
+            "family": "BOLTON",
+            "given": [
+              "Ramsay"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5ca71d56-f31d-401c-94ca-36d3a5b45f04",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "1054161000000101",
+              "display": "Genetics Report",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383273"
+          },
+          "reference": "urn:uuid:5a63075d-d52c-4ca7-9aeb-625d918fa40e"
+        },
+        "valueString": "Karyotype: FISH ON PARAFFIN EMBEDDED TISSUE\\n\\nFISH Result: IRF4/DUSP22 gene rearrangement detected\\nNo evidence of MYC, IGH::MYC, BCL2 or BCL6 rearrangements.\\n\\nFluorescence in situ hybridisation (FISH) studies were carried out using the\\nfollowing Cytocell gene probes; MYC Breakapart, IGH-MYC LPS Dual Fusion, BCL2\\nBreakapart, BCL6 Breakapart, and MyProbe IRF4/DUSP22 Breakapart to detect\\nrearrangements of 6p25 found in B- and T-cell lymphomas.\\n\\nThere was no evidence of MYC, IGH::MYC, BCL2 or BCL6 gene rearrangements in multiple\\ntissue areas examined.\\n\\nA signal pattern consistent with IRF4 gene rearrangement was seen in multiple tissue\\nareas examined.\\n\\nIRF4 rearrangement is recognised finding in Large B-cell lymphoma and is consistent\\nwith the diagnosis of 'Large B-cell lymphoma with IRF4 rearrangement' (WHO\\nClassification 2022; ICD-O code 9698/3).\\n\\nPlease note that the probe used in this assay cannot distinguish between IRF4 and\\nDUSP22 gene rearrangements and this result should be interpreted in conjunction with\\nclinical factors and other testing modalities.\\n\\nUncommon cases of Ig translocations with atypical breakpoints outside the common\\ncluster regions or resulting from alternative genetic mechanisms may not be detected\\nby the assays used in this report.\\nConclusion: IRF4/DUSP22 gene rearrangement detected by FISH\\nNo evidence of MYC, IGH::MYC, BCL2 or BCL6 rearrangements by FISH"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7d6ca6ee-b324-4a25-bd81-85ec425f15ab",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        ],
+        "intent": "order",
+        "status": "completed",
+        "subject": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383273"
+          },
+          "reference": "urn:uuid:5a63075d-d52c-4ca7-9aeb-625d918fa40e"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f721977e-3a22-48c9-81e5-dd317fd05823",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "effectiveDateTime": "2025-09-05",
+        "performer": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "SPRF",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:5ca71d56-f31d-401c-94ca-36d3a5b45f04",
+            "type": "Observation"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383273"
+          },
+          "reference": "urn:uuid:5a63075d-d52c-4ca7-9aeb-625d918fa40e"
+        }
+      }
+    }
+  ],
+  "identifier": {
+    "value": "RPRD-250905-0"
+  },
+  "timestamp": "2025-09-05T10:51:48+00:00",
+  "type": "message"
+}

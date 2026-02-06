@@ -15,7 +15,7 @@ curl --request POST --data-binary "@Input/V2/R01/ORU_R01_PDF.txt" http://192.168
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_DLIMS.txt" http://192.168.1.20:9981/transformToFHIR
 
-Round Trip Pairs
+#### Round Trip Pairs
 
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.20:9981/transformToFHIR
@@ -23,13 +23,26 @@ curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9981/transformToFHIR
 
-MFT Multiple Tests example
+#### MFT Multiple Tests example
 
 curl --request POST --data-binary "@Specifications/ManchesterFoundationTrust/ORM_O01-MultipleTests.txt" http://192.168.1.20:9981/transformToFHIR
 
+#### Shire and DHCW ORU_R01 
+
+To FHIR 
+
+curl --request POST --data-binary "@Input/V2/R01/SHIRE_ORU_R01_RM3.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_TX.txt" http://192.168.1.20:9981/transformToFHIR
+
+From FHIR 
+
+curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_TX.txt.json" http://192.168.1.20:9981/transformToV2
+
 ### Send to HL7v2 Receiver
 
-Round Trip
+Note file must use \r mac line endings
+
+#### Round Trip
 
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.20:9980
@@ -37,7 +50,7 @@ curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9980
 
-Note file must use \r mac line endings.
+#### Reports
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RBS.txt" http://192.168.1.20:9980
@@ -48,18 +61,19 @@ curl --request POST --data-binary "@Input/V2/R01/ORU_R01_PDF.txt" http://192.168
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_DLIMS.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_REP.txt" http://192.168.1.20:9980
 
-Other English Region
+#### Other English Region Reports
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RX1.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RR8.txt" http://192.168.1.20:9980
 
-CHI Number example
+#### Scotland - CHI Number example
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_SG9.txt" http://192.168.1.20:9980
 
-Health and Care Number Example
+#### Northern Ireland - Health and Care Number Example
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_ZT001.txt" http://192.168.1.20:9980
+
 
 ## Windows
 

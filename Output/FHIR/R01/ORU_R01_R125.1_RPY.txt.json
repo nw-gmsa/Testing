@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:fbd75212-cf86-4d60-80cf-a1c56a889cab",
+      "fullUrl": "urn:uuid:85a60620-3e5f-430d-8bc9-3815357853da",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:442ea44e-9785-439b-8e2b-9e8852082f45"
+            "reference": "urn:uuid:07330ced-80b6-40e5-90c1-02ae9b2a72e5"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:23b5b27f-468f-4c48-afbc-1976b18e347c",
+      "fullUrl": "urn:uuid:f893c900-4cd9-40bd-97ec-6d6a7d38a695",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -101,11 +101,11 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:29d60d01-2364-4753-add2-4cf917a8eeb1",
+      "fullUrl": "urn:uuid:2ab0bcd2-aab2-4125-8f5f-c2cf804ee486",
       "resource": {
         "resourceType": "Encounter",
         "class": {
-          "code": "AMB",
+          "code": "OBSENC",
           "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
         },
         "identifier": [
@@ -147,12 +147,12 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:23b5b27f-468f-4c48-afbc-1976b18e347c"
+          "reference": "urn:uuid:f893c900-4cd9-40bd-97ec-6d6a7d38a695"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:a669c7b2-1638-4a6d-bf28-a61740fe7b67",
+      "fullUrl": "urn:uuid:fcd7c3d0-d42f-4cd9-8b95-2601d0340221",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -160,14 +160,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:82e20da8-51e9-4bb9-b46b-fcb5a111963d",
+      "fullUrl": "urn:uuid:b96e4b91-fda9-4ec4-a623-62d892130f35",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:a669c7b2-1638-4a6d-bf28-a61740fe7b67"
+              "url": "urn:uuid:fcd7c3d0-d42f-4cd9-8b95-2601d0340221"
             }
           }
         ],
@@ -191,7 +191,7 @@
                 },
                 "value": "1001166717"
               },
-              "reference": "urn:uuid:29d60d01-2364-4753-add2-4cf917a8eeb1",
+              "reference": "urn:uuid:2ab0bcd2-aab2-4125-8f5f-c2cf804ee486",
               "type": "Encounter"
             }
           ],
@@ -219,7 +219,7 @@
                 },
                 "value": "160171601"
               },
-              "reference": "urn:uuid:97abe160-4c26-4c96-88c0-f2905399beaf",
+              "reference": "urn:uuid:272df741-3620-4284-8a17-a7845744200d",
               "type": "ServiceRequest"
             },
             {
@@ -241,7 +241,7 @@
                 },
                 "value": "T25-6218"
               },
-              "reference": "urn:uuid:442ea44e-9785-439b-8e2b-9e8852082f45",
+              "reference": "urn:uuid:07330ced-80b6-40e5-90c1-02ae9b2a72e5",
               "type": "DiagnosticReport"
             }
           ],
@@ -314,7 +314,7 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:23b5b27f-468f-4c48-afbc-1976b18e347c"
+          "reference": "urn:uuid:f893c900-4cd9-40bd-97ec-6d6a7d38a695"
         },
         "type": {
           "coding": [
@@ -328,7 +328,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d13d16d5-0d4f-4b0c-9d41-e0f74f985cb1",
+      "fullUrl": "urn:uuid:1974ff0b-158d-4426-95b0-b4a38ef6700e",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -344,7 +344,7 @@
             "value": "T25-6218"
           }
         ],
-        "receivedTime": "2025-10-08",
+        "receivedTime": "2025-10-08T00:00:+00:00",
         "status": "unavailable",
         "subject": {
           "identifier": {
@@ -365,12 +365,12 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:23b5b27f-468f-4c48-afbc-1976b18e347c"
+          "reference": "urn:uuid:f893c900-4cd9-40bd-97ec-6d6a7d38a695"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:97abe160-4c26-4c96-88c0-f2905399beaf",
+      "fullUrl": "urn:uuid:272df741-3620-4284-8a17-a7845744200d",
       "resource": {
         "resourceType": "ServiceRequest",
         "category": [
@@ -387,7 +387,7 @@
           "coding": [
             {
               "code": "R125.1",
-              "display": "Thoracic aortic aneurysm or dissection (WES or Medium Panel)",
+              "display": " Thoracic aortic aneurysm or dissection (WES or Medium Panel)",
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
             }
           ]
@@ -410,7 +410,7 @@
             },
             "value": "1001166717"
           },
-          "reference": "urn:uuid:29d60d01-2364-4753-add2-4cf917a8eeb1"
+          "reference": "urn:uuid:2ab0bcd2-aab2-4125-8f5f-c2cf804ee486"
         },
         "identifier": [
           {
@@ -452,7 +452,7 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:d13d16d5-0d4f-4b0c-9d41-e0f74f985cb1",
+            "reference": "urn:uuid:1974ff0b-158d-4426-95b0-b4a38ef6700e",
             "type": "Specimen"
           }
         ],
@@ -476,12 +476,12 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:23b5b27f-468f-4c48-afbc-1976b18e347c"
+          "reference": "urn:uuid:f893c900-4cd9-40bd-97ec-6d6a7d38a695"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:442ea44e-9785-439b-8e2b-9e8852082f45",
+      "fullUrl": "urn:uuid:07330ced-80b6-40e5-90c1-02ae9b2a72e5",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -504,7 +504,7 @@
               },
               "value": "160171601"
             },
-            "reference": "urn:uuid:97abe160-4c26-4c96-88c0-f2905399beaf",
+            "reference": "urn:uuid:272df741-3620-4284-8a17-a7845744200d",
             "type": "ServiceRequest"
           }
         ],
@@ -527,7 +527,7 @@
             },
             {
               "code": "R125.1",
-              "display": "Thoracic aortic aneurysm or dissection (WES or Medium Panel)",
+              "display": " Thoracic aortic aneurysm or dissection (WES or Medium Panel)",
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
             }
           ]
@@ -551,7 +551,7 @@
             },
             "value": "1001166717"
           },
-          "reference": "urn:uuid:29d60d01-2364-4753-add2-4cf917a8eeb1"
+          "reference": "urn:uuid:2ab0bcd2-aab2-4125-8f5f-c2cf804ee486"
         },
         "identifier": [
           {
@@ -587,7 +587,7 @@
         "presentedForm": [
           {
             "contentType": "application/pdf",
-            "url": "urn:uuid:a669c7b2-1638-4a6d-bf28-a61740fe7b67"
+            "url": "urn:uuid:fcd7c3d0-d42f-4cd9-8b95-2601d0340221"
           }
         ],
         "resultsInterpreter": [
@@ -597,7 +597,7 @@
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:d13d16d5-0d4f-4b0c-9d41-e0f74f985cb1",
+            "reference": "urn:uuid:1974ff0b-158d-4426-95b0-b4a38ef6700e",
             "type": "Specimen"
           }
         ],
@@ -621,7 +621,7 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:23b5b27f-468f-4c48-afbc-1976b18e347c"
+          "reference": "urn:uuid:f893c900-4cd9-40bd-97ec-6d6a7d38a695"
         }
       }
     }
