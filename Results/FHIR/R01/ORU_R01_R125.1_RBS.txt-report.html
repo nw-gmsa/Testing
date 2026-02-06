@@ -38,112 +38,98 @@
   </thead>
   <tbody>
     <tr>
-      <th>22</th>
+      <th>20</th>
       <td>error</td>
       <td>invalid</td>
       <td>Wrong whitespace in Display Name ' Thoracic aortic aneurysm or dissection (WES or Medium Panel)' for https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R125.1. Valid display is 'Thoracic aortic aneurysm or dissection (WES or Medium Panel)' (for the language(s) 'en')</td>
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code.coding[1].display]</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>error</td>
-      <td>invalid</td>
-      <td>Not a valid date/time format: '2025-10-06T00:00:+00:00'</td>
-      <td>[Bundle.entry[4].resource/*Specimen/null*/.receivedTime]</td>
-    </tr>
-    <tr>
-      <th>14</th>
+      <th>13</th>
       <td>error</td>
       <td>invalid</td>
       <td>Wrong whitespace in Display Name ' Thoracic aortic aneurysm or dissection (WES or Medium Panel)' for https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R125.1. Valid display is 'Thoracic aortic aneurysm or dissection (WES or Medium Panel)' (for the language(s) 'en')</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.code.coding[0].display]</td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>21</th>
       <td>information</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP#R125_Cardiology, https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R125.1)</td>
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code]</td>
     </tr>
     <tr>
-      <th>26</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:7717399e-49f6-4176-8eaf-c2fdb073aa97 matching against profile http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1</td>
-      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.specimen[0]]</td>
-    </tr>
-    <tr>
-      <th>17</th>
+      <th>16</th>
       <td>information</td>
       <td>business-rule</td>
       <td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.1.0</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0]]</td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>19</th>
       <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:7978d71b-7ead-4efd-8e4d-2e55a3ecb0c6' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[8]]</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:80c9132b-b9d6-40d3-9084-a73e21b22f6c matching against profile http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1</td>
+      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.basedOn[0]]</td>
     </tr>
     <tr>
-      <th>32</th>
+      <th>29</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[6].resource.basedOn[0]]</td>
     </tr>
     <tr>
-      <th>33</th>
+      <th>30</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
     </tr>
     <tr>
-      <th>34</th>
+      <th>31</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[6].resource.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>28</th>
       <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:7717399e-49f6-4176-8eaf-c2fdb073aa97 matching against profile http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1</td>
-      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.specimen[0]]</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:5796d201-61ca-45ad-8072-67c32511e694' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[8]]</td>
     </tr>
     <tr>
-      <th>21</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:7f8b0ef1-4cec-4125-a7c3-e2ce999c6e30 matching against profile http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1</td>
-      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.basedOn[0]]</td>
-    </tr>
-    <tr>
-      <th>25</th>
+      <th>23</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>22</th>
+      <td>warning</td>
+      <td>invalid</td>
+      <td>value should not start or finish with whitespace ' Thoracic aortic aneurysm or dissection (WES or Medium Panel)'</td>
+      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code.coding[1].display]</td>
+    </tr>
+    <tr>
+      <th>17</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>Unknown Code 'R125' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0].coding[0].code]</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>15</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>14</th>
       <td>warning</td>
       <td>invalid</td>
       <td>value should not start or finish with whitespace ' Thoracic aortic aneurysm or dissection (WES or Medium Panel)'</td>
@@ -169,13 +155,6 @@
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[1].resource/*Patient/null*/.identifier[0].type]</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>warning</td>
-      <td>invalid</td>
-      <td>value should not start or finish with whitespace ' Thoracic aortic aneurysm or dissection (WES or Medium Panel)'</td>
-      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code.coding[1].display]</td>
     </tr>
   </tbody>
 </table>
