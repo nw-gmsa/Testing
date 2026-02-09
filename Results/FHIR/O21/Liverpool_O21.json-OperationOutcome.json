@@ -2,33 +2,13 @@
   "resourceType" : "OperationOutcome",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Error</td><td>Bundle.entry[2].resource.identifier[0].assigner.identifier</td><td>Invalid Content</td><td>The property identifier must be an Object, not an Array (at Bundle.entry[2].resource.identifier[0].assigner.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.identifier</td><td>Invalid Code</td><td>The URL 'https://tools.ietf.org/html/rfc4122' should not be used with the UUID 'b4130d36-79d8-4b27-9813-418ab2e3a30d'. Prefix the value with 'urn:uuid:' and use the system value 'urn:ietf:rfc:3986' instead</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[0].resource/*MessageHeader/64001.1*/.source</td><td>Structural Issue</td><td>MessageHeader.source.endpoint: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/MessageHeader|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/64001.1*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/</td><td>Structural Issue</td><td>ServiceRequest.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.code.coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R250.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.supportingInfo[0]</td><td>Required element missing</td><td>URN reference is not locally contained within the bundle urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.identifier[0].assigner</td><td>Structural Issue</td><td>A Reference without an actual reference or identifier should have a display</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.telecom[0]</td><td>Validation rule failed</td><td>Constraint failed: cpt-2: 'A system is required if a value is provided.'</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus.coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://hl7.org/fhir/v3/MaritalStatus' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'MaritalStatus' (http://hl7.org/fhir/ValueSet/marital-status|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://hl7.org/fhir/v3/MaritalStatus#S)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus.coding[0].system</td><td>Invalid Content</td><td>No definition could be found for URL value 'http://hl7.org/fhir/v3/MaritalStatus'</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/</td><td>Structural Issue</td><td>Encounter.class: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[4].resource/*Specimen/25bd2167-0d87-4870-98e4-60cf003bf64c*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*Specimen/25bd2167-0d87-4870-98e4-60cf003bf64c*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Structural Issue</td><td>Observation.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Structural Issue</td><td>Observation.code: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle</td><td>Not Found</td><td>Can't find 'urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31' in the bundle (Bundle.entry[1].resource.supportingInfo[0])</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:25bd2167-0d87-4870-98e4-60cf003bf64c' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:b6a33885-b293-4b87-9ba1-d92ee0ba00d2' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:f42cae76-a9e1-420c-bea8-70c343c81e9b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:4c886a05-cb86-4e6a-8ae5-d39741b10aa3' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:228d8277-2bf3-4637-9248-88e9d294ae70' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:dd91944a-d8aa-4a47-964d-b0ab43e1985a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:4ca1fd1c-690f-4e64-abd8-ad9baf97a227' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:1186e629-7c64-4cb0-a24b-f716cd605d1b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:521d44f6-2f10-4fc8-8f11-5f883e593c5d' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:c82cd9ba-0974-41e1-bb51-b98911eee315' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:2abc1877-58ce-4960-a463-b8102a7e6af5' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:0edcb96b-775b-49ab-a047-b2bfdde7d88a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:0e46bffc-9e96-4ff0-9a5e-fc5c55b93d17' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:63a9efa4-0acd-4b49-8ea6-200795fec4ec' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:e624e9a0-eda7-422c-a3ab-8e7a6bd72dab' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:43faf774-ba70-4676-851d-36bf6a9805f4' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:463f52d7-cb0b-4d86-ba1b-192eae68d094' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.supportingInfo[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.status: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.category: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.requester: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.code</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Laboratory Order' (http://hl7.eu/fhir/laboratory/ValueSet/lab-orderCodes-eu-lab|0.1.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R250.1)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource.subject</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient|0.1.0</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource.encounter</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td><td/><td>InstanceValidator</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Warning</td><td>Bundle.identifier</td><td>Invalid Code</td><td>The URL 'https://tools.ietf.org/html/rfc4122' should not be used with the UUID 'b4130d36-79d8-4b27-9813-418ab2e3a30d'. Prefix the value with 'urn:uuid:' and use the system value 'urn:ietf:rfc:3986' instead</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[0].resource/*MessageHeader/64001.1*/.source</td><td>Structural Issue</td><td>MessageHeader.source.endpoint: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/MessageHeader|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/64001.1*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/</td><td>Structural Issue</td><td>ServiceRequest.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.supportingInfo[0]</td><td>Required element missing</td><td>URN reference is not locally contained within the bundle urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.telecom[0]</td><td>Validation rule failed</td><td>Constraint failed: cpt-2: 'A system is required if a value is provided.'</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus.coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://hl7.org/fhir/v3/MaritalStatus' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'MaritalStatus' (http://hl7.org/fhir/ValueSet/marital-status|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://hl7.org/fhir/v3/MaritalStatus#S)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.maritalStatus.coding[0].system</td><td>Invalid Content</td><td>No definition could be found for URL value 'http://hl7.org/fhir/v3/MaritalStatus'</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/</td><td>Structural Issue</td><td>Encounter.class: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*Encounter/3b5120c0-64cd-4bf5-b223-ec23080aaa34*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[4].resource/*Specimen/25bd2167-0d87-4870-98e4-60cf003bf64c*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*Specimen/25bd2167-0d87-4870-98e4-60cf003bf64c*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/OBX-21-CGCT*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/OBX-1-CGAG*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*Observation/OBX-3-CGOT*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*Observation/OBX-19-CGCE*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[9].resource/*Observation/OBX-11-CGOP*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[10].resource/*Observation/OBX-8-CGGE*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[11].resource/*Observation/OBX-20-CGSP*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[12].resource/*Observation/OBX-28-CGUN*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[13].resource/*Observation/OBX-18-CGOC*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[14].resource/*Observation/OBX-23-CGSE*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[15].resource/*Observation/OBX-7-CGFT*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[16].resource/*Observation/OBX-4-CGDP*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[17].resource/*Observation/OBX-5-CGDD*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[18].resource/*Observation/OBX-13-CGPN*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.code.coding[0]</td><td>Invalid Content</td><td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[19].resource/*Observation/OBX-17-CGRN*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Structural Issue</td><td>Observation.status: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Structural Issue</td><td>Observation.code: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/Observation|4.0.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[20].resource/*Observation/735aaed0-8158-4aa8-b519-e4bebd020b31*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle</td><td>Not Found</td><td>Can't find 'urn:uuid:735aaed0-8158-4aa8-b519-e4bebd020b31' in the bundle (Bundle.entry[1].resource.supportingInfo[0])</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:25bd2167-0d87-4870-98e4-60cf003bf64c' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:b6a33885-b293-4b87-9ba1-d92ee0ba00d2' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:f42cae76-a9e1-420c-bea8-70c343c81e9b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:4c886a05-cb86-4e6a-8ae5-d39741b10aa3' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:228d8277-2bf3-4637-9248-88e9d294ae70' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:dd91944a-d8aa-4a47-964d-b0ab43e1985a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:4ca1fd1c-690f-4e64-abd8-ad9baf97a227' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:1186e629-7c64-4cb0-a24b-f716cd605d1b' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:521d44f6-2f10-4fc8-8f11-5f883e593c5d' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:c82cd9ba-0974-41e1-bb51-b98911eee315' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:2abc1877-58ce-4960-a463-b8102a7e6af5' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:0edcb96b-775b-49ab-a047-b2bfdde7d88a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:0e46bffc-9e96-4ff0-9a5e-fc5c55b93d17' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:63a9efa4-0acd-4b49-8ea6-200795fec4ec' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:e624e9a0-eda7-422c-a3ab-8e7a6bd72dab' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:43faf774-ba70-4676-851d-36bf6a9805f4' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[22]</td><td>Informational Note</td><td>Entry 'urn:uuid:463f52d7-cb0b-4d86-ba1b-192eae68d094' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.supportingInfo[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.status: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.category: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource</td><td>Structural Issue</td><td>ServiceRequest.requester: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.code</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Laboratory Order' (http://hl7.eu/fhir/laboratory/ValueSet/lab-orderCodes-eu-lab|0.1.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R250.1)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource.subject</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.subject</td><td>Structural Issue</td><td>Details for urn:uuid:dc969479-f38b-4837-91d1-6a1ad9f23660 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient|0.1.0</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[1].resource.encounter</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[1].resource.encounter</td><td>Structural Issue</td><td>Details for urn:uuid:3b5120c0-64cd-4bf5-b223-ec23080aaa34 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td><td/><td>InstanceValidator</td></tr></table></div>"
   },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-file",
     "valueString" : "Input/FHIR/O21/Liverpool_O21.json"
   }],
   "issue" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 102
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 30
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    }],
-    "severity" : "error",
-    "code" : "invalid",
-    "details" : {
-      "text" : "The property identifier must be an Object, not an Array (at Bundle.entry[2].resource.identifier[0].assigner.identifier)"
-    },
-    "expression" : ["Bundle.entry[2].resource.identifier[0].assigner.identifier"]
-  },
-  {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
       "valueInteger" : 4
@@ -127,30 +107,6 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 62
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 18
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "TerminologyEngine"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "UNKNOWN_CODE_IN_FRAGMENT"
-    }],
-    "severity" : "warning",
-    "code" : "code-invalid",
-    "details" : {
-      "text" : "Unknown Code 'R250.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment"
-    },
-    "expression" : ["Bundle.entry[1].resource/*ServiceRequest/ee6a5509-3126-4625-8043-644859506453*/.code.coding[0].code"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
       "valueInteger" : 70
     },
     {
@@ -239,31 +195,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 101
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 26
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Reference_REF_NoDisplay"
-    }],
-    "severity" : "warning",
-    "code" : "structure",
-    "details" : {
-      "text" : "A Reference without an actual reference or identifier should have a display"
-    },
-    "expression" : ["Bundle.entry[2].resource/*Patient/dc969479-f38b-4837-91d1-6a1ad9f23660*/.identifier[0].assigner"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 120
+      "valueInteger" : 118
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -287,7 +219,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 136
+      "valueInteger" : 134
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -311,7 +243,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 136
+      "valueInteger" : 134
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -335,7 +267,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 139
+      "valueInteger" : 137
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -383,7 +315,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 149
+      "valueInteger" : 147
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -407,7 +339,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 173
+      "valueInteger" : 171
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -431,7 +363,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 149
+      "valueInteger" : 147
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -455,7 +387,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 183
+      "valueInteger" : 181
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -479,7 +411,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 180
+      "valueInteger" : 178
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -503,7 +435,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 190
+      "valueInteger" : 188
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -527,7 +459,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 190
+      "valueInteger" : 188
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -551,7 +483,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 199
+      "valueInteger" : 197
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -575,7 +507,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 207
+      "valueInteger" : 205
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -599,7 +531,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 210
+      "valueInteger" : 208
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -623,7 +555,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 190
+      "valueInteger" : 188
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -647,7 +579,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 222
+      "valueInteger" : 220
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -671,7 +603,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 222
+      "valueInteger" : 220
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -695,7 +627,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 231
+      "valueInteger" : 229
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -719,7 +651,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 239
+      "valueInteger" : 237
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -743,7 +675,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 242
+      "valueInteger" : 240
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -767,7 +699,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 222
+      "valueInteger" : 220
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -791,7 +723,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 254
+      "valueInteger" : 252
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -815,7 +747,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 254
+      "valueInteger" : 252
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -839,7 +771,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 263
+      "valueInteger" : 261
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -863,7 +795,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 271
+      "valueInteger" : 269
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -887,7 +819,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 274
+      "valueInteger" : 272
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -911,7 +843,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 254
+      "valueInteger" : 252
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -935,7 +867,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 286
+      "valueInteger" : 284
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -959,7 +891,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 286
+      "valueInteger" : 284
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -983,7 +915,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 295
+      "valueInteger" : 293
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1007,7 +939,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 303
+      "valueInteger" : 301
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1031,7 +963,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 306
+      "valueInteger" : 304
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1055,7 +987,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 286
+      "valueInteger" : 284
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1079,7 +1011,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 318
+      "valueInteger" : 316
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1103,7 +1035,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 318
+      "valueInteger" : 316
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1127,7 +1059,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 327
+      "valueInteger" : 325
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1151,7 +1083,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 335
+      "valueInteger" : 333
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1175,7 +1107,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 338
+      "valueInteger" : 336
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1199,7 +1131,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 318
+      "valueInteger" : 316
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1223,7 +1155,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 350
+      "valueInteger" : 348
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1247,7 +1179,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 350
+      "valueInteger" : 348
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1271,7 +1203,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 359
+      "valueInteger" : 357
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1295,7 +1227,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 367
+      "valueInteger" : 365
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1319,7 +1251,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 370
+      "valueInteger" : 368
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1343,7 +1275,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 350
+      "valueInteger" : 348
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1367,7 +1299,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 382
+      "valueInteger" : 380
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1391,7 +1323,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 382
+      "valueInteger" : 380
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1415,7 +1347,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 391
+      "valueInteger" : 389
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1439,7 +1371,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 399
+      "valueInteger" : 397
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1463,7 +1395,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 402
+      "valueInteger" : 400
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1487,7 +1419,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 382
+      "valueInteger" : 380
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1511,7 +1443,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 414
+      "valueInteger" : 412
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1535,7 +1467,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 414
+      "valueInteger" : 412
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1559,7 +1491,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 423
+      "valueInteger" : 421
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1583,7 +1515,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 431
+      "valueInteger" : 429
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1607,7 +1539,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 434
+      "valueInteger" : 432
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1631,7 +1563,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 414
+      "valueInteger" : 412
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1655,7 +1587,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 446
+      "valueInteger" : 444
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1679,7 +1611,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 446
+      "valueInteger" : 444
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1703,7 +1635,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 455
+      "valueInteger" : 453
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1727,7 +1659,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 463
+      "valueInteger" : 461
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1751,7 +1683,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 466
+      "valueInteger" : 464
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1775,7 +1707,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 446
+      "valueInteger" : 444
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1799,7 +1731,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 478
+      "valueInteger" : 476
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1823,7 +1755,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 478
+      "valueInteger" : 476
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1847,7 +1779,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 487
+      "valueInteger" : 485
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1871,7 +1803,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 495
+      "valueInteger" : 493
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1895,7 +1827,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 498
+      "valueInteger" : 496
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1919,7 +1851,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 478
+      "valueInteger" : 476
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1943,7 +1875,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 510
+      "valueInteger" : 508
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1967,7 +1899,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 510
+      "valueInteger" : 508
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1991,7 +1923,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 519
+      "valueInteger" : 517
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2015,7 +1947,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 527
+      "valueInteger" : 525
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2039,7 +1971,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 530
+      "valueInteger" : 528
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2063,7 +1995,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 510
+      "valueInteger" : 508
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2087,7 +2019,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 542
+      "valueInteger" : 540
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2111,7 +2043,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 542
+      "valueInteger" : 540
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2135,7 +2067,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 551
+      "valueInteger" : 549
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2159,7 +2091,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 559
+      "valueInteger" : 557
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2183,7 +2115,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 562
+      "valueInteger" : 560
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2207,7 +2139,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 542
+      "valueInteger" : 540
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2231,7 +2163,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 574
+      "valueInteger" : 572
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2255,7 +2187,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 574
+      "valueInteger" : 572
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2279,7 +2211,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 583
+      "valueInteger" : 581
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2303,7 +2235,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 591
+      "valueInteger" : 589
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2327,7 +2259,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 594
+      "valueInteger" : 592
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2351,7 +2283,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 574
+      "valueInteger" : 572
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2375,7 +2307,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 606
+      "valueInteger" : 604
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2399,7 +2331,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 606
+      "valueInteger" : 604
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2423,7 +2355,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 615
+      "valueInteger" : 613
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2447,7 +2379,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 623
+      "valueInteger" : 621
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2471,7 +2403,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 626
+      "valueInteger" : 624
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2495,7 +2427,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 606
+      "valueInteger" : 604
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2519,7 +2451,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 638
+      "valueInteger" : 636
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2543,7 +2475,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 638
+      "valueInteger" : 636
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2567,7 +2499,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 647
+      "valueInteger" : 645
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2591,7 +2523,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 655
+      "valueInteger" : 653
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2615,7 +2547,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 658
+      "valueInteger" : 656
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2639,7 +2571,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 638
+      "valueInteger" : 636
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2663,7 +2595,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 670
+      "valueInteger" : 668
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2687,7 +2619,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 670
+      "valueInteger" : 668
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2711,7 +2643,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 670
+      "valueInteger" : 668
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2735,7 +2667,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 670
+      "valueInteger" : 668
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2759,7 +2691,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 678
+      "valueInteger" : 676
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2783,7 +2715,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 681
+      "valueInteger" : 679
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2807,7 +2739,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 670
+      "valueInteger" : 668
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2855,7 +2787,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 178
+      "valueInteger" : 176
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2879,7 +2811,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 188
+      "valueInteger" : 186
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2903,7 +2835,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 220
+      "valueInteger" : 218
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2927,7 +2859,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 252
+      "valueInteger" : 250
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2951,7 +2883,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 284
+      "valueInteger" : 282
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2975,7 +2907,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 316
+      "valueInteger" : 314
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2999,7 +2931,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 348
+      "valueInteger" : 346
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3023,7 +2955,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 380
+      "valueInteger" : 378
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3047,7 +2979,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 412
+      "valueInteger" : 410
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3071,7 +3003,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 444
+      "valueInteger" : 442
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3095,7 +3027,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 476
+      "valueInteger" : 474
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3119,7 +3051,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 508
+      "valueInteger" : 506
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3143,7 +3075,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 540
+      "valueInteger" : 538
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3167,7 +3099,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 572
+      "valueInteger" : 570
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3191,7 +3123,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 604
+      "valueInteger" : 602
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3215,7 +3147,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 636
+      "valueInteger" : 634
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3239,7 +3171,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 668
+      "valueInteger" : 666
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",

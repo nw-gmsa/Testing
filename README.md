@@ -1,3 +1,9 @@
+Virual Environment 3.12 (scispacy compatible)
+
+Additional commands to run:
+- python -m spacy download en_core_web_sm
+- pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_sm-0.5.4.tar.gz
+
 # Examples 
 
 Are based on [North West Genomics Test Patients](https://nw-gmsa.github.io/testing.html#integration-testing)
