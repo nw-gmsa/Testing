@@ -22,7 +22,7 @@
 <table cellspacing="0" border="0" style="width:500px; border:0; font-size: 14px;">
     <tr>
         <td style="text-align:right;">
-            <b><span>06, Feb 2026</span></b>
+            <b><span>09, Feb 2026</span></b>
         </td>
     </tr>
 </table>
@@ -38,95 +38,130 @@
   </thead>
   <tbody>
     <tr>
-      <th>17</th>
+      <th>32</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.resultsInterpreter.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.resultsInterpreter.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
+    </tr>
+    <tr>
+      <th>19</th>
       <td>error</td>
       <td>invalid</td>
       <td>Wrong Display Name 'PANEL : R125.1, R125.2 - Thoracic aortic aneurysm and dissection v1.2' for https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP#R125_Cardiology. Valid display is 'PANEL: R125.1, R125.2 - Thoracic aortic aneurysm and dissection v1.2' (for the language(s) 'en')</td>
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code.coding[0].display]</td>
     </tr>
     <tr>
-      <th>18</th>
-      <td>information</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP#R125_Cardiology, https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R125.1)</td>
-      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code]</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:39a987e5-8aa9-481b-bcd9-abb765a61638' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[8]]</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[6].resource.code.coding[0]]</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[6].resource.basedOn[0]]</td>
-    </tr>
-    <tr>
-      <th>14</th>
+      <th>16</th>
       <td>information</td>
       <td>business-rule</td>
       <td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.1.0</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0]]</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>0</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' - change from https: to http:</td>
+      <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:36e99b75-3a66-43d5-a35c-7916ce5a2c33' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[8]]</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[6].resource.basedOn[0]]</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[6].resource.code.coding[0]]</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>information</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP#R125_Cardiology, https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R125.1)</td>
+      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code]</td>
+    </tr>
+    <tr>
+      <th>22</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>17</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>Unknown Code 'R125' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0].coding[0].code]</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>15</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>14</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>Unknown Code 'R125.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
+      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.code.coding[0].code]</td>
+    </tr>
+    <tr>
+      <th>12</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[4].resource/*Specimen/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>7</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[1].resource/*Patient/null*/.identifier[0].type]</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>Unknown Code 'R125.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
+      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code.coding[1].code]</td>
     </tr>
   </tbody>
 </table>
