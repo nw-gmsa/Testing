@@ -38,18 +38,11 @@
   </thead>
   <tbody>
     <tr>
-      <th>30</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.resultsInterpreter.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.resultsInterpreter.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
+      <th>16</th>
+      <td>information</td>
+      <td>business-rule</td>
+      <td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.1.0</td>
+      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0]]</td>
     </tr>
     <tr>
       <th>0</th>
@@ -59,25 +52,32 @@
       <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
     </tr>
     <tr>
-      <th>28</th>
+      <th>26</th>
       <td>information</td>
       <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[6].resource.code.coding[0]]</td>
+      <td>Entry 'urn:uuid:8e39781c-e57f-46f1-833f-0999c0ba514a' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[8]]</td>
     </tr>
     <tr>
       <th>27</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[6].resource.basedOn[0]]</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[6].resource.resultsInterpreter[0]]</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>29</th>
       <td>information</td>
       <td>informational</td>
-      <td>Entry 'urn:uuid:cd41a28a-3705-485f-b20e-d69c90f0503c' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[8]]</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[6].resource.code.coding[0]]</td>
     </tr>
     <tr>
       <th>20</th>
@@ -87,18 +87,11 @@
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code]</td>
     </tr>
     <tr>
-      <th>16</th>
-      <td>information</td>
-      <td>business-rule</td>
-      <td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.1.0</td>
-      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0]]</td>
-    </tr>
-    <tr>
-      <th>17</th>
+      <th>21</th>
       <td>warning</td>
       <td>code-invalid</td>
-      <td>Unknown Code 'R112' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
-      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0].coding[0].code]</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
       <th>19</th>
@@ -115,11 +108,11 @@
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>17</th>
       <td>warning</td>
       <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
+      <td>Unknown Code 'R112' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.1.0' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
+      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0].coding[0].code]</td>
     </tr>
     <tr>
       <th>14</th>

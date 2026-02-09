@@ -38,66 +38,52 @@
   </thead>
   <tbody>
     <tr>
-      <th>28</th>
+      <th>27</th>
       <td>error</td>
       <td>structure</td>
       <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td>
       <td>[Bundle.entry[6].resource.code]</td>
     </tr>
     <tr>
-      <th>26</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/CorrelationIdentifier|0.1.0)</td>
-      <td>[Bundle.entry[6].resource.basedOn[0].identifier]</td>
-    </tr>
-    <tr>
       <th>25</th>
       <td>error</td>
       <td>structure</td>
-      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/OrderFillerNumber|0.1.0)</td>
+      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/CorrelationIdentifier|0.1.0)</td>
       <td>[Bundle.entry[6].resource.basedOn[0].identifier]</td>
     </tr>
     <tr>
       <th>24</th>
       <td>error</td>
       <td>structure</td>
-      <td>Identifier.system: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/OrderFillerNumber|0.1.0)</td>
-      <td>[Bundle.entry[6].resource.basedOn[0].identifier]</td>
+      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/CorrelationIdentifier|0.1.0)</td>
+      <td>[Bundle.entry[6].resource.identifier[0]]</td>
     </tr>
     <tr>
       <th>23</th>
       <td>error</td>
       <td>structure</td>
-      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/CorrelationIdentifier|0.1.0)</td>
+      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ReportIdentifier|0.1.0)</td>
       <td>[Bundle.entry[6].resource.identifier[0]]</td>
     </tr>
     <tr>
       <th>22</th>
       <td>error</td>
       <td>structure</td>
-      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/OrderFillerNumber|0.1.0)</td>
+      <td>Identifier.system: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/ReportIdentifier|0.1.0)</td>
       <td>[Bundle.entry[6].resource.identifier[0]]</td>
     </tr>
     <tr>
       <th>21</th>
       <td>error</td>
       <td>structure</td>
-      <td>Identifier.system: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/OrderFillerNumber|0.1.0)</td>
-      <td>[Bundle.entry[6].resource.identifier[0]]</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>error</td>
-      <td>structure</td>
       <td>DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
       <td>[Bundle.entry[6].resource]</td>
     </tr>
     <tr>
-      <th>29</th>
+      <th>28</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:e5e56300-bede-4a1d-ba97-b42f3f26aec7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
+      <td>Unable to find a profile match for urn:uuid:b6cd47c5-23d8-4b99-a6ee-1a4079efdfbe among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
       <td>[Bundle.entry[6].resource.encounter]</td>
     </tr>
     <tr>
@@ -108,18 +94,25 @@
       <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
     </tr>
     <tr>
-      <th>27</th>
+      <th>26</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[6].resource.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>20</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[6].resource.result[0]]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[6].resource.basedOn[0]]</td>
     </tr>
     <tr>
       <th>16</th>
@@ -129,11 +122,18 @@
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code]</td>
     </tr>
     <tr>
-      <th>30</th>
+      <th>29</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:e5e56300-bede-4a1d-ba97-b42f3f26aec7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td>
+      <td>Details for urn:uuid:b6cd47c5-23d8-4b99-a6ee-1a4079efdfbe matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td>
       <td>[Bundle.entry[6].resource.encounter]</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
       <th>2</th>
@@ -157,11 +157,11 @@
       <td>[Bundle.entry[2].resource/*Encounter/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>12</th>
       <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
+      <td>invalid</td>
+      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
+      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.code.coding[0]]</td>
     </tr>
     <tr>
       <th>7</th>
@@ -178,13 +178,6 @@
       <td>[Bundle.entry[4].resource/*Specimen/null*/.type.coding[0].system]</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[4].resource/*Specimen/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
       <th>17</th>
       <td>warning</td>
       <td>code-invalid</td>
@@ -192,11 +185,11 @@
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>10</th>
       <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.code.coding[0]]</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[4].resource/*Specimen/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
       <th>15</th>

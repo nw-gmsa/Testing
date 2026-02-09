@@ -62,29 +62,29 @@
       <th>18</th>
       <td>error</td>
       <td>structure</td>
-      <td>DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[4].resource]</td>
+      <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td>
+      <td>[Bundle.entry[4].resource.code]</td>
     </tr>
     <tr>
       <th>17</th>
       <td>error</td>
       <td>structure</td>
-      <td>DiagnosticReport.code: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[4].resource]</td>
+      <td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>[Bundle.entry[4].resource.code]</td>
     </tr>
     <tr>
       <th>16</th>
       <td>error</td>
       <td>structure</td>
-      <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
       <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>15</th>
       <td>error</td>
       <td>structure</td>
-      <td>DiagnosticReport.code: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1)</td>
-      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/]</td>
+      <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
       <th>21</th>
@@ -94,24 +94,24 @@
       <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>14</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[4].resource.result[0]]</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>13</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
       <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>12</th>
       <td>information</td>
       <td>informational</td>
-      <td>Entry 'urn:uuid:7b1d0e3d-8b59-459e-884b-6a6b6c52b3f4' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>Entry 'urn:uuid:a629f8b9-a3c8-403a-9d2d-77b97b36bff7' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[6]]</td>
     </tr>
     <tr>
@@ -120,6 +120,13 @@
       <td>informational</td>
       <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' - change from https: to http:</td>
       <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
       <th>7</th>
@@ -151,13 +158,6 @@
     </tr>
     <tr>
       <th>10</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>11</th>
       <td>warning</td>
       <td>structure</td>
       <td>A Reference without an actual reference or identifier should have a display</td>
