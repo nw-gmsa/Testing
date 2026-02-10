@@ -1,0 +1,2257 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:dc1d434e-891b-41bb-95e7-f488c2678c43",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/cymru.nhs.uk",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "NHSWales"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:5ced82e9-3fbc-4ddf-b9a6-6bf9271c38be"
+          },
+          {
+            "reference": "urn:uuid:d91b7f40-3ecf-47fd-8c75-30cfb2826e99"
+          },
+          {
+            "reference": "urn:uuid:59bf8809-5e9b-4391-a1b7-f3f3a448331e"
+          },
+          {
+            "reference": "urn:uuid:5062e0ea-e2da-4659-84d2-2ca52f7b4e75"
+          },
+          {
+            "reference": "urn:uuid:4af57cd3-c687-450e-a4a4-8b1786362935"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "CAV"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/ACMELab",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af",
+      "resource": {
+        "resourceType": "Patient",
+        "address": [
+          {
+            "city": "Baglan",
+            "district": "Neath port talbot",
+            "line": [
+              "A B M U Health Board",
+              "One Talbot Gateway"
+            ],
+            "postalCode": "SA12 7BR"
+          }
+        ],
+        "birthDate": "1999-10-13",
+        "gender": "male",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A4"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "PI",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "403281375"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          }
+        ],
+        "name": [
+          {
+            "family": "WREXHAM",
+            "given": [
+              "Myrcella"
+            ],
+            "prefix": [
+              "Mr"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:69b0300f-dfef-46d8-8572-5e2600097a8c",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "B3553",
+              "display": "HbA1c (IFCC traceable)"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cdb48de8-6965-411f-a428-130b35417363",
+      "resource": {
+        "resourceType": "Specimen",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "receivedTime": "2018-03-09T15:00:00+00:00",
+        "status": "unavailable",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:27700716-7492-4832-a90e-0012aee5bea2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "B3051",
+              "display": "HbA1c (IFCC traceable)"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "intent": "order",
+        "specimen": [
+          {
+            "reference": "urn:uuid:cdb48de8-6965-411f-a428-130b35417363",
+            "type": "Specimen"
+          }
+        ],
+        "status": "completed",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5ced82e9-3fbc-4ddf-b9a6-6bf9271c38be",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "basedOn": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "FILL",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "value": "914694928301"
+            },
+            "reference": "urn:uuid:27700716-7492-4832-a90e-0012aee5bea2",
+            "type": "ServiceRequest"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "B3051",
+              "display": "HbA1c (IFCC traceable)"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "issued": "2018-03-09T15:00:00+00:00",
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "result": [
+          {
+            "display": "HbA1c (IFCC traceable)",
+            "reference": "urn:uuid:69b0300f-dfef-46d8-8572-5e2600097a8c",
+            "type": "Observation"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:cdb48de8-6965-411f-a428-130b35417363",
+            "type": "Specimen"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:602c54b4-a925-4d0b-954c-23eaf5f0058b",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "B0300",
+              "display": "White blood cell (WBC) count"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:71bb8729-11e7-4cfb-95db-040b8141ebda",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "B0307",
+              "display": "Haemoglobin (Hb)"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2cef1b4b-3058-45d9-b427-cf66049845d0",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "B0314",
+              "display": "Platelet (PLT) count"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:78c732f8-e8a4-4093-b956-104939cb6b1f",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "B0306",
+              "display": "Red blood cell (RBC) count"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dabb6269-4f63-45fb-bdb9-ebf0e48f167a",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "B0309",
+              "display": "Mean cell volume (MCV)"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "NA",
+              "display": "Not assayed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:99373576-9a38-43d8-96ff-ca2db1b888c9",
+      "resource": {
+        "resourceType": "Specimen",
+        "collection": {
+          "collectedDateTime": "2018-03-09T14:00:00+00:00"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9146949283"
+          }
+        ],
+        "receivedTime": "2018-03-09T15:00:00+00:00",
+        "status": "unavailable",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "BLOO",
+              "display": "Blood",
+              "system": "ACME"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d91b7f40-3ecf-47fd-8c75-30cfb2826e99",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "B0001",
+              "display": "Full blood count"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-03-09T15:00:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "914694928301"
+          }
+        ],
+        "issued": "2018-03-09T15:00:00+00:00",
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "result": [
+          {
+            "display": "White blood cell (WBC) count",
+            "reference": "urn:uuid:602c54b4-a925-4d0b-954c-23eaf5f0058b",
+            "type": "Observation"
+          },
+          {
+            "display": "Haemoglobin (Hb)",
+            "reference": "urn:uuid:71bb8729-11e7-4cfb-95db-040b8141ebda",
+            "type": "Observation"
+          },
+          {
+            "display": "Platelet (PLT) count",
+            "reference": "urn:uuid:2cef1b4b-3058-45d9-b427-cf66049845d0",
+            "type": "Observation"
+          },
+          {
+            "display": "Red blood cell (RBC) count",
+            "reference": "urn:uuid:78c732f8-e8a4-4093-b956-104939cb6b1f",
+            "type": "Observation"
+          },
+          {
+            "display": "Mean cell volume (MCV)",
+            "reference": "urn:uuid:dabb6269-4f63-45fb-bdb9-ebf0e48f167a",
+            "type": "Observation"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:99373576-9a38-43d8-96ff-ca2db1b888c9",
+            "type": "Specimen"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:084fc7dd-37e8-41d7-a569-dd161d70157c",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBvYmoKPDw...EyNDk0IDAwMDAwIG4gCnRyYWlsZXIKPDwvU2l6ZS"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8c6fbfc5-bc34-4b3a-a83d-e46005cec6c5",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:084fc7dd-37e8-41d7-a569-dd161d70157c"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "end": "2018-11-09T12:38:51+00:00",
+            "start": "2018-11-09T12:38:51+00:00"
+          },
+          "related": [
+            {
+              "identifier": {
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "7A4BV"
+                  }
+                },
+                "type": {
+                  "coding": [
+                    {
+                      "code": "FILL",
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                    }
+                  ]
+                },
+                "value": "287018"
+              },
+              "reference": "urn:uuid:59bf8809-5e9b-4391-a1b7-f3f3a448331e",
+              "type": "DiagnosticReport"
+            }
+          ]
+        },
+        "custodian": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization"
+        },
+        "date": "2018-11-09T12:38:51+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A4BV"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "287018"
+          }
+        ],
+        "status": "current",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "CATH",
+              "display": "Cardiac Catheter Report",
+              "system": "L"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:298812a4-8796-4fdd-b35d-78711063d39e",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/pdf",
+        "data": "AxNi9Sb290IDE0IDAgUgovSW5mbyAxNSAwIFIKL0lEIFsgPE...KPj4Kc3RhcnR4cmVmCjEyNzg3CiUlRU9GCg=="
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0d4f757e-5014-4d59-8a11-3dff32ee123f",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:298812a4-8796-4fdd-b35d-78711063d39e"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "end": "2018-11-09T12:38:51+00:00",
+            "start": "2018-11-09T12:38:51+00:00"
+          },
+          "related": [
+            {
+              "identifier": {
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "7A4BV"
+                  }
+                },
+                "type": {
+                  "coding": [
+                    {
+                      "code": "FILL",
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                    }
+                  ]
+                },
+                "value": "287018"
+              },
+              "reference": "urn:uuid:59bf8809-5e9b-4391-a1b7-f3f3a448331e",
+              "type": "DiagnosticReport"
+            }
+          ]
+        },
+        "custodian": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization"
+        },
+        "date": "2018-11-09T12:38:51+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A4BV"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "287018"
+          }
+        ],
+        "status": "current",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "CATH",
+              "display": "Cardiac Catheter Report",
+              "system": "L"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59bf8809-5e9b-4391-a1b7-f3f3a448331e",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "CATH",
+              "display": "Cardiac Catheter Report",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-11-09T12:38:51+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A4BV"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "287018"
+          }
+        ],
+        "issued": "2018-11-09T12:48:18+00:00",
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "url": "urn:uuid:084fc7dd-37e8-41d7-a569-dd161d70157c"
+          },
+          {
+            "contentType": "application/pdf",
+            "url": "urn:uuid:298812a4-8796-4fdd-b35d-78711063d39e"
+          }
+        ],
+        "status": "partial",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6d2ba669-edfc-4f98-9b46-f9b100ad56aa",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBvYm...VmCjEyNzg3CiUlRU9GCg=="
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:91a66218-d9c7-42b4-831e-c4fcdb76c7df",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:6d2ba669-edfc-4f98-9b46-f9b100ad56aa"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "end": "2018-11-09T12:38:51+00:00",
+            "start": "2018-11-09T12:38:51+00:00"
+          },
+          "related": [
+            {
+              "identifier": {
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "7A4BV"
+                  }
+                },
+                "type": {
+                  "coding": [
+                    {
+                      "code": "FILL",
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                    }
+                  ]
+                },
+                "value": "A28701"
+              },
+              "reference": "urn:uuid:5062e0ea-e2da-4659-84d2-2ca52f7b4e75",
+              "type": "DiagnosticReport"
+            }
+          ]
+        },
+        "custodian": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization"
+        },
+        "date": "2018-11-09T12:38:51+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A4BV"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "A28701"
+          }
+        ],
+        "status": "current",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "Appointment",
+              "display": "Appointment Letter",
+              "system": "L"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5062e0ea-e2da-4659-84d2-2ca52f7b4e75",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "Appointment",
+              "display": "AppointmentLetter",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2018-11-09T12:38:51+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A4BV"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "A28701"
+          }
+        ],
+        "issued": "2018-11-09T12:48:18+00:00",
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "url": "urn:uuid:6d2ba669-edfc-4f98-9b46-f9b100ad56aa"
+          }
+        ],
+        "status": "partial",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1ee79722-3895-4858-87d1-c1dfed9f831f",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "INTER",
+              "display": "INTERPRETATION",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "note": [
+          {
+            "text": "Interpreted by: ACME Super User, Signed on 05/14/2019 at 10:24\\n"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "rwtu"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0ac7b1ca-23ce-43e4-98f9-23828804b111",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "RESTE",
+              "display": "Reason for testing",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "erw"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c25389c2-e352-4df1-9ae9-fefeea99e96a",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "TMETH",
+              "display": "Test Methodology",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "sfjg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0bedbfd0-959d-4161-b3fd-5937d3e09de9",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "RESUM",
+              "display": "Result summary",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "tyityu"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:52651551-83b5-4155-afa8-c9a5f1d05aa5",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "PATPH",
+              "display": "Patient phenotype",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "ghfjg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:055f1053-588c-42be-b514-db584a026ba2",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "FOLL",
+              "display": "Follow-up",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "yue"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:60536c92-128b-4a67-9461-c14a7f5512b9",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "MDS",
+              "display": "Multi-disciplinary summary",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "tyu"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:17e159ab-92fe-412d-95c2-ef60496b29bd",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "RESLT",
+              "display": "Result",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:24:17+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "dhjhd"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c7295624-0871-46ce-a9f8-c8c92f505e66",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "GRFALN1",
+              "display": "AlphaNumeric Generic Result Field 1",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:23:35+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "valueString": "234dfsgsg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f31ad957-3285-4fe0-9efb-32c2cc2ecfab",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjMKJeLjz9MKMiAwIG9iago8PC..."
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ffe02c1d-abc6-4de2-8f8b-4d8eecd036e1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:f31ad957-3285-4fe0-9efb-32c2cc2ecfab"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "end": "2019-05-14T10:23:35+00:00",
+            "start": "2019-05-14T10:23:35+00:00"
+          },
+          "related": [
+            {
+              "identifier": {
+                "type": {
+                  "coding": [
+                    {
+                      "code": "FILL",
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                    }
+                  ]
+                },
+                "value": "190000041:27491"
+              },
+              "reference": "urn:uuid:4af57cd3-c687-450e-a4a4-8b1786362935",
+              "type": "DiagnosticReport"
+            }
+          ]
+        },
+        "custodian": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization"
+        },
+        "date": "2019-05-14T10:23:35+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "status": "current",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "MOLT",
+              "display": "MOL TEST NAME",
+              "system": "L"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:93171c02-ad13-4f7d-9e38-43a750a7a4ca",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "MOLT",
+              "display": "MOL TEST NAME",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:23:35+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:624e823e-9f07-45bb-b0e0-5c124a4fba95",
+      "resource": {
+        "resourceType": "Specimen",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "receivedTime": "2019-05-14T10:20:00+00:00",
+        "status": "unavailable",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4af57cd3-c687-450e-a4a4-8b1786362935",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "MOLT",
+              "display": "MOL TEST NAME",
+              "system": "L"
+            }
+          ]
+        },
+        "effectiveDateTime": "2019-05-14T10:20:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "190000041:27491"
+          }
+        ],
+        "issued": "2019-05-14T10:24:17+00:00",
+        "performer": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "SPRF",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "url": "urn:uuid:f31ad957-3285-4fe0-9efb-32c2cc2ecfab"
+          }
+        ],
+        "result": [
+          {
+            "display": "INTERPRETATION",
+            "reference": "urn:uuid:1ee79722-3895-4858-87d1-c1dfed9f831f",
+            "type": "Observation"
+          },
+          {
+            "display": "Reason for testing",
+            "reference": "urn:uuid:0ac7b1ca-23ce-43e4-98f9-23828804b111",
+            "type": "Observation"
+          },
+          {
+            "display": "Test Methodology",
+            "reference": "urn:uuid:c25389c2-e352-4df1-9ae9-fefeea99e96a",
+            "type": "Observation"
+          },
+          {
+            "display": "Result summary",
+            "reference": "urn:uuid:0bedbfd0-959d-4161-b3fd-5937d3e09de9",
+            "type": "Observation"
+          },
+          {
+            "display": "Patient phenotype",
+            "reference": "urn:uuid:52651551-83b5-4155-afa8-c9a5f1d05aa5",
+            "type": "Observation"
+          },
+          {
+            "display": "Follow-up",
+            "reference": "urn:uuid:055f1053-588c-42be-b514-db584a026ba2",
+            "type": "Observation"
+          },
+          {
+            "display": "Multi-disciplinary summary",
+            "reference": "urn:uuid:60536c92-128b-4a67-9461-c14a7f5512b9",
+            "type": "Observation"
+          },
+          {
+            "display": "Result",
+            "reference": "urn:uuid:17e159ab-92fe-412d-95c2-ef60496b29bd",
+            "type": "Observation"
+          },
+          {
+            "display": "AlphaNumeric Generic Result Field 1",
+            "reference": "urn:uuid:c7295624-0871-46ce-a9f8-c8c92f505e66",
+            "type": "Observation"
+          },
+          {
+            "display": "MOL TEST NAME",
+            "reference": "urn:uuid:93171c02-ad13-4f7d-9e38-43a750a7a4ca",
+            "type": "Observation"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:624e823e-9f07-45bb-b0e0-5c124a4fba95",
+            "type": "Specimen"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383257"
+          },
+          "reference": "urn:uuid:87fb0e57-4414-4646-97be-297456ccb2af"
+        }
+      }
+    }
+  ],
+  "identifier": {
+    "value": "5051095-201905141025"
+  },
+  "timestamp": "2019-05-14T10:25:27+00:00",
+  "type": "message"
+}
