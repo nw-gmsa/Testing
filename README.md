@@ -39,6 +39,7 @@ To FHIR
 
 curl --request POST --data-binary "@Input/V2/R01/SHIRE_ORU_R01_RM3.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_TX.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_FULL.txt" http://192.168.1.20:9981/transformToFHIR
 
 From FHIR 
 
