@@ -28,6 +28,7 @@ curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://
 
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Output/FHIR/R01/ORU_R01_R125.1_R0A.txt.json" http://192.168.1.20:9981/transformToV2
 
 #### MFT Multiple Tests example
 
