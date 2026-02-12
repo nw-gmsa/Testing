@@ -22,7 +22,7 @@
 <table cellspacing="0" border="0" style="width:500px; border:0; font-size: 14px;">
     <tr>
         <td style="text-align:right;">
-            <b><span>10, Feb 2026</span></b>
+            <b><span>12, Feb 2026</span></b>
         </td>
     </tr>
 </table>
@@ -38,116 +38,109 @@
   </thead>
   <tbody>
     <tr>
-      <th>19</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td>
-      <td>[Bundle.entry[3].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[3].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
-      <td>[Bundle.entry[3].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td>
-      <td>[Bundle.entry[3].resource.code]</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[3].resource.code]</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[3].resource]</td>
-    </tr>
-    <tr>
-      <th>12</th>
+      <th>20</th>
       <td>error</td>
       <td>structure</td>
       <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[3].resource]</td>
+      <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>21</th>
       <td>error</td>
       <td>structure</td>
-      <td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
-      <td>[Bundle.entry[3].resource.performer[0]]</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/workflow-supportingInfo is not allowed to be used at this point (this element is [Bundle.entry.resource]; allowed for this version = e:DiagnosticReport, e:Observation, e:CommunicationRequest)</td>
+      <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[3].resource.result[0]]</td>
+      <th>22</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>[Bundle.entry[4].resource.code]</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
-      <td>[Bundle.entry[3].resource.performer[0]]</td>
+      <th>23</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td>
+      <td>[Bundle.entry[4].resource.code]</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' - change from https: to http:</td>
-      <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
+      <th>24</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[3].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[2].resource/*Observation/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>warning</td>
+      <td>error</td>
       <td>invalid</td>
-      <td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td>
-      <td>[Bundle.entry[2].resource/*Observation/null*/]</td>
+      <td>Not a valid instant format: '2025-09-05'</td>
+      <td>[Bundle.entry[3].resource/*DocumentReference/null*/.date]</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>25</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[4].resource.extension[0]]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>warning</td>
+      <td>structure</td>
+      <td>A Reference without an actual reference or identifier should have a display</td>
+      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[1].resource/*Patient/null*/.identifier[0].type]</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>warning</td>
-      <td>structure</td>
-      <td>A Reference without an actual reference or identifier should have a display</td>
-      <td>[Bundle.entry[3].resource/*DiagnosticReport/null*/.performer[0]]</td>
     </tr>
   </tbody>
 </table>

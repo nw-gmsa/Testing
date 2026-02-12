@@ -2,37 +2,13 @@
   "resourceType" : "OperationOutcome",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Information</td><td>Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint</td><td>Informational Note</td><td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' - change from https: to http:</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/.identifier[0].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have an effective[x] ()</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*DiagnosticReport/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*DiagnosticReport/null*/.performer[0]</td><td>Structural Issue</td><td>A Reference without an actual reference or identifier should have a display</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*DiagnosticReport/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[3].resource.performer[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[3].resource.result[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource</td><td>Structural Issue</td><td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource</td><td>Structural Issue</td><td>DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource.code</td><td>Structural Issue</td><td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource.code</td><td>Structural Issue</td><td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource.performer[0]</td><td>Structural Issue</td><td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource.performer[0]</td><td>Structural Issue</td><td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource.performer[0]</td><td>Structural Issue</td><td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource.performer[0]</td><td>Structural Issue</td><td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td><td/><td>InstanceValidator</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/.identifier[0].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Binary/null*/.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Binary/null*/.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Binary/null*/.contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*DocumentReference/null*/.date</td><td>Invalid Content</td><td>Not a valid instant format: '2025-09-05'</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*DocumentReference/null*/.content[0].attachment.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*DocumentReference/null*/.content[0].attachment.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*DocumentReference/null*/.content[0].attachment.contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*DocumentReference/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/.performer[0]</td><td>Structural Issue</td><td>A Reference without an actual reference or identifier should have a display</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/.presentedForm[0].contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/.presentedForm[0].contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/.presentedForm[0].contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DiagnosticReport/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[4].resource.extension[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[4].resource.performer[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource</td><td>Structural Issue</td><td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource</td><td>Structural Issue</td><td>The extension http://hl7.org/fhir/StructureDefinition/workflow-supportingInfo is not allowed to be used at this point (this element is [Bundle.entry.resource]; allowed for this version = e:DiagnosticReport, e:Observation, e:CommunicationRequest)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.code</td><td>Structural Issue</td><td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.code</td><td>Structural Issue</td><td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource.performer[0]</td><td>Structural Issue</td><td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource.presentedForm[0].contentType.system</td><td>Not Found</td><td>A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource.presentedForm[0].contentType</td><td>Invalid Code</td><td>A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr></table></div>"
   },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-file",
     "valueString" : "Output/FHIR/R01/SHIRE_ORU_R01_RM3.txt.json"
   }],
   "issue" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 35
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 70
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "TYPE_SPECIFIC_CHECKS_DT_URL_WRONG_HTTPS"
-    }],
-    "severity" : "information",
-    "code" : "informational",
-    "details" : {
-      "text" : "A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' - change from https: to http:"
-    },
-    "expression" : ["Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint"]
-  },
-  {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
       "valueInteger" : 6
@@ -107,31 +83,79 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 94
+      "valueInteger" : 96
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 8
+      "valueInteger" : 41
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
+      "valueString" : "TerminologyEngine"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+      "valueCode" : "Unable_to_resolve_system__value_set_has_include_with_unknown_system"
     }],
-    "severity" : "warning",
-    "code" : "invalid",
+    "severity" : "error",
+    "code" : "unknown",
     "details" : {
-      "text" : "Best Practice Recommendation: In general, all observations should have an effective[x] ()"
+      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]"
     },
-    "expression" : ["Bundle.entry[2].resource/*Observation/null*/"]
+    "expression" : ["Bundle.entry[2].resource/*Binary/null*/.contentType"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 118
+      "valueInteger" : 96
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 41
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "UNABLE_TO_INFER_CODESYSTEM"
+    }],
+    "severity" : "error",
+    "code" : "unknown",
+    "details" : {
+      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'"
+    },
+    "expression" : ["Bundle.entry[2].resource/*Binary/null*/.contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 96
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 41
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Terminology_TX_NoValid_16"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')"
+    },
+    "expression" : ["Bundle.entry[2].resource/*Binary/null*/.contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 155
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -150,12 +174,108 @@
     "details" : {
       "text" : "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)"
     },
-    "expression" : ["Bundle.entry[2].resource/*Observation/null*/.subject.identifier.type"]
+    "expression" : ["Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier.type"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 94
+      "valueInteger" : 150
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 29
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Type_Specific_Checks_DT_DateTime_Regex"
+    }],
+    "severity" : "error",
+    "code" : "invalid",
+    "details" : {
+      "text" : "Not a valid instant format: '2025-09-05'"
+    },
+    "expression" : ["Bundle.entry[3].resource/*DocumentReference/null*/.date"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 107
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 47
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Unable_to_resolve_system__value_set_has_include_with_unknown_system"
+    }],
+    "severity" : "error",
+    "code" : "unknown",
+    "details" : {
+      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]"
+    },
+    "expression" : ["Bundle.entry[3].resource/*DocumentReference/null*/.content[0].attachment.contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 107
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 47
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "UNABLE_TO_INFER_CODESYSTEM"
+    }],
+    "severity" : "error",
+    "code" : "unknown",
+    "details" : {
+      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'"
+    },
+    "expression" : ["Bundle.entry[3].resource/*DocumentReference/null*/.content[0].attachment.contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 107
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 47
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Terminology_TX_NoValid_16"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')"
+    },
+    "expression" : ["Bundle.entry[3].resource/*DocumentReference/null*/.content[0].attachment.contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 102
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -174,12 +294,12 @@
     "details" : {
       "text" : "Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)"
     },
-    "expression" : ["Bundle.entry[2].resource/*Observation/null*/"]
+    "expression" : ["Bundle.entry[3].resource/*DocumentReference/null*/"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 187
+      "valueInteger" : 241
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -198,12 +318,12 @@
     "details" : {
       "text" : "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)"
     },
-    "expression" : ["Bundle.entry[3].resource/*DiagnosticReport/null*/.subject.identifier.type"]
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 152
+      "valueInteger" : 207
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -222,12 +342,84 @@
     "details" : {
       "text" : "A Reference without an actual reference or identifier should have a display"
     },
-    "expression" : ["Bundle.entry[3].resource/*DiagnosticReport/null*/.performer[0]"]
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/.performer[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 135
+      "valueInteger" : 233
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 45
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Unable_to_resolve_system__value_set_has_include_with_unknown_system"
+    }],
+    "severity" : "error",
+    "code" : "unknown",
+    "details" : {
+      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]"
+    },
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/.presentedForm[0].contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 233
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 45
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "UNABLE_TO_INFER_CODESYSTEM"
+    }],
+    "severity" : "error",
+    "code" : "unknown",
+    "details" : {
+      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'"
+    },
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/.presentedForm[0].contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 233
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 45
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "Terminology_TX_NoValid_16"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')"
+    },
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/.presentedForm[0].contentType"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 180
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -246,12 +438,12 @@
     "details" : {
       "text" : "Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)"
     },
-    "expression" : ["Bundle.entry[3].resource/*DiagnosticReport/null*/"]
+    "expression" : ["Bundle.entry[4].resource/*DiagnosticReport/null*/"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 152
+      "valueInteger" : 197
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -270,12 +462,12 @@
     "details" : {
       "text" : "This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)"
     },
-    "expression" : ["Bundle.entry[3].resource.performer[0]"]
+    "expression" : ["Bundle.entry[4].resource.extension[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 177
+      "valueInteger" : 207
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -294,12 +486,12 @@
     "details" : {
       "text" : "This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)"
     },
-    "expression" : ["Bundle.entry[3].resource.result[0]"]
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 135
+      "valueInteger" : 180
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -318,12 +510,12 @@
     "details" : {
       "text" : "DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
     },
-    "expression" : ["Bundle.entry[3].resource"]
+    "expression" : ["Bundle.entry[4].resource"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 135
+      "valueInteger" : 180
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -335,19 +527,19 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Validation_VAL_Profile_Minimum"
+      "valueCode" : "Extension_EXTP_Context_Wrong"
     }],
     "severity" : "error",
     "code" : "structure",
     "details" : {
-      "text" : "DiagnosticReport.presentedForm: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
+      "text" : "The extension http://hl7.org/fhir/StructureDefinition/workflow-supportingInfo is not allowed to be used at this point (this element is [Bundle.entry.resource]; allowed for this version = e:DiagnosticReport, e:Observation, e:CommunicationRequest)"
     },
-    "expression" : ["Bundle.entry[3].resource"]
+    "expression" : ["Bundle.entry[4].resource"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 147
+      "valueInteger" : 192
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -366,12 +558,12 @@
     "details" : {
       "text" : "DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
     },
-    "expression" : ["Bundle.entry[3].resource.code"]
+    "expression" : ["Bundle.entry[4].resource.code"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 147
+      "valueInteger" : 192
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -390,12 +582,12 @@
     "details" : {
       "text" : "Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice"
     },
-    "expression" : ["Bundle.entry[3].resource.code"]
+    "expression" : ["Bundle.entry[4].resource.code"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 152
+      "valueInteger" : 207
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -414,12 +606,12 @@
     "details" : {
       "text" : "The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)"
     },
-    "expression" : ["Bundle.entry[3].resource.performer[0]"]
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 152
+      "valueInteger" : 207
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -438,12 +630,12 @@
     "details" : {
       "text" : "DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
     },
-    "expression" : ["Bundle.entry[3].resource.performer[0]"]
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 152
+      "valueInteger" : 207
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -462,12 +654,12 @@
     "details" : {
       "text" : "DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0)"
     },
-    "expression" : ["Bundle.entry[3].resource.performer[0]"]
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 152
+      "valueInteger" : 207
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -486,6 +678,50 @@
     "details" : {
       "text" : "The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)"
     },
-    "expression" : ["Bundle.entry[3].resource.performer[0]"]
+    "expression" : ["Bundle.entry[4].resource.performer[0]"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 233
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 45
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "UNKNOWN_CODESYSTEM"
+    }],
+    "severity" : "warning",
+    "code" : "not-found",
+    "details" : {
+      "text" : "A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated"
+    },
+    "expression" : ["Bundle.entry[4].resource.presentedForm[0].contentType.system"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 233
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 45
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    }],
+    "severity" : "warning",
+    "code" : "code-invalid",
+    "details" : {
+      "text" : "A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated"
+    },
+    "expression" : ["Bundle.entry[4].resource.presentedForm[0].contentType"]
   }]
 }
