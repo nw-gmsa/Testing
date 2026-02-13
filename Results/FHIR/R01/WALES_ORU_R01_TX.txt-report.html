@@ -22,7 +22,7 @@
 <table cellspacing="0" border="0" style="width:500px; border:0; font-size: 14px;">
     <tr>
         <td style="text-align:right;">
-            <b><span>12, Feb 2026</span></b>
+            <b><span>13, Feb 2026</span></b>
         </td>
     </tr>
 </table>
@@ -38,25 +38,18 @@
   </thead>
   <tbody>
     <tr>
-      <th>27</th>
+      <th>26</th>
       <td>error</td>
       <td>structure</td>
-      <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td>
-      <td>[Bundle.entry[6].resource.code]</td>
+      <td>Unable to find a profile match for urn:uuid:2d43cb0e-96ea-4f9d-9dc0-c52ffe5351b6 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
+      <td>[Bundle.entry[6].resource.encounter]</td>
     </tr>
     <tr>
       <th>25</th>
       <td>error</td>
       <td>structure</td>
-      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/CorrelationIdentifier|0.1.0)</td>
-      <td>[Bundle.entry[6].resource.basedOn[0].identifier]</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Identifier.assigner: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/CorrelationIdentifier|0.1.0)</td>
-      <td>[Bundle.entry[6].resource.identifier[0]]</td>
+      <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0). Note that other slices are allowed in addition to this required slice</td>
+      <td>[Bundle.entry[6].resource.code]</td>
     </tr>
     <tr>
       <th>23</th>
@@ -83,8 +76,8 @@
       <th>28</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:e6d48fd9-b5b6-4288-8c91-48c7a81f384d among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
-      <td>[Bundle.entry[6].resource.encounter]</td>
+      <td>Unable to find a profile match for urn:uuid:f178cf5a-3ac3-477a-abe6-331f5d483dd4 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
+      <td>[Bundle.entry[6].resource.result[0]]</td>
     </tr>
     <tr>
       <th>0</th>
@@ -94,7 +87,14 @@
       <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>27</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:2d43cb0e-96ea-4f9d-9dc0-c52ffe5351b6 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td>
+      <td>[Bundle.entry[6].resource.encounter]</td>
+    </tr>
+    <tr>
+      <th>24</th>
       <td>information</td>
       <td>informational</td>
       <td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)</td>
@@ -125,8 +125,8 @@
       <th>29</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:e6d48fd9-b5b6-4288-8c91-48c7a81f384d matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.1.0</td>
-      <td>[Bundle.entry[6].resource.encounter]</td>
+      <td>Details for urn:uuid:f178cf5a-3ac3-477a-abe6-331f5d483dd4 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.1.0</td>
+      <td>[Bundle.entry[6].resource.result[0]]</td>
     </tr>
     <tr>
       <th>13</th>
