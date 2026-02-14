@@ -13,7 +13,7 @@ These patients are also registered on [NHS England Personal Demographics Service
 
 Note files must use CR or CRLF (not unix/mac LF)
 
-## Mac
+## Unstructured Report and Structured Order Examples
 
 ### Transform to FHIR
 
@@ -85,13 +85,24 @@ curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_SG9.txt" http://
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_ZT001.txt" http://192.168.1.20:9980
 
-
-## Windows
+### Windows
 
 `Invoke-RestMethod -Method POST -Uri http://localhost:9980 -InFile "Specifications/ManchesterFoundationTrust/OML_O21_PDF.txt"`
 `Invoke-RestMethod -Method POST -Uri http://localhost:9980 -InFile "Specifications/ManchesterFoundationTrust/ORU_R01_PDF.txt"`
 `Invoke-RestMethod -Method POST -Uri http://localhost:9980 -InFile "Examples/ORU_R01_PDF.txt"`
 `Invoke-RestMethod -Method POST -Uri http://localhost:9981/transformToFHIR -InFile "Examples/ORU_R01_PDF.txt"`
+
+## Structured Report Examples
+
+Examples are from [HL7 Lab Results Interface (LRI), Release 1 from May 2017](https://confluence.hl7.org/download/attachments/25559919/2018%2004%2003%20-%20V2%20LRI%20-%20Ch.%205%20CG%20and%20Code%20System%20Tables.pdf?api=v2)
+
+### Transform to FHIR
+
+curl --request POST --data-binary "@Input/V2/R01/LRI_GeneVariant-1.txt" http://192.168.1.20:9981/transformToFHIR
+
+### Send to HL7v2 Receiver
+
+curl --request POST --data-binary "@Input/V2/R01/LRI_GeneVariant-1.txt" http://192.168.1.20:9980
 
 
 ## WeasyPrint Issues
