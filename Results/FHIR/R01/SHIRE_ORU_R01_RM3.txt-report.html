@@ -38,24 +38,17 @@
   </thead>
   <tbody>
     <tr>
-      <th>25</th>
+      <th>12</th>
       <td>error</td>
-      <td>invalid</td>
-      <td>Profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0, Element matches more than one slice - organization, operator</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>error</td>
-      <td>invalid</td>
-      <td>Profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0, Element matches more than one slice - organization, organisation</td>
-      <td>[Bundle.entry[4].resource.performer[1]]</td>
+      <td>structure</td>
+      <td>The type 'DocumentReference' is not a valid Target for this element (must be one of [CanonicalType[http://hl7.org/fhir/StructureDefinition/Procedure], CanonicalType[http://hl7.org/fhir/StructureDefinition/Observation], CanonicalType[http://hl7.org/fhir/StructureDefinition/DiagnosticReport]])</td>
+      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.extension[0].extension[0].value.ofType(Reference)]</td>
     </tr>
     <tr>
       <th>23</th>
       <td>error</td>
       <td>invalid</td>
-      <td>Profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0, Element matches more than one slice - organization, organisation</td>
+      <td>Profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0, Element matches more than one slice - organization, operator</td>
       <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
@@ -66,21 +59,14 @@
       <td>[Bundle.entry[4].resource.category[0]]</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Slice 'DiagnosticReport.performer:organisation': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0). Note that other slices are allowed in addition to this required slice</td>
-      <td>[Bundle.entry[4].resource]</td>
-    </tr>
-    <tr>
-      <th>30</th>
+      <th>27</th>
       <td>error</td>
       <td>structure</td>
       <td>The extension http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.supportingInfo is not allowed to be used at this point (this element is [Bundle.entry.resource]; allowed for this version = e:DiagnosticReport)</td>
       <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>28</th>
       <td>error</td>
       <td>structure</td>
       <td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0)</td>
@@ -94,18 +80,11 @@
       <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.extension[0].extension[1].value.ofType(CodeableConcept).coding[0].system]</td>
     </tr>
     <tr>
-      <th>32</th>
+      <th>29</th>
       <td>error</td>
       <td>structure</td>
       <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0). Note that other slices are allowed in addition to this required slice</td>
       <td>[Bundle.entry[4].resource.code]</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>error</td>
-      <td>invalid</td>
-      <td>Profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0, Element matches more than one slice - organization, operator</td>
-      <td>[Bundle.entry[4].resource.performer[1]]</td>
     </tr>
     <tr>
       <th>13</th>
@@ -115,11 +94,18 @@
       <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.extension[0].extension[0].value.ofType(Reference)]</td>
     </tr>
     <tr>
-      <th>33</th>
+      <th>24</th>
+      <td>error</td>
+      <td>invalid</td>
+      <td>Profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0, Element matches more than one slice - organization, operator</td>
+      <td>[Bundle.entry[4].resource.performer[1]]</td>
+    </tr>
+    <tr>
+      <th>25</th>
       <td>error</td>
       <td>structure</td>
-      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
+      <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0)</td>
+      <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
       <th>7</th>
@@ -129,42 +115,35 @@
       <td>[Bundle.entry[3].resource/*DocumentReference/null*/.date]</td>
     </tr>
     <tr>
-      <th>34</th>
+      <th>31</th>
       <td>error</td>
       <td>structure</td>
       <td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0)</td>
       <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>35</th>
+      <th>32</th>
       <td>error</td>
       <td>structure</td>
       <td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0)</td>
       <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>36</th>
+      <th>33</th>
       <td>error</td>
       <td>structure</td>
       <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td>
       <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>30</th>
       <td>error</td>
       <td>structure</td>
-      <td>The type 'DocumentReference' is not a valid Target for this element (must be one of [CanonicalType[http://hl7.org/fhir/StructureDefinition/Procedure], CanonicalType[http://hl7.org/fhir/StructureDefinition/Observation], CanonicalType[http://hl7.org/fhir/StructureDefinition/DiagnosticReport]])</td>
-      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.extension[0].extension[0].value.ofType(Reference)]</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>27</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0)</td>
-      <td>[Bundle.entry[4].resource]</td>
-    </tr>
-    <tr>
-      <th>28</th>
+      <th>26</th>
       <td>information</td>
       <td>not-supported</td>
       <td>DiagnosticReport.category:Genetics: Found 0 matches, but unable to check minimum required (DiagnosticReport.category) due to lack of slicing validation (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.0)</td>
