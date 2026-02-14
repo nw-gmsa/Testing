@@ -62,7 +62,7 @@
       <th>168</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:004cc3c1-6a42-4caf-ae22-cf084639fada among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
+      <td>Unable to find a profile match for urn:uuid:6889c3c8-191b-4736-9bca-9169223efb47 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
       <td>[Bundle.entry[5].resource.result[0]]</td>
     </tr>
     <tr>
@@ -314,7 +314,7 @@
       <th>169</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:004cc3c1-6a42-4caf-ae22-cf084639fada matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.0</td>
+      <td>Details for urn:uuid:6889c3c8-191b-4736-9bca-9169223efb47 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.0</td>
       <td>[Bundle.entry[5].resource.result[0]]</td>
     </tr>
     <tr>
@@ -439,9 +439,9 @@
     <tr>
       <th>30</th>
       <td>warning</td>
-      <td>invalid</td>
-      <td>Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided</td>
-      <td>[Bundle.entry[10].resource/*Observation/null*/.value.ofType(CodeableConcept).coding[0]]</td>
+      <td>not-found</td>
+      <td>A definition for CodeSystem 'ACME' could not be found, so the code cannot be validated</td>
+      <td>[Bundle.entry[10].resource/*Observation/null*/.value.ofType(CodeableConcept).coding[0].system]</td>
     </tr>
     <tr>
       <th>142</th>

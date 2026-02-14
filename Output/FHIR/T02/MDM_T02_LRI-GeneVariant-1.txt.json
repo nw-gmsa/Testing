@@ -1,0 +1,2700 @@
+{
+    "resourceType": "Bundle",
+    "entry": [
+        {
+            "fullUrl": "urn:uuid:8e47fc49-19bc-4fe5-8d27-d9ff42b554ea",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "destination": [
+                    {
+                        "endpoint": "https//fhir.mft.nhs.uk/Endpoint/EPIC",
+                        "receiver": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        }
+                    }
+                ],
+                "eventCoding": {
+                    "code": "T02",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+                },
+                "focus": [
+                    {
+                        "reference": "urn:uuid:c518fd0d-fdc2-4c7e-bf06-332a732802ba"
+                    }
+                ],
+                "sender": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                        "value": "699X0"
+                    }
+                },
+                "source": {
+                    "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/IGENE",
+                    "software": "NW GLH"
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9",
+            "resource": {
+                "resourceType": "Patient",
+                "address": [
+                    {
+                        "postalCode": "CW12 1BN"
+                    }
+                ],
+                "birthDate": "1982--0-2-",
+                "gender": "female",
+                "identifier": [
+                    {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "R0A"
+                            }
+                        },
+                        "system": "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "MR",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "ABC14567"
+                    }
+                ],
+                "name": [
+                    {
+                        "family": "CONGLETON",
+                        "given": [
+                            "Margaery"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:72af581c-f293-4d82-a895-eb5ca44ce746",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "53577-3",
+                            "display": "Reason for study",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueString": "Patient may be carrier for classic galactosemia."
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:8007deda-153b-4566-9ff9-53cc27437d28",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "51967-8",
+                            "display": "Genetic disease(s) assessed",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "C0016952",
+                            "display": "Galactosemia",
+                            "system": "MedGen-Dis"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:4a06128a-af6c-4c73-b7df-65e1c3362695",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "51958-7",
+                            "display": "Transcript reference sequence [Identifier]",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "NM_000249",
+                            "display": "NM_000249",
+                            "system": "http://www.ncbi.nlm.nih.gov/refseq"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:65fb627f-1fea-41ba-9c57-d02bdd40edd4",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48018-6",
+                            "display": "Gene studied [ID]",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "4135",
+                            "display": "GALT",
+                            "system": "http://www.genenames.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:9f63bbed-5f5c-4f6d-ab03-04afa9ab16a1",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "36908-2",
+                            "display": "Gene mutations tested",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "-119_-116delGTCA",
+                            "display": "-119_-116delGTCA",
+                            "system": "http://varnomen.hgvs.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:37b26f25-0b1c-4379-8221-38fca8f812ea",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "36908-2",
+                            "display": "Gene mutations tested",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "Asp98Asn",
+                            "display": "Asp98Asn",
+                            "system": "http://varnomen.hgvs.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:836cf6e4-e305-4afe-b3ed-8a3406aac399",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "36908-2",
+                            "display": "Gene mutations tested",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "Gln188Arg",
+                            "display": "Gln188Arg",
+                            "system": "http://varnomen.hgvs.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:79efc42e-1ead-4ae9-80c6-c8bfc6f188d1",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "51968-6",
+                            "display": "Discrete variation analysis overall interpretation",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA6576-8",
+                            "display": "Positive",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:e30696c5-fdad-4414-ad58-91694725b854",
+            "resource": {
+                "resourceType": "Binary",
+                "contentType": "application/pdf",
+                "data": "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"
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:8c5808c9-c1de-49d9-b7aa-8263db69dcdf",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "content": [
+                    {
+                        "attachment": {
+                            "contentType": "application/pdf",
+                            "url": "urn:uuid:e30696c5-fdad-4414-ad58-91694725b854"
+                        }
+                    }
+                ],
+                "context": {
+                    "period": {
+                        "end": "2016-08-09T16:50:00+00:00",
+                        "start": "2016-08-09T16:50:00+00:00"
+                    },
+                    "related": [
+                        {
+                            "identifier": {
+                                "assigner": {
+                                    "identifier": {
+                                        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                        "value": "R0A"
+                                    }
+                                },
+                                "type": {
+                                    "coding": [
+                                        {
+                                            "code": "PLAC",
+                                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                        }
+                                    ]
+                                },
+                                "value": "LRI-1601716017"
+                            },
+                            "reference": "urn:uuid:e02c21e1-15d8-442f-919a-f55aa45e0ef3",
+                            "type": "ServiceRequest"
+                        },
+                        {
+                            "identifier": {
+                                "assigner": {
+                                    "identifier": {
+                                        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                        "value": "699X0"
+                                    }
+                                },
+                                "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                                "type": {
+                                    "coding": [
+                                        {
+                                            "code": "FILL",
+                                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                        }
+                                    ]
+                                },
+                                "value": "Gen825750"
+                            },
+                            "reference": "urn:uuid:c518fd0d-fdc2-4c7e-bf06-332a732802ba",
+                            "type": "DiagnosticReport"
+                        }
+                    ],
+                    "sourcePatientInfo": {
+                        "identifier": {
+                            "assigner": {
+                                "identifier": {
+                                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                    "value": "R0A"
+                                }
+                            },
+                            "system": "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
+                            "type": {
+                                "coding": [
+                                    {
+                                        "code": "MR",
+                                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                    }
+                                ]
+                            },
+                            "value": "ABC14567"
+                        }
+                    }
+                },
+                "custodian": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                        "value": "699X0"
+                    },
+                    "type": "Organization"
+                },
+                "date": "2016-08-09T16:50:00+00:00",
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "status": "current",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "type": {
+                    "coding": [
+                        {
+                            "code": "1054161000000101",
+                            "display": "Genetic report",
+                            "system": "http://snomed.info/sct"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:9abd8aba-47c2-42d6-8300-273a0324df42",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "62374-4",
+                            "display": "Human reference sequence assembly",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA14029-5",
+                            "display": "GRCh37",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:344cda4e-2b70-4eb1-86be-e3702db1c047",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "82115-7",
+                            "display": "dbSNP version",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueQuantity": {
+                    "system": "http://unitsofmeasure.org",
+                    "unit": "Attributes of Discrete Genetic Variants: Report Section 2",
+                    "value": 147
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:6cf4b2eb-38f6-44b7-a11b-f9a7f2c1a996",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "83005-9",
+                            "display": "Variant Category",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA26801-3",
+                            "display": "Simple Variant",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:5241bfdb-77c9-4312-84e0-a041e1ce80c9",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "81252-9",
+                            "display": "Discrete genetic variant",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "3614",
+                            "display": "NM_000155.3(GALT):c.563A>G(p.Gln188Arg)",
+                            "system": "http://www.ncbi.nlm.nih.gov/clinvar"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:a7e61f65-2522-41a2-811e-98faef502888",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48018-6",
+                            "display": "Gene studied",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "3614",
+                            "display": "GALT",
+                            "system": "http://www.genenames.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:2e140c3d-e7cc-4f58-92c1-5dbd067c5d00",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "51958-7",
+                            "display": "Transcript RefSeq ID",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "NM_000155.3",
+                            "display": "NM_000155.3",
+                            "system": "http://www.ncbi.nlm.nih.gov/refseq"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:80bbb3d5-f246-4fcb-837a-90f133c86171",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "41103-3",
+                            "display": "Transcript DNA Change (cHGVS)",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "c.563A>G",
+                            "display": "c.563A>G",
+                            "system": "http://varnomen.hgvs.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:22b949d8-0f31-4a7d-b3c8-86d57ba6ddcc",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48005-3",
+                            "display": "Amino acid change p.HGVS",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "p.Gln188Arg",
+                            "display": "p.Gln188Arg",
+                            "system": "http://varnomen.hgvs.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:67ea94b2-53a6-433d-a6d6-d876038b89c7",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48019-4",
+                            "display": "DNA change type",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA6690-7",
+                            "display": "Substitution",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:335aa119-6a8f-439e-ba07-0a891c427cbd",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48006-1",
+                            "display": "Amino Acid change type"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA6698-0",
+                            "display": "Missense",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:ce155b63-807b-49ad-8291-9d90bf903000",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48013-7",
+                            "display": "Genomic reference sequence",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "NG_009029.1:g.6533A>G",
+                            "display": "NG_009029.1:g.6533A>G",
+                            "system": "http://www.ncbi.nlm.nih.gov/refseq"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:38d4cccc-5bab-4714-8aa4-b70b8f351766",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "81290-9",
+                            "display": "Genomic DNA change(gHGVS)",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "NC_000009.11:g.34648167A>G",
+                            "display": "NC_000009.11:g.34648167A>G",
+                            "system": "http://varnomen.hgvs.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:6f34efb6-962b-4acc-a3d6-017c2a7b86c2",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69547-8",
+                            "display": "Genomic ref allele",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueString": "A"
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:dfa7c7bd-055c-49e5-8147-3472872c1f3b",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "81254-5",
+                            "display": "Genomic allele start-end",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:71b96cb5-f595-4de6-ad98-1202dfb7c2a1",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69551-0",
+                            "display": "Genomic alt allele",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueString": "G"
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:21ca99a5-d91f-485d-93ea-47ffe1e7b3fb",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "81255-2",
+                            "display": "dbSNP ID",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "rs75391579",
+                            "display": "rs75391579",
+                            "system": "http://www.ncbi.nlm.nih.gov/projects/SNP"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:80288b7b-34ea-4e9b-ac71-69e4a002b4aa",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48001-2",
+                            "display": "Cytogenetic (chromosome) location",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "9p13",
+                            "display": "9p13",
+                            "system": "Chrom-Loc"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:c9b927a2-cd25-4073-bb0d-199f9b5eabe1",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "48002-0",
+                            "display": "Genomic source class",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA6683-2",
+                            "display": "Germline",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:1e87dd94-a1ea-4ce7-ad81-3756774f7e2a",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "81304-8",
+                            "display": "Variant analysis method type",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA26418-6",
+                            "display": "PCR",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:85fcd86e-4514-4530-8843-a01c0cba3a21",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "53037-8",
+                            "display": "Genetic variation clinical significance",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA6668-3",
+                            "display": "Pathogenic",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:fb7448dd-5f27-464f-b996-a49266eeaeb7",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69548-6",
+                            "display": "Genetic variant assessment",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA9633-4",
+                            "display": "Present",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:80e13099-6571-4ece-887b-efbf6d09e7b8",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "81259-4",
+                            "display": "Probable associated phenotype",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "C0268151",
+                            "display": "Deficiency of UDPglucose-hexose-1-phosphateuridylyltransferase",
+                            "system": "MedGen-Dis"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:2766c8ba-9159-4342-9651-47cb4e5d986d",
+            "resource": {
+                "resourceType": "Observation",
+                "code": {
+                    "coding": [
+                        {
+                            "code": "53034-5",
+                            "display": "Allelic state",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA6706-1",
+                            "display": "Heterozygous",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:e02c21e1-15d8-442f-919a-f55aa45e0ef3",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "authoredOn": "2016-08-03",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "116148004",
+                                "system": "http://snomed.info/sct"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "42318-6",
+                            "display": "GALT gene targeted mutation analysis",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "R0A"
+                            }
+                        },
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "PLAC",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "LRI-1601716017"
+                    }
+                ],
+                "intent": "order",
+                "requester": {
+                    "display": "Manchester University NHS Foundation Trust",
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                        "value": "R0A"
+                    },
+                    "type": "Organization"
+                },
+                "status": "active",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:c518fd0d-fdc2-4c7e-bf06-332a732802ba",
+            "resource": {
+                "resourceType": "DiagnosticReport",
+                "basedOn": [
+                    {
+                        "identifier": {
+                            "assigner": {
+                                "identifier": {
+                                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                    "value": "R0A"
+                                }
+                            },
+                            "type": {
+                                "coding": [
+                                    {
+                                        "code": "PLAC",
+                                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                    }
+                                ]
+                            },
+                            "value": "LRI-1601716017"
+                        },
+                        "reference": "urn:uuid:e02c21e1-15d8-442f-919a-f55aa45e0ef3",
+                        "type": "ServiceRequest"
+                    }
+                ],
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "GE",
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "42318-6",
+                            "display": "GALT gene targeted mutation analysis",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "effectiveDateTime": "2016-08-09T16:50:00+00:00",
+                "extension": [
+                    {
+                        "extension": [
+                            {
+                                "url": "reference",
+                                "valueReference": {
+                                    "display": "Genetic report",
+                                    "reference": "urn:uuid:8c5808c9-c1de-49d9-b7aa-8263db69dcdf",
+                                    "type": "DocumentReference"
+                                }
+                            },
+                            {
+                                "url": "type",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "code": "SCI",
+                                            "system": "http://hl7.org/fhir/diagnosticreport-relevant-information-types"
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.supportingInfo"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750"
+                    }
+                ],
+                "performer": [
+                    {
+                        "display": "NHS North West Genomics",
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "presentedForm": [
+                    {
+                        "contentType": "application/pdf",
+                        "url": "urn:uuid:e30696c5-fdad-4414-ad58-91694725b854"
+                    }
+                ],
+                "result": [
+                    {
+                        "display": "Reason for study",
+                        "reference": "urn:uuid:72af581c-f293-4d82-a895-eb5ca44ce746",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genetic disease(s) assessed",
+                        "reference": "urn:uuid:8007deda-153b-4566-9ff9-53cc27437d28",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Transcript reference sequence [Identifier]",
+                        "reference": "urn:uuid:4a06128a-af6c-4c73-b7df-65e1c3362695",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Gene studied [ID]",
+                        "reference": "urn:uuid:65fb627f-1fea-41ba-9c57-d02bdd40edd4",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Gene mutations tested",
+                        "reference": "urn:uuid:9f63bbed-5f5c-4f6d-ab03-04afa9ab16a1",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Gene mutations tested",
+                        "reference": "urn:uuid:37b26f25-0b1c-4379-8221-38fca8f812ea",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Gene mutations tested",
+                        "reference": "urn:uuid:836cf6e4-e305-4afe-b3ed-8a3406aac399",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Discrete variation analysis overall interpretation",
+                        "reference": "urn:uuid:79efc42e-1ead-4ae9-80c6-c8bfc6f188d1",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Human reference sequence assembly",
+                        "reference": "urn:uuid:9abd8aba-47c2-42d6-8300-273a0324df42",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "dbSNP version",
+                        "reference": "urn:uuid:344cda4e-2b70-4eb1-86be-e3702db1c047",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Variant Category",
+                        "reference": "urn:uuid:6cf4b2eb-38f6-44b7-a11b-f9a7f2c1a996",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Discrete genetic variant",
+                        "reference": "urn:uuid:5241bfdb-77c9-4312-84e0-a041e1ce80c9",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Gene studied",
+                        "reference": "urn:uuid:a7e61f65-2522-41a2-811e-98faef502888",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Transcript RefSeq ID",
+                        "reference": "urn:uuid:2e140c3d-e7cc-4f58-92c1-5dbd067c5d00",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Transcript DNA Change (cHGVS)",
+                        "reference": "urn:uuid:80bbb3d5-f246-4fcb-837a-90f133c86171",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Amino acid change p.HGVS",
+                        "reference": "urn:uuid:22b949d8-0f31-4a7d-b3c8-86d57ba6ddcc",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "DNA change type",
+                        "reference": "urn:uuid:67ea94b2-53a6-433d-a6d6-d876038b89c7",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Amino Acid change type",
+                        "reference": "urn:uuid:335aa119-6a8f-439e-ba07-0a891c427cbd",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic reference sequence",
+                        "reference": "urn:uuid:ce155b63-807b-49ad-8291-9d90bf903000",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic DNA change(gHGVS)",
+                        "reference": "urn:uuid:38d4cccc-5bab-4714-8aa4-b70b8f351766",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic ref allele",
+                        "reference": "urn:uuid:6f34efb6-962b-4acc-a3d6-017c2a7b86c2",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic allele start-end",
+                        "reference": "urn:uuid:dfa7c7bd-055c-49e5-8147-3472872c1f3b",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic alt allele",
+                        "reference": "urn:uuid:71b96cb5-f595-4de6-ad98-1202dfb7c2a1",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "dbSNP ID",
+                        "reference": "urn:uuid:21ca99a5-d91f-485d-93ea-47ffe1e7b3fb",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Cytogenetic (chromosome) location",
+                        "reference": "urn:uuid:80288b7b-34ea-4e9b-ac71-69e4a002b4aa",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic source class",
+                        "reference": "urn:uuid:c9b927a2-cd25-4073-bb0d-199f9b5eabe1",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Variant analysis method type",
+                        "reference": "urn:uuid:1e87dd94-a1ea-4ce7-ad81-3756774f7e2a",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genetic variation clinical significance",
+                        "reference": "urn:uuid:85fcd86e-4514-4530-8843-a01c0cba3a21",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genetic variant assessment",
+                        "reference": "urn:uuid:fb7448dd-5f27-464f-b996-a49266eeaeb7",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Probable associated phenotype",
+                        "reference": "urn:uuid:80e13099-6571-4ece-887b-efbf6d09e7b8",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Allelic state",
+                        "reference": "urn:uuid:2766c8ba-9159-4342-9651-47cb4e5d986d",
+                        "type": "Observation"
+                    }
+                ],
+                "status": "unknown",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:805a010b-eede-41a9-ae9e-3992e98079c9"
+                }
+            }
+        }
+    ],
+    "identifier": {
+        "value": "ORIE-251014-9"
+    },
+    "timestamp": "2025-10-14T15:59:42+00:00",
+    "type": "message"
+}

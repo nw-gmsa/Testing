@@ -98,11 +98,13 @@ Examples are from [HL7 Lab Results Interface (LRI), Release 1 from May 2017](htt
 
 ### Transform to FHIR
 
-curl --request POST --data-binary "@Input/V2/R01/LRI_GeneVariant-1.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-2.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-3.txt" http://192.168.1.20:9981/transformToFHIR
 
 ### Send to HL7v2 Receiver
 
-curl --request POST --data-binary "@Input/V2/R01/LRI_GeneVariant-1.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9980
 
 
 ## WeasyPrint Issues
