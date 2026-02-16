@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:73a021b6-3005-4d58-aa10-78df7b053a0b",
+      "fullUrl": "urn:uuid:a3629efa-9d85-4086-899d-01ee778d3e13",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:1e40aa9e-7d72-49bc-b44d-5450f3b01eed"
+            "reference": "urn:uuid:e59407e4-1729-4a65-b9b5-8c21c59f2d81"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0b6017ca-fcd9-4528-a105-e2eed0314d51",
+      "fullUrl": "urn:uuid:005d209b-3c8d-4507-ab35-4c9a2cd07a2c",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -73,7 +73,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:73f5764c-a695-4a89-aadf-25b2cbb198cb",
+      "fullUrl": "urn:uuid:dfec2056-60e4-4245-850f-57e324672e9a",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -81,14 +81,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ed9ea940-0230-42f6-b831-0df52213ad6d",
+      "fullUrl": "urn:uuid:c6e20b7c-fa9d-4200-b4f9-cacc9eb824ef",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:73f5764c-a695-4a89-aadf-25b2cbb198cb"
+              "url": "urn:uuid:dfec2056-60e4-4245-850f-57e324672e9a"
             }
           }
         ],
@@ -116,7 +116,7 @@
                 },
                 "value": "1000152875"
               },
-              "reference": "urn:uuid:14b14bb1-738b-4a73-843a-c16ba9578f00",
+              "reference": "urn:uuid:2550538a-063c-493b-bcb0-1e91c10bb8bd",
               "type": "ServiceRequest"
             },
             {
@@ -138,7 +138,7 @@
                 },
                 "value": "T25-0212"
               },
-              "reference": "urn:uuid:1e40aa9e-7d72-49bc-b44d-5450f3b01eed",
+              "reference": "urn:uuid:e59407e4-1729-4a65-b9b5-8c21c59f2d81",
               "type": "DiagnosticReport"
             }
           ]
@@ -185,7 +185,7 @@
             },
             "value": "0101000000"
           },
-          "reference": "urn:uuid:0b6017ca-fcd9-4528-a105-e2eed0314d51"
+          "reference": "urn:uuid:005d209b-3c8d-4507-ab35-4c9a2cd07a2c"
         },
         "type": {
           "coding": [
@@ -199,7 +199,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:baab6f3a-965c-4465-a6c7-84e5f1ccfa4a",
+      "fullUrl": "urn:uuid:25e34bb3-7cd9-4222-8e54-12428d6d28d2",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -230,12 +230,12 @@
             },
             "value": "0101000000"
           },
-          "reference": "urn:uuid:0b6017ca-fcd9-4528-a105-e2eed0314d51"
+          "reference": "urn:uuid:005d209b-3c8d-4507-ab35-4c9a2cd07a2c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:14b14bb1-738b-4a73-843a-c16ba9578f00",
+      "fullUrl": "urn:uuid:2550538a-063c-493b-bcb0-1e91c10bb8bd",
       "resource": {
         "resourceType": "ServiceRequest",
         "category": [
@@ -297,7 +297,7 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:baab6f3a-965c-4465-a6c7-84e5f1ccfa4a",
+            "reference": "urn:uuid:25e34bb3-7cd9-4222-8e54-12428d6d28d2",
             "type": "Specimen"
           }
         ],
@@ -315,12 +315,12 @@
             },
             "value": "0101000000"
           },
-          "reference": "urn:uuid:0b6017ca-fcd9-4528-a105-e2eed0314d51"
+          "reference": "urn:uuid:005d209b-3c8d-4507-ab35-4c9a2cd07a2c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:1e40aa9e-7d72-49bc-b44d-5450f3b01eed",
+      "fullUrl": "urn:uuid:e59407e4-1729-4a65-b9b5-8c21c59f2d81",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -342,7 +342,7 @@
               },
               "value": "1000152875"
             },
-            "reference": "urn:uuid:14b14bb1-738b-4a73-843a-c16ba9578f00",
+            "reference": "urn:uuid:2550538a-063c-493b-bcb0-1e91c10bb8bd",
             "type": "ServiceRequest"
           }
         ],
@@ -371,32 +371,6 @@
           ]
         },
         "effectiveDateTime": "2025-10-14T15:59:16+00:00",
-        "extension": [
-          {
-            "extension": [
-              {
-                "url": "reference",
-                "valueReference": {
-                  "display": "Genetic report",
-                  "reference": "urn:uuid:ed9ea940-0230-42f6-b831-0df52213ad6d",
-                  "type": "DocumentReference"
-                }
-              },
-              {
-                "url": "type",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "SCI",
-                      "system": "http://hl7.org/fhir/diagnosticreport-relevant-information-types"
-                    }
-                  ]
-                }
-              }
-            ],
-            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.supportingInfo"
-          }
-        ],
         "identifier": [
           {
             "assigner": {
@@ -431,7 +405,7 @@
         "presentedForm": [
           {
             "contentType": "application/pdf",
-            "url": "urn:uuid:73f5764c-a695-4a89-aadf-25b2cbb198cb"
+            "url": "urn:uuid:dfec2056-60e4-4245-850f-57e324672e9a"
           }
         ],
         "resultsInterpreter": [
@@ -441,7 +415,7 @@
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:baab6f3a-965c-4465-a6c7-84e5f1ccfa4a",
+            "reference": "urn:uuid:25e34bb3-7cd9-4222-8e54-12428d6d28d2",
             "type": "Specimen"
           }
         ],
@@ -459,7 +433,7 @@
             },
             "value": "0101000000"
           },
-          "reference": "urn:uuid:0b6017ca-fcd9-4528-a105-e2eed0314d51"
+          "reference": "urn:uuid:005d209b-3c8d-4507-ab35-4c9a2cd07a2c"
         }
       }
     }
