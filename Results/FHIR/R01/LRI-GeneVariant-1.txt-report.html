@@ -38,11 +38,11 @@
   </thead>
   <tbody>
     <tr>
-      <th>60</th>
+      <th>62</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td>
-      <td>[Bundle.entry[8].resource.subject]</td>
+      <td>Unable to find a profile match for urn:uuid:96a207b4-ba2d-4792-bbfb-fca05ee0c4f7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel</td>
+      <td>[Bundle.entry[8].resource.result[0]]</td>
     </tr>
     <tr>
       <th>56</th>
@@ -52,11 +52,25 @@
       <td>[Bundle.entry[8].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>62</th>
+      <th>55</th>
+      <td>error</td>
+      <td>processing</td>
+      <td>Slicing cannot be evaluated: Could not match discriminator ($this) for slice DiagnosticReport.category:Genetics in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1 - the discriminator [$this] does not have fixed value, binding or existence assertions</td>
+      <td>[Bundle.entry[8].resource.category[0]]</td>
+    </tr>
+    <tr>
+      <th>64</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:cdd477e7-9fbc-4391-95c6-8e69a4121ca6 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
+      <td>Unable to find a profile match for urn:uuid:96a207b4-ba2d-4792-bbfb-fca05ee0c4f7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
       <td>[Bundle.entry[8].resource.result[0]]</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Unable to find a profile match for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td>
+      <td>[Bundle.entry[8].resource.subject]</td>
     </tr>
     <tr>
       <th>59</th>
@@ -66,38 +80,24 @@
       <td>[Bundle.entry[8].resource.code]</td>
     </tr>
     <tr>
-      <th>64</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:6f11285f-fc92-433d-b001-36150aa4afe7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant</td>
-      <td>[Bundle.entry[8].resource.result[1]]</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>error</td>
-      <td>processing</td>
-      <td>Slicing cannot be evaluated: Could not match discriminator ($this) for slice DiagnosticReport.category:Genetics in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1 - the discriminator [$this] does not have fixed value, binding or existence assertions</td>
-      <td>[Bundle.entry[8].resource.category[0]]</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:6f11285f-fc92-433d-b001-36150aa4afe7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
-      <td>[Bundle.entry[8].resource.result[1]]</td>
-    </tr>
-    <tr>
       <th>68</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:61d28885-caa2-4f41-b135-144b39c136d0 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication</td>
-      <td>[Bundle.entry[8].resource.result[2]]</td>
+      <td>Unable to find a profile match for urn:uuid:01544798-1989-40c0-8c84-9739689d43e8 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
+      <td>[Bundle.entry[8].resource.result[1]]</td>
     </tr>
     <tr>
       <th>70</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:61d28885-caa2-4f41-b135-144b39c136d0 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
+      <td>Unable to find a profile match for urn:uuid:542a39ce-8761-495c-8830-e807f973a4d7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication</td>
+      <td>[Bundle.entry[8].resource.result[2]]</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Unable to find a profile match for urn:uuid:542a39ce-8761-495c-8830-e807f973a4d7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
       <td>[Bundle.entry[8].resource.result[2]]</td>
     </tr>
     <tr>
@@ -106,6 +106,20 @@
       <td>invalid</td>
       <td>Not a valid date format: '1982--0-2-'</td>
       <td>[Bundle.entry[1].resource/*Patient/null*/.birthDate]</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Unable to find a profile match for urn:uuid:01544798-1989-40c0-8c84-9739689d43e8 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant</td>
+      <td>[Bundle.entry[8].resource.result[1]]</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[8].resource/*DiagnosticReport/null*/.subject]</td>
     </tr>
     <tr>
       <th>40</th>
@@ -122,109 +136,11 @@
       <td>[Bundle.entry[8].resource]</td>
     </tr>
     <tr>
-      <th>26</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/.subject]</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject]</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:3756906b-67e9-4522-acf6-85f168535e55' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[10]]</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>information</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/.category[1]]</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[4].resource/*DocumentReference/null*/.subject]</td>
-    </tr>
-    <tr>
       <th>41</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>Details for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
       <td>[Bundle.entry[6].resource/*Observation/null*/.subject]</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[8].resource/*DiagnosticReport/null*/.subject]</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient|0.2.1</td>
-      <td>[Bundle.entry[8].resource.subject]</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:cdd477e7-9fbc-4391-95c6-8e69a4121ca6 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
-      <td>[Bundle.entry[8].resource.result[0]]</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:6f11285f-fc92-433d-b001-36150aa4afe7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1</td>
-      <td>[Bundle.entry[8].resource.result[1]]</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:6f11285f-fc92-433d-b001-36150aa4afe7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
-      <td>[Bundle.entry[8].resource.result[1]]</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:da8b2d43-99e8-45dd-9e98-4f70b6038000 matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
-      <td>[Bundle.entry[2].resource/*Observation/null*/.subject]</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>information</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td>
-      <td>[Bundle.entry[2].resource/*Observation/null*/.category[1]]</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:61d28885-caa2-4f41-b135-144b39c136d0 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1</td>
-      <td>[Bundle.entry[8].resource.result[2]]</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:61d28885-caa2-4f41-b135-144b39c136d0 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
-      <td>[Bundle.entry[8].resource.result[2]]</td>
     </tr>
     <tr>
       <th>58</th>
@@ -234,11 +150,102 @@
       <td>[Bundle.entry[8].resource.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>46</th>
-      <td>warning</td>
+      <th>54</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:0c3e8ee6-2b5d-4474-97ef-793502ee851e' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[10]]</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject]</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>information</td>
       <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
+      <td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td>
+      <td>[Bundle.entry[5].resource/*Observation/null*/.category[1]]</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:542a39ce-8761-495c-8830-e807f973a4d7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
+      <td>[Bundle.entry[8].resource.result[2]]</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:542a39ce-8761-495c-8830-e807f973a4d7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1</td>
+      <td>[Bundle.entry[8].resource.result[2]]</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>information</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td>
+      <td>[Bundle.entry[2].resource/*Observation/null*/.category[1]]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[2].resource/*Observation/null*/.subject]</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[5].resource/*Observation/null*/.subject]</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:01544798-1989-40c0-8c84-9739689d43e8 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1</td>
+      <td>[Bundle.entry[8].resource.result[1]]</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:01544798-1989-40c0-8c84-9739689d43e8 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
+      <td>[Bundle.entry[8].resource.result[1]]</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:96a207b4-ba2d-4792-bbfb-fca05ee0c4f7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
+      <td>[Bundle.entry[8].resource.result[0]]</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:96a207b4-ba2d-4792-bbfb-fca05ee0c4f7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1</td>
+      <td>[Bundle.entry[8].resource.result[0]]</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd matching against profile http://hl7.org/fhir/StructureDefinition/Patient|4.0.1</td>
+      <td>[Bundle.entry[4].resource/*DocumentReference/null*/.subject]</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:4d07bf36-1da5-4eb2-99c7-32a9fe0789cd matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient|0.2.1</td>
+      <td>[Bundle.entry[8].resource.subject]</td>
     </tr>
     <tr>
       <th>49</th>
@@ -248,18 +255,25 @@
       <td>[Bundle.entry[8].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>36</th>
-      <td>warning</td>
-      <td>not-found</td>
-      <td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/projects/SNP' could not be found, so the code cannot be validated</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/.component[12].value.ofType(CodeableConcept).coding[0].system]</td>
-    </tr>
-    <tr>
-      <th>42</th>
+      <th>46</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[6].resource/*Observation/null*/.subject.identifier.type]</td>
+      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>warning</td>
+      <td>not-found</td>
+      <td>A definition for CodeSystem 'Chrom-Loc' could not be found, so the code cannot be validated</td>
+      <td>[Bundle.entry[5].resource/*Observation/null*/.component[13].value.ofType(CodeableConcept).coding[0].system]</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>warning</td>
+      <td>not-found</td>
+      <td>A definition for CodeSystem 'MedGen-Dis' could not be found, so the code cannot be validated</td>
+      <td>[Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept).coding[0].system]</td>
     </tr>
     <tr>
       <th>1</th>
@@ -339,13 +353,6 @@
       <td>[Bundle.entry[5].resource/*Observation/null*/]</td>
     </tr>
     <tr>
-      <th>27</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
       <th>28</th>
       <td>warning</td>
       <td>not-found</td>
@@ -402,11 +409,11 @@
       <td>[Bundle.entry[5].resource/*Observation/null*/.component[8].value.ofType(CodeableConcept).coding[0].system]</td>
     </tr>
     <tr>
-      <th>37</th>
+      <th>36</th>
       <td>warning</td>
       <td>not-found</td>
-      <td>A definition for CodeSystem 'Chrom-Loc' could not be found, so the code cannot be validated</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/.component[13].value.ofType(CodeableConcept).coding[0].system]</td>
+      <td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/projects/SNP' could not be found, so the code cannot be validated</td>
+      <td>[Bundle.entry[5].resource/*Observation/null*/.component[12].value.ofType(CodeableConcept).coding[0].system]</td>
     </tr>
     <tr>
       <th>39</th>
@@ -416,11 +423,18 @@
       <td>[Bundle.entry[6].resource/*Observation/null*/]</td>
     </tr>
     <tr>
-      <th>43</th>
+      <th>42</th>
       <td>warning</td>
-      <td>not-found</td>
-      <td>A definition for CodeSystem 'MedGen-Dis' could not be found, so the code cannot be validated</td>
-      <td>[Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept).coding[0].system]</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[6].resource/*Observation/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type]</td>
     </tr>
   </tbody>
 </table>
