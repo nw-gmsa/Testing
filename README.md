@@ -103,6 +103,10 @@ curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-2.txt" http://1
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-3.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-4.txt" http://192.168.1.20:9981/transformToFHIR
 
+### Transform to V2
+
+curl --request POST --data-binary "@Output/FHIR/R01/LRI-GeneVariant-2.txt.json" http://192.168.1.20:9981/transformToV2
+
 ### Send to HL7v2 Receiver
 
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9980
