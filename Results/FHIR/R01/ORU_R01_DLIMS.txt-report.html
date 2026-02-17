@@ -22,7 +22,7 @@
 <table cellspacing="0" border="0" style="width:500px; border:0; font-size: 14px;">
     <tr>
         <td style="text-align:right;">
-            <b><span>16, Feb 2026</span></b>
+            <b><span>17, Feb 2026</span></b>
         </td>
     </tr>
 </table>
@@ -40,23 +40,37 @@
     <tr>
       <th>27</th>
       <td>error</td>
-      <td>invalid</td>
-      <td>Profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1, Element matches more than one slice - organization, operator</td>
-      <td>[Bundle.entry[6].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>error</td>
       <td>processing</td>
       <td>Slicing cannot be evaluated: Could not match discriminator ($this) for slice DiagnosticReport.category:Genetics in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1 - the discriminator [$this] does not have fixed value, binding or existence assertions</td>
       <td>[Bundle.entry[6].resource.category[0]]</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>16</th>
       <td>information</td>
       <td>business-rule</td>
       <td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.2.1</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.reasonCode[0]]</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' - change from https: to http:</td>
+      <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>information</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP#CCP19v1_R112, https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R112.1)</td>
+      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code]</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>Entry 'urn:uuid:e874c6e3-52d6-4fef-80e3-9d89afd8c922' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>[Bundle.entry[8]]</td>
     </tr>
     <tr>
       <th>28</th>
@@ -73,28 +87,28 @@
       <td>[Bundle.entry[6].resource.code.coding[0]]</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>Entry 'urn:uuid:2e710005-6298-4c51-a925-77d37dae07f1' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
-      <td>[Bundle.entry[8]]</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>information</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP#CCP19v1_R112, https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R112.1)</td>
-      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code]</td>
-    </tr>
-    <tr>
-      <th>20</th>
+      <th>21</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>19</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>Unknown Code 'R112.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
+      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code.coding[1].code]</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>17</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>Unknown Code 'R112' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
@@ -104,43 +118,29 @@
       <th>14</th>
       <td>warning</td>
       <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>warning</td>
-      <td>code-invalid</td>
       <td>Unknown Code 'R112.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
       <td>[Bundle.entry[5].resource/*ServiceRequest/null*/.code.coding[0].code]</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>12</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[4].resource/*Specimen/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>7</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[1].resource/*Patient/null*/.identifier[0].type]</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>Unknown Code 'R112.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
-      <td>[Bundle.entry[6].resource/*DiagnosticReport/null*/.code.coding[1].code]</td>
     </tr>
   </tbody>
 </table>
