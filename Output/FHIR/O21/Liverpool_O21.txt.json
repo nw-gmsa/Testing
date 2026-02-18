@@ -1,0 +1,683 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:b78e5f5f-a6c4-4627-9349-8f12ea6caeff",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/LIMS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:c5cc04dc-33dc-47b1-b547-8f89c334383a"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "REP"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48",
+      "resource": {
+        "resourceType": "Patient",
+        "address": [
+          {
+            "city": "Liverpool",
+            "line": [
+              "15 Town Road"
+            ],
+            "postalCode": "L1 0AJ"
+          }
+        ],
+        "birthDate": "1996-04-15",
+        "gender": "female",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "https://liverpoolwomens.nhs.uk/Id/medical-record-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "W0007125"
+          }
+        ],
+        "name": [
+          {
+            "family": "test",
+            "given": [
+              "biochemistry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ca04591a-a7ec-4ed0-9125-e7046088fed8",
+      "resource": {
+        "resourceType": "Encounter",
+        "class": {
+          "code": "OBSENC",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "L00000073528"
+          }
+        ],
+        "status": "finished",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:edfe0c2c-3fba-4eee-868d-c289ed02e31e",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Referring-Clinician-Telephone:",
+              "display": "01512277372"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6e382e18-c79c-4b94-9bf8-ec0c5ce34baa",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Age-at-collection:",
+              "display": "123"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:57b46425-7dce-40e4-9320-5d4b0b6bd6c3",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Has-consent-been-obtained-for-tests?",
+              "display": "Y"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f5eccbdb-b50a-4c0c-9461-e2840fd2a476",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Referring-Clinician-Email:",
+              "display": "EMERSON.WONG@LWH.NHS.UK"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c65dff67-b3a9-4000-9226-5426a4ca0f48",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Does-this-test-relate-to-an-ongoing-pregnancy?",
+              "display": "N"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:371fada4-beb3-4149-b20f-f2f773e37dfe",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Patient-gestation:",
+              "display": "2"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:58a73341-e127-4c2a-9213-dfc557239e42",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Referring-Clinician-Current-Speciality:",
+              "display": "obs"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:12cc4054-e5fe-45c6-ac4b-6090c3153a8b",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Patient-is-from-consanguineous-union?",
+              "display": "Unknown"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b332439c-46c8-43c7-b82a-c921c781cf7e",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Referring-Organisation-ODS-code:",
+              "display": "Liverpool Women's Hospital"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:170549ef-88f2-4705-be40-7cfa89c22a3f",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Secondary-Clinician-Email:",
+              "display": "EMERSON.WONG@LWH.NHS.UK"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d9f6ba8b-863f-47ff-aa63-d37387155d6a",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Does-this-test-relate-to-a-pregnancy-with->-1-fetus?",
+              "display": "N"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a47ba168-0b2a-4455-83c2-ecb587f34099",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Is-this-test-for-a-decreased-infant-or-pregnancy-loss?",
+              "display": "Yes"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c2a7f180-8ad6-4671-8dac-0af4113e25a6",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Patient-expected-delivery-date:",
+              "display": "06/11/25"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ff9d78ed-99bd-431b-8c39-620fa6188707",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Is-the-test-done-in-the-prenatal-or-neonatal-period?",
+              "display": "Neonatal"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b810a7ea-e73b-4778-8561-5f7776b5352f",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Referring-Clinician-Name:",
+              "display": "emerson wong"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6b7ba35a-707b-41d7-bb1a-18207c35f629",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "text": "Unknown observation code"
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c923efec-06c5-446f-8077-3651f0ec26cc",
+      "resource": {
+        "resourceType": "Specimen",
+        "status": "unavailable",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c5cc04dc-33dc-47b1-b547-8f89c334383a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "authoredOn": "2025-11-06T13:53:39+00:00",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "R250.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "encounter": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "L00000073528"
+          },
+          "reference": "urn:uuid:ca04591a-a7ec-4ed0-9125-e7046088fed8"
+        },
+        "intent": "order",
+        "specimen": [
+          {
+            "reference": "urn:uuid:c923efec-06c5-446f-8077-3651f0ec26cc",
+            "type": "Specimen"
+          }
+        ],
+        "status": "active",
+        "subject": {
+          "reference": "urn:uuid:80d1297d-aa3b-4b1a-b7ac-1f2816bd1b48"
+        },
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:edfe0c2c-3fba-4eee-868d-c289ed02e31e",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:6e382e18-c79c-4b94-9bf8-ec0c5ce34baa",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:57b46425-7dce-40e4-9320-5d4b0b6bd6c3",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:f5eccbdb-b50a-4c0c-9461-e2840fd2a476",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:c65dff67-b3a9-4000-9226-5426a4ca0f48",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:371fada4-beb3-4149-b20f-f2f773e37dfe",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:58a73341-e127-4c2a-9213-dfc557239e42",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:12cc4054-e5fe-45c6-ac4b-6090c3153a8b",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:b332439c-46c8-43c7-b82a-c921c781cf7e",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:170549ef-88f2-4705-be40-7cfa89c22a3f",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:d9f6ba8b-863f-47ff-aa63-d37387155d6a",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:a47ba168-0b2a-4455-83c2-ecb587f34099",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:c2a7f180-8ad6-4671-8dac-0af4113e25a6",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:ff9d78ed-99bd-431b-8c39-620fa6188707",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:b810a7ea-e73b-4778-8561-5f7776b5352f",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:6b7ba35a-707b-41d7-bb1a-18207c35f629",
+            "type": "Observation"
+          }
+        ]
+      }
+    }
+  ],
+  "identifier": {
+    "value": "b4130d36-79d8-4b27-9813-418ab2e3a30d"
+  },
+  "timestamp": "2026-02-02T22:18:41+00:00",
+  "type": "message"
+}
