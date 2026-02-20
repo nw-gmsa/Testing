@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:20628963-ec98-4319-a2b2-34d3ebb047fe",
+            "fullUrl": "urn:uuid:94bdce0f-9426-412c-a77c-fde591007aa8",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:b83b4622-ec4d-454a-ba5e-0c968e2a07a1"
+                        "reference": "urn:uuid:176b32d8-69fc-4896-8dc7-da758a723483"
                     }
                 ],
                 "sender": {
@@ -38,7 +38,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:d2d91a7c-8614-4317-a28b-1219ec9e997c",
+            "fullUrl": "urn:uuid:64502d2a-0b84-47b1-8f17-4870ce88f337",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -86,6 +86,7 @@
                                 "value": "RBS"
                             }
                         },
+                        "system": "http://www.acme.org/patient/identifier",
                         "type": {
                             "coding": [
                                 {
@@ -108,7 +109,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:e8d69be4-40fc-46e9-a905-0434f7d7d7cd",
+            "fullUrl": "urn:uuid:72cd4aea-98a3-4c92-97fe-fb1652575219",
             "resource": {
                 "resourceType": "Binary",
                 "contentType": "application/pdf",
@@ -116,14 +117,14 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:8546daa4-5040-4f20-b040-c03672318994",
+            "fullUrl": "urn:uuid:c6a68742-e8a7-43fe-8bc9-36106b205697",
             "resource": {
                 "resourceType": "DocumentReference",
                 "content": [
                     {
                         "attachment": {
                             "contentType": "application/pdf",
-                            "url": "urn:uuid:e8d69be4-40fc-46e9-a905-0434f7d7d7cd"
+                            "url": "urn:uuid:72cd4aea-98a3-4c92-97fe-fb1652575219"
                         }
                     }
                 ],
@@ -151,7 +152,7 @@
                                 },
                                 "value": "1000152867"
                             },
-                            "reference": "urn:uuid:415f3fbb-2ed1-4998-837c-ac133f88b306",
+                            "reference": "urn:uuid:57cc9196-8454-4721-90d7-e83ff64ab652",
                             "type": "ServiceRequest"
                         },
                         {
@@ -173,7 +174,7 @@
                                 },
                                 "value": "T25-0207"
                             },
-                            "reference": "urn:uuid:b83b4622-ec4d-454a-ba5e-0c968e2a07a1",
+                            "reference": "urn:uuid:176b32d8-69fc-4896-8dc7-da758a723483",
                             "type": "DiagnosticReport"
                         }
                     ],
@@ -185,6 +186,7 @@
                                     "value": "RBS"
                                 }
                             },
+                            "system": "http://www.acme.org/patient/identifier",
                             "type": {
                                 "coding": [
                                     {
@@ -239,7 +241,7 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:d2d91a7c-8614-4317-a28b-1219ec9e997c"
+                    "reference": "urn:uuid:64502d2a-0b84-47b1-8f17-4870ce88f337"
                 },
                 "type": {
                     "coding": [
@@ -253,7 +255,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:05b42183-9304-455e-902c-489f44eb5d12",
+            "fullUrl": "urn:uuid:5ee586eb-07e8-490b-99eb-21d27a9bb6b6",
             "resource": {
                 "resourceType": "Specimen",
                 "identifier": [
@@ -284,12 +286,12 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:d2d91a7c-8614-4317-a28b-1219ec9e997c"
+                    "reference": "urn:uuid:64502d2a-0b84-47b1-8f17-4870ce88f337"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:415f3fbb-2ed1-4998-837c-ac133f88b306",
+            "fullUrl": "urn:uuid:57cc9196-8454-4721-90d7-e83ff64ab652",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "category": [
@@ -304,6 +306,10 @@
                 ],
                 "code": {
                     "coding": [
+                        {
+                            "code": "R125.1",
+                            "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+                        },
                         {
                             "code": "R125.1",
                             "display": "Thoracic aortic aneurysm or dissection (WES or Medium Panel)",
@@ -351,7 +357,7 @@
                 },
                 "specimen": [
                     {
-                        "reference": "urn:uuid:05b42183-9304-455e-902c-489f44eb5d12",
+                        "reference": "urn:uuid:5ee586eb-07e8-490b-99eb-21d27a9bb6b6",
                         "type": "Specimen"
                     }
                 ],
@@ -369,12 +375,12 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:d2d91a7c-8614-4317-a28b-1219ec9e997c"
+                    "reference": "urn:uuid:64502d2a-0b84-47b1-8f17-4870ce88f337"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:b83b4622-ec4d-454a-ba5e-0c968e2a07a1",
+            "fullUrl": "urn:uuid:176b32d8-69fc-4896-8dc7-da758a723483",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -396,7 +402,7 @@
                             },
                             "value": "1000152867"
                         },
-                        "reference": "urn:uuid:415f3fbb-2ed1-4998-837c-ac133f88b306",
+                        "reference": "urn:uuid:57cc9196-8454-4721-90d7-e83ff64ab652",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -413,9 +419,7 @@
                 "code": {
                     "coding": [
                         {
-                            "code": "R125_Cardiology",
-                            "display": "PANEL: R125.1, R125.2 - Thoracic aortic aneurysm and dissection v1.2",
-                            "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP"
+                            "code": "R125.1"
                         },
                         {
                             "code": "R125.1",
@@ -459,7 +463,7 @@
                 "presentedForm": [
                     {
                         "contentType": "application/pdf",
-                        "url": "urn:uuid:e8d69be4-40fc-46e9-a905-0434f7d7d7cd"
+                        "url": "urn:uuid:72cd4aea-98a3-4c92-97fe-fb1652575219"
                     }
                 ],
                 "resultsInterpreter": [
@@ -469,7 +473,7 @@
                 ],
                 "specimen": [
                     {
-                        "reference": "urn:uuid:05b42183-9304-455e-902c-489f44eb5d12",
+                        "reference": "urn:uuid:5ee586eb-07e8-490b-99eb-21d27a9bb6b6",
                         "type": "Specimen"
                     }
                 ],
@@ -487,7 +491,7 @@
                         },
                         "value": "9737383192"
                     },
-                    "reference": "urn:uuid:d2d91a7c-8614-4317-a28b-1219ec9e997c"
+                    "reference": "urn:uuid:64502d2a-0b84-47b1-8f17-4870ce88f337"
                 }
             }
         }

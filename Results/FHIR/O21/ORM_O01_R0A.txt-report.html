@@ -22,7 +22,7 @@
 <table cellspacing="0" border="0" style="width:500px; border:0; font-size: 14px;">
     <tr>
         <td style="text-align:right;">
-            <b><span>18, Feb 2026</span></b>
+            <b><span>20, Feb 2026</span></b>
         </td>
     </tr>
 </table>
@@ -38,24 +38,17 @@
   </thead>
   <tbody>
     <tr>
-      <th>57</th>
+      <th>56</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:56769038-eed0-4d20-abf0-68b996725c43 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td>
+      <td>Unable to find a profile match for urn:uuid:5fe258c2-3eb3-4971-a8d6-0e4a46e7afba among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient</td>
       <td>[Bundle.entry[3].resource.subject]</td>
     </tr>
     <tr>
-      <th>55</th>
-      <td>error</td>
-      <td>processing</td>
-      <td>Slicing cannot be evaluated: Could not match discriminator (type) for slice ServiceRequest.identifier:OrderFillerNumber in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest|0.2.1 - the discriminator [type] does not have fixed value, binding or existence assertions</td>
-      <td>[Bundle.entry[3].resource.identifier[0]]</td>
-    </tr>
-    <tr>
-      <th>59</th>
+      <th>58</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:9f518f1d-b492-401a-8b03-56db69f8d95f among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Organization, https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole</td>
+      <td>Unable to find a profile match for urn:uuid:0c16d3dd-6de7-45dc-ad5c-d780affa77a7 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Organization, https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole</td>
       <td>[Bundle.entry[3].resource.requester]</td>
     </tr>
     <tr>
@@ -66,32 +59,32 @@
       <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
     </tr>
     <tr>
-      <th>58</th>
+      <th>57</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:56769038-eed0-4d20-abf0-68b996725c43 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient|0.2.1</td>
+      <td>Details for urn:uuid:5fe258c2-3eb3-4971-a8d6-0e4a46e7afba matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient|0.2.1</td>
       <td>[Bundle.entry[3].resource.subject]</td>
     </tr>
     <tr>
-      <th>56</th>
+      <th>55</th>
       <td>information</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'UK Core Procedure Code' (https://fhir.hl7.org.uk/ValueSet/UKCore-ProcedureCode|2.2.0), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R132.1)</td>
       <td>[Bundle.entry[3].resource.code]</td>
     </tr>
     <tr>
-      <th>60</th>
+      <th>59</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:9f518f1d-b492-401a-8b03-56db69f8d95f matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole|0.2.1</td>
+      <td>Details for urn:uuid:0c16d3dd-6de7-45dc-ad5c-d780affa77a7 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole|0.2.1</td>
       <td>[Bundle.entry[3].resource.requester]</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>35</th>
       <td>warning</td>
       <td>code-invalid</td>
-      <td>Unknown Code '230056' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
-      <td>[Bundle.entry[4].resource/*Observation/null*/.code.coding[0].code]</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[13].resource/*Observation/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
       <th>37</th>
@@ -185,13 +178,6 @@
       <td>[Bundle.entry[1].resource/*Patient/null*/.identifier[1].type]</td>
     </tr>
     <tr>
-      <th>35</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[13].resource/*Observation/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
       <th>34</th>
       <td>warning</td>
       <td>code-invalid</td>
@@ -204,6 +190,20 @@
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[12].resource/*Observation/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>Unknown Code '230100' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
+      <td>[Bundle.entry[12].resource/*Observation/null*/.code.coding[0].code]</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>Unknown Code '230056' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
+      <td>[Bundle.entry[4].resource/*Observation/null*/.code.coding[0].code]</td>
     </tr>
     <tr>
       <th>8</th>
@@ -255,11 +255,18 @@
       <td>[Bundle.entry[7].resource/*Observation/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>5</th>
       <td>warning</td>
       <td>code-invalid</td>
-      <td>Unknown Code '231610' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
-      <td>[Bundle.entry[8].resource/*Observation/null*/.code.coding[0].code]</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[3].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[8].resource/*Observation/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
       <th>22</th>
@@ -297,32 +304,18 @@
       <td>[Bundle.entry[11].resource/*Observation/null*/.code.coding[0].code]</td>
     </tr>
     <tr>
+      <th>19</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>Unknown Code '231610' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
+      <td>[Bundle.entry[8].resource/*Observation/null*/.code.coding[0].code]</td>
+    </tr>
+    <tr>
       <th>29</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[11].resource/*Observation/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[3].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>Unknown Code '230100' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td>
-      <td>[Bundle.entry[12].resource/*Observation/null*/.code.coding[0].code]</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[8].resource/*Observation/null*/.subject.identifier.type]</td>
     </tr>
   </tbody>
 </table>
