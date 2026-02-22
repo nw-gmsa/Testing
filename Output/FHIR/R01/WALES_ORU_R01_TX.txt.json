@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:3d4b9948-8f9a-41ab-81aa-9154a98b3ac1",
+      "fullUrl": "urn:uuid:7c2e7d34-12e6-43f4-989c-b8c4f8ed7766",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:744aa966-9104-4479-bec2-3c6fef775674"
+            "reference": "urn:uuid:6f449919-a2f8-4250-8580-d62a5e63e2a7"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:deb86dd0-1da9-4370-a4ce-4141f8991171",
+      "fullUrl": "urn:uuid:28d779bb-6422-45de-b7ea-9c37d285bc5c",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -105,12 +105,19 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:aae47cb2-7526-45df-a7f0-646772b7b0db",
+      "fullUrl": "urn:uuid:12733dc4-e9a3-423c-bf82-c322eee666c3",
       "resource": {
         "resourceType": "Encounter",
         "class": {
           "code": "OBSENC",
           "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+        },
+        "serviceType": {
+          "coding": [
+            {
+              "code": "CAR"
+            }
+          ]
         },
         "status": "finished",
         "subject": {
@@ -132,12 +139,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:deb86dd0-1da9-4370-a4ce-4141f8991171"
+          "reference": "urn:uuid:28d779bb-6422-45de-b7ea-9c37d285bc5c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:373f2ce8-ad38-4497-bea8-49e1478de69c",
+      "fullUrl": "urn:uuid:2703431a-6906-49a0-adba-91d9d9fbfe1b",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -186,13 +193,13 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:deb86dd0-1da9-4370-a4ce-4141f8991171"
+          "reference": "urn:uuid:28d779bb-6422-45de-b7ea-9c37d285bc5c"
         },
         "valueString": "Specimen received: Mid Stream Urine\r\n\r\nAccession Number(s) U18S999001A\r\nWhite Blood Cell Count 10-99 x10/S/6/L\r\nRed Blood Cell Count >=100 x10/S/6/L\r\n\r\n>= 10/S/8 cfu/L Escherichia coli (ECOL)\r\n\r\nAntibiotic/Culture: ECOL\r\n------------------- ------\r\nNitrofurantoin S\r\nTrimethoprim S\r\nAmoxicillin R\r\n"
       }
     },
     {
-      "fullUrl": "urn:uuid:2e2499ba-1daf-46f4-94f8-3a6e6c8bb688",
+      "fullUrl": "urn:uuid:afdfaa19-9c72-4fd8-a468-e7b45330c8ad",
       "resource": {
         "resourceType": "Specimen",
         "collection": {
@@ -232,7 +239,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:deb86dd0-1da9-4370-a4ce-4141f8991171"
+          "reference": "urn:uuid:28d779bb-6422-45de-b7ea-9c37d285bc5c"
         },
         "type": {
           "coding": [
@@ -246,7 +253,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e912cdfc-63fe-4b9c-9682-9286a385b3c7",
+      "fullUrl": "urn:uuid:7d9aa1f8-859a-473f-9bf2-33a06f5db137",
       "resource": {
         "resourceType": "ServiceRequest",
         "category": [
@@ -268,7 +275,7 @@
           ]
         },
         "encounter": {
-          "reference": "urn:uuid:aae47cb2-7526-45df-a7f0-646772b7b0db"
+          "reference": "urn:uuid:12733dc4-e9a3-423c-bf82-c322eee666c3"
         },
         "identifier": [
           {
@@ -286,7 +293,7 @@
         "intent": "order",
         "specimen": [
           {
-            "reference": "urn:uuid:2e2499ba-1daf-46f4-94f8-3a6e6c8bb688",
+            "reference": "urn:uuid:afdfaa19-9c72-4fd8-a468-e7b45330c8ad",
             "type": "Specimen"
           }
         ],
@@ -310,12 +317,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:deb86dd0-1da9-4370-a4ce-4141f8991171"
+          "reference": "urn:uuid:28d779bb-6422-45de-b7ea-9c37d285bc5c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:744aa966-9104-4479-bec2-3c6fef775674",
+      "fullUrl": "urn:uuid:6f449919-a2f8-4250-8580-d62a5e63e2a7",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -331,7 +338,7 @@
               },
               "value": "8005372251-1-M0007"
             },
-            "reference": "urn:uuid:e912cdfc-63fe-4b9c-9682-9286a385b3c7",
+            "reference": "urn:uuid:7d9aa1f8-859a-473f-9bf2-33a06f5db137",
             "type": "ServiceRequest"
           }
         ],
@@ -355,7 +362,7 @@
         },
         "effectiveDateTime": "2018-05-24T00:00:00+00:00",
         "encounter": {
-          "reference": "urn:uuid:aae47cb2-7526-45df-a7f0-646772b7b0db"
+          "reference": "urn:uuid:12733dc4-e9a3-423c-bf82-c322eee666c3"
         },
         "identifier": [
           {
@@ -383,13 +390,13 @@
         ],
         "result": [
           {
-            "reference": "urn:uuid:373f2ce8-ad38-4497-bea8-49e1478de69c",
+            "reference": "urn:uuid:2703431a-6906-49a0-adba-91d9d9fbfe1b",
             "type": "Observation"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:2e2499ba-1daf-46f4-94f8-3a6e6c8bb688",
+            "reference": "urn:uuid:afdfaa19-9c72-4fd8-a468-e7b45330c8ad",
             "type": "Specimen"
           }
         ],
@@ -413,7 +420,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:deb86dd0-1da9-4370-a4ce-4141f8991171"
+          "reference": "urn:uuid:28d779bb-6422-45de-b7ea-9c37d285bc5c"
         }
       }
     }
