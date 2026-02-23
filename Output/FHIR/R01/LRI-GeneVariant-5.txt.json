@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:ff5438c8-2b32-494c-bc04-4c10db54aecb",
+      "fullUrl": "urn:uuid:73297407-1c69-4d7e-9ba4-38de5a9f5788",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:064fcdfa-f078-4da5-851d-2da36591b5f5"
+            "reference": "urn:uuid:ca90a78d-46ba-4772-be43-2298102e4f0d"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd",
+      "fullUrl": "urn:uuid:d8cff3ef-a6d9-4a91-903f-671c34edb90b",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -91,48 +91,140 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:a303c53b-6db2-4862-b0d9-9b7030d250f5",
+      "fullUrl": "urn:uuid:1eb5a928-35d7-4bab-b121-c70b9a9eed22",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "53577-3",
-              "display": "Reason for study",
+              "code": "81306-3",
+              "display": "Variables that apply to the overall study",
               "system": "http://loinc.org"
             }
           ]
         },
-        "effectiveDateTime": "2016-08-09T16:50:00+00:00",
-        "identifier": [
+        "component": [
           {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
-            "type": {
+            "code": {
               "coding": [
                 {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  "code": "53577-3",
+                  "display": "Reason for study",
+                  "system": "http://loinc.org"
                 }
               ]
             },
-            "value": "Gen825750"
-          }
-        ],
-        "performer": [
+            "valueString": "Patient has encephalopathy"
+          },
           {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
+            "code": {
+              "coding": [
+                {
+                  "code": "51967-8",
+                  "display": "Genetic disease(s) assessed",
+                  "system": "http://loinc.org"
+                }
+              ]
             },
-            "type": "Organization"
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "R377",
+                  "display": "Intellectual disability – microarray only",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "81293-3",
+                  "display": "Description of ranges of DNA sequences examined",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueString": "Whole genome coverage, including subtelomeric and pericentromeric regions. Affymetrix Cytogenetics platform contains >2.1 million copy-number markers, including 750,000 single- nucleotide polymorphism (SNP) probes to detect copy number changes and LCSH."
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "83006-7",
+                  "display": "Deletion-duplication overall interpretation",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA26804-7",
+                  "display": "Deletion and/or duplication detected in studied region",
+                  "system": "http://loinc.org"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "81291-7",
+                  "display": "Structural variant ISCN",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueString": "arr16p13.11(14,686,844x2,14776269-16486370x3,16,494,405x2)(hg18)^ISCN"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "62374-4",
+                  "display": "Human reference sequence assembly",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA26805-4",
+                  "display": "NCBI36",
+                  "system": "http://loinc.org"
+                }
+              ]
+            }
           }
         ],
+        "effectiveDateTime": "2016-08-09T16:50:00+00:00",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel"
+          ]
+        },
         "status": "final",
         "subject": {
           "identifier": {
@@ -147,230 +239,27 @@
             },
             "value": "9737383397"
           },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
-        },
-        "valueString": "Patient has encephalopathy"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:d0d6b71a-39bc-4d88-a99e-8fe294a79600",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "51967-8",
-              "display": "Genetic disease(s) assessed",
-              "system": "http://loinc.org"
-            }
-          ]
-        },
-        "effectiveDateTime": "2016-08-09T16:50:00+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "Gen825750"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383397"
-          },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "R377",
-              "display": "Intellectual disability – microarray only",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication"
-            }
-          ]
+          "reference": "urn:uuid:d8cff3ef-a6d9-4a91-903f-671c34edb90b"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:152a002b-8035-4b44-8200-7aa3907b3bc4",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "81293-3",
-              "display": "Description of ranges of DNA sequences examined",
-              "system": "http://loinc.org"
-            }
-          ]
-        },
-        "effectiveDateTime": "2016-08-09T16:50:00+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "Gen825750"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383397"
-          },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
-        },
-        "valueString": "Whole genome coverage, including subtelomeric and pericentromeric regions. Affymetrix Cytogenetics platform contains >2.1 million copy-number markers, including 750,000 single- nucleotide polymorphism (SNP) probes to detect copy number changes and LCSH."
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:bf6a0db4-b1c8-4c30-b158-8f919880a9a1",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "83006-7",
-              "display": "Deletion-duplication overall interpretation",
-              "system": "http://loinc.org"
-            }
-          ]
-        },
-        "effectiveDateTime": "2016-08-09T16:50:00+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "Gen825750"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383397"
-          },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA26804-7",
-              "display": "Deletion and/or duplication detected in studied region",
-              "system": "http://loinc.org"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:d0379499-d39e-49a5-a590-8975c75bd867",
+      "fullUrl": "urn:uuid:b7713c10-ca2e-4f28-8356-0a3a986846f9",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
-        "data": "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"
+        "data": "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"
       }
     },
     {
-      "fullUrl": "urn:uuid:a54cd7ab-bfcf-4b3a-866d-bf3f3975cabc",
+      "fullUrl": "urn:uuid:a587b4bc-ede1-404a-9e1b-d5f4354faa2a",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:d0379499-d39e-49a5-a590-8975c75bd867"
+              "url": "urn:uuid:b7713c10-ca2e-4f28-8356-0a3a986846f9"
             }
           }
         ],
@@ -398,7 +287,7 @@
                 },
                 "value": "LRI-5280001675"
               },
-              "reference": "urn:uuid:944b2346-4af6-430a-8047-e58e04b32ec4",
+              "reference": "urn:uuid:32c5d5ad-2b67-4c23-a3b5-e66cbf56b879",
               "type": "ServiceRequest"
             },
             {
@@ -420,7 +309,7 @@
                 },
                 "value": "Gen825750"
               },
-              "reference": "urn:uuid:064fcdfa-f078-4da5-851d-2da36591b5f5",
+              "reference": "urn:uuid:ca90a78d-46ba-4772-be43-2298102e4f0d",
               "type": "DiagnosticReport"
             }
           ],
@@ -487,7 +376,7 @@
             },
             "value": "9737383397"
           },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
+          "reference": "urn:uuid:d8cff3ef-a6d9-4a91-903f-671c34edb90b"
         },
         "type": {
           "coding": [
@@ -501,139 +390,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:603e8ed1-19bb-441c-bd17-0b555cf23428",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "81291-7",
-              "display": "Structural variant ISCN",
-              "system": "http://loinc.org"
-            }
-          ]
-        },
-        "effectiveDateTime": "2016-08-09T16:50:00+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "Gen825750"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383397"
-          },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
-        },
-        "valueString": "arr16p13.11(14,686,844x2,14776269-16486370x3,16,494,405x2)(hg18)^ISCN"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:c844d9d7-cfde-4d9c-a09f-3790094b6d00",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "62374-4",
-              "display": "Human reference sequence assembly",
-              "system": "http://loinc.org"
-            }
-          ]
-        },
-        "effectiveDateTime": "2016-08-09T16:50:00+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "Gen825750"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383397"
-          },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA26805-4",
-              "display": "NCBI36",
-              "system": "http://loinc.org"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:9a793234-da95-4a48-8a22-59f7e712d1ff",
+      "fullUrl": "urn:uuid:5c75cedc-b184-4332-9186-a376977e4f49",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -783,12 +540,12 @@
             },
             "value": "9737383397"
           },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
+          "reference": "urn:uuid:d8cff3ef-a6d9-4a91-903f-671c34edb90b"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:e3bf3bb3-10cc-4de1-95ce-8ba49333147d",
+      "fullUrl": "urn:uuid:e4443a3b-efe8-4175-b641-d41df76b9bdb",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -844,13 +601,13 @@
             },
             "value": "9737383397"
           },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
+          "reference": "urn:uuid:d8cff3ef-a6d9-4a91-903f-671c34edb90b"
         },
         "valueString": "3"
       }
     },
     {
-      "fullUrl": "urn:uuid:944b2346-4af6-430a-8047-e58e04b32ec4",
+      "fullUrl": "urn:uuid:32c5d5ad-2b67-4c23-a3b5-e66cbf56b879",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2016-08-03",
@@ -893,17 +650,6 @@
           }
         ],
         "intent": "order",
-        "reasonCode": [
-          {
-            "coding": [
-              {
-                "code": "R377",
-                "display": "Intellectual disability – microarray only",
-                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication"
-              }
-            ]
-          }
-        ],
         "requester": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
@@ -925,12 +671,12 @@
             },
             "value": "9737383397"
           },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
+          "reference": "urn:uuid:d8cff3ef-a6d9-4a91-903f-671c34edb90b"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:064fcdfa-f078-4da5-851d-2da36591b5f5",
+      "fullUrl": "urn:uuid:ca90a78d-46ba-4772-be43-2298102e4f0d",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -952,7 +698,7 @@
               },
               "value": "LRI-5280001675"
             },
-            "reference": "urn:uuid:944b2346-4af6-430a-8047-e58e04b32ec4",
+            "reference": "urn:uuid:32c5d5ad-2b67-4c23-a3b5-e66cbf56b879",
             "type": "ServiceRequest"
           }
         ],
@@ -1009,48 +755,23 @@
         "presentedForm": [
           {
             "contentType": "application/pdf",
-            "url": "urn:uuid:d0379499-d39e-49a5-a590-8975c75bd867"
+            "url": "urn:uuid:b7713c10-ca2e-4f28-8356-0a3a986846f9"
           }
         ],
         "result": [
           {
-            "display": "Reason for study",
-            "reference": "urn:uuid:a303c53b-6db2-4862-b0d9-9b7030d250f5",
-            "type": "Observation"
-          },
-          {
-            "display": "Genetic disease(s) assessed",
-            "reference": "urn:uuid:d0d6b71a-39bc-4d88-a99e-8fe294a79600",
-            "type": "Observation"
-          },
-          {
-            "display": "Description of ranges of DNA sequences examined",
-            "reference": "urn:uuid:152a002b-8035-4b44-8200-7aa3907b3bc4",
-            "type": "Observation"
-          },
-          {
-            "display": "Deletion-duplication overall interpretation",
-            "reference": "urn:uuid:bf6a0db4-b1c8-4c30-b158-8f919880a9a1",
-            "type": "Observation"
-          },
-          {
-            "display": "Structural variant ISCN",
-            "reference": "urn:uuid:603e8ed1-19bb-441c-bd17-0b555cf23428",
-            "type": "Observation"
-          },
-          {
-            "display": "Human reference sequence assembly",
-            "reference": "urn:uuid:c844d9d7-cfde-4d9c-a09f-3790094b6d00",
+            "display": "Variables that apply to the overall study",
+            "reference": "urn:uuid:1eb5a928-35d7-4bab-b121-c70b9a9eed22",
             "type": "Observation"
           },
           {
             "display": "Genetic variant assessment",
-            "reference": "urn:uuid:9a793234-da95-4a48-8a22-59f7e712d1ff",
+            "reference": "urn:uuid:5c75cedc-b184-4332-9186-a376977e4f49",
             "type": "Observation"
           },
           {
             "display": "Copy number",
-            "reference": "urn:uuid:e3bf3bb3-10cc-4de1-95ce-8ba49333147d",
+            "reference": "urn:uuid:e4443a3b-efe8-4175-b641-d41df76b9bdb",
             "type": "Observation"
           }
         ],
@@ -1068,7 +789,7 @@
             },
             "value": "9737383397"
           },
-          "reference": "urn:uuid:2a834fbc-2973-4b9e-bc65-ffe0253ffdfd"
+          "reference": "urn:uuid:d8cff3ef-a6d9-4a91-903f-671c34edb90b"
         }
       }
     }

@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:f0af2466-3c91-451d-8780-47e7bb02faf6",
+      "fullUrl": "urn:uuid:d5fbc5e1-661d-4438-81eb-b0c181150e7f",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:e908b491-d55e-4129-a83f-34b65bef80f4"
+            "reference": "urn:uuid:0de80f87-d06b-4ec4-bb63-a494660084c5"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1d7355a8-82ee-4939-b387-d767172c1161",
+      "fullUrl": "urn:uuid:a3880cfb-a6e6-4159-a7e1-27834d638fb4",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -90,7 +90,82 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:8d37333f-aa70-463c-acb2-ed339aa4550a",
+      "fullUrl": "urn:uuid:b8d5ae78-2ac2-4fe2-9be9-616575805125",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "81306-3",
+              "display": "Variables that apply to the overall study",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "51967-8",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "R125",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication"
+                }
+              ]
+            }
+          }
+        ],
+        "effectiveDateTime": "2025-10-14T15:59:16+00:00",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel"
+          ]
+        },
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383265"
+          },
+          "reference": "urn:uuid:a3880cfb-a6e6-4159-a7e1-27834d638fb4"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:53acc154-aefb-4951-933c-9889c0ec3d58",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -98,14 +173,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:253f34da-9ea6-4a1e-bf4c-258fd67303a2",
+      "fullUrl": "urn:uuid:ffc43813-eab6-4fb1-8e87-56e85cc72f4d",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:8d37333f-aa70-463c-acb2-ed339aa4550a"
+              "url": "urn:uuid:53acc154-aefb-4951-933c-9889c0ec3d58"
             }
           }
         ],
@@ -133,7 +208,7 @@
                 },
                 "value": "100152874"
               },
-              "reference": "urn:uuid:8f99fd4b-f595-4524-b770-1b0877865b39",
+              "reference": "urn:uuid:40f57ac2-31b0-4ac8-aec8-d16f7aea025e",
               "type": "ServiceRequest"
             },
             {
@@ -155,7 +230,7 @@
                 },
                 "value": "T25-0211"
               },
-              "reference": "urn:uuid:e908b491-d55e-4129-a83f-34b65bef80f4",
+              "reference": "urn:uuid:0de80f87-d06b-4ec4-bb63-a494660084c5",
               "type": "DiagnosticReport"
             }
           ],
@@ -221,7 +296,7 @@
             },
             "value": "9737383265"
           },
-          "reference": "urn:uuid:1d7355a8-82ee-4939-b387-d767172c1161"
+          "reference": "urn:uuid:a3880cfb-a6e6-4159-a7e1-27834d638fb4"
         },
         "type": {
           "coding": [
@@ -235,7 +310,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:017ccd57-6f01-4ff8-a83a-44727864bc64",
+      "fullUrl": "urn:uuid:a3417993-59da-4a18-bdfd-a63ce6645e9c",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -266,12 +341,12 @@
             },
             "value": "9737383265"
           },
-          "reference": "urn:uuid:1d7355a8-82ee-4939-b387-d767172c1161"
+          "reference": "urn:uuid:a3880cfb-a6e6-4159-a7e1-27834d638fb4"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:8f99fd4b-f595-4524-b770-1b0877865b39",
+      "fullUrl": "urn:uuid:40f57ac2-31b0-4ac8-aec8-d16f7aea025e",
       "resource": {
         "resourceType": "ServiceRequest",
         "category": [
@@ -333,7 +408,7 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:017ccd57-6f01-4ff8-a83a-44727864bc64",
+            "reference": "urn:uuid:a3417993-59da-4a18-bdfd-a63ce6645e9c",
             "type": "Specimen"
           }
         ],
@@ -351,12 +426,12 @@
             },
             "value": "9737383265"
           },
-          "reference": "urn:uuid:1d7355a8-82ee-4939-b387-d767172c1161"
+          "reference": "urn:uuid:a3880cfb-a6e6-4159-a7e1-27834d638fb4"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:e908b491-d55e-4129-a83f-34b65bef80f4",
+      "fullUrl": "urn:uuid:0de80f87-d06b-4ec4-bb63-a494660084c5",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -378,7 +453,7 @@
               },
               "value": "100152874"
             },
-            "reference": "urn:uuid:8f99fd4b-f595-4524-b770-1b0877865b39",
+            "reference": "urn:uuid:40f57ac2-31b0-4ac8-aec8-d16f7aea025e",
             "type": "ServiceRequest"
           }
         ],
@@ -441,7 +516,14 @@
         "presentedForm": [
           {
             "contentType": "application/pdf",
-            "url": "urn:uuid:8d37333f-aa70-463c-acb2-ed339aa4550a"
+            "url": "urn:uuid:53acc154-aefb-4951-933c-9889c0ec3d58"
+          }
+        ],
+        "result": [
+          {
+            "display": "Variables that apply to the overall study",
+            "reference": "urn:uuid:b8d5ae78-2ac2-4fe2-9be9-616575805125",
+            "type": "Observation"
           }
         ],
         "resultsInterpreter": [
@@ -451,7 +533,7 @@
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:017ccd57-6f01-4ff8-a83a-44727864bc64",
+            "reference": "urn:uuid:a3417993-59da-4a18-bdfd-a63ce6645e9c",
             "type": "Specimen"
           }
         ],
@@ -469,7 +551,7 @@
             },
             "value": "9737383265"
           },
-          "reference": "urn:uuid:1d7355a8-82ee-4939-b387-d767172c1161"
+          "reference": "urn:uuid:a3880cfb-a6e6-4159-a7e1-27834d638fb4"
         }
       }
     }
