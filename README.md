@@ -102,7 +102,12 @@ curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_ZT001.txt" http:
 `Invoke-RestMethod -Method POST -Uri http://localhost:9980 -InFile "Examples/ORU_R01_PDF.txt"`
 `Invoke-RestMethod -Method POST -Uri http://localhost:9981/transformToFHIR -InFile "Examples/ORU_R01_PDF.txt"`
 
-## Structured Report Examples
+## GS1 
+
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.20:9980
+
+## HL7 LRI/Genomic Report Structured Report Examples
 
 Examples are from [HL7 Lab Results Interface (LRI), Release 1 from May 2017](https://confluence.hl7.org/download/attachments/25559919/2018%2004%2003%20-%20V2%20LRI%20-%20Ch.%205%20CG%20and%20Code%20System%20Tables.pdf?api=v2)
 
