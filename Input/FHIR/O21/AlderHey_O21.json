@@ -1,0 +1,479 @@
+{
+    "resourceType": "Bundle",
+    "id": "9043bb24-4242-4b0b-a906-e911074e6664",
+    "identifier": {
+        "system": "https://tools.ietf.org/html/rfc4122",
+        "value": "6c525187-c6b8-41b4-8d34-eaba1ce7227b"
+    },
+    "type": "message",
+    "timestamp": "2026-02-24T14:48:11.677+00:00",
+    "entry": [
+        {
+            "fullUrl": "urn:uuid:7dba18b7-f368-4059-9128-cc8f80a9ca23",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "72849.1",
+                "eventCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0003",
+                    "code": "O21"
+                },
+                "destination": [
+                    {
+                        "endpoint": "https://fhir.mft.nhs.uk/Endpoint/LIMS",
+                        "receiver": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            },
+                            "display": "NORTH WEST GLH"
+                        }
+                    }
+                ],
+                "sender": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                        "value": "RBS"
+                    },
+                    "display": "Alderhey Hospital Trust"
+                },
+                "source": {
+                    "name": "EXPANSE_EPR",
+                    "software": "ADH Meditech EPR",
+                    "contact": {
+                        "system": "email",
+                        "value": "Paul.Buxton@alderhey.nhs.uk"
+                    }
+                },
+                "focus": [
+                    {
+                        "reference": "urn:uuid:e977776f-451f-4726-b02b-ec726e0a1d28",
+                        "type": "ServiceRequest"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:e977776f-451f-4726-b02b-ec726e0a1d28",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "e977776f-451f-4726-b02b-ec726e0a1d28",
+                "intent": "order",
+                "doNotPerform": false,
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+                            "code": "R15.4"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "authoredOn": "2026-02-24T14:47:41+00:00",
+                "supportingInfo": [
+                    {
+                        "reference": "urn:uuid:384948d6-93a9-4097-81db-42babf95b702"
+                    }
+                ],
+                "note": [
+                    {
+                        "text": "Speciality Requesting Clinician: Gastroenterology\\nTest Group: Immunology\\nEthnic Group: Black African\\nIs the participant type proband or family member (for\\nWGS)?: Proband\\nIs this test for deceased infant or pregnancy loss?: N\\nIs the test being done in the prenatal or neonatal period?:\\nNeither\\nPatient is from consanguineous union? : No\\nSpecimen Collection Status: Collect T send with order\\nRare Disease Test Type: Diagnostic Screen\\nInfection Risk: No Specific Risk\\nClinical details:\\nChild has IBD with recurrent infection\\nContact/Bleep No: 1234"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "badb4245-a5dc-49bc-892a-16a314579b61",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "value": "AH0003068",
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "RBS"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "NH"
+                                }
+                            ]
+                        },
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "value": "973 738 3257"
+                    }
+                ],
+                "name": [
+                    {
+                        "family": "Wrexham",
+                        "given": [
+                            "Myrcella"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "value": "01512284811"
+                    }
+                ],
+                "gender": "female",
+                "birthDate": "1999-10-13",
+                "address": [
+                    {
+                        "line": [
+                            "Ffordd, Mold Rd"
+                        ],
+                        "city": "Wrexham",
+                        "postalCode": "LL11 2AH"
+                    }
+                ],
+                "maritalStatus": {
+                    "coding": [
+                        {
+                            "code": "O",
+                            "display": "Other"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "b7033d4d-fe06-4398-b4e4-afa9102704d0",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "VN"
+                                }
+                            ]
+                        },
+                        "system": "https://fhir.nhs.uk/Id/visit-number/RBS",
+                        "value": "V00000021091",
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "RBS"
+                            }
+                        }
+                    }
+                ],
+                "status": "finished",
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:17713806-75e3-48a0-97ad-4d9227256117",
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "17713806-75e3-48a0-97ad-4d9227256117",
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "XXX",
+                                    "code": "BLD^Blood (Whole)",
+                                    "display": "1"
+                                }
+                            ],
+                            "text": "BLD^Blood (Whole)"
+                        },
+                        "value": "BLD^Blood (Whole)"
+                    }
+                ],
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "note": [
+                    {
+                        "text": "Blood"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:1545fbe8-aeba-4ee3-9be4-2ee5e0dd4c7a",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "OBX-4-LABGE.2CLINREQ",
+                "identifier": [
+                    {
+                        "value": "1545fbe8-aeba-4ee3-9be4-2ee5e0dd4c7a"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "Email Requesting Clinician:",
+                            "display": "jenghaw.cheng@alderhey.nhs.uk"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "note": [
+                    {
+                        "text": "This observation was generated by DummyResourceExtractor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:2b92e411-8070-4f5d-a9a3-4b077cf3947c",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "OBX-3-LAB.SPEC4",
+                "identifier": [
+                    {
+                        "value": "2b92e411-8070-4f5d-a9a3-4b077cf3947c"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "Specimen volume/number of slides or scrolls:",
+                            "display": "6ml"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "note": [
+                    {
+                        "text": "This observation was generated by DummyResourceExtractor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:6e25d8c6-0c41-4558-839b-20786f1fc265",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "OBX-5-LABGE.2DOCALT",
+                "identifier": [
+                    {
+                        "value": "6e25d8c6-0c41-4558-839b-20786f1fc265"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "Email Secondary Clinician/Department:",
+                            "display": "Beccy.cummings@alderhey.nhs.uk"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "note": [
+                    {
+                        "text": "This observation was generated by DummyResourceExtractor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:bf96b3db-f450-49df-b307-adced7ad248e",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "OBX-1-LAB.SPEC2",
+                "identifier": [
+                    {
+                        "value": "bf96b3db-f450-49df-b307-adced7ad248e"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "Specimen Type:",
+                            "display": "BLD^Blood (Whole)"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "note": [
+                    {
+                        "text": "This observation was generated by DummyResourceExtractor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:fb613873-b5c4-45bc-b30d-ce1709438c62",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "OBX-2-LAB.SPEC3",
+                "identifier": [
+                    {
+                        "value": "fb613873-b5c4-45bc-b30d-ce1709438c62"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "Tissue source/organ of origin:",
+                            "display": "Blood"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "note": [
+                    {
+                        "text": "This observation was generated by DummyResourceExtractor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:ff139324-2bd0-4ebc-85e9-cde8e0492c27",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "OBX-6-LABGE.3SPEC",
+                "identifier": [
+                    {
+                        "value": "ff139324-2bd0-4ebc-85e9-cde8e0492c27"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "Clinical Department:",
+                            "display": "Gastroenterology"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "note": [
+                    {
+                        "text": "This observation was generated by DummyResourceExtractor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:b726e48c-2274-46c9-970e-0b9faa79d740",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "OBX-10-LABOEDNA1",
+                "identifier": [
+                    {
+                        "value": "b726e48c-2274-46c9-970e-0b9faa79d740"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "Have you obtained consent for DNA storage?:",
+                            "display": "Y"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "note": [
+                    {
+                        "text": "This observation was generated by DummyResourceExtractor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:72e331ea-b777-4b04-b4cc-09dab09d01c5",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "384948d6-93a9-4097-81db-42babf95b702",
+                "identifier": [
+                    {
+                        "value": "72e331ea-b777-4b04-b4cc-09dab09d01c5"
+                    }
+                ],
+                "subject": {
+                    "reference": "urn:uuid:badb4245-a5dc-49bc-892a-16a314579b61"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:b7033d4d-fe06-4398-b4e4-afa9102704d0"
+                },
+                "hasMember": [
+                    {
+                        "reference": "urn:uuid:1545fbe8-aeba-4ee3-9be4-2ee5e0dd4c7a"
+                    },
+                    {
+                        "reference": "urn:uuid:2b92e411-8070-4f5d-a9a3-4b077cf3947c"
+                    },
+                    {
+                        "reference": "urn:uuid:6e25d8c6-0c41-4558-839b-20786f1fc265"
+                    },
+                    {
+                        "reference": "urn:uuid:bf96b3db-f450-49df-b307-adced7ad248e"
+                    },
+                    {
+                        "reference": "urn:uuid:fb613873-b5c4-45bc-b30d-ce1709438c62"
+                    },
+                    {
+                        "reference": "urn:uuid:ff139324-2bd0-4ebc-85e9-cde8e0492c27"
+                    },
+                    {
+                        "reference": "urn:uuid:b726e48c-2274-46c9-970e-0b9faa79d740"
+                    }
+                ]
+            }
+        }
+    ]
+}
