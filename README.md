@@ -72,6 +72,7 @@ curl --request POST --data-binary "@Input/V2/R01/LRI-ComplexVariant-8.txt" http:
 
 curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_TX.txt.json" http://192.168.1.20:9981/transformToV2
 curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_FULL.txt.json" http://192.168.1.20:9981/transformToV2
+curl --request POST --data-binary "@Output/FHIR/O21/Fetus-LRI-Variant-2-O01.txt.json" http://192.168.1.20:9981/transformToV2
 
 LRI Example
 
