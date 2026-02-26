@@ -21,6 +21,8 @@ Note files must use CR or CRLF (not unix/mac LF)
 
 curl --request POST --data-binary "@Input/V2/O21/ORM_O01_R0A.txt" http://192.168.1.20:9981/transformToFHIR
 
+curl --request POST --data-binary "@Input/V2/O01/Fetus-LRI-Variant-2-O01.txt" http://192.168.1.20:9981/transformToFHIR
+
 #### R01
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_PDF.txt" http://192.168.1.20:9981/transformToFHIR
