@@ -66,7 +66,9 @@ curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-3.txt" http://1
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-4.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/LRI-ComplexVariant-8.txt" http://192.168.1.20:9981/transformToFHIR
 
+#### Europe
 
+curl --request POST --data-binary "@Input/V2/R01/R0A-Belgium.txt" http://192.168.1.20:9981/transformToFHIR
 
 ### Transform to HL7 v2
 
@@ -109,16 +111,21 @@ LRI Example
 
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9980
 
-#### Other English Region Reports
+#### Other UK Regions Reports
+
+England
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RX1.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RR8.txt" http://192.168.1.20:9980
 
-#### Scotland - CHI Number example
+Scotland - CHI Number example
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_SG9.txt" http://192.168.1.20:9980
 
-#### Northern Ireland - Health and Care Number Example
+Northern Ireland - Health and Care Number Example
+
+#### Europe
+
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_ZT001.txt" http://192.168.1.20:9980
 
