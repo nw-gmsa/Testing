@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:20990cab-6378-42ca-9938-3ed9440ec5c2",
+      "fullUrl": "urn:uuid:949e4e21-5c83-4884-b5df-8d449038ce44",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:75888f4a-9a0d-41d8-ae98-f145d49b63bd"
+            "reference": "urn:uuid:3727bc86-797f-4c53-997b-cd4959d5a128"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb",
+      "fullUrl": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -50,6 +50,20 @@
         "gender": "female",
         "identifier": [
           {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -91,7 +105,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:18a6f996-bf32-4745-8f88-535455f0a7ca",
+      "fullUrl": "urn:uuid:8e768e37-1fe9-4e5f-a311-640a446a4ccf",
       "resource": {
         "resourceType": "Encounter",
         "class": {
@@ -127,6 +141,20 @@
         "status": "finished",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -138,12 +166,12 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:2dfd432b-4d28-4eb6-aee7-faac47fbcb76",
+      "fullUrl": "urn:uuid:11dd81b2-79a8-4fcd-a6f2-218c6a338ef5",
       "resource": {
         "resourceType": "PractitionerRole",
         "organization": {
@@ -163,7 +191,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:6a032172-cce6-4f02-b42d-1ff13af2be4a",
+      "fullUrl": "urn:uuid:1c99ca05-a2f2-4fed-b862-799c56ada1fe",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -226,6 +254,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -237,12 +279,12 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:6d10edaf-77d8-415b-bc89-f21e0814db2d",
+      "fullUrl": "urn:uuid:c250e840-13c4-496a-a9c3-013fdaa72d92",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -305,6 +347,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -316,7 +372,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -330,7 +386,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e7186c9e-9319-4e97-8262-fed505f93f31",
+      "fullUrl": "urn:uuid:411c871b-0626-4116-99b8-bf7bdc428407",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -393,6 +449,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -404,7 +474,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -418,7 +488,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e00014d5-92ac-4680-87e8-4767fd134d0f",
+      "fullUrl": "urn:uuid:81001cb2-fa48-4656-b3b1-ecce38feda85",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -481,6 +551,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -492,13 +576,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "Diagnostic Screen/Test"
       }
     },
     {
-      "fullUrl": "urn:uuid:ff1f7ac7-7b70-4417-80d1-3ad916df9cd6",
+      "fullUrl": "urn:uuid:8cfd9e48-3a50-43ae-8394-b2516456598e",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -561,6 +645,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -572,7 +670,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -586,7 +684,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:06676434-82aa-4526-ad7e-342594674fe6",
+      "fullUrl": "urn:uuid:58c60210-6cb7-46a4-8243-c0e999a402d8",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -649,6 +747,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -660,13 +772,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "R240.1: Targeted variant testing"
       }
     },
     {
-      "fullUrl": "urn:uuid:b96de027-7846-4805-a325-09534a8944eb",
+      "fullUrl": "urn:uuid:5217bf58-6ab9-474d-b196-ce60c89ed93d",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -729,6 +841,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -740,13 +866,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "R242.1: Targeted variant testing"
       }
     },
     {
-      "fullUrl": "urn:uuid:d83d53ec-960a-4e23-a25f-be1c67964c4e",
+      "fullUrl": "urn:uuid:050ca77f-2fe9-49a9-a137-6408b71d9729",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -809,6 +935,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -820,13 +960,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "charu"
       }
     },
     {
-      "fullUrl": "urn:uuid:87aac350-ae71-470b-a2ed-e22b118af2e0",
+      "fullUrl": "urn:uuid:8f85a37b-8a86-4877-b77e-c98826d58c69",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -889,6 +1029,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -900,7 +1054,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -914,7 +1068,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:72fd0047-36e6-4384-adcb-c28f7d633ba7",
+      "fullUrl": "urn:uuid:f33ed16c-b6dc-4a6c-b371-884c6b850667",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -977,6 +1131,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -988,13 +1156,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "Acknowledged"
       }
     },
     {
-      "fullUrl": "urn:uuid:f33be993-1ecd-4f4b-b576-c149a1abe2a5",
+      "fullUrl": "urn:uuid:d40ce6a6-afd0-4db9-8e7b-93d606f32e61",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -1057,6 +1225,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1068,13 +1250,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "No"
       }
     },
     {
-      "fullUrl": "urn:uuid:26dc66b9-f506-4b8a-850f-d1d14f52141a",
+      "fullUrl": "urn:uuid:c82feeb3-73bd-4c78-bfd6-674754f55cd3",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -1137,6 +1319,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1148,13 +1344,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "DESHPANDE, CHARULATA"
       }
     },
     {
-      "fullUrl": "urn:uuid:1bb5fe55-ea39-4a1d-98fb-6025196a9a19",
+      "fullUrl": "urn:uuid:6bc56151-e9d5-4093-8171-582bcb40ab95",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -1217,6 +1413,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1228,13 +1438,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueString": "UK3096580215"
       }
     },
     {
-      "fullUrl": "urn:uuid:3cf10212-3f32-4142-aec5-1e4b35e4f76e",
+      "fullUrl": "urn:uuid:b11d99f9-2165-4315-aa76-5417c4616add",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -1297,6 +1507,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1308,7 +1532,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1322,7 +1546,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:209ac6f2-df42-4489-a318-6b56754ec408",
+      "fullUrl": "urn:uuid:d60ed838-cca1-4e1f-b488-d1eec294bb8c",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -1385,6 +1609,20 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1396,13 +1634,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "valueDateTime": "2025-05-12T10:37:26+00:00"
       }
     },
     {
-      "fullUrl": "urn:uuid:880900a7-2e72-4a40-a897-34cc108a8d76",
+      "fullUrl": "urn:uuid:119d6cee-8777-4175-b4f9-82ee73b928a6",
       "resource": {
         "resourceType": "Condition",
         "code": {
@@ -1417,6 +1655,20 @@
         "onsetDateTime": "2025-01-29T10:37:26+00:00",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1428,12 +1680,12 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:fd9d5ebb-1938-4c8e-82ba-8b3b95b912f2",
+      "fullUrl": "urn:uuid:f247eb71-0612-4e90-8bf9-17b0533c21e4",
       "resource": {
         "resourceType": "Specimen",
         "accessionIdentifier": {
@@ -1479,6 +1731,20 @@
         "status": "available",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1490,7 +1756,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "type": {
           "coding": [
@@ -1504,7 +1770,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:75888f4a-9a0d-41d8-ae98-f145d49b63bd",
+      "fullUrl": "urn:uuid:3727bc86-797f-4c53-997b-cd4959d5a128",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2025-01-29T00:00:00+00:00",
@@ -1545,7 +1811,7 @@
             },
             "value": "1001166717"
           },
-          "reference": "urn:uuid:18a6f996-bf32-4745-8f88-535455f0a7ca"
+          "reference": "urn:uuid:8e768e37-1fe9-4e5f-a311-640a446a4ccf"
         },
         "identifier": [
           {
@@ -1613,22 +1879,36 @@
         ],
         "reasonReference": [
           {
-            "reference": "urn:uuid:880900a7-2e72-4a40-a897-34cc108a8d76",
+            "reference": "urn:uuid:119d6cee-8777-4175-b4f9-82ee73b928a6",
             "type": "Condition"
           }
         ],
         "requester": {
-          "reference": "urn:uuid:2dfd432b-4d28-4eb6-aee7-faac47fbcb76"
+          "reference": "urn:uuid:11dd81b2-79a8-4fcd-a6f2-218c6a338ef5"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:fd9d5ebb-1938-4c8e-82ba-8b3b95b912f2",
+            "reference": "urn:uuid:f247eb71-0612-4e90-8bf9-17b0533c21e4",
             "type": "Specimen"
           }
         ],
         "status": "active",
         "subject": {
           "identifier": {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1640,67 +1920,67 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:caa1ffea-e22f-4244-b42a-27dffd4e7dfb"
+          "reference": "urn:uuid:05c5bcad-3747-42f5-9d09-20ff7de99352"
         },
         "supportingInfo": [
           {
-            "reference": "urn:uuid:6a032172-cce6-4f02-b42d-1ff13af2be4a",
+            "reference": "urn:uuid:1c99ca05-a2f2-4fed-b862-799c56ada1fe",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:6d10edaf-77d8-415b-bc89-f21e0814db2d",
+            "reference": "urn:uuid:c250e840-13c4-496a-a9c3-013fdaa72d92",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:e7186c9e-9319-4e97-8262-fed505f93f31",
+            "reference": "urn:uuid:411c871b-0626-4116-99b8-bf7bdc428407",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:e00014d5-92ac-4680-87e8-4767fd134d0f",
+            "reference": "urn:uuid:81001cb2-fa48-4656-b3b1-ecce38feda85",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:ff1f7ac7-7b70-4417-80d1-3ad916df9cd6",
+            "reference": "urn:uuid:8cfd9e48-3a50-43ae-8394-b2516456598e",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:06676434-82aa-4526-ad7e-342594674fe6",
+            "reference": "urn:uuid:58c60210-6cb7-46a4-8243-c0e999a402d8",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:b96de027-7846-4805-a325-09534a8944eb",
+            "reference": "urn:uuid:5217bf58-6ab9-474d-b196-ce60c89ed93d",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:d83d53ec-960a-4e23-a25f-be1c67964c4e",
+            "reference": "urn:uuid:050ca77f-2fe9-49a9-a137-6408b71d9729",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:87aac350-ae71-470b-a2ed-e22b118af2e0",
+            "reference": "urn:uuid:8f85a37b-8a86-4877-b77e-c98826d58c69",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:72fd0047-36e6-4384-adcb-c28f7d633ba7",
+            "reference": "urn:uuid:f33ed16c-b6dc-4a6c-b371-884c6b850667",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:f33be993-1ecd-4f4b-b576-c149a1abe2a5",
+            "reference": "urn:uuid:d40ce6a6-afd0-4db9-8e7b-93d606f32e61",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:26dc66b9-f506-4b8a-850f-d1d14f52141a",
+            "reference": "urn:uuid:c82feeb3-73bd-4c78-bfd6-674754f55cd3",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:1bb5fe55-ea39-4a1d-98fb-6025196a9a19",
+            "reference": "urn:uuid:6bc56151-e9d5-4093-8171-582bcb40ab95",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:3cf10212-3f32-4142-aec5-1e4b35e4f76e",
+            "reference": "urn:uuid:b11d99f9-2165-4315-aa76-5417c4616add",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:209ac6f2-df42-4489-a318-6b56754ec408",
+            "reference": "urn:uuid:d60ed838-cca1-4e1f-b488-d1eec294bb8c",
             "type": "Observation"
           }
         ]

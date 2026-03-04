@@ -66,6 +66,10 @@ curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-3.txt" http://1
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-4.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/LRI-ComplexVariant-8.txt" http://192.168.1.20:9981/transformToFHIR
 
+Invalid DOB, so no match 
+
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-5.txt" http://192.168.1.20:9980
+
 #### Europe
 
 curl --request POST --data-binary "@Input/V2/R01/R0A-Belgium.txt" http://192.168.1.20:9981/transformToFHIR
