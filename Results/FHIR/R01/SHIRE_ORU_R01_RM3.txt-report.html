@@ -22,7 +22,7 @@
 <table cellspacing="0" border="0" style="width:500px; border:0; font-size: 14px;">
     <tr>
         <td style="text-align:right;">
-            <b><span>20, Feb 2026</span></b>
+            <b><span>05, Mar 2026</span></b>
         </td>
     </tr>
 </table>
@@ -37,13 +37,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>21</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
-      <td>[Bundle.entry[4].resource]</td>
-    </tr>
     <tr>
       <th>23</th>
       <td>error</td>
@@ -62,36 +55,22 @@
       <th>25</th>
       <td>error</td>
       <td>structure</td>
-      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
+      <td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td>
+      <td>[Bundle.entry[4].resource.subject.identifier]</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DiagnosticReport/null*/.subject.identifier, DiagnosticReport.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td>
+      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier]</td>
     </tr>
     <tr>
       <th>26</th>
       <td>error</td>
       <td>structure</td>
-      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
       <td>[Bundle.entry[4].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>error</td>
-      <td>invalid</td>
-      <td>Not a valid instant format: '2025-09-05'</td>
-      <td>[Bundle.entry[3].resource/*DocumentReference/null*/.date]</td>
     </tr>
     <tr>
       <th>20</th>
@@ -101,6 +80,41 @@
       <td>[Bundle.entry[4].resource.category[0]]</td>
     </tr>
     <tr>
+      <th>27</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DocumentReference/null*/.subject.identifier, DocumentReference.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td>
+      <td>[Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier]</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
+      <td>[Bundle.entry[4].resource]</td>
+    </tr>
+    <tr>
       <th>22</th>
       <td>information</td>
       <td>not-supported</td>
@@ -108,17 +122,10 @@
       <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>information</td>
-      <td>informational</td>
-      <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' - change from https: to http:</td>
-      <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
-    </tr>
-    <tr>
       <th>19</th>
       <td>information</td>
       <td>informational</td>
-      <td>Entry 'urn:uuid:8aabf93a-9d12-4ff0-9245-447022eb946e' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>Entry 'urn:uuid:ce18b6e3-249d-4c38-97b2-32a8bda9e425' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[6]]</td>
     </tr>
     <tr>
@@ -143,7 +150,7 @@
       <td>[Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
