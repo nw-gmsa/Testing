@@ -38,119 +38,105 @@
   </thead>
   <tbody>
     <tr>
-      <th>23</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
-      <td>[Bundle.entry[4].resource.code]</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1). Note that other slices are allowed in addition to this required slice</td>
-      <td>[Bundle.entry[4].resource.code]</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td>
-      <td>[Bundle.entry[4].resource.subject.identifier]</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DiagnosticReport/null*/.subject.identifier, DiagnosticReport.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td>
-      <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier]</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>error</td>
-      <td>processing</td>
-      <td>Slicing cannot be evaluated: Could not match discriminator ($this) for slice DiagnosticReport.category:Genetics in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1 - the discriminator [$this] does not have fixed value, binding or existence assertions</td>
-      <td>[Bundle.entry[4].resource.category[0]]</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DocumentReference/null*/.subject.identifier, DocumentReference.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td>
-      <td>[Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier]</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>error</td>
-      <td>structure</td>
-      <td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
-      <td>[Bundle.entry[4].resource.performer[0]]</td>
-    </tr>
-    <tr>
-      <th>29</th>
+      <th>21</th>
       <td>error</td>
       <td>structure</td>
       <td>DiagnosticReport.performer.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
       <td>[Bundle.entry[4].resource.performer[0]]</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>20</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.performer.type: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:Media.operator)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>The extension http://hl7.org/fhir/StructureDefinition/event-performerFunction is not allowed to be used at this point (this element is [Bundle.entry.resource.performer, Reference]; allowed for this version = e:Observation.performer, e:DiagnosticReport.performer, e:DocumentReference.author)</td>
+      <td>[Bundle.entry[4].resource.performer[0]]</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Slice 'DiagnosticReport.code.coding:GenomicTestDirectory': a matching slice is required, but not found (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1). Note that other slices are allowed in addition to this required slice</td>
+      <td>[Bundle.entry[4].resource.code]</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>DiagnosticReport.code.coding: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
+      <td>[Bundle.entry[4].resource.code]</td>
+    </tr>
+    <tr>
+      <th>14</th>
       <td>error</td>
       <td>structure</td>
       <td>DiagnosticReport.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
       <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>13</th>
+      <td>error</td>
+      <td>processing</td>
+      <td>Slicing cannot be evaluated: Could not match discriminator ($this) for slice DiagnosticReport.category:Genetics in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1 - the discriminator [$this] does not have fixed value, binding or existence assertions</td>
+      <td>[Bundle.entry[4].resource.category[0]]</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>information</td>
+      <td>informational</td>
+      <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE' - change from https: to http:</td>
+      <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
+    </tr>
+    <tr>
+      <th>15</th>
       <td>information</td>
       <td>not-supported</td>
       <td>DiagnosticReport.category:Genetics: Found 0 matches, but unable to check minimum required (DiagnosticReport.category) due to lack of slicing validation (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td>
       <td>[Bundle.entry[4].resource]</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>12</th>
       <td>information</td>
       <td>informational</td>
-      <td>Entry 'urn:uuid:ce18b6e3-249d-4c38-97b2-32a8bda9e425' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
+      <td>Entry 'urn:uuid:5af00902-9bcb-4197-98ce-6e8d4a2922b0' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td>
       <td>[Bundle.entry[6]]</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>9</th>
       <td>warning</td>
       <td>structure</td>
       <td>A Reference without an actual reference or identifier should have a display</td>
       <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.performer[0]]</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>8</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[4].resource/*DiagnosticReport/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>5</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[3].resource/*DocumentReference/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>

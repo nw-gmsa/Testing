@@ -2,13 +2,37 @@
   "resourceType" : "OperationOutcome",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/.identifier[0].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.category[1]</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Observation/null*/.subject.identifier</td><td>Structural Issue</td><td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*Observation/null*/.subject.identifier, Identifier, Observation.subject.identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Business Rule Violation</td><td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.2.1</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept).coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/refseq' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[2]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[3]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[4]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[5]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[6]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[7]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[8]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Structural Issue</td><td>Observation.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[0].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[4].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[5].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[6].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[7].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*Binary/null*/.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*Binary/null*/.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*Binary/null*/.contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DocumentReference/null*/.subject.identifier</td><td>Structural Issue</td><td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DocumentReference/null*/.subject.identifier, DocumentReference.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DocumentReference/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DocumentReference/null*/.content[0].attachment.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DocumentReference/null*/.content[0].attachment.contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DocumentReference/null*/.content[0].attachment.contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DocumentReference/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.category[1]</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[5].resource/*Observation/null*/.subject.identifier</td><td>Structural Issue</td><td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*Observation/null*/.subject.identifier, Identifier, Observation.subject.identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/clinvar' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/refseq' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://varnomen.hgvs.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[4].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://varnomen.hgvs.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[7].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/refseq' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[8].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://varnomen.hgvs.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[12].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/projects/SNP' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[13].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'Chrom-Loc' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.category[2]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[3]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[4]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[5]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[6]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[7]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[8]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[9]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[10]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[11]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[12]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[13]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[14]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[15]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[16]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[17]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[18]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Invalid Content</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 and slicing is CLOSED: Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept): Does not match slice 'valueQuantity' (discriminator: ($this is Quantity))</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' version 'null' could not be found, so the code cannot be validated. Valid versions: 3.0.0 or 3.1.0</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Invalid Content</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 and slicing is CLOSED: Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept): Does not match slice 'valueQuantity' (discriminator: ($this is Quantity))</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Invalid Code</td><td>Binding for path Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept) in profile StructureDefinition[https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1] has no source, so can't be checked</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[4].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[5].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[6].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[7].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[8].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[9].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[10].value.ofType(Range)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[11].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[12].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[13].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[14].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[15].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[16].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[17].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[18].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.category[1]</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[6].resource/*Observation/null*/.subject.identifier</td><td>Structural Issue</td><td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*Observation/null*/.subject.identifier, Identifier, Observation.subject.identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]</td><td>Structural Issue</td><td>Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Business Rule Violation</td><td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.2.1</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept).coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c among choices: http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core, http://hl7.org/fhir/StructureDefinition/ImagingStudy</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]</td><td>Structural Issue</td><td>Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core|2.0.0-ballot</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Invalid Content</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1 and slicing is CLOSED: Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept): Does not match slice 'valueQuantity' (discriminator: ($this is Quantity))</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Invalid Code</td><td>Binding for path Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept) in profile StructureDefinition[https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1] has no source, so can't be checked</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*ServiceRequest/null*/.code.coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210.2' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier</td><td>Structural Issue</td><td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*ServiceRequest/null*/.subject.identifier, Identifier, Reference.identifier, ServiceRequest.subject.identifier]; allowed for this version = e:Patient.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*ServiceRequest/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.basedOn[0]</td><td>Structural Issue</td><td>Details for urn:uuid:bbfaafff-e427-433b-9ecd-29a23c3d73c0 matching against profile http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.code.coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210.2' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.code</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R210.2)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.subject.identifier</td><td>Structural Issue</td><td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DiagnosticReport/null*/.subject.identifier, DiagnosticReport.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.result[0]</td><td>Structural Issue</td><td>Details for urn:uuid:1c07eaee-e1b6-4f44-b4ea-d2541766a244 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.result[1]</td><td>Structural Issue</td><td>Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.result[2]</td><td>Structural Issue</td><td>Details for urn:uuid:090735b8-7be2-4926-9b74-78a0ecde5e42 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.presentedForm[0].contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.presentedForm[0].contentType</td><td>Unknown User</td><td>The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.presentedForm[0].contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[10]</td><td>Informational Note</td><td>Entry 'urn:uuid:933d1d3e-36ba-4fc3-ba95-5e5d05bc04b9' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.category[0]</td><td>Processing Failure</td><td>Slicing cannot be evaluated: Could not match discriminator ($this) for slice DiagnosticReport.category:Genetics in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1 - the discriminator [$this] does not have fixed value, binding or existence assertions</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource</td><td>Content not supported</td><td>DiagnosticReport.category:Genetics: Found 0 matches, but unable to check minimum required (DiagnosticReport.category) due to lack of slicing validation (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.subject.identifier</td><td>Structural Issue</td><td>The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.result[0]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:1c07eaee-e1b6-4f44-b4ea-d2541766a244 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource.result[0]</td><td>Structural Issue</td><td>Details for urn:uuid:1c07eaee-e1b6-4f44-b4ea-d2541766a244 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.result[1]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource.result[1]</td><td>Structural Issue</td><td>Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.result[2]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:090735b8-7be2-4926-9b74-78a0ecde5e42 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource.result[2]</td><td>Structural Issue</td><td>Details for urn:uuid:090735b8-7be2-4926-9b74-78a0ecde5e42 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource.presentedForm[0].contentType.system</td><td>Not Found</td><td>A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource.presentedForm[0].contentType</td><td>Invalid Code</td><td>A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Information</td><td>Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint</td><td>Informational Note</td><td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' - change from https: to http:</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/.identifier[0].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Invalid Content</td><td>Best Practice Recommendation: In general, all observations should have a performer</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.category[1]</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Business Rule Violation</td><td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.2.1</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept).coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/refseq' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[2]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[3]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[4]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[5]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[6]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[7]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[8]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Observation/null*/</td><td>Structural Issue</td><td>Observation.identifier: minimum required = 1, but only found 0 (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[0].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[4].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[5].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[6].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[2].resource/*Observation/null*/.component[7].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[3].resource/*Binary/null*/.contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = No Service)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DocumentReference/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[4].resource/*DocumentReference/null*/.content[0].attachment.contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = No Service)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*DocumentReference/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.category[1]</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/clinvar' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/refseq' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://varnomen.hgvs.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[4].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://varnomen.hgvs.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[7].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/refseq' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[8].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://varnomen.hgvs.org' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[12].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.ncbi.nlm.nih.gov/projects/SNP' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[13].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'Chrom-Loc' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.category[2]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[0]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[3]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[4]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[5]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[6]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[7]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[8]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[9]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[10]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[11]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[12]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[13]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[14]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[15]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[16]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[17]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[18]</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Invalid Content</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 and slicing is CLOSED: Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept): Does not match slice 'valueQuantity' (discriminator: ($this is Quantity))</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept).coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'http://www.genenames.org' version 'null' could not be found, so the code cannot be validated. Valid versions: 3.0.0 or 3.1.0</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[1].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Invalid Content</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 and slicing is CLOSED: Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept): Does not match slice 'valueQuantity' (discriminator: ($this is Quantity))</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Invalid Code</td><td>Binding for path Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept) in profile StructureDefinition[https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1] has no source, so can't be checked</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[2].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[3].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[4].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[5].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[6].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[7].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[8].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[9].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[10].value.ofType(Range)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[11].value.ofType(string)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[12].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[13].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[14].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[15].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[16].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[17].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*Observation/null*/.component[18].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.category[1]</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set (codes = http://terminology.hl7.org/CodeSystem/v2-0074#GE)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]</td><td>Structural Issue</td><td>Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Business Rule Violation</td><td>Reference to draft CodeSystem https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication|0.2.1</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept).coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210' in the CodeSystem 'https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[6].resource/*Observation/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b among choices: http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core, http://hl7.org/fhir/StructureDefinition/ImagingStudy</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]</td><td>Structural Issue</td><td>Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core|2.0.0-ballot</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Invalid Content</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1 and slicing is CLOSED: Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept): Does not match slice 'valueQuantity' (discriminator: ($this is Quantity))</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Invalid Code</td><td>Binding for path Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept) in profile StructureDefinition[https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1] has no source, so can't be checked</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[6].resource/*Observation/null*/.component[0].value.ofType(CodeableConcept)</td><td>Informational Note</td><td>This element does not match any known slice defined in the profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication|0.2.1 (this may not be a problem, but you should check that it's not intended to match a slice)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*ServiceRequest/null*/.code.coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210.2' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[7].resource/*ServiceRequest/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.code.coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R210.2' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '0.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.code</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'LOINC Diagnostic Report Codes' (http://hl7.org/fhir/ValueSet/report-codes|4.0.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory#R210.2)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.subject.identifier.type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.result[0]</td><td>Structural Issue</td><td>Details for urn:uuid:0b59a718-e917-4980-9692-897376befcc3 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.result[1]</td><td>Structural Issue</td><td>Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.result[2]</td><td>Structural Issue</td><td>Details for urn:uuid:de851c0d-5df5-4254-8f92-c946341365e9 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/.presentedForm[0].contentType</td><td>Invalid Code</td><td>The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = No Service)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource/*DiagnosticReport/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[10]</td><td>Informational Note</td><td>Entry 'urn:uuid:ce2a9028-9b58-4db2-bba5-e827f98a4869' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.category[0]</td><td>Processing Failure</td><td>Slicing cannot be evaluated: Could not match discriminator ($this) for slice DiagnosticReport.category:Genetics in profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1 - the discriminator [$this] does not have fixed value, binding or existence assertions</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource</td><td>Content not supported</td><td>DiagnosticReport.category:Genetics: Found 0 matches, but unable to check minimum required (DiagnosticReport.category) due to lack of slicing validation (from https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport|0.2.1)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.result[0]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:0b59a718-e917-4980-9692-897376befcc3 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource.result[0]</td><td>Structural Issue</td><td>Details for urn:uuid:0b59a718-e917-4980-9692-897376befcc3 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.result[1]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource.result[1]</td><td>Structural Issue</td><td>Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[8].resource.result[2]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:de851c0d-5df5-4254-8f92-c946341365e9 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[8].resource.result[2]</td><td>Structural Issue</td><td>Details for urn:uuid:de851c0d-5df5-4254-8f92-c946341365e9 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource.presentedForm[0].contentType.system</td><td>Not Found</td><td>A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[8].resource.presentedForm[0].contentType</td><td>Invalid Code</td><td>A definition for CodeSystem 'urn:ietf:bcp:13' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr></table></div>"
   },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-file",
     "valueString" : "Output/FHIR/R01/LRI-GeneVariant-3.txt.json"
   }],
   "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 35
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 70
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "InstanceValidator"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "TYPE_SPECIFIC_CHECKS_DT_URL_WRONG_HTTPS"
+    }],
+    "severity" : "information",
+    "code" : "informational",
+    "details" : {
+      "text" : "A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/IGENE' - change from https: to http:"
+    },
+    "expression" : ["Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint"]
+  },
+  {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
       "valueInteger" : 6
@@ -131,31 +155,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 290
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Extension_EXTP_Context_Wrong"
-    }],
-    "severity" : "error",
-    "code" : "structure",
-    "details" : {
-      "text" : "The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*Observation/null*/.subject.identifier, Identifier, Observation.subject.identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)"
-    },
-    "expression" : ["Bundle.entry[2].resource/*Observation/null*/.subject.identifier"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 306
+      "valueInteger" : 292
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -731,55 +731,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 324
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 41
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "TerminologyEngine"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Unable_to_resolve_system__value_set_has_include_with_unknown_system"
-    }],
-    "severity" : "error",
-    "code" : "unknown",
-    "details" : {
-      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]"
-    },
-    "expression" : ["Bundle.entry[3].resource/*Binary/null*/.contentType"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 324
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 41
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "TerminologyEngine"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "UNABLE_TO_INFER_CODESYSTEM"
-    }],
-    "severity" : "error",
-    "code" : "unknown",
-    "details" : {
-      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'"
-    },
-    "expression" : ["Bundle.entry[3].resource/*Binary/null*/.contentType"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 324
+      "valueInteger" : 310
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -796,38 +748,14 @@
     "severity" : "error",
     "code" : "code-invalid",
     "details" : {
-      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')"
+      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = No Service)"
     },
     "expression" : ["Bundle.entry[3].resource/*Binary/null*/.contentType"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 421
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Extension_EXTP_Context_Wrong"
-    }],
-    "severity" : "error",
-    "code" : "structure",
-    "details" : {
-      "text" : "The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DocumentReference/null*/.subject.identifier, DocumentReference.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)"
-    },
-    "expression" : ["Bundle.entry[4].resource/*DocumentReference/null*/.subject.identifier"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 437
+      "valueInteger" : 409
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -851,55 +779,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 335
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 47
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "TerminologyEngine"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Unable_to_resolve_system__value_set_has_include_with_unknown_system"
-    }],
-    "severity" : "error",
-    "code" : "unknown",
-    "details" : {
-      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]"
-    },
-    "expression" : ["Bundle.entry[4].resource/*DocumentReference/null*/.content[0].attachment.contentType"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 335
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 47
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "TerminologyEngine"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "UNABLE_TO_INFER_CODESYSTEM"
-    }],
-    "severity" : "error",
-    "code" : "unknown",
-    "details" : {
-      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'"
-    },
-    "expression" : ["Bundle.entry[4].resource/*DocumentReference/null*/.content[0].attachment.contentType"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 335
+      "valueInteger" : 321
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -916,14 +796,14 @@
     "severity" : "error",
     "code" : "code-invalid",
     "details" : {
-      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')"
+      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = No Service)"
     },
     "expression" : ["Bundle.entry[4].resource/*DocumentReference/null*/.content[0].attachment.contentType"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 330
+      "valueInteger" : 316
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -947,7 +827,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 473
+      "valueInteger" : 445
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -971,31 +851,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 913
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Extension_EXTP_Context_Wrong"
-    }],
-    "severity" : "error",
-    "code" : "structure",
-    "details" : {
-      "text" : "The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*Observation/null*/.subject.identifier, Identifier, Observation.subject.identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)"
-    },
-    "expression" : ["Bundle.entry[5].resource/*Observation/null*/.subject.identifier"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 929
+      "valueInteger" : 887
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1019,7 +875,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 941
+      "valueInteger" : 899
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1043,7 +899,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 511
+      "valueInteger" : 483
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1067,7 +923,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 531
+      "valueInteger" : 503
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1091,7 +947,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 551
+      "valueInteger" : 523
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1115,7 +971,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 571
+      "valueInteger" : 543
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1139,7 +995,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 591
+      "valueInteger" : 563
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1163,7 +1019,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 651
+      "valueInteger" : 623
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1187,7 +1043,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 671
+      "valueInteger" : 643
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1211,7 +1067,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 736
+      "valueInteger" : 708
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1235,7 +1091,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 756
+      "valueInteger" : 728
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1259,7 +1115,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 462
+      "valueInteger" : 434
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1283,7 +1139,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 481
+      "valueInteger" : 453
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1307,7 +1163,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 501
+      "valueInteger" : 473
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1331,7 +1187,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 561
+      "valueInteger" : 533
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1355,7 +1211,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 581
+      "valueInteger" : 553
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1379,7 +1235,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 601
+      "valueInteger" : 573
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1403,7 +1259,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 621
+      "valueInteger" : 593
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1427,7 +1283,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 641
+      "valueInteger" : 613
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1451,7 +1307,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 661
+      "valueInteger" : 633
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1475,7 +1331,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 681
+      "valueInteger" : 653
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1499,7 +1355,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 693
+      "valueInteger" : 665
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1523,7 +1379,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 714
+      "valueInteger" : 686
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1547,7 +1403,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 726
+      "valueInteger" : 698
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1571,7 +1427,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 746
+      "valueInteger" : 718
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1595,7 +1451,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 766
+      "valueInteger" : 738
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1619,7 +1475,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 786
+      "valueInteger" : 758
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1643,7 +1499,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 806
+      "valueInteger" : 778
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1667,7 +1523,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 826
+      "valueInteger" : 798
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1691,7 +1547,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 846
+      "valueInteger" : 818
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1715,7 +1571,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 511
+      "valueInteger" : 483
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1739,7 +1595,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 531
+      "valueInteger" : 503
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1763,7 +1619,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 531
+      "valueInteger" : 503
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1787,7 +1643,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 531
+      "valueInteger" : 503
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1811,7 +1667,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 551
+      "valueInteger" : 523
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1835,7 +1691,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 551
+      "valueInteger" : 523
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1859,7 +1715,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 551
+      "valueInteger" : 523
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1883,7 +1739,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 571
+      "valueInteger" : 543
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1907,7 +1763,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 591
+      "valueInteger" : 563
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1931,7 +1787,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 611
+      "valueInteger" : 583
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1955,7 +1811,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 631
+      "valueInteger" : 603
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -1979,7 +1835,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 651
+      "valueInteger" : 623
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2003,7 +1859,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 671
+      "valueInteger" : 643
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2027,7 +1883,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 691
+      "valueInteger" : 663
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2051,7 +1907,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 703
+      "valueInteger" : 675
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2075,7 +1931,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 724
+      "valueInteger" : 696
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2099,7 +1955,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 736
+      "valueInteger" : 708
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2123,7 +1979,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 756
+      "valueInteger" : 728
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2147,7 +2003,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 776
+      "valueInteger" : 748
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2171,7 +2027,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 796
+      "valueInteger" : 768
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2195,7 +2051,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 816
+      "valueInteger" : 788
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2219,7 +2075,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 836
+      "valueInteger" : 808
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2243,7 +2099,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 856
+      "valueInteger" : 828
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2267,7 +2123,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 965
+      "valueInteger" : 923
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2291,31 +2147,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1057
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Extension_EXTP_Context_Wrong"
-    }],
-    "severity" : "error",
-    "code" : "structure",
-    "details" : {
-      "text" : "The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*Observation/null*/.subject.identifier, Identifier, Observation.subject.identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)"
-    },
-    "expression" : ["Bundle.entry[6].resource/*Observation/null*/.subject.identifier"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1073
+      "valueInteger" : 1017
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2339,7 +2171,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1015
+      "valueInteger" : 973
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2356,14 +2188,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+      "text" : "Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
     },
     "expression" : ["Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1003
+      "valueInteger" : 961
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2387,7 +2219,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1003
+      "valueInteger" : 961
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2411,7 +2243,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 954
+      "valueInteger" : 912
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2435,7 +2267,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1015
+      "valueInteger" : 973
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2452,14 +2284,14 @@
     "severity" : "error",
     "code" : "structure",
     "details" : {
-      "text" : "Unable to find a profile match for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c among choices: http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core, http://hl7.org/fhir/StructureDefinition/ImagingStudy"
+      "text" : "Unable to find a profile match for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b among choices: http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core, http://hl7.org/fhir/StructureDefinition/ImagingStudy"
     },
     "expression" : ["Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1015
+      "valueInteger" : 973
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2476,14 +2308,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core|2.0.0-ballot"
+      "text" : "Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile http://hl7.eu/fhir/base/StructureDefinition/medicalTestResult-eu-core|2.0.0-ballot"
     },
     "expression" : ["Bundle.entry[6].resource/*Observation/null*/.derivedFrom[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1003
+      "valueInteger" : 961
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2507,7 +2339,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1003
+      "valueInteger" : 961
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2531,7 +2363,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1003
+      "valueInteger" : 961
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2555,7 +2387,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1102
+      "valueInteger" : 1046
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2579,31 +2411,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1141
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Extension_EXTP_Context_Wrong"
-    }],
-    "severity" : "error",
-    "code" : "structure",
-    "details" : {
-      "text" : "The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*ServiceRequest/null*/.subject.identifier, Identifier, Reference.identifier, ServiceRequest.subject.identifier]; allowed for this version = e:Patient.identifier)"
-    },
-    "expression" : ["Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1157
+      "valueInteger" : 1087
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2627,7 +2435,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1089
+      "valueInteger" : 1033
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2651,31 +2459,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1176
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Details_for__matching_against_Profile_"
-    }],
-    "severity" : "information",
-    "code" : "structure",
-    "details" : {
-      "text" : "Details for urn:uuid:bbfaafff-e427-433b-9ecd-29a23c3d73c0 matching against profile http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1"
-    },
-    "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.basedOn[0]"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1208
+      "valueInteger" : 1138
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2699,7 +2483,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1208
+      "valueInteger" : 1138
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2723,31 +2507,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1273
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Extension_EXTP_Context_Wrong"
-    }],
-    "severity" : "error",
-    "code" : "structure",
-    "details" : {
-      "text" : "The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Bundle.entry.resource/*DiagnosticReport/null*/.subject.identifier, DiagnosticReport.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)"
-    },
-    "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.subject.identifier"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1289
+      "valueInteger" : 1205
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2771,7 +2531,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1255
+      "valueInteger" : 1185
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2788,14 +2548,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:1c07eaee-e1b6-4f44-b4ea-d2541766a244 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+      "text" : "Details for urn:uuid:0b59a718-e917-4980-9692-897376befcc3 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
     },
     "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.result[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1260
+      "valueInteger" : 1190
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2812,14 +2572,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+      "text" : "Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
     },
     "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.result[1]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1265
+      "valueInteger" : 1195
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2836,62 +2596,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:090735b8-7be2-4926-9b74-78a0ecde5e42 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
+      "text" : "Details for urn:uuid:de851c0d-5df5-4254-8f92-c946341365e9 matching against profile http://hl7.org/fhir/StructureDefinition/Observation|4.0.1"
     },
     "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.result[2]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1250
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 45
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "TerminologyEngine"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Unable_to_resolve_system__value_set_has_include_with_unknown_system"
-    }],
-    "severity" : "error",
-    "code" : "unknown",
-    "details" : {
-      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]"
-    },
-    "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.presentedForm[0].contentType"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1250
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 45
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "TerminologyEngine"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "UNABLE_TO_INFER_CODESYSTEM"
-    }],
-    "severity" : "error",
-    "code" : "unknown",
-    "details" : {
-      "text" : "The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1'"
-    },
-    "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.presentedForm[0].contentType"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1250
+      "valueInteger" : 1180
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2908,14 +2620,14 @@
     "severity" : "error",
     "code" : "code-invalid",
     "details" : {
-      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1': include #0 has system urn:ietf:bcp:13 which could not be found, and the server returned error [No server available]; The System URI could not be determined for the code 'application/pdf' in the ValueSet 'http://hl7.org/fhir/ValueSet/mimetypes|4.0.1')"
+      "text" : "The value provided ('application/pdf') was not found in the value set 'MimeType' (http://hl7.org/fhir/ValueSet/mimetypes|4.0.1), and a code is required from this value set  (error message = No Service)"
     },
     "expression" : ["Bundle.entry[8].resource/*DiagnosticReport/null*/.presentedForm[0].contentType"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1173
+      "valueInteger" : 1103
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2939,7 +2651,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 328
+      "valueInteger" : 314
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2956,14 +2668,14 @@
     "severity" : "information",
     "code" : "informational",
     "details" : {
-      "text" : "Entry 'urn:uuid:933d1d3e-36ba-4fc3-ba95-5e5d05bc04b9' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)"
+      "text" : "Entry 'urn:uuid:ce2a9028-9b58-4db2-bba5-e827f98a4869' isn't reachable by traversing forwards from the MessageHeader. Check that this is meant to be included (needed to process the message)"
     },
     "expression" : ["Bundle.entry[10]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1199
+      "valueInteger" : 1129
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -2987,7 +2699,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1173
+      "valueInteger" : 1103
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3011,31 +2723,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1273
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
-      "valueInteger" : 12
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
-      "valueString" : "InstanceValidator"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
-      "valueCode" : "Extension_EXTP_Context_Wrong"
-    }],
-    "severity" : "error",
-    "code" : "structure",
-    "details" : {
-      "text" : "The extension https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus is not allowed to be used at this point (this element is [Bundle.entry.resource.subject.identifier, Identifier, Reference.identifier]; allowed for this version = e:Patient.identifier)"
-    },
-    "expression" : ["Bundle.entry[8].resource.subject.identifier"]
-  },
-  {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1255
+      "valueInteger" : 1185
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3052,14 +2740,14 @@
     "severity" : "error",
     "code" : "structure",
     "details" : {
-      "text" : "Unable to find a profile match for urn:uuid:1c07eaee-e1b6-4f44-b4ea-d2541766a244 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
+      "text" : "Unable to find a profile match for urn:uuid:0b59a718-e917-4980-9692-897376befcc3 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
     },
     "expression" : ["Bundle.entry[8].resource.result[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1255
+      "valueInteger" : 1185
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3076,14 +2764,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:1c07eaee-e1b6-4f44-b4ea-d2541766a244 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1"
+      "text" : "Details for urn:uuid:0b59a718-e917-4980-9692-897376befcc3 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1"
     },
     "expression" : ["Bundle.entry[8].resource.result[0]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1260
+      "valueInteger" : 1190
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3100,14 +2788,14 @@
     "severity" : "error",
     "code" : "structure",
     "details" : {
-      "text" : "Unable to find a profile match for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
+      "text" : "Unable to find a profile match for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
     },
     "expression" : ["Bundle.entry[8].resource.result[1]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1260
+      "valueInteger" : 1190
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3124,14 +2812,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:d8ad1264-ab6e-43d9-9731-42a96420945c matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1"
+      "text" : "Details for urn:uuid:5c83cb68-7688-49a9-9c1f-1fc3927c902b matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1"
     },
     "expression" : ["Bundle.entry[8].resource.result[1]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1265
+      "valueInteger" : 1195
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3148,14 +2836,14 @@
     "severity" : "error",
     "code" : "structure",
     "details" : {
-      "text" : "Unable to find a profile match for urn:uuid:090735b8-7be2-4926-9b74-78a0ecde5e42 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
+      "text" : "Unable to find a profile match for urn:uuid:de851c0d-5df5-4254-8f92-c946341365e9 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
     },
     "expression" : ["Bundle.entry[8].resource.result[2]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1265
+      "valueInteger" : 1195
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3172,14 +2860,14 @@
     "severity" : "information",
     "code" : "structure",
     "details" : {
-      "text" : "Details for urn:uuid:090735b8-7be2-4926-9b74-78a0ecde5e42 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1"
+      "text" : "Details for urn:uuid:de851c0d-5df5-4254-8f92-c946341365e9 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1"
     },
     "expression" : ["Bundle.entry[8].resource.result[2]"]
   },
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1250
+      "valueInteger" : 1180
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -3203,7 +2891,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 1250
+      "valueInteger" : 1180
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
