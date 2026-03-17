@@ -22,7 +22,7 @@
 <table cellspacing="0" border="0" style="width:500px; border:0; font-size: 14px;">
     <tr>
         <td style="text-align:right;">
-            <b><span>05, Mar 2026</span></b>
+            <b><span>16, Mar 2026</span></b>
         </td>
     </tr>
 </table>
@@ -38,10 +38,17 @@
   </thead>
   <tbody>
     <tr>
+      <th>27</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Unable to find a profile match for urn:uuid:c2e8384b-4a14-4ed7-bd9d-d2d600a469de among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference, https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
+      <td>[Bundle.entry[7].resource.supportingInfo[0]]</td>
+    </tr>
+    <tr>
       <th>24</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:56a9d153-aefc-4849-a31a-c15eeee0492e among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Organization, https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole</td>
+      <td>Unable to find a profile match for urn:uuid:9afb46a9-9647-45ab-b807-4437b3792656 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Organization, https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole</td>
       <td>[Bundle.entry[7].resource.requester]</td>
     </tr>
     <tr>
@@ -55,7 +62,7 @@
       <th>21</th>
       <td>error</td>
       <td>structure</td>
-      <td>Unable to find a profile match for urn:uuid:7be6021e-49a9-488e-ac40-048c97d8f825 among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
+      <td>Unable to find a profile match for urn:uuid:4e623dee-2bbd-4ec9-8964-79cba781ca2c among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell</td>
       <td>[Bundle.entry[7].resource.encounter]</td>
     </tr>
     <tr>
@@ -66,17 +73,45 @@
       <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.code.coding[0].display]</td>
     </tr>
     <tr>
-      <th>0</th>
+      <th>29</th>
+      <td>error</td>
+      <td>structure</td>
+      <td>Unable to find a profile match for urn:uuid:a03cf232-70fe-4cdf-ba18-45707c20d2ca among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference, https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation</td>
+      <td>[Bundle.entry[7].resource.supportingInfo[1]]</td>
+    </tr>
+    <tr>
+      <th>30</th>
       <td>information</td>
-      <td>informational</td>
-      <td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/HIVE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/HIVE' - change from https: to http:</td>
-      <td>[Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint]</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:a03cf232-70fe-4cdf-ba18-45707c20d2ca matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
+      <td>[Bundle.entry[7].resource.supportingInfo[1]]</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:c2e8384b-4a14-4ed7-bd9d-d2d600a469de matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation|0.2.1</td>
+      <td>[Bundle.entry[7].resource.supportingInfo[0]]</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>information</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'Genomic Clinical Indication Codes' (https://fhir.nwgenomics.nhs.uk/ValueSet/GenomicClinicalIndicationCodes|0.2.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/reasonfortesting-genomics#relapse)</td>
+      <td>[Bundle.entry[7].resource.reasonCode[1]]</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>information</td>
+      <td>structure</td>
+      <td>Details for urn:uuid:9afb46a9-9647-45ab-b807-4437b3792656 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole|0.2.1</td>
+      <td>[Bundle.entry[7].resource.requester]</td>
     </tr>
     <tr>
       <th>22</th>
       <td>information</td>
       <td>structure</td>
-      <td>Details for urn:uuid:7be6021e-49a9-488e-ac40-048c97d8f825 matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.2.1</td>
+      <td>Details for urn:uuid:4e623dee-2bbd-4ec9-8964-79cba781ca2c matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell|0.2.1</td>
       <td>[Bundle.entry[7].resource.encounter]</td>
     </tr>
     <tr>
@@ -101,18 +136,11 @@
       <td>[Bundle.entry[7].resource.supportingInfo[0]]</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>information</td>
-      <td>structure</td>
-      <td>Details for urn:uuid:56a9d153-aefc-4849-a31a-c15eeee0492e matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole|0.2.1</td>
-      <td>[Bundle.entry[7].resource.requester]</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>information</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'Genomic Clinical Indication Codes' (https://fhir.nwgenomics.nhs.uk/ValueSet/GenomicClinicalIndicationCodes|0.2.1), and a coding is recommended to come from this value set (codes = https://fhir.nhs.uk/CodeSystem/reasonfortesting-genomics#relapse)</td>
-      <td>[Bundle.entry[7].resource.reasonCode[1]]</td>
+      <th>16</th>
+      <td>warning</td>
+      <td>not-found</td>
+      <td>A definition for CodeSystem 'https://fhir.nhs.uk/CodeSystem/reasonfortesting-genomics' could not be found, so the code cannot be validated</td>
+      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.reasonCode[1].coding[0].system]</td>
     </tr>
     <tr>
       <th>12</th>
@@ -122,25 +150,18 @@
       <td>[Bundle.entry[6].resource/*Specimen/null*/.subject.identifier.type]</td>
     </tr>
     <tr>
+      <th>10</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
+      <td>[Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type]</td>
+    </tr>
+    <tr>
       <th>8</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[4].resource/*Observation/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>warning</td>
-      <td>code-invalid</td>
-      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>warning</td>
-      <td>not-found</td>
-      <td>A definition for CodeSystem 'https://fhir.nhs.uk/CodeSystem/reasonfortesting-genomics' could not be found, so the code cannot be validated</td>
-      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.reasonCode[1].coding[0].system]</td>
     </tr>
     <tr>
       <th>5</th>
@@ -157,18 +178,25 @@
       <td>[Bundle.entry[2].resource/*Encounter/null*/.serviceType.coding[0]]</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
+      <td>warning</td>
+      <td>code-invalid</td>
+      <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#VN)</td>
+      <td>[Bundle.entry[2].resource/*Encounter/null*/.identifier[0].type]</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
       <td>[Bundle.entry[1].resource/*Patient/null*/.identifier[0].type]</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>15</th>
       <td>warning</td>
       <td>code-invalid</td>
       <td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NH)</td>
-      <td>[Bundle.entry[5].resource/*Observation/null*/.subject.identifier.type]</td>
+      <td>[Bundle.entry[7].resource/*ServiceRequest/null*/.subject.identifier.type]</td>
     </tr>
   </tbody>
 </table>
