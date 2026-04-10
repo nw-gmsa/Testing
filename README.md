@@ -46,6 +46,8 @@ curl --request POST --data-binary "@Specifications/ManchesterFoundationTrust/ORM
 
 #### Shire and DHCW ORU_R01
 
+curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/SHIRE_ORU_R01_RM3.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_TX.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_FULL.txt" http://192.168.1.20:9981/transformToFHIR
@@ -97,7 +99,7 @@ curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.20:9980
 
-curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_R125.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9980
 
 ### Reports
