@@ -82,6 +82,8 @@ curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_TX.txt.json" h
 curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_FULL.txt.json" http://192.168.1.20:9981/transformToV2
 curl --request POST --data-binary "@Output/FHIR/O21/Fetus-LRI-Variant-2-O01.txt.json" http://192.168.1.20:9981/transformToV2
 
+curl --request POST --data-binary "@Input/FHIR/O21/Liverpool_O21_Apr26.json" http://192.168.1.20:9981/transformToV2
+
 LRI Example
 
 curl --request POST --data-binary "@Output/FHIR/R01/LRI-GeneVariant-2.txt.json" http://192.168.1.20:9981/transformToV2

@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:3bf18992-32b7-4775-99be-0e609cf35c5a",
+      "fullUrl": "urn:uuid:5b5d4f8b-be67-4c35-a4e9-56b90fa12791",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,34 +22,45 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:2efa1521-96b4-47f5-9c75-77ce7723a776"
+            "reference": "urn:uuid:e45405f5-ce3b-46aa-8fb3-2cfe8226b50b"
           }
         ],
         "sender": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "R0A"
+            "value": "REP"
           }
         },
         "source": {
-          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/HIVE",
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/EXPANSE_EPR",
           "software": "NW GLH"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400",
+      "fullUrl": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d",
       "resource": {
         "resourceType": "Patient",
         "address": [
           {
-            "postalCode": "M13 9PL"
+            "city": "Congleton",
+            "line": [
+              "Town Hall",
+              "7 High St"
+            ],
+            "postalCode": "CW9 5BB"
           }
         ],
-        "birthDate": "1972-09-21",
-        "gender": "female",
+        "birthDate": "1982-02-11",
+        "gender": "male",
         "identifier": [
           {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "extension": [
               {
                 "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
@@ -73,16 +84,16 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "R0A"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
+            "system": "https://liverpoolwomens.nhs.uk/Id/medical-record-number",
             "type": {
               "coding": [
                 {
@@ -91,21 +102,21 @@
                 }
               ]
             },
-            "value": "1234567"
+            "value": "W0007939"
           }
         ],
         "name": [
           {
-            "family": "MANCHESTER",
+            "family": "Congleton",
             "given": [
-              "SANSA"
+              "Margaery"
             ]
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:e19b56ba-266f-4c1a-a3e4-7662c5fcb855",
+      "fullUrl": "urn:uuid:27e73a66-02fd-4120-8ce6-ee94ff3e882c",
       "resource": {
         "resourceType": "Encounter",
         "class": {
@@ -117,7 +128,7 @@
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "R0A"
+                "value": "REP"
               }
             },
             "type": {
@@ -128,28 +139,18 @@
                 }
               ]
             },
-            "value": "1001166717"
+            "value": "L00001715879"
           }
         ],
-        "location": [
-          {
-            "location": {
-              "identifier": {
-                "value": "^^^R0A09^^^^^^^R0A"
-              }
-            }
-          }
-        ],
-        "serviceType": {
-          "coding": [
-            {
-              "code": "100"
-            }
-          ]
-        },
         "status": "finished",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -159,55 +160,98 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:90218d1a-9687-4f05-80e1-9cfa8f968f92",
+      "fullUrl": "urn:uuid:222a2da4-8c62-4890-99fd-348210d1c7a2",
       "resource": {
-        "resourceType": "PractitionerRole",
-        "organization": {
-          "display": "Manchester University NHS Foundation Trust",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "R0A"
-          }
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Referring-Clinician-Telephone:",
+              "display": "01518025003"
+            }
+          ]
         },
-        "practitioner": {
-          "display": "Darwin, Samuel",
-          "identifier": {
-            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
-            "value": "C3456789"
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
           }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:9ac13a26-e74e-4b86-8b50-2d2f17005a2a",
+      "fullUrl": "urn:uuid:08b6bfd7-fd82-4f41-9b31-f0a4c35857a5",
       "resource": {
         "resourceType": "Observation",
         "code": {
           "coding": [
             {
-              "code": "GENEAP",
-              "display": "GENETICS TEST PERFORMABLE",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+              "code": "Age-at-collection:",
+              "display": "44"
             }
           ]
         },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -216,25 +260,7 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "performer": [
@@ -249,6 +275,12 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -258,35 +290,33 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:db19156f-714a-48ed-9314-558b7e5ec059",
+      "fullUrl": "urn:uuid:34394e69-6cb3-4f64-ab41-c8b00b05b2aa",
       "resource": {
         "resourceType": "Observation",
         "code": {
           "coding": [
             {
-              "code": "230056",
-              "display": "What Type of Referral Do You Require?",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+              "code": "Has-consent-been-obtained-for-tests?",
+              "display": "Y"
             }
           ]
         },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -295,25 +325,7 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "performer": [
@@ -328,6 +340,12 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -337,44 +355,33 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "1186936003",
-              "display": "Storage of specimen (procedure)",
-              "system": "http://snomed.info/sct"
-            }
-          ]
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:fe166dd5-9624-481e-a8d6-8f2bca668a10",
+      "fullUrl": "urn:uuid:6c7c3bee-d24e-4608-bf98-a559639ab22a",
       "resource": {
         "resourceType": "Observation",
         "code": {
           "coding": [
             {
-              "code": "281269004",
-              "display": "High infection risk sample",
-              "system": "http://snomed.info/sct"
+              "code": "Referring-Clinician-Email:",
+              "display": "natalie.canham1@nhs.net"
             }
           ]
         },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -383,25 +390,7 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "performer": [
@@ -416,6 +405,12 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -425,44 +420,33 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA32-8",
-              "display": "No",
-              "system": "http://loinc.org"
-            }
-          ]
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:d767c9c9-4d5f-4785-ad48-244eec931670",
+      "fullUrl": "urn:uuid:8d5326ea-5d0b-4997-862a-0236547a1f57",
       "resource": {
         "resourceType": "Observation",
         "code": {
           "coding": [
             {
-              "code": "230016",
-              "display": "Test Type",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+              "code": "Does-this-test-relate-to-an-ongoing-pregnancy?",
+              "display": "Y"
             }
           ]
         },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -471,25 +455,7 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "performer": [
@@ -504,6 +470,12 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -513,124 +485,33 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "Diagnostic Screen/Test"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:c17b0f11-641f-4687-abf9-a29a03403b07",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "77386006",
-              "display": "Pregnancy",
-              "system": "http://snomed.info/sct"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA33-6",
-              "display": "Yes",
-              "system": "http://loinc.org"
-            }
-          ]
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:6479856b-c6fd-43c3-bede-85138ac8f5e6",
+      "fullUrl": "urn:uuid:87f0a185-6517-4a50-8080-d27b1d6e0a35",
       "resource": {
         "resourceType": "Observation",
         "code": {
           "coding": [
             {
-              "code": "231284",
-              "display": "Please Select R240 Test(s):",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+              "code": "Referring-Clinician-Current-Speciality:",
+              "display": "Clinical Genetics"
             }
           ]
         },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -639,25 +520,7 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "performer": [
@@ -672,6 +535,12 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -681,284 +550,33 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "R240.1: Targeted variant testing"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:bd98fec6-0fd6-4fe8-8908-92804062a518",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "231285",
-              "display": "Please Select R242 Test(s):",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "R242.1: Targeted variant testing"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:2dba886f-a52a-488a-9e05-aebf71abe2e2",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "230027",
-              "display": "Email Addresses of Non-MFT Clinicians for Result Reports",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "charu"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:e39b04c4-73ac-4974-b44f-12c7e31d0c95",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "762911000000102",
-              "display": "Informed consent given for treatment",
-              "system": "http://snomed.info/sct"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA33-6",
-              "display": "Yes",
-              "system": "http://loinc.org"
-            }
-          ]
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:5c794e9b-75f3-43a1-8fb3-d4d1a9f0ffad",
+      "fullUrl": "urn:uuid:1c33ea79-e5b8-4c07-985a-a59c58ca2e77",
       "resource": {
         "resourceType": "Observation",
         "code": {
           "coding": [
             {
-              "code": "230037",
-              "display": "Please Acknowledge That a DNA Sample Will be Stored in the Laboratory on Completion of Testing",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+              "code": "Patient-is-from-consanguineous-union?",
+              "display": "No"
             }
           ]
         },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -967,25 +585,7 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "performer": [
@@ -1000,6 +600,12 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1009,364 +615,33 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "Acknowledged"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:dcbe32ba-82ec-46b6-a43d-32c060545e80",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "230039",
-              "display": "Is the Person Ordering the Test the Referring Clinician",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "No"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:954e86b1-c86c-49ae-a0b1-26f1dc17bc05",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "unknown",
-              "display": "Name of Supervising Clinician",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "DESHPANDE, CHARULATA"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:8f753cae-6999-44aa-814b-32de0fa3b2c2",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "97209-1",
-              "display": "Shipment tracking number",
-              "system": "http://loinc.org"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueString": "UK3096580215"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:e4f86b20-08c6-4848-9370-6ed2af6980bc",
-      "resource": {
-        "resourceType": "Observation",
-        "code": {
-          "coding": [
-            {
-              "code": "842009",
-              "display": "Consanguinity",
-              "system": "http://snomed.info/sct"
-            }
-          ]
-        },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
-        "identifier": [
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
-              }
-            },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
-          }
-        ],
-        "performer": [
-          {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "type": "Organization"
-          }
-        ],
-        "status": "final",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA32-8",
-              "display": "No",
-              "system": "http://loinc.org"
-            }
-          ]
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:eb7b2eaa-1695-422d-be1e-e966cf22769e",
+      "fullUrl": "urn:uuid:d9a14f87-a8b9-4088-81f1-54348266b38f",
       "resource": {
         "resourceType": "Observation",
         "code": {
           "coding": [
             {
-              "code": "161714006",
-              "display": "Estimated date of delivery",
-              "system": "http://snomed.info/sct"
+              "code": "Referring-Organisation-ODS-code:",
+              "display": "Liverpool Women's Hospital"
             }
           ]
         },
-        "effectiveDateTime": "2025-01-29T10:37:26+00:00",
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -1375,25 +650,7 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "performer": [
@@ -1408,6 +665,12 @@
         "status": "final",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1417,77 +680,475 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "valueDateTime": "2025-05-12T10:37:26+00:00"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:89c636bb-fc7e-4690-8b41-b36c0db0295e",
-      "resource": {
-        "resourceType": "Condition",
-        "code": {
-          "coding": [
-            {
-              "code": "363349007",
-              "display": "Malignant tumour of stomach",
-              "system": "http://snomed.info/sct"
-            }
-          ]
-        },
-        "onsetDateTime": "2025-01-29T10:37:26+00:00",
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "type": {
-              "coding": [
-                {
-                  "code": "NH",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "9737383192"
-          },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:ef2e14fe-b8aa-4da3-8918-28f6281d71c1",
+      "fullUrl": "urn:uuid:5de4e435-9e55-49e6-8ec1-ad386091f97e",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Secondary-Clinician-Email:",
+              "display": "EMERSON.WONG@LWH.NHS.UK"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aa546c1e-88de-4758-8efd-6a233cbd54e1",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Does-this-test-relate-to-a-pregnancy-with->-1-fetus?",
+              "display": "N"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:96086a1c-8d94-43eb-8001-e40a6f8f4bcb",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Is-this-test-for-a-decreased-infant-or-pregnancy-loss?",
+              "display": "No"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2d9dee4d-a435-483c-b4fa-b285d6aab937",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Patient-expected-delivery-date:",
+              "display": "06/06/26"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2536cde8-a656-4bfe-8f28-8f3dba2ffc29",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Is-the-test-done-in-the-prenatal-or-neonatal-period?",
+              "display": "Prenatal"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d96bc33e-5cd1-4c4f-af52-01e47b8bb513",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [
+            {
+              "code": "Referring-Clinician-Name:",
+              "display": "Dr Natalie Canham"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ac36ee10-a1fe-4d3b-85d7-6786462682e3",
+      "resource": {
+        "resourceType": "Observation",
+        "code": {
+          "text": "Unknown observation code"
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REP"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7209"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383281"
+          },
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:99c480b1-7f08-45b2-9a71-f2e081ab25a2",
       "resource": {
         "resourceType": "Specimen",
-        "accessionIdentifier": {
-          "assigner": {
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            }
-          },
-          "type": {
-            "coding": [
-              {
-                "code": "ACSN",
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-              }
-            ]
-          },
-          "value": "1001166717"
-        },
-        "collection": {
-          "collectedDateTime": "2025-01-29T10:37:26+00:00"
-        },
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "R0A"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -1496,12 +1157,18 @@
                 }
               ]
             },
-            "value": "25GEN-029GN00001"
+            "value": "REP:050326:AG1"
           }
         ],
-        "status": "available",
+        "status": "unavailable",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1511,26 +1178,17 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
-        },
-        "type": {
-          "coding": [
-            {
-              "code": "258580003",
-              "display": "Whole blood specimen",
-              "system": "http://snomed.info/sct"
-            }
-          ]
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:2efa1521-96b4-47f5-9c75-77ce7723a776",
+      "fullUrl": "urn:uuid:e45405f5-ce3b-46aa-8fb3-2cfe8226b50b",
       "resource": {
         "resourceType": "ServiceRequest",
-        "authoredOn": "2025-01-29T00:00:00+00:00",
+        "authoredOn": "2026-03-05T17:35:59+00:00",
         "category": [
           {
             "coding": [
@@ -1544,8 +1202,7 @@
         "code": {
           "coding": [
             {
-              "code": "R125.1",
-              "display": "Gaucher disease",
+              "code": "R21.1",
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
             }
           ]
@@ -1555,7 +1212,7 @@
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "R0A"
+                "value": "REP"
               }
             },
             "type": {
@@ -1566,19 +1223,19 @@
                 }
               ]
             },
-            "value": "1001166717"
+            "value": "L00001715879"
           },
-          "reference": "urn:uuid:e19b56ba-266f-4c1a-a3e4-7662c5fcb855"
+          "reference": "urn:uuid:27e73a66-02fd-4120-8ce6-ee94ff3e882c"
         },
         "identifier": [
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "ROA"
+                "value": "REP"
               }
             },
-            "system": "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
             "type": {
               "coding": [
                 {
@@ -1587,71 +1244,30 @@
                 }
               ]
             },
-            "value": "1601716017"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "http://www.acme.org/servicerequest",
-            "type": {
-              "coding": [
-                {
-                  "code": "FILL",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "1001166717"
+            "value": "7209"
           }
         ],
         "intent": "order",
         "note": [
           {
-            "text": "Referral lab PLEASE do following tests:\\n\\nTest(s) required: WGS\\nSample type: Blood\\nTransport used: Merlin Courier\\nTracking Number: ABC123\\nSample sent to: LWH Genetics\\nBy: PDAY on: 02/04/25\\n\\nSpeciality Requesting Clinician: PAEDS\\nTest Group: Neurology\\nEthnic Group: White British\\nPatient is from consanguineous union? : Unknown\\nSpecimen Collection Status: Collect & send with order\\nInfection Risk: No Specific Risk\\nClinical details:\\n\\nTESTING\\nContact/Bleep No: 123\\n"
+            "text": "**Fetal R codes** : _R21.1 Fetus likely geneti_\\n**Rare Disease Test Type:** : _Diagnostic Screen_\\n**Referring Clinician Telephone:** : _01518025003_\\n**Patient Ethnicity:** : _Arab_\\n**G Number (pedigree number):** : _G88888_\\n**Age at collection:** : _44_\\n**Has consent been obtained for tests?** : _Y_\\n**Referring Clinician Email:** : _natalie.canham1@nhs.net_\\n**Does this test relate to an ongoing pregnancy?** : _Y_\\n**Sample collection status:** : _Collect T Send with Order_\\n**Referring Clinician Current Speciality:** : _Clinical Genetics_\\n**Type of WGS:** : _Not Applicable_\\n**Test request ID/Order ID:** : _r21 (parent)_\\n**Specimen Type:** : _Venous blood_\\n**Patient is from consanguineous union?** : _No_\\n**Referring Organisation ODS code:** : _Liverpool Women's Hospital_\\n**Secondary Clinician Email:** : _EMERSON.WONG@LWH.NHS.UK_\\n**Specific disease suspected/reason for testing:** : _fetus eligible for R21_\\n**Has consent been obtained for DNA storage:** : _Y_\\n**Does this test relate to a pregnancy with > 1 fetus?** : _N_\\n**Is this test for a decreased infant or pregnancy loss?** : _No_\\n**Priority:** : _Urgent_\\n**Patient expected delivery date:** : _06/06/26_\\n**Is the test done in the prenatal or neonatal period?** : _Prenatal_\\n**Reason For Variant Re** : _Interpretation Request:_\\n**Is the participant type Proband or Family Member (WGS)** : _Not Applicable_\\n**Referring Clinician Name:** : _Dr Natalie Canham_\\n"
           }
         ],
-        "reasonCode": [
-          {
-            "coding": [
-              {
-                "code": "363349007",
-                "display": "Malignant tumour of stomach",
-                "system": "http://snomed.info/sct"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "code": "363349007",
-                "display": "Malignant tumour of stomach",
-                "system": "http://snomed.info/sct"
-              }
-            ]
-          }
-        ],
-        "reasonReference": [
-          {
-            "reference": "urn:uuid:89c636bb-fc7e-4690-8b41-b36c0db0295e",
-            "type": "Condition"
-          }
-        ],
-        "requester": {
-          "reference": "urn:uuid:90218d1a-9687-4f05-80e1-9cfa8f968f92"
-        },
         "specimen": [
           {
-            "reference": "urn:uuid:ef2e14fe-b8aa-4da3-8918-28f6281d71c1",
+            "reference": "urn:uuid:99c480b1-7f08-45b2-9a71-f2e081ab25a2",
             "type": "Specimen"
           }
         ],
         "status": "active",
         "subject": {
           "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
@@ -1661,69 +1277,69 @@
                 }
               ]
             },
-            "value": "9737383192"
+            "value": "9737383281"
           },
-          "reference": "urn:uuid:2b48e76d-6f5a-4f96-91ed-f588b3554400"
+          "reference": "urn:uuid:cd7ac91c-14da-4212-a92d-f978b243ec7d"
         },
         "supportingInfo": [
           {
-            "reference": "urn:uuid:9ac13a26-e74e-4b86-8b50-2d2f17005a2a",
+            "reference": "urn:uuid:222a2da4-8c62-4890-99fd-348210d1c7a2",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:db19156f-714a-48ed-9314-558b7e5ec059",
+            "reference": "urn:uuid:08b6bfd7-fd82-4f41-9b31-f0a4c35857a5",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:fe166dd5-9624-481e-a8d6-8f2bca668a10",
+            "reference": "urn:uuid:34394e69-6cb3-4f64-ab41-c8b00b05b2aa",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:d767c9c9-4d5f-4785-ad48-244eec931670",
+            "reference": "urn:uuid:6c7c3bee-d24e-4608-bf98-a559639ab22a",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:c17b0f11-641f-4687-abf9-a29a03403b07",
+            "reference": "urn:uuid:8d5326ea-5d0b-4997-862a-0236547a1f57",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:6479856b-c6fd-43c3-bede-85138ac8f5e6",
+            "reference": "urn:uuid:87f0a185-6517-4a50-8080-d27b1d6e0a35",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:bd98fec6-0fd6-4fe8-8908-92804062a518",
+            "reference": "urn:uuid:1c33ea79-e5b8-4c07-985a-a59c58ca2e77",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:2dba886f-a52a-488a-9e05-aebf71abe2e2",
+            "reference": "urn:uuid:d9a14f87-a8b9-4088-81f1-54348266b38f",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:e39b04c4-73ac-4974-b44f-12c7e31d0c95",
+            "reference": "urn:uuid:5de4e435-9e55-49e6-8ec1-ad386091f97e",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:5c794e9b-75f3-43a1-8fb3-d4d1a9f0ffad",
+            "reference": "urn:uuid:aa546c1e-88de-4758-8efd-6a233cbd54e1",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:dcbe32ba-82ec-46b6-a43d-32c060545e80",
+            "reference": "urn:uuid:96086a1c-8d94-43eb-8001-e40a6f8f4bcb",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:954e86b1-c86c-49ae-a0b1-26f1dc17bc05",
+            "reference": "urn:uuid:2d9dee4d-a435-483c-b4fa-b285d6aab937",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:8f753cae-6999-44aa-814b-32de0fa3b2c2",
+            "reference": "urn:uuid:2536cde8-a656-4bfe-8f28-8f3dba2ffc29",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:e4f86b20-08c6-4848-9370-6ed2af6980bc",
+            "reference": "urn:uuid:d96bc33e-5cd1-4c4f-af52-01e47b8bb513",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:eb7b2eaa-1695-422d-be1e-e966cf22769e",
+            "reference": "urn:uuid:ac36ee10-a1fe-4d3b-85d7-6786462682e3",
             "type": "Observation"
           }
         ]
@@ -1731,8 +1347,8 @@
     }
   ],
   "identifier": {
-    "value": "urn:uuid:9612365d-52a4-4fab-87e7-8a09d753f095"
+    "value": "696022df-ff1b-4703-9c36-e669dbfdb415"
   },
-  "timestamp": "2024-10-13T10:33:00+00:00",
+  "timestamp": "2026-04-14T12:09:31+00:00",
   "type": "message"
 }
