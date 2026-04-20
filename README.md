@@ -1,4 +1,4 @@
-Virual Environment 3.12 (scispacy compatible)
+Virtual Environment 3.12 (scispacy compatible)
 
 Additional commands to run:
 - python -m spacy download en_core_web_sm
@@ -44,11 +44,11 @@ curl --request POST --data-binary "@Output/FHIR/R01/ORU_R01_R125.1_R0A.txt.json"
 curl --request POST --data-binary "@Input/V2/O01/EPIC-Faulty.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Specifications/ManchesterFoundationTrust/ORM_O01-MultipleTests.txt" http://192.168.1.20:9981/transformToFHIR
 
-#### Shire and DHCW ORU_R01
+#### DHCW ORU_R01
 
 curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/SHIRE_ORU_R01_RM3.txt" http://192.168.1.20:9981/transformToFHIR
+
 curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_TX.txt" http://192.168.1.20:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_FULL.txt" http://192.168.1.20:9981/transformToFHIR
 

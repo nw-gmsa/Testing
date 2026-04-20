@@ -1,0 +1,291 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:9867521b-8b13-406b-93d2-b8b0be5f5796",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/HODS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "HODS"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:461b8028-b075-4add-b6d5-faa12eb7c108"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "CPP"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aedb1f9b-a47b-4126-8a2a-f245cacab5fd",
+      "resource": {
+        "resourceType": "Patient",
+        "birthDate": "2001-01-01",
+        "gender": "unknown",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.16.53",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "0123456789"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "ALTNUMBER",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "00123456789"
+          }
+        ],
+        "name": [
+          {
+            "family": "Test",
+            "given": [
+              "Patient"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d577d0dd-bd7b-47ab-802e-eb5876e9d101",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjcKJfCflqQKNSAwIG9iago8PC9GaWx0ZXIgL0ZsYXRlRGVjb2RlL0xlbmd0aCAxNTk5Pj4Kc3RyZWFtCnjazVrJbiM3EL3rK/QD4XAnGzB0CDCDQS5BMLoFObTa1pzmkOT/gXRzrWKRsiRbE0OQ1WRzKdb6qmix5+vnF7H+8Vow7ydn9X75sft7x5kz4W15CN3x82kWjO+//7sLA/b/fN/9etyJvJhXe8ENk8Z5IffHH7tPn799+/3L172w++N59+cT5/LlwNcfrcOPMfFnWb9y/braVOsgH5riOfzwtUe49XtavzJ0qTg9tYRfv+sgfl7fnOKA5SCkf4p9PG6dXm09gtNRqU9Y3Jxwc45N7QqV+hyXPdUBC+wxej28LGsLHbvC81QHVzq3c8KmPij3FCeGrSMHAwWu7rstacjeCs8XAo86H/7aH3/DcpSSrTphbJDjJrlCRxQDIi0yHzJIV57BUQvuMlVisMuUdbiia3Rlv04xvKNaKumbBYyIm+q6Q9pMpplpnShXIyKDaW/SVq4qUzI1aQtAnFAdHhvL7GSUKDyWUyQkykVFouWp7JMOnYlIh/JF+xJJ0GLmqGfbM9XWvFCcpuO2wRIFmZIHecRQ3Omibv2fPJ040+vYqrc/hZA4Ukam6FP1bLIsHh5t25u2DLzWlSYNpRT8oUUisnXWqc6svQZQsm02l6XBTlkJzvio6TBJwo3CnMn+iWeADI5IFUg9AnGucKE9wdTjiDZJJrLyFdn6RhXRBMk9E0r6al2BGzi2pOWCmi/FReRTytKbSdcvt8WucNwZ8cMVydx6RLrI0nEHcMtTHWPxtkA4FknWYz/hkDdJxNzpTAI/p0pk5QSU+RnN0zM2DsQbuCiVvzTMGwEimH6TeW6eVLwQ3XRYe7qHxzIMVONYhbxo1smlI/984sLSLg9b6zdwl6u4+YR9wJ0cy2BEVSRyXQCD6jkTjW3VxBL1x6fIdGx2mSDPJkiqMVox4ziIx8AlN74um7uBQgIsC4Sp6A/A1CxNbI3vxnXAAwBzAw9O4LmBkjDIobZv2gtog7AHA5cDrw02mBskVgzHvwtfqaStYNJP/D18QzlFZCpOOVTNJMLzBJ7nMfcSegbcGxi6GpgUxDe2tcuW2T6ZBg3N2XrDEIGiIcVK+eXUiU0l9PcwegiqyPe9ixUIQeGhdBPj3AFQkNA1QEl5lQlSpaExvc0twnGmYo7krCH2mKueZ9oo0svmIjH3qFYBJ5Xp60KMMxmGfF3w1viFbx0hXAOpZxN40KTs7TPTL2HyRo8ykwTCYgNwSZVissxJmOtucCxT7Ech4HXg1FFApdb8RHdyPrAMEGVj1VcYdxMnm7yhCiwzZ+NdQJ8Ydbg212igCkV3KcJfTGGXkWp5tOUY0PoOioAW2VWvvieSidkOO0I7AiB9D5xSvgD7q++8lDuF4MzLLKUQybIqH9UdvWY0Fua2DQpBUL9xJsBIA8NmrEfdmAKpadBFjEzSdc4JSmCh8lCFns4KVT0xireBriSH1xUg7shIxujj7XkC9MCO1GJyzS+U4fQYBeThGUuF4R2XYtdEx6NEly4GqRejU2Q/mo+AwUTrCRtHU5fAQuhk0UDjMp7LEkPxDadAJfq+mrtS400Gl/RV2XGcPBhTq0V52nkIKNQ0Mcthlrmh5ID5Bk6mk5sogKUXAquQzzPdkk/HEz6gbNOtKTWDbkL5XY960Uru8Fpt8iBaiNrUW6DyUHlr4ZiSKEd8cyEE1mgvmhxaw2DX7gbSu6+y2FN1bQTjCiZNGTvfX1Mzy8FqaNtzJRFYwgNcNVhTnC5kYjRV7kHrW6oRsCI/yP1MzciaVMmPgLXFaYMg+K2x04noC/Wc0F/kNx29sJ45A3OqR8SCvKbtId0r48BF357wXBPVaLHM9bCWJ1SbbtGUhlxF3Mbp/lJz53oAM9ESiLqMC5FFRFcUsLuK4S3T6A4RFE1xet2PZa1Tnwl46RwYCnAg8GDSMGeZOzA6Cwgl3sDZB21xJKCSImtGxcl7SNMaRDgavDlLpTV4GSOfWz3rVNnQFe9UgbitZc/negHt061WveAO9b4FmcP9l2dEGwzXTKDbzvtu+IxybEI3fLKJ7naUZeBIDO415C12eduNDcyzP9TF04eOtB2xG8OseiXLeWAcfv1K7YMF6selZQ8MxcUzb46H6oBTTKErvZ/x7wWfj7s/8uc/+33DhgplbmRzdHJlYW0KZW5kb2JqCjcgMCBvYmoKPDwvTGVuZ3RoMSA5OTA0L0ZpbHRlciAvRmxhdGVEZWNvZGUvTGVuZ3RoIDY5Mjc+PgpzdHJlYW0KeNqNWgd8E0fWn9lVwd2ymotsaS2t5CLLkmVJ7g033MHGNh13gwuugDHFAXLUAKGFAKEkQChJgBQSUvgCqXch7ZKQXDrfkfYD7kIul1xia/29WUm24ZK7T/tb7bSd997/lXkzEsIIIT80hGhUUZCbl08tphoRYm9Aa2N5ZXxC55bBXxDCtVCf39BR1+W9FT+BEG2E+iMtdb1dKAQxMP5TqAe2tA80n934xAsICXYiFH6jtamu8Wd/+1XoI/32Vmjwbxb8HeaTQV3X2tG31Hky4I9QfwbunvZFDXUBt5Q/wfwfQf/zHXVLu1AdmgV9SVDXdDT11dGHhHUI6SsIP511HU3lN+emIxQ5BO+kdC3q7RvVIcL/82Q8IrKJVdH1H+7OmBeQ9s9JYZMQ+Tz41/BL5Pm1z5O60V+4fNEPwi1Q9eLHkw88xQyXh2rE4aO/jJpFP4z1eD6z+ZY5aCbg5n7jjo+AtuFtSIgmCfcKrTCAdT3pQ6iZCsJCihLRQoGQogUwds3EF6tKJ2tQFtLQK4WbuXxsFTP4OQ8FeqewhJdMLkrGKs8bFPrPH+okqoLbxLO1BrEwvhPqlfC8l0pGhIUiuL+H2wh3JdwauOvhroW7BO7lcE+FsWfg3jJxbvoewAI+wtdQoLAaRcJdBGUtT6sXMVAuJHWgZ6XDUQyUIwV/RdHicBQ5BlWvqwzvaqE8dCf/8E4A3FK3LMfdz+I7+JgiQKPD8MwHXnPhWQJjyqGcDrcf8J3G00JIAuV0UTKSQNkX7jx47xfyDoz3Ax4boV8GdYqMBbp+8AxDvmNQE43L4BvzTwHaA89I0IkAejUoGqWiTJSLSlEFqkQzwHrnoAVoAB1Cj9IrR0d57UWhWBiTjfJhzDRUy4+pQ22eMaN//d2rYbRh5NBvWNv//8OiIrjq0Tq0E51Ez6KfsApX4PvxOXyTMlL51A7qHepnOs59dcN1gh4RJAkWwfW4EAvrhduFr4liRHNEx/jrG9E3Yrt43dh1c5INrilwzXZfT0666RXp1ey1x+uKd433w96fe3/uk+gzw+cDX41vhe9R32/9WL8Ov/v93vP39q/yP+7/E8hXxRVRy8ErQedYrjfoKVsgcshFIkouU0ZQ1PL7mrbtxwk/DR4oY0KLVnCL2JLme/HG97Edj3bG5N7gdr9y5fTGh/fCTCaYqdo1k9SmUCqC5IFIbLPbg2yJBhNl2tO0dT/39s+DB0uZkOLlwsaY4ubt3JIPuD9xuJPNu47bXvngzMZje4n/segewSzBS8gHQJQwNkZilTByRkIpOX/8QwX+kfO9B/9jGr7FBUzj/GB8J3cK70GvIyWhbLcDPb02UizSRuptiXZrgkIuE3W2dHuJxT5skMySUmzPadnKnTJGbq2Q+nnJvFKslvzeeS1nYaZKPETVUkpieVIgWUkJncOU8j7ouXf0Gl6ELvE88TO6ZscoPivbZMrOvsR/m+KzYCw9eo3KACRgFoy1mMrg5BX4unDLr9XCk8Syi0a/pZ8WtqJApAM6iUEOYFKpkMgomNSgdwQqFdYEu8MuATlcklBFm/tmzt+/fN/69+ov3dXxcl5yt70vwmTWJUen5NoKE6kD3+LyadkHX+FO3+DO7frq4s/ct2d31fU8gpO/3ddrZtIruf3A1/fgUiKgqwCqrFUiUyiUcsaWQdkIJULoe1zESNNmc9T8JIW3mA1lcwSvHR5e15MUQbEsFW5ZRn26M0YToYa5YF2iT8FcESAjzdgQsiXCDCKx1u5CXCwSU2ImwW530KfmjXyJ67DmQGfjQT0b8va+o5+Zi479koHr22vyQ7GQG2ZxDt5z4q5j/d3nX31/W0vLg09x3ycFWuKIRgCraqCTADzbeZxgbgVPgHHrVwlyEMRsPF56rZaIRLgRt6acXftQTc6zK4a6tnPXNzTEMyGhkqVKNqb5Pm2oOnZ3mab8YOFd8/e1Coo27FpYPnPnAcu5wTN3Hc81hBsnCTNFPgfay4uTwqOyI7znri1vWXUM8ZEH0eeBI29YzcFntBIt2Ci2wgPT588ddV6i+juPcjr84xZuL24eolePbKYOO+eBLPUgywCsK7COYzEjFhBZRKIJhuoWA6QwYHqgjGudgb323V2zdmrvwLJFJm2oIb64tP/sgU0dz2OBsOTkOcOB9c+0nRsyOCoTVLGBTOLZVYMfpMSJqQDCZy1QOwt8BkMUBD79abFHM8TKJIlBOrsVi+SyMaqgPnr32ocfatNtu3fT5ZbllzfVXdiOA/7V5rwcVJBvnVKzYf0KfY2wlfUrf/C1DQ1fnjm5+eTsJ3D4OVzI1Tpz11XOv5oTf2TPqV9JPlAyeo0+CrL68J4EXsCAHYsNb1EfcmldeBe3qdtcZQ0Xluh/vSB4Jcw03we8ZTlwvBE4DkF6RFZy/bj/ihVKl9MZSBtrd/NLuJeKyMOtf7zh8JzLJ4683n7qTHLJx2cvtlcPYMvSrMXNzUM2i72y4p6O9tX6AurU2kPVa//n8Z6SA23ry5q7t74xUNc78+yV9hXlC5YsLk9sjee+yT86/659y2oKkxcCllNBmuPAmRIZEFKSoOZwac3hNkkKUMWEKRdXPKTtq798N/qBVVsvNw+++vCS7Z+/evgCZQ3KGSid8YcZ2fNMK1Us1Y91p5s+e/rxTSc2nhr+X27groXU+dVldVeXHjrw3pJqI1A+A3FnG30GcITohidEHunEKMSQ2AO3MT47hzzpM65wZMp2SnNcpRxiE1sgUj5Dn4XZtLfPRv9O3MSh7pnn3hlA6bNZromzfv3130Mp0Jo9+hWdKmyDFRvyIQxxwTFBa2OEXfCBE4jEEwV6NVpsKU3TrauvaUwzMTF5l469VVeYPevebLlbQpy18uiO7oGMVbunmdl2lc5SWdT92NLatil7W49s+DE7ng/G2YSPQMhrzgAfKqQGPhgxbzQQ94AfB7ZiVxDkpfeh6BPOf8yOTK3npk8PsWbgz7T4o+Q5lc7vpiZHdX59A796pdygjhezbECweYdg9vCe9VOFLCswMcZ52I/SOT8lOQtkWIKvwfIjIPeAbBq7LFekZWzWBIedj7UQohgStqCdVRBTcQEjlrg9kY+k9OP35NcNffGVc8g6nVWGG0qtVNGRht0HljsH2XnJ23eUXXq2saKv+6kL1Ze2ZtSGUU9G5My+u+n8dNau7aHbVzJGNlj39JLmwwFicebq0iXHFcOLwh5aWr69SiAE/ywavSoMAFRgBcJSLU8RlvwgfuVRigRaDXG0IB1RD2HbIXhXrc74+vC6j1csvrln7Z8G1M3c989xp89vPIczX9ixNSYoTBbqI2zjrG+f28C9/8Uz3A/buo/Lnjr+67Mjb+Cq5woV0jAz0QbYnZDEQAWJgtbbIdEIIGeAuG4AkkgSiAARrbVap1AR2aOwGadffOQi1//JqupvcQL31vcze1kH00u3r9IY2Y3chfe4ry68X6/C+ViJQ3BuOEgJNARqoBYHUkqIaBCmTZRWKwEPBcGs8glKcfEgJf34oZ+nl/uxLDbk5f7s560xmi3OZ81V+mA/b3WsxUzf8tOG5jUtFFLO68WLOFt5EctVtzAhQcEsa9Eso9tdZe7KvBkk9KJCwPokYJ3owhoIaYgVusCWEHXbGDnxPLkE7IRHHhAfWxAcgu+As6qBC5xzXffufwwVb85WZ0+j/ELKwmW9X27glly+v7r58V1vFA0sSpJKw2jQQtWhqf1vPvr3S9yLu/QsXt+cyej1iWwHV5eRMvLCz08ceWlBTXC0XEuCLK+RBwCjPOId40DwDAFHdyLF/D527lfwUWoxgBZrNlO5ZnOsRgmoGc1m5/PmSn2IcyPfZXE+58YTeqg8izlWHUx9iNe2ulBUBmY3juwahxQ/wDVMALhtwjCQAMSgloIE4N/s73DlkYNaegdhYIlniL1NdaQ8spMvw/wxo1dpCcyvJfnl2Hyi8RXAvYS6aV7mpw2efKRvbnsIY9RYDUpdWDxPRWjgp3YuuP/CPXPSLCHqmFn2nCr6gIcSxA7hR0BpMskcXZHJlRDg/4q6xO5ADj6OkDZ/iiRgjfjHwcdqnIMpVqmNM/IcmJwXJsifY4o3qoNl/Tg6IywmQY1/MBa2liieor7nAgZniFjWEBysT8Rvc8W3WXdksAv8rEauTtqOA2dFRSi14C2KzHzZeZAiGrzuaZACMiWspO+Ie3K926pAGAh8gt1M3/DX1mpWznt5c3uNJtA3YU3D/pWteImY28YmafroNuLhLI7JGhh5pFItl5n6XViJfgAqEFYYHp7bwSFOhfEE7U/oxnS+88cwtsLMRZkhvsj8iyHxxzfwNTwUXwPxhq2Id75ortEqnP8U9I8sXqGOYdlETQ+9eGZUuIEd/kTAV0c2jnVsHN4EsY1E/ljeDo0k3vwbS3zYV7hXOYNiPNiL8RGVvjTR+RzgIAsDHPCtc3/e9snrlp5s27Tw1vsK11ZZK6hBrn9IDTgkqfvodlIqfnzZsXf8C7y9Dw/V3lcsdUfXVuAgisQahsE8of/EiJhYGSQCngxQLGzldnM2q8YvIlClL7HxLPGqwX/76M2tD53CwfM3LhpJl6q8Lr1ycE1KA7WMwphbfDtjmSf6Vzyj5wb/UOtL7cTHV686SLaXaGj0qkAIcZCsinwcdqVKsM90p3auHYTEGkF58mCd3pMkkEBIn2KD5jwyu3V9bMZ3FzYV//351ET1S6Eh4bAih9Y+1b7iXkeKgTuyo+TLR9sHkpShjDeEwth1h+aumpphLV7R3LFz6t4vvISZEfH43e33zl87M6HZGPFS3+aq7e/ZQtTxwCEkzsLTgF/muP+50hZwNhqLJqQOkDtAfmoAeyatSqnUNcrVQrIZOhdrB/pnOp9NUcnDvMTmr7lrcUH2Ek5tZTO6CnEW98+OPQ1Ub0Wq+Z1bMVLfAFMhvpqss8+cRv2dK3tyHuQV2MeLlSqVkgI8m9uZYpBrYmiWFQaG1s7CO/G6gw1Qo00qtoD7I7bYo+TyQLkEQ1OAsmwBQRsgF54AWUj2RdwAeLrTJokE7sWHCIHdGSz9Dv5LaGjjtDTuvEo/zQiuAE7Cbc6JL5LpqdyI+PJ0HIa908LtdmEJa6quczq5RzyugLOppMYErTfLGo26uVwxfnCuSWUMAX6Ocwup+aB9Mb/OkA09Q83nCvEz3Oc4klsoxuW/7Cd8F3MLKNo1Tsrw23+mGAYVwqDPhW3/4spFjWDpU0Zv0hvo07AvTIeo79lEEb247FgkV05MMSEHI/tdPpWRu7yCaInfOFAF9+js6fMGI6LfuFFTmcnqqXg9G3/m4LKyVFWQtzIg0Fee1tVsScH3Gctzq5NK1nZIQlYvnGzJXVqt29AcGWlMMSUkxlVvi1bnxN7N/XFNqkzsl5a0O3cHnpMWYpyfXDgPUaPDsIM4L9wCeQ/JuMZ3YsCIKwQYYEcuUYw7ogin3r33nj8/uOlUxdHqAE2wKsYfS+OsHcmzHnig0WaLon46f+vdH3cNpaTQT+0vDA3UdjmjnJ8mWF//nzMvhMkAx3ygWAQIkd0mWatgT4ysCZ5dlPtkgQcAMKGL2I/W7P8W4yfXPWYxpkZIfLTajMb0qYc31Jc5EvHsp17Coi8+wv5bS/XxevlidURR/eEjw5NNAySnyx29Bn69BeJeHNGFC/YggN02LpoLfKVQa5MQx3dTpl6bPFS0+8t/vTRQDiKGxvphSVwAowiL8+G+N4nSGuJr82adaZ/Vkp8+/MoruKD0xAO8pMOfHS5QSbTdf8Qf5XYll7e+/qcPCR9kz1kJeyUZCgfbESndyaxL9iAiO8voXVHmY9zYuG7m3XFq+Z/2HL1+69zeV53r8HFhYEiDvXINlXq5r69hqWzDVYz/ch2L3ziZUqtLyrqLWGc5pPjLhJsht78twoP3S7Q2K1ibZ0cDIPAYg5HJrXJ8TMVmVDo/i47KCXn88dqnuhfUpiRGKK1FarXelKW6QZc4jw1FGnW6qNx6amZh2oYL/blxSRE2pkMqtbRcySkkO4t0Lp/+BDSaiqagGeP7YyWfgBBzEmm1bv26QhV/jW35XVmlg38Lj+1S+V2zaGIN6raqmW8eWjP/Uqw/LRLSAbFLkl4+mltgVDNmVddb6XMWLdw/fPHuYh+JTTwvMTYZy4sacxMrSurzrNy/4s0pjS88ecqauPcqLoveMWP9y1lCkZcy1FsoKuwaOifTJ8skGrGAFnr5dU3rbthek2APDmZzvBrUFrV2LrVu8bIDNTk9yw7OzBm5y1rLmnUZqwoTFQqBiKDvBzD8AyzNTtC3uzIvdzLhUgO/wLnWEd7kSAJFAviYk+HSRauzy7rCpP7e5iwuQ56V4E2rc82WhUXy5HwuJV0rCw5Qh8rj/XGQcIuzflle9eysk9zzNeCAOp1BH1iGc3fPjU8s51RzTWqdTuqdVE2nu6wSLDANzFAM/PmQXOC23foYN3b72HEbcBMdk5oaE5OWujLEks1NnmyClSIiVBXlj2XCLaQjLSYmlWOcmupkIB+aNh3X7TJqQgJ0XQQNCeQbvkDNQdAguiVLJr8iicVSXvdWz9YWe077EhzjGBEGyr8r8p3E6PGWaR3Z16/XR5p1IRncZH1YFPdNiKmUM+Vr5T4B/ppQeYwEBwq3jHS/nxvk6ysLpzQaypT6F+7DQSbe31unw3Kp0opbuHdmJAVjnU7io2Sm0jkHC8IkWp5XiNJUAPAq5/1mIhYeTgZDEgu4zExTqL86ODRKgiXCLcPZ1UnhvNx01r4CHmNeapEZvKCGxFGHywh+wxTccvIuKBYrx2mONYsn2MhtWrHiisaguFZr9XJ5y5biKd2Mws/bns6lSVMZpbcgzFBtayuhKHlKPmcpSfYRMsZyu60yLsRSzKVmJoTyGjQEYFksdaMxQB/TOG9pcfH0lOXc4mqNAkxGGaiVVOCNXaYsW6FPLFfM2xEgNg3aLFnhRgcnn2kP0+nCUqfjufcZGY+2fcH2fwa5re714zctnxwiTGgch9eKiw9vL27XKPx9LDlcqjTL6i3ILl2y2MefsC3Lt4DVu7m+eam4Om05N1CjDuFtPqAcL1nRvZoLn6MIB74KGnHV0cJQnisK5ZF1DbgKIDEXJ7jPOlzHdHYliX6yIHdcodA7K9sWv73q7WUtKy5X2tpyDq6uW7mggD59YN3pwZGho5seXfnLkuzMA8tf5z4/9NKPm+fD/KO/cEX0szC/ASWD/KxVPnYIzFMxeDRoVUxwc6ELA5LjuDVN4VB9wdbyjbO713edLLJHJSiTizlNiMMglQdqI4JZnOjl31HZmDF1dlatOV5HJ/dcGahrX/v+zX2r5AFx3HdzrRFkg+NjaaTrZ5iD/VdxJxdpU2rLms//ubssOIhfBbkiAQJOw91rw7ghAl/uRRHxxuqgJZ6DQhJz6bZgaxGXIE0KlwXPWj/l7nex7KXk+foU2xpDY2bXoYd6U2fTp4ebaxNULBvokwx20l7+wxvfYVajUemc8fgxUNeFi+dftLojJPU0cMGf+do9673H2pVjIfG2IFDSO+AoTNRpa+RB8jiz1C8ng4vNjwzxFvppQ9UGbyynT7/11mSjwZ4ni57LTSkxgBnoFLwdNxxKVxFTwKhx9Br1AVC28Nn92EGocuzglhznSKyeFEdnmJjZU9sY/ZLZ+dUa9bztb7zQX9XOyJV+DKM6UJ9XU8d9Hhe3b9BeapUEBvnSp7nXdywsikuKijYVNDy44v4I71BcsHnL1OS8udtSkmu69ygD/MleWjZ6i0oTXERh/NmPXCvhwXZYeVXoyXJt548Ai65csUYxGRKDdijXVBtzr6M3ThktuMi9l+98bEZGdFR9g3VeA9XKKBYU6ptgXgos3knvRKxHy660xjMtgCqGnFXmOdwx2OgGSGnUBn/ub3GLl+eVdhtVjkKcPSMztqM4eSa90/nBQT6ZuTSUM2PzEL4/OyEMs859QxX2Ekpc5qBYEvOA5k2gqeFP013IwpbD5t7nkh2HGGv5dN4gwadVhmj5B1eUk3wiE3Fsokyr4p6L5s4rotSSBHonq9dozZyI8ksK9/cK8GFZgSQif+RvtNAeH+g1ibeh0WvCJ4Gakafm3t+QvMC9ufEQd9exlnbR9sNDIPnLryQGGxRp+MnCCNmkdy7KDMmYqYnm3or+ivsny30cnpQGPAgiVGqj8xZ+dF2a0p9sZCAqyuTOH/CwXSMlvzb5LRi5Tk1xPk1TU6zkNz7QIv0N8JTE8+QxLdeBhxsAWPM8SxwAY7jtoNdBgArDp6MZrY8iu7gwUo/tFp1l+oprVYXJXEVciDTrDzty4+K4D3Rh+pkvPlY0NR24VCmDEwIjW1sbQuXhwGNwZM/D3DMDFlqnk/krlXNefnmWJNhA6XRCWfiS0ZF2B4nSkKP9CHwm/J6meFWJJmxNiJ04sJ7H1xefksfFMV+8KRFPiozFMWxUsFcIt8l+empqicPMJEd5RxTosrmnA5iQQKUVODSEG/K4BPxrdFSQl48f6DKY8c8c6bx7fa4xxqoIyJhxkHpCbdL6BpJf1cX8vyiwwAtiRCT/+zopYxQBNVeZQv5UlrtMo1qqzF0WTBgjRMHUMXdZhCKpC+gE2GUCMvO3BlWhVtQEz1K0CHXC3YcGUBffMhlqPVAm33XQvoAfYYKebNQOlwZNg7YWeL8P9fK1Jng2wejF8N3Ij/Tjf3fzRoXQUg89TWgJtJbzFDqBtodWCVAYgPn7YS4NzL0I5l2AGqDcAOUu6OsZo6UZk8AMq6sG6cdqDvABwkcdzNAFYzVAtw7okDkaUJt7bBHUWqGV9PYDn71jchEsFvCytP8uP808HhqUA/V66CGtdTwat8vommeRW1INT6Ufeht4eUmtGeZeAu/28C39MKqRR08D7R6dTAGeCDoL+Pc6eXxT+feb+BFNqANoErQb+W+NmyPPWA3f3gstBL+uMS2Oy0H6+4CLBfBmL6BAtFUFtQ7+PQ0qc8szDcZ38GgSPbcAv+0873faTcp/eVtzx/vkXx+lPM89MMaDSzSq5rHoHePXAbxZ4Bqf3TX3+MzkfyWl0I/c/z1Cowz5z9NvfDCMmARySpBwdBRyIfK/Ed+xPw35j40h/2XxgR4MbRH8GWYkfOsguyGnpmb+LNsK3zbY4WDQSxp8Z8CFURYi/yzIBc1h4NP1ryjPv1OiCJXG9s4Wd1nR6ypnkP/LZPd0dBo1kwd62o2agp6mNqOmpK6vM7unrt6o+fe+wqb6HteI/wP8I89cCmVuZHN0cmVhbQplbmRvYmoKOCAwIG9iago8PC9GaWx0ZXIgL0ZsYXRlRGVjb2RlL0xlbmd0aCA1MDg+PgpzdHJlYW0KeNpdlM2K20AQhO96ijluDovmX7tgDGFz8SE/xMkDSKORVxBLQpYPfvuM5hs2EIENRXdXdXXPTP12+nKaxk3UP9Y5nOMmhnHq13ib72uIoouXcaqUFv0YtoLyf7i2S1Wn4vPjtsXraRrm6nAQ9c8UvG3rQzx97ucufqrq72sf13G6iKffb+eEz/dl+ROvcdqErI5H0cchEX1tl2/tNYo6lz2f+hQft8dzqvmX8euxRKEzVjQT5j7eljbEtZ0usTrI9B3FYUjfsYpT/1/cW8q6Iby3656uY0qX0nbHHVmbkVcZOZdRo0EB9ArSZA6ghpgFGZCE84VMl5HqMzJtRpJMTaaCxcCiOtALCD2NnqEzR2cKBVMU4DRwyoG6QB2cDk6DI4cjySQ0k1AS1IM8nAb0CvKgFtTgFg8eDxZ1j7pEXaMuUddlnky+YfIatwa3ipghpvBuincFSwTBaQonHjweDP5c2TSOPI4smY5MjZ4tpwAFj4LGu8W7Rs+iZ+B0cGrcWtw6Yg0xx8YaNmZh8bBoMm3pDBZfWJh1w6wdsabE6KyhM8uUPFOyePfFO5m+ZMLp4VRkGjINc7Flgpwsx8nSbNqyac2mLZvWcFo4Nb1YetHcgCS7X9ByE/erur8oH+9AuK9regLys5Pv/n7rxyl+vEzLvOxV++8vwz0hHgplbmRzdHJlYW0KZW5kb2JqCjE0IDAgb2JqCjw8L1R5cGUgL09ialN0bS9OIDEwL0ZpcnN0IDYzL0ZpbHRlciAvRmxhdGVEZWNvZGUvTGVuZ3RoIDcyMj4+CnN0cmVhbQp42o1U227bMAx931fwscGWyJItX4DCQNM0a7C1DZJsHWD4QbE114NjBbaDNX8/Uk7aoFgvgGWRIkUe3sTBAQFuCC74EXggXAE+uK6ECKQjgTsQcA84By6EwB9w14vwh58ffjo/Z6v9VgObq0K37FuZt5D4aHORskuzqzvgcfysdak6VZmi1wZOer24UuthLh1I2He1Bjy4fyg7PTclWkicUeR7IvLpwigUkjsyZQtVFxqSIRcIEteRSOM47c358lVz0vEkmeMjJ4wcGb5trod49dh9XXaq02RP4U3aM0UBxjH7dbf+o7MOz5CZq67TTd0zyweVl3XRM5emMs1yqzKNCcfo2dRQjsRzJp7Tib9Gk9Qq3ui8VGPziPiRl5EciUDKiEPo8VEYRoHvUcrrDq+0IO2dhW7Nrskw1Z7lV025ec/EuNI6f0fpFCkFMNFt1pTbzjSWvVUbFFwtl3fT68+rcqPb4a3+O1yYjaq/WI2p2pTVHs6sEFAIVjhg00oViNYqjQ8ohoL7gJ4hjHjKZthBZXZRF5UGh120GaUIJYxAEE3q2Gjba10WD71o2enNTwgdS1wTYUGUlRYQvEw9idhyt+76jp1N6IBEgo1Vq23BXg0O1Zf7Fr3M6t+GGmShi7LtGoz1IjdrPWB3Ta4b6oezWY5wy24/QG/bbaU3hN6hJplNVubrbHKjtsCOWuweEhcSIZ2UpjFxXRfH1EXGg0T6OLk4PnRIuwhCnF7nQ4t0caXgoiHP85DwIQlw2H0/sAvpFDz0KXFoSEDL+seiWEUEhAVKQfZKSCBUutozUW/P2vGFxY6EdyRC69eCOd3JwwnIFBBockQc/CfCI6TT6MnvgU7TF82KT9ybtacz5wNFX5kfdZmZXENox+yqRoZK/FS84fWhPXOFfWdoQhPu2Gfy8LhY01TYJ0TzxuS7TDdwdq9Vu5839Hj54YgP4vgfCGKJGwplbmRzdHJlYW0KZW5kb2JqCjE1IDAgb2JqCjw8L1R5cGUgL1hSZWYvSW5kZXggWzAgMTZdL1cgWzEgMiAyXS9TaXplIDE2L1Jvb3QgMiAwIFIvSW5mbyAxMyAwIFIvRmlsdGVyIC9GbGF0ZURlY29kZS9MZW5ndGggNjI+PgpzdHJlYW0KeNpjYGD4/5+JgY+BAUQwgggmEMHMyMAPEWNhZJvCwMCo+A3CZQURbCCCHURwgAhORhVzoBL1LAYGAARCBX0KZW5kc3RyZWFtCmVuZG9iagpzdGFydHhyZWYKMTAwOTAKJSVFT0YK"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c6382707-6619-4348-9e01-08a27f00984e",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:d577d0dd-bd7b-47ab-802e-eb5876e9d101"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "end": "2025-12-10T00:00:00+00:00",
+            "start": "2025-12-10T00:00:00+00:00"
+          },
+          "related": [
+            {
+              "identifier": {
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "699X0"
+                  }
+                },
+                "system": "https://fhir.nwgenomics.nhs.uk/Shire/ReportIdentifier",
+                "type": {
+                  "coding": [
+                    {
+                      "code": "FILL",
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                    }
+                  ]
+                },
+                "value": "19.0067"
+              },
+              "reference": "urn:uuid:461b8028-b075-4add-b6d5-faa12eb7c108",
+              "type": "DiagnosticReport"
+            }
+          ]
+        },
+        "custodian": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization"
+        },
+        "date": "2025-12-10T00:00:00+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/Shire/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "19.0067"
+          }
+        ],
+        "status": "current",
+        "subject": {
+          "identifier": {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.16.53",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "0123456789"
+          },
+          "reference": "urn:uuid:aedb1f9b-a47b-4126-8a2a-f245cacab5fd"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "1054161000000101",
+              "display": "Genetic report",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:461b8028-b075-4add-b6d5-faa12eb7c108",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Unknown test code"
+        },
+        "effectiveDateTime": "2025-12-10T00:00:00+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/Shire/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "19.0067"
+          }
+        ],
+        "performer": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "SPRF",
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                    }
+                  ]
+                }
+              }
+            ],
+            "identifier": {
+              "system": "https://fhir.nwgenomics.nhs.uk/Shire/PersonIdentifier",
+              "value": "Shir"
+            }
+          },
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "url": "urn:uuid:d577d0dd-bd7b-47ab-802e-eb5876e9d101"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "identifier": {
+              "system": "https://fhir.nwgenomics.nhs.uk/Shire/PersonIdentifier",
+              "value": "SA"
+            }
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.16.53",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "0123456789"
+          },
+          "reference": "urn:uuid:aedb1f9b-a47b-4126-8a2a-f245cacab5fd"
+        }
+      }
+    }
+  ],
+  "identifier": {
+    "value": "RTST-260416-0"
+  },
+  "timestamp": "2026-04-16T10:38:39+00:00",
+  "type": "message"
+}
