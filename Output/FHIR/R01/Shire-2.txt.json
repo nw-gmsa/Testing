@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:a6524515-69c4-47b2-ad0e-a209600e1d53",
+      "fullUrl": "urn:uuid:e89de0f3-b172-4d30-9dc7-e9423d7b550f",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:ec0ba9a2-8d47-496f-968d-e996a7bf7555"
+            "reference": "urn:uuid:3ce2cba8-5d72-4386-9fdf-c0712fb6692b"
           }
         ],
         "sender": {
@@ -38,14 +38,28 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b444d8cd-e6b0-40cd-b35c-35d0ec56eb5f",
+      "fullUrl": "urn:uuid:07db1af8-f1c0-4079-bb2e-7376dc0898da",
       "resource": {
         "resourceType": "Patient",
-        "birthDate": "2001-01-01",
+        "birthDate": "1942-06-18",
         "gender": "unknown",
         "identifier": [
           {
-            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.16.53",
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
                 {
@@ -54,7 +68,7 @@
                 }
               ]
             },
-            "value": "0123456789"
+            "value": "9737383206"
           },
           {
             "type": {
@@ -70,16 +84,16 @@
         ],
         "name": [
           {
-            "family": "Test",
+            "family": "LIVERPOOL",
             "given": [
-              "Patient"
+              "NED"
             ]
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:4b183920-8a55-46fd-9de8-45cffd0e9e5c",
+      "fullUrl": "urn:uuid:c8a5ddc2-0988-42db-b4a9-e6a810bdfdc8",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -124,7 +138,7 @@
         "status": "final",
         "subject": {
           "identifier": {
-            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.16.53",
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
                 {
@@ -133,15 +147,15 @@
                 }
               ]
             },
-            "value": "0123456789"
+            "value": "9737383206"
           },
-          "reference": "urn:uuid:b444d8cd-e6b0-40cd-b35c-35d0ec56eb5f"
+          "reference": "urn:uuid:07db1af8-f1c0-4079-bb2e-7376dc0898da"
         },
         "valueString": "Karyotype:\r\n48/R/50,XY,+X,-Y,-3,-6,-7,del(7)(q?31q36),+8,+11,add(12)(p11.2),+14,+15,-16,+19,+20,+22-\r\n,+1/R/2mar[cp10] -Amendment 14/10/20\r\n\r\nFISH Result: 7q deletion detected. -Amendment 14/10/20\r\n\r\n-Amendment 14/10/20\r\nChromosome analysis has shown all 10 cells examined to have abnormal hyperdiploid\r\nkaryotype with abnormalities which included: a deletion of the long arm of chromosome\r\n7; additional material on the short arm of chromosome 12 (resulting in loss of 12p);\r\nan extra copy each of chromosomes X, 8, 11, 14, 15, 19, 20 and 22; loss of one copy\r\neach of chromosomes Y, 3, 6, 7 and 16; the presence of up to 2 unidentified marker\r\nchromosomes. However, chromosome morphology was poor and a small structural\r\nrearrangement may not have been excluded.\r\n\r\nFluorescence in situ hybridisation (FISH) studies were carried out using the Cytocell\r\nMyProbe tricolour gene probes [Del(7q) Plus] to detect deletions of chromosome 7 at\r\n7q36.1 and 7q22.1 and monosomy 7 seen in myeloid neoplasia, including MDS and AML.\r\n\r\n93 out of 100 interphase cells examined showed loss of the 7q36.1 gene probe\r\nconfirming deletion of 7q seen on routine analysis.\r\n\r\nHyperdiploidy, gains of chromosomes 8 and 11, and loss of 7q and 12p are recognised\r\nfindings in myeloid neoplasms including AML. In particular a complex karyotype is\r\nassociated with an adverse prognosis in AML (Grimwade D et al, Blood. 2010 Jul\r\n22;116(3):354-65).\r\n-Amendment 14/10/20\r\n\r\nConclusion: Complex abnormal hyperdiploid karyotype with  gains of chromosomes 8 and\r\n11, and loss of 7q and 12p which  are recognised findings in myeloid neoplasms\r\nincluding AML -Amendment 14/10/20"
       }
     },
     {
-      "fullUrl": "urn:uuid:ec0ba9a2-8d47-496f-968d-e996a7bf7555",
+      "fullUrl": "urn:uuid:3ce2cba8-5d72-4386-9fdf-c0712fb6692b",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -210,7 +224,7 @@
         "result": [
           {
             "display": "Genetics Report",
-            "reference": "urn:uuid:4b183920-8a55-46fd-9de8-45cffd0e9e5c",
+            "reference": "urn:uuid:c8a5ddc2-0988-42db-b4a9-e6a810bdfdc8",
             "type": "Observation"
           }
         ],
@@ -225,7 +239,7 @@
         "status": "final",
         "subject": {
           "identifier": {
-            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.16.53",
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
               "coding": [
                 {
@@ -234,9 +248,9 @@
                 }
               ]
             },
-            "value": "0123456789"
+            "value": "9737383206"
           },
-          "reference": "urn:uuid:b444d8cd-e6b0-40cd-b35c-35d0ec56eb5f"
+          "reference": "urn:uuid:07db1af8-f1c0-4079-bb2e-7376dc0898da"
         }
       }
     }
