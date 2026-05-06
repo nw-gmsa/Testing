@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:49126e08-0176-436c-b7f1-c553288a03a1",
+      "fullUrl": "urn:uuid:be1ed69c-cbbb-41be-86fe-71ce7e3266cf",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -31,7 +31,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:6997f3c9-ba54-4698-9447-a88a605d1e2d",
+      "fullUrl": "urn:uuid:2931b5a3-fd50-4e45-b201-736098674403",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -145,6 +145,15 @@
             }
           }
         ],
+        "dataAbsentReason": {
+          "text": "POSITIVE [Above upper LoQ]"
+        },
+        "device": {
+          "identifier": {
+            "system": "https://fhir.nwgenomics.nhs.uk/Identifier/Cepheid",
+            "value": "20901225~08699~114262193~613556~700039~WinDev2006Eval"
+          }
+        },
         "effectivePeriod": {
           "end": "2019-09-21T00:02:09+00:00",
           "start": "2019-09-20T22:17:08+00:00"
@@ -166,12 +175,11 @@
             "text": "0.0030-55.00"
           }
         ],
-        "status": "final",
-        "valueString": "POSITIVE [Above upper LoQ]^"
+        "status": "final"
       }
     },
     {
-      "fullUrl": "urn:uuid:84dc3471-27bd-426d-93ab-bf12009191e1",
+      "fullUrl": "urn:uuid:13fbe5b6-00e8-4b4d-aae8-fee25e833fe5",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2019-09-20T22:17:08+00:00",
@@ -210,7 +218,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:111cab12-895a-4779-ba58-f00eedba085c",
+      "fullUrl": "urn:uuid:20166c3c-36ec-4743-808f-6c1009efc57c",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -226,7 +234,7 @@
               },
               "value": "1"
             },
-            "reference": "urn:uuid:84dc3471-27bd-426d-93ab-bf12009191e1",
+            "reference": "urn:uuid:13fbe5b6-00e8-4b4d-aae8-fee25e833fe5",
             "type": "ServiceRequest"
           }
         ],

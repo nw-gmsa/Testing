@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:002d1ca4-9844-4005-8a69-ce86816bae1d",
+      "fullUrl": "urn:uuid:5dc71bff-f854-4d38-aefb-d5bd35ade01e",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -31,7 +31,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0ca40063-1c99-49c7-9c07-15ffbb236a58",
+      "fullUrl": "urn:uuid:9eb69daa-f90e-4405-8412-24119d7d0b97",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -132,6 +132,15 @@
             }
           }
         ],
+        "dataAbsentReason": {
+          "text": "NEGATIVE [Sufficient ABL transcript]"
+        },
+        "device": {
+          "identifier": {
+            "system": "https://fhir.nwgenomics.nhs.uk/Identifier/Cepheid",
+            "value": "20901225~08699~114262188~611655~701731~WinDev2006Eval"
+          }
+        },
         "effectivePeriod": {
           "end": "2019-09-21T00:05:48+00:00",
           "start": "2019-09-20T22:21:00+00:00"
@@ -153,12 +162,11 @@
             "text": "0.0030-55.00"
           }
         ],
-        "status": "final",
-        "valueString": "NEGATIVE [Sufficient ABL transcript]^"
+        "status": "final"
       }
     },
     {
-      "fullUrl": "urn:uuid:a2dc6610-6956-449e-9bb6-b830d9c9c86b",
+      "fullUrl": "urn:uuid:786e9466-ae06-4719-8a72-b771a4856015",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2019-09-20T22:21:00+00:00",
@@ -197,7 +205,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:13e60269-178d-4a06-b865-b633647aef7f",
+      "fullUrl": "urn:uuid:a3f8638e-fb09-43dd-8119-4add28d3f3f2",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -213,7 +221,7 @@
               },
               "value": "1"
             },
-            "reference": "urn:uuid:a2dc6610-6956-449e-9bb6-b830d9c9c86b",
+            "reference": "urn:uuid:786e9466-ae06-4719-8a72-b771a4856015",
             "type": "ServiceRequest"
           }
         ],
