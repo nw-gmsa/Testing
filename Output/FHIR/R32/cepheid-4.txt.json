@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:7df4f146-5f43-4584-9e3f-00e882555d61",
+      "fullUrl": "urn:uuid:2c366b6d-d6cb-4ad5-8b84-c0eaac51dcc7",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -31,7 +31,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2508a981-2465-4237-a871-8e3baa4ea7d2",
+      "fullUrl": "urn:uuid:abc8a2c6-30db-4953-9f84-c629aff61f1d",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -166,27 +166,9 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:49abafac-3a69-4386-ab90-3fd23efdb888",
+      "fullUrl": "urn:uuid:c00b8d82-6a54-4975-a811-b833f9d7f325",
       "resource": {
-        "resourceType": "ServiceRequest",
-        "authoredOn": "2019-09-20T22:21:00+00:00",
-        "category": [
-          {
-            "coding": [
-              {
-                "code": "116148004",
-                "system": "http://snomed.info/sct"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "code": "BCRABL"
-            }
-          ]
-        },
+        "resourceType": "Specimen",
         "identifier": [
           {
             "type": {
@@ -197,34 +179,23 @@
                 }
               ]
             },
-            "value": "1"
+            "value": "condition_5_1"
           }
         ],
-        "intent": "order",
-        "status": "completed"
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "code": "BLD"
+            }
+          ]
+        }
       }
     },
     {
-      "fullUrl": "urn:uuid:37e4fccd-e300-4a74-bce0-6f70d0619021",
+      "fullUrl": "urn:uuid:a0542d3c-550b-49d4-aa56-52edc5c2ac50",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "basedOn": [
-          {
-            "identifier": {
-              "type": {
-                "coding": [
-                  {
-                    "code": "PLAC",
-                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                  }
-                ]
-              },
-              "value": "1"
-            },
-            "reference": "urn:uuid:49abafac-3a69-4386-ab90-3fd23efdb888",
-            "type": "ServiceRequest"
-          }
-        ],
         "category": [
           {
             "coding": [
