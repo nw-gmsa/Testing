@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:7df4f146-5f43-4584-9e3f-00e882555d61",
+      "fullUrl": "urn:uuid:6e6ce323-c0c4-450b-be9d-2e886cf281d1",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -31,7 +31,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2508a981-2465-4237-a871-8e3baa4ea7d2",
+      "fullUrl": "urn:uuid:a9888aad-53a8-41b5-9ec8-62e8674bd242",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -56,7 +56,7 @@
                 }
               ]
             },
-            "valueString": "NEG"
+            "valueString": "INVALID"
           },
           {
             "code": {
@@ -81,7 +81,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 13.0
+              "value": 6.0
             }
           },
           {
@@ -103,7 +103,7 @@
                 }
               ]
             },
-            "valueString": "PASS"
+            "valueString": "FAIL"
           },
           {
             "code": {
@@ -115,7 +115,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 15.7
+              "value": 26.8
             }
           },
           {
@@ -128,22 +128,22 @@
               ]
             },
             "valueQuantity": {
-              "value": 425.0
+              "value": 90.0
             }
           }
         ],
         "dataAbsentReason": {
-          "text": "NEGATIVE [Sufficient ABL transcript]"
+          "text": "INVALID [Insufficient ABL transcript]"
         },
         "device": {
           "identifier": {
             "system": "https://fhir.nwgenomics.nhs.uk/Identifier/Cepheid",
-            "value": "20901225~08699~114262188~611655~701731~WinDev2006Eval"
+            "value": "20901225~08699~114262185~609809~701732~WinDev2006Eval"
           }
         },
         "effectivePeriod": {
-          "end": "2019-09-21T00:05:48+00:00",
-          "start": "2019-09-20T22:21:00+00:00"
+          "end": "2019-09-21T00:06:13+00:00",
+          "start": "2019-09-20T22:21:23+00:00"
         },
         "performer": [
           {
@@ -166,10 +166,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:49abafac-3a69-4386-ab90-3fd23efdb888",
+      "fullUrl": "urn:uuid:ef89cd4c-b81c-4c76-a298-4f724d74a8d5",
       "resource": {
         "resourceType": "ServiceRequest",
-        "authoredOn": "2019-09-20T22:21:00+00:00",
+        "authoredOn": "2019-09-20T22:21:23+00:00",
         "category": [
           {
             "coding": [
@@ -205,7 +205,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:37e4fccd-e300-4a74-bce0-6f70d0619021",
+      "fullUrl": "urn:uuid:07f276b9-95a6-4797-bdfa-75ac10ab1a79",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -221,7 +221,7 @@
               },
               "value": "1"
             },
-            "reference": "urn:uuid:49abafac-3a69-4386-ab90-3fd23efdb888",
+            "reference": "urn:uuid:ef89cd4c-b81c-4c76-a298-4f724d74a8d5",
             "type": "ServiceRequest"
           }
         ],
@@ -258,8 +258,8 @@
     }
   ],
   "identifier": {
-    "value": "GXM-42045644578"
+    "value": "GXM-13024318135"
   },
-  "timestamp": "2025-02-05T17:16:51+00:00",
+  "timestamp": "2025-02-05T17:16:50+00:00",
   "type": "message"
 }

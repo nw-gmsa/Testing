@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:7df4f146-5f43-4584-9e3f-00e882555d61",
+      "fullUrl": "urn:uuid:149f9660-29f7-4a91-ab4c-11a7f6ba3782",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -31,7 +31,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2508a981-2465-4237-a871-8e3baa4ea7d2",
+      "fullUrl": "urn:uuid:5a9381f0-9651-4eaa-a476-f16461760b5b",
       "resource": {
         "resourceType": "Observation",
         "code": {
@@ -56,7 +56,7 @@
                 }
               ]
             },
-            "valueString": "NEG"
+            "valueString": "INVALID"
           },
           {
             "code": {
@@ -68,7 +68,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 0.0
+              "value": 7.8
             }
           },
           {
@@ -81,7 +81,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 13.0
+              "value": 517.0
             }
           },
           {
@@ -103,7 +103,7 @@
                 }
               ]
             },
-            "valueString": "PASS"
+            "valueString": "FAIL"
           },
           {
             "code": {
@@ -115,7 +115,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 15.7
+              "value": 7.3
             }
           },
           {
@@ -128,22 +128,22 @@
               ]
             },
             "valueQuantity": {
-              "value": 425.0
+              "value": -35.0
             }
           }
         ],
         "dataAbsentReason": {
-          "text": "NEGATIVE [Sufficient ABL transcript]"
+          "text": "INVALID [Too high BCR-ABL and ABL transcripts]"
         },
         "device": {
           "identifier": {
             "system": "https://fhir.nwgenomics.nhs.uk/Identifier/Cepheid",
-            "value": "20901225~08699~114262188~611655~701731~WinDev2006Eval"
+            "value": "20901225~08699~114262186~609452~701732~WinDev2006Eval"
           }
         },
         "effectivePeriod": {
-          "end": "2019-09-21T00:05:48+00:00",
-          "start": "2019-09-20T22:21:00+00:00"
+          "end": "2019-09-21T00:06:57+00:00",
+          "start": "2019-09-20T22:22:07+00:00"
         },
         "performer": [
           {
@@ -166,10 +166,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:49abafac-3a69-4386-ab90-3fd23efdb888",
+      "fullUrl": "urn:uuid:cccbf421-927a-4253-93ca-6a50cf86a1f6",
       "resource": {
         "resourceType": "ServiceRequest",
-        "authoredOn": "2019-09-20T22:21:00+00:00",
+        "authoredOn": "2019-09-20T22:22:07+00:00",
         "category": [
           {
             "coding": [
@@ -205,7 +205,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:37e4fccd-e300-4a74-bce0-6f70d0619021",
+      "fullUrl": "urn:uuid:e67f22cf-8fc9-49cb-92bc-4ed7285bcc2f",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -221,7 +221,7 @@
               },
               "value": "1"
             },
-            "reference": "urn:uuid:49abafac-3a69-4386-ab90-3fd23efdb888",
+            "reference": "urn:uuid:cccbf421-927a-4253-93ca-6a50cf86a1f6",
             "type": "ServiceRequest"
           }
         ],
@@ -258,8 +258,8 @@
     }
   ],
   "identifier": {
-    "value": "GXM-42045644578"
+    "value": "GXM-75705152786"
   },
-  "timestamp": "2025-02-05T17:16:51+00:00",
+  "timestamp": "2025-02-05T17:16:48+00:00",
   "type": "message"
 }
