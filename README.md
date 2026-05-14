@@ -119,12 +119,16 @@ LRI Example
 
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9980
 
+#### North East and Yorkshire 
+
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RR8.txt" http://192.168.1.20:9980
+
 #### Other UK Regions Reports
 
 England
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RX1.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RR8.txt" http://192.168.1.20:9980
+
 
 Scotland - CHI Number example
 
