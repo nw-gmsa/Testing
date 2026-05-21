@@ -120,6 +120,10 @@ LRI Example
 
 curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9980
 
+### Test Results 
+
+curl --request POST --data-binary "@Input/V2/R32/cepheid-3.txt" http://192.168.1.20:9980
+
 #### North East and Yorkshire 
 
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RR8.txt" http://192.168.1.20:9980
