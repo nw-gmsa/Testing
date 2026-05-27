@@ -96,6 +96,7 @@ Note file must use \r mac line endings
 
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.20:9980
 curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_R125.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/O01/ORM_O01_R0A.txt" http://192.168.1.20:9980
 
 #### Round Trip
 
