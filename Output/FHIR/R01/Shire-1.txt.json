@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:45672ae6-c48c-46ab-9dd6-db25d557868c",
+      "fullUrl": "urn:uuid:2a68cdc7-f454-4fc1-924c-64b87b2c29d9",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:fcf56c87-938b-44aa-9bd2-180d438599ef"
+            "reference": "urn:uuid:5873719f-9456-4318-a09f-d51241caef39"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7377033a-8bde-470f-92c2-e26667131a68",
+      "fullUrl": "urn:uuid:868dc6de-adf8-4ae1-b2d7-2659284fe445",
       "resource": {
         "resourceType": "Patient",
         "birthDate": "1972-09-21",
@@ -82,9 +82,19 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7d64ea91-93eb-427d-91ad-bd8be0b1c689",
+      "fullUrl": "urn:uuid:e0e09ea9-71f9-44ee-80d3-17af4ca95e91",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -138,13 +148,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:7377033a-8bde-470f-92c2-e26667131a68"
+          "reference": "urn:uuid:868dc6de-adf8-4ae1-b2d7-2659284fe445"
         },
         "valueString": "Karyotype: 46,XY,del(20)(q*q*)[]\r\n\r\nChromosome analysis has shown an abnormal karyotype with a deletion in the long arm\r\nof chromosome 20.\r\n\r\nDeletion of chromosome 20q is a common but non-specific finding in myeloid disorders\r\nand is consistent with the diagnosis of MDS. In particular, according to IPS, deletion\r\nof 20q as the sole abnormality is associated with a good prognosis in MDS, but should\r\nbe interpreted in the context of other biological and clinical prognostic factors.\r\n\r\nConclusion:"
       }
     },
     {
-      "fullUrl": "urn:uuid:fcf56c87-938b-44aa-9bd2-180d438599ef",
+      "fullUrl": "urn:uuid:5873719f-9456-4318-a09f-d51241caef39",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -213,7 +223,7 @@
         "result": [
           {
             "display": "Genetics Report",
-            "reference": "urn:uuid:7d64ea91-93eb-427d-91ad-bd8be0b1c689",
+            "reference": "urn:uuid:e0e09ea9-71f9-44ee-80d3-17af4ca95e91",
             "type": "Observation"
           }
         ],
@@ -239,7 +249,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:7377033a-8bde-470f-92c2-e26667131a68"
+          "reference": "urn:uuid:868dc6de-adf8-4ae1-b2d7-2659284fe445"
         }
       }
     }

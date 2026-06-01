@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:b24ff634-8dc8-473c-943f-10605a435cf0",
+      "fullUrl": "urn:uuid:3f372466-35f7-4781-80e0-8826563f7a7f",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:37fdca75-7a9c-4654-a37f-a2cb73267b56"
+            "reference": "urn:uuid:cec10406-90ca-428c-9613-4f5b52176993"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8",
+      "fullUrl": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -105,7 +105,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:21713e8d-2a5a-46af-8306-d5f1b6b121c5",
+      "fullUrl": "urn:uuid:77e65c4c-86cd-4fa9-9ab5-04a132ec133c",
       "resource": {
         "resourceType": "Encounter",
         "class": {
@@ -147,7 +147,7 @@
             }
           ]
         },
-        "status": "completed",
+        "status": "finished",
         "subject": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -161,12 +161,12 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:3d9e467a-5403-4425-ac61-ba637f5a2fae",
+      "fullUrl": "urn:uuid:35c10fbc-0e45-4e94-8e1c-e7cda32162fc",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -192,7 +192,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:37fbbaa8-1630-4240-b631-e24f8d78bece",
+      "fullUrl": "urn:uuid:6d7f3ae6-93dc-40c5-8999-c27c4b7fa43d",
       "resource": {
         "resourceType": "PractitionerRole",
         "organization": {
@@ -208,14 +208,24 @@
             "system": "https://fhir.hl7.org.uk/Id/gmc-number",
             "value": "C3456789"
           },
-          "reference": "urn:uuid:3d9e467a-5403-4425-ac61-ba637f5a2fae"
+          "reference": "urn:uuid:35c10fbc-0e45-4e94-8e1c-e7cda32162fc"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:9d9de845-43a2-4903-9629-63d958fdc287",
+      "fullUrl": "urn:uuid:ace6a522-4c0a-4812-9f2d-96a4d4d1952a",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -287,14 +297,24 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:f8ba3807-d3e5-4729-b3d6-e241ef431ab4",
+      "fullUrl": "urn:uuid:6257ec99-452a-4b14-9890-46c692e7368b",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -366,7 +386,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -380,9 +400,19 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:56055786-4c0f-4ac4-8c85-ec63c093b905",
+      "fullUrl": "urn:uuid:87705535-6959-4b19-a954-55f3f9804cf6",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -454,7 +484,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -468,9 +498,19 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1ef5b8ad-1fc2-4658-9f55-112b960dcc81",
+      "fullUrl": "urn:uuid:293f608d-b1f8-45b2-b9d6-44fbc2249e7b",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -542,15 +582,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "Diagnostic Screen/Test"
       }
     },
     {
-      "fullUrl": "urn:uuid:44552476-1d1d-4f65-8664-9a6f963ca6d4",
+      "fullUrl": "urn:uuid:557b348b-cb8a-4a13-b9a1-d516f1c059a3",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -622,7 +672,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -636,9 +686,19 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4ac9edbf-1e3c-4161-845f-4fbb00810233",
+      "fullUrl": "urn:uuid:cd35dcd7-0684-4a67-b88b-a019d98ae4d6",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -710,15 +770,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "R240.1: Targeted variant testing"
       }
     },
     {
-      "fullUrl": "urn:uuid:a93fac91-522c-4ee1-8357-ab87222374c7",
+      "fullUrl": "urn:uuid:b7856db4-2a99-45d4-9ce9-af342f56ad40",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -790,15 +860,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "R242.1: Targeted variant testing"
       }
     },
     {
-      "fullUrl": "urn:uuid:db87bbed-39d8-4cee-8980-d4fbb0814bb3",
+      "fullUrl": "urn:uuid:7b28cba9-949a-453f-955d-af0cc8339ff6",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -870,15 +950,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "charu"
       }
     },
     {
-      "fullUrl": "urn:uuid:16ab98f3-ed49-4362-9efa-b8a84c23e32d",
+      "fullUrl": "urn:uuid:428f863d-01e7-4f53-993f-2f2f3cfe5792",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -950,7 +1040,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -964,9 +1054,19 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0b4fbff9-ac16-4ffb-b216-10fddd33770c",
+      "fullUrl": "urn:uuid:9b75f332-e10c-46e2-878d-2fb4afde00b9",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -1038,15 +1138,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "Acknowledged"
       }
     },
     {
-      "fullUrl": "urn:uuid:732784a8-183d-408e-b6f9-628579b59a83",
+      "fullUrl": "urn:uuid:7b51840a-853e-41f7-ab04-45452244141e",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -1118,15 +1228,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "No"
       }
     },
     {
-      "fullUrl": "urn:uuid:82984d99-dc55-49c7-b0c3-5fcf38cc6ed2",
+      "fullUrl": "urn:uuid:9253fbf7-ae62-4f0b-94fd-a51ad1a84ef8",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -1198,15 +1318,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "DESHPANDE, CHARULATA"
       }
     },
     {
-      "fullUrl": "urn:uuid:19a48b4c-5470-4528-abda-1281a37dcdc2",
+      "fullUrl": "urn:uuid:aff67fa8-97f3-4d2b-890b-fa17dbe54e78",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -1278,15 +1408,25 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueString": "UK3096580215"
       }
     },
     {
-      "fullUrl": "urn:uuid:92a7a11c-6867-417b-81b5-b0a11a2cbf5c",
+      "fullUrl": "urn:uuid:96b3b512-6322-4e30-bb6b-7750957e530a",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -1358,7 +1498,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1372,9 +1512,19 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7d339a6c-b5d3-403b-a4e0-d083d745122a",
+      "fullUrl": "urn:uuid:d40e8811-5672-462b-9d53-01632541ecc7",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -1446,13 +1596,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "valueDateTime": "2025-05-12T10:37:26+00:00"
       }
     },
     {
-      "fullUrl": "urn:uuid:30ede1bb-7bf1-40ec-b9e5-e4a90c582cd0",
+      "fullUrl": "urn:uuid:b10a9087-08f8-452b-9e56-44e056fd6624",
       "resource": {
         "resourceType": "Condition",
         "code": {
@@ -1478,12 +1628,12 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:cace0207-bb49-4b40-a777-0f44f37fbefe",
+      "fullUrl": "urn:uuid:4015a65b-fa9c-4ee2-a32b-5086b3cf98a6",
       "resource": {
         "resourceType": "Specimen",
         "accessionIdentifier": {
@@ -1540,7 +1690,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "type": {
           "coding": [
@@ -1554,7 +1704,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:37fdca75-7a9c-4654-a37f-a2cb73267b56",
+      "fullUrl": "urn:uuid:cec10406-90ca-428c-9613-4f5b52176993",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2025-01-29T00:00:00+00:00",
@@ -1595,7 +1745,7 @@
             },
             "value": "1001166717"
           },
-          "reference": "urn:uuid:21713e8d-2a5a-46af-8306-d5f1b6b121c5"
+          "reference": "urn:uuid:77e65c4c-86cd-4fa9-9ab5-04a132ec133c"
         },
         "identifier": [
           {
@@ -1663,16 +1813,16 @@
         ],
         "reasonReference": [
           {
-            "reference": "urn:uuid:30ede1bb-7bf1-40ec-b9e5-e4a90c582cd0",
+            "reference": "urn:uuid:b10a9087-08f8-452b-9e56-44e056fd6624",
             "type": "Condition"
           }
         ],
         "requester": {
-          "reference": "urn:uuid:37fbbaa8-1630-4240-b631-e24f8d78bece"
+          "reference": "urn:uuid:6d7f3ae6-93dc-40c5-8999-c27c4b7fa43d"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:cace0207-bb49-4b40-a777-0f44f37fbefe",
+            "reference": "urn:uuid:4015a65b-fa9c-4ee2-a32b-5086b3cf98a6",
             "type": "Specimen"
           }
         ],
@@ -1690,67 +1840,67 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:2cf0d3bb-820f-443e-85c2-98c24bebe6d8"
+          "reference": "urn:uuid:ca83f297-fafa-4c12-b30a-1dc42b76621b"
         },
         "supportingInfo": [
           {
-            "reference": "urn:uuid:9d9de845-43a2-4903-9629-63d958fdc287",
+            "reference": "urn:uuid:ace6a522-4c0a-4812-9f2d-96a4d4d1952a",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:f8ba3807-d3e5-4729-b3d6-e241ef431ab4",
+            "reference": "urn:uuid:6257ec99-452a-4b14-9890-46c692e7368b",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:56055786-4c0f-4ac4-8c85-ec63c093b905",
+            "reference": "urn:uuid:87705535-6959-4b19-a954-55f3f9804cf6",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:1ef5b8ad-1fc2-4658-9f55-112b960dcc81",
+            "reference": "urn:uuid:293f608d-b1f8-45b2-b9d6-44fbc2249e7b",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:44552476-1d1d-4f65-8664-9a6f963ca6d4",
+            "reference": "urn:uuid:557b348b-cb8a-4a13-b9a1-d516f1c059a3",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:4ac9edbf-1e3c-4161-845f-4fbb00810233",
+            "reference": "urn:uuid:cd35dcd7-0684-4a67-b88b-a019d98ae4d6",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:a93fac91-522c-4ee1-8357-ab87222374c7",
+            "reference": "urn:uuid:b7856db4-2a99-45d4-9ce9-af342f56ad40",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:db87bbed-39d8-4cee-8980-d4fbb0814bb3",
+            "reference": "urn:uuid:7b28cba9-949a-453f-955d-af0cc8339ff6",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:16ab98f3-ed49-4362-9efa-b8a84c23e32d",
+            "reference": "urn:uuid:428f863d-01e7-4f53-993f-2f2f3cfe5792",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:0b4fbff9-ac16-4ffb-b216-10fddd33770c",
+            "reference": "urn:uuid:9b75f332-e10c-46e2-878d-2fb4afde00b9",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:732784a8-183d-408e-b6f9-628579b59a83",
+            "reference": "urn:uuid:7b51840a-853e-41f7-ab04-45452244141e",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:82984d99-dc55-49c7-b0c3-5fcf38cc6ed2",
+            "reference": "urn:uuid:9253fbf7-ae62-4f0b-94fd-a51ad1a84ef8",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:19a48b4c-5470-4528-abda-1281a37dcdc2",
+            "reference": "urn:uuid:aff67fa8-97f3-4d2b-890b-fa17dbe54e78",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:92a7a11c-6867-417b-81b5-b0a11a2cbf5c",
+            "reference": "urn:uuid:96b3b512-6322-4e30-bb6b-7750957e530a",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:7d339a6c-b5d3-403b-a4e0-d083d745122a",
+            "reference": "urn:uuid:d40e8811-5672-462b-9d53-01632541ecc7",
             "type": "Observation"
           }
         ]

@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:46fb066a-a675-44a8-bbbf-ff3d93f799e4",
+      "fullUrl": "urn:uuid:caf518df-3353-490f-baf5-5a2b63c6e18f",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,19 +22,19 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:8ad84e08-44fe-4973-8d21-5417a6bff7b5"
+            "reference": "urn:uuid:f104a67d-4fbb-48b9-9899-a455ebe3f142"
           },
           {
-            "reference": "urn:uuid:ca67279f-e1c6-48da-911e-63fd4a002c50"
+            "reference": "urn:uuid:bcfb5820-e721-46e7-8b57-d88eca09c8e5"
           },
           {
-            "reference": "urn:uuid:1b17c68e-3a87-4857-98b4-bf812e89660b"
+            "reference": "urn:uuid:41bd17f9-ad0a-4784-a6f3-6339cc877ff1"
           },
           {
-            "reference": "urn:uuid:07b1041c-b52f-4ecd-9dcf-e49f0035647c"
+            "reference": "urn:uuid:b35b5ce8-8323-4a0c-85f3-874a63c5a56a"
           },
           {
-            "reference": "urn:uuid:18ffcb52-a7dc-48d4-982e-d2b491ad70e3"
+            "reference": "urn:uuid:4f2b3a1c-6df8-4654-a174-89e9b2bbd843"
           }
         ],
         "sender": {
@@ -50,7 +50,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570",
+      "fullUrl": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -131,14 +131,24 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b01953c1-a7f3-49c5-aa87-b36aaddc7e09",
+      "fullUrl": "urn:uuid:69760f20-cd7a-4ca7-9f98-27d80a265774",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "B3553",
-              "display": "HbA1c (IFCC traceable)"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -190,7 +200,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueQuantity": {
           "system": "http://unitsofmeasure.org",
@@ -200,7 +210,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:367d2dc8-79ab-4f97-a36d-63a5109ba5b5",
+      "fullUrl": "urn:uuid:74d63b58-462d-4516-90b3-367974c6e4f3",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -237,12 +247,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:de244c43-6673-4597-a4d7-384d6b6df9fb",
+      "fullUrl": "urn:uuid:e376fcdb-9e30-41f0-852e-d465438b7d16",
       "resource": {
         "resourceType": "ServiceRequest",
         "category": [
@@ -279,7 +289,7 @@
         "intent": "order",
         "specimen": [
           {
-            "reference": "urn:uuid:367d2dc8-79ab-4f97-a36d-63a5109ba5b5",
+            "reference": "urn:uuid:74d63b58-462d-4516-90b3-367974c6e4f3",
             "type": "Specimen"
           }
         ],
@@ -303,12 +313,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:8ad84e08-44fe-4973-8d21-5417a6bff7b5",
+      "fullUrl": "urn:uuid:f104a67d-4fbb-48b9-9899-a455ebe3f142",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -324,7 +334,7 @@
               },
               "value": "914694928301"
             },
-            "reference": "urn:uuid:de244c43-6673-4597-a4d7-384d6b6df9fb",
+            "reference": "urn:uuid:e376fcdb-9e30-41f0-852e-d465438b7d16",
             "type": "ServiceRequest"
           }
         ],
@@ -373,14 +383,13 @@
         ],
         "result": [
           {
-            "display": "HbA1c (IFCC traceable)",
-            "reference": "urn:uuid:b01953c1-a7f3-49c5-aa87-b36aaddc7e09",
+            "reference": "urn:uuid:69760f20-cd7a-4ca7-9f98-27d80a265774",
             "type": "Observation"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:367d2dc8-79ab-4f97-a36d-63a5109ba5b5",
+            "reference": "urn:uuid:74d63b58-462d-4516-90b3-367974c6e4f3",
             "type": "Specimen"
           }
         ],
@@ -404,19 +413,29 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:63185b3c-fd78-4d56-ad4f-3c092dbf433b",
+      "fullUrl": "urn:uuid:e4fb8a98-b607-42f8-8b0f-185018593cc3",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "B0300",
-              "display": "White blood cell (WBC) count"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -468,7 +487,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueQuantity": {
           "system": "http://unitsofmeasure.org",
@@ -478,14 +497,24 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1cbbf1c2-d09d-4381-b4d0-77e09de28e7a",
+      "fullUrl": "urn:uuid:35b7e71b-b4f9-41df-8bb7-abc4dc7a9265",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "B0307",
-              "display": "Haemoglobin (Hb)"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -537,7 +566,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueQuantity": {
           "comparator": "<",
@@ -548,14 +577,24 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:8181b19f-cf19-4082-99f0-65fe73b10709",
+      "fullUrl": "urn:uuid:6093e7f5-80cb-42c2-8d9b-72842b28d2f8",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "B0314",
-              "display": "Platelet (PLT) count"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -607,7 +646,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueQuantity": {
           "system": "http://unitsofmeasure.org",
@@ -617,14 +656,24 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:281ab695-3697-4a42-940a-2bb5863ff671",
+      "fullUrl": "urn:uuid:605c8144-5a28-4e5c-baca-1e421af0fd81",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "B0306",
-              "display": "Red blood cell (RBC) count"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -676,7 +725,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueQuantity": {
           "system": "http://unitsofmeasure.org",
@@ -686,14 +735,24 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:3eded746-0823-49df-900c-ed19599708de",
+      "fullUrl": "urn:uuid:6e8dece9-8598-441a-baf3-119a1011867a",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "B0309",
-              "display": "Mean cell volume (MCV)"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -745,7 +804,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -759,7 +818,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4a259d7d-17b0-4245-97c7-9eae1d6eea75",
+      "fullUrl": "urn:uuid:870dab79-3cfc-43bb-899c-8fe0c8681bd9",
       "resource": {
         "resourceType": "Specimen",
         "collection": {
@@ -799,7 +858,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "type": {
           "coding": [
@@ -813,7 +872,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ca67279f-e1c6-48da-911e-63fd4a002c50",
+      "fullUrl": "urn:uuid:bcfb5820-e721-46e7-8b57-d88eca09c8e5",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -861,34 +920,29 @@
         ],
         "result": [
           {
-            "display": "White blood cell (WBC) count",
-            "reference": "urn:uuid:63185b3c-fd78-4d56-ad4f-3c092dbf433b",
+            "reference": "urn:uuid:e4fb8a98-b607-42f8-8b0f-185018593cc3",
             "type": "Observation"
           },
           {
-            "display": "Haemoglobin (Hb)",
-            "reference": "urn:uuid:1cbbf1c2-d09d-4381-b4d0-77e09de28e7a",
+            "reference": "urn:uuid:35b7e71b-b4f9-41df-8bb7-abc4dc7a9265",
             "type": "Observation"
           },
           {
-            "display": "Platelet (PLT) count",
-            "reference": "urn:uuid:8181b19f-cf19-4082-99f0-65fe73b10709",
+            "reference": "urn:uuid:6093e7f5-80cb-42c2-8d9b-72842b28d2f8",
             "type": "Observation"
           },
           {
-            "display": "Red blood cell (RBC) count",
-            "reference": "urn:uuid:281ab695-3697-4a42-940a-2bb5863ff671",
+            "reference": "urn:uuid:605c8144-5a28-4e5c-baca-1e421af0fd81",
             "type": "Observation"
           },
           {
-            "display": "Mean cell volume (MCV)",
-            "reference": "urn:uuid:3eded746-0823-49df-900c-ed19599708de",
+            "reference": "urn:uuid:6e8dece9-8598-441a-baf3-119a1011867a",
             "type": "Observation"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:4a259d7d-17b0-4245-97c7-9eae1d6eea75",
+            "reference": "urn:uuid:870dab79-3cfc-43bb-899c-8fe0c8681bd9",
             "type": "Specimen"
           }
         ],
@@ -912,12 +966,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:a44dea1d-1939-47b8-a4f9-3865c3827a19",
+      "fullUrl": "urn:uuid:cf2a74ac-3e2e-4dcc-be7b-cfffdaf1504a",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -925,14 +979,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:142ab33c-4197-427d-87d5-ed58dc6b2780",
+      "fullUrl": "urn:uuid:3403393e-ef33-45f6-b997-daad81b9c37a",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:a44dea1d-1939-47b8-a4f9-3865c3827a19"
+              "url": "urn:uuid:cf2a74ac-3e2e-4dcc-be7b-cfffdaf1504a"
             }
           }
         ],
@@ -960,7 +1014,7 @@
                 },
                 "value": "287018"
               },
-              "reference": "urn:uuid:1b17c68e-3a87-4857-98b4-bf812e89660b",
+              "reference": "urn:uuid:41bd17f9-ad0a-4784-a6f3-6339cc877ff1",
               "type": "DiagnosticReport"
             }
           ]
@@ -1012,7 +1066,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "type": {
           "coding": [
@@ -1026,7 +1080,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:82ecffce-d656-4eb8-afb7-55d861664779",
+      "fullUrl": "urn:uuid:b97db117-435f-40e4-bbba-5164038c27e0",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -1034,14 +1088,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:171e61f0-926f-416e-87ce-1a14dc5ba1dc",
+      "fullUrl": "urn:uuid:57d3ed6e-05d7-4463-9aac-91d7ac12ebba",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:82ecffce-d656-4eb8-afb7-55d861664779"
+              "url": "urn:uuid:b97db117-435f-40e4-bbba-5164038c27e0"
             }
           }
         ],
@@ -1069,7 +1123,7 @@
                 },
                 "value": "287018"
               },
-              "reference": "urn:uuid:1b17c68e-3a87-4857-98b4-bf812e89660b",
+              "reference": "urn:uuid:41bd17f9-ad0a-4784-a6f3-6339cc877ff1",
               "type": "DiagnosticReport"
             }
           ]
@@ -1121,7 +1175,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "type": {
           "coding": [
@@ -1135,7 +1189,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1b17c68e-3a87-4857-98b4-bf812e89660b",
+      "fullUrl": "urn:uuid:41bd17f9-ad0a-4784-a6f3-6339cc877ff1",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -1208,12 +1262,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:3bb8a50f-693c-4bae-8077-f04a11ff1240",
+      "fullUrl": "urn:uuid:d93ff669-4591-4b35-939b-c3ac11a53c94",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -1221,14 +1275,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:00bed62b-1d14-43f3-b5ac-9a0ba3fb165f",
+      "fullUrl": "urn:uuid:a7986f41-011c-42ce-a6eb-3ef0d8f54d17",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:3bb8a50f-693c-4bae-8077-f04a11ff1240"
+              "url": "urn:uuid:d93ff669-4591-4b35-939b-c3ac11a53c94"
             }
           }
         ],
@@ -1256,7 +1310,7 @@
                 },
                 "value": "A28701"
               },
-              "reference": "urn:uuid:07b1041c-b52f-4ecd-9dcf-e49f0035647c",
+              "reference": "urn:uuid:b35b5ce8-8323-4a0c-85f3-874a63c5a56a",
               "type": "DiagnosticReport"
             }
           ]
@@ -1308,7 +1362,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "type": {
           "coding": [
@@ -1322,7 +1376,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:07b1041c-b52f-4ecd-9dcf-e49f0035647c",
+      "fullUrl": "urn:uuid:b35b5ce8-8323-4a0c-85f3-874a63c5a56a",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -1395,20 +1449,29 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:b8665647-1e52-44a4-be37-16c3ea1205aa",
+      "fullUrl": "urn:uuid:7f6ab0cd-ab15-4ee2-b09d-da85e077a316",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "INTER",
-              "display": "INTERPRETATION",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1463,21 +1526,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "rwtu"
       }
     },
     {
-      "fullUrl": "urn:uuid:86c1c86d-aaa5-4b57-b5ca-8ca5778d4da3",
+      "fullUrl": "urn:uuid:ac5649bf-1a7e-485f-be13-b8349dcfe287",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "RESTE",
-              "display": "Reason for testing",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1527,21 +1599,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "erw"
       }
     },
     {
-      "fullUrl": "urn:uuid:bfbc05de-b076-4b7b-b01c-af4671c467a6",
+      "fullUrl": "urn:uuid:146d64a7-57bf-4467-a5a7-0fa083e8560a",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "TMETH",
-              "display": "Test Methodology",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1591,21 +1672,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "sfjg"
       }
     },
     {
-      "fullUrl": "urn:uuid:8ca0308e-3636-42aa-a6e0-26a1329ad451",
+      "fullUrl": "urn:uuid:04d3bcdf-1cf8-4e2a-924e-9d04a4db8f5d",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "RESUM",
-              "display": "Result summary",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1655,21 +1745,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "tyityu"
       }
     },
     {
-      "fullUrl": "urn:uuid:d4bf10d5-b689-41cb-89bc-c302a0fc45fa",
+      "fullUrl": "urn:uuid:a7fba79a-b8f1-48e4-8521-48625d85c542",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "PATPH",
-              "display": "Patient phenotype",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1719,21 +1818,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "ghfjg"
       }
     },
     {
-      "fullUrl": "urn:uuid:29835244-6015-4bfd-b735-be3e25c24482",
+      "fullUrl": "urn:uuid:276dc7d2-bfb7-479c-a615-8efa185d482b",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "FOLL",
-              "display": "Follow-up",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1783,21 +1891,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "yue"
       }
     },
     {
-      "fullUrl": "urn:uuid:f3188bc2-e8cd-447b-ba6e-5d973c867a55",
+      "fullUrl": "urn:uuid:f87c4f64-6da3-4f08-b517-22cd219e0370",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "MDS",
-              "display": "Multi-disciplinary summary",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1847,21 +1964,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "tyu"
       }
     },
     {
-      "fullUrl": "urn:uuid:bad16e62-a375-40cd-8949-6238ec8fcc60",
+      "fullUrl": "urn:uuid:273f64ef-017f-4101-b366-451ea203a65d",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "RESLT",
-              "display": "Result",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1911,21 +2037,30 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "dhjhd"
       }
     },
     {
-      "fullUrl": "urn:uuid:50402078-e351-401f-8ba2-fad3ea03e84d",
+      "fullUrl": "urn:uuid:67baa21d-b136-4676-96bb-5e40dfbd13c8",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "GRFALN1",
-              "display": "AlphaNumeric Generic Result Field 1",
-              "system": "L"
+              "code": "GE",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
             }
           ]
         },
@@ -1975,13 +2110,13 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "valueString": "234dfsgsg"
       }
     },
     {
-      "fullUrl": "urn:uuid:15e4b042-bb9d-4363-8f5c-5639d5a2ed88",
+      "fullUrl": "urn:uuid:26a17ab3-36f6-49f2-b4f8-8da110977c27",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -1989,14 +2124,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:3fb04fbe-76ed-479f-8bf2-c6b5cc380eb1",
+      "fullUrl": "urn:uuid:cba27676-016f-4b56-85b8-7d2f28cf4354",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:15e4b042-bb9d-4363-8f5c-5639d5a2ed88"
+              "url": "urn:uuid:26a17ab3-36f6-49f2-b4f8-8da110977c27"
             }
           }
         ],
@@ -2018,7 +2153,7 @@
                 },
                 "value": "190000041:27491"
               },
-              "reference": "urn:uuid:18ffcb52-a7dc-48d4-982e-d2b491ad70e3",
+              "reference": "urn:uuid:4f2b3a1c-6df8-4654-a174-89e9b2bbd843",
               "type": "DiagnosticReport"
             }
           ]
@@ -2064,7 +2199,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "type": {
           "coding": [
@@ -2078,7 +2213,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9770387a-3671-4274-a87a-4635c350064a",
+      "fullUrl": "urn:uuid:bdf1fc57-1039-4a05-aa52-e4eb8de077ce",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
@@ -2106,7 +2241,7 @@
                 },
                 "value": "190000041:27491"
               },
-              "reference": "urn:uuid:18ffcb52-a7dc-48d4-982e-d2b491ad70e3",
+              "reference": "urn:uuid:4f2b3a1c-6df8-4654-a174-89e9b2bbd843",
               "type": "DiagnosticReport"
             }
           ]
@@ -2152,7 +2287,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         },
         "type": {
           "coding": [
@@ -2166,7 +2301,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2526ab5f-fed6-46b1-9e39-0037d2c7ec2a",
+      "fullUrl": "urn:uuid:56670c13-311f-46fa-a0aa-527a94b928b6",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -2203,12 +2338,12 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:18ffcb52-a7dc-48d4-982e-d2b491ad70e3",
+      "fullUrl": "urn:uuid:4f2b3a1c-6df8-4654-a174-89e9b2bbd843",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -2272,54 +2407,45 @@
         ],
         "result": [
           {
-            "display": "INTERPRETATION",
-            "reference": "urn:uuid:b8665647-1e52-44a4-be37-16c3ea1205aa",
+            "reference": "urn:uuid:7f6ab0cd-ab15-4ee2-b09d-da85e077a316",
             "type": "Observation"
           },
           {
-            "display": "Reason for testing",
-            "reference": "urn:uuid:86c1c86d-aaa5-4b57-b5ca-8ca5778d4da3",
+            "reference": "urn:uuid:ac5649bf-1a7e-485f-be13-b8349dcfe287",
             "type": "Observation"
           },
           {
-            "display": "Test Methodology",
-            "reference": "urn:uuid:bfbc05de-b076-4b7b-b01c-af4671c467a6",
+            "reference": "urn:uuid:146d64a7-57bf-4467-a5a7-0fa083e8560a",
             "type": "Observation"
           },
           {
-            "display": "Result summary",
-            "reference": "urn:uuid:8ca0308e-3636-42aa-a6e0-26a1329ad451",
+            "reference": "urn:uuid:04d3bcdf-1cf8-4e2a-924e-9d04a4db8f5d",
             "type": "Observation"
           },
           {
-            "display": "Patient phenotype",
-            "reference": "urn:uuid:d4bf10d5-b689-41cb-89bc-c302a0fc45fa",
+            "reference": "urn:uuid:a7fba79a-b8f1-48e4-8521-48625d85c542",
             "type": "Observation"
           },
           {
-            "display": "Follow-up",
-            "reference": "urn:uuid:29835244-6015-4bfd-b735-be3e25c24482",
+            "reference": "urn:uuid:276dc7d2-bfb7-479c-a615-8efa185d482b",
             "type": "Observation"
           },
           {
-            "display": "Multi-disciplinary summary",
-            "reference": "urn:uuid:f3188bc2-e8cd-447b-ba6e-5d973c867a55",
+            "reference": "urn:uuid:f87c4f64-6da3-4f08-b517-22cd219e0370",
             "type": "Observation"
           },
           {
-            "display": "Result",
-            "reference": "urn:uuid:bad16e62-a375-40cd-8949-6238ec8fcc60",
+            "reference": "urn:uuid:273f64ef-017f-4101-b366-451ea203a65d",
             "type": "Observation"
           },
           {
-            "display": "AlphaNumeric Generic Result Field 1",
-            "reference": "urn:uuid:50402078-e351-401f-8ba2-fad3ea03e84d",
+            "reference": "urn:uuid:67baa21d-b136-4676-96bb-5e40dfbd13c8",
             "type": "Observation"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:2526ab5f-fed6-46b1-9e39-0037d2c7ec2a",
+            "reference": "urn:uuid:56670c13-311f-46fa-a0aa-527a94b928b6",
             "type": "Specimen"
           }
         ],
@@ -2343,7 +2469,7 @@
             },
             "value": "9737383257"
           },
-          "reference": "urn:uuid:4e0c5890-0ef1-4a6d-a636-7fb49a4da570"
+          "reference": "urn:uuid:aa18576d-d445-442c-a530-6d165ba1665c"
         }
       }
     }

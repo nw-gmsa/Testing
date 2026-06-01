@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:bc400bf3-2e3c-4fd3-880a-efd376189315",
+      "fullUrl": "urn:uuid:f7720f68-5ae6-4b92-87d1-ac4b4272dac0",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:7afd59cd-65ef-46f0-83f5-f2453f40bc66"
+            "reference": "urn:uuid:142727cc-116c-4772-afe6-916328a0e1b4"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:15aadadb-d5b5-482c-b2af-e28aa4b12b9e",
+      "fullUrl": "urn:uuid:d50c8274-11f0-4055-8308-595375ab43c8",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -109,7 +109,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ab11b130-34ea-4678-899a-a20560493ace",
+      "fullUrl": "urn:uuid:7eb22a18-5290-498d-ba1a-8ecc3333b316",
       "resource": {
         "resourceType": "Encounter",
         "class": {
@@ -151,7 +151,7 @@
             }
           ]
         },
-        "status": "completed",
+        "status": "finished",
         "subject": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -165,12 +165,12 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:15aadadb-d5b5-482c-b2af-e28aa4b12b9e"
+          "reference": "urn:uuid:d50c8274-11f0-4055-8308-595375ab43c8"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:f30e1dba-88be-4b5f-9967-bddf5ef66d71",
+      "fullUrl": "urn:uuid:2f35027a-1669-4439-8a8c-d080eb2b5538",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -192,7 +192,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:08c00e0f-f0c3-4f9c-bee6-73bb86a36477",
+      "fullUrl": "urn:uuid:9be8aa99-3517-469f-96ae-8ae3e6e30c25",
       "resource": {
         "resourceType": "PractitionerRole",
         "organization": {
@@ -204,14 +204,24 @@
         },
         "practitioner": {
           "display": "Smith, Hazel",
-          "reference": "urn:uuid:f30e1dba-88be-4b5f-9967-bddf5ef66d71"
+          "reference": "urn:uuid:2f35027a-1669-4439-8a8c-d080eb2b5538"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:849b4d1d-b1e4-4d64-b9fd-c6f9cb2d4763",
+      "fullUrl": "urn:uuid:26b8338a-0aa5-4fae-b2a3-13a1ceaab979",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -265,14 +275,24 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:15aadadb-d5b5-482c-b2af-e28aa4b12b9e"
+          "reference": "urn:uuid:d50c8274-11f0-4055-8308-595375ab43c8"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:7f59830e-acaa-49bc-a8ec-efc3d9fec3fc",
+      "fullUrl": "urn:uuid:fb172433-e2db-4571-b2a8-4f847b4776c1",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
@@ -326,12 +346,12 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:15aadadb-d5b5-482c-b2af-e28aa4b12b9e"
+          "reference": "urn:uuid:d50c8274-11f0-4055-8308-595375ab43c8"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:56abb4ea-25a5-415f-aa38-44a21a45b2e3",
+      "fullUrl": "urn:uuid:7b5b0d35-a81c-4c31-b613-09723a9fbc8d",
       "resource": {
         "resourceType": "Specimen",
         "collection": {
@@ -364,7 +384,7 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:15aadadb-d5b5-482c-b2af-e28aa4b12b9e"
+          "reference": "urn:uuid:d50c8274-11f0-4055-8308-595375ab43c8"
         },
         "type": {
           "coding": [
@@ -378,7 +398,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7afd59cd-65ef-46f0-83f5-f2453f40bc66",
+      "fullUrl": "urn:uuid:142727cc-116c-4772-afe6-916328a0e1b4",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2023-09-08T00:00:00+00:00",
@@ -419,7 +439,7 @@
             },
             "value": "1001166717"
           },
-          "reference": "urn:uuid:ab11b130-34ea-4678-899a-a20560493ace"
+          "reference": "urn:uuid:7eb22a18-5290-498d-ba1a-8ecc3333b316"
         },
         "identifier": [
           {
@@ -468,11 +488,11 @@
           }
         ],
         "requester": {
-          "reference": "urn:uuid:08c00e0f-f0c3-4f9c-bee6-73bb86a36477"
+          "reference": "urn:uuid:9be8aa99-3517-469f-96ae-8ae3e6e30c25"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:56abb4ea-25a5-415f-aa38-44a21a45b2e3",
+            "reference": "urn:uuid:7b5b0d35-a81c-4c31-b613-09723a9fbc8d",
             "type": "Specimen"
           }
         ],
@@ -490,15 +510,15 @@
             },
             "value": "9737383230"
           },
-          "reference": "urn:uuid:15aadadb-d5b5-482c-b2af-e28aa4b12b9e"
+          "reference": "urn:uuid:d50c8274-11f0-4055-8308-595375ab43c8"
         },
         "supportingInfo": [
           {
-            "reference": "urn:uuid:849b4d1d-b1e4-4d64-b9fd-c6f9cb2d4763",
+            "reference": "urn:uuid:26b8338a-0aa5-4fae-b2a3-13a1ceaab979",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:7f59830e-acaa-49bc-a8ec-efc3d9fec3fc",
+            "reference": "urn:uuid:fb172433-e2db-4571-b2a8-4f847b4776c1",
             "type": "Observation"
           }
         ]
