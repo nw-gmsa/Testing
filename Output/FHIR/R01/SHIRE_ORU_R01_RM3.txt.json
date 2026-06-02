@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:43114e69-4a45-4521-b624-1d4f44c369e9",
+      "fullUrl": "urn:uuid:56f99337-7e1a-4efe-8360-b1e66948a999",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:25e043fd-ae7d-4840-968c-228fb5160aae"
+            "reference": "urn:uuid:28ea0873-1480-49b6-a4a3-ce7876167a5c"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ced707b7-9a9a-4504-b5c9-be177e0b14ab",
+      "fullUrl": "urn:uuid:f8da45e0-895b-49a5-8e3f-4059064992ca",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -104,7 +104,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ec89aac9-6c77-4e09-a687-68442e017503",
+      "fullUrl": "urn:uuid:d5944542-91e3-4c75-9ed8-bff99c53057a",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -120,8 +120,9 @@
         "code": {
           "coding": [
             {
-              "code": "GE",
-              "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              "code": "1054161000000101",
+              "display": "Genetics Report",
+              "system": "http://snomed.info/sct"
             }
           ]
         },
@@ -169,13 +170,13 @@
             },
             "value": "9737383273"
           },
-          "reference": "urn:uuid:ced707b7-9a9a-4504-b5c9-be177e0b14ab"
+          "reference": "urn:uuid:f8da45e0-895b-49a5-8e3f-4059064992ca"
         },
         "valueString": "Karyotype: FISH ON PARAFFIN EMBEDDED TISSUE\r\n\r\nFISH Result: IRF4/DUSP22 gene rearrangement detected\r\nNo evidence of MYC, IGH::MYC, BCL2 or BCL6 rearrangements.\r\n\r\nFluorescence in situ hybridisation (FISH) studies were carried out using the\r\nfollowing Cytocell gene probes; MYC Breakapart, IGH-MYC LPS Dual Fusion, BCL2\r\nBreakapart, BCL6 Breakapart, and MyProbe IRF4/DUSP22 Breakapart to detect\r\nrearrangements of 6p25 found in B- and T-cell lymphomas.\r\n\r\nThere was no evidence of MYC, IGH::MYC, BCL2 or BCL6 gene rearrangements in multiple\r\ntissue areas examined.\r\n\r\nA signal pattern consistent with IRF4 gene rearrangement was seen in multiple tissue\r\nareas examined.\r\n\r\nIRF4 rearrangement is recognised finding in Large B-cell lymphoma and is consistent\r\nwith the diagnosis of 'Large B-cell lymphoma with IRF4 rearrangement' (WHO\r\nClassification 2022; ICD-O code 9698/3).\r\n\r\nPlease note that the probe used in this assay cannot distinguish between IRF4 and\r\nDUSP22 gene rearrangements and this result should be interpreted in conjunction with\r\nclinical factors and other testing modalities.\r\n\r\nUncommon cases of Ig translocations with atypical breakpoints outside the common\r\ncluster regions or resulting from alternative genetic mechanisms may not be detected\r\nby the assays used in this report.\r\nConclusion: IRF4/DUSP22 gene rearrangement detected by FISH\r\nNo evidence of MYC, IGH::MYC, BCL2 or BCL6 rearrangements by FISH"
       }
     },
     {
-      "fullUrl": "urn:uuid:25e043fd-ae7d-4840-968c-228fb5160aae",
+      "fullUrl": "urn:uuid:28ea0873-1480-49b6-a4a3-ce7876167a5c",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -243,7 +244,8 @@
         ],
         "result": [
           {
-            "reference": "urn:uuid:ec89aac9-6c77-4e09-a687-68442e017503",
+            "display": "Genetics Report",
+            "reference": "urn:uuid:d5944542-91e3-4c75-9ed8-bff99c53057a",
             "type": "Observation"
           }
         ],
@@ -269,7 +271,7 @@
             },
             "value": "9737383273"
           },
-          "reference": "urn:uuid:ced707b7-9a9a-4504-b5c9-be177e0b14ab"
+          "reference": "urn:uuid:f8da45e0-895b-49a5-8e3f-4059064992ca"
         }
       }
     }
