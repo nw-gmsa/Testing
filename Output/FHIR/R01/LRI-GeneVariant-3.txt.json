@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:09fd501c-10bb-44eb-ab99-1e4bc36d4df0",
+      "fullUrl": "urn:uuid:af4578a5-2bb1-4cf3-b0d9-8d6d44a5bd5a",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:4965d2e0-2ec4-41f0-9af9-d8cb8a427746"
+            "reference": "urn:uuid:f90ebe96-6977-4be3-b34e-9e5c82448bce"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:3c912509-c02d-4426-990c-f9dce1f6b942",
+      "fullUrl": "urn:uuid:bca1d6c3-1488-4f8d-a2e3-1ea2bc31defd",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -87,7 +87,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:6ea8bb2f-d5e7-4a42-b7fe-468cc6e5733b",
+      "fullUrl": "urn:uuid:7a3b9daf-7d13-488c-abb8-ca010579d728",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -331,15 +331,23 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:3c912509-c02d-4426-990c-f9dce1f6b942"
+          "reference": "urn:uuid:bca1d6c3-1488-4f8d-a2e3-1ea2bc31defd"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:ec5d9806-11a8-49d6-900b-5542df6421cd",
+      "fullUrl": "urn:uuid:c556e7af-cba5-4bfa-b6e4-747d32879713",
       "resource": {
         "resourceType": "Observation",
         "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
           {
             "coding": [
               {
@@ -808,7 +816,7 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:3c912509-c02d-4426-990c-f9dce1f6b942"
+          "reference": "urn:uuid:bca1d6c3-1488-4f8d-a2e3-1ea2bc31defd"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -822,10 +830,18 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ba522c90-8739-404e-b56b-6e3760a97b8e",
+      "fullUrl": "urn:uuid:a86bf939-f66f-4c05-96f9-c228fa42714f",
       "resource": {
         "resourceType": "Observation",
         "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
           {
             "coding": [
               {
@@ -893,7 +909,7 @@
         ],
         "derivedFrom": [
           {
-            "reference": "urn:uuid:ec5d9806-11a8-49d6-900b-5542df6421cd",
+            "reference": "urn:uuid:c556e7af-cba5-4bfa-b6e4-747d32879713",
             "type": "Observation"
           }
         ],
@@ -946,12 +962,12 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:3c912509-c02d-4426-990c-f9dce1f6b942"
+          "reference": "urn:uuid:bca1d6c3-1488-4f8d-a2e3-1ea2bc31defd"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:6ef8a8ba-f418-4f66-b31b-f30943b66fb8",
+      "fullUrl": "urn:uuid:e4955ad9-1a61-495f-937e-128d220aa144",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2016-08-03",
@@ -1016,12 +1032,12 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:3c912509-c02d-4426-990c-f9dce1f6b942"
+          "reference": "urn:uuid:bca1d6c3-1488-4f8d-a2e3-1ea2bc31defd"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:4965d2e0-2ec4-41f0-9af9-d8cb8a427746",
+      "fullUrl": "urn:uuid:f90ebe96-6977-4be3-b34e-9e5c82448bce",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -1043,7 +1059,7 @@
               },
               "value": "LRI-5286710001"
             },
-            "reference": "urn:uuid:6ef8a8ba-f418-4f66-b31b-f30943b66fb8",
+            "reference": "urn:uuid:e4955ad9-1a61-495f-937e-128d220aa144",
             "type": "ServiceRequest"
           }
         ],
@@ -1100,17 +1116,17 @@
         "result": [
           {
             "display": "Variables that apply to the overall study",
-            "reference": "urn:uuid:6ea8bb2f-d5e7-4a42-b7fe-468cc6e5733b",
+            "reference": "urn:uuid:7a3b9daf-7d13-488c-abb8-ca010579d728",
             "type": "Observation"
           },
           {
             "display": "Genetic variant assessment",
-            "reference": "urn:uuid:ec5d9806-11a8-49d6-900b-5542df6421cd",
+            "reference": "urn:uuid:c556e7af-cba5-4bfa-b6e4-747d32879713",
             "type": "Observation"
           },
           {
             "display": "Genetic finding detected",
-            "reference": "urn:uuid:ba522c90-8739-404e-b56b-6e3760a97b8e",
+            "reference": "urn:uuid:a86bf939-f66f-4c05-96f9-c228fa42714f",
             "type": "Observation"
           }
         ],
@@ -1128,7 +1144,7 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:3c912509-c02d-4426-990c-f9dce1f6b942"
+          "reference": "urn:uuid:bca1d6c3-1488-4f8d-a2e3-1ea2bc31defd"
         }
       }
     }

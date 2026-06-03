@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:f7944037-5775-423b-b603-4dd909d9832e",
+            "fullUrl": "urn:uuid:31492c9b-3318-4075-89fb-d8bb6289d352",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:127b2618-e56f-4838-97b0-445418051547"
+                        "reference": "urn:uuid:649e5b6f-3612-44cb-9f7b-6d2cc3e116cd"
                     }
                 ],
                 "sender": {
@@ -38,7 +38,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:484e9c47-65aa-40be-a131-b1128577755a",
+            "fullUrl": "urn:uuid:a02ebb15-e473-4a15-ae5f-bbaa1de83a02",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -87,7 +87,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:7a4d55a2-1efa-4ae9-a7eb-45b132b31f34",
+            "fullUrl": "urn:uuid:f5fe1dae-7ebe-465b-95dd-70e0ce9d88aa",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -513,15 +513,23 @@
                         },
                         "value": "9737383214"
                     },
-                    "reference": "urn:uuid:484e9c47-65aa-40be-a131-b1128577755a"
+                    "reference": "urn:uuid:a02ebb15-e473-4a15-ae5f-bbaa1de83a02"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:9e4f1846-87f4-4baf-a6d0-5774e15cdb92",
+            "fullUrl": "urn:uuid:eaff9196-af4c-4244-8739-02e3613edb31",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "laboratory",
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+                            }
+                        ]
+                    },
                     {
                         "coding": [
                             {
@@ -950,7 +958,7 @@
                         },
                         "value": "9737383214"
                     },
-                    "reference": "urn:uuid:484e9c47-65aa-40be-a131-b1128577755a"
+                    "reference": "urn:uuid:a02ebb15-e473-4a15-ae5f-bbaa1de83a02"
                 },
                 "valueCodeableConcept": {
                     "coding": [
@@ -964,10 +972,18 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:72aa3c82-6a99-46f9-8739-68bea514a7b7",
+            "fullUrl": "urn:uuid:13c1bc5c-4ce8-4d17-bc0d-acc8e97864e3",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "laboratory",
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+                            }
+                        ]
+                    },
                     {
                         "coding": [
                             {
@@ -1035,7 +1051,7 @@
                 ],
                 "derivedFrom": [
                     {
-                        "reference": "urn:uuid:9e4f1846-87f4-4baf-a6d0-5774e15cdb92",
+                        "reference": "urn:uuid:eaff9196-af4c-4244-8739-02e3613edb31",
                         "type": "Observation"
                     }
                 ],
@@ -1088,12 +1104,12 @@
                         },
                         "value": "9737383214"
                     },
-                    "reference": "urn:uuid:484e9c47-65aa-40be-a131-b1128577755a"
+                    "reference": "urn:uuid:a02ebb15-e473-4a15-ae5f-bbaa1de83a02"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:fd6d6918-32c0-4b3b-ae7c-e26ac63bd69c",
+            "fullUrl": "urn:uuid:0857227a-f2dd-4616-a7cd-5c769a8bdb31",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "authoredOn": "2016-08-03",
@@ -1158,12 +1174,12 @@
                         },
                         "value": "9737383214"
                     },
-                    "reference": "urn:uuid:484e9c47-65aa-40be-a131-b1128577755a"
+                    "reference": "urn:uuid:a02ebb15-e473-4a15-ae5f-bbaa1de83a02"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:127b2618-e56f-4838-97b0-445418051547",
+            "fullUrl": "urn:uuid:649e5b6f-3612-44cb-9f7b-6d2cc3e116cd",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -1185,7 +1201,7 @@
                             },
                             "value": "LRI-1000152867"
                         },
-                        "reference": "urn:uuid:fd6d6918-32c0-4b3b-ae7c-e26ac63bd69c",
+                        "reference": "urn:uuid:0857227a-f2dd-4616-a7cd-5c769a8bdb31",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -1242,17 +1258,17 @@
                 "result": [
                     {
                         "display": "Variables that apply to the overall study",
-                        "reference": "urn:uuid:7a4d55a2-1efa-4ae9-a7eb-45b132b31f34",
+                        "reference": "urn:uuid:f5fe1dae-7ebe-465b-95dd-70e0ce9d88aa",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic variant assessment",
-                        "reference": "urn:uuid:9e4f1846-87f4-4baf-a6d0-5774e15cdb92",
+                        "reference": "urn:uuid:eaff9196-af4c-4244-8739-02e3613edb31",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic finding detected",
-                        "reference": "urn:uuid:72aa3c82-6a99-46f9-8739-68bea514a7b7",
+                        "reference": "urn:uuid:13c1bc5c-4ce8-4d17-bc0d-acc8e97864e3",
                         "type": "Observation"
                     }
                 ],
@@ -1270,7 +1286,7 @@
                         },
                         "value": "9737383214"
                     },
-                    "reference": "urn:uuid:484e9c47-65aa-40be-a131-b1128577755a"
+                    "reference": "urn:uuid:a02ebb15-e473-4a15-ae5f-bbaa1de83a02"
                 }
             }
         }
