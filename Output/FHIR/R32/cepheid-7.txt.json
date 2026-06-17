@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:bc4f9551-eba7-4751-bf62-a628a93a6a4b",
+      "fullUrl": "urn:uuid:675d71ae-d3a5-456e-b4c2-daa14246ff5d",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -19,29 +19,48 @@
           "code": "R32",
           "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
         },
+        "focus": [
+          {
+            "reference": "urn:uuid:f492b31a-5d0f-4061-a62b-0ea891955a7a"
+          }
+        ],
         "sender": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code"
           }
         },
         "source": {
-          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GeneXpert PC",
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GeneXpert-PC",
           "software": "NW GLH"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:0be3d84f-9e5d-49fd-913b-658ef7ef95a5",
+      "fullUrl": "urn:uuid:35027d9c-d34b-4d0f-8f27-39ab039dae35",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "BCRABL",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
-            },
-            {
-              "code": "Xpert-BCR-ABL-Ultra-G2",
+              "code": "BCR",
               "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
             }
           ]
@@ -88,16 +107,6 @@
             "code": {
               "coding": [
                 {
-                  "code": "BCR-ABL&Delta Ct",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
                   "code": "ABL&",
                   "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
                 }
@@ -133,17 +142,24 @@
           }
         ],
         "dataAbsentReason": {
+          "coding": [
+            {
+              "code": "error",
+              "display": "Error",
+              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason"
+            }
+          ],
           "text": "INVALID [Too high ABL transcript]"
         },
         "device": {
           "identifier": {
             "system": "https://fhir.nwgenomics.nhs.uk/Identifier/Cepheid",
-            "value": "20901225~08699~114262183~619188~701732~WinDev2006Eval"
+            "value": "DESKTOP-4A7A8NJ^701732^619188^114262183^08699^20901224"
           }
         },
         "effectivePeriod": {
-          "end": "2019-09-21T00:07:18+00:00",
-          "start": "2019-09-20T22:22:27+00:00"
+          "end": "2019-09-20T15:07:18+00:00",
+          "start": "2019-09-20T13:22:27+00:00"
         },
         "performer": [
           {
@@ -159,14 +175,14 @@
         ],
         "referenceRange": [
           {
-            "text": "0.0030-55.00"
+            "text": "0.0030 to 55.00"
           }
         ],
         "status": "final"
       }
     },
     {
-      "fullUrl": "urn:uuid:61661b1e-79dc-40e8-8679-4edd3078dcd6",
+      "fullUrl": "urn:uuid:4e404ef0-82bb-4d6f-bf80-00c6fadd689b",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -195,7 +211,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:03113588-7c88-4fc2-b508-bd72fd6d1dcd",
+      "fullUrl": "urn:uuid:f492b31a-5d0f-4061-a62b-0ea891955a7a",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -216,7 +232,6 @@
             },
             {
               "code": "M84.2",
-              "display": "Chronic Myeloid Leukaemia MRD BCR-ABL1 RT-qPCR",
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
             }
           ]
@@ -231,13 +246,25 @@
             "type": "Organization"
           }
         ],
-        "status": "final"
+        "result": [
+          {
+            "reference": "urn:uuid:35027d9c-d34b-4d0f-8f27-39ab039dae35",
+            "type": "Observation"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:4e404ef0-82bb-4d6f-bf80-00c6fadd689b",
+            "type": "Specimen"
+          }
+        ],
+        "status": "unknown"
       }
     }
   ],
   "identifier": {
-    "value": "GXM-26244566876"
+    "value": "GXM-12656353813"
   },
-  "timestamp": "2025-02-05T17:16:47+00:00",
+  "timestamp": "2026-06-17T14:51:15+00:00",
   "type": "message"
 }

@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:3d148305-94c4-4b6b-b604-2fbc236f582c",
+      "fullUrl": "urn:uuid:184e6a90-9092-4581-99fe-8b339da5b825",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -19,44 +19,53 @@
           "code": "R32",
           "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
         },
+        "focus": [
+          {
+            "reference": "urn:uuid:01ae1aa4-f77e-485f-a8e6-aea45760ece6"
+          }
+        ],
         "sender": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code"
           }
         },
         "source": {
-          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GeneXpert PC",
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GeneXpert-PC",
           "software": "NW GLH"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:1ad6f325-07b6-4f5c-81dc-36d5add16d27",
+      "fullUrl": "urn:uuid:2daabe5d-b18d-432b-8b81-36f0460fed2e",
       "resource": {
         "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "code": "BCRABL",
-              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
-            },
-            {
-              "code": "Xpert-BCR-ABL-Ultra-G2",
+              "code": "BCR",
               "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
             }
           ]
         },
         "component": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "&MR",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
-                }
-              ]
-            }
-          },
           {
             "code": {
               "coding": [
@@ -151,12 +160,12 @@
         "device": {
           "identifier": {
             "system": "https://fhir.nwgenomics.nhs.uk/Identifier/Cepheid",
-            "value": "20901225~08699~114262193~613556~700039~WinDev2006Eval"
+            "value": "DESKTOP-4A7A8NJ^700039^613556^114262193^08699^20901224"
           }
         },
         "effectivePeriod": {
-          "end": "2019-09-21T00:02:09+00:00",
-          "start": "2019-09-20T22:17:08+00:00"
+          "end": "2019-09-20T15:02:09+00:00",
+          "start": "2019-09-20T13:17:08+00:00"
         },
         "performer": [
           {
@@ -172,14 +181,14 @@
         ],
         "referenceRange": [
           {
-            "text": "0.0030-55.00"
+            "text": "0.0030 to 55.00"
           }
         ],
         "status": "final"
       }
     },
     {
-      "fullUrl": "urn:uuid:c2dd2169-a00e-4595-9adf-0326a18199ce",
+      "fullUrl": "urn:uuid:51b33f35-dbde-4090-bbbb-f5ea40bda0ab",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -208,7 +217,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d1163ec4-390a-484b-a3f8-446baca804ea",
+      "fullUrl": "urn:uuid:01ae1aa4-f77e-485f-a8e6-aea45760ece6",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -229,7 +238,6 @@
             },
             {
               "code": "M84.2",
-              "display": "Chronic Myeloid Leukaemia MRD BCR-ABL1 RT-qPCR",
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
             }
           ]
@@ -244,13 +252,25 @@
             "type": "Organization"
           }
         ],
-        "status": "final"
+        "result": [
+          {
+            "reference": "urn:uuid:2daabe5d-b18d-432b-8b81-36f0460fed2e",
+            "type": "Observation"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:51b33f35-dbde-4090-bbbb-f5ea40bda0ab",
+            "type": "Specimen"
+          }
+        ],
+        "status": "unknown"
       }
     }
   ],
   "identifier": {
-    "value": "GXM-63253366672"
+    "value": "GXM-31622127072"
   },
-  "timestamp": "2025-02-05T17:16:54+00:00",
+  "timestamp": "2026-06-17T14:49:36+00:00",
   "type": "message"
 }
