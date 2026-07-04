@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:760b4d36-00d4-4830-9067-a579e1f33f65",
+            "fullUrl": "urn:uuid:c99d64d0-7235-41c5-b0ad-457f6495bfe3",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:903b0b8c-8f05-4ad7-b630-7983d85d2b7c"
+                        "reference": "urn:uuid:45bd3cc2-0b3b-4acd-a821-ecd88ad4d044"
                     }
                 ],
                 "sender": {
@@ -38,7 +38,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:ef4ff361-73cb-4a90-b2c6-42a5b3fe8d96",
+            "fullUrl": "urn:uuid:5cde9c14-4121-4553-a765-167e99bb8e61",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -105,7 +105,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:4a9f3b85-c066-4d49-b23f-d077cdc5f8eb",
+            "fullUrl": "urn:uuid:37fdd908-603b-489f-9bac-17ec1474c47b",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -377,12 +377,12 @@
                         },
                         "value": "9737383281"
                     },
-                    "reference": "urn:uuid:ef4ff361-73cb-4a90-b2c6-42a5b3fe8d96"
+                    "reference": "urn:uuid:5cde9c14-4121-4553-a765-167e99bb8e61"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:31bc63e5-80bf-4e86-8116-895352043c4f",
+            "fullUrl": "urn:uuid:05f61ab7-ceda-41b8-9ea1-df9691ed79c0",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -750,26 +750,6 @@
                         "code": {
                             "coding": [
                                 {
-                                    "code": "69548-6",
-                                    "display": "Genetic variant assessment",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA9633-4",
-                                    "display": "Present",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
                                     "code": "53034-5",
                                     "display": "Allelic state",
                                     "system": "http://loinc.org"
@@ -845,7 +825,7 @@
                         },
                         "value": "9737383281"
                     },
-                    "reference": "urn:uuid:ef4ff361-73cb-4a90-b2c6-42a5b3fe8d96"
+                    "reference": "urn:uuid:5cde9c14-4121-4553-a765-167e99bb8e61"
                 },
                 "valueCodeableConcept": {
                     "coding": [
@@ -859,7 +839,95 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:f9363f50-cc5c-4812-b0e6-ff9fc637b687",
+            "fullUrl": "urn:uuid:ca4a7435-8d99-4762-b19d-d72b70b5608d",
+            "resource": {
+                "resourceType": "Observation",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "laboratory",
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "code": "GE",
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69548-6",
+                            "display": "Genetic variant assessment",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "effectiveDateTime": "2016-08-09T16:50:00+00:00",
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750-LRI1"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383281"
+                    },
+                    "reference": "urn:uuid:5cde9c14-4121-4553-a765-167e99bb8e61"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA9633-4",
+                            "display": "Present",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:99b71b31-2098-42db-99da-076c783ab93f",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -922,7 +990,7 @@
                 ],
                 "derivedFrom": [
                     {
-                        "reference": "urn:uuid:31bc63e5-80bf-4e86-8116-895352043c4f",
+                        "reference": "urn:uuid:05f61ab7-ceda-41b8-9ea1-df9691ed79c0",
                         "type": "Observation"
                     }
                 ],
@@ -975,12 +1043,12 @@
                         },
                         "value": "9737383281"
                     },
-                    "reference": "urn:uuid:ef4ff361-73cb-4a90-b2c6-42a5b3fe8d96"
+                    "reference": "urn:uuid:5cde9c14-4121-4553-a765-167e99bb8e61"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:139cb52e-d941-413e-821d-14f8d7bcd5ab",
+            "fullUrl": "urn:uuid:4ff3ee21-b5e1-4a16-84f9-0e3ecdbd124f",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "authoredOn": "2016-08-03",
@@ -1045,12 +1113,12 @@
                         },
                         "value": "9737383281"
                     },
-                    "reference": "urn:uuid:ef4ff361-73cb-4a90-b2c6-42a5b3fe8d96"
+                    "reference": "urn:uuid:5cde9c14-4121-4553-a765-167e99bb8e61"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:903b0b8c-8f05-4ad7-b630-7983d85d2b7c",
+            "fullUrl": "urn:uuid:45bd3cc2-0b3b-4acd-a821-ecd88ad4d044",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -1072,7 +1140,7 @@
                             },
                             "value": "LRI-1601716017"
                         },
-                        "reference": "urn:uuid:139cb52e-d941-413e-821d-14f8d7bcd5ab",
+                        "reference": "urn:uuid:4ff3ee21-b5e1-4a16-84f9-0e3ecdbd124f",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -1129,17 +1197,22 @@
                 "result": [
                     {
                         "display": "Variables that apply to the overall study",
-                        "reference": "urn:uuid:4a9f3b85-c066-4d49-b23f-d077cdc5f8eb",
+                        "reference": "urn:uuid:37fdd908-603b-489f-9bac-17ec1474c47b",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic variant assessment",
-                        "reference": "urn:uuid:31bc63e5-80bf-4e86-8116-895352043c4f",
+                        "reference": "urn:uuid:05f61ab7-ceda-41b8-9ea1-df9691ed79c0",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genetic variant assessment",
+                        "reference": "urn:uuid:ca4a7435-8d99-4762-b19d-d72b70b5608d",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic finding detected",
-                        "reference": "urn:uuid:f9363f50-cc5c-4812-b0e6-ff9fc637b687",
+                        "reference": "urn:uuid:99b71b31-2098-42db-99da-076c783ab93f",
                         "type": "Observation"
                     }
                 ],
@@ -1157,7 +1230,7 @@
                         },
                         "value": "9737383281"
                     },
-                    "reference": "urn:uuid:ef4ff361-73cb-4a90-b2c6-42a5b3fe8d96"
+                    "reference": "urn:uuid:5cde9c14-4121-4553-a765-167e99bb8e61"
                 }
             }
         }

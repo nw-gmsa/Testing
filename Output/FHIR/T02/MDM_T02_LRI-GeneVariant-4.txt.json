@@ -2,7 +2,7 @@
     "resourceType": "Bundle",
     "entry": [
         {
-            "fullUrl": "urn:uuid:05e6703e-1266-47b6-9add-b04466be6041",
+            "fullUrl": "urn:uuid:d07ce8e8-0908-47f5-8c98-23912a709cd5",
             "resource": {
                 "resourceType": "MessageHeader",
                 "destination": [
@@ -22,7 +22,7 @@
                 },
                 "focus": [
                     {
-                        "reference": "urn:uuid:726c8801-4b14-4cad-b3ca-66d9a5481a49"
+                        "reference": "urn:uuid:7ab71342-0fad-4e09-8a96-4feff0e62199"
                     }
                 ],
                 "sender": {
@@ -38,7 +38,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03",
+            "fullUrl": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629",
             "resource": {
                 "resourceType": "Patient",
                 "address": [
@@ -108,7 +108,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:b9167d54-0175-40a1-9a58-dec6cb8775f5",
+            "fullUrl": "urn:uuid:29e2369e-adb2-4be1-93f0-a119d04b7800",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -452,12 +452,12 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:0c73141e-c4b0-4c97-a644-008ff049d250",
+            "fullUrl": "urn:uuid:ea07a96d-648a-49e9-a2b4-44613be3655e",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -786,26 +786,6 @@
                         "code": {
                             "coding": [
                                 {
-                                    "code": "69548-6",
-                                    "display": "Genomic variant assessment",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA9633-4",
-                                    "display": "Present",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
                                     "code": "53034-5",
                                     "display": "Allelic state",
                                     "system": "http://loinc.org"
@@ -881,7 +861,7 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 },
                 "valueCodeableConcept": {
                     "coding": [
@@ -895,7 +875,95 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:05f57f67-a950-4fd0-b063-b5fbea84891e",
+            "fullUrl": "urn:uuid:6ed988d0-cc9e-48d3-babc-6cdd4ffc951a",
+            "resource": {
+                "resourceType": "Observation",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "laboratory",
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "code": "GE",
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69548-6",
+                            "display": "Genomic variant assessment",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "effectiveDateTime": "2016-08-09T16:50:00+00:00",
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750-LRI4"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383346"
+                    },
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA9633-4",
+                            "display": "Present",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:a0cf706d-a867-4700-a3d8-8f014fd9f939",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -954,31 +1022,11 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
-                                    "code": "53037-8",
-                                    "display": "Genetic variation clinical significance",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA6671-7",
-                                    "display": "Uncertain Significance",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
                     }
                 ],
                 "derivedFrom": [
                     {
-                        "reference": "urn:uuid:0c73141e-c4b0-4c97-a644-008ff049d250",
+                        "reference": "urn:uuid:ea07a96d-648a-49e9-a2b4-44613be3655e",
                         "type": "Observation"
                     }
                 ],
@@ -1031,12 +1079,12 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:8240a2f6-3a1d-4a59-8955-4fa180e13686",
+            "fullUrl": "urn:uuid:5bc9bc6c-459a-413b-a19c-695d5b04a1f3",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -1345,26 +1393,6 @@
                         "code": {
                             "coding": [
                                 {
-                                    "code": "69548-6",
-                                    "display": "Genomic variant assessment",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA9633-4",
-                                    "display": "Present",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
                                     "code": "53034-5",
                                     "display": "Allelic state",
                                     "system": "http://loinc.org"
@@ -1440,7 +1468,7 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 },
                 "valueCodeableConcept": {
                     "coding": [
@@ -1454,7 +1482,95 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:d8216f48-c4fc-4c54-87df-a747d000602a",
+            "fullUrl": "urn:uuid:17140f56-21b9-46f8-9c64-4eb8a5445d94",
+            "resource": {
+                "resourceType": "Observation",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "laboratory",
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "code": "GE",
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69548-6",
+                            "display": "Genomic variant assessment",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "effectiveDateTime": "2016-08-09T16:50:00+00:00",
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750-LRI4"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383346"
+                    },
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA9633-4",
+                            "display": "Present",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:138c670d-8a95-457f-998e-877fe6c142dc",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -1513,51 +1629,11 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
-                                    "code": "53037-8",
-                                    "display": "Genetic variation clinical significance",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA6674-1",
-                                    "display": "Likely Benign",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
-                                    "code": "53037-8",
-                                    "display": "Genetic variation clinical significance",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA6671-7",
-                                    "display": "Uncertain Significance",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
                     }
                 ],
                 "derivedFrom": [
                     {
-                        "reference": "urn:uuid:8240a2f6-3a1d-4a59-8955-4fa180e13686",
+                        "reference": "urn:uuid:5bc9bc6c-459a-413b-a19c-695d5b04a1f3",
                         "type": "Observation"
                     }
                 ],
@@ -1610,12 +1686,12 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:b6e8e98d-53f3-4a6e-b68a-be51631598e0",
+            "fullUrl": "urn:uuid:2729f3f4-193b-4229-a930-c471572a452d",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -1944,26 +2020,6 @@
                         "code": {
                             "coding": [
                                 {
-                                    "code": "69548-6",
-                                    "display": "Genomic variant assessment",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA9633-4",
-                                    "display": "Present",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
                                     "code": "53034-5",
                                     "display": "Allelic state",
                                     "system": "http://loinc.org"
@@ -2039,7 +2095,7 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 },
                 "valueCodeableConcept": {
                     "coding": [
@@ -2053,7 +2109,95 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:6894a435-a319-483b-a7ff-35fe567aa414",
+            "fullUrl": "urn:uuid:7d020000-2d10-4e8d-881a-293ecd4c22cd",
+            "resource": {
+                "resourceType": "Observation",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "laboratory",
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "code": "GE",
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69548-6",
+                            "display": "Genomic variant assessment",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "effectiveDateTime": "2016-08-09T16:50:00+00:00",
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750-LRI4"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383346"
+                    },
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA9633-4",
+                            "display": "Present",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:4d70d678-667b-4607-9a2b-da0774d3cad9",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -2382,26 +2526,6 @@
                         "code": {
                             "coding": [
                                 {
-                                    "code": "69548-6",
-                                    "display": "Genomic variant assessment",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        },
-                        "valueCodeableConcept": {
-                            "coding": [
-                                {
-                                    "code": "LA9633-4",
-                                    "display": "Present",
-                                    "system": "http://loinc.org"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "code": {
-                            "coding": [
-                                {
                                     "code": "53034-5",
                                     "display": "Allelic state",
                                     "system": "http://loinc.org"
@@ -2477,7 +2601,7 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 },
                 "valueCodeableConcept": {
                     "coding": [
@@ -2491,7 +2615,95 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:bb4633db-126b-452f-a1cd-cbd1f39d0041",
+            "fullUrl": "urn:uuid:435bf254-3dbc-469c-bae7-62772ffe28f5",
+            "resource": {
+                "resourceType": "Observation",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "laboratory",
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+                            }
+                        ]
+                    },
+                    {
+                        "coding": [
+                            {
+                                "code": "GE",
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "code": "69548-6",
+                            "display": "Genomic variant assessment",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                },
+                "effectiveDateTime": "2016-08-09T16:50:00+00:00",
+                "identifier": [
+                    {
+                        "assigner": {
+                            "identifier": {
+                                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                                "value": "699X0"
+                            }
+                        },
+                        "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "FILL",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "Gen825750-LRI4"
+                    }
+                ],
+                "performer": [
+                    {
+                        "identifier": {
+                            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                            "value": "699X0"
+                        },
+                        "type": "Organization"
+                    }
+                ],
+                "status": "final",
+                "subject": {
+                    "identifier": {
+                        "system": "https://fhir.nhs.uk/Id/nhs-number",
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "NH",
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                }
+                            ]
+                        },
+                        "value": "9737383346"
+                    },
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
+                },
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "LA9633-4",
+                            "display": "Present",
+                            "system": "http://loinc.org"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:438e4c2e-d56a-4529-9b14-91b65027b8df",
             "resource": {
                 "resourceType": "Observation",
                 "category": [
@@ -2554,7 +2766,7 @@
                 ],
                 "derivedFrom": [
                     {
-                        "reference": "urn:uuid:6894a435-a319-483b-a7ff-35fe567aa414",
+                        "reference": "urn:uuid:4d70d678-667b-4607-9a2b-da0774d3cad9",
                         "type": "Observation"
                     }
                 ],
@@ -2607,12 +2819,12 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:042be574-d26d-4840-b528-600d9c3db5dd",
+            "fullUrl": "urn:uuid:b98b3a57-7d31-4837-ada5-79d67ef14490",
             "resource": {
                 "resourceType": "ServiceRequest",
                 "authoredOn": "2016-08-03",
@@ -2676,12 +2888,12 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 }
             }
         },
         {
-            "fullUrl": "urn:uuid:726c8801-4b14-4cad-b3ca-66d9a5481a49",
+            "fullUrl": "urn:uuid:7ab71342-0fad-4e09-8a96-4feff0e62199",
             "resource": {
                 "resourceType": "DiagnosticReport",
                 "basedOn": [
@@ -2703,7 +2915,7 @@
                             },
                             "value": "LRI-5280001671"
                         },
-                        "reference": "urn:uuid:042be574-d26d-4840-b528-600d9c3db5dd",
+                        "reference": "urn:uuid:b98b3a57-7d31-4837-ada5-79d67ef14490",
                         "type": "ServiceRequest"
                     }
                 ],
@@ -2760,42 +2972,62 @@
                 "result": [
                     {
                         "display": "Variables that apply to the overall study",
-                        "reference": "urn:uuid:b9167d54-0175-40a1-9a58-dec6cb8775f5",
+                        "reference": "urn:uuid:29e2369e-adb2-4be1-93f0-a119d04b7800",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic variant assessment",
-                        "reference": "urn:uuid:0c73141e-c4b0-4c97-a644-008ff049d250",
+                        "reference": "urn:uuid:ea07a96d-648a-49e9-a2b4-44613be3655e",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic variant assessment",
+                        "reference": "urn:uuid:6ed988d0-cc9e-48d3-babc-6cdd4ffc951a",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic finding detected",
-                        "reference": "urn:uuid:05f57f67-a950-4fd0-b063-b5fbea84891e",
+                        "reference": "urn:uuid:a0cf706d-a867-4700-a3d8-8f014fd9f939",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic variant assessment",
-                        "reference": "urn:uuid:8240a2f6-3a1d-4a59-8955-4fa180e13686",
+                        "reference": "urn:uuid:5bc9bc6c-459a-413b-a19c-695d5b04a1f3",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic variant assessment",
+                        "reference": "urn:uuid:17140f56-21b9-46f8-9c64-4eb8a5445d94",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic finding detected",
-                        "reference": "urn:uuid:d8216f48-c4fc-4c54-87df-a747d000602a",
+                        "reference": "urn:uuid:138c670d-8a95-457f-998e-877fe6c142dc",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic variant assessment",
-                        "reference": "urn:uuid:b6e8e98d-53f3-4a6e-b68a-be51631598e0",
+                        "reference": "urn:uuid:2729f3f4-193b-4229-a930-c471572a452d",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic variant assessment",
+                        "reference": "urn:uuid:7d020000-2d10-4e8d-881a-293ecd4c22cd",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic variant assessment",
-                        "reference": "urn:uuid:6894a435-a319-483b-a7ff-35fe567aa414",
+                        "reference": "urn:uuid:4d70d678-667b-4607-9a2b-da0774d3cad9",
+                        "type": "Observation"
+                    },
+                    {
+                        "display": "Genomic variant assessment",
+                        "reference": "urn:uuid:435bf254-3dbc-469c-bae7-62772ffe28f5",
                         "type": "Observation"
                     },
                     {
                         "display": "Genetic finding detected",
-                        "reference": "urn:uuid:bb4633db-126b-452f-a1cd-cbd1f39d0041",
+                        "reference": "urn:uuid:438e4c2e-d56a-4529-9b14-91b65027b8df",
                         "type": "Observation"
                     }
                 ],
@@ -2813,7 +3045,7 @@
                         },
                         "value": "9737383346"
                     },
-                    "reference": "urn:uuid:37bb9de0-418e-484b-9493-3dec13a78d03"
+                    "reference": "urn:uuid:c6ce8235-9133-407d-ae43-42db00e91629"
                 }
             }
         }
