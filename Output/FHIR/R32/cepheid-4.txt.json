@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:015ff551-0830-4439-8062-755f8e0c1364",
+      "fullUrl": "urn:uuid:2cbde5d1-eebc-4c97-a457-e58f49d86c9d",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -21,7 +21,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:b346ee83-e6dc-4034-93de-fb6284904334"
+            "reference": "urn:uuid:b4fb2097-53cc-4115-b95c-ff5f669ac012"
           }
         ],
         "sender": {
@@ -30,13 +30,13 @@
           }
         },
         "source": {
-          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GeneXpert-PC",
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GENEXPERT-PC",
           "software": "NW GLH"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:25c8353d-018d-49c7-9182-ed9bcdc01d78",
+      "fullUrl": "urn:uuid:5a203624-a6cb-4e44-ab91-efe82d40cc7f",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -171,20 +171,11 @@
             "text": "0.0030 to 55.00"
           }
         ],
-        "status": "final",
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "260415000",
-              "display": "Not detected",
-              "system": "http://snomed.info/sct"
-            }
-          ]
-        }
+        "status": "final"
       }
     },
     {
-      "fullUrl": "urn:uuid:0a5297d6-4c32-41d7-a22e-ffa6c057bc8f",
+      "fullUrl": "urn:uuid:c769ce4b-e0d3-4965-9b4d-5b85a575acfd",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -213,7 +204,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b346ee83-e6dc-4034-93de-fb6284904334",
+      "fullUrl": "urn:uuid:b4fb2097-53cc-4115-b95c-ff5f669ac012",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -250,13 +241,13 @@
         ],
         "result": [
           {
-            "reference": "urn:uuid:25c8353d-018d-49c7-9182-ed9bcdc01d78",
+            "reference": "urn:uuid:5a203624-a6cb-4e44-ab91-efe82d40cc7f",
             "type": "Observation"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:0a5297d6-4c32-41d7-a22e-ffa6c057bc8f",
+            "reference": "urn:uuid:c769ce4b-e0d3-4965-9b4d-5b85a575acfd",
             "type": "Specimen"
           }
         ],
