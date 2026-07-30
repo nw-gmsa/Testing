@@ -19,74 +19,78 @@ Note files must use CR or CRLF (not unix/mac LF)
 
 #### O01
 
-curl --request POST --data-binary "@Input/V2/O21/ORM_O01_R0A.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/O21/ORM_O01_R0A.txt" http://192.168.1.62:9981/transformToFHIR
 
-curl --request POST --data-binary "@Input/V2/O01/Fetus-LRI-Variant-2-O01.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/O01/Fetus-LRI-Variant-2-O01.txt" http://192.168.1.62:9981/transformToFHIR
 
 #### R01
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_PDF.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_DLIMS.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-2.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_PDF.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_DLIMS.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-2.txt" http://192.168.1.62:9981/transformToFHIR
 
 #### Round Trip Pairs
 
-curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.62:9981/transformToFHIR
 
-curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Output/FHIR/R01/ORU_R01_R125.1_R0A.txt.json" http://192.168.1.20:9981/transformToV2
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Output/FHIR/R01/ORU_R01_R125.1_R0A.txt.json" http://192.168.1.62:9981/transformToV2
 
 #### MFT Tests example
 
-curl --request POST --data-binary "@Input/V2/O01/EPIC-Faulty.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Specifications/ManchesterFoundationTrust/ORM_O01-MultipleTests.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/O01/EPIC-Faulty.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Specifications/ManchesterFoundationTrust/ORM_O01-MultipleTests.txt" http://192.168.1.62:9981/transformToFHIR
 
 #### DHCW ORU_R01
 
-curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/igene-hods.txt" http://192.168.1.62:9980
 
-curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_TX.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_FULL.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_TX.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_FULL.txt" http://192.168.1.62:9981/transformToFHIR
 
 #### GS1
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.62:9980
+
+#### ctDNA 
+
+curl --request POST --data-binary "@Input/V2/R01/ctdna9737383222.txt" http://192.168.1.62:9981/transformToFHIR
 
 #### HL7 LRI/Genomic Report Structured Report Examples
 
 Examples are from [HL7 Lab Results Interface (LRI), Release 1 from May 2017](https://confluence.hl7.org/download/attachments/25559919/2018%2004%2003%20-%20V2%20LRI%20-%20Ch.%205%20CG%20and%20Code%20System%20Tables.pdf?api=v2)
 
 
-curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-2.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-3.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-4.txt" http://192.168.1.20:9981/transformToFHIR
-curl --request POST --data-binary "@Input/V2/R01/LRI-ComplexVariant-8.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-2.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-3.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-4.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/LRI-ComplexVariant-8.txt" http://192.168.1.62:9981/transformToFHIR
 
 Invalid DOB, so no match 
 
-curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-5.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-5.txt" http://192.168.1.62:9980
 
 #### Europe
 
-curl --request POST --data-binary "@Input/V2/R01/R0A-Belgium.txt" http://192.168.1.20:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/R0A-Belgium.txt" http://192.168.1.62:9981/transformToFHIR
 
 ### Transform to HL7 v2
 
-curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_TX.txt.json" http://192.168.1.20:9981/transformToV2
-curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_FULL.txt.json" http://192.168.1.20:9981/transformToV2
-curl --request POST --data-binary "@Output/FHIR/O21/Fetus-LRI-Variant-2-O01.txt.json" http://192.168.1.20:9981/transformToV2
+curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_TX.txt.json" http://192.168.1.62:9981/transformToV2
+curl --request POST --data-binary "@Output/FHIR/R01/WALES_ORU_R01_FULL.txt.json" http://192.168.1.62:9981/transformToV2
+curl --request POST --data-binary "@Output/FHIR/O21/Fetus-LRI-Variant-2-O01.txt.json" http://192.168.1.62:9981/transformToV2
 
-curl --request POST --data-binary "@Input/FHIR/O21/Liverpool_O21_Apr26.json" http://192.168.1.20:9981/transformToV2
+curl --request POST --data-binary "@Input/FHIR/O21/Liverpool_O21_Apr26.json" http://192.168.1.62:9981/transformToV2
 
 LRI Example
 
-curl --request POST --data-binary "@Output/FHIR/R01/LRI-GeneVariant-2.txt.json" http://192.168.1.20:9981/transformToV2
+curl --request POST --data-binary "@Output/FHIR/R01/LRI-GeneVariant-2.txt.json" http://192.168.1.62:9981/transformToV2
 
 ## Send to HL7 Receiver
 
@@ -94,59 +98,59 @@ Note file must use \r mac line endings
 
 ### Orders 
 
-curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_R125.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/O01/ORM_O01_R0A.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/O01/EPICJune26.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_R125.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/O01/ORM_O01_R0A.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/O01/EPICJune26.txt" http://192.168.1.62:9980
 
 #### Round Trip
 
-curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_RPY.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.62:9980
 
-curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_R125.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_R125.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.62:9980
 
 ### Reports
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RBS.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_REP.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RBS.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_REP.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RPY.txt" http://192.168.1.62:9980
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_PDF.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_DLIMS.txt" http://192.168.1.20:9980
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_REP.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_PDF.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_DLIMS.txt" http://192.168.1.62:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_REP.txt" http://192.168.1.62:9980
 
 LRI Example
 
-curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/LRI-GeneVariant-1.txt" http://192.168.1.62:9980
 
 ### Test Results 
 
-curl --request POST --data-binary "@Input/V2/R32/cepheid-3.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R32/cepheid-3.txt" http://192.168.1.62:9980
 
 #### North East and Yorkshire 
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RR8.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RR8.txt" http://192.168.1.62:9980
 
 #### Other UK Regions Reports
 
 England
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RX1.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_RX1.txt" http://192.168.1.62:9980
 
 
 Scotland - CHI Number example
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_SG9.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_SG9.txt" http://192.168.1.62:9980
 
 Northern Ireland - Health and Care Number Example
 
 #### Europe
 
 
-curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_ZT001.txt" http://192.168.1.20:9980
+curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_ZT001.txt" http://192.168.1.62:9980
 
 ### Windows
 

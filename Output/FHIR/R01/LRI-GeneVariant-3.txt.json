@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:c79a297f-8b10-4c6a-b696-86d441fe9857",
+      "fullUrl": "urn:uuid:0149fc93-839c-4e66-81de-9850fae304b6",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:5795117b-8320-4b5f-a4dc-bc8eb0f5098b"
+            "reference": "urn:uuid:722c84db-3c76-4bb3-9a9e-827c56126a3a"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4c17af5a-2d38-4a50-bb6d-83e47d0540a9",
+      "fullUrl": "urn:uuid:345b11de-f8be-4824-919c-30a9552c521f",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -87,7 +87,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:bc99483d-39be-4541-bf2f-a6ac0482e97f",
+      "fullUrl": "urn:uuid:37c500f5-ba5f-4ea8-b4de-7f41c7473763",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -217,7 +217,7 @@
                 {
                   "code": "LA6576-8",
                   "display": "Positive",
-                  "system": "http://loinc.org"
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode"
                 }
               ]
             }
@@ -331,12 +331,12 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:4c17af5a-2d38-4a50-bb6d-83e47d0540a9"
+          "reference": "urn:uuid:345b11de-f8be-4824-919c-30a9552c521f"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:17b7402a-5987-4c37-847d-db14587851e2",
+      "fullUrl": "urn:uuid:4851bcab-1932-4024-b3c5-cbf2c26df60a",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -780,7 +780,7 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:4c17af5a-2d38-4a50-bb6d-83e47d0540a9"
+          "reference": "urn:uuid:345b11de-f8be-4824-919c-30a9552c521f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -794,7 +794,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:a9126209-404c-4d99-81c1-be3f0c2a0f7c",
+      "fullUrl": "urn:uuid:a98cab20-e3ba-4727-8072-7cfe860b009b",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -868,7 +868,7 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:4c17af5a-2d38-4a50-bb6d-83e47d0540a9"
+          "reference": "urn:uuid:345b11de-f8be-4824-919c-30a9552c521f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -882,7 +882,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dfb67d74-9317-456f-aae0-77e990473c9d",
+      "fullUrl": "urn:uuid:1b645849-e023-46f3-86a2-8e9ae23602db",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -945,7 +945,7 @@
         ],
         "derivedFrom": [
           {
-            "reference": "urn:uuid:17b7402a-5987-4c37-847d-db14587851e2",
+            "reference": "urn:uuid:4851bcab-1932-4024-b3c5-cbf2c26df60a",
             "type": "Observation"
           }
         ],
@@ -998,12 +998,12 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:4c17af5a-2d38-4a50-bb6d-83e47d0540a9"
+          "reference": "urn:uuid:345b11de-f8be-4824-919c-30a9552c521f"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:f54e1a65-1e74-419f-a132-5681abc07489",
+      "fullUrl": "urn:uuid:f3015c8e-ba54-4cb3-8d83-192d8c96ea90",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2016-08-03",
@@ -1086,12 +1086,12 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:4c17af5a-2d38-4a50-bb6d-83e47d0540a9"
+          "reference": "urn:uuid:345b11de-f8be-4824-919c-30a9552c521f"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:5795117b-8320-4b5f-a4dc-bc8eb0f5098b",
+      "fullUrl": "urn:uuid:722c84db-3c76-4bb3-9a9e-827c56126a3a",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -1113,7 +1113,7 @@
               },
               "value": "LRI-5286710001"
             },
-            "reference": "urn:uuid:f54e1a65-1e74-419f-a132-5681abc07489",
+            "reference": "urn:uuid:f3015c8e-ba54-4cb3-8d83-192d8c96ea90",
             "type": "ServiceRequest"
           }
         ],
@@ -1136,6 +1136,17 @@
             }
           ]
         },
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "code": "LA6576-8",
+                "display": "Positive",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode"
+              }
+            ]
+          }
+        ],
         "effectiveDateTime": "2016-08-09T16:50:00+00:00",
         "identifier": [
           {
@@ -1170,22 +1181,22 @@
         "result": [
           {
             "display": "Variables that apply to the overall study",
-            "reference": "urn:uuid:bc99483d-39be-4541-bf2f-a6ac0482e97f",
+            "reference": "urn:uuid:37c500f5-ba5f-4ea8-b4de-7f41c7473763",
             "type": "Observation"
           },
           {
             "display": "Genetic variant assessment",
-            "reference": "urn:uuid:17b7402a-5987-4c37-847d-db14587851e2",
+            "reference": "urn:uuid:4851bcab-1932-4024-b3c5-cbf2c26df60a",
             "type": "Observation"
           },
           {
             "display": "Genomic variant assessment",
-            "reference": "urn:uuid:a9126209-404c-4d99-81c1-be3f0c2a0f7c",
+            "reference": "urn:uuid:a98cab20-e3ba-4727-8072-7cfe860b009b",
             "type": "Observation"
           },
           {
             "display": "Genetic finding detected",
-            "reference": "urn:uuid:dfb67d74-9317-456f-aae0-77e990473c9d",
+            "reference": "urn:uuid:1b645849-e023-46f3-86a2-8e9ae23602db",
             "type": "Observation"
           }
         ],
@@ -1203,7 +1214,7 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:4c17af5a-2d38-4a50-bb6d-83e47d0540a9"
+          "reference": "urn:uuid:345b11de-f8be-4824-919c-30a9552c521f"
         }
       }
     }
