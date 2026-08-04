@@ -57,6 +57,11 @@ curl --request POST --data-binary "@Input/V2/R01/WALES_ORU_R01_FULL.txt" http://
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.62:9981/transformToFHIR
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_GS1_RXK.txt" http://192.168.1.62:9980
 
+#### Shire
+
+curl --request POST --data-binary "@Input/V2/R01/SHIRE_ORU_R01_RM3.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/R01/SHIRE_ORU_R01_RM3.txt" http://192.168.1.62:9980
+
 #### ctDNA 
 
 curl --request POST --data-binary "@Input/V2/R01/ctdna9737383222.txt" http://192.168.1.62:9981/transformToFHIR
