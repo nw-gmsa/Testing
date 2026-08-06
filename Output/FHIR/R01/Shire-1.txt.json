@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:a891184e-cd67-47b2-a38e-0b9a0d3d52f0",
+      "fullUrl": "urn:uuid:f3a072ae-a78e-4992-8215-185e3a59f04a",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:57bef4cf-54bf-4dde-8c44-0b5930190507"
+            "reference": "urn:uuid:f6498610-e61c-43f9-a2a7-04b45dde9ffd"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b8f0678b-eb64-49b4-96d0-d736098c09b2",
+      "fullUrl": "urn:uuid:792a78a7-e110-4d37-8cc5-5e7e9f663086",
       "resource": {
         "resourceType": "Patient",
         "birthDate": "1972-09-21",
@@ -82,7 +82,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:db5fda47-c04a-41ae-81e7-eba5276d5a54",
+      "fullUrl": "urn:uuid:247231ab-c787-4d6f-93d8-ea9780838de2",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -156,13 +156,13 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:b8f0678b-eb64-49b4-96d0-d736098c09b2"
+          "reference": "urn:uuid:792a78a7-e110-4d37-8cc5-5e7e9f663086"
         },
         "valueString": "Karyotype: 46,XY,del(20)(q*q*)[]\r\n\r\nChromosome analysis has shown an abnormal karyotype with a deletion in the long arm\r\nof chromosome 20.\r\n\r\nDeletion of chromosome 20q is a common but non-specific finding in myeloid disorders\r\nand is consistent with the diagnosis of MDS. In particular, according to IPS, deletion\r\nof 20q as the sole abnormality is associated with a good prognosis in MDS, but should\r\nbe interpreted in the context of other biological and clinical prognostic factors.\r\n\r\nConclusion:"
       }
     },
     {
-      "fullUrl": "urn:uuid:57bef4cf-54bf-4dde-8c44-0b5930190507",
+      "fullUrl": "urn:uuid:f6498610-e61c-43f9-a2a7-04b45dde9ffd",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -176,7 +176,13 @@
           }
         ],
         "code": {
-          "text": "Unknown test code"
+          "coding": [
+            {
+              "code": "33893-9",
+              "display": "Karyotype [Identifier] in Bone marrow Nominal",
+              "system": "http://loinc.org"
+            }
+          ]
         },
         "effectiveDateTime": "2026-04-16T00:00:00+00:00",
         "identifier": [
@@ -231,7 +237,7 @@
         "result": [
           {
             "display": "Genetics Report",
-            "reference": "urn:uuid:db5fda47-c04a-41ae-81e7-eba5276d5a54",
+            "reference": "urn:uuid:247231ab-c787-4d6f-93d8-ea9780838de2",
             "type": "Observation"
           }
         ],
@@ -257,7 +263,7 @@
             },
             "value": "9737383192"
           },
-          "reference": "urn:uuid:b8f0678b-eb64-49b4-96d0-d736098c09b2"
+          "reference": "urn:uuid:792a78a7-e110-4d37-8cc5-5e7e9f663086"
         }
       }
     }
