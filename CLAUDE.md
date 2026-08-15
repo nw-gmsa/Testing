@@ -68,6 +68,21 @@ patient/order data (`Input/PDS/*.csv`, `NotGit/*SampleData.csv`) and posts them 
 `V2_SERVER` in bulk (see `Input/V2/R01/ctdna<NHSNumber>_<seq>.txt` naming convention;
 `9999999*` prefix = NHS England EDI test patients).
 
+**VCF -> FHIR genomics-reporting `variant`** (`VCFToFHIRVariant.ipynb`): standalone
+demo, unrelated to the NW-GMSA v2/FHIR round-trip above. Parses a VCF from `Input/VCF/`
+(field-to-LOINC mapping is read directly out of the VCF's own `##INFO`/`##FORMAT`
+`Description` meta-lines) and builds `Observation` resources conforming to the **HL7
+international Genomics Reporting IG** `variant` profile
+(`http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant`,
+https://build.fhir.org/ig/HL7/genomics-reporting/StructureDefinition-variant.html) — a
+different IG from NW-GMSA. Component LOINC codes/value shapes were verified against the
+IG's own published examples (`Observation-VariantExample2`, `-ExampleGermlineDEL`,
+`-ExampleGermlineCNV`, etc.) rather than assumed; where no confirmed LOINC *answer* code
+exists, components fall back to text-only `CodeableConcept`s. Output goes to
+`Output/FHIR/GenomicsReporting/`, and validates against the real published package
+`hl7.fhir.uv.genomics-reporting#3.0.0` (not the vendored NW-GMSA `package.tgz`), with
+results in `Results/FHIR/GenomicsReporting/`.
+
 ## Directory layout
 
 - `Input/V2/{O01,O21,R01}` — hand-crafted/generated source HL7 v2 test messages, keyed
@@ -75,8 +90,10 @@ patient/order data (`Input/PDS/*.csv`, `NotGit/*SampleData.csv`) and posts them 
 - `Input/FHIR/` — source FHIR examples used for `transformToV2`.
 - `Input/PDS/`, `Input/ctDNA/`, `Input/ASTM/` — reference patient data (PDS extracts) and
   other source formats (ASTM instrument output).
+- `Input/VCF/` — source VCF files for the standalone `VCFToFHIRVariant.ipynb` demo (HL7
+  genomics-reporting IG `variant` profile, not the NW-GMSA pipeline).
 - `Output/{FHIR,V2,PDF,Markdown}/<type>/` — generated artifacts from the transform/render
-  pipelines.
+  pipelines (`<type>` includes `GenomicsReporting` for the VCF demo's output).
 - `Results/FHIR/<type>/` — FHIR validator OperationOutcomes and generated HTML reports.
 - `NotGit/` — real/sensitive sample data (gitignored), never committed.
 - `Shire.md` — trust-specific (MFT) notebook command notes, same pattern as README.md.

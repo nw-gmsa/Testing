@@ -1,0 +1,255 @@
+{
+  "id": "igene-example-dataset-phenopacket-001",
+  "subject": {
+    "id": "example-subject-001",
+    "sex": "UNKNOWN_SEX"
+  },
+  "measurements": [
+    {
+      "assay": { "id": "igene:Quality_score", "label": "Quality score" },
+      "value": {
+        "ontologyClass": { "id": "igene:PASS", "label": "PASS" }
+      }
+    },
+    {
+      "assay": { "id": "igene:Headline_result", "label": "Headline result" },
+      "value": {
+        "ontologyClass": { "id": "igene:ReportableVariantsDetected", "label": "Reportable variant(s) detected" }
+      }
+    },
+    {
+      "assay": { "id": "igene:Reflex_test", "label": "Reflex test" },
+      "value": {
+        "ontologyClass": { "id": "igene:NoConfirmationRequired", "label": "No confirmation required" }
+      }
+    },
+    {
+      "assay": { "id": "igene:Panel_coverage", "label": "Panel coverage" },
+      "complexValue": {
+        "typedQuantities": [
+          {
+            "type": { "id": "igene:PercentOfPanelCovered", "label": "Percent of panel covered" },
+            "quantity": { "unit": { "id": "UCUM:%", "label": "percent" }, "value": 98.99 }
+          },
+          {
+            "type": { "id": "igene:MinimumReadDepth", "label": "Minimum read depth threshold" },
+            "quantity": { "unit": { "id": "UCUM:{reads}", "label": "reads (x coverage)" }, "value": 138 }
+          }
+        ]
+      }
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "igene-example-interpretation-001",
+      "progressStatus": "SOLVED",
+      "summary": "Reportable variant(s) detected (igene:Headline_result); no confirmatory reflex test required (igene:Reflex_test = 'No confirmation required'). No disease/phenotype fields exist in the source workbook, so no Diagnosis.disease is asserted here.",
+      "diagnosis": {
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "example-subject-001",
+            "interpretationStatus": "CAUSATIVE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "variationDescriptor": {
+                "id": "SEQV1",
+                "label": "Sequence Variant 1 - BRCA1",
+                "description": "Scientific description of the variant identified in the gene.",
+                "geneContext": {
+                  "valueId": "HGNC:1100",
+                  "symbol": "BRCA1"
+                },
+                "expressions": [
+                  { "syntax": "hgvs.c", "value": "NM_007294.3(BRCA1):c.68_69del" },
+                  { "syntax": "hgvs.p", "value": "p.(Glu23ValfsTer17)" },
+                  { "syntax": "hgvs.g", "value": "Chr17(GRCh37):g.41276047_41276048del" }
+                ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh37",
+                  "chrom": "17",
+                  "pos": "41276046",
+                  "id": "SEQV1",
+                  "ref": "TCT",
+                  "alt": "T",
+                  "filter": "."
+                },
+                "allelicState": { "id": "GENO:0000135", "label": "heterozygous" },
+                "structuralType": { "id": "SO:0000159", "label": "deletion" },
+                "moleculeContext": "genomic",
+                "extensions": [
+                  { "id": "vaf", "name": "Variant allele frequency (LOINC 81258-6)", "value": "0.33" },
+                  { "id": "inheritance", "name": "Inheritance", "value": "Maternal" },
+                  { "id": "source_field_code", "name": "iGene source field code", "value": "SEQV1_* (Sequence Variant 1)" }
+                ]
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "example-subject-001",
+            "interpretationStatus": "CAUSATIVE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "variationDescriptor": {
+                "id": "ICNV1",
+                "label": "Intragenic Copy Number Variant 1 - FBN1",
+                "description": "Details of the exon or exons affected by the copy number change.",
+                "geneContext": {
+                  "valueId": "HGNC:3603",
+                  "symbol": "FBN1"
+                },
+                "expressions": [
+                  { "syntax": "exon_range_description", "value": "NM_000138.4(FBN1):exon 13 to exon 15del" },
+                  { "syntax": "hgvs.g", "value": "Chr15(GRCh37):g.48797222_48802366del(min)" }
+                ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh37",
+                  "chrom": "15",
+                  "pos": "48797221",
+                  "id": "ICNV1",
+                  "ref": "C",
+                  "alt": "<DEL>",
+                  "filter": "."
+                },
+                "structuralType": { "id": "SO:0000159", "label": "deletion" },
+                "moleculeContext": "genomic",
+                "extensions": [
+                  { "id": "vaf", "name": "Variant allele frequency (LOINC 81258-6)", "value": "0.33" },
+                  { "id": "inheritance", "name": "Inheritance", "value": "Maternal" },
+                  { "id": "copy_number_state", "name": "Copy-number state (LOINC 53034-5, allelic state)", "value": "Single-copy loss (1 copy)" },
+                  { "id": "source_field_code", "name": "iGene source field code", "value": "ICNV1_* (Intragenic Copy Number Variant 1)" }
+                ]
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "example-subject-001",
+            "interpretationStatus": "CAUSATIVE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "variationDescriptor": {
+                "id": "MCNV1",
+                "label": "Multigenic Copy Number Variant 1 - Xq22.1-q28",
+                "description": "Chromosomal region affected by the copy number change.",
+                "expressions": [
+                  { "syntax": "iscn", "value": "Xq22.1-q28" },
+                  { "syntax": "hgvs.g", "value": "ChrX(GRCh37):g.100652797_153792676del(min)" }
+                ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh37",
+                  "chrom": "X",
+                  "pos": "100652796",
+                  "id": "MCNV1",
+                  "ref": "T",
+                  "alt": "<DEL>",
+                  "filter": "."
+                },
+                "structuralType": { "id": "SO:0000159", "label": "deletion" },
+                "moleculeContext": "genomic",
+                "extensions": [
+                  { "id": "vaf", "name": "Variant allele frequency (LOINC 81258-6)", "value": "0.33" },
+                  { "id": "inheritance", "name": "Inheritance", "value": "Maternal" },
+                  { "id": "copy_number_state", "name": "Copy-number state (LOINC 53034-5, allelic state)", "value": "Single-copy loss (1 copy)" },
+                  { "id": "source_field_code", "name": "iGene source field code", "value": "MCNV1_* (Multigenic Copy Number Variant 1)" }
+                ]
+              }
+            }
+          },
+          {
+            "subjectOrBiosampleId": "example-subject-001",
+            "interpretationStatus": "CAUSATIVE",
+            "variantInterpretation": {
+              "acmgPathogenicityClassification": "PATHOGENIC",
+              "variationDescriptor": {
+                "id": "SV1",
+                "label": "Structural Variant 1",
+                "description": "No Example value was given in the source workbook for SV1_Description or SV1_State; genomic coordinates and copy-number state below reuse the same placeholder Example as the Multigenic Copy Number Variant fields, exactly as the source sheet has it.",
+                "expressions": [
+                  { "syntax": "hgvs.g", "value": "ChrX(GRCh37):g.100652797_153792676del(min)" }
+                ],
+                "vcfRecord": {
+                  "genomeAssembly": "GRCh37",
+                  "chrom": "X",
+                  "pos": "100652796",
+                  "id": "SV1",
+                  "ref": "T",
+                  "alt": "<DEL>",
+                  "filter": "."
+                },
+                "structuralType": { "id": "SO:0000159", "label": "deletion" },
+                "moleculeContext": "genomic",
+                "extensions": [
+                  { "id": "vaf", "name": "Variant allele frequency (LOINC 81258-6)", "value": "0.33" },
+                  { "id": "source_field_code", "name": "iGene source field code", "value": "SV1_* (Structural Variant 1)" }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "files": [
+    {
+      "uri": "file://igene_example_data.vcf",
+      "individualToFileIdentifiers": { "example-subject-001": "SAMPLE" },
+      "fileAttributes": {
+        "description": "Companion GA4GH VCF v4.3 file built from the same iGene workbook Example values",
+        "genomeAssembly": "GRCh37",
+        "fileFormat": "VCF"
+      }
+    }
+  ],
+  "metaData": {
+    "created": "2026-08-15T00:00:00Z",
+    "createdBy": "Claude (extraction from 'iGene Custom Fields Master Dataset - Updated 13-Aug-26.xlsx')",
+    "phenopacketSchemaVersion": "2.0",
+    "resources": [
+      {
+        "id": "geno",
+        "name": "GENO: The Genotype Ontology",
+        "url": "http://purl.obolibrary.org/obo/geno.owl",
+        "version": "2026-02-02",
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+      },
+      {
+        "id": "so",
+        "name": "Sequence types and features ontology",
+        "url": "http://purl.obolibrary.org/obo/so.owl",
+        "version": "2026-08-07",
+        "namespacePrefix": "SO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+      },
+      {
+        "id": "hgnc",
+        "name": "HUGO Gene Nomenclature Committee",
+        "url": "https://www.genenames.org",
+        "version": "2026-08",
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:"
+      },
+      {
+        "id": "loinc",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "url": "https://loinc.org",
+        "version": "not specified in source workbook",
+        "namespacePrefix": "LOINC",
+        "iriPrefix": "https://loinc.org/"
+      },
+      {
+        "id": "igene",
+        "name": "iGene Custom Fields Master Dataset (local/unregistered code system used for fields with no external ontology code in the source workbook, e.g. Quality_score, Headline_result, Reflex_test)",
+        "url": "N/A - local code system, not a public ontology",
+        "version": "Updated 13-Aug-26",
+        "namespacePrefix": "igene",
+        "iriPrefix": "urn:igene:"
+      }
+    ],
+    "externalReferences": [
+      {
+        "id": "source-document",
+        "description": "iGene Custom Fields Master Dataset - Updated 13-Aug-26.xlsx, sheet 'Variant Level Data' / 'Quality Checks & Result Summary'"
+      }
+    ]
+  }
+}
