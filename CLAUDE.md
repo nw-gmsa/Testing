@@ -106,6 +106,12 @@ results in `Results/FHIR/GenomicsReporting/`.
 - Test examples are based on the NW Genomics test patients and NHS England PDS
   integration-environment test patients (see README.md links) — keep new synthetic
   patients consistent with those sources rather than inventing new NHS numbers ad hoc.
+- When a new HL7 v2 or FHIR example needs a hospital MRN for a given NHS trust, reuse
+  the MRN recorded for that NHS number/trust pair in `MRN-Mapping.md` (a master list
+  cross-referenced from `Input/StarLIMSSampleData.csv`, `Input/V2/**`, and
+  `Input/FHIR/**`) rather than inventing a new one — keeps a trust's MRN consistent for
+  the same patient across all test fixtures. Regenerate/update that file when new
+  examples introduce a patient/trust pair it doesn't yet cover.
 - Server endpoints (`192.168.1.x`) are local/lab infrastructure, not committed as
   constants — always read them from `.env` via `load_dotenv()`, matching existing
   notebook cells.
