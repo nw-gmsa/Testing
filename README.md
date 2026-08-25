@@ -39,6 +39,11 @@ curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A.txt" http://192.168
 curl --request POST --data-binary "@Input/V2/R01/ORU_R01_R125.1_R0A.txt" http://192.168.1.62:9981/transformToFHIR
 curl --request POST --data-binary "@Output/FHIR/R01/ORU_R01_R125.1_R0A.txt.json" http://192.168.1.62:9981/transformToV2
 
+#### Mother and Child/Fetus 
+
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_FetusOfCersei_R22.1.txt" http://192.168.1.62:9981/transformToFHIR
+curl --request POST --data-binary "@Input/V2/O21/OML_O21_R0A_FetusOfCersei_R22.1.txt" http://192.168.1.62:9980
+
 #### MFT Tests example
 
 curl --request POST --data-binary "@Input/V2/O01/EPIC-Faulty.txt" http://192.168.1.62:9981/transformToFHIR
