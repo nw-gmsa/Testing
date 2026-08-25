@@ -1,0 +1,244 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:896504ba-298b-4717-889d-cee81a155ae6",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "CCC"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:2ee13bdd-cd8e-49bd-9ec0-07f3970ee88a"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "CCC"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/LAB",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7314e458-fb03-4f0d-9b7b-a9938d676719",
+      "resource": {
+        "resourceType": "Patient",
+        "address": [
+          {
+            "city": "LIVERPOOL",
+            "district": "MERSEYSIDE",
+            "line": [
+              "HUYTON"
+            ],
+            "postalCode": "L7 8XP"
+          }
+        ],
+        "birthDate": "1942-06-18",
+        "gender": "male",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CB07442115"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          }
+        ],
+        "name": [
+          {
+            "family": "LIVERPOOL",
+            "given": [
+              "Ned"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:faca6bca-366f-40ce-96cf-63da65198d2b",
+      "resource": {
+        "resourceType": "Encounter",
+        "class": {
+          "code": "OBSENC",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+        },
+        "location": [
+          {
+            "location": {
+              "identifier": {
+                "value": "PAL_C863^^^REN"
+              }
+            }
+          }
+        ],
+        "serviceType": {
+          "coding": [
+            {
+              "code": "CLIN-HAEM"
+            }
+          ]
+        },
+        "status": "finished",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:7314e458-fb03-4f0d-9b7b-a9938d676719"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2ee13bdd-cd8e-49bd-9ec0-07f3970ee88a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "authoredOn": "2026-01-09T16:41:00+00:00",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        ],
+        "encounter": {
+          "reference": "urn:uuid:faca6bca-366f-40ce-96cf-63da65198d2b"
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "LAB"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "5595441"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PGN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "090126:RI6"
+          }
+        ],
+        "intent": "order",
+        "status": "active",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:7314e458-fb03-4f0d-9b7b-a9938d676719"
+        }
+      }
+    }
+  ],
+  "identifier": {
+    "value": "LAB:CCC:27076860.1"
+  },
+  "timestamp": "2026-01-09T16:41:21+00:00",
+  "type": "message"
+}

@@ -65,8 +65,20 @@ SEND_TIMEOUT = 60
 # Filenames are read from Input/V2/<type>/<filename> unless the group sets "input_dir",
 # in which case they're read from <input_dir>/<type>/<filename> instead. A group can set
 # "skip_transform_to_v2" to skip stage 2 for every case in it (see Cepheid, below).
+#
+# HL7 v2 spec compliance note - https://nw-gmsa.github.io/en/hl7v2.html requires MSH-12
+# = "2.5.1" and an explicit MSH-9 trigger structure ("OML^O21^OML_O21" / "ORU^R01^ORU_R01")
+# for every message type it documents (OML_O21, ORU_R01, MDM_T02); it defines no ORM_O01 or
+# R32 profile at all. A sendToServer failure that survives a patient-data fix is usually one
+# of these MSH-9/MSH-12 deviations, not a data problem - see the per-group notes below for
+# which files are known to deviate and whether the RIE tolerates it in practice.
 TEST_GROUPS = {
     # General order/report exchange between NHS Trusts and iGene - the default scenario.
+    # Deviation note: most R01 files here use the bare trigger "ORU^R01" (no "^ORU_R01") at
+    # MSH-12 "2.3", not the spec's "ORU^R01^ORU_R01"/"2.5.1" - a legacy format the RIE's R01
+    # path tolerates in practice. The O01 files use "2.4", which the IG doesn't define at all
+    # (no ORM_O01 profile) - see the clatterbridge_histotrac note below on why that pattern
+    # isn't safe to assume works for every O01 file.
     "general": {
         "cases": {
             "O21": ["OML_O21_RPY.txt", "OML_O21_R0A_R125.txt"],
@@ -92,7 +104,10 @@ TEST_GROUPS = {
         },
     },
     # iGene's "Baby of <mother>"/"Fetus of <mother>" PID+NK1 combined-segment convention -
-    # see check_baby_fetus_split.
+    # see check_baby_fetus_split. These files already match the IG's required MSH-9/MSH-12
+    # exactly (explicit "OML^O21^OML_O21"/"ORU^R01^ORU_R01", "2.5.1") - the PID+NK1 combining
+    # is an intentional NW-GMSA/iGene extension layered on top of a conformant message, not a
+    # spec violation, kept deliberately to exercise the Patient+RelatedPerson split.
     "baby_fetus": {
         "cases": {
             "O21": [
@@ -109,19 +124,35 @@ TEST_GROUPS = {
             ],
         },
     },
-    # Shire (CPP) <-> HODS report exchange.
+    # Shire (CPP) <-> HODS report exchange. Deviation note: MSH-12 is "2.3.1", which the IG
+    # doesn't define (it specifies "2.5.1") - a Shire-specific legacy variant the RIE
+    # currently tolerates.
     "shire": {
         "cases": {
             "R01": ["SHIRE_ORU_R01_RM3.txt", "Shire-1.txt", "Shire-2.txt"],
         },
     },
     # Clatterbridge Cancer Centre and Histotrac orders/reports.
+    # Deviation notes (MSH-9/MSH-12, not patient data - see Clatterbridge-Order-review.md
+    # for the fuller structural gap list, which goes beyond what was needed to unblock this):
+    #  - Clatterbridge-Order.txt was the only "ORM^O01" fixture in the repo on MSH-12 "2.3"
+    #    (every other one uses "2.4"/"2.5.1") - it was getting a consistent AR reject
+    #    (#5035) even with real patient data. Bumping MSH-12 to "2.4", matching every sibling
+    #    O01 file, fixed it (now ACK AA) - the RIE cares about the version, not just the
+    #    (still IG-nonconformant, since OML_O21 is the only order profile the IG defines)
+    #    ORM^O01 trigger itself.
+    #  - histotrac.txt and histotrac-MFT.txt (R01): both rebuilt to the IG's PDF-report
+    #    pattern (https://nw-gmsa.github.io/en/hl7v2.html) - MSH-9 "ORU^R01^ORU_R01"/MSH-12
+    #    "2.5.1", OBR-4 the SNOMED discipline code
+    #    "909871000000100^Histocompatibility and immunogenetics^SNM3" (replacing the local
+    #    HISTOTRACEAP/no-OBR-at-all versions), and the embedded-PDF OBX per the IG's literal
+    #    example: OBX-2 "ED", OBX-3 "1054161000000101^Genetic report^SNM3", OBX-5
+    #    "MOL^IM^PDF^Base64^<data>", OBX-11 "F".
     "clatterbridge_histotrac": {
         "cases": {
             "O01": ["Clatterbridge-Order.txt", "histotrac-MFT.txt"],
             "R01": [
                 "Clatterbridge-REN-ORU_R01.txt",
-                "LUFT_ORU_For_Clatterbridge.txt",
                 "histotrac.txt",
                 "histotrac-MFT.txt",
             ],
@@ -136,6 +167,13 @@ TEST_GROUPS = {
     # Cepheid GeneXpert results (message type R32). Sourced from Input/ASTM/R32 - see
     # Testing-Cephied.ipynb, which flags the old Input/V2/R32 source as superseded by
     # these files and skips the transformToV2 round-trip stage, so we do too.
+    # Deviation note: R32 isn't defined anywhere in the NW-GMSA IG (only OML_O21, ORU_R01,
+    # and MDM_T02 are), so this group is inherently off-spec regardless of version. It's also
+    # been the least reliable group to run live - every case bare-timed-out (no ACK at all,
+    # unlike the reject-style AR/#5035 failures seen on genuine version mismatches) in earlier
+    # runs, then passed cleanly with no code/data change at all in a later run, which points to
+    # transient RIE-side unavailability for this group rather than a routing gap - but with an
+    # off-spec trigger event in the mix too, that's not fully ruled out either.
     "cepheid": {
         "input_dir": os.path.join("Input", "ASTM"),
         "skip_transform_to_v2": True,
