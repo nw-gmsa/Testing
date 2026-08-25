@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:a86425d4-78e1-421e-af3d-f60513d99868",
+      "fullUrl": "urn:uuid:ee0f4392-d2c4-4863-bf65-5ffc892a36ae",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:a0aea532-9e76-4619-8ad9-7050db28e4d4"
+            "reference": "urn:uuid:76398416-9fbc-4bdf-afad-d414897d1d1e"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:951c4ff7-7fd3-4881-9d33-d9f619c47b04",
+      "fullUrl": "urn:uuid:f504db83-847b-4832-ab8c-42c10d75c034",
       "resource": {
         "resourceType": "Patient",
         "birthDate": "1942-06-18",
@@ -99,7 +99,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b67dd415-65be-4ebc-88ae-5462e0d654fd",
+      "fullUrl": "urn:uuid:84c7689f-7ed3-4a52-9791-776d8d296901",
       "resource": {
         "resourceType": "Encounter",
         "class": {
@@ -120,12 +120,12 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:951c4ff7-7fd3-4881-9d33-d9f619c47b04"
+          "reference": "urn:uuid:f504db83-847b-4832-ab8c-42c10d75c034"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:a9304eae-f1ab-4e62-8ae1-c16ddc35e36c",
+      "fullUrl": "urn:uuid:fd01d10a-abca-40b5-b249-33f5ea9448db",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -133,21 +133,21 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:01644f52-293d-4786-915d-6876b077f888",
+      "fullUrl": "urn:uuid:e2162898-d7cb-4113-8368-0203e8f62c8b",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:a9304eae-f1ab-4e62-8ae1-c16ddc35e36c"
+              "url": "urn:uuid:fd01d10a-abca-40b5-b249-33f5ea9448db"
             }
           }
         ],
         "context": {
           "encounter": [
             {
-              "reference": "urn:uuid:b67dd415-65be-4ebc-88ae-5462e0d654fd",
+              "reference": "urn:uuid:84c7689f-7ed3-4a52-9791-776d8d296901",
               "type": "Encounter"
             }
           ],
@@ -164,7 +164,7 @@
                 },
                 "value": "45-5658"
               },
-              "reference": "urn:uuid:2b949f1b-49a2-48f3-b628-da7adb8d4515",
+              "reference": "urn:uuid:7ac4fb58-90cc-4394-b580-65f741c8d058",
               "type": "ServiceRequest"
             },
             {
@@ -179,7 +179,7 @@
                 },
                 "value": "45-5658"
               },
-              "reference": "urn:uuid:a0aea532-9e76-4619-8ad9-7050db28e4d4",
+              "reference": "urn:uuid:76398416-9fbc-4bdf-afad-d414897d1d1e",
               "type": "DiagnosticReport"
             }
           ],
@@ -237,13 +237,13 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:951c4ff7-7fd3-4881-9d33-d9f619c47b04"
+          "reference": "urn:uuid:f504db83-847b-4832-ab8c-42c10d75c034"
         },
         "type": {
           "coding": [
             {
-              "code": "1054161000000101",
-              "display": "Genetic report",
+              "code": "909871000000100",
+              "display": "Histocompatibility and immunogenetics",
               "system": "http://snomed.info/sct"
             }
           ]
@@ -251,7 +251,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2b949f1b-49a2-48f3-b628-da7adb8d4515",
+      "fullUrl": "urn:uuid:7ac4fb58-90cc-4394-b580-65f741c8d058",
       "resource": {
         "resourceType": "ServiceRequest",
         "category": [
@@ -274,7 +274,7 @@
           ]
         },
         "encounter": {
-          "reference": "urn:uuid:b67dd415-65be-4ebc-88ae-5462e0d654fd"
+          "reference": "urn:uuid:84c7689f-7ed3-4a52-9791-776d8d296901"
         },
         "identifier": [
           {
@@ -304,12 +304,12 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:951c4ff7-7fd3-4881-9d33-d9f619c47b04"
+          "reference": "urn:uuid:f504db83-847b-4832-ab8c-42c10d75c034"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:a0aea532-9e76-4619-8ad9-7050db28e4d4",
+      "fullUrl": "urn:uuid:76398416-9fbc-4bdf-afad-d414897d1d1e",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -325,7 +325,7 @@
               },
               "value": "45-5658"
             },
-            "reference": "urn:uuid:2b949f1b-49a2-48f3-b628-da7adb8d4515",
+            "reference": "urn:uuid:7ac4fb58-90cc-4394-b580-65f741c8d058",
             "type": "ServiceRequest"
           }
         ],
@@ -349,7 +349,7 @@
           ]
         },
         "encounter": {
-          "reference": "urn:uuid:b67dd415-65be-4ebc-88ae-5462e0d654fd"
+          "reference": "urn:uuid:84c7689f-7ed3-4a52-9791-776d8d296901"
         },
         "identifier": [
           {
@@ -377,7 +377,7 @@
         "presentedForm": [
           {
             "contentType": "application/pdf",
-            "url": "urn:uuid:a9304eae-f1ab-4e62-8ae1-c16ddc35e36c"
+            "url": "urn:uuid:fd01d10a-abca-40b5-b249-33f5ea9448db"
           }
         ],
         "status": "final",
@@ -394,7 +394,7 @@
             },
             "value": "9737383206"
           },
-          "reference": "urn:uuid:951c4ff7-7fd3-4881-9d33-d9f619c47b04"
+          "reference": "urn:uuid:f504db83-847b-4832-ab8c-42c10d75c034"
         }
       }
     }

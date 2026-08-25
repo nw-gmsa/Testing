@@ -13,12 +13,18 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      (PID and NK1 combined into one segment), also checks that the transform split it back
      out into a Patient (the baby/fetus) plus a RelatedPerson (the mother, relationship MTH)
      rather than collapsing them into one Patient - see check_baby_fetus_split.
+     For messages carrying an OBX-2 'ED' segment whose OBX-3 identifier already supplies a
+     SNOMED/LOINC code, or an OBX-2 'CE' segment whose value embeds a PDF, also checks that
+     DocumentReference.type ends up with the expected SNOMED/LOINC coding - preserved as-is
+     for the 'ED' case, substituted in if missing for the 'CE'+PDF case - see
+     check_document_reference_code.
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back
   3. POST the *original* raw v2 message to {V2_SERVER} (the RIE), simulating a real feed;
      expect an ACK within SEND_TIMEOUT seconds with MSA-1 of AA/CA (a slow or negative ACK
      is treated as a fault worth raising, not something to silently wait out).
-     Skipped (recorded as failed) if stage 1's structural or baby/fetus-split checks found a
-     problem - a message transformToFHIR got wrong isn't sent on to the RIE.
+     Skipped (recorded as failed) if stage 1's structural, baby/fetus-split, or
+     DocumentReference-code checks found a problem - a message transformToFHIR got wrong
+     isn't sent on to the RIE.
 
 Stage 1/2 outputs are saved under Output/FHIR/<messageType>/ and Output/V2/<messageType>/,
 matching the layout produced by Testing.ipynb.
@@ -360,6 +366,100 @@ def check_baby_fetus_split(v2_text, bundle):
     return True, problems
 
 
+# v2 CE/CWE coding-system abbreviations (3rd component) mapped to their FHIR system URI -
+# used by check_document_reference_code below.
+V2_CODE_SYSTEM_TO_FHIR = {
+    "SNM3": "http://snomed.info/sct",
+    "SCT": "http://snomed.info/sct",
+    "SNOMED-CT": "http://snomed.info/sct",
+    "LN": "http://loinc.org",
+    "LOINC": "http://loinc.org",
+}
+
+
+def extract_obx_segments(v2_text):
+    """Return every OBX segment from a raw v2 message, each split on '|'."""
+    segments = [s for s in v2_text.replace("\r\n", "\r").split("\r") if s]
+    return [s.split("|") for s in segments if s.startswith("OBX|")]
+
+
+def find_document_reference(bundle):
+    for entry in bundle.get("entry", []):
+        resource = entry.get("resource", {})
+        if resource.get("resourceType") == "DocumentReference":
+            return resource
+    return None
+
+
+def check_document_reference_code(v2_text, bundle):
+    """DocumentReference.type must carry a SNOMED/LOINC coding consistent with the source
+    OBX, per two NW-GMSA conventions (see the histotrac vs. ORU_R01_R125.1_RR8 fixtures):
+
+      - OBX-2 'ED' (encapsulated data): if OBX-3 (the observation identifier) itself
+        supplies a SNOMED (SNM3/SCT) or LOINC (LN) code - e.g. histotrac.txt's OBX-3
+        "1054161000000101^Genetic report^SNM3" - that exact code+system must be preserved
+        on DocumentReference.type. The transform must not drop or substitute a supplied code.
+      - OBX-2 'CE' whose value embeds a PDF (OBX-5 containing an 'application/pdf'
+        attachment, the iGene panel-report convention e.g. ORU_R01_R125.1_RR8.txt):
+        DocumentReference.type must carry *some* SNOMED or LOINC coding, even when OBX-3
+        only supplies a local/vendor code (e.g. an IGEAP panel code) with no SNOMED/LOINC
+        equivalent of its own - substituting in a LOINC/SNOMED code here is expected/fine
+        since the source identifier didn't supply one.
+
+    Returns (applicable, problems): applicable is False (and problems is []) for messages
+    with no OBX matching either convention.
+    """
+    applicable = False
+    problems = []
+
+    doc_ref = find_document_reference(bundle) if isinstance(bundle, dict) else None
+    doc_ref_codings = (doc_ref or {}).get("type", {}).get("coding", [])
+    doc_ref_has_snomed_or_loinc = any(
+        c.get("system") in ("http://snomed.info/sct", "http://loinc.org")
+        for c in doc_ref_codings
+    )
+
+    for fields in extract_obx_segments(v2_text):
+        value_type = fields[2] if len(fields) > 2 else ""
+        identifier = fields[3] if len(fields) > 3 else ""
+        value = fields[5] if len(fields) > 5 else ""
+        id_components = identifier.split("^")
+        # v2 fields are sometimes fixed-width padded (e.g. "51969-4    ^Full narrative
+        # report^LN") - the transform trims this before emitting the FHIR code, so strip
+        # here too or every padded fixture false-positives against the trimmed FHIR code.
+        id_code = id_components[0].strip() if id_components else ""
+        id_system_raw = id_components[2].strip() if len(id_components) > 2 else ""
+        id_system = V2_CODE_SYSTEM_TO_FHIR.get(id_system_raw.upper())
+
+        if value_type == "ED" and id_system:
+            applicable = True
+            if not doc_ref:
+                problems.append(
+                    f"OBX-3 supplies {id_system_raw} code {id_code!r} but no DocumentReference "
+                    "found in the bundle"
+                )
+            elif not any(
+                c.get("code") == id_code and c.get("system") == id_system
+                for c in doc_ref_codings
+            ):
+                problems.append(
+                    f"OBX-3 code {id_code!r} ({id_system_raw}) not preserved on "
+                    f"DocumentReference.type (found: {doc_ref_codings})"
+                )
+
+        if value_type == "CE" and "application/pdf" in value.lower():
+            applicable = True
+            if not doc_ref:
+                problems.append("OBX-5 embeds a PDF but no DocumentReference found in the bundle")
+            elif not doc_ref_has_snomed_or_loinc:
+                problems.append(
+                    "OBX-5 embeds a PDF but DocumentReference.type has no SNOMED/LOINC coding "
+                    f"(found: {doc_ref_codings})"
+                )
+
+    return applicable, list(dict.fromkeys(problems))
+
+
 class CaseResult:
     def __init__(self, name):
         self.name = name
@@ -428,10 +528,26 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         else:
             result.record("babyFetusSplit", True, "Patient (baby/fetus) + RelatedPerson (mother) correctly split")
 
-    # A structural/split problem means transformToFHIR produced something wrong - don't let a
-    # bad transform reach the RIE. transformToV2 still runs below (useful diagnostic on its
-    # own), but stage 3 (send to server) is skipped once we reach it.
-    transform_error = bool(problems) or (applicable and bool(split_problems))
+    # --- OBX ED/CE(+PDF) source code -> DocumentReference.type check (only applies when an
+    # OBX in the message matches one of the two conventions - see check_document_reference_code) ---
+    doc_applicable, doc_problems = check_document_reference_code(v2_bytes.decode("utf-8"), fhir_json)
+    if doc_applicable:
+        if doc_problems:
+            result.record("documentReferenceCode", False, "; ".join(doc_problems))
+        else:
+            result.record(
+                "documentReferenceCode", True,
+                "DocumentReference.type carries the expected SNOMED/LOINC coding",
+            )
+
+    # A structural/split/coding problem means transformToFHIR produced something wrong -
+    # don't let a bad transform reach the RIE. transformToV2 still runs below (useful
+    # diagnostic on its own), but stage 3 (send to server) is skipped once we reach it.
+    transform_error = (
+        bool(problems)
+        or (applicable and bool(split_problems))
+        or (doc_applicable and bool(doc_problems))
+    )
 
     if save_output:
         out_dir = os.path.join("Output", "FHIR", msg_type)
