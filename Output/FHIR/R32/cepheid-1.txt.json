@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:972cb2d8-4fcc-4f40-aeab-2cd2ceda0dc6",
+      "fullUrl": "urn:uuid:85befe8a-0b70-4127-843f-447aa565b97d",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -21,7 +21,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:210ccfad-0c6e-41ba-b845-f3d443599976"
+            "reference": "urn:uuid:249fe40e-afa3-4d63-ac09-5434b4d1556b"
           }
         ],
         "sender": {
@@ -36,7 +36,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:04bc3304-7bc0-45d1-bc67-1b7ba797d1e4",
+      "fullUrl": "urn:uuid:f4e4d901-1945-41de-a572-e9f8295142e0",
       "resource": {
         "resourceType": "Observation",
         "category": [
@@ -62,6 +62,10 @@
             {
               "code": "BCR",
               "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+            },
+            {
+              "code": "69380-4",
+              "system": "http://loinc.org"
             }
           ]
         },
@@ -188,11 +192,18 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b80e9c5d-1c2a-4b14-8871-772d717c6b80",
+      "fullUrl": "urn:uuid:a8b7348f-fb19-4252-b70a-cf46f932b309",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
           {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/SpecimenIdentifier",
             "type": {
               "coding": [
                 {
@@ -217,7 +228,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:210ccfad-0c6e-41ba-b845-f3d443599976",
+      "fullUrl": "urn:uuid:249fe40e-afa3-4d63-ac09-5434b4d1556b",
       "resource": {
         "resourceType": "DiagnosticReport",
         "category": [
@@ -242,6 +253,10 @@
             }
           ]
         },
+        "effectivePeriod": {
+          "end": "2019-09-20T15:02:09+00:00",
+          "start": "2019-09-20T13:17:08+00:00"
+        },
         "performer": [
           {
             "display": "NHS North West Genomics",
@@ -254,13 +269,13 @@
         ],
         "result": [
           {
-            "reference": "urn:uuid:04bc3304-7bc0-45d1-bc67-1b7ba797d1e4",
+            "reference": "urn:uuid:f4e4d901-1945-41de-a572-e9f8295142e0",
             "type": "Observation"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:b80e9c5d-1c2a-4b14-8871-772d717c6b80",
+            "reference": "urn:uuid:a8b7348f-fb19-4252-b70a-cf46f932b309",
             "type": "Specimen"
           }
         ],
@@ -269,7 +284,7 @@
     }
   ],
   "identifier": {
-    "value": "GXM-31622127072"
+    "value": "GeneXpert PC^GeneXpert^6.5a.8::GXM-31622127072"
   },
   "timestamp": "2026-06-17T14:49:36+00:00",
   "type": "message"
