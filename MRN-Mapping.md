@@ -9,11 +9,14 @@ Cross-referenced from every patient identifier found in `Input/StarLIMSSampleDat
 - `Input/EDITestPatientsctDNA.csv` and `Input/NEYctDNA.csv` MRNs are not read directly into the trust columns — their data is already captured via the `ctdna*.txt`/`ctdna9999999*.txt` HL7 v2 files they generate; they're only used here for `Patient Number(s)`.
 - Fetus/baby rows in `Input/StarLIMSSampleData.csv` (`PatientGivenName` of the form `Fetus of <mother>`/`Baby of <mother>`) are a fixed StarLIMS export that has no columns of its own for a fetus/baby's identity: `NHSNumber`, `DateOfBirth`, and `AdministrativeSex` are populated with the mother's own NHS number, DOB, and `Unknown` respectively. The mother and fetus/baby are still separate entities/patients, so each gets its own row below (`Surname` suffixed `(fetus)`/`(baby)` to distinguish it) rather than being folded into the mother's row. Since the StarLIMS export never carries a real NHS number for the fetus/baby itself (only the mother's, as a placeholder), the `NHS Number` column is left blank for these rows; `Mother Patient Numbers` instead cross-references the mother's own row via her `Patient Number(s)`.
 - `CB07442115` under `CCC`/`REN` (Liverpool/Ned) is a hand-picked synthetic MRN, not sourced from any CSV — `Input/V2/O01/Clatterbridge-Order.txt` and `Input/V2/R01/LUFT_ORU_For_Clatterbridge.txt` previously carried `X`-masked/redacted demographics with no usable NHS number, which the RIE rejected; they were de-anonymised to Liverpool/Ned (already the patient used in `Input/V2/R01/Clatterbridge-REN-ORU_R01.txt`) to keep one consistent Merseyside test patient across all three Clatterbridge fixtures.
+- Birkenhead/Catelyn, Wavertree/Arya, and Crosby/Brienne (the Clatterbridge/`REN`, Liverpool Women's/`REP`, and Alder Hey/`RBS` mother-and-baby `ORU^R01` pairs) are given names, not real NW Genomics test patients from https://nw-gmsa.github.io/en/testing.html — per that page's closed patient list, only the NHS England EDI test numbers (`999 999 94xx`-`999 999 96xx`) were free to assign, so these three deliberately reuse EDI numbers already seen elsewhere in this table under `Editestpatient` (ctDNA `R95_EXPORT` orders, unrelated trusts) rather than a fabricated NHS number. The same NHS number legitimately appearing twice in this table (once as `Editestpatient`, once with a given name) is expected here, not a data error.
 - The four fetus/baby `OML^O21` order examples in `Input/V2/O21/` (`OML_O21_R0A_FetusOfCersei_R22.1.txt`, `OML_O21_RXR_BabyOfGilly_R318.1.txt`, `OML_O21_QE1_BabyOfLysa_R318.1.txt`, `OML_O21_UNK_FetusOfYara_R22.1.txt`) put the fetus/baby's own identifiers in PID (PID-2 `iGene` PI, PID-3 trust MR) and the mother's identifiers in NK1-31 as repeating CX values — NHS number (`^^^NHS^NH`), trust MRN (`^^^<trust>^MR`), and `iGene` PI (`^^^iGene^PI`). The mother's NK1 PI is the same value already recorded as her `Patient Number(s)` / that row's `Mother Patient Numbers` above (e.g. Cersei/London 345654, Gilly/Brough 200003, Lysa/Buxton 200024, Yara/Hull 200048); her NK1 MRN is the same value already recorded in her trust column.
 
 | NHS Number | Surname | Patient Number(s) | Mother Patient Numbers | 01A | EPI | QE1 | CCC | R0A | R0B | RAE | RBS | RBT | RCB | RCD | REM | REN | REP | RHQ | RJE | RJR | RK5 | RM3 | RMC | RMP | RNN | RPY | RQM | RR8 | RTD | RTG | RTR | RTX | RVR | RWA | RWJ | RX1 | RXK | RXL | RXP | RXR | RXW | UNK |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 756 977 3373 | Appclindoc |  |  |  | 20003025 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 999 999 9468 | Birkenhead | 200084 |  |  |  |  |  |  |  |  |  |  |  |  |  | 8845217 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  | Birkenhead (baby) | 200085 | 200084 |  |  |  |  |  |  |  |  |  |  |  |  | REN200085 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 973 738 3249 | Birmingham | 345574 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 | AB21580 |  |  |  |  |
 | 973 738 3370 | Blackburn | 200004 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXR6078306 |  | ICE212730 |
 | 973 738 3273 | Bolton | 200026 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 | RMC7021955 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | AG30913 |  |  |  |  |
@@ -25,6 +28,8 @@ Cross-referenced from every patient identifier found in `Input/StarLIMSSampleDat
 |  | Buxton (baby) | 200083 | 200024 |  |  | QE1200083 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 944 930 5552 | Chislett | 200067 |  |  |  |  |  | G179494 |  |  |  |  |  |  |  |  |  | RHQ4697183 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 973 738 3281 | Congleton | 200031 |  |  |  |  |  | ABC14567 |  |  |  | RBT5094163 |  |  |  |  | W0007939 |  |  | 1571313 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 999 999 9484 | Crosby | 200088 |  |  |  |  |  |  |  |  | 9128456 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  | Crosby (baby) | 200089 | 200088 |  |  |  |  |  |  |  | RBS200089 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 973 787 3998 | Durham | 200029 |  |  |  |  |  |  |  | 336577 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXP7136968 |  |  |  |
 | 999 999 9476 | Editestpatient | 300000 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTG1565235 |  |  |  |  |  |  |  |  |  |  |  |  |
 | 999 999 9565 | Editestpatient | 300001 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RQM1552395 |  |  |  |  |  |  |  |  | RX14614942 |  |  |  |  |  |  |
@@ -62,6 +67,8 @@ Cross-referenced from every patient identifier found in `Input/StarLIMSSampleDat
 | 973 738 3397 | Tameside | 200016 |  |  |  |  |  | B6789012 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RMP6419544 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3746334 |
 | 590 012 3170 | Testbeaker |  |  |  | 20010652 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 973 738 3303 | Warrington | 345660 |  | RXR0303179 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 999 999 9476 | Wavertree | 200086 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 7734829 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  | Wavertree (fetus) | 200087 | 200086 |  |  |  |  |  |  |  |  |  |  |  |  |  | REP200087 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 973 738 3257 | Wrexham | 200028 |  |  |  |  |  | 3617899 |  |  |  |  |  |  | REM7676150 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 973 787 3866 | York | 336384 |  |  |  |  |  |  |  |  |  |  | 658357 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
@@ -76,7 +83,7 @@ Cross-referenced from every patient identifier found in `Input/StarLIMSSampleDat
 | R0A | Manchester University NHS Foundation Trust |
 | R0B | South Tyneside and Sunderland NHS Foundation Trust |
 | RAE | Bradford Teaching Hospitals NHS Foundation Trust |
-| RBS | _unknown_ |
+| RBS | Alder Hey Children's NHS Foundation Trust |
 | RBT | Mid Cheshire Hospitals NHS Foundation Trust |
 | RCB | York and Scarborough Teaching Hospitals NHS Foundation Trust |
 | RCD | Harrogate and District NHS Foundation Trust |

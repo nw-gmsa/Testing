@@ -26,8 +26,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      DocumentReference-code checks found a problem - a message transformToFHIR got wrong
      isn't sent on to the RIE.
 
-Stage 1/2 outputs are saved under Output/FHIR/<messageType>/ and Output/V2/<messageType>/,
-matching the layout produced by Testing.ipynb.
+Stage 1/2 outputs are saved under TestingOutput/FHIR/<messageType>/ and TestingOutput/V2/<messageType>/
+- the same layout Testing.ipynb uses under Output/, but in its own top-level directory so a script
+run doesn't clobber a notebook run's output (or vice versa).
 
 TEST_GROUPS covers several exchange scenarios extracted from Testing.ipynb - general
 NHS Trust <-> iGene order/report exchange (O01/O21/R01), the mother/baby-fetus PID+NK1
@@ -60,6 +61,10 @@ load_dotenv()
 
 V2_TOOLS = os.getenv("V2_TOOLS")
 V2_SERVER = os.getenv("V2_SERVER")
+
+# Kept separate from Output/ (which Testing.ipynb writes to) so running this script doesn't
+# clobber - or get clobbered by - a notebook run's output.
+OUTPUT_ROOT = "TestingOutput"
 
 
 def log(msg):
@@ -128,12 +133,18 @@ TEST_GROUPS = {
                 "OML_O21_RXR_BabyOfGilly_R318.1.txt",
                 "OML_O21_UNK_FetusOfYara_R22.1.txt",
                 "OML_O21_R0A_FetusOfCersei_R22.1.txt",
+                "OML_O21_REN_BabyOfCatelyn_R318.1.txt",
+                "OML_O21_REP_FetusOfArya_R22.1.txt",
+                "OML_O21_RBS_BabyOfBrienne_R318.1.txt",
             ],
             "R01": [
                 "ORU_R01_QE1_BabyOfLysa_R318.1.txt",
                 "ORU_R01_RXR_BabyOfGilly_R318.1.txt",
                 "ORU_R01_UNK_FetusOfYara_R22.1.txt",
                 "ORU_R01_R0A_FetusOfCersei_R22.1.txt",
+                "ORU_R01_REN_BabyOfCatelyn_R318.1.txt",
+                "ORU_R01_REP_FetusOfArya_R22.1.txt",
+                "ORU_R01_RBS_BabyOfBrienne_R318.1.txt",
             ],
         },
     },
@@ -566,7 +577,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     )
 
     if save_output:
-        out_dir = os.path.join("Output", "FHIR", msg_type)
+        out_dir = os.path.join(OUTPUT_ROOT, "FHIR", msg_type)
         os.makedirs(out_dir, exist_ok=True)
         with open(os.path.join(out_dir, filename + ".json"), "w", encoding="utf-8", errors="replace") as f:
             f.write(r1.text)
@@ -602,7 +613,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
 
         if save_output:
-            out_dir = os.path.join("Output", "V2", msg_type)
+            out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
             os.makedirs(out_dir, exist_ok=True)
             with open(os.path.join(out_dir, filename), "w", encoding="utf-8", errors="replace", newline="") as f:
                 f.write(v2_roundtrip)

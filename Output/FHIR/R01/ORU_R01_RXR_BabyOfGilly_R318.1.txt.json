@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "entry": [
     {
-      "fullUrl": "urn:uuid:fd5fc376-f707-4e9a-92f6-48fa56c5e541",
+      "fullUrl": "urn:uuid:71c56fcc-56e8-4017-a8d2-6bfce3f89576",
       "resource": {
         "resourceType": "MessageHeader",
         "destination": [
@@ -22,7 +22,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:353f26c3-dfb9-4a8d-be8e-d87d2ebcafb7"
+            "reference": "urn:uuid:eac6cf4a-2010-4e0c-be09-c3d3c03d7fcc"
           }
         ],
         "sender": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09",
+      "fullUrl": "urn:uuid:e489411a-d485-43b8-bbac-12baf5a71ead",
       "resource": {
         "resourceType": "Patient",
         "address": [
@@ -77,7 +77,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:8829cb1b-c79c-4514-b088-72f8ca7e141b",
+      "fullUrl": "urn:uuid:480a14c3-cc09-4b13-85b1-222bac051a10",
       "resource": {
         "resourceType": "RelatedPerson",
         "address": [
@@ -156,7 +156,7 @@
           }
         ],
         "patient": {
-          "reference": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09",
+          "reference": "urn:uuid:e489411a-d485-43b8-bbac-12baf5a71ead",
           "type": "Patient"
         },
         "relationship": [
@@ -173,7 +173,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:799124db-4ef8-4fed-b82b-7c6cf68f0f8b",
+      "fullUrl": "urn:uuid:31a52952-5f7c-46be-91e4-f89a6ad4704d",
       "resource": {
         "resourceType": "Encounter",
         "class": {
@@ -217,172 +217,65 @@
         },
         "status": "finished",
         "subject": {
-          "reference": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09"
+          "reference": "urn:uuid:e489411a-d485-43b8-bbac-12baf5a71ead"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:46d39828-5d6d-44ed-a023-0dcd13d4140a",
+      "fullUrl": "urn:uuid:c2d84ee9-db73-4965-bbdd-b3a92e9ca044",
       "resource": {
-        "resourceType": "Observation",
-        "category": [
-          {
-            "coding": [
-              {
-                "code": "laboratory",
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "code": "GE",
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "code": "81306-3",
-              "display": "Variables that apply to the overall study",
-              "system": "http://loinc.org"
-            }
-          ]
-        },
-        "component": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "53577-3",
-                  "display": "Reason for study",
-                  "system": "http://loinc.org"
-                }
-              ]
-            },
-            "valueString": "Recurrent first-trimester miscarriage; testing of products of conception for numerical chromosome abnormality."
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "51967-8",
-                  "display": "Genetic disease(s) assessed",
-                  "system": "http://loinc.org"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "R318",
-                  "display": "Recurrent miscarriage with products of conception available for testing",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "81293-3",
-                  "display": "Description of ranges of DNA sequences examined",
-                  "system": "http://loinc.org"
-                }
-              ]
-            },
-            "valueString": "Quantitative fluorescence PCR (QF-PCR) analysis targeting short tandem repeat (STR) markers on chromosomes 13, 16, 18, 21, X and Y to detect the common trisomies and sex chromosome aneuploidies."
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "83006-7",
-                  "display": "Deletion-duplication overall interpretation",
-                  "system": "http://loinc.org"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA26803-9",
-                  "display": "No deletion or duplication detected",
-                  "system": "http://loinc.org"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "81291-7",
-                  "display": "Structural variant ISCN",
-                  "system": "http://loinc.org"
-                }
-              ]
-            },
-            "valueString": "46,XX^ISCN"
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "62374-4",
-                  "display": "Human reference sequence assembly",
-                  "system": "http://loinc.org"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA14029-5",
-                  "display": "GRCh37",
-                  "system": "http://loinc.org"
-                }
-              ]
-            }
-          }
-        ],
+        "resourceType": "Practitioner",
         "identifier": [
           {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
-              }
-            },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
             "type": {
               "coding": [
                 {
-                  "code": "FILL",
+                  "code": "LN",
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
                 }
               ]
             },
-            "value": "R26-1GH2"
+            "value": "Dr_Clinician"
           }
         ],
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel"
-          ]
+        "name": [
+          {
+            "family": "Clinician"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c62a10c7-a0e5-4505-bc99-a0d6d8d38889",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "organization": {
+          "display": "East Lancashire Hospitals NHS Trust",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RXR"
+          }
         },
-        "status": "final",
-        "subject": {
-          "reference": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09"
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "LN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "Dr_Clinician"
+          },
+          "reference": "urn:uuid:c2d84ee9-db73-4965-bbdd-b3a92e9ca044"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:a2019413-c3de-4c0b-bbc9-06f54d54ead6",
+      "fullUrl": "urn:uuid:64c60990-13da-4792-86f5-9cc53b2c3695",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -390,14 +283,14 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:3b93abba-ba3d-4fd0-92e6-a1b6d9284918",
+      "fullUrl": "urn:uuid:341b85ee-97ea-4068-ad12-a0b65b19b356",
       "resource": {
         "resourceType": "DocumentReference",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:a2019413-c3de-4c0b-bbc9-06f54d54ead6"
+              "url": "urn:uuid:64c60990-13da-4792-86f5-9cc53b2c3695"
             }
           }
         ],
@@ -421,7 +314,7 @@
                 },
                 "value": "200081"
               },
-              "reference": "urn:uuid:799124db-4ef8-4fed-b82b-7c6cf68f0f8b",
+              "reference": "urn:uuid:31a52952-5f7c-46be-91e4-f89a6ad4704d",
               "type": "Encounter"
             }
           ],
@@ -444,7 +337,7 @@
                 },
                 "value": "T26-6V02"
               },
-              "reference": "urn:uuid:77a9e622-ba76-4d4a-bbe8-736352542f2e",
+              "reference": "urn:uuid:ec861914-a4fd-47a9-845e-8a38c66d9a18",
               "type": "ServiceRequest"
             },
             {
@@ -466,7 +359,7 @@
                 },
                 "value": "R26-1GH2"
               },
-              "reference": "urn:uuid:353f26c3-dfb9-4a8d-be8e-d87d2ebcafb7",
+              "reference": "urn:uuid:eac6cf4a-2010-4e0c-be09-c3d3c03d7fcc",
               "type": "DiagnosticReport"
             }
           ],
@@ -519,7 +412,7 @@
         ],
         "status": "current",
         "subject": {
-          "reference": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09"
+          "reference": "urn:uuid:e489411a-d485-43b8-bbac-12baf5a71ead"
         },
         "type": {
           "coding": [
@@ -533,7 +426,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7d47269f-1e37-4d5e-961c-f9808b70bb7d",
+      "fullUrl": "urn:uuid:865b2169-d87c-4ac2-824f-a988b577f6c1",
       "resource": {
         "resourceType": "Specimen",
         "collection": {
@@ -565,7 +458,7 @@
         ],
         "status": "unavailable",
         "subject": {
-          "reference": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09"
+          "reference": "urn:uuid:e489411a-d485-43b8-bbac-12baf5a71ead"
         },
         "type": {
           "coding": [
@@ -579,7 +472,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:77a9e622-ba76-4d4a-bbe8-736352542f2e",
+      "fullUrl": "urn:uuid:ec861914-a4fd-47a9-845e-8a38c66d9a18",
       "resource": {
         "resourceType": "ServiceRequest",
         "authoredOn": "2026-08-17",
@@ -620,7 +513,7 @@
             },
             "value": "200081"
           },
-          "reference": "urn:uuid:799124db-4ef8-4fed-b82b-7c6cf68f0f8b"
+          "reference": "urn:uuid:31a52952-5f7c-46be-91e4-f89a6ad4704d"
         },
         "identifier": [
           {
@@ -644,7 +537,7 @@
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "RXR"
+                "value": "699X0"
               }
             },
             "type": {
@@ -677,20 +570,23 @@
           }
         ],
         "intent": "order",
+        "requester": {
+          "reference": "urn:uuid:c62a10c7-a0e5-4505-bc99-a0d6d8d38889"
+        },
         "specimen": [
           {
-            "reference": "urn:uuid:7d47269f-1e37-4d5e-961c-f9808b70bb7d",
+            "reference": "urn:uuid:865b2169-d87c-4ac2-824f-a988b577f6c1",
             "type": "Specimen"
           }
         ],
         "status": "active",
         "subject": {
-          "reference": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09"
+          "reference": "urn:uuid:e489411a-d485-43b8-bbac-12baf5a71ead"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:353f26c3-dfb9-4a8d-be8e-d87d2ebcafb7",
+      "fullUrl": "urn:uuid:eac6cf4a-2010-4e0c-be09-c3d3c03d7fcc",
       "resource": {
         "resourceType": "DiagnosticReport",
         "basedOn": [
@@ -712,7 +608,7 @@
               },
               "value": "T26-6V02"
             },
-            "reference": "urn:uuid:77a9e622-ba76-4d4a-bbe8-736352542f2e",
+            "reference": "urn:uuid:ec861914-a4fd-47a9-845e-8a38c66d9a18",
             "type": "ServiceRequest"
           }
         ],
@@ -753,7 +649,7 @@
             },
             "value": "200081"
           },
-          "reference": "urn:uuid:799124db-4ef8-4fed-b82b-7c6cf68f0f8b"
+          "reference": "urn:uuid:31a52952-5f7c-46be-91e4-f89a6ad4704d"
         },
         "identifier": [
           {
@@ -785,22 +681,15 @@
             "type": "Organization"
           }
         ],
-        "result": [
-          {
-            "display": "Variables that apply to the overall study",
-            "reference": "urn:uuid:46d39828-5d6d-44ed-a023-0dcd13d4140a",
-            "type": "Observation"
-          }
-        ],
         "specimen": [
           {
-            "reference": "urn:uuid:7d47269f-1e37-4d5e-961c-f9808b70bb7d",
+            "reference": "urn:uuid:865b2169-d87c-4ac2-824f-a988b577f6c1",
             "type": "Specimen"
           }
         ],
         "status": "unknown",
         "subject": {
-          "reference": "urn:uuid:efa9ff87-4c19-4277-b96d-594efca90c09"
+          "reference": "urn:uuid:e489411a-d485-43b8-bbac-12baf5a71ead"
         }
       }
     }
