@@ -48,6 +48,7 @@ import argparse
 import json
 import os
 import sys
+import time
 
 import requests
 import urllib3
@@ -59,6 +60,12 @@ load_dotenv()
 
 V2_TOOLS = os.getenv("V2_TOOLS")
 V2_SERVER = os.getenv("V2_SERVER")
+
+
+def log(msg):
+    """Timestamped progress line to stdout, flushed immediately so it's visible
+    even if the process later hangs waiting on a network call."""
+    print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
 
 HEADERS_V2 = {"Content-Type": "x-application/hl7-v2+er7"}
 HEADERS_FHIR = {"Content-Type": "application/fhir+json"}
@@ -475,17 +482,23 @@ class CaseResult:
 
 def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
              skip_transform_to_v2=False, save_output=True):
-    result = CaseResult(f"{group}/{msg_type}/{filename}")
+    case_name = f"{group}/{msg_type}/{filename}"
+    log(f"=== starting {case_name} ===")
+    result = CaseResult(case_name)
     in_path = os.path.join(input_dir or os.path.join("Input", "V2"), msg_type, filename)
 
+    log(f"loading {in_path}")
     if not os.path.exists(in_path):
         result.record("load", False, f"file not found: {in_path}")
+        log(f"FAILED load: file not found: {in_path}")
         return result
     with open(in_path, "rb") as f:
         v2_bytes = f.read()
     result.record("load", True, f"{len(v2_bytes)} bytes")
+    log(f"loaded {len(v2_bytes)} bytes")
 
     # --- Stage 1: transformToFHIR ---
+    log(f"POST {V2_TOOLS}/transformToFHIR (timeout=30s)")
     try:
         r1 = session.post(
             f"{V2_TOOLS}/transformToFHIR", data=v2_bytes,
@@ -493,13 +506,16 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         )
     except requests.RequestException as e:
         result.record("transformToFHIR", False, f"request error: {e}")
+        log(f"FAILED transformToFHIR: request error: {e}")
         return result
 
     if r1.status_code != 200:
         result.record("transformToFHIR", False, f"HTTP {r1.status_code}: {r1.text[:200]}")
+        log(f"FAILED transformToFHIR: HTTP {r1.status_code}")
         return result
 
     result.record("transformToFHIR", True, f"HTTP {r1.status_code}, {len(r1.text)} chars")
+    log(f"transformToFHIR ok: HTTP {r1.status_code}, {len(r1.text)} chars")
 
     # --- JSON validity check ---
     try:
@@ -558,7 +574,9 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     # --- Stage 2: transformToV2 ---
     if skip_transform_to_v2:
         result.record("transformToV2", True, "skipped for this group")
+        log("transformToV2 skipped for this group")
     else:
+        log(f"POST {V2_TOOLS}/transformToV2 (timeout=30s)")
         try:
             r2 = session.post(
                 f"{V2_TOOLS}/transformToV2", data=r1.text,
@@ -566,18 +584,22 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             )
         except requests.RequestException as e:
             result.record("transformToV2", False, f"request error: {e}")
+            log(f"FAILED transformToV2: request error: {e}")
             return result
 
         if r2.status_code != 200:
             result.record("transformToV2", False, f"HTTP {r2.status_code}: {r2.text[:200]}")
+            log(f"FAILED transformToV2: HTTP {r2.status_code}")
             return result
 
         v2_roundtrip = r2.text
         if not v2_roundtrip.lstrip().startswith("MSH|"):
             result.record("transformToV2", False, "round-tripped output does not start with an MSH segment")
+            log("FAILED transformToV2: round-tripped output does not start with an MSH segment")
             return result
 
         result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
+        log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
 
         if save_output:
             out_dir = os.path.join("Output", "V2", msg_type)
@@ -592,12 +614,15 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             "skipped - transformToFHIR produced a structurally invalid or incorrectly split "
             "result; refusing to send to the RIE",
         )
+        log("sendToServer skipped - earlier stage produced a structurally invalid result")
         return result
 
     if skip_send:
         result.record("sendToServer", True, "skipped")
+        log("sendToServer skipped (--skip-send)")
         return result
 
+    log(f"POST {V2_SERVER} (waiting up to {SEND_TIMEOUT}s for an ACK)")
     try:
         r3 = session.post(V2_SERVER, data=v2_bytes, verify=False, timeout=SEND_TIMEOUT)
     except requests.Timeout:
@@ -605,20 +630,25 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             "sendToServer", False,
             f"TIMEOUT after {SEND_TIMEOUT}s waiting for an ACK - likely a fault, raise an issue",
         )
+        log(f"FAILED sendToServer: TIMEOUT after {SEND_TIMEOUT}s waiting for an ACK")
         return result
     except requests.RequestException as e:
         result.record("sendToServer", False, f"request error: {e}")
+        log(f"FAILED sendToServer: request error: {e}")
         return result
 
     if r3.status_code not in (200, 201, 202):
         result.record("sendToServer", False, f"HTTP {r3.status_code}: {r3.text[:200]}")
+        log(f"FAILED sendToServer: HTTP {r3.status_code}")
         return result
 
     ack_code, detail = parse_ack(r3.text)
     if ack_code in ("AA", "CA"):
         result.record("sendToServer", True, f"ACK {ack_code}")
+        log(f"sendToServer ok: ACK {ack_code}")
     else:
         result.record("sendToServer", False, f"ACK {ack_code or 'unparseable'}: {detail}")
+        log(f"FAILED sendToServer: ACK {ack_code or 'unparseable'}: {detail}")
     return result
 
 
@@ -650,18 +680,29 @@ def main():
     groups = args.groups or list(TEST_GROUPS)
     types = args.types or ALL_MSG_TYPES
 
+    total_cases = sum(
+        len(TEST_GROUPS[g]["cases"].get(t, [])) for g in groups for t in types
+    )
+    log(f"V2_TOOLS={V2_TOOLS}  V2_SERVER={V2_SERVER}")
+    log(f"running {total_cases} case(s) across group(s) {groups}, type(s) {types}"
+        + (" (--skip-send)" if args.skip_send else ""))
+
     session = requests.Session()
     results = []
+    case_num = 0
     for group_name in groups:
         group = TEST_GROUPS[group_name]
         for msg_type in types:
             for filename in group["cases"].get(msg_type, []):
+                case_num += 1
+                log(f"--- case {case_num}/{total_cases} ---")
                 results.append(run_case(
                     session, group_name, msg_type, filename, args.skip_send,
                     input_dir=group.get("input_dir"),
                     skip_transform_to_v2=group.get("skip_transform_to_v2", False),
                 ))
 
+    log("all cases complete, printing summary")
     failures = 0
     for r in results:
         status = "PASS" if r.passed else "FAIL"
