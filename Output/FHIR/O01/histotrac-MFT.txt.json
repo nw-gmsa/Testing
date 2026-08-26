@@ -1,0 +1,251 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:638cb390-2448-4e4e-a5a8-9f9e2b8a01cf",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/Histotrac",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "HISTOTRAC"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:d2de466f-1b30-457e-88cb-016dcca70fe6"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "Beaker"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56b03299-cf02-47ec-a440-bc8661ac6d7b",
+      "resource": {
+        "resourceType": "Patient",
+        "birthDate": "1972-09-21",
+        "gender": "female",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "R0A4990415"
+          }
+        ],
+        "name": [
+          {
+            "family": "MANCHESTER",
+            "given": [
+              "Sansa"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5697b549-9e50-4374-b7ec-206c893afda0",
+      "resource": {
+        "resourceType": "Encounter",
+        "class": {
+          "code": "OBSENC",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "visit_no"
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "identifier": {
+                "value": "MRIETCTH^MRI ETC Pool Room^3113^MRI^^^^^Manchester Royal Infirmary ETC Theatre^^DEPID"
+              }
+            }
+          }
+        ],
+        "status": "finished",
+        "subject": {
+          "reference": "urn:uuid:56b03299-cf02-47ec-a440-bc8661ac6d7b"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b3a65eb5-b7cc-45dc-9efc-0f13ab01e5d3",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "LN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "G3399248"
+          }
+        ],
+        "name": [
+          {
+            "family": "surname",
+            "given": [
+              "forename"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:80ec70a5-7ed1-4863-8ef5-a6f4aecf45b4",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "practitioner": {
+          "display": "surname, forename",
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "LN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "G3399248"
+          },
+          "reference": "urn:uuid:b3a65eb5-b7cc-45dc-9efc-0f13ab01e5d3"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d2de466f-1b30-457e-88cb-016dcca70fe6",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "authoredOn": "2026-08-20T00:58:41+00:00",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "XTRANSPX_HLAAS",
+              "display": "HLA ANTIBODY SCREENING (TRANSPLANT)",
+              "system": "HISTOTRACEAP"
+            }
+          ]
+        },
+        "encounter": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "visit_no"
+          },
+          "reference": "urn:uuid:5697b549-9e50-4374-b7ec-206c893afda0"
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "EPC"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "300995243"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PGN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "visit_no"
+          }
+        ],
+        "intent": "order",
+        "note": [
+          {
+            "text": "Patient Test(s):->HLA ANTIBODY SCREENING (TRANSPLANT)\\nHLA Type:->Patient\\nPatient type:->Renal\\nOrgan:->Kidney\\nSpecimen source->Blood\\n"
+          }
+        ],
+        "requester": {
+          "reference": "urn:uuid:80ec70a5-7ed1-4863-8ef5-a6f4aecf45b4"
+        },
+        "status": "active",
+        "subject": {
+          "reference": "urn:uuid:56b03299-cf02-47ec-a440-bc8661ac6d7b"
+        }
+      }
+    }
+  ],
+  "identifier": {
+    "value": "Epic:Beaker:2386275941"
+  },
+  "timestamp": "2026-08-20T09:36:44+00:00",
+  "type": "message"
+}

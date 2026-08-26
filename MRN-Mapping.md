@@ -8,67 +8,69 @@ Cross-referenced from every patient identifier found in `Input/StarLIMSSampleDat
 - Where a patient shows more than one MRN in the same trust column (semicolon-separated), the source files disagree — see the file list below the table.
 - `Input/EDITestPatientsctDNA.csv` and `Input/NEYctDNA.csv` MRNs are not read directly into the trust columns — their data is already captured via the `ctdna*.txt`/`ctdna9999999*.txt` HL7 v2 files they generate; they're only used here for `Patient Number(s)`.
 - Fetus/baby rows in `Input/StarLIMSSampleData.csv` (`PatientGivenName` of the form `Fetus of <mother>`/`Baby of <mother>`) are a fixed StarLIMS export that has no columns of its own for a fetus/baby's identity: `NHSNumber`, `DateOfBirth`, and `AdministrativeSex` are populated with the mother's own NHS number, DOB, and `Unknown` respectively. The mother and fetus/baby are still separate entities/patients, so each gets its own row below (`Surname` suffixed `(fetus)`/`(baby)` to distinguish it) rather than being folded into the mother's row. Since the StarLIMS export never carries a real NHS number for the fetus/baby itself (only the mother's, as a placeholder), the `NHS Number` column is left blank for these rows; `Mother Patient Numbers` instead cross-references the mother's own row via her `Patient Number(s)`.
+- `CB07442115` under `CCC`/`REN` (Liverpool/Ned) is a hand-picked synthetic MRN, not sourced from any CSV — `Input/V2/O01/Clatterbridge-Order.txt` and `Input/V2/R01/LUFT_ORU_For_Clatterbridge.txt` previously carried `X`-masked/redacted demographics with no usable NHS number, which the RIE rejected; they were de-anonymised to Liverpool/Ned (already the patient used in `Input/V2/R01/Clatterbridge-REN-ORU_R01.txt`) to keep one consistent Merseyside test patient across all three Clatterbridge fixtures.
 - The four fetus/baby `OML^O21` order examples in `Input/V2/O21/` (`OML_O21_R0A_FetusOfCersei_R22.1.txt`, `OML_O21_RXR_BabyOfGilly_R318.1.txt`, `OML_O21_QE1_BabyOfLysa_R318.1.txt`, `OML_O21_UNK_FetusOfYara_R22.1.txt`) put the fetus/baby's own identifiers in PID (PID-2 `iGene` PI, PID-3 trust MR) and the mother's identifiers in NK1-31 as repeating CX values — NHS number (`^^^NHS^NH`), trust MRN (`^^^<trust>^MR`), and `iGene` PI (`^^^iGene^PI`). The mother's NK1 PI is the same value already recorded as her `Patient Number(s)` / that row's `Mother Patient Numbers` above (e.g. Cersei/London 345654, Gilly/Brough 200003, Lysa/Buxton 200024, Yara/Hull 200048); her NK1 MRN is the same value already recorded in her trust column.
 
-| NHS Number | Surname | Patient Number(s) | Mother Patient Numbers | 01A | EPI | QE1 | R0A | R0B | RAE | RBS | RBT | RCB | RCD | REM | REP | RHQ | RJE | RJR | RK5 | RM3 | RMC | RMP | RNN | RPY | RQM | RR8 | RTD | RTG | RTR | RTX | RVR | RWA | RWJ | RX1 | RXK | RXL | RXP | RXR | RXW | UNK |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 756 977 3373 | Appclindoc |  |  |  | 20003025 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3249 | Birmingham | 345574 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 | AB21580 |  |  |  |  |
-| 973 738 3370 | Blackburn | 200004 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXR6078306 |  | ICE212730 |
-| 973 738 3273 | Bolton | 200026 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 | RMC7021955 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | AG30913 |  |  |  |  |
-| 973 787 3882 | Bradford | 200009 |  |  |  |  |  |  | RAE9191583 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3362 | Brough | 200003 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RNN1799141 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 6016117 |  |  |
-|  | Brough (baby) | 200081 | 200003 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXR200081 |  |  |
-| 973 738 3389 | Burnley | 200008 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | B6789567; RXR5797566 |  | 7345828 |
-| 973 738 3338 | Buxton | 200024 |  |  |  | RXR3097000 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RWJ7613989 |  |  |  |  |  |  |  |
-|  | Buxton (baby) | 200083 | 200024 |  |  | QE1200083 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 944 930 5552 | Chislett | 200067 |  |  |  |  | G179494 |  |  |  |  |  |  |  |  | RHQ4697183 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3281 | Congleton | 200031 |  |  |  |  | ABC14567 |  |  |  | RBT5094163 |  |  |  | W0007939 |  |  | 1571313 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 787 3998 | Durham | 200029 |  |  |  |  |  |  | 336577 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXP7136968 |  |  |  |
-| 999 999 9476 | Editestpatient | 300000 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTG1565235 |  |  |  |  |  |  |  |  |  |  |  |  |
-| 999 999 9565 | Editestpatient | 300001 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RQM1552395 |  |  |  |  |  |  |  |  | RX14614942 |  |  |  |  |  |  |
-| 999 999 9506 | Editestpatient | 300002 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK53341875 |  |  |  |  |  |  |  |  |  |  |  | RVR1065281 |  |  |  |  |  |  |  |  |  |
-| 999 999 9603 | Editestpatient | 300003 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK59690678 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RX14389121 |  |  |  |  |  |  |
-| 999 999 9522 | Editestpatient | 300004 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RPY1365182 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXW5005259 |  |
-| 999 999 9557 | Editestpatient | 300005 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXW5420830 |  |
-| 999 999 9484 | Editestpatient | 300007 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RPY9047131 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXW4460305 |  |
-| 999 999 9573 | Editestpatient | 300009 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK57213042 |  |  |  |  | RPY2286785 |  |  |  |  |  |  |  |  |  | RX17825652 |  |  |  |  |  |  |
-| 999 999 9581 | Editestpatient | 300010 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK57256476 |  |  |  |  |  |  |  |  |  |  |  | RVR6796096 |  |  |  |  |  |  |  |  |  |
-| 999 999 9514 | Editestpatient | 300011 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RJE8170665 |  |  |  |  |  |  | RPY8254161 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 999 999 9468 | Editestpatient | 300015 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTG9688587 |  |  | RVR5177394 |  |  |  |  |  |  |  |  |  |
-| 999 999 9549 | Editestpatient | 300021 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTG7042851 |  |  |  |  |  | RX17717436 |  |  |  |  | RXW3271523 |  |
-| 999 999 9530 | Editestpatient | 300022 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RPY3798123 | RQM7318513 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 999 999 9492 | Editestpatient | 300024 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RJE6068695 |  |  |  |  |  |  | RPY5120065 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 999 999 9900 | Gp Comms,\R\'#$% |  |  |  | 207230 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3346 | Hawes | 200018 |  |  |  |  |  |  |  | B67890 |  |  | RCD9077482 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 6009355 |  |  |
-| 973 787 3963 | Hull | 200048 |  |  |  |  |  |  |  |  |  |  |  |  |  | WL3847 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RWA4931899 |  |  |  |  |  |  |  | RMP00416845 |
-|  | Hull (fetus) | 200082 | 200048 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | UNK200082 |
-| 590 011 1075 | Jones |  |  |  | 20006087 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3354 | Kendal | 200063 |  |  |  |  | 10991888 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTX3170820 |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3214 | Lancaster | 200006 |  |  |  |  | 2401711 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTX7565482 |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3222 | Leeds | 32737 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | L765432; RR83108802; RXR0817610 |  |  |  |  |  |  |  |  |  |  |  |  |  | 79463383 |
-| 973 738 3206 | Liverpool | 200021 |  |  |  |  | 9041393 |  |  |  |  |  |  | REM7442130 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3230 | London | 345654 |  |  |  |  | 505181 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-|  | London (fetus) | 200080 | 345654 |  |  |  | R0A200080 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3192 | Manchester | 200000 |  |  |  |  | 1234567; R0A4990415 |  |  | A12345 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTX0641579 |  |  |  |  |  |  |  |  |  |  |
-| 973 787 3971 | Middlesborough | 200001 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1342615; RTR2920101 |  |  |  |  |  |  |  |  |  |  |  |
-| 973 787 3947 | Newcastle | 200041 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTD9944958; RXR3178922 |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3311 | Northwich | 200013 |  |  |  |  |  |  |  |  | RBT1044193 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXR3669592 |
-| 973 738 3265 | Nottingham | 200034 |  |  |  |  |  |  |  |  |  | RCB2009594 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 |  |  |  |  |  |  |
-| 973 787 3858 | Sheffield | 200012 |  |  |  |  |  |  |  |  |  |  |  |  |  | RHQ5948241; RXR3302855 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2069650 |
-| 973 738 3413 | Streford | 200007 |  |  |  |  | R0A3594349 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 787 3874 | Sunderland | 200058 |  |  |  |  |  | R0B2364016 |  |  |  |  |  |  |  |  |  |  |  |  | RMC00177314 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3397 | Tameside | 200016 |  |  |  |  | B6789012 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RMP6419544 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3746334 |
-| 590 012 3170 | Testbeaker |  |  |  | 20010652 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3303 | Warrington | 345660 |  | RXR0303179 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 738 3257 | Wrexham | 200028 |  |  |  |  | 3617899 |  |  |  |  |  |  | REM7676150 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| 973 787 3866 | York | 336384 |  |  |  |  |  |  |  |  |  | 658357 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| NHS Number | Surname | Patient Number(s) | Mother Patient Numbers | 01A | EPI | QE1 | CCC | R0A | R0B | RAE | RBS | RBT | RCB | RCD | REM | REN | REP | RHQ | RJE | RJR | RK5 | RM3 | RMC | RMP | RNN | RPY | RQM | RR8 | RTD | RTG | RTR | RTX | RVR | RWA | RWJ | RX1 | RXK | RXL | RXP | RXR | RXW | UNK |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 756 977 3373 | Appclindoc |  |  |  | 20003025 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3249 | Birmingham | 345574 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 | AB21580 |  |  |  |  |
+| 973 738 3370 | Blackburn | 200004 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXR6078306 |  | ICE212730 |
+| 973 738 3273 | Bolton | 200026 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 | RMC7021955 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | AG30913 |  |  |  |  |
+| 973 787 3882 | Bradford | 200009 |  |  |  |  |  |  |  | RAE9191583 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3362 | Brough | 200003 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RNN1799141 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 6016117 |  |  |
+|  | Brough (baby) | 200081 | 200003 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXR200081 |  |  |
+| 973 738 3389 | Burnley | 200008 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | B6789567; RXR5797566 |  | 7345828 |
+| 973 738 3338 | Buxton | 200024 |  |  |  | RXR3097000 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RWJ7613989 |  |  |  |  |  |  |  |
+|  | Buxton (baby) | 200083 | 200024 |  |  | QE1200083 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 944 930 5552 | Chislett | 200067 |  |  |  |  |  | G179494 |  |  |  |  |  |  |  |  |  | RHQ4697183 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3281 | Congleton | 200031 |  |  |  |  |  | ABC14567 |  |  |  | RBT5094163 |  |  |  |  | W0007939 |  |  | 1571313 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 787 3998 | Durham | 200029 |  |  |  |  |  |  |  | 336577 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXP7136968 |  |  |  |
+| 999 999 9476 | Editestpatient | 300000 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTG1565235 |  |  |  |  |  |  |  |  |  |  |  |  |
+| 999 999 9565 | Editestpatient | 300001 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RQM1552395 |  |  |  |  |  |  |  |  | RX14614942 |  |  |  |  |  |  |
+| 999 999 9506 | Editestpatient | 300002 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK53341875 |  |  |  |  |  |  |  |  |  |  |  | RVR1065281 |  |  |  |  |  |  |  |  |  |
+| 999 999 9603 | Editestpatient | 300003 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK59690678 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RX14389121 |  |  |  |  |  |  |
+| 999 999 9522 | Editestpatient | 300004 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RPY1365182 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXW5005259 |  |
+| 999 999 9557 | Editestpatient | 300005 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXW5420830 |  |
+| 999 999 9484 | Editestpatient | 300007 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RPY9047131 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXW4460305 |  |
+| 999 999 9573 | Editestpatient | 300009 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK57213042 |  |  |  |  | RPY2286785 |  |  |  |  |  |  |  |  |  | RX17825652 |  |  |  |  |  |  |
+| 999 999 9581 | Editestpatient | 300010 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RK57256476 |  |  |  |  |  |  |  |  |  |  |  | RVR6796096 |  |  |  |  |  |  |  |  |  |
+| 999 999 9514 | Editestpatient | 300011 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RJE8170665 |  |  |  |  |  |  | RPY8254161 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 999 999 9468 | Editestpatient | 300015 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTG9688587 |  |  | RVR5177394 |  |  |  |  |  |  |  |  |  |
+| 999 999 9549 | Editestpatient | 300021 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTG7042851 |  |  |  |  |  | RX17717436 |  |  |  |  | RXW3271523 |  |
+| 999 999 9530 | Editestpatient | 300022 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RPY3798123 | RQM7318513 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 999 999 9492 | Editestpatient | 300024 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RJE6068695 |  |  |  |  |  |  | RPY5120065 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 999 999 9900 | Gp Comms,\R\'#$% |  |  |  | 207230 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3346 | Hawes | 200018 |  |  |  |  |  |  |  |  | B67890 |  |  | RCD9077482 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 6009355 |  |  |
+| 973 787 3963 | Hull | 200048 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | WL3847 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RWA4931899 |  |  |  |  |  |  |  | RMP00416845 |
+|  | Hull (fetus) | 200082 | 200048 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | UNK200082 |
+| 590 011 1075 | Jones |  |  |  | 20006087 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3354 | Kendal | 200063 |  |  |  |  |  | 10991888 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTX3170820 |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3214 | Lancaster | 200006 |  |  |  |  |  | 2401711 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTX7565482 |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3222 | Leeds | 32737 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | L765432; RR83108802; RXR0817610 |  |  |  |  |  |  |  |  |  |  |  |  |  | 79463383 |
+| 973 738 3206 | Liverpool | 200021 |  |  |  |  | CB07442115 | 9041393 |  |  |  |  |  |  | REM7442130 | CB07442115 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3230 | London | 345654 |  |  |  |  |  | 505181 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  | London (fetus) | 200080 | 345654 |  |  |  |  | R0A200080 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3192 | Manchester | 200000 |  |  |  |  |  | 1234567; R0A4990415 |  |  | A12345 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTX0641579 |  |  |  |  |  |  |  |  |  |  |
+| 973 787 3971 | Middlesborough | 200001 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1342615; RTR2920101 |  |  |  |  |  |  |  |  |  |  |  |
+| 973 787 3947 | Newcastle | 200041 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RTD9944958; RXR3178922 |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3311 | Northwich | 200013 |  |  |  |  |  |  |  |  |  | RBT1044193 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RXR3669592 |
+| 973 738 3265 | Nottingham | 200034 |  |  |  |  |  |  |  |  |  |  | RCB2009594 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1234567 |  |  |  |  |  |  |
+| 973 787 3858 | Sheffield | 200012 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RHQ5948241; RXR3302855 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2069650 |
+| 973 738 3413 | Streford | 200007 |  |  |  |  |  | R0A3594349 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 787 3874 | Sunderland | 200058 |  |  |  |  |  |  | R0B2364016 |  |  |  |  |  |  |  |  |  |  |  |  |  | RMC00177314 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3397 | Tameside | 200016 |  |  |  |  |  | B6789012 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | RMP6419544 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 3746334 |
+| 590 012 3170 | Testbeaker |  |  |  | 20010652 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3303 | Warrington | 345660 |  | RXR0303179 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 738 3257 | Wrexham | 200028 |  |  |  |  |  | 3617899 |  |  |  |  |  |  | REM7676150 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| 973 787 3866 | York | 336384 |  |  |  |  |  |  |  |  |  |  | 658357 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 
 ## Trust code legend
 
 | Code | Name |
 |---|---|
 | 01A | NHS East Lancashire CCG |
+| CCC | Clatterbridge Cancer Centre NHS Foundation Trust (internal system alias used in `Input/V2/O01/Clatterbridge-Order.txt`'s MSH) |
 | EPI | _unknown_ |
 | QE1 | NHS Lancashire and South Cumbria Integrated Care Board |
 | R0A | Manchester University NHS Foundation Trust |
@@ -79,6 +81,7 @@ Cross-referenced from every patient identifier found in `Input/StarLIMSSampleDat
 | RCB | York and Scarborough Teaching Hospitals NHS Foundation Trust |
 | RCD | Harrogate and District NHS Foundation Trust |
 | REM | Liverpool University Hospitals NHS Foundation Trust |
+| REN | The Clatterbridge Cancer Centre NHS Foundation Trust |
 | REP | Liverpool Women's Hospital |
 | RHQ | Sheffield Teaching Hospitals NHS Foundation Trust |
 | RJE | University Hospitals of North Midlands NHS Trust |

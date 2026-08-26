@@ -13,21 +13,33 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      (PID and NK1 combined into one segment), also checks that the transform split it back
      out into a Patient (the baby/fetus) plus a RelatedPerson (the mother, relationship MTH)
      rather than collapsing them into one Patient - see check_baby_fetus_split.
+     For messages carrying an OBX-2 'ED' segment whose OBX-3 identifier already supplies a
+     SNOMED/LOINC code, or an OBX-2 'CE' segment whose value embeds a PDF, also checks that
+     DocumentReference.type ends up with the expected SNOMED/LOINC coding - preserved as-is
+     for the 'ED' case, substituted in if missing for the 'CE'+PDF case - see
+     check_document_reference_code.
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back
   3. POST the *original* raw v2 message to {V2_SERVER} (the RIE), simulating a real feed;
      expect an ACK within SEND_TIMEOUT seconds with MSA-1 of AA/CA (a slow or negative ACK
      is treated as a fault worth raising, not something to silently wait out).
-     Skipped (recorded as failed) if stage 1's structural or baby/fetus-split checks found a
-     problem - a message transformToFHIR got wrong isn't sent on to the RIE.
+     Skipped (recorded as failed) if stage 1's structural, baby/fetus-split, or
+     DocumentReference-code checks found a problem - a message transformToFHIR got wrong
+     isn't sent on to the RIE.
 
 Stage 1/2 outputs are saved under Output/FHIR/<messageType>/ and Output/V2/<messageType>/,
 matching the layout produced by Testing.ipynb.
 
-TEST_CASES currently covers the baby/fetus O21 orders and R01 reports; extend it with
-further message types/files as they're added.
+TEST_GROUPS covers several exchange scenarios extracted from Testing.ipynb - general
+NHS Trust <-> iGene order/report exchange (O01/O21/R01), the mother/baby-fetus PID+NK1
+split cases (O21/R01), Shire <-> HODS reports (R01), Clatterbridge/Histotrac orders and
+reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01), and
+Cepheid results (R32, sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
+transformToV2 round-trip stage is skipped for these, matching that notebook, since it
+isn't yet verified for R32). Extend TEST_GROUPS with further scenarios/files as they're
+added.
 
 Usage:
-    python3 IntegrationTest.py [--skip-send] [--type O21] [--type R01]
+    python3 IntegrationTest.py [--skip-send] [--type O21] [--type R01] [--group shire]
 
 Exit code is 0 if every stage of every case passed, 1 otherwise.
 """
@@ -55,21 +67,126 @@ HEADERS_FHIR = {"Content-Type": "application/fhir+json"}
 # indefinitely - see stage 3 below.
 SEND_TIMEOUT = 60
 
-# Registry of test cases: message type -> list of filenames under Input/V2/<type>/.
-# Extend this as more examples come online.
-TEST_CASES = {
-    "O21": [
-        "OML_O21_QE1_BabyOfLysa_R318.1.txt",
-        "OML_O21_RXR_BabyOfGilly_R318.1.txt",
-        "OML_O21_UNK_FetusOfYara_R22.1.txt",
-        "OML_O21_R0A_FetusOfCersei_R22.1.txt",
-    ],
-    "R01": [
-        "ORU_R01_QE1_BabyOfLysa_R318.1.txt",
-        "ORU_R01_RXR_BabyOfGilly_R318.1.txt",
-        "ORU_R01_UNK_FetusOfYara_R22.1.txt",
-        "ORU_R01_R0A_FetusOfCersei_R22.1.txt",
-    ],
+# Registry of test scenarios. Each group maps message type -> list of filenames.
+# Filenames are read from Input/V2/<type>/<filename> unless the group sets "input_dir",
+# in which case they're read from <input_dir>/<type>/<filename> instead. A group can set
+# "skip_transform_to_v2" to skip stage 2 for every case in it (see Cepheid, below).
+#
+# HL7 v2 spec compliance note - https://nw-gmsa.github.io/en/hl7v2.html requires MSH-12
+# = "2.5.1" and an explicit MSH-9 trigger structure ("OML^O21^OML_O21" / "ORU^R01^ORU_R01")
+# for every message type it documents (OML_O21, ORU_R01, MDM_T02); it defines no ORM_O01 or
+# R32 profile at all. A sendToServer failure that survives a patient-data fix is usually one
+# of these MSH-9/MSH-12 deviations, not a data problem - see the per-group notes below for
+# which files are known to deviate and whether the RIE tolerates it in practice.
+TEST_GROUPS = {
+    # General order/report exchange between NHS Trusts and iGene - the default scenario.
+    # Deviation note: most R01 files here use the bare trigger "ORU^R01" (no "^ORU_R01") at
+    # MSH-12 "2.3", not the spec's "ORU^R01^ORU_R01"/"2.5.1" - a legacy format the RIE's R01
+    # path tolerates in practice. The O01 files use "2.4", which the IG doesn't define at all
+    # (no ORM_O01 profile) - see the clatterbridge_histotrac note below on why that pattern
+    # isn't safe to assume works for every O01 file.
+    "general": {
+        "cases": {
+            "O21": ["OML_O21_RPY.txt", "OML_O21_R0A_R125.txt"],
+            "O01": ["EPICJune26.txt", "EPICJune9.txt"],
+            "R01": [
+                "ORU_R01_DLIMS.txt",
+                "ORU_R01_R125.1_R0A.txt",
+                "ORU_R01_R125.1_RBS.txt",
+                "ORU_R01_R125.1_REP.txt",
+                "ORU_R01_R125.1_RR8.txt",
+                "ORU_R01_R125.1_RX1.txt",
+                "ORU_R01_R125.1_SG9.txt",
+                "ORU_R01_R125.1_ZT001.txt",
+                "ORU_R01_R125.1_7A3.txt",
+                "ORU_R01_R125.1_RPY.txt",
+                "ORU_R01_GS1_RXK.txt",
+                "LRI-GeneVariant-1.txt",
+                "LRI-GeneVariant-2.txt",
+                "LRI-GeneVariant-3.txt",
+                "LRI-GeneVariant-4.txt",
+                "LRI-GeneVariant-5.txt",
+            ],
+        },
+    },
+    # iGene's "Baby of <mother>"/"Fetus of <mother>" PID+NK1 combined-segment convention -
+    # see check_baby_fetus_split. These files already match the IG's required MSH-9/MSH-12
+    # exactly (explicit "OML^O21^OML_O21"/"ORU^R01^ORU_R01", "2.5.1") - the PID+NK1 combining
+    # is an intentional NW-GMSA/iGene extension layered on top of a conformant message, not a
+    # spec violation, kept deliberately to exercise the Patient+RelatedPerson split.
+    "baby_fetus": {
+        "cases": {
+            "O21": [
+                "OML_O21_QE1_BabyOfLysa_R318.1.txt",
+                "OML_O21_RXR_BabyOfGilly_R318.1.txt",
+                "OML_O21_UNK_FetusOfYara_R22.1.txt",
+                "OML_O21_R0A_FetusOfCersei_R22.1.txt",
+            ],
+            "R01": [
+                "ORU_R01_QE1_BabyOfLysa_R318.1.txt",
+                "ORU_R01_RXR_BabyOfGilly_R318.1.txt",
+                "ORU_R01_UNK_FetusOfYara_R22.1.txt",
+                "ORU_R01_R0A_FetusOfCersei_R22.1.txt",
+            ],
+        },
+    },
+    # Shire (CPP) <-> HODS report exchange. Deviation note: MSH-12 is "2.3.1", which the IG
+    # doesn't define (it specifies "2.5.1") - a Shire-specific legacy variant the RIE
+    # currently tolerates.
+    "shire": {
+        "cases": {
+            "R01": ["SHIRE_ORU_R01_RM3.txt", "Shire-1.txt", "Shire-2.txt"],
+        },
+    },
+    # Clatterbridge Cancer Centre and Histotrac orders/reports.
+    # Deviation notes (MSH-9/MSH-12, not patient data - see Clatterbridge-Order-review.md
+    # for the fuller structural gap list, which goes beyond what was needed to unblock this):
+    #  - Clatterbridge-Order.txt was the only "ORM^O01" fixture in the repo on MSH-12 "2.3"
+    #    (every other one uses "2.4"/"2.5.1") - it was getting a consistent AR reject
+    #    (#5035) even with real patient data. Bumping MSH-12 to "2.4", matching every sibling
+    #    O01 file, fixed it (now ACK AA) - the RIE cares about the version, not just the
+    #    (still IG-nonconformant, since OML_O21 is the only order profile the IG defines)
+    #    ORM^O01 trigger itself.
+    #  - histotrac.txt and histotrac-MFT.txt (R01): both rebuilt to the IG's PDF-report
+    #    pattern (https://nw-gmsa.github.io/en/hl7v2.html) - MSH-9 "ORU^R01^ORU_R01"/MSH-12
+    #    "2.5.1", OBR-4 the SNOMED discipline code
+    #    "909871000000100^Histocompatibility and immunogenetics^SNM3" (replacing the local
+    #    HISTOTRACEAP/no-OBR-at-all versions), and the embedded-PDF OBX per the IG's literal
+    #    example: OBX-2 "ED", OBX-3 "1054161000000101^Genetic report^SNM3", OBX-5
+    #    "MOL^IM^PDF^Base64^<data>", OBX-11 "F".
+    "clatterbridge_histotrac": {
+        "cases": {
+            "O01": ["Clatterbridge-Order.txt", "histotrac-MFT.txt"],
+            "R01": [
+                "Clatterbridge-REN-ORU_R01.txt",
+                "histotrac.txt",
+                "histotrac-MFT.txt",
+            ],
+        },
+    },
+    # ctDNA orders/reports between NW Genomics (iGene) and NEY Genomics.
+    "ctdna": {
+        "cases": {
+            "R01": ["ctDNA-Glasgow.txt", "ctdna9737383222.txt"],
+        },
+    },
+    # Cepheid GeneXpert results (message type R32). Sourced from Input/ASTM/R32 - see
+    # Testing-Cephied.ipynb, which flags the old Input/V2/R32 source as superseded by
+    # these files and skips the transformToV2 round-trip stage, so we do too.
+    # Deviation note: R32 isn't defined anywhere in the NW-GMSA IG (only OML_O21, ORU_R01,
+    # and MDM_T02 are), so this group is inherently off-spec regardless of version. It's also
+    # been the least reliable group to run live - every case bare-timed-out (no ACK at all,
+    # unlike the reject-style AR/#5035 failures seen on genuine version mismatches) in earlier
+    # runs, then passed cleanly with no code/data change at all in a later run, which points to
+    # transient RIE-side unavailability for this group rather than a routing gap - but with an
+    # off-spec trigger event in the mix too, that's not fully ruled out either.
+    "cepheid": {
+        "input_dir": os.path.join("Input", "ASTM"),
+        "skip_transform_to_v2": True,
+        "cases": {
+            "R32": [f"cepheid-{i}.txt" for i in range(1, 8)],
+        },
+    },
 }
 
 
@@ -249,6 +366,100 @@ def check_baby_fetus_split(v2_text, bundle):
     return True, problems
 
 
+# v2 CE/CWE coding-system abbreviations (3rd component) mapped to their FHIR system URI -
+# used by check_document_reference_code below.
+V2_CODE_SYSTEM_TO_FHIR = {
+    "SNM3": "http://snomed.info/sct",
+    "SCT": "http://snomed.info/sct",
+    "SNOMED-CT": "http://snomed.info/sct",
+    "LN": "http://loinc.org",
+    "LOINC": "http://loinc.org",
+}
+
+
+def extract_obx_segments(v2_text):
+    """Return every OBX segment from a raw v2 message, each split on '|'."""
+    segments = [s for s in v2_text.replace("\r\n", "\r").split("\r") if s]
+    return [s.split("|") for s in segments if s.startswith("OBX|")]
+
+
+def find_document_reference(bundle):
+    for entry in bundle.get("entry", []):
+        resource = entry.get("resource", {})
+        if resource.get("resourceType") == "DocumentReference":
+            return resource
+    return None
+
+
+def check_document_reference_code(v2_text, bundle):
+    """DocumentReference.type must carry a SNOMED/LOINC coding consistent with the source
+    OBX, per two NW-GMSA conventions (see the histotrac vs. ORU_R01_R125.1_RR8 fixtures):
+
+      - OBX-2 'ED' (encapsulated data): if OBX-3 (the observation identifier) itself
+        supplies a SNOMED (SNM3/SCT) or LOINC (LN) code - e.g. histotrac.txt's OBX-3
+        "1054161000000101^Genetic report^SNM3" - that exact code+system must be preserved
+        on DocumentReference.type. The transform must not drop or substitute a supplied code.
+      - OBX-2 'CE' whose value embeds a PDF (OBX-5 containing an 'application/pdf'
+        attachment, the iGene panel-report convention e.g. ORU_R01_R125.1_RR8.txt):
+        DocumentReference.type must carry *some* SNOMED or LOINC coding, even when OBX-3
+        only supplies a local/vendor code (e.g. an IGEAP panel code) with no SNOMED/LOINC
+        equivalent of its own - substituting in a LOINC/SNOMED code here is expected/fine
+        since the source identifier didn't supply one.
+
+    Returns (applicable, problems): applicable is False (and problems is []) for messages
+    with no OBX matching either convention.
+    """
+    applicable = False
+    problems = []
+
+    doc_ref = find_document_reference(bundle) if isinstance(bundle, dict) else None
+    doc_ref_codings = (doc_ref or {}).get("type", {}).get("coding", [])
+    doc_ref_has_snomed_or_loinc = any(
+        c.get("system") in ("http://snomed.info/sct", "http://loinc.org")
+        for c in doc_ref_codings
+    )
+
+    for fields in extract_obx_segments(v2_text):
+        value_type = fields[2] if len(fields) > 2 else ""
+        identifier = fields[3] if len(fields) > 3 else ""
+        value = fields[5] if len(fields) > 5 else ""
+        id_components = identifier.split("^")
+        # v2 fields are sometimes fixed-width padded (e.g. "51969-4    ^Full narrative
+        # report^LN") - the transform trims this before emitting the FHIR code, so strip
+        # here too or every padded fixture false-positives against the trimmed FHIR code.
+        id_code = id_components[0].strip() if id_components else ""
+        id_system_raw = id_components[2].strip() if len(id_components) > 2 else ""
+        id_system = V2_CODE_SYSTEM_TO_FHIR.get(id_system_raw.upper())
+
+        if value_type == "ED" and id_system:
+            applicable = True
+            if not doc_ref:
+                problems.append(
+                    f"OBX-3 supplies {id_system_raw} code {id_code!r} but no DocumentReference "
+                    "found in the bundle"
+                )
+            elif not any(
+                c.get("code") == id_code and c.get("system") == id_system
+                for c in doc_ref_codings
+            ):
+                problems.append(
+                    f"OBX-3 code {id_code!r} ({id_system_raw}) not preserved on "
+                    f"DocumentReference.type (found: {doc_ref_codings})"
+                )
+
+        if value_type == "CE" and "application/pdf" in value.lower():
+            applicable = True
+            if not doc_ref:
+                problems.append("OBX-5 embeds a PDF but no DocumentReference found in the bundle")
+            elif not doc_ref_has_snomed_or_loinc:
+                problems.append(
+                    "OBX-5 embeds a PDF but DocumentReference.type has no SNOMED/LOINC coding "
+                    f"(found: {doc_ref_codings})"
+                )
+
+    return applicable, list(dict.fromkeys(problems))
+
+
 class CaseResult:
     def __init__(self, name):
         self.name = name
@@ -262,9 +473,10 @@ class CaseResult:
         return all(passed for _, passed, _ in self.stages)
 
 
-def run_case(session, msg_type, filename, skip_send, save_output=True):
-    result = CaseResult(f"{msg_type}/{filename}")
-    in_path = os.path.join("Input", "V2", msg_type, filename)
+def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
+             skip_transform_to_v2=False, save_output=True):
+    result = CaseResult(f"{group}/{msg_type}/{filename}")
+    in_path = os.path.join(input_dir or os.path.join("Input", "V2"), msg_type, filename)
 
     if not os.path.exists(in_path):
         result.record("load", False, f"file not found: {in_path}")
@@ -316,10 +528,26 @@ def run_case(session, msg_type, filename, skip_send, save_output=True):
         else:
             result.record("babyFetusSplit", True, "Patient (baby/fetus) + RelatedPerson (mother) correctly split")
 
-    # A structural/split problem means transformToFHIR produced something wrong - don't let a
-    # bad transform reach the RIE. transformToV2 still runs below (useful diagnostic on its
-    # own), but stage 3 (send to server) is skipped once we reach it.
-    transform_error = bool(problems) or (applicable and bool(split_problems))
+    # --- OBX ED/CE(+PDF) source code -> DocumentReference.type check (only applies when an
+    # OBX in the message matches one of the two conventions - see check_document_reference_code) ---
+    doc_applicable, doc_problems = check_document_reference_code(v2_bytes.decode("utf-8"), fhir_json)
+    if doc_applicable:
+        if doc_problems:
+            result.record("documentReferenceCode", False, "; ".join(doc_problems))
+        else:
+            result.record(
+                "documentReferenceCode", True,
+                "DocumentReference.type carries the expected SNOMED/LOINC coding",
+            )
+
+    # A structural/split/coding problem means transformToFHIR produced something wrong -
+    # don't let a bad transform reach the RIE. transformToV2 still runs below (useful
+    # diagnostic on its own), but stage 3 (send to server) is skipped once we reach it.
+    transform_error = (
+        bool(problems)
+        or (applicable and bool(split_problems))
+        or (doc_applicable and bool(doc_problems))
+    )
 
     if save_output:
         out_dir = os.path.join("Output", "FHIR", msg_type)
@@ -328,31 +556,34 @@ def run_case(session, msg_type, filename, skip_send, save_output=True):
             f.write(r1.text)
 
     # --- Stage 2: transformToV2 ---
-    try:
-        r2 = session.post(
-            f"{V2_TOOLS}/transformToV2", data=r1.text,
-            headers=HEADERS_FHIR, verify=False, timeout=30,
-        )
-    except requests.RequestException as e:
-        result.record("transformToV2", False, f"request error: {e}")
-        return result
+    if skip_transform_to_v2:
+        result.record("transformToV2", True, "skipped for this group")
+    else:
+        try:
+            r2 = session.post(
+                f"{V2_TOOLS}/transformToV2", data=r1.text,
+                headers=HEADERS_FHIR, verify=False, timeout=30,
+            )
+        except requests.RequestException as e:
+            result.record("transformToV2", False, f"request error: {e}")
+            return result
 
-    if r2.status_code != 200:
-        result.record("transformToV2", False, f"HTTP {r2.status_code}: {r2.text[:200]}")
-        return result
+        if r2.status_code != 200:
+            result.record("transformToV2", False, f"HTTP {r2.status_code}: {r2.text[:200]}")
+            return result
 
-    v2_roundtrip = r2.text
-    if not v2_roundtrip.lstrip().startswith("MSH|"):
-        result.record("transformToV2", False, "round-tripped output does not start with an MSH segment")
-        return result
+        v2_roundtrip = r2.text
+        if not v2_roundtrip.lstrip().startswith("MSH|"):
+            result.record("transformToV2", False, "round-tripped output does not start with an MSH segment")
+            return result
 
-    result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
+        result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
 
-    if save_output:
-        out_dir = os.path.join("Output", "V2", msg_type)
-        os.makedirs(out_dir, exist_ok=True)
-        with open(os.path.join(out_dir, filename), "w", encoding="utf-8", errors="replace", newline="") as f:
-            f.write(v2_roundtrip)
+        if save_output:
+            out_dir = os.path.join("Output", "V2", msg_type)
+            os.makedirs(out_dir, exist_ok=True)
+            with open(os.path.join(out_dir, filename), "w", encoding="utf-8", errors="replace", newline="") as f:
+                f.write(v2_roundtrip)
 
     # --- Stage 3: send original v2 to the RIE ---
     if transform_error:
@@ -391,10 +622,19 @@ def run_case(session, msg_type, filename, skip_send, save_output=True):
     return result
 
 
+ALL_MSG_TYPES = sorted({
+    msg_type for group in TEST_GROUPS.values() for msg_type in group["cases"]
+})
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--type", action="append", dest="types", choices=sorted(TEST_CASES),
+        "--group", action="append", dest="groups", choices=sorted(TEST_GROUPS),
+        help="Restrict the run to one or more scenario groups (repeatable). Default: all registered groups.",
+    )
+    parser.add_argument(
+        "--type", action="append", dest="types", choices=ALL_MSG_TYPES,
         help="Restrict the run to one or more message types (repeatable). Default: all registered types.",
     )
     parser.add_argument(
@@ -407,13 +647,20 @@ def main():
         print("V2_TOOLS / V2_SERVER not set - check .env", file=sys.stderr)
         sys.exit(2)
 
-    types = args.types or list(TEST_CASES)
+    groups = args.groups or list(TEST_GROUPS)
+    types = args.types or ALL_MSG_TYPES
 
     session = requests.Session()
     results = []
-    for msg_type in types:
-        for filename in TEST_CASES[msg_type]:
-            results.append(run_case(session, msg_type, filename, args.skip_send))
+    for group_name in groups:
+        group = TEST_GROUPS[group_name]
+        for msg_type in types:
+            for filename in group["cases"].get(msg_type, []):
+                results.append(run_case(
+                    session, group_name, msg_type, filename, args.skip_send,
+                    input_dir=group.get("input_dir"),
+                    skip_transform_to_v2=group.get("skip_transform_to_v2", False),
+                ))
 
     failures = 0
     for r in results:
