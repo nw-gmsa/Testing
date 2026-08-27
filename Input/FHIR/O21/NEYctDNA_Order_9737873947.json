@@ -1,0 +1,243 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "value": "urn:uuid:089b27eb-1b44-4f1b-8de9-1e8ea6a0f7d3"
+  },
+  "timestamp": "2026-08-27T06:26:36+00:00",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:c4ec1c10-3f56-4e71-8e4e-2eedb2067281",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "eventCoding": {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003",
+          "code": "O21"
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RTD"
+          }
+        },
+        "destination": [
+          {
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GLH",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            }
+          }
+        ],
+        "source": {
+          "endpoint": "https://192.168.1.62/healthconnect/ESB/"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:ebb64a84-655d-424a-a8ce-7d04e9417e7a"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3948ed46-472e-42c8-9437-d4b2554044b8",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737873947"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RTD"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "RXR3178922"
+          }
+        ],
+        "name": [
+          {
+            "family": "NEWCASTLE",
+            "given": [
+              "Rheana"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2009-06-11",
+        "address": [
+          {
+            "postalCode": "NE1 4LP"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8f7df93d-925c-4232-96d3-a83e54b87e9c",
+      "resource": {
+        "resourceType": "Specimen",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RTD"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "S26-1K1L"
+          }
+        ],
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258580003",
+              "display": "Whole blood specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:3948ed46-472e-42c8-9437-d4b2554044b8",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737873947"
+          }
+        },
+        "collection": {
+          "collectedDateTime": "2026-06-29T12:00:00+00:00"
+        },
+        "receivedTime": "2026-06-30T12:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ebb64a84-655d-424a-a8ce-7d04e9417e7a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116148004"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "M4.14"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RTD"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "200041"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "R26-15AW"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:3948ed46-472e-42c8-9437-d4b2554044b8",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737873947"
+          }
+        },
+        "requester": {
+          "display": "The Newcastle Upon Tyne Hospitals NHS Foundation Trust",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RTD"
+          },
+          "type": "Organization"
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:8f7df93d-925c-4232-96d3-a83e54b87e9c",
+            "type": "Specimen"
+          }
+        ],
+        "authoredOn": "2026-06-30T12:00:00+00:00"
+      }
+    }
+  ]
+}
