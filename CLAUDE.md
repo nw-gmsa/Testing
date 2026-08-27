@@ -55,20 +55,20 @@ java -jar validator_cli.jar Output/FHIR/R01/<file>.json -version 4.0.1 -ig packa
 Results (OperationOutcome JSON) land in `Results/FHIR/<type>/` and are summarized into
 pandas DataFrames / HTML reports (`Results/report_template.html`).
 
-**Report rendering pipeline** (`MarkdownToPDF.ipynb`,
-`PDFExtractionFromFHIRandMarkdownFromPDF.ipynb`, `PDFMetadataExtraction.ipynb`,
-`PDFTextAnalytics.ipynb`): extracts embedded PDFs/Binary resources from FHIR
+**Report rendering pipeline** (`miscellaneous-notebooks/MarkdownToPDF.ipynb`,
+`miscellaneous-notebooks/PDFExtractionFromFHIRandMarkdownFromPDF.ipynb`, `miscellaneous-notebooks/PDFMetadataExtraction.ipynb`,
+`miscellaneous-notebooks/PDFTextAnalytics.ipynb`): extracts embedded PDFs/Binary resources from FHIR
 DiagnosticReports, converts markdown lab narratives to PDF via WeasyPrint, and back
 again via `pymupdf`/`pymupdf4llm`/`tabula`/`pypdf`, with optional spaCy/scispacy NLP
 over the extracted text.
 
-**Bulk generation** (`SendctDNAReports.ipynb`, `NEYctDNA-HL7v2ORU_R01.ipynb`,
-`CSVTools.ipynb`): builds large batches of synthetic ctDNA HL7 v2 R01 messages from CSV
+**Bulk generation** (`miscellaneous-notebooks/SendctDNAReports.ipynb`, `miscellaneous-notebooks/NEYctDNA-HL7v2ORU_R01.ipynb`,
+`miscellaneous-notebooks/CSVTools.ipynb`): builds large batches of synthetic ctDNA HL7 v2 R01 messages from CSV
 patient/order data (`Input/PDS/*.csv`, `NotGit/*SampleData.csv`) and posts them to
 `V2_SERVER` in bulk (see `Input/V2/R01/ctdna<NHSNumber>_<seq>.txt` naming convention;
 `9999999*` prefix = NHS England EDI test patients).
 
-**VCF -> FHIR genomics-reporting `variant`** (`VCFToFHIRVariant.ipynb`): standalone
+**VCF -> FHIR genomics-reporting `variant`** (`miscellaneous-notebooks/VCFToFHIRVariant.ipynb`): standalone
 demo, unrelated to the NW-GMSA v2/FHIR round-trip above. Parses a VCF from `Input/VCF/`
 (field-to-LOINC mapping is read directly out of the VCF's own `##INFO`/`##FORMAT`
 `Description` meta-lines) and builds `Observation` resources conforming to the **HL7
@@ -90,7 +90,7 @@ results in `Results/FHIR/GenomicsReporting/`.
 - `Input/FHIR/` — source FHIR examples used for `transformToV2`.
 - `Input/PDS/`, `Input/ctDNA/`, `Input/ASTM/` — reference patient data (PDS extracts) and
   other source formats (ASTM instrument output).
-- `Input/VCF/` — source VCF files for the standalone `VCFToFHIRVariant.ipynb` demo (HL7
+- `Input/VCF/` — source VCF files for the standalone `miscellaneous-notebooks/VCFToFHIRVariant.ipynb` demo (HL7
   genomics-reporting IG `variant` profile, not the NW-GMSA pipeline).
 - `Output/{FHIR,V2,PDF,Markdown}/<type>/` — generated artifacts from the transform/render
   pipelines (`<type>` includes `GenomicsReporting` for the VCF demo's output).
