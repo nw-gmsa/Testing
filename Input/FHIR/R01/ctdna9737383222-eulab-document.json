@@ -1,0 +1,2061 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:f1dd8d81-133f-4145-b6d2-dadaaf5b7350"
+  },
+  "timestamp": "2026-08-27T11:00:34+00:00",
+  "type": "document",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:47079d71-eb31-4f32-8995-296bdf81632f",
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference",
+            "valueReference": {
+              "reference": "urn:uuid:81f8fc47-415a-4f38-b2a1-acffda9396b5"
+            }
+          }
+        ],
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:uuid:4e4d9ddc-fa2f-4d57-a30f-233991d7dd29"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11502-2",
+              "display": "Laboratory report"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "26436-6",
+                "display": "Laboratory Studies (set)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "date": "2026-07-14T15:59:16+00:00",
+        "author": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "title": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon - Laboratory Report and Genomic Findings",
+        "section": [
+          {
+            "title": "Laboratory Report",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81306-3",
+                  "display": "Variables that apply to the overall study"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon</b> (M4.14), requested by Leeds Teaching Hospitals NHS Trust.</p><p>Result: <b>FAILURE</b>. Reported by NHS North West Genomics, interpreted by Jonathan Edgerley.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:81f8fc47-415a-4f38-b2a1-acffda9396b5",
+                "type": "DiagnosticReport"
+              }
+            ]
+          },
+          {
+            "title": "Genomic Findings",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69548-6",
+                  "display": "Genetic variant assessment"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid\"><tr><th>Gene</th><th>DNA change (c.HGVS)</th><th>Protein change (p.HGVS)</th><th>Change type</th><th>Zygosity</th><th>Classification</th></tr><tr><td>BRCA1</td><td>NM_007294.3(BRCA1):c.68_69del</td><td>p.(Glu23ValfsTer17)</td><td>deletion</td><td>heterozygous</td><td>Pathogenic</td></tr><tr><td>FBN1</td><td>NM_000138.4(FBN1):exon13_to_exon15del</td><td>-</td><td>copy_number_variation</td><td>-</td><td>Pathogenic</td></tr><tr><td>-</td><td>-</td><td>-</td><td>copy_number_variation</td><td>-</td><td>Pathogenic</td></tr><tr><td>-</td><td>-</td><td>-</td><td>deletion</td><td>-</td><td>Pathogenic</td></tr></table></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:c29423c8-a382-466c-91b7-0042f11a6b06",
+                "type": "Observation"
+              },
+              {
+                "reference": "urn:uuid:cff6b33d-aef9-4414-9f08-73ad3fe7650a",
+                "type": "Observation"
+              },
+              {
+                "reference": "urn:uuid:8cc93e0c-eb75-4ac6-92be-4fe346d4de92",
+                "type": "Observation"
+              },
+              {
+                "reference": "urn:uuid:fceb2bc2-62d9-47f5-a29e-8026df5d9213",
+                "type": "Observation"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RR8"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "RXR0817610"
+          }
+        ],
+        "name": [
+          {
+            "family": "LEEDS",
+            "given": [
+              "Rob"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1978-01-17",
+        "address": [
+          {
+            "postalCode": "LS1 3EX"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+      "resource": {
+        "resourceType": "Encounter",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "OBSENC"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN"
+                }
+              ]
+            },
+            "value": "SP26-01847"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9228f35d-01d3-419c-ae95-58ac060b63f2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "completed",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116148004"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "M4.14"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RR8"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "1234-RR8"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "requester": {
+          "display": "Leeds Teaching Hospitals NHS Trust",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RR8"
+          },
+          "type": "Organization"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "code": "M4"
+              }
+            ]
+          }
+        ],
+        "encounter": {
+          "reference": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN"
+                }
+              ]
+            },
+            "value": "SP26-01847"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1342b774-30ae-4e3a-9994-5227db925698",
+      "resource": {
+        "resourceType": "Organization",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          }
+        ],
+        "name": "NHS North West Genomics"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f601fcaa-5e87-45eb-af24-419ff15a2f9a",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:768eda1b-fea1-4f0b-a101-193017a6baa3",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "date": "2026-07-14T15:59:16+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2"
+          }
+        ],
+        "custodian": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:f601fcaa-5e87-45eb-af24-419ff15a2f9a"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "start": "2026-07-14T15:59:16+00:00",
+            "end": "2026-07-14T15:59:16+00:00"
+          },
+          "encounter": [
+            {
+              "reference": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+              "type": "Encounter",
+              "identifier": {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "AN"
+                    }
+                  ]
+                },
+                "value": "SP26-01847"
+              }
+            }
+          ],
+          "sourcePatientInfo": {
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RR8"
+                }
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "MR"
+                  }
+                ]
+              },
+              "value": "RXR0817610"
+            }
+          },
+          "related": [
+            {
+              "reference": "urn:uuid:9228f35d-01d3-419c-ae95-58ac060b63f2",
+              "type": "ServiceRequest",
+              "identifier": {
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "RR8"
+                  }
+                },
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "PLAC"
+                    }
+                  ]
+                },
+                "value": "1234-RR8"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:81f8fc47-415a-4f38-b2a1-acffda9396b5",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP",
+              "code": "ctDNA_M4",
+              "display": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon"
+            },
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "M4.14",
+              "display": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "51969-4",
+              "display": "Genetic analysis report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "encounter": {
+          "reference": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN"
+                }
+              ]
+            },
+            "value": "SP26-01847"
+          }
+        },
+        "effectiveDateTime": "2026-07-14T15:59:16+00:00",
+        "issued": "2026-07-14T15:59:16+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "urn:uuid:9228f35d-01d3-419c-ae95-58ac060b63f2",
+            "type": "ServiceRequest",
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RR8"
+                }
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "PLAC"
+                  }
+                ]
+              },
+              "value": "1234-RR8"
+            }
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:0c55aa16-f8bf-4af7-b1b4-75bdc0720030",
+            "type": "Observation",
+            "display": "Variables that apply to the overall study"
+          },
+          {
+            "reference": "urn:uuid:c29423c8-a382-466c-91b7-0042f11a6b06",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:cff6b33d-aef9-4414-9f08-73ad3fe7650a",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:8cc93e0c-eb75-4ac6-92be-4fe346d4de92",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:fceb2bc2-62d9-47f5-a29e-8026df5d9213",
+            "type": "Observation"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "display": "Jonathan Edgerley"
+          }
+        ],
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                "code": "971",
+                "display": "FAILURE"
+              }
+            ]
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "url": "urn:uuid:f601fcaa-5e87-45eb-af24-419ff15a2f9a"
+          }
+        ],
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport",
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomic-report"
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0c55aa16-f8bf-4af7-b1b4-75bdc0720030",
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "81306-3",
+              "display": "Variables that apply to the overall study"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "effectiveDateTime": "2026-07-14T15:59:16+00:00",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "51967-8"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                  "code": "M4"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "51968-6"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                  "code": "971",
+                  "display": "FAILURE"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c29423c8-a382-466c-91b7-0042f11a6b06",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "c29423c8-a382-466c-91b7-0042f11a6b06",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c"
+        },
+        "effectiveDateTime": "2026-07-14T15:59:16+00:00",
+        "performer": [
+          {
+            "reference": "urn:uuid:1342b774-30ae-4e3a-9994-5227db925698"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA9633-4",
+              "display": "Present"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA26398-0",
+              "display": "Sequencing"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48018-6",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.genenames.org",
+                  "code": "HGNC:1100",
+                  "display": "BRCA1"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48002-0",
+                  "display": "Genomic source class [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA6683-2",
+                  "display": "Germline"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48013-7",
+                  "display": "Genomic reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq",
+                  "code": "NC_000017.10"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "92822-6",
+                  "display": "Genomic coordinate system [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA30102-0",
+                  "display": "1-based character counting"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69547-8",
+                  "display": "Genomic ref allele [ID]"
+                }
+              ]
+            },
+            "valueString": "TCT"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69551-0",
+                  "display": "Genomic alt allele [ID]"
+                }
+              ]
+            },
+            "valueString": "T"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48019-4",
+                  "display": "DNA change type"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.sequenceontology.org",
+                  "code": "SO:0000159",
+                  "display": "deletion"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "51958-7",
+                  "display": "Transcript reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq",
+                  "code": "NM_007294.3"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48004-6",
+                  "display": "DNA change (c.HGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "NM_007294.3(BRCA1):c.68_69del"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48005-3",
+                  "display": "Amino acid change (pHGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "p.(Glu23ValfsTer17)"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81290-9",
+                  "display": "Genomic DNA change (gHGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "g.41276047_41276048del"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "53037-8",
+                  "display": "Genetic variation clinical significance [Imp]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Pathogenic"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "94186-4",
+                  "display": "Origin of germline genetic variant [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA26320-4",
+                  "display": "Maternal"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81254-5",
+                  "display": "Genomic allele start-end"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": 41276046
+              }
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81258-6",
+                  "display": "Sample variant allelic frequency"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 0.33,
+              "unit": "decimal",
+              "system": "http://unitsofmeasure.org"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "53034-5",
+                  "display": "Allelic state"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA6706-1",
+                  "display": "heterozygous"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2-1"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cff6b33d-aef9-4414-9f08-73ad3fe7650a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "cff6b33d-aef9-4414-9f08-73ad3fe7650a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c"
+        },
+        "effectiveDateTime": "2026-07-14T15:59:16+00:00",
+        "performer": [
+          {
+            "reference": "urn:uuid:1342b774-30ae-4e3a-9994-5227db925698"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA9633-4",
+              "display": "Present"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA26398-0",
+              "display": "Sequencing"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48018-6",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.genenames.org",
+                  "code": "HGNC:3603",
+                  "display": "FBN1"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48002-0",
+                  "display": "Genomic source class [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA6683-2",
+                  "display": "Germline"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48013-7",
+                  "display": "Genomic reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq",
+                  "code": "NC_000015.9"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "92822-6",
+                  "display": "Genomic coordinate system [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA30102-0",
+                  "display": "1-based character counting"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69547-8",
+                  "display": "Genomic ref allele [ID]"
+                }
+              ]
+            },
+            "valueString": "C"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69551-0",
+                  "display": "Genomic alt allele [ID]"
+                }
+              ]
+            },
+            "valueString": "<DEL>"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48019-4",
+                  "display": "DNA change type"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.sequenceontology.org",
+                  "code": "SO:0001019",
+                  "display": "copy_number_variation"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "51958-7",
+                  "display": "Transcript reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq",
+                  "code": "NM_000138.4"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48004-6",
+                  "display": "DNA change (c.HGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "NM_000138.4(FBN1):exon13_to_exon15del"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81290-9",
+                  "display": "Genomic DNA change (gHGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "g.48797222_48802366del"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "53037-8",
+                  "display": "Genetic variation clinical significance [Imp]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Pathogenic"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "94186-4",
+                  "display": "Origin of germline genetic variant [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA26320-4",
+                  "display": "Maternal"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81302-2",
+                  "display": "Structural variant inner start and end"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": 48797221
+              },
+              "high": {
+                "value": 48802366
+              }
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81258-6",
+                  "display": "Sample variant allelic frequency"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 0.33,
+              "unit": "decimal",
+              "system": "http://unitsofmeasure.org"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "82155-3",
+                  "display": "Genomic structural variant copy number"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 1,
+              "system": "http://unitsofmeasure.org",
+              "code": "1"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2-2"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8cc93e0c-eb75-4ac6-92be-4fe346d4de92",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "8cc93e0c-eb75-4ac6-92be-4fe346d4de92",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c"
+        },
+        "effectiveDateTime": "2026-07-14T15:59:16+00:00",
+        "performer": [
+          {
+            "reference": "urn:uuid:1342b774-30ae-4e3a-9994-5227db925698"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA9633-4",
+              "display": "Present"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA26398-0",
+              "display": "Sequencing"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48002-0",
+                  "display": "Genomic source class [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA6683-2",
+                  "display": "Germline"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48013-7",
+                  "display": "Genomic reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq",
+                  "code": "NC_000023.10"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "92822-6",
+                  "display": "Genomic coordinate system [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA30102-0",
+                  "display": "1-based character counting"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69547-8",
+                  "display": "Genomic ref allele [ID]"
+                }
+              ]
+            },
+            "valueString": "T"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69551-0",
+                  "display": "Genomic alt allele [ID]"
+                }
+              ]
+            },
+            "valueString": "<DEL>"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48019-4",
+                  "display": "DNA change type"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.sequenceontology.org",
+                  "code": "SO:0001019",
+                  "display": "copy_number_variation"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81290-9",
+                  "display": "Genomic DNA change (gHGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "g.100652797_153792676del"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48001-2",
+                  "display": "Cytogenetic (chromosome) location"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Xq22.1-q28"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "53037-8",
+                  "display": "Genetic variation clinical significance [Imp]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Pathogenic"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "94186-4",
+                  "display": "Origin of germline genetic variant [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA26320-4",
+                  "display": "Maternal"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81302-2",
+                  "display": "Structural variant inner start and end"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": 100652796
+              },
+              "high": {
+                "value": 153792676
+              }
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81258-6",
+                  "display": "Sample variant allelic frequency"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 0.33,
+              "unit": "decimal",
+              "system": "http://unitsofmeasure.org"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "82155-3",
+                  "display": "Genomic structural variant copy number"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 1,
+              "system": "http://unitsofmeasure.org",
+              "code": "1"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2-3"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fceb2bc2-62d9-47f5-a29e-8026df5d9213",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "fceb2bc2-62d9-47f5-a29e-8026df5d9213",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c"
+        },
+        "effectiveDateTime": "2026-07-14T15:59:16+00:00",
+        "performer": [
+          {
+            "reference": "urn:uuid:1342b774-30ae-4e3a-9994-5227db925698"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA9633-4",
+              "display": "Present"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA26398-0",
+              "display": "Sequencing"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48013-7",
+                  "display": "Genomic reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq",
+                  "code": "NC_000023.10"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "92822-6",
+                  "display": "Genomic coordinate system [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA30102-0",
+                  "display": "1-based character counting"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69547-8",
+                  "display": "Genomic ref allele [ID]"
+                }
+              ]
+            },
+            "valueString": "T"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69551-0",
+                  "display": "Genomic alt allele [ID]"
+                }
+              ]
+            },
+            "valueString": "<DEL>"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48019-4",
+                  "display": "DNA change type"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.sequenceontology.org",
+                  "code": "SO:0000159",
+                  "display": "deletion"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81290-9",
+                  "display": "Genomic DNA change (gHGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "g.100652797_153792676del"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "53037-8",
+                  "display": "Genetic variation clinical significance [Imp]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Pathogenic"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81302-2",
+                  "display": "Structural variant inner start and end"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": 100652796
+              },
+              "high": {
+                "value": 153792676
+              }
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81258-6",
+                  "display": "Sample variant allelic frequency"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 0.33,
+              "unit": "decimal",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2-4"
+          }
+        ]
+      }
+    }
+  ]
+}

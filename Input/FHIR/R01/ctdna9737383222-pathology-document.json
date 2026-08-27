@@ -1,0 +1,585 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:adfd2b94-22d5-41ee-876a-867f0f912681"
+  },
+  "timestamp": "2026-08-27T11:01:02+00:00",
+  "type": "document",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:5636a100-7089-4229-891e-48c06f0242ed",
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference",
+            "valueReference": {
+              "reference": "urn:uuid:81f8fc47-415a-4f38-b2a1-acffda9396b5"
+            }
+          }
+        ],
+        "identifier": {
+          "system": "urn:ietf:rfc:3986",
+          "value": "urn:uuid:3ca85f9b-d62d-4361-837a-a88e944873ad"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11502-2",
+              "display": "Laboratory report"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "26436-6",
+                "display": "Laboratory Studies (set)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "date": "2026-07-14T15:59:16+00:00",
+        "author": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "title": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon - Laboratory Report",
+        "section": [
+          {
+            "title": "Laboratory Report",
+            "code": {
+              "text": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon"
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon</b> (M4.14), requested by Leeds Teaching Hospitals NHS Trust.</p><p>Result: <b>FAILURE</b>. Reported by NHS North West Genomics, interpreted by Jonathan Edgerley.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:81f8fc47-415a-4f38-b2a1-acffda9396b5",
+                "type": "DiagnosticReport"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RR8"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "RXR0817610"
+          }
+        ],
+        "name": [
+          {
+            "family": "LEEDS",
+            "given": [
+              "Rob"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1978-01-17",
+        "address": [
+          {
+            "postalCode": "LS1 3EX"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+      "resource": {
+        "resourceType": "Encounter",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "OBSENC"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN"
+                }
+              ]
+            },
+            "value": "SP26-01847"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9228f35d-01d3-419c-ae95-58ac060b63f2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "completed",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116148004"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "M4.14"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RR8"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "1234-RR8"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "requester": {
+          "display": "Leeds Teaching Hospitals NHS Trust",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RR8"
+          },
+          "type": "Organization"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "code": "M4"
+              }
+            ]
+          }
+        ],
+        "encounter": {
+          "reference": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN"
+                }
+              ]
+            },
+            "value": "SP26-01847"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f601fcaa-5e87-45eb-af24-419ff15a2f9a",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:768eda1b-fea1-4f0b-a101-193017a6baa3",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "date": "2026-07-14T15:59:16+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2"
+          }
+        ],
+        "custodian": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:f601fcaa-5e87-45eb-af24-419ff15a2f9a"
+            }
+          }
+        ],
+        "context": {
+          "period": {
+            "start": "2026-07-14T15:59:16+00:00",
+            "end": "2026-07-14T15:59:16+00:00"
+          },
+          "encounter": [
+            {
+              "reference": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+              "type": "Encounter",
+              "identifier": {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "AN"
+                    }
+                  ]
+                },
+                "value": "SP26-01847"
+              }
+            }
+          ],
+          "sourcePatientInfo": {
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RR8"
+                }
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "MR"
+                  }
+                ]
+              },
+              "value": "RXR0817610"
+            }
+          },
+          "related": [
+            {
+              "reference": "urn:uuid:9228f35d-01d3-419c-ae95-58ac060b63f2",
+              "type": "ServiceRequest",
+              "identifier": {
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "RR8"
+                  }
+                },
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "PLAC"
+                    }
+                  ]
+                },
+                "value": "1234-RR8"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:81f8fc47-415a-4f38-b2a1-acffda9396b5",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGEAP",
+              "code": "ctDNA_M4",
+              "display": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon"
+            },
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "M4.14",
+              "display": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:235ffb21-541e-4df7-9433-560e92780e1c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "encounter": {
+          "reference": "urn:uuid:29df52b8-6e22-4580-b678-2e32e2678af0",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN"
+                }
+              ]
+            },
+            "value": "SP26-01847"
+          }
+        },
+        "effectiveDateTime": "2026-07-14T15:59:16+00:00",
+        "issued": "2026-07-14T15:59:16+00:00",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-59X2"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "urn:uuid:9228f35d-01d3-419c-ae95-58ac060b63f2",
+            "type": "ServiceRequest",
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RR8"
+                }
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "PLAC"
+                  }
+                ]
+              },
+              "value": "1234-RR8"
+            }
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:0c55aa16-f8bf-4af7-b1b4-75bdc0720030",
+            "type": "Observation",
+            "display": "Variables that apply to the overall study"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "display": "Jonathan Edgerley"
+          }
+        ],
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                "code": "971",
+                "display": "FAILURE"
+              }
+            ]
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "url": "urn:uuid:f601fcaa-5e87-45eb-af24-419ff15a2f9a"
+          }
+        ]
+      }
+    }
+  ]
+}
