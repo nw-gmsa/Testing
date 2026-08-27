@@ -2,13 +2,13 @@
   "resourceType": "Bundle",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:8e6d518d-d703-47bc-8d1b-a7df004905af"
+    "value": "urn:uuid:a9a0274b-0e82-469f-aa94-afdac13ce823"
   },
-  "timestamp": "2026-08-27T12:10:18+00:00",
+  "timestamp": "2026-08-27T12:46:28+00:00",
   "type": "document",
   "entry": [
     {
-      "fullUrl": "urn:uuid:08718457-4ed1-48f4-bda7-d845afcc3cc3",
+      "fullUrl": "urn:uuid:d4472044-4f13-4678-a418-2b513d26be98",
       "resource": {
         "resourceType": "Composition",
         "meta": {
@@ -20,13 +20,13 @@
           {
             "url": "http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference",
             "valueReference": {
-              "reference": "urn:uuid:6e2fe023-78f3-4d50-9b43-4e85845659f5"
+              "reference": "urn:uuid:2032aa8f-abea-4f1e-8bc3-8db8cffca53a"
             }
           }
         ],
         "identifier": {
           "system": "urn:ietf:rfc:3986",
-          "value": "urn:uuid:8cf887c0-47d6-4e45-9b85-329d817347e5"
+          "value": "urn:uuid:c557f27b-ba56-4f8a-9861-f9e3a402cdc1"
         },
         "status": "final",
         "type": {
@@ -50,7 +50,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2",
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
@@ -90,12 +90,34 @@
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon</b> (M4.14), requested by Leeds Teaching Hospitals NHS Trust.</p><p>Result: <b>FAILURE</b>. Reported by NHS North West Genomics, interpreted by Jonathan Edgerley.</p></div>"
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon</b> (M4.14), requested by Leeds Teaching Hospitals NHS Trust.</p><p>Placer order number: 1234-RR8. Filler order number: T26-59X2.</p><p>Result: <b>FAILURE</b>. Reported by NHS North West Genomics, interpreted by Jonathan Edgerley.</p></div>"
             },
             "entry": [
               {
-                "reference": "urn:uuid:6e2fe023-78f3-4d50-9b43-4e85845659f5",
+                "reference": "urn:uuid:2032aa8f-abea-4f1e-8bc3-8db8cffca53a",
                 "type": "DiagnosticReport"
+              }
+            ]
+          },
+          {
+            "title": "Specimen",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "123038009",
+                  "display": "Specimen"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Whole blood specimen</b></p><p>Received: 2026-07-06T00:00:00+00:00</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:ad34dc51-cc4e-407c-a003-276366ef9897",
+                "type": "Specimen"
               }
             ]
           },
@@ -116,19 +138,19 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:b590bc05-7e1b-400d-ac53-5cfb45dd6de2",
+                "reference": "urn:uuid:f866eb21-c93b-4ea6-8e79-780149b39c6e",
                 "type": "Observation"
               },
               {
-                "reference": "urn:uuid:c009e214-2c6a-47ce-820b-34a898ea7225",
+                "reference": "urn:uuid:2728faff-ad7c-40af-9f8d-475946d01157",
                 "type": "Observation"
               },
               {
-                "reference": "urn:uuid:09417676-5409-4222-bc75-571ccf554a64",
+                "reference": "urn:uuid:faf18f06-de32-49e1-8fb1-a8e87df23a51",
                 "type": "Observation"
               },
               {
-                "reference": "urn:uuid:0ff23658-a9de-47e8-886d-d5d2d1eaeb0c",
+                "reference": "urn:uuid:7f70a970-2deb-47c6-9b4d-a252bda6bdd6",
                 "type": "Observation"
               }
             ]
@@ -137,9 +159,13 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2",
+      "fullUrl": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
       "resource": {
         "resourceType": "Patient",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Rob LEEDS</b></p><p>NHS number: 9737383222</p><p>Date of birth: 1978-01-17</p><p>Sex: Male</p><p>Postcode: LS1 3EX</p></div>"
+        },
         "identifier": [
           {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -189,7 +215,44 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0a96a229-a0b6-4fd0-93d6-cf69348dd25f",
+      "fullUrl": "urn:uuid:ad34dc51-cc4e-407c-a003-276366ef9897",
+      "resource": {
+        "resourceType": "Specimen",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258580003",
+              "display": "Whole blood specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          }
+        },
+        "receivedTime": "2026-07-06T00:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8f29ff05-48f2-4f1a-a8be-7022dda2b74a",
       "resource": {
         "resourceType": "Encounter",
         "status": "finished",
@@ -211,7 +274,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2",
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
@@ -228,7 +291,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ca65f88a-a25b-4b28-8103-c23f01bba810",
+      "fullUrl": "urn:uuid:b3bdaa63-3016-4115-97a4-e89f6f9731e0",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "completed",
@@ -289,7 +352,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2",
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
@@ -322,7 +385,7 @@
           }
         ],
         "encounter": {
-          "reference": "urn:uuid:0a96a229-a0b6-4fd0-93d6-cf69348dd25f",
+          "reference": "urn:uuid:8f29ff05-48f2-4f1a-a8be-7022dda2b74a",
           "identifier": {
             "type": {
               "coding": [
@@ -334,11 +397,17 @@
             },
             "value": "SP26-01847"
           }
-        }
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:ad34dc51-cc4e-407c-a003-276366ef9897",
+            "type": "Specimen"
+          }
+        ]
       }
     },
     {
-      "fullUrl": "urn:uuid:c49d9155-8153-4d34-b03e-646377b39696",
+      "fullUrl": "urn:uuid:223a5b16-7751-44a3-a890-ac1d6085ade5",
       "resource": {
         "resourceType": "Organization",
         "identifier": [
@@ -351,7 +420,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:45fee432-5885-447f-9ee6-1163fdf5a5ef",
+      "fullUrl": "urn:uuid:4b8a115b-cd0a-487b-ac8e-5b9e4f4f78d4",
       "resource": {
         "resourceType": "Binary",
         "contentType": "application/pdf",
@@ -359,7 +428,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e31ea0a4-68bf-4660-a902-dfac5c2f9aa6",
+      "fullUrl": "urn:uuid:b412c3a9-d963-46b4-99d4-bb14f6065702",
       "resource": {
         "resourceType": "DocumentReference",
         "status": "current",
@@ -373,7 +442,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2",
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
@@ -419,7 +488,7 @@
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:45fee432-5885-447f-9ee6-1163fdf5a5ef"
+              "url": "urn:uuid:4b8a115b-cd0a-487b-ac8e-5b9e4f4f78d4"
             }
           }
         ],
@@ -430,7 +499,7 @@
           },
           "encounter": [
             {
-              "reference": "urn:uuid:0a96a229-a0b6-4fd0-93d6-cf69348dd25f",
+              "reference": "urn:uuid:8f29ff05-48f2-4f1a-a8be-7022dda2b74a",
               "type": "Encounter",
               "identifier": {
                 "type": {
@@ -466,7 +535,7 @@
           },
           "related": [
             {
-              "reference": "urn:uuid:ca65f88a-a25b-4b28-8103-c23f01bba810",
+              "reference": "urn:uuid:b3bdaa63-3016-4115-97a4-e89f6f9731e0",
               "type": "ServiceRequest",
               "identifier": {
                 "assigner": {
@@ -491,7 +560,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:6e2fe023-78f3-4d50-9b43-4e85845659f5",
+      "fullUrl": "urn:uuid:2032aa8f-abea-4f1e-8bc3-8db8cffca53a",
       "resource": {
         "resourceType": "DiagnosticReport",
         "status": "final",
@@ -525,7 +594,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2",
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
@@ -540,7 +609,7 @@
           }
         },
         "encounter": {
-          "reference": "urn:uuid:0a96a229-a0b6-4fd0-93d6-cf69348dd25f",
+          "reference": "urn:uuid:8f29ff05-48f2-4f1a-a8be-7022dda2b74a",
           "identifier": {
             "type": {
               "coding": [
@@ -577,7 +646,7 @@
         ],
         "basedOn": [
           {
-            "reference": "urn:uuid:ca65f88a-a25b-4b28-8103-c23f01bba810",
+            "reference": "urn:uuid:b3bdaa63-3016-4115-97a4-e89f6f9731e0",
             "type": "ServiceRequest",
             "identifier": {
               "assigner": {
@@ -600,25 +669,31 @@
         ],
         "result": [
           {
-            "reference": "urn:uuid:29737f02-7d7c-49b6-8990-ecfaa0e1cd3a",
+            "reference": "urn:uuid:23b67e47-926e-4382-957d-74cd2d715c57",
             "type": "Observation",
             "display": "Variables that apply to the overall study"
           },
           {
-            "reference": "urn:uuid:b590bc05-7e1b-400d-ac53-5cfb45dd6de2",
+            "reference": "urn:uuid:f866eb21-c93b-4ea6-8e79-780149b39c6e",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:c009e214-2c6a-47ce-820b-34a898ea7225",
+            "reference": "urn:uuid:2728faff-ad7c-40af-9f8d-475946d01157",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:09417676-5409-4222-bc75-571ccf554a64",
+            "reference": "urn:uuid:faf18f06-de32-49e1-8fb1-a8e87df23a51",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:0ff23658-a9de-47e8-886d-d5d2d1eaeb0c",
+            "reference": "urn:uuid:7f70a970-2deb-47c6-9b4d-a252bda6bdd6",
             "type": "Observation"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:ad34dc51-cc4e-407c-a003-276366ef9897",
+            "type": "Specimen"
           }
         ],
         "resultsInterpreter": [
@@ -650,7 +725,7 @@
         "presentedForm": [
           {
             "contentType": "application/pdf",
-            "url": "urn:uuid:45fee432-5885-447f-9ee6-1163fdf5a5ef"
+            "url": "urn:uuid:4b8a115b-cd0a-487b-ac8e-5b9e4f4f78d4"
           }
         ],
         "meta": {
@@ -662,7 +737,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:29737f02-7d7c-49b6-8990-ecfaa0e1cd3a",
+      "fullUrl": "urn:uuid:23b67e47-926e-4382-957d-74cd2d715c57",
       "resource": {
         "resourceType": "Observation",
         "meta": {
@@ -719,7 +794,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2",
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "type": {
@@ -776,10 +851,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b590bc05-7e1b-400d-ac53-5cfb45dd6de2",
+      "fullUrl": "urn:uuid:f866eb21-c93b-4ea6-8e79-780149b39c6e",
       "resource": {
         "resourceType": "Observation",
-        "id": "b590bc05-7e1b-400d-ac53-5cfb45dd6de2",
+        "id": "f866eb21-c93b-4ea6-8e79-780149b39c6e",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
@@ -815,12 +890,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2"
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680"
         },
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:c49d9155-8153-4d34-b03e-646377b39696"
+            "reference": "urn:uuid:223a5b16-7751-44a3-a890-ac1d6085ade5"
           }
         ],
         "valueCodeableConcept": {
@@ -1151,10 +1226,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c009e214-2c6a-47ce-820b-34a898ea7225",
+      "fullUrl": "urn:uuid:2728faff-ad7c-40af-9f8d-475946d01157",
       "resource": {
         "resourceType": "Observation",
-        "id": "c009e214-2c6a-47ce-820b-34a898ea7225",
+        "id": "2728faff-ad7c-40af-9f8d-475946d01157",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
@@ -1190,12 +1265,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2"
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680"
         },
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:c49d9155-8153-4d34-b03e-646377b39696"
+            "reference": "urn:uuid:223a5b16-7751-44a3-a890-ac1d6085ade5"
           }
         ],
         "valueCodeableConcept": {
@@ -1506,10 +1581,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:09417676-5409-4222-bc75-571ccf554a64",
+      "fullUrl": "urn:uuid:faf18f06-de32-49e1-8fb1-a8e87df23a51",
       "resource": {
         "resourceType": "Observation",
-        "id": "09417676-5409-4222-bc75-571ccf554a64",
+        "id": "faf18f06-de32-49e1-8fb1-a8e87df23a51",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
@@ -1545,12 +1620,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2"
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680"
         },
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:c49d9155-8153-4d34-b03e-646377b39696"
+            "reference": "urn:uuid:223a5b16-7751-44a3-a890-ac1d6085ade5"
           }
         ],
         "valueCodeableConcept": {
@@ -1817,10 +1892,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0ff23658-a9de-47e8-886d-d5d2d1eaeb0c",
+      "fullUrl": "urn:uuid:7f70a970-2deb-47c6-9b4d-a252bda6bdd6",
       "resource": {
         "resourceType": "Observation",
-        "id": "0ff23658-a9de-47e8-886d-d5d2d1eaeb0c",
+        "id": "7f70a970-2deb-47c6-9b4d-a252bda6bdd6",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant",
@@ -1856,12 +1931,12 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:0c8c86b7-54ae-4f8b-ae86-ca2c134f11b2"
+          "reference": "urn:uuid:84980fe1-25f9-43a9-bd28-3401796df680"
         },
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:c49d9155-8153-4d34-b03e-646377b39696"
+            "reference": "urn:uuid:223a5b16-7751-44a3-a890-ac1d6085ade5"
           }
         ],
         "valueCodeableConcept": {
