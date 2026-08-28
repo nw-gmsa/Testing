@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:ac6ba194-7fad-461d-92df-b04534b814e9"
+    "value": "urn:uuid:322de0e1-ef86-4314-a9d2-b3300d6f4739"
   },
-  "timestamp": "2026-08-28T07:37:32+00:00",
+  "timestamp": "2026-08-28T08:16:04+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:82511db5-e419-4e5b-b26c-cb15ad54a40f",
+      "fullUrl": "urn:uuid:896e2777-7779-43ff-b4ba-e2fdf39eab09",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:ad886408-18e3-4b04-91b6-1dbab5c7a952"
+            "reference": "urn:uuid:b34f32ef-d95e-4849-be53-275ef1d142f5"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:746f01f1-0475-48e6-9e06-4a7c0b52ec6a",
+      "fullUrl": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:07ac1e10-688c-4198-954d-7717dd17a34f",
+      "fullUrl": "urn:uuid:4b614cb3-456c-401d-aa1d-c0d5d45653d3",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -101,7 +101,12 @@
               }
             },
             "type": {
-              "text": "Received Sample Identifier"
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
             },
             "value": "RR8-P0001"
           },
@@ -113,7 +118,12 @@
               }
             },
             "type": {
-              "text": "LIMS Sample Identifier"
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
             },
             "value": "YNE26-P0001"
           },
@@ -125,7 +135,12 @@
               }
             },
             "type": {
-              "text": "Shipment Tracking Number"
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "STN"
+                }
+              ]
             },
             "value": "NEY-CONSIGN-2026-100"
           }
@@ -134,7 +149,7 @@
           "text": "blood_unsorted_edta"
         },
         "subject": {
-          "reference": "urn:uuid:746f01f1-0475-48e6-9e06-4a7c0b52ec6a"
+          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
         },
         "collection": {
           "collectedDateTime": "2026-08-18T00:00:00+00:00"
@@ -152,7 +167,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:6994ba2b-98a5-4f9a-a268-81afb535d8ff",
+      "fullUrl": "urn:uuid:622055fb-94d8-4054-b006-14f64b17d07c",
       "resource": {
         "resourceType": "Observation",
         "status": "final",
@@ -170,7 +185,7 @@
           "text": "Family Structure"
         },
         "subject": {
-          "reference": "urn:uuid:746f01f1-0475-48e6-9e06-4a7c0b52ec6a"
+          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
         },
         "valueCodeableConcept": {
           "text": "Singleton"
@@ -178,7 +193,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:73d09b66-1b40-44c5-9c65-911ca1b256c2",
+      "fullUrl": "urn:uuid:91a59711-b85a-43ff-a8db-16e6304ff86d",
       "resource": {
         "resourceType": "Observation",
         "status": "final",
@@ -196,7 +211,7 @@
           "text": "Participant Type"
         },
         "subject": {
-          "reference": "urn:uuid:746f01f1-0475-48e6-9e06-4a7c0b52ec6a"
+          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
         },
         "valueCodeableConcept": {
           "text": "Proband"
@@ -204,7 +219,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ad886408-18e3-4b04-91b6-1dbab5c7a952",
+      "fullUrl": "urn:uuid:b34f32ef-d95e-4849-be53-275ef1d142f5",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -256,7 +271,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:746f01f1-0475-48e6-9e06-4a7c0b52ec6a"
+          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
         },
         "requester": {
           "display": "The Leeds Genetics Laboratory (NE&Y Genomics)",
@@ -268,17 +283,17 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:07ac1e10-688c-4198-954d-7717dd17a34f",
+            "reference": "urn:uuid:4b614cb3-456c-401d-aa1d-c0d5d45653d3",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:6994ba2b-98a5-4f9a-a268-81afb535d8ff",
+            "reference": "urn:uuid:622055fb-94d8-4054-b006-14f64b17d07c",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:73d09b66-1b40-44c5-9c65-911ca1b256c2",
+            "reference": "urn:uuid:91a59711-b85a-43ff-a8db-16e6304ff86d",
             "type": "Observation"
           }
         ],
