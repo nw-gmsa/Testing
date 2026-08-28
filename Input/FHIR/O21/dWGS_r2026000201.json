@@ -1,0 +1,297 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "value": "urn:uuid:5bc0c48b-e7d3-43e1-9b3a-7e2b8a141d48"
+  },
+  "timestamp": "2026-08-28T06:54:20+00:00",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:e73d9686-38bd-41ed-8a4d-de6ff678c064",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "eventCoding": {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003",
+          "code": "O21"
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699C0"
+          }
+        },
+        "destination": [
+          {
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            }
+          }
+        ],
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/NEYGenomics",
+          "software": "NE&Y Genomics"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:ff022c6a-10af-42f4-abd6-f685bc84b668"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e52fc4e6-efdd-483b-9cd1-7ef3339df1c1",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383222"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PI"
+                }
+              ]
+            },
+            "value": "p2026000101"
+          }
+        ],
+        "name": [
+          {
+            "family": "Leeds",
+            "given": [
+              "Rob"
+            ]
+          }
+        ],
+        "birthDate": "1978-01-17"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:15c5195b-d5cf-4ee9-85e8-f669b5eac357",
+      "resource": {
+        "resourceType": "Specimen",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RR8"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "RR8-P0001"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699C0"
+              }
+            },
+            "type": {
+              "text": "LIMS Sample Identifier"
+            },
+            "value": "YNE26-P0001"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699C0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "STN"
+                }
+              ]
+            },
+            "value": "NEY-CONSIGN-2026-100"
+          }
+        ],
+        "type": {
+          "text": "blood_unsorted_edta"
+        },
+        "subject": {
+          "reference": "urn:uuid:e52fc4e6-efdd-483b-9cd1-7ef3339df1c1"
+        },
+        "collection": {
+          "collectedDateTime": "2026-08-18T00:00:00+00:00"
+        },
+        "receivedTime": "2026-08-20T00:00:00+00:00",
+        "container": [
+          {
+            "identifier": [
+              {
+                "value": "FX000000001"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dfff8544-f44e-4077-8521-6c2088e43fcf",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Family Structure"
+        },
+        "subject": {
+          "reference": "urn:uuid:e52fc4e6-efdd-483b-9cd1-7ef3339df1c1"
+        },
+        "valueCodeableConcept": {
+          "text": "Singleton"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8adabd24-5bf7-484a-8ef2-2962e21f85bf",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Participant Type"
+        },
+        "subject": {
+          "reference": "urn:uuid:e52fc4e6-efdd-483b-9cd1-7ef3339df1c1"
+        },
+        "valueCodeableConcept": {
+          "text": "Proband"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ff022c6a-10af-42f4-abd6-f685bc84b668",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "filler-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116148004"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R14.1"
+            }
+          ]
+        },
+        "requisition": {
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699C0"
+            }
+          },
+          "value": "r2026000201"
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699C0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "r2026000201"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:e52fc4e6-efdd-483b-9cd1-7ef3339df1c1"
+        },
+        "requester": {
+          "display": "The Leeds Genetics Laboratory (NE&Y Genomics)",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699C0"
+          },
+          "type": "Organization"
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:15c5195b-d5cf-4ee9-85e8-f669b5eac357",
+            "type": "Specimen"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:dfff8544-f44e-4077-8521-6c2088e43fcf",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:8adabd24-5bf7-484a-8ef2-2962e21f85bf",
+            "type": "Observation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Suspected inherited neurodevelopmental condition."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -188,6 +188,22 @@ TEST_GROUPS = {
             "R01": ["ctDNA-Glasgow.txt", "ctdna9737383222.txt"],
         },
     },
+    # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL) - see
+    # notebooks/08-subcontracted-laboratory-order-from-external-glh.ipynb, which builds
+    # this FHIR Bundle by hand from Input/dWGS.csv row 0. Unlike every other group, the
+    # source fixture *is* the FHIR Bundle (Input/FHIR/O21, not Input/V2) - "input_format":
+    # "fhir" runs the reverse-direction case (transformToV2 only, no transformToFHIR) via
+    # run_fhir_source_case instead of run_case. Sending it on to FHIR_SERVER's
+    # $process-message isn't exercised - see that notebook's note: this environment's
+    # firewall blocks the NEY Genomics -> NW Genomics path directly, and production
+    # delivery is expected to go via AWS SQS instead.
+    "dwgs": {
+        "input_dir": os.path.join("Input", "FHIR"),
+        "input_format": "fhir",
+        "cases": {
+            "O21": ["dWGS_r2026000201.json"],
+        },
+    },
     # Cepheid GeneXpert results (message type R32). Sourced from Input/ASTM/R32 - see
     # Testing-Cephied.ipynb, which flags the old Input/V2/R32 source as superseded by
     # these files and skips the transformToV2 round-trip stage, so we do too.
@@ -663,6 +679,85 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     return result
 
 
+def run_fhir_source_case(session, group, msg_type, filename, input_dir, save_output=True):
+    """Like run_case, but for a group whose fixtures are already a FHIR Bundle
+    (Input/FHIR/<type>/<filename>.json) rather than raw v2 - the "dwgs" group. Runs the
+    reverse direction only: transformToV2 (there's no v2 original to run transformToFHIR
+    on first). sendToServer is always skipped - the FHIR-side equivalent would be POSTing
+    to FHIR_SERVER's $process-message, which notebooks/08-subcontracted-laboratory-order-
+    from-external-glh.ipynb found isn't reachable from this environment (firewall);
+    production delivery for that route is expected to go via AWS SQS instead, not
+    something this script exercises either.
+    """
+    case_name = f"{group}/{msg_type}/{filename}"
+    log(f"=== starting {case_name} ===")
+    result = CaseResult(case_name)
+    in_path = os.path.join(input_dir, msg_type, filename)
+
+    log(f"loading {in_path}")
+    if not os.path.exists(in_path):
+        result.record("load", False, f"file not found: {in_path}")
+        log(f"FAILED load: file not found: {in_path}")
+        return result
+    with open(in_path, "rb") as f:
+        fhir_bytes = f.read()
+    result.record("load", True, f"{len(fhir_bytes)} bytes")
+    log(f"loaded {len(fhir_bytes)} bytes")
+
+    try:
+        fhir_json = json.loads(fhir_bytes)
+    except ValueError as e:
+        result.record("jsonValid", False, f"invalid JSON: {e}")
+        log(f"FAILED jsonValid: {e}")
+        return result
+    result.record("jsonValid", True)
+
+    problems = check_fhir_bundle(fhir_json)
+    if problems:
+        result.record("fhirStructure", False, "; ".join(problems))
+    else:
+        result.record("fhirStructure", True, f"{len(fhir_json.get('entry', []))} entries structurally sound")
+
+    log(f"POST {V2_TOOLS}/transformToV2 (timeout=30s)")
+    try:
+        r2 = session.post(
+            f"{V2_TOOLS}/transformToV2", data=fhir_bytes,
+            headers=HEADERS_FHIR, verify=False, timeout=30,
+        )
+    except requests.RequestException as e:
+        result.record("transformToV2", False, f"request error: {e}")
+        log(f"FAILED transformToV2: request error: {e}")
+        return result
+
+    if r2.status_code != 200:
+        result.record("transformToV2", False, f"HTTP {r2.status_code}: {r2.text[:200]}")
+        log(f"FAILED transformToV2: HTTP {r2.status_code}")
+        return result
+
+    v2_roundtrip = r2.text
+    if not v2_roundtrip.lstrip().startswith("MSH|"):
+        result.record("transformToV2", False, "round-tripped output does not start with an MSH segment")
+        log("FAILED transformToV2: round-tripped output does not start with an MSH segment")
+        return result
+
+    result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
+    log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
+
+    if save_output:
+        out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
+        os.makedirs(out_dir, exist_ok=True)
+        with open(os.path.join(out_dir, filename.replace(".json", ".txt")), "w",
+                  encoding="utf-8", errors="replace", newline="") as f:
+            f.write(v2_roundtrip)
+
+    result.record(
+        "sendToServer", True,
+        "skipped - $process-message not reachable from this environment (firewall); "
+        "production delivery is expected via AWS SQS, see notebooks/08's note",
+    )
+    return result
+
+
 ALL_MSG_TYPES = sorted({
     msg_type for group in TEST_GROUPS.values() for msg_type in group["cases"]
 })
@@ -707,11 +802,17 @@ def main():
             for filename in group["cases"].get(msg_type, []):
                 case_num += 1
                 log(f"--- case {case_num}/{total_cases} ---")
-                results.append(run_case(
-                    session, group_name, msg_type, filename, args.skip_send,
-                    input_dir=group.get("input_dir"),
-                    skip_transform_to_v2=group.get("skip_transform_to_v2", False),
-                ))
+                if group.get("input_format") == "fhir":
+                    results.append(run_fhir_source_case(
+                        session, group_name, msg_type, filename,
+                        input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
+                    ))
+                else:
+                    results.append(run_case(
+                        session, group_name, msg_type, filename, args.skip_send,
+                        input_dir=group.get("input_dir"),
+                        skip_transform_to_v2=group.get("skip_transform_to_v2", False),
+                    ))
 
     log("all cases complete, printing summary")
     failures = 0

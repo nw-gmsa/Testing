@@ -115,3 +115,10 @@ results in `Results/FHIR/GenomicsReporting/`.
 - Server endpoints (`192.168.1.x`) are local/lab infrastructure, not committed as
   constants — always read them from `.env` via `load_dotenv()`, matching existing
   notebook cells.
+- `IntegrationTest.py`'s `TEST_GROUPS["dwgs"]` fixture list must track
+  `notebooks/08-subcontracted-laboratory-order-from-external-glh.ipynb`'s worked
+  example: if that notebook starts building the order from a different `dWGS.csv` row
+  (or an additional one), its `order_filename` (`f"dWGS_{row['referral_id']}.json"`)
+  changes/grows too, and `Input/FHIR/O21/`'s corresponding file(s) must be added to that
+  group's `"O21"` case list (or replace the current one) so the script's coverage
+  doesn't silently drift from what the notebook actually exercises.
