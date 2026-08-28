@@ -54,6 +54,7 @@ import time
 import requests
 import urllib3
 from dotenv import load_dotenv
+from requests.auth import HTTPBasicAuth
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -61,6 +62,10 @@ load_dotenv()
 
 V2_TOOLS = os.getenv("V2_TOOLS")
 V2_SERVER = os.getenv("V2_SERVER")
+FHIR_SERVER = os.getenv("FHIR_SERVER")
+OAUTH2_TOKEN_URL = os.getenv("OAUTH2_TOKEN")
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
 # Kept separate from Output/ (which Testing.ipynb writes to) so running this script doesn't
 # clobber - or get clobbered by - a notebook run's output.
@@ -190,8 +195,9 @@ TEST_GROUPS = {
     },
     # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
     # group, the source fixture *is* the FHIR Bundle (Input/FHIR/O21, not Input/V2) -
-    # "input_format": "fhir" runs the reverse-direction case (transformToV2 only, no
-    # transformToFHIR) via run_fhir_source_case instead of run_case.
+    # "input_format": "fhir" runs the FHIR-sourced case (transformToV2, then the Bundle
+    # itself POSTed to FHIR_SERVER's $process-message) via run_fhir_source_case instead
+    # of run_case; there's no v2 original here to run transformToFHIR on first.
     # notebooks/08-subcontracted-laboratory-order-from-external-glh.ipynb builds and
     # narrates one worked example by hand (Input/dWGS.csv row 0, dWGS_r2026000201.json)
     # end to end; the other five rows in that CSV were built the same way (same
@@ -199,11 +205,7 @@ TEST_GROUPS = {
     # script's coverage, without a matching notebook walkthrough. Two of dWGS.csv's
     # referral_ids repeat across rows (a Duo and a Trio grouping family members under one
     # referral) - filenames disambiguate those with the row's own patient_ngis_id rather
-    # than one file silently overwriting another. Sending these on to FHIR_SERVER's
-    # $process-message isn't exercised here: that notebook's own worked example does
-    # (see its "Sending the order onward" section) and confirms it works, so this isn't a
-    # routing gap - it's simply not something this script's reverse-direction-only
-    # run_fhir_source_case does for any "fhir"-sourced group.
+    # than one file silently overwriting another.
     "dwgs": {
         "input_dir": os.path.join("Input", "FHIR"),
         "input_format": "fhir",
@@ -251,6 +253,53 @@ def parse_ack(text):
     fields = msa.split("|")
     ack_code = fields[1] if len(fields) > 1 else None
     return ack_code, (err or msa)
+
+
+_fhir_bearer_token = None
+
+
+def get_fhir_bearer_token(session):
+    """Fetch (and cache for the life of the process) an OAuth2 client-credentials bearer
+    token for FHIR_SERVER - the same flow Testing.ipynb and notebook 08's worked example
+    use. Raises requests.RequestException/ValueError/KeyError on failure; callers decide
+    how to record that as a case failure."""
+    global _fhir_bearer_token
+    if _fhir_bearer_token is None:
+        log(f"POST {OAUTH2_TOKEN_URL} (fetching FHIR_SERVER OAuth2 bearer token)")
+        resp = session.post(
+            OAUTH2_TOKEN_URL,
+            auth=HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET),
+            data={"grant_type": "client_credentials", "scope": "system/*.*"},
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            verify=False, timeout=15,
+        )
+        resp.raise_for_status()
+        _fhir_bearer_token = resp.json()["access_token"]
+    return _fhir_bearer_token
+
+
+def parse_process_message_response(response_json):
+    """Parse a $process-message response Bundle. Returns (code, detail): code is the
+    MessageHeader entry's response.code ('ok'/'transient-error'/'fatal-error' per the FHIR
+    spec), or None if no MessageHeader.response was found at all; detail is an
+    OperationOutcome entry's diagnostics text, if the response included one.
+    """
+    entries = response_json.get("entry", []) if isinstance(response_json, dict) else []
+    message_header = next(
+        (e.get("resource", {}) for e in entries if e.get("resource", {}).get("resourceType") == "MessageHeader"),
+        None,
+    )
+    code = (message_header or {}).get("response", {}).get("code")
+    outcome = next(
+        (e.get("resource", {}) for e in entries if e.get("resource", {}).get("resourceType") == "OperationOutcome"),
+        None,
+    )
+    detail = None
+    if outcome:
+        issues = outcome.get("issue", [])
+        if issues:
+            detail = issues[0].get("diagnostics") or issues[0].get("details", {}).get("text")
+    return code, detail
 
 
 VALID_BUNDLE_TYPES = {
@@ -693,15 +742,14 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     return result
 
 
-def run_fhir_source_case(session, group, msg_type, filename, input_dir, save_output=True):
+def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_send=False, save_output=True):
     """Like run_case, but for a group whose fixtures are already a FHIR Bundle
-    (Input/FHIR/<type>/<filename>.json) rather than raw v2 - the "dwgs" group. Runs the
-    reverse direction only: transformToV2 (there's no v2 original to run transformToFHIR
-    on first). sendToServer is always skipped - the FHIR-side equivalent would be POSTing
-    to FHIR_SERVER's $process-message, which notebooks/08-subcontracted-laboratory-order-
-    from-external-glh.ipynb's worked example does exercise (successfully) but this script
-    doesn't, simply because run_fhir_source_case is reverse-direction-only by design, not
-    because of any environment restriction.
+    (Input/FHIR/<type>/<filename>.json) rather than raw v2 - the "dwgs" group. Runs
+    transformToV2 (there's no v2 original to run transformToFHIR on first), then
+    sendToServer POSTs the Bundle itself to FHIR_SERVER's $process-message (OAuth2
+    client-credentials bearer token, same flow Testing.ipynb and notebook 08's worked
+    example use) rather than a raw v2 message to V2_SERVER - the FHIR-sourced equivalent
+    of run_case's stage 3.
     """
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
@@ -764,11 +812,65 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, save_out
                   encoding="utf-8", errors="replace", newline="") as f:
             f.write(v2_roundtrip)
 
-    result.record(
-        "sendToServer", True,
-        "skipped - run_fhir_source_case is reverse-direction-only; see notebooks/08's "
-        "worked example for the $process-message call this script doesn't make",
-    )
+    # --- Stage 3: POST the FHIR Bundle to FHIR_SERVER's $process-message ---
+    if skip_send:
+        result.record("sendToServer", True, "skipped (--skip-send)")
+        log("sendToServer skipped (--skip-send)")
+        return result
+
+    if not (FHIR_SERVER and OAUTH2_TOKEN_URL and CLIENT_ID and CLIENT_SECRET):
+        result.record(
+            "sendToServer", False,
+            "FHIR_SERVER/OAUTH2_TOKEN/CLIENT_ID/CLIENT_SECRET not set - check .env",
+        )
+        log("FAILED sendToServer: FHIR OAuth2 config missing - check .env")
+        return result
+
+    try:
+        token = get_fhir_bearer_token(session)
+    except (requests.RequestException, ValueError, KeyError) as e:
+        result.record("sendToServer", False, f"OAuth2 token request failed: {e}")
+        log(f"FAILED sendToServer: OAuth2 token request failed: {e}")
+        return result
+
+    log(f"POST {FHIR_SERVER}$process-message (timeout={SEND_TIMEOUT}s)")
+    try:
+        r3 = session.post(
+            f"{FHIR_SERVER}$process-message", data=fhir_bytes,
+            headers={"Content-Type": "application/fhir+json", "Authorization": f"Bearer {token}"},
+            verify=False, timeout=SEND_TIMEOUT,
+        )
+    except requests.Timeout:
+        result.record(
+            "sendToServer", False,
+            f"TIMEOUT after {SEND_TIMEOUT}s waiting for a response - likely a fault, raise an issue",
+        )
+        log(f"FAILED sendToServer: TIMEOUT after {SEND_TIMEOUT}s")
+        return result
+    except requests.RequestException as e:
+        result.record("sendToServer", False, f"request error: {e}")
+        log(f"FAILED sendToServer: request error: {e}")
+        return result
+
+    if r3.status_code != 200:
+        result.record("sendToServer", False, f"HTTP {r3.status_code}: {r3.text[:200]}")
+        log(f"FAILED sendToServer: HTTP {r3.status_code}")
+        return result
+
+    try:
+        response_json = r3.json()
+    except ValueError as e:
+        result.record("sendToServer", False, f"HTTP 200 but response is not valid JSON: {e}")
+        log(f"FAILED sendToServer: response is not valid JSON: {e}")
+        return result
+
+    code, detail = parse_process_message_response(response_json)
+    if code == "ok":
+        result.record("sendToServer", True, "response.code=ok" + (f", {detail}" if detail else ""))
+        log("sendToServer ok: response.code=ok")
+    else:
+        result.record("sendToServer", False, f"response.code={code or 'missing'}: {detail or r3.text[:200]}")
+        log(f"FAILED sendToServer: response.code={code or 'missing'}")
     return result
 
 
@@ -789,7 +891,8 @@ def main():
     )
     parser.add_argument(
         "--skip-send", action="store_true",
-        help="Skip stage 3 (posting the original v2 message to V2_SERVER).",
+        help="Skip stage 3 (posting the original v2 message to V2_SERVER, or for "
+             "FHIR-sourced groups like dwgs, the Bundle to FHIR_SERVER's $process-message).",
     )
     args = parser.parse_args()
 
@@ -820,6 +923,7 @@ def main():
                     results.append(run_fhir_source_case(
                         session, group_name, msg_type, filename,
                         input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
+                        skip_send=args.skip_send,
                     ))
                 else:
                     results.append(run_case(
