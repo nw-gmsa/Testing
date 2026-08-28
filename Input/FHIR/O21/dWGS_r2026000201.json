@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:322de0e1-ef86-4314-a9d2-b3300d6f4739"
+    "value": "urn:uuid:f5855254-2bc8-442c-b4d7-56bd4e206693"
   },
-  "timestamp": "2026-08-28T08:16:04+00:00",
+  "timestamp": "2026-08-28T08:52:40+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:896e2777-7779-43ff-b4ba-e2fdf39eab09",
+      "fullUrl": "urn:uuid:ab6dac25-d009-4ffb-8ee9-729bad484cd8",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:b34f32ef-d95e-4849-be53-275ef1d142f5"
+            "reference": "urn:uuid:5a434143-18fa-4bdd-ab72-c73180128a3d"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d",
+      "fullUrl": "urn:uuid:14e7e680-1ed9-4ad3-8907-1a9894b7d958",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4b614cb3-456c-401d-aa1d-c0d5d45653d3",
+      "fullUrl": "urn:uuid:39c315f5-a5fb-4c2a-8bef-d70dabe33302",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -146,10 +146,16 @@
           }
         ],
         "type": {
-          "text": "blood_unsorted_edta"
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258580003",
+              "display": "Whole blood specimen (specimen)"
+            }
+          ]
         },
         "subject": {
-          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
+          "reference": "urn:uuid:14e7e680-1ed9-4ad3-8907-1a9894b7d958"
         },
         "collection": {
           "collectedDateTime": "2026-08-18T00:00:00+00:00"
@@ -167,7 +173,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:622055fb-94d8-4054-b006-14f64b17d07c",
+      "fullUrl": "urn:uuid:de2525f4-ac51-4a67-bf3b-dbce59a6f96d",
       "resource": {
         "resourceType": "Observation",
         "status": "final",
@@ -185,7 +191,7 @@
           "text": "Family Structure"
         },
         "subject": {
-          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
+          "reference": "urn:uuid:14e7e680-1ed9-4ad3-8907-1a9894b7d958"
         },
         "valueCodeableConcept": {
           "text": "Singleton"
@@ -193,7 +199,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:91a59711-b85a-43ff-a8db-16e6304ff86d",
+      "fullUrl": "urn:uuid:4642d176-4e2e-499a-b537-732eb5c2a1d4",
       "resource": {
         "resourceType": "Observation",
         "status": "final",
@@ -211,7 +217,7 @@
           "text": "Participant Type"
         },
         "subject": {
-          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
+          "reference": "urn:uuid:14e7e680-1ed9-4ad3-8907-1a9894b7d958"
         },
         "valueCodeableConcept": {
           "text": "Proband"
@@ -219,7 +225,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b34f32ef-d95e-4849-be53-275ef1d142f5",
+      "fullUrl": "urn:uuid:5a434143-18fa-4bdd-ab72-c73180128a3d",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -271,7 +277,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:39ad51b6-f141-44c9-aa05-807889b3993d"
+          "reference": "urn:uuid:14e7e680-1ed9-4ad3-8907-1a9894b7d958"
         },
         "requester": {
           "display": "The Leeds Genetics Laboratory (NE&Y Genomics)",
@@ -283,17 +289,17 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:4b614cb3-456c-401d-aa1d-c0d5d45653d3",
+            "reference": "urn:uuid:39c315f5-a5fb-4c2a-8bef-d70dabe33302",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:622055fb-94d8-4054-b006-14f64b17d07c",
+            "reference": "urn:uuid:de2525f4-ac51-4a67-bf3b-dbce59a6f96d",
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:91a59711-b85a-43ff-a8db-16e6304ff86d",
+            "reference": "urn:uuid:4642d176-4e2e-499a-b537-732eb5c2a1d4",
             "type": "Observation"
           }
         ],
