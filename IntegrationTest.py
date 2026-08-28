@@ -188,20 +188,34 @@ TEST_GROUPS = {
             "R01": ["ctDNA-Glasgow.txt", "ctdna9737383222.txt"],
         },
     },
-    # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL) - see
-    # notebooks/08-subcontracted-laboratory-order-from-external-glh.ipynb, which builds
-    # this FHIR Bundle by hand from Input/dWGS.csv row 0. Unlike every other group, the
-    # source fixture *is* the FHIR Bundle (Input/FHIR/O21, not Input/V2) - "input_format":
-    # "fhir" runs the reverse-direction case (transformToV2 only, no transformToFHIR) via
-    # run_fhir_source_case instead of run_case. Sending it on to FHIR_SERVER's
-    # $process-message isn't exercised - see that notebook's note: this environment's
-    # firewall blocks the NEY Genomics -> NW Genomics path directly, and production
-    # delivery is expected to go via AWS SQS instead.
+    # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
+    # group, the source fixture *is* the FHIR Bundle (Input/FHIR/O21, not Input/V2) -
+    # "input_format": "fhir" runs the reverse-direction case (transformToV2 only, no
+    # transformToFHIR) via run_fhir_source_case instead of run_case.
+    # notebooks/08-subcontracted-laboratory-order-from-external-glh.ipynb builds and
+    # narrates one worked example by hand (Input/dWGS.csv row 0, dWGS_r2026000201.json)
+    # end to end; the other five rows in that CSV were built the same way (same
+    # Patient/Specimen/ServiceRequest shapes, same profiles) purely as fixtures for this
+    # script's coverage, without a matching notebook walkthrough. Two of dWGS.csv's
+    # referral_ids repeat across rows (a Duo and a Trio grouping family members under one
+    # referral) - filenames disambiguate those with the row's own patient_ngis_id rather
+    # than one file silently overwriting another. Sending these on to FHIR_SERVER's
+    # $process-message isn't exercised here: that notebook's own worked example does
+    # (see its "Sending the order onward" section) and confirms it works, so this isn't a
+    # routing gap - it's simply not something this script's reverse-direction-only
+    # run_fhir_source_case does for any "fhir"-sourced group.
     "dwgs": {
         "input_dir": os.path.join("Input", "FHIR"),
         "input_format": "fhir",
         "cases": {
-            "O21": ["dWGS_r2026000201.json"],
+            "O21": [
+                "dWGS_r2026000201.json",
+                "dWGS_r2026000202_p2026000102.json",
+                "dWGS_r2026000202_p2026000103.json",
+                "dWGS_r2026000203_p2026000104.json",
+                "dWGS_r2026000203_p2026000105.json",
+                "dWGS_r2026000203_p2026000106.json",
+            ],
         },
     },
     # Cepheid GeneXpert results (message type R32). Sourced from Input/ASTM/R32 - see
@@ -685,9 +699,9 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, save_out
     reverse direction only: transformToV2 (there's no v2 original to run transformToFHIR
     on first). sendToServer is always skipped - the FHIR-side equivalent would be POSTing
     to FHIR_SERVER's $process-message, which notebooks/08-subcontracted-laboratory-order-
-    from-external-glh.ipynb found isn't reachable from this environment (firewall);
-    production delivery for that route is expected to go via AWS SQS instead, not
-    something this script exercises either.
+    from-external-glh.ipynb's worked example does exercise (successfully) but this script
+    doesn't, simply because run_fhir_source_case is reverse-direction-only by design, not
+    because of any environment restriction.
     """
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
@@ -752,8 +766,8 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, save_out
 
     result.record(
         "sendToServer", True,
-        "skipped - $process-message not reachable from this environment (firewall); "
-        "production delivery is expected via AWS SQS, see notebooks/08's note",
+        "skipped - run_fhir_source_case is reverse-direction-only; see notebooks/08's "
+        "worked example for the $process-message call this script doesn't make",
     )
     return result
 
