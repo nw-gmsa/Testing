@@ -851,7 +851,8 @@ def drop_consultand_orders(bundles):
                 if obs and obs.get("resourceType") == "Observation":
                     obs_summaries.append(_observation_summary(obs))
             if obs_summaries:
-                lines.append("Consultand supporting information: " + "; ".join(obs_summaries))
+                lines.append("Consultand supporting information:")
+                lines.extend(obs_summaries)
 
             if lines:
                 new_note_text = existing_note + ("\n" if existing_note else "") + "\n".join(lines)
