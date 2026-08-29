@@ -146,6 +146,15 @@ patient" isn't supporting information about her own order once she has her own `
 identity as its `subject`. Confirmed live: both `-Mother` files convert and send clean
 (`check_fhir_bundle` OK, 200 OK, `response.code=ok`), `nhsd_examples` still 17/17.
 
+**Open query, raised to NHS England**: `Bundle-NonWGSScenario3-FetusAsProband-Example-Mother.json`
+doesn't appear to follow the Genomic Order Management Service IG as published - this is
+the "FetusAsProband" scenario, yet this split's own `ServiceRequest.subject` is the
+*mother*, not the fetus. A query on this has been raised with NHS England; nothing
+further changed here pending their response - the fix above (giving the mother a real
+`Patient` resource) stands regardless of how that query resolves, since it was needed
+either way to stop the dangling reference, but the deeper "should this order's subject
+really be the mother in a fetus-as-proband scenario" question is still open.
+
 ## Missing MessageHeader.destination / ServiceRequest.performer
 
 `UKCore-Bundle-MichaelJonesRequest-Example_minimal` had neither
