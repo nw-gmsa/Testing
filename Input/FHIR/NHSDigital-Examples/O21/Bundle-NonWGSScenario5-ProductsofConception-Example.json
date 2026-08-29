@@ -286,11 +286,6 @@
             "value": "5562279a-bb88-45ef-8fbc-b62c09fbbdb2"
           }
         ],
-        "basedOn": [
-          {
-            "reference": "ServieRequest/ServiceRequest-NonWGSTestOrderForm-UsingStoredSample-Example"
-          }
-        ],
         "status": "active",
         "intent": "order",
         "category": [
@@ -408,7 +403,7 @@
         ],
         "note": [
           {
-            "text": "Samples are to be provided at a later date\nNo family history of relevant testing\nFree text for diagnosis/reason for referral, relevant information including family history, phenotypic details/ HPO Terms/ E.g. large echogenic kidneys with normal bladder"
+            "text": "Samples are to be provided at a later date\nNo family history of relevant testing\nFree text for diagnosis/reason for referral, relevant information including family history, phenotypic details/ HPO Terms/ E.g. large echogenic kidneys with normal bladder\nUnknown external ServiceRequest reference removed: the source example's ServiceRequest.basedOn pointed at 'ServieRequest/ServiceRequest-NonWGSTestOrderForm-UsingStoredSample-Example' (a prior order this Bundle doesn't include, and misspelled as 'ServieRequest' besides), which FHIR_SERVER can't resolve outside this Bundle."
           }
         ]
       }
@@ -737,10 +732,9 @@
           "reference": "urn:uuid:037d8ff3-da35-4fad-9d28-7a120d4fffe9",
           "type": "Patient"
         },
-        "request": [
+        "note": [
           {
-            "reference": "ServieRequest/ServiceRequest-NonWGSTestOrderForm-UsingStoredSample-Example",
-            "type": "ServiceRequest"
+            "text": "Unknown external ServiceRequest reference removed: the source example's Specimen.request pointed at 'ServieRequest/ServiceRequest-NonWGSTestOrderForm-UsingStoredSample-Example' (a prior order this Bundle doesn't include, and misspelled as 'ServieRequest' besides), which FHIR_SERVER can't resolve outside this Bundle."
           }
         ]
       }

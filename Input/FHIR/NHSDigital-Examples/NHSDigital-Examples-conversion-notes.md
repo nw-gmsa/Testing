@@ -12,13 +12,16 @@ external (a real system, e.g. NHS England's PDS API) or just something that fail
 resolve inside the Bundle. This is the rule two separate, unrelated-looking fixes below
 both turned out to be instances of: CancerSolidTumor's broken `AdditionalContact`
 extensions (`valueReference` was `reference`-only, no `identifier`) and Scenario5's
-external PDS `Patient.link` (also `reference`-only). Both were removed rather than
-repaired by adding an `identifier`, since in both cases there wasn't a well-known
-identifier system+value on hand to add one correctly - but the underlying rule, for any
-future resync hitting the same shape of failure, is to prefer adding a
-`Reference.identifier` (an "enterprise identifier" - a real identifier system the
-target is actually known by, e.g. an NHS number or ODS code) over deleting the
-reference outright, wherever one is available.
+external PDS `Patient.link` (also `reference`-only). CancerSolidTumor's was removed
+outright (no identifier was on hand to add); Scenario5's `Patient.link` was instead
+repaired by adding the identifier (see "Scenario5's actual cause" below) - the
+underlying rule, for any future resync hitting the same shape of failure, is to prefer
+adding a `Reference.identifier` (an "enterprise identifier" - a real identifier system
+the target is actually known by, e.g. an NHS number or ODS code) over deleting the
+reference outright, wherever one is available. Scenario5's `ServiceRequest.basedOn` and
+`Specimen.request` (see "Scenario5's real root cause" at the end of this file) are a
+third instance of the same rule where no identifier was available - both removed, same
+as CancerSolidTumor's.
 
 ## Which examples were included
 
@@ -35,19 +38,25 @@ Not every `Bundle/*.json` in that repo is a genomic order or report. Excluded:
   tracking data, not an order or report.
 - `UKCore-Bundle-MichaelJonesSpecimen-Example` — a bare `Specimen`, referenced by the
   `MichaelJonesRequest` examples rather than a standalone case.
+- `Bundle-GenomicReportVisibility-JamesWilson-Example` — NHS Digital's only R01/report
+  example. Converted and included for a while (see the detailed conversion steps
+  further down, kept here as a record of what was tried) but ultimately dropped from
+  `IntegrationTest.py`'s `nhsd_examples` group as not fully formed: a `"collection"`
+  Bundle with no `fullUrl`s at all, and too thin a resource set (3 entries) to stand in
+  for a genuine genomics report.
 
-The other 13 are genomic orders (`Bundle-NonWGS*`, `Bundle-WGSTestOrderForm-Example`,
-the two `UKCore-Bundle-MichaelJonesRequest-Example_*`) or a genomic report
-(`Bundle-GenomicReportVisibility-JamesWilson-Example`).
+The other 12 are genomic orders: `Bundle-NonWGS*`, `Bundle-WGSTestOrderForm-Example`,
+the two `UKCore-Bundle-MichaelJonesRequest-Example_*`.
 
 ## Why conversion was needed
 
 `FHIR_SERVER`'s `$process-message` (the ESB) doesn't accept `Bundle.type` `"transaction"`
-— 10 of the 13 order examples are built as a conditional-upload transaction (`entry[]`
+— 10 of the 12 order examples are built as a conditional-upload transaction (`entry[]`
 each carrying a `request: {method, url}`, no `MessageHeader`), the shape NHS Digital's
 own IG uses for direct RESTful submission to a FHIR repository, not for messaging.
-`Bundle-GenomicReportVisibility-JamesWilson-Example` is a `"collection"` Bundle with no
-`MessageHeader` and no `entry.fullUrl` at all.
+`Bundle-GenomicReportVisibility-JamesWilson-Example` (later dropped - see "Which
+examples were included" above) was a `"collection"` Bundle with no `MessageHeader` and
+no `entry.fullUrl` at all.
 
 Two examples (`UKCore-Bundle-MichaelJonesRequest-Example_minimal`/`_v3_message`) were
 already proper `"message"` Bundles with a `MessageHeader` — used as the template for
@@ -106,8 +115,10 @@ relative (`"<Type>/<id>"`) references rather than `urn:uuid:`, which
 `IntegrationTest.py`'s `check_fhir_bundle` dangling-reference check doesn't inspect
 (only `urn:uuid:` references are checked), so leaving them as-is doesn't trip it.
 
-For the one report (`Bundle-GenomicReportVisibility-JamesWilson-Example`, a
-`"collection"` Bundle with 3 entries and no `fullUrl`s at all):
+For the one report (`Bundle-GenomicReportVisibility-JamesWilson-Example`, later dropped
+from `IntegrationTest.py`'s `nhsd_examples` group as not fully formed - see "Which
+examples were included" above; kept here as a record of the conversion attempted while
+it was still included), a `"collection"` Bundle with 3 entries and no `fullUrl`s at all:
 
 1. `Bundle.type`: `"collection"` → `"message"`.
 2. Minted a fresh `urn:uuid:` `fullUrl` per entry (`check_fhir_bundle` requires every
@@ -270,3 +281,22 @@ this file's own `PractitionerRole` example (`Bundle-GenomicsOrderMessageCodedEnt
 Converted every one of those 11 literal references the same way (using the target
 resource's own `identifier[0]`/name as the `display`) and removed the now-orphaned 3
 `Practitioner` + 3 `Organization` entries.
+
+## Scenario5's real root cause: two more `reference`-only external links
+
+Still 422ing after every fix above, including the PDS `Patient.link` fix - the actual
+remaining cause was two more instances of the same general rule (see the top of this
+file), both on the primary `ServiceRequest`/`Specimen` pair rather than on `Patient`:
+
+- `ServiceRequest.basedOn[0].reference` = `"ServieRequest/ServiceRequest-
+  NonWGSTestOrderForm-UsingStoredSample-Example"` - a reference to a prior order this
+  Bundle doesn't include (and misspells the resource type as `ServieRequest` besides),
+  `reference`-only with no `identifier`.
+- `Specimen.request[0].reference` = the same target, same shape.
+
+Confirmed live: removing `ServiceRequest.basedOn` alone took `sendToServer` from
+`HTTP 422` to `response.code=ok`. Both were removed (no identifier for
+"an order this repo has never seen" was available to add instead) and a note recording
+the removal added to `ServiceRequest.note`/`Specimen.note` respectively, per the same
+convention used for CancerSolidTumor's external `Observation` reference above. With
+both removed, `nhsd_examples` passes 12/12 live.

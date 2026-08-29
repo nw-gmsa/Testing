@@ -295,9 +295,11 @@ TEST_GROUPS = {
     # nwgmsa_examples' excluded Reply bundles), Bundle-WGSRoD-Example (Consent +
     # QuestionnaireResponse, a "Record of Discussion" artifact, not an order/report),
     # CommunityCloud-Bundle-Example (DocumentReference/Specimen/Device/Procedure tracking
-    # data, not an order/report), and UKCore-Bundle-MichaelJonesSpecimen-Example (a bare
+    # data, not an order/report), UKCore-Bundle-MichaelJonesSpecimen-Example (a bare
     # Specimen, referenced by the MichaelJonesRequest examples below rather than a
-    # standalone case).
+    # standalone case), and Bundle-GenomicReportVisibility-JamesWilson-Example (NHS
+    # Digital's only R01/report example - not fully formed: no fullUrls at all (a
+    # "collection" Bundle) and too thin a resource set to be a genuine report).
     #
     # FHIR_SERVER's $process-message (the ESB) doesn't support Bundle.type "transaction" -
     # the other 11 examples are order/report Bundles built as one (a conditional-upload
@@ -305,17 +307,15 @@ TEST_GROUPS = {
     # to "message" this group's local copies carry out (see
     # NHSDigital-Examples-conversion-notes.md alongside them): Bundle.type -> "message",
     # drop entry[].request, add Bundle.identifier/timestamp, prepend a MessageHeader
-    # (eventCoding http://terminology.hl7.org/CodeSystem/v2-0003#O21/#R01, matching
-    # every other message this repo sends - NHS Digital's own local eventCoding
+    # (eventCoding http://terminology.hl7.org/CodeSystem/v2-0003#O21, matching every
+    # other message this repo sends - NHS Digital's own local eventCoding
     # (CodeSystem-Genomics-message-events.json's genomictestrequest/genomictestresponse)
     # isn't recognised by FHIR_SERVER, destination fixed at NW Genomics 699X0 -
     # where FHIR_SERVER actually routes everything in this harness regardless of an
     # example's "real" intended GLH - sender identity best-effort extracted from each
     # Bundle's own ServiceRequest.requester -> PractitionerRole.organization). Existing
     # fullUrls/references are left untouched other than that - genuinely "basic", not a
-    # full rebuild - except Bundle-GenomicReportVisibility-JamesWilson-Example, which had
-    # no fullUrls at all (a "collection" Bundle) and needed one minted per entry to pass
-    # check_fhir_bundle's own fullUrl-presence check.
+    # full rebuild.
     # Two examples (UKCore-Bundle-MichaelJonesRequest-Example_{minimal,v3_message}) were
     # already proper message Bundles with a MessageHeader - copied verbatim, unconverted.
     "nhsd_examples": {
@@ -335,9 +335,6 @@ TEST_GROUPS = {
                 "Bundle-WGSTestOrderForm-Example.json",
                 "UKCore-Bundle-MichaelJonesRequest-Example_minimal.json",
                 "UKCore-Bundle-MichaelJonesRequest-Example_v3_message.json",
-            ],
-            "R01": [
-                "Bundle-GenomicReportVisibility-JamesWilson-Example.json",
             ],
         },
     },
