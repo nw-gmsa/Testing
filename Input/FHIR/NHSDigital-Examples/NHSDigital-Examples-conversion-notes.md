@@ -155,6 +155,20 @@ further changed here pending their response - the fix above (giving the mother a
 either way to stop the dangling reference, but the deeper "should this order's subject
 really be the mother in a fetus-as-proband scenario" question is still open.
 
+Second point added to the same query: `Bundle-NonWGSScenario4-ProbandWithMultipleFetus-
+Example-Mother.json`'s two `ServiceRequest`s for the mother (`e302e6f8-...`/`f1c65fec-...`,
+present in NHS Digital's own unmodified source, not introduced by this repo's
+conversion or the per-patient split) are near-duplicates - identical `code`/`reasonCode`
+(`GT1133`/`TP289`), `subject`, `requester`, `performer`, all 6 shared `supportingInfo`
+`Observation`s, the `Procedure`, and all 3 `note` fragments - differing only in
+`requisition.value` (each fetus's own referral/order-group number), which fetus's own
+`RelatedPerson` "mother of" record the last `supportingInfo` entry points at, and -
+oddly, given everything else is identical - `category.coding` (`diagnostic` vs
+`prenatal-diagnosis`). Whether duplicating the mother's entire order per fetus (rather
+than one `ServiceRequest` for her, referenced from both fetal orders) is intentional
+IG modelling or a copy/paste artefact, and why the `category` differs between two
+otherwise-identical orders, is now part of the same query to NHS England.
+
 ## Missing MessageHeader.destination / ServiceRequest.performer
 
 `UKCore-Bundle-MichaelJonesRequest-Example_minimal` had neither
