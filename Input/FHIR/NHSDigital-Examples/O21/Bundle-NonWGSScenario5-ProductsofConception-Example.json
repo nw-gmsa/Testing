@@ -192,7 +192,11 @@
         "link": [
           {
             "other": {
-              "reference": "https://int.api.service.nhs.uk/personal-demographics/FHIR/R4/Patient/9449308322"
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/nhs-number",
+                "value": "9449308322"
+              },
+              "type": "Patient"
             },
             "type": "seealso"
           }
@@ -404,13 +408,7 @@
         ],
         "note": [
           {
-            "text": "Samples are to be provided at a later date"
-          },
-          {
-            "text": "No family history of relevant testing"
-          },
-          {
-            "text": "Free text for diagnosis/reason for referral, relevant information including family history, phenotypic details/ HPO Terms/ E.g. large echogenic kidneys with normal bladder"
+            "text": "Samples are to be provided at a later date\nNo family history of relevant testing\nFree text for diagnosis/reason for referral, relevant information including family history, phenotypic details/ HPO Terms/ E.g. large echogenic kidneys with normal bladder"
           }
         ]
       }

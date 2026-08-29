@@ -17,6 +17,19 @@
           "system": "http://terminology.hl7.org/CodeSystem/v2-0003",
           "code": "O21"
         },
+        "destination": [
+          {
+            "name": "National Genomic Medicine Service",
+            "endpoint": "https://api.service.nhs.uk/GMS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH LED BY MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+            }
+          }
+        ],
         "source": {
           "endpoint": "https://www.christie.nhs.uk/ehr"
         },
@@ -154,7 +167,16 @@
         "authoredOn": "2022-07-11T09:00:00Z",
         "requester": {
           "reference": "urn:uuid:3462583a-536c-4bad-99d3-44dc553921fd"
-        }
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH LED BY MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ]
       }
     },
     {

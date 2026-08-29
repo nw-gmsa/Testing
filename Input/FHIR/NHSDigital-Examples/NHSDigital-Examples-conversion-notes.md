@@ -4,6 +4,22 @@ Source: https://github.com/NHSDigital/NHSDigital-FHIR-Genomics-ImplementationGui
 (NHS England's National Genomic Medicine Service order/report model — the IG NW-GMSA's
 own model sits underneath). Fetched from that repo's `main` branch.
 
+## General rule: a Reference needs Reference.identifier, not just Reference.reference
+
+`FHIR_SERVER` doesn't support a `Reference` that's a bare URL/relative-id `reference`
+with no `Reference.identifier` alongside it - true whether the target is genuinely
+external (a real system, e.g. NHS England's PDS API) or just something that fails to
+resolve inside the Bundle. This is the rule two separate, unrelated-looking fixes below
+both turned out to be instances of: CancerSolidTumor's broken `AdditionalContact`
+extensions (`valueReference` was `reference`-only, no `identifier`) and Scenario5's
+external PDS `Patient.link` (also `reference`-only). Both were removed rather than
+repaired by adding an `identifier`, since in both cases there wasn't a well-known
+identifier system+value on hand to add one correctly - but the underlying rule, for any
+future resync hitting the same shape of failure, is to prefer adding a
+`Reference.identifier` (an "enterprise identifier" - a real identifier system the
+target is actually known by, e.g. an NHS number or ODS code) over deleting the
+reference outright, wherever one is available.
+
 ## Which examples were included
 
 Not every `Bundle/*.json` in that repo is a genomic order or report. Excluded:
@@ -35,7 +51,25 @@ own IG uses for direct RESTful submission to a FHIR repository, not for messagin
 
 Two examples (`UKCore-Bundle-MichaelJonesRequest-Example_minimal`/`_v3_message`) were
 already proper `"message"` Bundles with a `MessageHeader` — used as the template for
-converting the rest, and copied into place unconverted otherwise.
+converting the rest, and copied into place otherwise unconverted (aside from the
+eventCoding and Practitioner/Organization fixes below, which applied to these two same
+as everything else).
+
+## Missing MessageHeader.destination / ServiceRequest.performer
+
+`UKCore-Bundle-MichaelJonesRequest-Example_minimal` had neither
+`MessageHeader.destination` nor `ServiceRequest.performer` at all (its `_v3_message`
+sibling and every converted order do) - `transformToV2` 500'd on it consistently.
+General rule for a future resync hitting the same gap: assume NW Genomics is both the
+`MessageHeader.destination` and `ServiceRequest.performer`, using the same
+identifier/display pair the conversion already uses everywhere else -
+`{"identifier": {"system": "https://fhir.nhs.uk/Id/ods-organization-code", "value":
+"699X0"}, "display": "NORTH WEST GLH LED BY MANCHESTER UNIVERSITY NHS FOUNDATION
+TRUST"}` (wrapped in `destination[0].receiver`/`endpoint: "https://api.service.nhs.uk/
+GMS"` for `MessageHeader`, a bare `performer[0]` entry for `ServiceRequest`) - not a
+claim that NW Genomics is the "real" destination/performer NHS Digital's example
+intended, just this repo's standing assumption (matching every other converted example's
+fixed `699X0` destination, see above) applied consistently to whatever's missing.
 
 ## What the conversion does — deliberately "basic"
 
@@ -159,7 +193,67 @@ reference to the `Patient`, not an unsupported resource type:
 - **CancerSolidTumor**: `Condition-LungTumor-Example.subject.identifier.value` was
   `"944930555"` - 9 digits, a truncated/mistyped NHS number - while every other
   reference to the same patient in the bundle correctly uses the 10-digit
-  `"9449307555"`. Corrected to match.
+  `"9449307555"`. Corrected to match - a real fix, but not what was still failing
+  `sendToServer` afterward (see below).
+
+## CancerSolidTumor's actual remaining cause: an external Observation reference
+
+Still 422ing after the NHS number fix above - the actual remaining cause:
+`ServiceRequest.supportingInfo`'s reference to `Condition-LungTumor-Example` (converted
+to `Observation` above, keeping its original absolute placeholder
+`fullUrl`/`http://example.org/fhir/Observation/Condition-LungTumor-Example`) resolved
+to something `FHIR_SERVER` treats as external/unknown rather than the Bundle-local
+entry sharing that URL. Note this isn't a blanket "absolute URLs never resolve"
+rule - `Bundle-NonWGSTestOrderForm-Reanalysis-Example` and `Bundle-WGSTestOrderForm-
+Example` reference an `Observation` by the exact same absolute-URL pattern
+(`http://example.org/fhir/Observation/Condition-MonogenicHearingLoss-Example`) and pass
+fine, so something specific to *this* reference/entry is what tripped it, not the
+scheme in general. Removed the `Observation` entry and the `supportingInfo` reference
+to it, and added a `ServiceRequest.note` recording that an unknown external
+`Observation` reference was removed, rather than silently dropping the content.
+
+## CancerSolidTumor, second bug: a dangling AdditionalContact extension
+
+Still 422ing after the above. `ServiceRequest.extension` carried two
+`Extension-UKCore-AdditionalContact` entries, each `valueReference`-ing a
+`PractitionerRole` by bare relative reference (no `identifier` fallback, unlike every
+other reference in this conversion). One resolved fine
+(`PractitionerRole-AnnaLaneKingstonPathology-Example`, present in the bundle); the
+other pointed at `PractitionerRole/PractitionerRole-JamesTaylor-Example` - not present;
+the bundle's actual entry is `PractitionerRole-JamesTaylorKingstonPathology-Example`
+(same "-KingstonPathology-Example" suffix every other `PractitionerRole` id in this file
+has, just missing here) - a source-data typo. Removed both
+`Extension-UKCore-AdditionalContact` entries rather than fix just the broken one, since
+neither carries anything this repo's transform/profile needs (`Coverage`, the third
+extension on this `ServiceRequest`, was left alone).
+
+## ServiceRequest.note: recombined multi-entry notes into one
+
+`Annotation.text` (what `ServiceRequest.note[]` holds) supports markdown, including
+newlines, within a single string - it isn't meant to be split one sentence per array
+entry. 10 of the 13 examples' `ServiceRequest`s did exactly that (e.g. `"Samples are to
+be provided at a later date"`, `"No family history of relevant testing"`, and a longer
+free-text paragraph as three separate `note` entries, each really one continuous
+free-text block from the source data). Recombined every `ServiceRequest` with more than
+one `note` entry into a single entry, joining the original entries' `text` values with
+`\n`, in their original order (including `CancerSolidTumor`'s own added "Unknown
+external Observation reference removed" note from above, now combined with its
+existing note into one).
+
+## Scenario5's actual cause: an external PDS Patient reference
+
+Still 422ing after every fix above (the stray `Patient`-typed `supportingInfo` entry
+removed earlier was real but not sufficient). Root cause: `Patient.link[0].other`
+referenced `https://int.api.service.nhs.uk/personal-demographics/FHIR/R4/
+Patient/9449308322` - a `seealso` link out to NHS England's real PDS API, not a
+Bundle-local resource, and `reference`-only (see the general rule above). Unique to
+this example - no other one of the 13 has a PDS `seealso` link at all. Fixed per that
+rule rather than deleted: the URL's own trailing path segment, `9449308322`, is exactly
+this same `Patient`'s own NHS number (already `Patient.identifier[0]` in the same
+resource) - so `other` now carries `{"identifier": {"system":
+"https://fhir.nhs.uk/Id/nhs-number", "value": "9449308322"}, "type": "Patient"}`
+instead of the bare external `reference`, preserving the `seealso` link's intent
+without a `ServiceRequest.note` needed (nothing was actually removed).
 
 ## Practitioner/Organization literal references normalised to identifier-only
 

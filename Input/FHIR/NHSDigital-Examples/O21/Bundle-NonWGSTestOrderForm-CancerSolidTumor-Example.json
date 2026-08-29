@@ -453,18 +453,6 @@
                 }
               ]
             }
-          },
-          {
-            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-AdditionalContact",
-            "valueReference": {
-              "reference": "PractitionerRole/PractitionerRole-AnnaLaneKingstonPathology-Example"
-            }
-          },
-          {
-            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-AdditionalContact",
-            "valueReference": {
-              "reference": "PractitionerRole/PractitionerRole-JamesTaylor-Example"
-            }
           }
         ],
         "status": "active",
@@ -539,10 +527,6 @@
           },
           {
             "reference": "Observation/Observation-MultipleTumors-Example"
-          },
-          {
-            "reference": "http://example.org/fhir/Observation/Condition-LungTumor-Example",
-            "type": "Observation"
           }
         ],
         "specimen": [
@@ -552,33 +536,9 @@
         ],
         "note": [
           {
-            "text": "Free text for diagnosis/reason for referral, transplant, life status at time of request details/ e.g. malignant tumour - molecular assessment will aid management"
+            "text": "Free text for diagnosis/reason for referral, transplant, life status at time of request details/ e.g. malignant tumour - molecular assessment will aid management\nUnknown external Observation reference removed: the source example's ServiceRequest.supportingInfo pointed at http://example.org/fhir/Observation/Condition-LungTumor-Example, an absolute URL FHIR_SERVER treats as pointing outside this Bundle rather than resolving it to the entry sharing that fullUrl."
           }
         ]
-      }
-    },
-    {
-      "fullUrl": "http://example.org/fhir/Observation/Condition-LungTumor-Example",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "Condition-LungTumor-Example",
-        "status": "final",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "363358000",
-              "display": "Malignant tumour of lung"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/Patient-ZelmaHadjkiss-Example",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9449307555"
-          }
-        }
       }
     }
   ],
