@@ -326,28 +326,34 @@ TEST_GROUPS = {
     # one order per message, so each was further split with
     # split_message_bundle_by_patient (one output message per distinct patient; a
     # patient with more than one ServiceRequest, e.g. Scenario4's mother, stays together
-    # as one message) and the combined source file replaced by its per-patient outputs -
-    # Scenario3 -> {-FetusA,-Mother}, Scenario4 -> {-FetusA,-FetusB,-Mother},
-    # FetalScenario -> {-Fetus,-Mother,-Father}. See NHSDigital-Examples-conversion-notes.md.
+    # as one message) and the combined source file replaced by its per-patient outputs.
+    #
+    # Of those per-patient messages, only the "proband" ones (Extension-Genomic-
+    # Patient-Role) are kept - this repo's LIMS/RIE doesn't support "consultand" orders
+    # (a ServiceRequest whose subject is actually a relative of the patient being
+    # tested), which OML^O21 has no way to represent. drop_consultand_orders removes
+    # them, folding each dropped consultand order's own note text and a summary of its
+    # supportingInfo Observations into the matching proband ServiceRequest.note first
+    # (matched by shared requisition) rather than silently losing that content -
+    # Scenario3 -> {-FetusA} (Mother dropped), Scenario4 -> {-FetusA,-FetusB} (Mother
+    # dropped), FetalScenario -> {-Fetus} (Mother and Father dropped).
+    # Bundle-NonWGSTestOrderFormUpdated-FetalScenario-Example was dropped entirely -
+    # a standalone consultand-only (father) Bundle with no proband ServiceRequest in
+    # the same message to fold into. See NHSDigital-Examples-conversion-notes.md.
     "nhsd_examples": {
         "input_dir": os.path.join("Input", "FHIR", "NHSDigital-Examples"),
         "input_format": "fhir",
         "cases": {
             "O21": [
                 "Bundle-NonWGSScenario3-FetusAsProband-Example-FetusA.json",
-                "Bundle-NonWGSScenario3-FetusAsProband-Example-Mother.json",
                 "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-FetusA.json",
                 "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-FetusB.json",
-                "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-Mother.json",
                 "Bundle-NonWGSScenario5-ProductsofConception-Example.json",
                 "Bundle-NonWGSTestOrderForm-CancerSolidTumor-Example.json",
                 "Bundle-NonWGSTestOrderForm-Example.json",
                 "Bundle-NonWGSTestOrderForm-FetalScenario-Example-Fetus.json",
-                "Bundle-NonWGSTestOrderForm-FetalScenario-Example-Mother.json",
-                "Bundle-NonWGSTestOrderForm-FetalScenario-Example-Father.json",
                 "Bundle-NonWGSTestOrderForm-Reanalysis-Example.json",
                 "Bundle-NonWGSTestOrderFormQRPatientExtensions-Example.json",
-                "Bundle-NonWGSTestOrderFormUpdated-FetalScenario-Example.json",
                 "Bundle-WGSTestOrderForm-Example.json",
                 "UKCore-Bundle-MichaelJonesRequest-Example_minimal.json",
                 "UKCore-Bundle-MichaelJonesRequest-Example_v3_message.json",
@@ -699,12 +705,22 @@ def check_patient_demographics_preserved(bundle, v2_text):
     if not (src_name or src_dob or src_gender):
         return False, []
 
-    pid_fields = next(
-        (seg.split("|") for seg in v2_text.replace("\r\n", "\r").split("\r") if seg.startswith("PID|")),
-        None,
-    )
-    if not pid_fields:
+    all_pid_fields = [
+        seg.split("|") for seg in v2_text.replace("\r\n", "\r").split("\r") if seg.startswith("PID|")
+    ]
+    if not all_pid_fields:
         return True, ["Patient has name/birthDate/gender but the transformToV2 output has no PID segment at all"]
+
+    # Some messages (e.g. a Specimen whose subject differs from the ServiceRequest's
+    # own subject) come back with more than one PID segment - transformToV2 puts the
+    # subject's own demographics in whichever one carries a matching PID-3 identifier
+    # value, not necessarily the first. Fall back to the first PID for the common
+    # single-PID case.
+    identifier_values = [i.get("value") for i in patient.get("identifier", []) if i.get("value")]
+    pid_fields = next(
+        (f for f in all_pid_fields if len(f) > 3 and any(v and v in f[3] for v in identifier_values)),
+        all_pid_fields[0],
+    )
 
     v2_name = pid_fields[5] if len(pid_fields) > 5 else ""
     v2_dob = pid_fields[7] if len(pid_fields) > 7 else ""
@@ -719,6 +735,130 @@ def check_patient_demographics_preserved(bundle, v2_text):
         problems.append(f"Patient.gender {src_gender!r} present in FHIR but PID-8 is blank")
 
     return True, problems
+
+
+GENOMIC_PATIENT_ROLE_EXTENSION = "https://fhir.nhs.uk/England/StructureDefinition/Extension-Genomic-Patient-Role"
+
+
+def _service_request_role(service_request):
+    """The Extension-Genomic-Patient-Role code on a ServiceRequest ('proband',
+    'consultand', ...), or None if the extension isn't present."""
+    for ext in service_request.get("extension", []):
+        if ext.get("url") == GENOMIC_PATIENT_ROLE_EXTENSION:
+            return ext.get("valueCodeableConcept", {}).get("coding", [{}])[0].get("code")
+    return None
+
+
+def _observation_summary(obs):
+    """A short human-readable rendering of an Observation's code/value(s) - 'Ethnicity:
+    unknown', 'Pregnancy: Assisted conception; Gestational age 87 day' (components
+    joined the same way) - for folding a dropped consultand order's supportingInfo into
+    a proband ServiceRequest.note as free text, per drop_consultand_orders below."""
+    code = obs.get("code", {})
+    code_display = (
+        code.get("text") or code.get("coding", [{}])[0].get("display") or code.get("coding", [{}])[0].get("code") or "?"
+    )
+
+    def value_text(node):
+        if "valueCodeableConcept" in node:
+            return node["valueCodeableConcept"].get("coding", [{}])[0].get("display", "")
+        if "valueString" in node:
+            return node["valueString"]
+        if "valueQuantity" in node:
+            q = node["valueQuantity"]
+            return f"{q.get('value')} {q.get('unit', '')}".strip()
+        if "valueDateTime" in node:
+            return node["valueDateTime"]
+        return ""
+
+    parts = [value_text(obs)]
+    for comp in obs.get("component", []):
+        comp_display = comp.get("code", {}).get("coding", [{}])[0].get("display", "")
+        parts.append(f"{comp_display} {value_text(comp)}".strip())
+
+    value_str = "; ".join(p for p in parts if p)
+    line = f"{code_display}: {value_str}" if value_str else code_display
+    if obs.get("note"):
+        line += f" ({obs['note'][0]['text']})"
+    return line
+
+
+def drop_consultand_orders(bundles):
+    """Given a list of per-patient message Bundles - typically
+    split_message_bundle_by_patient's output, but works just as well on a plain
+    [bundle] that was never split - drops any whose ServiceRequest is coded
+    'consultand' (Extension-Genomic-Patient-Role): this repo's LIMS/RIE only supports
+    proband orders, OML^O21 having no way to represent "this order is actually about a
+    different patient's relative". A ServiceRequest with no role extension at all
+    (most of the simpler, single-patient examples) is treated as proband-equivalent -
+    the extension only shows up where a Bundle actually distinguishes multiple family
+    members' roles.
+
+    A dropped consultand order's own clinically-relevant content isn't just discarded:
+    its ServiceRequest.note (any lines not already present on the matched proband's own
+    note) and a summary of its supportingInfo Observations are folded into the matched
+    proband ServiceRequest's own .note instead. Matched by requisition (system+value) -
+    every family-group example seen so far shares one requisition across all its
+    members' ServiceRequests, a simpler and more robust correlation than chasing shared
+    RelatedPerson links. A consultand bundle whose requisition matches no proband
+    bundle's (e.g. a standalone consultand-only Bundle, split alone) is dropped with its
+    content unrecovered - there's nothing to fold it into.
+    """
+    def service_requests(bundle):
+        return [e["resource"] for e in bundle.get("entry", []) if e["resource"]["resourceType"] == "ServiceRequest"]
+
+    def requisition_key(sr):
+        req = (sr or {}).get("requisition") or {}
+        return (req.get("system"), req.get("value"))
+
+    # Classify whole bundles by their first ServiceRequest's role - a bundle's
+    # ServiceRequests are homogeneous in every example seen so far (role is really a
+    # per-patient attribute: a consultand bundle can carry more than one ServiceRequest,
+    # e.g. Scenario4's mother has two - one per fetus's requisition/order group - but
+    # never a mix of proband and consultand ServiceRequests in the same bundle).
+    proband_bundles = []  # (bundle, [ServiceRequest, ...])
+    consultand_bundles = []
+    for bundle in bundles:
+        srs = service_requests(bundle)
+        first_role = _service_request_role(srs[0]) if srs else None
+        if first_role == "consultand":
+            consultand_bundles.append((bundle, srs))
+        else:
+            proband_bundles.append((bundle, srs))
+
+    proband_srs_by_requisition = {
+        requisition_key(sr): sr for _, srs in proband_bundles for sr in srs
+    }
+
+    for consultand_bundle, consultand_srs in consultand_bundles:
+        for consultand_sr in consultand_srs:
+            proband_sr = proband_srs_by_requisition.get(requisition_key(consultand_sr))
+            if proband_sr is None:
+                continue  # nothing to fold into - content is dropped along with the bundle
+
+            existing_note = proband_sr.get("note", [{}])[0].get("text", "") if proband_sr.get("note") else ""
+            lines = []
+
+            own_note = consultand_sr.get("note", [{}])[0].get("text", "") if consultand_sr.get("note") else ""
+            for line in own_note.split("\n"):
+                if line and line not in existing_note:
+                    lines.append(line)
+
+            obs_summaries = []
+            for si in consultand_sr.get("supportingInfo", []):
+                entry = _resolve_bundle_reference(consultand_bundle, si.get("reference"))
+                obs = entry.get("resource") if entry else None
+                if obs and obs.get("resourceType") == "Observation":
+                    obs_summaries.append(_observation_summary(obs))
+            if obs_summaries:
+                lines.append("Consultand supporting information: " + "; ".join(obs_summaries))
+
+            if lines:
+                new_note_text = existing_note + ("\n" if existing_note else "") + "\n".join(lines)
+                proband_sr["note"] = [{"text": new_note_text}]
+                existing_note = new_note_text
+
+    return [b for b, _ in proband_bundles]
 
 
 # iGene convention: a PID-5 given name of "Baby of <mother>" / "Fetus of <mother>" signals

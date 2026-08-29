@@ -107,12 +107,12 @@ after:
   use the identical relative reference, so they still land in the same group) rather
   than treating every such reference as unrelated.
 - The combined source files were **replaced** by their per-patient outputs (not kept
-  alongside them) — `IntegrationTest.py`'s `nhsd_examples` group now lists
-  `Bundle-NonWGSScenario3-FetusAsProband-Example-{FetusA,Mother}.json`,
-  `Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-{FetusA,FetusB,Mother}.json`,
-  and `Bundle-NonWGSTestOrderForm-FetalScenario-Example-{Fetus,Mother,Father}.json` (8
-  files, up from the original 3) — every one confirmed live, both `transformToV2` and
-  `sendToServer` (8/8 `check_fhir_bundle`-clean, 200 OK, `response.code=ok`).
+  alongside them) — at the time this split step was added, that meant 8 files
+  (`-FetusA`/`-Mother` etc. per family group), every one confirmed live. The
+  consultand-role ones among those 8 (`-Mother`, `-Father`) were subsequently dropped
+  again - see "Proband-only: consultand orders dropped, not converted" further down -
+  leaving 3 (`Scenario3-FetusA`, `Scenario4-{FetusA,FetusB}`,
+  `FetalScenario-Fetus`).
 
 ## Scenario3/Scenario4's mother: a RelatedPerson standing in for a Patient
 
@@ -168,6 +168,11 @@ oddly, given everything else is identical - `category.coding` (`diagnostic` vs
 than one `ServiceRequest` for her, referenced from both fetal orders) is intentional
 IG modelling or a copy/paste artefact, and why the `category` differs between two
 otherwise-identical orders, is now part of the same query to NHS England.
+
+**Superseded**: both `-Mother` files (and the fix above) no longer exist - see "Proband-
+only: consultand orders dropped, not converted" further down. The query to NHS England
+stands regardless; this section is kept as the record of what was tried and found before
+that policy was adopted.
 
 ## Missing MessageHeader.destination / ServiceRequest.performer
 
@@ -501,3 +506,86 @@ against it:
   `6473db02-.../86c36eee-...` `RelatedPerson` records) stays as the honest answer.
 
 `nhsd_examples` still 17/17 live after every one of these corrections.
+
+## Proband-only: consultand orders dropped, not converted
+
+This repo's LIMS/RIE only supports **proband** orders - `ServiceRequest`s whose
+`subject` is the patient actually being tested. Several of NHS Digital's family-group
+examples also carry **consultand** `ServiceRequest`s (`Extension-Genomic-Patient-Role`
+coded `consultand`) - an order whose subject is a *relative* of the proband (the
+mother's or father's own germline testing, ordered alongside a fetus's). OML^O21 has no
+way to represent "this order is actually about someone else's relative", so these
+can't be converted at all, not just split out.
+
+Added `drop_consultand_orders` (`IntegrationTest.py`) to remove them: given a list of
+per-patient message Bundles (`split_message_bundle_by_patient`'s own output, or a plain
+single-Bundle list for something that was never split), any Bundle whose
+`ServiceRequest`(s) are coded `consultand` is excluded from the result. A `ServiceRequest`
+with no role extension at all - most of the simpler, single-patient examples - is
+treated as proband-equivalent (the extension only appears where a Bundle actually
+distinguishes family members' roles), so this doesn't affect them.
+
+Dropping a consultand order doesn't mean losing its clinical content outright: its own
+`ServiceRequest.note` (any lines not already present on the matched proband's note) and
+a plain-text summary of its `supportingInfo` `Observation`s (code + value, e.g.
+`"Ethnicity: unknown"`, components joined the same way) are folded into the matched
+proband `ServiceRequest.note` first. Matching is by **`requisition`** (system + value) -
+every family-group example checked shares one requisition across all its members'
+`ServiceRequest`s (confirmed for both Scenario3/4 and FetalScenario), a simpler and more
+robust correlation than chasing shared `RelatedPerson` links, and it correctly keeps
+Scenario4's two mother `ServiceRequest`s separate (matched to fetus A's and fetus B's
+requisition respectively, so each fetus's note gets only its own linked half of the
+mother's information, not both).
+
+Applied to the whole `nhsd_examples` set:
+
+- `Scenario3-FetusA` - the dropped `-Mother`'s note/supportingInfo folded in.
+- `Scenario4-FetusA`/`-FetusB` - each gets its own linked half of the dropped
+  `-Mother`'s two `ServiceRequest`s.
+- `FetalScenario-Fetus` - both the dropped `-Mother`'s and `-Father`'s note/supportingInfo
+  folded in (a proband can have more than one linked consultand order).
+- `Bundle-NonWGSTestOrderFormUpdated-FetalScenario-Example` - dropped **entirely**, no
+  replacement. This 2-entry partial "update" fixture (`ServiceRequest` + `Specimen` for
+  the father only, no fetus `ServiceRequest` in the same message) is consultand-only
+  with nothing in the same Bundle to fold into - the same rule applied to a Bundle that
+  was never split in the first place, per `drop_consultand_orders`' docstring.
+
+`nhsd_examples`'s `O21` cases went from 17 to 12 as a result (the 5 dropped:
+`Scenario3-Mother`, `Scenario4-Mother`, `FetalScenario-Mother`, `FetalScenario-Father`,
+`Updated-FetalScenario`). Confirmed live, twice, clean both times: 12/12.
+
+## Scenario5: ServiceRequest.subject corrected from consultand to proband
+
+Unlike Scenario3/4/FetalScenario, Scenario5 never had an explicit `Extension-Genomic-
+Patient-Role` on its one `ServiceRequest` - but its shape is the same problem by
+inference: `ServiceRequest.subject` is the mother (`c60f7e06-...`, NHS number
+`9449308322`, "Ryanne Boulder"), while the `Specimen` actually being tested
+(`258565009` "Chorionic villi specimen") has its own `.subject` pointing at the fetus
+(`037d8ff3-...`, "FoetusA", `fetalStatus: fetal-demise` - this is the "Products of
+Conception" scenario, testing fetal tissue after a pregnancy loss). The specimen under
+test belongs to the fetus; the order should too.
+
+Fixed: `ServiceRequest.subject` changed from the mother's `Patient` to the fetus's,
+copying its own `identifier` across (the local OID `FoetusA`, RAX-assigned) rather than
+inventing one. Confirmed live - but with a genuinely surprising result:
+`transformToV2`'s actual output **didn't change shape** - it already emitted two `PID`
+segments for this Bundle (the mother's first, the fetus's second alongside an `NK1`
+`NCHILD` "natural child" record) both before and after this fix, regardless of which
+Patient `ServiceRequest.subject` names. The live tool evidently chooses `PID-1` by some
+other heuristic (an NHS-number-identified `Patient` first, a locally-identified one
+demoted to a second `PID`+`NK1` pair, independent of `ServiceRequest.subject`) - worth
+investigating in a future pass, not resolved here. The FHIR-level correction (the order
+now correctly names the tested individual as its subject) stands regardless of whether
+it changed the live tool's own v2 output.
+
+This also exposed a real gap in `check_patient_demographics_preserved`: it originally
+always compared against the *first* `PID` segment in the message, which - for a
+multi-`PID` message like this one - isn't necessarily the one carrying the subject's
+own demographics. Fixed to search all `PID` segments for one whose `PID-3` contains one
+of the subject `Patient`'s own `identifier` values, falling back to the first `PID` for
+the ordinary single-`PID` case. Confirmed live: Scenario5 now reports
+`demographicsPreserved: ok` (`Patient.gender "female"` correctly found on the second
+`PID`'s `PID-8`, not incorrectly flagged as lost off the first).
+
+`nhsd_examples` confirmed 12/12 live, twice, after both this fix and the
+`check_patient_demographics_preserved` correction.
