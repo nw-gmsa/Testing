@@ -437,47 +437,6 @@
       }
     },
     {
-      "fullUrl": "http://example.org/fhir/Condition/Condition-LungTumor-Example",
-      "resource": {
-        "resourceType": "Condition",
-        "id": "Condition-LungTumor-Example",
-        "clinicalStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-              "code": "recurrence",
-              "display": "Recurrence"
-            }
-          ]
-        },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "provisional",
-              "display": "Provisional"
-            }
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "363358000",
-              "display": "Malignant tumour of lung"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/Patient-ZelmaHadjkiss-Example",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "944930555"
-          }
-        }
-      }
-    },
-    {
       "fullUrl": "http://example.org/fhir/ServiceRequest/ServiceRequest-NonWGSTestOrderForm-CancerSolidTumor-Example",
       "resource": {
         "resourceType": "ServiceRequest",
@@ -582,7 +541,8 @@
             "reference": "Observation/Observation-MultipleTumors-Example"
           },
           {
-            "reference": "Condition/Condition-LungTumor-Example"
+            "reference": "http://example.org/fhir/Observation/Condition-LungTumor-Example",
+            "type": "Observation"
           }
         ],
         "specimen": [
@@ -595,6 +555,30 @@
             "text": "Free text for diagnosis/reason for referral, transplant, life status at time of request details/ e.g. malignant tumour - molecular assessment will aid management"
           }
         ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/Condition-LungTumor-Example",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Condition-LungTumor-Example",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "363358000",
+              "display": "Malignant tumour of lung"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-ZelmaHadjkiss-Example",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449307555"
+          }
+        }
       }
     }
   ],

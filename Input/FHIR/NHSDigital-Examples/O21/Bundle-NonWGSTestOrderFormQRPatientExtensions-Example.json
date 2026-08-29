@@ -242,7 +242,8 @@
             "reference": "QuestionnaireResponse/QuestionnaireResponse-PatientExtensions-Example"
           },
           {
-            "reference": "Condition/Condition-MonogenicHearingLoss-Example"
+            "reference": "http://example.org/fhir/Observation/Condition-MonogenicHearingLoss-Example",
+            "type": "Observation"
           },
           {
             "reference": "Observation/Observation-GenomicEthnicity-Example"
@@ -257,7 +258,8 @@
             "reference": "Observation/Observation-NoTransfusion-Example"
           },
           {
-            "reference": "Condition/Condition-HearingLoss-Example"
+            "reference": "http://example.org/fhir/Observation/Condition-HearingLoss-Example",
+            "type": "Observation"
           }
         ],
         "note": [
@@ -292,46 +294,6 @@
           }
         },
         "effectiveDateTime": "2023-08-05"
-      }
-    },
-    {
-      "fullUrl": "http://example.org/fhir/Condition/Condition-MonogenicHearingLoss-Example",
-      "resource": {
-        "resourceType": "Condition",
-        "id": "Condition-MonogenicHearingLoss-Example",
-        "clinicalStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-              "code": "inactive",
-              "display": "Inactive"
-            }
-          ]
-        },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "provisional",
-              "display": "Provisional"
-            }
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
-              "code": "TP439",
-              "display": "Monogenic hearing loss"
-            }
-          ]
-        },
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9449307873"
-          }
-        }
       }
     },
     {
@@ -434,33 +396,6 @@
       }
     },
     {
-      "fullUrl": "http://example.org/fhir/Condition/Condition-HearingLoss-Example",
-      "resource": {
-        "resourceType": "Condition",
-        "id": "Condition-HearingLoss-Example",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "95820000",
-              "display": "Bilateral hearing loss"
-            }
-          ]
-        },
-        "subject": {
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9449307873"
-          }
-        },
-        "note": [
-          {
-            "text": "hearing loss since childhood (example)"
-          }
-        ]
-      }
-    },
-    {
       "fullUrl": "http://example.org/fhir/Specimen/Specimen-BloodEDTA-Example",
       "resource": {
         "resourceType": "Specimen",
@@ -503,6 +438,57 @@
                 }
               ]
             }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/Condition-MonogenicHearingLoss-Example",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Condition-MonogenicHearingLoss-Example",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+              "code": "TP439",
+              "display": "Monogenic hearing loss"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449307873"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/Condition-HearingLoss-Example",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Condition-HearingLoss-Example",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "95820000",
+              "display": "Bilateral hearing loss"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449307873"
+          }
+        },
+        "note": [
+          {
+            "text": "hearing loss since childhood (example)"
           }
         ]
       }

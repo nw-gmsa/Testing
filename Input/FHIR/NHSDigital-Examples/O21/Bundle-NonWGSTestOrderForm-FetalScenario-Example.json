@@ -224,12 +224,6 @@
               "reference": "https://api.service.nhs.uk/personal-demographics/FHIR/R4/Patient/9449307687"
             },
             "type": "seealso"
-          },
-          {
-            "other": {
-              "reference": "RelatedPerson/RelatedPerson-RyanneBoulder-Example"
-            },
-            "type": "seealso"
           }
         ]
       }
@@ -277,15 +271,7 @@
             }
           }
         ],
-        "gender": "unknown",
-        "link": [
-          {
-            "other": {
-              "reference": "RelatedPerson/RelatedPerson-RyanneBoulderPartner-Example"
-            },
-            "type": "seealso"
-          }
-        ]
+        "gender": "unknown"
       }
     },
     {
@@ -524,10 +510,11 @@
             "reference": "Observation/Observation-NoSecondTrimesterFetalAnomalies-Example"
           },
           {
-            "reference": "Procedure/Procedure-InVitroFertilisation-Example"
+            "reference": "RelatedPerson/RelatedPerson-RyanneBoulder-Example"
           },
           {
-            "reference": "RelatedPerson/RelatedPerson-RyanneBoulder-Example"
+            "reference": "http://example.org/fhir/Observation/Procedure-InVitroFertilisation-Example",
+            "type": "Observation"
           }
         ],
         "note": [
@@ -920,36 +907,6 @@
       }
     },
     {
-      "fullUrl": "http://example.org/fhir/Procedure/Procedure-InVitroFertilisation-Example",
-      "resource": {
-        "resourceType": "Procedure",
-        "id": "Procedure-InVitroFertilisation-Example",
-        "status": "completed",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "52637005",
-              "display": "In vitro fertilisation"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/Patient-RyanneBoulder-Example",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9449307687"
-          }
-        },
-        "performedDateTime": "2023-09-25",
-        "note": [
-          {
-            "text": "Woman`s own egg"
-          }
-        ]
-      }
-    },
-    {
       "fullUrl": "http://example.org/fhir/Specimen/Specimen-BloodEDTA-Example",
       "resource": {
         "resourceType": "Specimen",
@@ -1113,6 +1070,36 @@
                 "display": "natural father of fetus"
               }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/Procedure-InVitroFertilisation-Example",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Procedure-InVitroFertilisation-Example",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "52637005",
+              "display": "In vitro fertilisation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-RyanneBoulder-Example",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449307687"
+          }
+        },
+        "effectiveDateTime": "2023-09-25",
+        "note": [
+          {
+            "text": "Woman`s own egg"
           }
         ]
       }

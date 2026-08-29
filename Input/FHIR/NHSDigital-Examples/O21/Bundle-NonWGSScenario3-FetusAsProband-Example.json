@@ -491,10 +491,11 @@
             "reference": "Observation/41654044-afd4-4b5d-add5-16afc73f97a5"
           },
           {
-            "reference": "Procedure/1ee371f7-00c5-4787-a910-89dc42cbbf47"
+            "reference": "RelatedPerson/6473db02-3c45-42f0-9b8c-9d063753f86b"
           },
           {
-            "reference": "RelatedPerson/6473db02-3c45-42f0-9b8c-9d063753f86b"
+            "reference": "urn:uuid:1ee371f7-00c5-4787-a910-89dc42cbbf47",
+            "type": "Observation"
           }
         ],
         "note": [
@@ -768,36 +769,6 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1ee371f7-00c5-4787-a910-89dc42cbbf47",
-      "resource": {
-        "resourceType": "Procedure",
-        "id": "1ee371f7-00c5-4787-a910-89dc42cbbf47",
-        "status": "completed",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "52637005",
-              "display": "In vitro fertilisation"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9449308322"
-          }
-        },
-        "performedDateTime": "2023-09-25",
-        "note": [
-          {
-            "text": "Woman`s own egg"
-          }
-        ]
-      }
-    },
-    {
       "fullUrl": "urn:uuid:6473db02-3c45-42f0-9b8c-9d063753f86b",
       "resource": {
         "resourceType": "RelatedPerson",
@@ -830,6 +801,36 @@
                 "display": "natural mother of fetus"
               }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1ee371f7-00c5-4787-a910-89dc42cbbf47",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1ee371f7-00c5-4787-a910-89dc42cbbf47",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "52637005",
+              "display": "In vitro fertilisation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "effectiveDateTime": "2023-09-25",
+        "note": [
+          {
+            "text": "Woman`s own egg"
           }
         ]
       }

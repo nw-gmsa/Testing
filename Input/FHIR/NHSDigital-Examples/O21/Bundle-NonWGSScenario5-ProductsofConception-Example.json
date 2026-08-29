@@ -228,16 +228,7 @@
           }
         ],
         "gender": "female",
-        "deceasedDateTime": "2024-05-16T00:00:00-05:00",
-        "link": [
-          {
-            "other": {
-              "reference": "urn:uuid:ac29fd1f-6749-4771-9633-25f39976e48a",
-              "type": "RelatedPerson"
-            },
-            "type": "seealso"
-          }
-        ]
+        "deceasedDateTime": "2024-05-16T00:00:00-05:00"
       }
     },
     {
@@ -397,26 +388,12 @@
             "type": "Observation"
           },
           {
-            "reference": "urn:uuid:fe049bb9-7988-4209-a5a7-364f7829950d",
-            "type": "Procedure"
-          },
-          {
             "reference": "urn:uuid:ac29fd1f-6749-4771-9633-25f39976e48a",
             "type": "RelatedPerson"
           },
           {
-            "reference": "urn:uuid:037d8ff3-da35-4fad-9d28-7a120d4fffe9",
-            "identifier": {
-              "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
-              "value": "FoetusA",
-              "assigner": {
-                "identifier": {
-                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                  "value": "RAX"
-                }
-              }
-            },
-            "type": "Patient"
+            "reference": "urn:uuid:fe049bb9-7988-4209-a5a7-364f7829950d",
+            "type": "Observation"
           }
         ],
         "specimen": [
@@ -729,37 +706,6 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:fe049bb9-7988-4209-a5a7-364f7829950d",
-      "resource": {
-        "resourceType": "Procedure",
-        "id": "fe049bb9-7988-4209-a5a7-364f7829950d",
-        "status": "completed",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "52637005",
-              "display": "In vitro fertilisation"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "urn:uuid:c60f7e06-79b1-4a34-9979-e8a461b3f7c8",
-          "type": "Patient",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9449308322"
-          }
-        },
-        "performedDateTime": "2025-05-25",
-        "note": [
-          {
-            "text": "Woman`s own egg"
-          }
-        ]
-      }
-    },
-    {
       "fullUrl": "urn:uuid:6c83fb14-0eb9-465b-8d2c-062b03b12371",
       "resource": {
         "resourceType": "Specimen",
@@ -835,6 +781,37 @@
                 "display": "natural child"
               }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fe049bb9-7988-4209-a5a7-364f7829950d",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "fe049bb9-7988-4209-a5a7-364f7829950d",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "52637005",
+              "display": "In vitro fertilisation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:c60f7e06-79b1-4a34-9979-e8a461b3f7c8",
+          "type": "Patient",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "effectiveDateTime": "2025-05-25",
+        "note": [
+          {
+            "text": "Woman`s own egg"
           }
         ]
       }
