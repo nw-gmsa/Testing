@@ -36,8 +36,9 @@ split cases (O21/R01), Shire <-> HODS reports (R01), Clatterbridge/Histotrac ord
 reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01), and
 Cepheid results (R32, sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
-isn't yet verified for R32). Extend TEST_GROUPS with further scenarios/files as they're
-added.
+isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
+(O21/R01/A31, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
+group below). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
     python3 IntegrationTest.py [--skip-send] [--type O21] [--type R01] [--group shire]
@@ -217,6 +218,47 @@ TEST_GROUPS = {
                 "dWGS_r2026000203_p2026000104.json",
                 "dWGS_r2026000203_p2026000105.json",
                 "dWGS_r2026000203_p2026000106.json",
+            ],
+        },
+    },
+    # Reference examples published by the NW-GMSA IG itself, not built by this repo -
+    # https://nw-gmsa.github.io/en/StructureDefinition-BundleMessage-examples.html
+    # (source: https://github.com/nw-gmsa/nw-gmsa.github.com). Fetched as the IG's own
+    # published JSON (e.g. https://nw-gmsa.github.io/en/Bundle-GenomicsOrderMessage-ctDNA.json)
+    # and kept verbatim, filenames unchanged, so they stay traceable back to that page.
+    # FHIR-sourced like "dwgs" - input_format "fhir" runs run_fhir_source_case. 7 of the
+    # page's 10 examples are included; none overlap with this repo's own hand-built
+    # Input/FHIR content (checked by patient identity, not just filename - the ctDNA
+    # pair reuses this repo's existing NHS-number test patients, per this repo's own
+    # convention of reusing the same test-patient pool, but the Bundle content itself is
+    # the IG's, not a copy of anything already in Input/). The other 3
+    # (GenomicsOrderMessageReply{Acknowledge,Fatal,Ok}) are excluded - they're
+    # MessageHeader-only $process-message *responses* (MessageHeader.response populated,
+    # no Patient/ServiceRequest/etc.), not order/report messages to send in the first
+    # place, so this harness's send-as-a-new-message model doesn't apply to them.
+    # Deviation/known-failure notes, verified live rather than pre-filtered out (same
+    # practice as e.g. cepheid): Bundle-GenomicsReportMessage.json (DocumentReference +
+    # inline Binary PDF, no ctDNA data) gets a bare HTTP 500 from transformToV2. Both R01
+    # examples fail check_fhir_bundle's dangling-reference check - urn:uuid: references
+    # the IG's own published Bundle doesn't actually supply a matching fullUrl entry for
+    # (DiagnosticReport.result/presentedForm-style refs) - a real gap in the IG's own
+    # example data, not this repo's fixtures.
+    "nwgmsa_examples": {
+        "input_dir": os.path.join("Input", "FHIR", "NWGMSA-Examples"),
+        "input_format": "fhir",
+        "cases": {
+            "O21": [
+                "Bundle-748683741.json",
+                "Bundle-GenomicsOrderMessage-ctDNA.json",
+                "Bundle-GenomicsOrderMessageAttachment.json",
+                "Bundle-GenomicsOrderMessageCodedEntries.json",
+            ],
+            "R01": [
+                "Bundle-GenomicsReportMessage-ctDNA.json",
+                "Bundle-GenomicsReportMessage.json",
+            ],
+            "A31": [
+                "Bundle-PatientMessage.json",
             ],
         },
     },

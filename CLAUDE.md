@@ -88,6 +88,12 @@ results in `Results/FHIR/GenomicsReporting/`.
 - `Input/V2/{O01,O21,R01}` — hand-crafted/generated source HL7 v2 test messages, keyed
   by trigger event.
 - `Input/FHIR/` — source FHIR examples used for `transformToV2`.
+  `Input/FHIR/NWGMSA-Examples/{O21,R01,A31}` holds the NW-GMSA IG's own published
+  `BundleMessage` examples verbatim (fetched from
+  https://nw-gmsa.github.io/en/StructureDefinition-BundleMessage-examples.html, source
+  https://github.com/nw-gmsa/nw-gmsa.github.com), used by `IntegrationTest.py`'s
+  `nwgmsa_examples` group — distinct from this repo's own hand-built `Input/FHIR/O21`
+  content.
 - `Input/PDS/`, `Input/ctDNA/`, `Input/ASTM/` — reference patient data (PDS extracts) and
   other source formats (ASTM instrument output).
 - `Input/VCF/` — source VCF files for the standalone `miscellaneous-notebooks/VCFToFHIRVariant.ipynb` demo (HL7

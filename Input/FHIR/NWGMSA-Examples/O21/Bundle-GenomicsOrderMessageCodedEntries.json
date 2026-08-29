@@ -1,0 +1,1234 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "GenomicsOrderMessageCodedEntries",
+  "meta" : {
+    "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"]
+  },
+  "language" : "en",
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:uuid:9612365d-52a4-4fab-87e7-8a09d753f095"
+  },
+  "type" : "message",
+  "timestamp" : "2024-10-13T10:33:00+00:00",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:9a7e9fd9-d774-42ef-bd23-4397a1ba1b63",
+    "resource" : {
+      "resourceType" : "MessageHeader",
+      "id" : "MessageHeaderGenomicOrder",
+      "meta" : {
+        "lastUpdated" : "2025-01-29T10:39:26+00:00",
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_MessageHeaderGenomicOrder\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MessageHeader MessageHeaderGenomicOrder</b></p><a name=\"MessageHeaderGenomicOrder\"> </a><a name=\"hcMessageHeaderGenomicOrder\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Last updated: 2025-01-29 10:39:26+0000</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MessageHeader.html\">Document Message (MessageHeader)</a></p></div><p><b>event</b>: <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0003.html#v2-0003-O21\">event: O21</a> (OML - Laboratory order)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=https://fhir.nwgenomics.nhs.uk/Endpoint/RIE\">https://fhir.nwgenomics.nhs.uk/Endpoint/RIE</a></td><td>NORTH WEST GLH (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/699X0)</td></tr></table><p><b>sender</b>: MANCHESTER UNIVERSITY NHS FOUNDATION TRUST (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/R0A)</p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Software</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>MFT Epic</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC\">https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC</a></td></tr></table><p><b>focus</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-54b526e9-60a7-4602-9cb3-50ab3be7b564\">ServiceRequest Diagnostic testing for known variant(s) (Targeted variant testing)</a></p></div>"
+      },
+      "eventCoding" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0003",
+        "code" : "O21"
+      },
+      "destination" : [{
+        "endpoint" : "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE",
+        "receiver" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "699X0"
+          },
+          "display" : "NORTH WEST GLH"
+        }
+      }],
+      "sender" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "R0A"
+        },
+        "display" : "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+      },
+      "source" : {
+        "software" : "MFT Epic",
+        "endpoint" : "https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC"
+      },
+      "focus" : [{
+        "reference" : "urn:uuid:54b526e9-60a7-4602-9cb3-50ab3be7b564",
+        "type" : "ServiceRequest"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "Patient-OctaviaCHISLETT-9449305552",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_Patient-OctaviaCHISLETT-9449305552\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient Patient-OctaviaCHISLETT-9449305552</b></p><a name=\"Patient-OctaviaCHISLETT-9449305552\"> </a><a name=\"hcPatient-OctaviaCHISLETT-9449305552\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Patient.html\">Patient</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Octavia CHISLETT (official) Female, DoB: 2008-09-20 ( Medical record number)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Ids (see the one above)\">Other Ids:</td><td colspan=\"3\"><ul><li>National Health Plan Identifier/9449305552\u00a0(use:\u00a0official,\u00a0)</li><li>Medical record number/633</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\">1 RAVENSFIELD GARDENS EPSOM KT19 0ST (home)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Patient contact\">Contact:</td><td colspan=\"3\"><ul><li>Bob DAWKINS (Official)</li><li>ph: 077021231231(Mobile)</li></ul></td></tr></table></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "NH"
+          }]
+        },
+        "system" : "https://fhir.nhs.uk/Id/nhs-number",
+        "value" : "9449305552"
+      },
+      {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MR"
+          }]
+        },
+        "system" : "http://www.acme.org/patient/identifier",
+        "value" : "A12356565",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "RBS"
+          }
+        }
+      },
+      {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MR"
+          }]
+        },
+        "system" : "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
+        "value" : "633",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "active" : true,
+      "name" : [{
+        "use" : "official",
+        "family" : "CHISLETT",
+        "given" : ["Octavia"]
+      }],
+      "gender" : "female",
+      "birthDate" : "2008-09-20",
+      "address" : [{
+        "use" : "home",
+        "type" : "both",
+        "line" : ["1 RAVENSFIELD GARDENS"],
+        "city" : "EPSOM",
+        "district" : "SURREY",
+        "postalCode" : "KT19 0ST"
+      }],
+      "contact" : [{
+        "name" : {
+          "use" : "official",
+          "family" : "DAWKINS",
+          "given" : ["Bob"]
+        },
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "077021231231",
+          "use" : "mobile"
+        }]
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3",
+    "resource" : {
+      "resourceType" : "Encounter",
+      "id" : "984b8a89-4194-4eb4-a7ea-ca8049ebeea3",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_984b8a89-4194-4eb4-a7ea-ca8049ebeea3\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encounter 984b8a89-4194-4eb4-a7ea-ca8049ebeea3</b></p><a name=\"984b8a89-4194-4eb4-a7ea-ca8049ebeea3\"> </a><a name=\"hc984b8a89-4194-4eb4-a7ea-ca8049ebeea3\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-HospitalSpell.html\">Hospital Spell</a></p></div><p><b>identifier</b>: Account number/1001166717</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v3-ActCode.html#v3-ActCode-AMB\">ActCode: AMB</a> (ambulatory)</p><p><b>serviceType</b>: <span title=\"Codes:{http://snomed.info/sct 892761000000102}\">Clinical haematology service</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType ADM}\">admitter</span></td><td><a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></td></tr></table><p><b>period</b>: 2025-01-29 10:37:26+0000 --&gt; (ongoing)</p><h3>Locations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Location</b></td></tr><tr><td style=\"display: none\">*</td><td>Identifier: <a href=\"NamingSystem-ods-site-code-namingsystem.html\" title=\"The identifier system for an Organisation site registered with the Organisation Data Service (ODS).\">ODS Organisation Site Code</a>/R0A09</td></tr></table></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "AN"
+          }]
+        },
+        "system" : "http://www.acme.org/encounter/identifiers/R0A",
+        "value" : "1001166717",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "finished",
+      "class" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code" : "AMB"
+      },
+      "serviceType" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "892761000000102",
+          "display" : "Clinical haematology service"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "participant" : [{
+        "type" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            "code" : "ADM"
+          }]
+        }],
+        "individual" : {
+          "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+        }
+      }],
+      "period" : {
+        "start" : "2025-01-29T10:37:26+00:00"
+      },
+      "location" : [{
+        "location" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-site-code",
+            "value" : "R0A09",
+            "assigner" : {
+              "identifier" : {
+                "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value" : "R0A"
+              }
+            }
+          }
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+    "resource" : {
+      "resourceType" : "PractitionerRole",
+      "id" : "ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8</b></p><a name=\"ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\"> </a><a name=\"hcee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerRole.html\">PractitionerRole</a></p></div><p><b>practitioner</b>: Dr Samuel Darwin (Identifier: <a href=\"NamingSystem-gmcnumber-namingsystem.html\" title=\"General Medical Council Consultant Code. For more details see: [NHS Data Model Dictionary](https://www.datadictionary.nhs.uk/attributes/general_medical_council_reference_number.html)\">GMC Number</a>/C3456789)</p><p><b>organization</b>: Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/R0A</p><p><b>specialty</b>: <span title=\"Codes:{https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode 100}\">General Surgery</span></p></div>"
+      },
+      "practitioner" : {
+        "identifier" : {
+          "system" : "https://fhir.hl7.org.uk/Id/gmc-number",
+          "value" : "C3456789"
+        },
+        "display" : "Dr Samuel Darwin"
+      },
+      "organization" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "R0A"
+        }
+      },
+      "specialty" : [{
+        "coding" : [{
+          "system" : "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+          "code" : "100"
+        }]
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:54b526e9-60a7-4602-9cb3-50ab3be7b564",
+    "resource" : {
+      "resourceType" : "ServiceRequest",
+      "id" : "ServiceRequestGenomicsOrderCodedEntries",
+      "meta" : {
+        "versionId" : "1.0",
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_ServiceRequestGenomicsOrderCodedEntries\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest ServiceRequestGenomicsOrderCodedEntries</b></p><a name=\"ServiceRequestGenomicsOrderCodedEntries\"> </a><a name=\"hcServiceRequestGenomicsOrderCodedEntries\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">version: 1.0</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ServiceRequest.html\">ServiceRequest</a></p></div><p><b>identifier</b>: Placer Identifier/1601737</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 116148004}\">Molecular genetics procedure</span>, <span title=\"Codes:{https://fhir.hl7.org.uk/CodeSystem/UKCore-GenomeSequencingCategory cancer-wgs}\">Cancer - WGS</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory R240.1}\">Diagnostic testing for known variant(s) (Targeted variant testing)</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>authoredOn</b>: 2025-01-29</p><p><b>requester</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>reasonCode</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication R240}\">Diagnostic testing for known mutation(s)</span></p><p><b>reasonReference</b>: <a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-47f34393-cc83-428f-b8dd-54bcd372c847\">Condition Malignant tumour of stomach</a></p><p><b>supportingInfo</b>: <a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-27ca6057-e481-426a-ba8a-2acfffc0c1c4\">Observation GENETICS TEST PERFORMABLE</a></p><p><b>specimen</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-89e66518-9197-4553-9253-5ab5133b62c0\">Specimen: identifier = Placer Identifier; accessionIdentifier = Accession ID; status = available; type = Whole blood specimen; receivedTime = 2025-02-01 10:37:26+0000</a></p><p><b>note</b>: </p><blockquote><div><p>Referral lab PLEASE do following tests:</p>\n<p>Test(s) required: WGS\nSample type: Blood\nTransport used: Merlin Courier\nTracking Number: ABC123\nSample sent to: LWH Genetics\nBy: PDAY       on: 02/04/25</p>\n<p>Speciality Requesting Clinician: PAEDS\nTest Group: Neurology\nEthnic Group: White British\nPatient is from consanguineous union? : Unknown\nSpecimen Collection Status: Collect &amp; send with order\nInfection Risk: No Specific Risk\nClinical details:</p>\n<p>TESTING\nContact/Bleep No: 123</p>\n</div></blockquote></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PLAC"
+          }]
+        },
+        "system" : "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+        "value" : "1601737",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "116148004",
+          "display" : "Molecular genetics procedure"
+        }]
+      },
+      {
+        "coding" : [{
+          "system" : "https://fhir.hl7.org.uk/CodeSystem/UKCore-GenomeSequencingCategory",
+          "code" : "cancer-wgs"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+          "code" : "R240.1"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "authoredOn" : "2025-01-29",
+      "requester" : {
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      },
+      "reasonCode" : [{
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+          "code" : "R240",
+          "display" : "Diagnostic testing for known mutation(s)"
+        }]
+      }],
+      "reasonReference" : [{
+        "reference" : "urn:uuid:47f34393-cc83-428f-b8dd-54bcd372c847"
+      }],
+      "supportingInfo" : [{
+        "reference" : "urn:uuid:27ca6057-e481-426a-ba8a-2acfffc0c1c4"
+      }],
+      "specimen" : [{
+        "reference" : "urn:uuid:89e66518-9197-4553-9253-5ab5133b62c0"
+      }],
+      "note" : [{
+        "text" : "Referral lab PLEASE do following tests:\n\nTest(s) required: WGS\nSample type: Blood\nTransport used: Merlin Courier\nTracking Number: ABC123\nSample sent to: LWH Genetics\nBy: PDAY       on: 02/04/25\n\nSpeciality Requesting Clinician: PAEDS\nTest Group: Neurology\nEthnic Group: White British\nPatient is from consanguineous union? : Unknown\nSpecimen Collection Status: Collect & send with order\nInfection Risk: No Specific Risk\nClinical details:\n\nTESTING\nContact/Bleep No: 123"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:27ca6057-e481-426a-ba8a-2acfffc0c1c4",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "EPIC-OBR-1",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation-Panel"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_EPIC-OBR-1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation EPIC-OBR-1</b></p><a name=\"EPIC-OBR-1\"> </a><a name=\"hcEPIC-OBR-1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation-Panel.html\">Observation Panel</a></p></div><p><b>identifier</b>: 27ca6057-e481-426a-ba8a-2acfffc0c1c4</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds GENEAP}\">GENETICS TEST</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>hasMember</b>: </p><ul><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-f39cc804-5280-4807-91d4-075be16928e5\">Observation What Type of Referral Do You Require?</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-edd4debe-dd82-445f-b3e5-e175760da105\">Observation High infection risk sample</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-7b7ec386-bbc6-47fb-a3ed-6a6ea6e4c5d3\">Observation Test Type</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-390c7633-fd63-483c-8e32-e8858f232339\">Observation Pregnancy</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-66b690c6-eb2c-49bb-9546-97cff782d978\">Observation Please Select R240 Test(s):</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-f36a0ed4-e5c3-4ac8-846f-571b4a500e17\">Observation Please Select R242 Test(s):</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-ddf248a2-6323-4b7a-b4a3-e968c36311b7\">Observation Email Addresses of Non-MFT Clinicians for Result Reports</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-0d472ee5-8c21-467a-aafe-29c89a42ed4e\">Observation Informed consent given for treatment</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-4b910bc3-68c6-4252-a218-076110f0d23d\">Observation Please Acknowledge That a DNA Sample Will be Stored in the Laboratory on Completion of Testing</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-3a3ba1ed-831d-4f82-b487-e40860a2befd\">Observation Is the Person Ordering the Test the Referring Clinician</a></li><li><a href=\"Bundle-GenomicsOrderMessageCodedEntries.html#urn-uuid-298e99de-fd29-4802-bcf2-78f901b33a6e\">Observation Name of Supervising Clinician</a></li></ul></div>"
+      },
+      "identifier" : [{
+        "value" : "27ca6057-e481-426a-ba8a-2acfffc0c1c4"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "GENEAP",
+          "display" : "GENETICS TEST PERFORMABLE"
+        }],
+        "text" : "GENETICS TEST"
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "hasMember" : [{
+        "reference" : "urn:uuid:f39cc804-5280-4807-91d4-075be16928e5"
+      },
+      {
+        "reference" : "urn:uuid:edd4debe-dd82-445f-b3e5-e175760da105"
+      },
+      {
+        "reference" : "urn:uuid:7b7ec386-bbc6-47fb-a3ed-6a6ea6e4c5d3"
+      },
+      {
+        "reference" : "urn:uuid:390c7633-fd63-483c-8e32-e8858f232339"
+      },
+      {
+        "reference" : "urn:uuid:66b690c6-eb2c-49bb-9546-97cff782d978"
+      },
+      {
+        "reference" : "urn:uuid:f36a0ed4-e5c3-4ac8-846f-571b4a500e17"
+      },
+      {
+        "reference" : "urn:uuid:ddf248a2-6323-4b7a-b4a3-e968c36311b7"
+      },
+      {
+        "reference" : "urn:uuid:0d472ee5-8c21-467a-aafe-29c89a42ed4e"
+      },
+      {
+        "reference" : "urn:uuid:4b910bc3-68c6-4252-a218-076110f0d23d"
+      },
+      {
+        "reference" : "urn:uuid:3a3ba1ed-831d-4f82-b487-e40860a2befd"
+      },
+      {
+        "reference" : "urn:uuid:298e99de-fd29-4802-bcf2-78f901b33a6e"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:f39cc804-5280-4807-91d4-075be16928e5",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-GenomicReferralCategory",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-GenomicReferralCategory\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-GenomicReferralCategory</b></p><a name=\"OBX-GenomicReferralCategory\"> </a><a name=\"hcOBX-GenomicReferralCategory\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: f39cc804-5280-4807-91d4-075be16928e5</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230056}\">What Type of Referral Do You Require?</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: <span title=\"Codes:{http://snomed.info/sct 1186936003}\">Specimen storage</span></p></div>"
+      },
+      "identifier" : [{
+        "value" : "f39cc804-5280-4807-91d4-075be16928e5"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230056",
+          "display" : "What Type of Referral Do You Require?"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "1186936003",
+          "display" : "Specimen storage"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:47f34393-cc83-428f-b8dd-54bcd372c847",
+    "resource" : {
+      "resourceType" : "Condition",
+      "id" : "EPIC-OBX-2",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Condition"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_EPIC-OBX-2\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition EPIC-OBX-2</b></p><a name=\"EPIC-OBX-2\"> </a><a name=\"hcEPIC-OBX-2\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Condition.html\">Condition</a></p></div><p><b>identifier</b>: 47f34393-cc83-428f-b8dd-54bcd372c847</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 363349007}\">Malignant tumour of stomach</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>recordedDate</b>: 2025-01-29 10:37:26+0000</p></div>"
+      },
+      "identifier" : [{
+        "value" : "47f34393-cc83-428f-b8dd-54bcd372c847"
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "363349007",
+          "display" : "Malignant tumour of stomach"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "recordedDate" : "2025-01-29T10:37:26+00:00"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:edd4debe-dd82-445f-b3e5-e175760da105",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-HighInfectionRiskSample",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-HighInfectionRiskSample\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-HighInfectionRiskSample</b></p><a name=\"OBX-HighInfectionRiskSample\"> </a><a name=\"hcOBX-HighInfectionRiskSample\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: edd4debe-dd82-445f-b3e5-e175760da105</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 281269004}\">High infection risk sample</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA32-8}\">No</span></p></div>"
+      },
+      "identifier" : [{
+        "value" : "edd4debe-dd82-445f-b3e5-e175760da105"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "281269004",
+          "display" : "High infection risk sample"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA32-8",
+          "display" : "No"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:7b7ec386-bbc6-47fb-a3ed-6a6ea6e4c5d3",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "EPIC-OBX-4",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_EPIC-OBX-4\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation EPIC-OBX-4</b></p><a name=\"EPIC-OBX-4\"> </a><a name=\"hcEPIC-OBX-4\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 7b7ec386-bbc6-47fb-a3ed-6a6ea6e4c5d3</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230016}\">Test Type</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: Diagnostic Screen/Test</p></div>"
+      },
+      "identifier" : [{
+        "value" : "7b7ec386-bbc6-47fb-a3ed-6a6ea6e4c5d3"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230016",
+          "display" : "Test Type"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "Diagnostic Screen/Test"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:390c7633-fd63-483c-8e32-e8858f232339",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-Pregnancy",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-Pregnancy\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-Pregnancy</b></p><a name=\"OBX-Pregnancy\"> </a><a name=\"hcOBX-Pregnancy\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 390c7633-fd63-483c-8e32-e8858f232339</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 77386006}\">Pregnancy</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA33-6}\">Yes</span></p></div>"
+      },
+      "identifier" : [{
+        "value" : "390c7633-fd63-483c-8e32-e8858f232339"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "77386006",
+          "display" : "Pregnancy"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA33-6",
+          "display" : "Yes"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:66b690c6-eb2c-49bb-9546-97cff782d978",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "EPIC-OBX-6",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_EPIC-OBX-6\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation EPIC-OBX-6</b></p><a name=\"EPIC-OBX-6\"> </a><a name=\"hcEPIC-OBX-6\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 66b690c6-eb2c-49bb-9546-97cff782d978</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 231284}\">Please Select R240 Test(s):</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: R240.1: Targeted variant testing</p></div>"
+      },
+      "identifier" : [{
+        "value" : "66b690c6-eb2c-49bb-9546-97cff782d978"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "231284",
+          "display" : "Please Select R240 Test(s):"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "R240.1: Targeted variant testing"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:f36a0ed4-e5c3-4ac8-846f-571b4a500e17",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "EPIC-OBX-7",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_EPIC-OBX-7\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation EPIC-OBX-7</b></p><a name=\"EPIC-OBX-7\"> </a><a name=\"hcEPIC-OBX-7\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: f36a0ed4-e5c3-4ac8-846f-571b4a500e17</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 231285}\">Please Select R242 Test(s):</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: R242.1: Targeted variant testing</p></div>"
+      },
+      "identifier" : [{
+        "value" : "f36a0ed4-e5c3-4ac8-846f-571b4a500e17"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "231285",
+          "display" : "Please Select R242 Test(s):"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "R242.1: Targeted variant testing"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:ddf248a2-6323-4b7a-b4a3-e968c36311b7",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "EPIC-OBX-8",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_EPIC-OBX-8\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation EPIC-OBX-8</b></p><a name=\"EPIC-OBX-8\"> </a><a name=\"hcEPIC-OBX-8\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: ddf248a2-6323-4b7a-b4a3-e968c36311b7</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230027}\">Email Addresses of Non-MFT Clinicians for Result Reports</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: charu</p></div>"
+      },
+      "identifier" : [{
+        "value" : "ddf248a2-6323-4b7a-b4a3-e968c36311b7"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230027",
+          "display" : "Email Addresses of Non-MFT Clinicians for Result Reports"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "charu"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:0d472ee5-8c21-467a-aafe-29c89a42ed4e",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-InformedConsent",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-InformedConsent\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-InformedConsent</b></p><a name=\"OBX-InformedConsent\"> </a><a name=\"hcOBX-InformedConsent\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 0d472ee5-8c21-467a-aafe-29c89a42ed4e</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 762911000000102}\">Confirmation of Consent for Testing - MANDATORY Testing will not be performed without completed confirmation of consent</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA33-6}\">Yes</span></p></div>"
+      },
+      "identifier" : [{
+        "value" : "0d472ee5-8c21-467a-aafe-29c89a42ed4e"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "762911000000102",
+          "display" : "Informed consent given for treatment"
+        }],
+        "text" : "Confirmation of Consent for Testing - MANDATORY Testing will not be performed without completed confirmation of consent"
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA33-6",
+          "display" : "Yes"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:4b910bc3-68c6-4252-a218-076110f0d23d",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "EPIC-OBX-10",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_EPIC-OBX-10\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation EPIC-OBX-10</b></p><a name=\"EPIC-OBX-10\"> </a><a name=\"hcEPIC-OBX-10\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 4b910bc3-68c6-4252-a218-076110f0d23d</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230037}\">Please Acknowledge That a DNA Sample Will be Stored in the Laboratory on Completion of Testing</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: Acknowledged</p></div>"
+      },
+      "identifier" : [{
+        "value" : "4b910bc3-68c6-4252-a218-076110f0d23d"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230037",
+          "display" : "Please Acknowledge That a DNA Sample Will be Stored in the Laboratory on Completion of Testing"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "Acknowledged"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:3a3ba1ed-831d-4f82-b487-e40860a2befd",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "EPIC-OBX-11",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_EPIC-OBX-11\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation EPIC-OBX-11</b></p><a name=\"EPIC-OBX-11\"> </a><a name=\"hcEPIC-OBX-11\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 3a3ba1ed-831d-4f82-b487-e40860a2befd</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230039}\">Is the Person Ordering the Test the Referring Clinician</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: No</p></div>"
+      },
+      "identifier" : [{
+        "value" : "3a3ba1ed-831d-4f82-b487-e40860a2befd"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230039",
+          "display" : "Is the Person Ordering the Test the Referring Clinician"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "No"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:298e99de-fd29-4802-bcf2-78f901b33a6e",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-SupervisingClinician",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-SupervisingClinician\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-SupervisingClinician</b></p><a name=\"OBX-SupervisingClinician\"> </a><a name=\"hcOBX-SupervisingClinician\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 298e99de-fd29-4802-bcf2-78f901b33a6e</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds unknown}\">Name of Supervising Clinician</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: DESHPANDE, CHARULATA</p></div>"
+      },
+      "identifier" : [{
+        "value" : "298e99de-fd29-4802-bcf2-78f901b33a6e"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "unknown",
+          "display" : "Name of Supervising Clinician"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "DESHPANDE, CHARULATA"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:9a012a65-062e-4e0a-9fce-f0aa09a4783b",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-OrderTrackingNumber",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-OrderTrackingNumber\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-OrderTrackingNumber</b></p><a name=\"OBX-OrderTrackingNumber\"> </a><a name=\"hcOBX-OrderTrackingNumber\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 9a012a65-062e-4e0a-9fce-f0aa09a4783b</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 97209-1}\">Shipment tracking number [Identifier]</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: UK3096580215</p></div>"
+      },
+      "identifier" : [{
+        "value" : "9a012a65-062e-4e0a-9fce-f0aa09a4783b"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "97209-1",
+          "display" : "Shipment tracking number [Identifier]"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueString" : "UK3096580215"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:af0eb9c5-f694-4d3e-9720-b49c1101c019",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-Consanguinity",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-Consanguinity\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-Consanguinity</b></p><a name=\"OBX-Consanguinity\"> </a><a name=\"hcOBX-Consanguinity\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: af0eb9c5-f694-4d3e-9720-b49c1101c019</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 842009}\">Consanguinity</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA32-8}\">No</span></p></div>"
+      },
+      "identifier" : [{
+        "value" : "af0eb9c5-f694-4d3e-9720-b49c1101c019"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "842009",
+          "display" : "Consanguinity"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "LA32-8",
+          "display" : "No"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:57ea3361-7b8d-4415-ae21-5e10bfc30992",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "OBX-PregnancyExpectedDeliveryDate",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_OBX-PregnancyExpectedDeliveryDate\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation OBX-PregnancyExpectedDeliveryDate</b></p><a name=\"OBX-PregnancyExpectedDeliveryDate\"> </a><a name=\"hcOBX-PregnancyExpectedDeliveryDate\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Observation.html\">Observation</a></p></div><p><b>identifier</b>: 57ea3361-7b8d-4415-ae21-5e10bfc30992</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 161714006}\">Estimated date of delivery</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>encounter</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-984b8a89-4194-4eb4-a7ea-ca8049ebeea3\">Encounter: identifier = Account number; status = finished; class = ambulatory (ActCode#AMB); serviceType = Clinical haematology service; period = 2025-01-29 10:37:26+0000 --&gt; (ongoing)</a></p><p><b>effective</b>: 2025-01-29 10:37:26+0000</p><p><b>performer</b>: <a href=\"Bundle-GenomicsOrderMessageAttachment.html#urn-uuid-ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\">PractitionerRole: specialty = General Surgery</a></p><p><b>value</b>: 2025-05-12 10:37:26+0000</p></div>"
+      },
+      "identifier" : [{
+        "value" : "57ea3361-7b8d-4415-ae21-5e10bfc30992"
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "laboratory"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "161714006",
+          "display" : "Estimated date of delivery"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:984b8a89-4194-4eb4-a7ea-ca8049ebeea3"
+      },
+      "effectiveDateTime" : "2025-01-29T10:37:26+00:00",
+      "performer" : [{
+        "reference" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+      }],
+      "valueDateTime" : "2025-05-12T10:37:26+00:00"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:89e66518-9197-4553-9253-5ab5133b62c0",
+    "resource" : {
+      "resourceType" : "Specimen",
+      "id" : "SpecimenExample",
+      "meta" : {
+        "versionId" : "1.0",
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Specimen_SpecimenExample\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Specimen SpecimenExample</b></p><a name=\"SpecimenExample\"> </a><a name=\"hcSpecimenExample\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">version: 1.0</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Specimen.html\">Specimen</a></p></div><p><b>identifier</b>: Placer Identifier/25GEN-029GN00001</p><p><b>accessionIdentifier</b>: Accession ID/1001166717</p><p><b>status</b>: Available</p><p><b>type</b>: <span title=\"Codes:{http://snomed.info/sct 258580003}\">Whole blood specimen</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>receivedTime</b>: 2025-02-01 10:37:26+0000</p><h3>Collections</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Collected[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>2025-01-29 10:37:26+0000</td></tr></table></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PLAC"
+          }]
+        },
+        "system" : "http://www.acme.org/specimen/Beaker",
+        "value" : "25GEN-029GN00001",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "accessionIdentifier" : {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "ACSN"
+          }]
+        },
+        "system" : "http://www.example.org/specimen/accession",
+        "value" : "1001166717",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "699X0"
+          }
+        }
+      },
+      "status" : "available",
+      "type" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "258580003",
+          "display" : "Whole blood specimen"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "receivedTime" : "2025-02-01T10:37:26+00:00",
+      "collection" : {
+        "collectedDateTime" : "2025-01-29T10:37:26+00:00"
+      }
+    }
+  }]
+}

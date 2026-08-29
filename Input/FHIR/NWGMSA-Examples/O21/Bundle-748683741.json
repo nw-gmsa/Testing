@@ -1,0 +1,762 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "748683741",
+  "meta" : {
+    "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"]
+  },
+  "language" : "en",
+  "identifier" : {
+    "value" : "748683741"
+  },
+  "type" : "message",
+  "timestamp" : "2025-11-11T07:47:53+00:00",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:f2ae3b74-9199-4ca3-972c-d3de93c7e65c",
+    "resource" : {
+      "resourceType" : "MessageHeader",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MessageHeader </b></p><p><b>event</b>: <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0003.html#v2-0003-O21\">event: O21</a> (OML - Laboratory order)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=http://fhir.org/packages/fhir.r4.ukcore.stu3.currentbuild/https//fhir.nwgenomics.nhs.uk/Endpoint/iGene\">https//fhir.nwgenomics.nhs.uk/Endpoint/iGene</a></td><td>Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/SMHGEN</td></tr></table><p><b>sender</b>: Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/MFT</p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Software</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>NW GLH</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=https://fhir.north-west.england.nhs.uk/Endpoint/EpicBeaker\">https://fhir.north-west.england.nhs.uk/Endpoint/EpicBeaker</a></td></tr></table><p><b>focus</b>: </p><ul><li><a href=\"Bundle-748683741.html#urn-uuid-fbbf3f64-4fee-44de-ac11-da98a32ff1b4\">ServiceRequest Glial and Glioneuronal Tumour Differential, Paediatric, Multi-target NGS panel, copy number variant (1p, 19q, EGFR, ALK, C19MC, CDKN2A,  FGFR1, KIAA1549, KIT, MYCN, PDGFRA, SMARCA4, SMARCB1, YAP1)</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-af7d8130-2940-4743-beb3-1d904c14e3aa\">ServiceRequest Glial and Glioneuronal Tumour Differential, Paediatric, C11orf95-RELA FISH/RT-PCR</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-f6f3ba92-549f-42e8-80ec-b91251048d21\">ServiceRequest Glial and Glioneuronal Tumour Differential, Paediatric, 1p19q codel FISH/RT-PCR</a></li></ul></div>"
+      },
+      "eventCoding" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0003",
+        "code" : "O21"
+      },
+      "destination" : [{
+        "endpoint" : "https//fhir.nwgenomics.nhs.uk/Endpoint/iGene",
+        "receiver" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "SMHGEN"
+          }
+        }
+      }],
+      "sender" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "MFT"
+        }
+      },
+      "source" : {
+        "software" : "NW GLH",
+        "endpoint" : "https://fhir.north-west.england.nhs.uk/Endpoint/EpicBeaker"
+      },
+      "focus" : [{
+        "reference" : "urn:uuid:fbbf3f64-4fee-44de-ac11-da98a32ff1b4"
+      },
+      {
+        "reference" : "urn:uuid:af7d8130-2940-4743-beb3-1d904c14e3aa"
+      },
+      {
+        "reference" : "urn:uuid:f6f3ba92-549f-42e8-80ec-b91251048d21"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c",
+    "resource" : {
+      "resourceType" : "Patient",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient </b></p><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\">1979 MILKY WAY &quot;&quot; VERONA 53593 </td></tr></table></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MR"
+          }]
+        },
+        "system" : "https://nw-gmsa.github.io/Id/MR",
+        "value" : "207003",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "name" : [{
+        "family" : "Johnson",
+        "given" : ["Lori"],
+        "prefix" : ["\"\""]
+      }],
+      "gender" : "female",
+      "birthDate" : "2013-10-21",
+      "address" : [{
+        "line" : ["1979 MILKY WAY",
+        "\"\""],
+        "city" : "VERONA",
+        "district" : "WI",
+        "postalCode" : "53593"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:1b9d42c1-ef8e-445a-a8d8-2a8a48aa1404",
+    "resource" : {
+      "resourceType" : "PractitionerRole",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole </b></p><p><b>practitioner</b>: ARMITAGE, GEMMA (Identifier: <a href=\"NamingSystem-gmcnumber-namingsystem.html\" title=\"General Medical Council Consultant Code. For more details see: [NHS Data Model Dictionary](https://www.datadictionary.nhs.uk/attributes/general_medical_council_reference_number.html)\">GMC Number</a>/999)</p><p><b>organization</b>: MANCHESTER UNIVERSITY NHS FOUNDATION TRUST (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/R0A)</p></div>"
+      },
+      "practitioner" : {
+        "identifier" : {
+          "system" : "https://fhir.hl7.org.uk/Id/gmc-number",
+          "value" : "999"
+        },
+        "display" : "ARMITAGE, GEMMA"
+      },
+      "organization" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "R0A"
+        },
+        "display" : "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:9355d363-cc63-4bcb-a57f-6ef82dd0e6c3",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230056-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230056}\">What Type of Referral Do You Require?</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: Standard</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230056-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230056",
+          "display" : "What Type of Referral Do You Require?"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "Standard"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:d2955ceb-4d4b-4ef7-9808-d4ad401036b7",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230048-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230048}\">Please Select Clinical Indication(s)</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: M213: Glial and Glioneuronal Tumour Differential - Paediatric</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230048-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230048",
+          "display" : "Please Select Clinical Indication(s)"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "M213: Glial and Glioneuronal Tumour Differential - Paediatric"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:42a459ac-1540-434a-a65f-fe1d9dbc9c9f",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-231610-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 231610}\">Clinical Utility (Please Select as Appropriate and Provide Any Additional Information in the Comments Section)</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: Patient management (determining therapeutic decisions and/or clinical investigations and/or surveillance programme)</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-231610-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "231610",
+          "display" : "Clinical Utility (Please Select as Appropriate and Provide Any Additional Information in the Comments Section)"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "Patient management (determining therapeutic decisions and/or clinical investigations and/or surveillance programme)"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:819110cc-da75-4428-a674-ca94328c45eb",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230030-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230030}\">Neoplastic Cell Content Level</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: &lt;10%</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230030-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230030",
+          "display" : "Neoplastic Cell Content Level"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "<10%"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:fc9bd807-fd99-49db-903c-2577b2e92b3e",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230038-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230038}\">Please Confirm the Pathology Report will Accompany the Sample to the Laboratory</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: Yes</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230038-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230038",
+          "display" : "Please Confirm the Pathology Report will Accompany the Sample to the Laboratory"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "Yes"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:2336e28c-3bff-4220-82d9-7843dd6d981c",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230027-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230027}\">Email Addresses of Non-MFT Clinicians for Result Reports</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: peter.volek@mft.nhs.uk</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230027-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230027",
+          "display" : "Email Addresses of Non-MFT Clinicians for Result Reports"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "peter.volek@mft.nhs.uk"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:01a0493d-b41d-4d5d-9223-fac8358a15fa",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230029-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230029}\">Confirmation of Consent for Testing - MANDATORY Testing will not be performed without completed confirmation of consent</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: Completed Electronically on HIVE</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230029-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230029",
+          "display" : "Confirmation of Consent for Testing - MANDATORY Testing will not be performed without completed confirmation of consent"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "Completed Electronically on HIVE"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:c3da7c89-207e-4563-9977-a8198226f443",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230037-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230037}\">Please Acknowledge That a DNA Sample Will be Stored in the Laboratory on Completion of Testing</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: Acknowledged</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230037-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230037",
+          "display" : "Please Acknowledge That a DNA Sample Will be Stored in the Laboratory on Completion of Testing"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "Acknowledged"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:5af7d8ca-4d22-4d4d-bd8e-13300973070a",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230039-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230039}\">Are you the Patient�s Consultant?</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: No</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230039-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230039",
+          "display" : "Are you the Patient�s Consultant?"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "No"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:01887302-a78b-44e8-8a88-1b5d54b1819f",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-230049-IGENE</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds 230049}\">Name of Supervising Consultant</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>effective</b>: 2025-11-11 07:47:48+0000</p><p><b>value</b>: PETERS, ROBERT</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-230049-IGENE",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/MFTQuestionIds",
+          "code" : "230049",
+          "display" : "Name of Supervising Consultant"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "effectiveDateTime" : "2025-11-11T07:47:48+00:00",
+      "valueString" : "PETERS, ROBERT"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:0621355d-1d67-4fb9-8935-ab09e9f39d0a",
+    "resource" : {
+      "resourceType" : "Observation",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation </b></p><p><b>identifier</b>: <code>https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier</code>/R0A-1000162341-46098-0-</p><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:\">Patient's Sex Assigned at Birth</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>value</b>: F</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://fhir.nwgenomics.nhs.uk/Id/ResourceIdentifier",
+        "value" : "R0A-1000162341-46098-0-",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "final",
+      "code" : {
+        "coding" : [{
+          "code" : "46098-0",
+          "display" : "Patient's Sex Assigned at Birth"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "valueString" : "F"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:41ed5392-b022-4eeb-9e94-33d15f3611a8",
+    "resource" : {
+      "resourceType" : "Specimen",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Specimen_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Specimen </b></p><p><b>status</b>: Unavailable</p><p><b>type</b>: <span title=\"Codes:\">SAMPLE: BL</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p></div>"
+      },
+      "status" : "unavailable",
+      "type" : {
+        "coding" : [{
+          "code" : "SAMPLE: BL"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:fbbf3f64-4fee-44de-ac11-da98a32ff1b4",
+    "resource" : {
+      "resourceType" : "ServiceRequest",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest </b></p><p><b>identifier</b>: Placer Identifier/1000162341</p><p><b>requisition</b>: Placer Group Number/1000162341</p><p><b>status</b>: Active</p><p><b>intent</b>: Original Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 116148004}\">Molecular genetics procedure</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory M213.22}\">Glial and Glioneuronal Tumour Differential, Paediatric, Multi-target NGS panel, copy number variant (1p, 19q, EGFR, ALK, C19MC, CDKN2A,  FGFR1, KIAA1549, KIT, MYCN, PDGFRA, SMARCA4, SMARCB1, YAP1)</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>authoredOn</b>: 2025-11-11 07:47:48+0000</p><p><b>requester</b>: <a href=\"Bundle-748683741.html#urn-uuid-1b9d42c1-ef8e-445a-a8d8-2a8a48aa1404\">PractitionerRole</a></p><p><b>supportingInfo</b>: </p><ul><li><a href=\"Bundle-748683741.html#urn-uuid-9355d363-cc63-4bcb-a57f-6ef82dd0e6c3\">Observation What Type of Referral Do You Require?</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-d2955ceb-4d4b-4ef7-9808-d4ad401036b7\">Observation Please Select Clinical Indication(s)</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-42a459ac-1540-434a-a65f-fe1d9dbc9c9f\">Observation Clinical Utility (Please Select as Appropriate and Provide Any Additional Information in the Comments Section)</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-819110cc-da75-4428-a674-ca94328c45eb\">Observation Neoplastic Cell Content Level</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-fc9bd807-fd99-49db-903c-2577b2e92b3e\">Observation Please Confirm the Pathology Report will Accompany the Sample to the Laboratory</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-2336e28c-3bff-4220-82d9-7843dd6d981c\">Observation Email Addresses of Non-MFT Clinicians for Result Reports</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-01a0493d-b41d-4d5d-9223-fac8358a15fa\">Observation Confirmation of Consent for Testing - MANDATORY Testing will not be performed without completed confirmation of consent</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-c3da7c89-207e-4563-9977-a8198226f443\">Observation Please Acknowledge That a DNA Sample Will be Stored in the Laboratory on Completion of Testing</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-5af7d8ca-4d22-4d4d-bd8e-13300973070a\">Observation Are you the Patient�s Consultant?</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-01887302-a78b-44e8-8a88-1b5d54b1819f\">Observation Name of Supervising Consultant</a></li><li><a href=\"Bundle-748683741.html#urn-uuid-0621355d-1d67-4fb9-8935-ab09e9f39d0a\">Observation Patient's Sex Assigned at Birth</a></li></ul><p><b>specimen</b>: <a href=\"Bundle-748683741.html#urn-uuid-41ed5392-b022-4eeb-9e94-33d15f3611a8\">Specimen: status = unavailable; type = SAMPLE: BL</a></p></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PLAC"
+          }]
+        },
+        "system" : "https://nw-gmsa.github.io/Id/PLAC",
+        "value" : "1000162341",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "requisition" : {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PGN"
+          }]
+        },
+        "system" : "https://nw-gmsa.github.io/Id/PLAC",
+        "value" : "1000162341",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      },
+      "status" : "active",
+      "intent" : "original-order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "116148004"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+          "code" : "M213.22"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "authoredOn" : "2025-11-11T07:47:48+00:00",
+      "requester" : {
+        "reference" : "urn:uuid:1b9d42c1-ef8e-445a-a8d8-2a8a48aa1404"
+      },
+      "supportingInfo" : [{
+        "reference" : "urn:uuid:9355d363-cc63-4bcb-a57f-6ef82dd0e6c3",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:d2955ceb-4d4b-4ef7-9808-d4ad401036b7",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:42a459ac-1540-434a-a65f-fe1d9dbc9c9f",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:819110cc-da75-4428-a674-ca94328c45eb",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:fc9bd807-fd99-49db-903c-2577b2e92b3e",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:2336e28c-3bff-4220-82d9-7843dd6d981c",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:01a0493d-b41d-4d5d-9223-fac8358a15fa",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:c3da7c89-207e-4563-9977-a8198226f443",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:5af7d8ca-4d22-4d4d-bd8e-13300973070a",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:01887302-a78b-44e8-8a88-1b5d54b1819f",
+        "type" : "Observation"
+      },
+      {
+        "reference" : "urn:uuid:0621355d-1d67-4fb9-8935-ab09e9f39d0a",
+        "type" : "Observation"
+      }],
+      "specimen" : [{
+        "reference" : "urn:uuid:41ed5392-b022-4eeb-9e94-33d15f3611a8",
+        "type" : "Specimen"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:af7d8130-2940-4743-beb3-1d904c14e3aa",
+    "resource" : {
+      "resourceType" : "ServiceRequest",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest </b></p><p><b>identifier</b>: Placer Identifier/1000162341-M213.13</p><p><b>requisition</b>: Placer Group Number/1000162341</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 116148004}\">Molecular genetics procedure</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory M213.13}\">Glial and Glioneuronal Tumour Differential, Paediatric, C11orf95-RELA FISH/RT-PCR</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>authoredOn</b>: 2025-11-11 07:47:48+0000</p><p><b>requester</b>: <a href=\"Bundle-748683741.html#urn-uuid-1b9d42c1-ef8e-445a-a8d8-2a8a48aa1404\">PractitionerRole</a></p><p><b>specimen</b>: <a href=\"Bundle-748683741.html#urn-uuid-41ed5392-b022-4eeb-9e94-33d15f3611a8\">Specimen: status = unavailable; type = SAMPLE: BL</a></p></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PLAC"
+          }]
+        },
+        "system" : "https://nw-gmsa.github.io/Id/PLAC",
+        "value" : "1000162341-M213.13",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "requisition" : {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PGN"
+          }]
+        },
+        "system" : "https://nw-gmsa.github.io/Id/PLAC",
+        "value" : "1000162341",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      },
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "116148004"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+          "code" : "M213.13"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "authoredOn" : "2025-11-11T07:47:48+00:00",
+      "requester" : {
+        "reference" : "urn:uuid:1b9d42c1-ef8e-445a-a8d8-2a8a48aa1404"
+      },
+      "specimen" : [{
+        "reference" : "urn:uuid:41ed5392-b022-4eeb-9e94-33d15f3611a8",
+        "type" : "Specimen"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:f6f3ba92-549f-42e8-80ec-b91251048d21",
+    "resource" : {
+      "resourceType" : "ServiceRequest",
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest </b></p><p><b>identifier</b>: Placer Identifier/1000162341-M213.23</p><p><b>requisition</b>: Placer Group Number/1000162341</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 116148004}\">Molecular genetics procedure</span></p><p><b>code</b>: <span title=\"Codes:{https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory M213.23}\">Glial and Glioneuronal Tumour Differential, Paediatric, 1p19q codel FISH/RT-PCR</span></p><p><b>subject</b>: <a href=\"Bundle-748683741.html#urn-uuid-2cc74315-590b-463e-a999-ef58d0255f5c\">Lori Johnson  Female, DoB: 2013-10-21 ( Medical record number)</a></p><p><b>authoredOn</b>: 2025-11-11 07:47:48+0000</p><p><b>requester</b>: <a href=\"Bundle-748683741.html#urn-uuid-1b9d42c1-ef8e-445a-a8d8-2a8a48aa1404\">PractitionerRole</a></p><p><b>specimen</b>: <a href=\"Bundle-748683741.html#urn-uuid-41ed5392-b022-4eeb-9e94-33d15f3611a8\">Specimen: status = unavailable; type = SAMPLE: BL</a></p></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PLAC"
+          }]
+        },
+        "system" : "https://nw-gmsa.github.io/Id/PLAC",
+        "value" : "1000162341-M213.23",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "requisition" : {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PGN"
+          }]
+        },
+        "system" : "https://nw-gmsa.github.io/Id/PLAC",
+        "value" : "1000162341",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      },
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "116148004"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+          "code" : "M213.23"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:2cc74315-590b-463e-a999-ef58d0255f5c"
+      },
+      "authoredOn" : "2025-11-11T07:47:48+00:00",
+      "requester" : {
+        "reference" : "urn:uuid:1b9d42c1-ef8e-445a-a8d8-2a8a48aa1404"
+      },
+      "specimen" : [{
+        "reference" : "urn:uuid:41ed5392-b022-4eeb-9e94-33d15f3611a8",
+        "type" : "Specimen"
+      }]
+    }
+  }]
+}

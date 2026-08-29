@@ -1,0 +1,417 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "GenomicsReportMessage",
+  "meta" : {
+    "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"]
+  },
+  "language" : "en",
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:uuid:9612365d-52a4-4fab-87e7-8a09d753f095"
+  },
+  "type" : "message",
+  "timestamp" : "2024-10-13T10:33:00+00:00",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:9a7e9fd9-d774-42ef-bd23-4397a1ba1b63",
+    "resource" : {
+      "resourceType" : "MessageHeader",
+      "id" : "MessageHeaderGenomicReport",
+      "meta" : {
+        "lastUpdated" : "2025-02-01T13:39:26+00:00",
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_MessageHeaderGenomicReport\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MessageHeader MessageHeaderGenomicReport</b></p><a name=\"MessageHeaderGenomicReport\"> </a><a name=\"hcMessageHeaderGenomicReport\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Last updated: 2025-02-01 13:39:26+0000</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MessageHeader.html\">Document Message (MessageHeader)</a></p></div><p><b>event</b>: <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0003.html#v2-0003-R01\">event: R01</a> (ORU/ACK - Unsolicited transmission of an observation message)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=http://www.acme.org/endpoint/identifier/RBS\">http://www.acme.org/endpoint/identifier/RBS</a></td><td>ALDER HEY CHILDREN'S NHS FOUNDATION TRUST (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/RBS)</td></tr></table><p><b>sender</b>: NORTH WEST GLH (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/699X0)</p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Software</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>GMSA RIE</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=http://www.acme.org/endpoint/identifier/rie\">http://www.acme.org/endpoint/identifier/rie</a></td></tr></table><p><b>focus</b>: </p><ul><li><a href=\"Bundle-GenomicsReportMessage.html#urn-uuid-233ff41a-5067-46c4-b6aa-5d6f87719f5f\">Diagnostic Report for 'Genetic report' for '-&gt;Octavia CHISLETT'</a></li><li><a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-94bf65ba-cd6c-4601-b339-6d547f424646\">DocumentReference: identifier = http://www.example.org/documentreference/identifier#94bf65ba-cd6c-4601-b339-6d547f424646; status = current; type = Genetic report; date = 2025-01-29 10:37:26+0000</a></li></ul></div>"
+      },
+      "eventCoding" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0003",
+        "code" : "R01"
+      },
+      "destination" : [{
+        "endpoint" : "http://www.acme.org/endpoint/identifier/RBS",
+        "receiver" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "RBS"
+          },
+          "display" : "ALDER HEY CHILDREN'S NHS FOUNDATION TRUST"
+        }
+      }],
+      "sender" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "699X0"
+        },
+        "display" : "NORTH WEST GLH"
+      },
+      "source" : {
+        "software" : "GMSA RIE",
+        "endpoint" : "http://www.acme.org/endpoint/identifier/rie"
+      },
+      "focus" : [{
+        "reference" : "urn:uuid:233ff41a-5067-46c4-b6aa-5d6f87719f5f",
+        "type" : "DiagnosticReport"
+      },
+      {
+        "reference" : "urn:uuid:94bf65ba-cd6c-4601-b339-6d547f424646",
+        "type" : "DocumentReference"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:233ff41a-5067-46c4-b6aa-5d6f87719f5f",
+    "resource" : {
+      "resourceType" : "DiagnosticReport",
+      "id" : "DiagnosticReportGenomicsReport",
+      "meta" : {
+        "versionId" : "1.0",
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_DiagnosticReportGenomicsReport\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport DiagnosticReportGenomicsReport</b></p><a name=\"DiagnosticReportGenomicsReport\"> </a><a name=\"hcDiagnosticReportGenomicsReport\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">version: 1.0</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-DiagnosticReport.html\">Diagnostic Report</a></p></div><h2><span title=\"Codes:{https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory R240.1}, {http://snomed.info/sct 1054161000000101}\">Genetic report</span> (<span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 GE}\">Genetics</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>Octavia CHISLETT (official) Female, DoB: 2008-09-20 ( Medical record number)</td></tr><tr><td>Relevant Time</td><td>2023-09-07 11:45:41+0000</td></tr><tr><td>Performer</td><td> NW GLH (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/699X0)</td></tr><tr><td>Identifier</td><td> <code>http://www.acme.org/diagnosticreport/identifiers</code>/25edee2b-add8-4522-9fa2-1ee8f229bd75</td></tr><tr><td>Presented Form</td><td> application/pdf @ <a href=\"urn:uuid:d6eeedd1-92d3-45b9-bf33-6401e804425f\">urn:uuid:d6eeedd1-92d3-45b9-bf33-6401e804425f <img src=\"external.png\" alt=\"icon\" style=\"vertical-align: baseline\"/></a></td></tr></table><p><b>Report Details</b></p><p>Normal - no action</p></div>"
+      },
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.composition",
+        "valueReference" : {
+          "reference" : "urn:uuid:30551ce1-5a28-4356-b684-1e639094ad4d"
+        }
+      }],
+      "identifier" : [{
+        "system" : "http://www.acme.org/diagnosticreport/identifiers",
+        "value" : "25edee2b-add8-4522-9fa2-1ee8f229bd75",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "699X0"
+          }
+        }
+      }],
+      "basedOn" : [{
+        "type" : "ServiceRequest",
+        "identifier" : {
+          "type" : {
+            "coding" : [{
+              "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code" : "PLAC"
+            }]
+          },
+          "system" : "http://www.acme.org/servicerequest",
+          "value" : "1001166717",
+          "assigner" : {
+            "identifier" : {
+              "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value" : "699X0"
+            }
+          }
+        }
+      }],
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code" : "GE",
+          "display" : "Genetics"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+          "code" : "R240.1"
+        },
+        {
+          "system" : "http://snomed.info/sct",
+          "code" : "1054161000000101",
+          "display" : "Genetic report"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "encounter" : {
+        "identifier" : {
+          "system" : "http://www.acme.org/encounter/identifiers/R0A",
+          "value" : "1001166717",
+          "assigner" : {
+            "identifier" : {
+              "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value" : "R0A"
+            }
+          }
+        }
+      },
+      "effectiveDateTime" : "2023-09-07T11:45:41+00:00",
+      "performer" : [{
+        "type" : "Organization",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "699X0"
+        },
+        "display" : "NW GLH"
+      }],
+      "resultsInterpreter" : [{
+        "type" : "Practitioner",
+        "identifier" : {
+          "system" : "https://fhir.hl7.org.uk/Id/gmc-number",
+          "value" : "C1234567"
+        },
+        "display" : "FICTITIOUS, Ralph"
+      }],
+      "conclusion" : "Normal - no action",
+      "presentedForm" : [{
+        "contentType" : "application/pdf",
+        "language" : "en-GB",
+        "url" : "urn:uuid:d6eeedd1-92d3-45b9-bf33-6401e804425f",
+        "size" : 43272,
+        "title" : "Genomic Report for Octavia CHISLETT",
+        "creation" : "2023-11-24"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "Patient-OctaviaCHISLETT-9449305552",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_Patient-OctaviaCHISLETT-9449305552\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient Patient-OctaviaCHISLETT-9449305552</b></p><a name=\"Patient-OctaviaCHISLETT-9449305552\"> </a><a name=\"hcPatient-OctaviaCHISLETT-9449305552\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Patient.html\">Patient</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Octavia CHISLETT (official) Female, DoB: 2008-09-20 ( Medical record number)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Ids (see the one above)\">Other Ids:</td><td colspan=\"3\"><ul><li>National Health Plan Identifier/9449305552\u00a0(use:\u00a0official,\u00a0)</li><li>Medical record number/633</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\">1 RAVENSFIELD GARDENS EPSOM KT19 0ST (home)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Patient contact\">Contact:</td><td colspan=\"3\"><ul><li>Bob DAWKINS (Official)</li><li>ph: 077021231231(Mobile)</li></ul></td></tr></table></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "NH"
+          }]
+        },
+        "system" : "https://fhir.nhs.uk/Id/nhs-number",
+        "value" : "9449305552"
+      },
+      {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MR"
+          }]
+        },
+        "system" : "http://www.acme.org/patient/identifier",
+        "value" : "A12356565",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "RBS"
+          }
+        }
+      },
+      {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MR"
+          }]
+        },
+        "system" : "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
+        "value" : "633",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "active" : true,
+      "name" : [{
+        "use" : "official",
+        "family" : "CHISLETT",
+        "given" : ["Octavia"]
+      }],
+      "gender" : "female",
+      "birthDate" : "2008-09-20",
+      "address" : [{
+        "use" : "home",
+        "type" : "both",
+        "line" : ["1 RAVENSFIELD GARDENS"],
+        "city" : "EPSOM",
+        "district" : "SURREY",
+        "postalCode" : "KT19 0ST"
+      }],
+      "contact" : [{
+        "name" : {
+          "use" : "official",
+          "family" : "DAWKINS",
+          "given" : ["Bob"]
+        },
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "077021231231",
+          "use" : "mobile"
+        }]
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:94bf65ba-cd6c-4601-b339-6d547f424646",
+    "resource" : {
+      "resourceType" : "DocumentReference",
+      "id" : "94bf65ba-cd6c-4601-b339-6d547f424646",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DocumentReference_94bf65ba-cd6c-4601-b339-6d547f424646\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DocumentReference 94bf65ba-cd6c-4601-b339-6d547f424646</b></p><a name=\"94bf65ba-cd6c-4601-b339-6d547f424646\"> </a><a name=\"hc94bf65ba-cd6c-4601-b339-6d547f424646\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-DocumentReference.html\">DocumentReference</a></p></div><p><b>identifier</b>: <code>http://www.example.org/documentreference/identifier</code>/94bf65ba-cd6c-4601-b339-6d547f424646</p><p><b>status</b>: Current</p><p><b>type</b>: <span title=\"Codes:{http://snomed.info/sct 1054161000000101}\">Genetic report</span></p><p><b>subject</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT</a></p><p><b>date</b>: 2025-01-29 10:37:26+0000</p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Url</b></td></tr><tr><td style=\"display: none\">*</td><td>application/pdf</td><td><a href=\"Bundle-FHIRDocumentGeneticReportBundle-ctDNA.html#urn-uuid-d6eeedd1-92d3-45b9-bf33-6401e804425f\">Binary: application/pdf (845 bytes base64)</a></td></tr></table></blockquote><h3>Contexts</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Encounter</b></td><td><b>Event</b></td><td><b>SourcePatientInfo</b></td><td><b>Related</b></td></tr><tr><td style=\"display: none\">*</td><td>Identifier: <code>http://www.acme.org/encounter/identifiers/R0A</code>/1001166717</td><td><span title=\"Codes:{https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory R240.1}\">Diagnostic testing for known variant(s) (Targeted variant testing)</span></td><td>Identifier: Medical record number/633</td><td>Identifier: Filler Identifier/1001166717</td></tr></table></div>"
+      },
+      "identifier" : [{
+        "system" : "http://www.example.org/documentreference/identifier",
+        "value" : "94bf65ba-cd6c-4601-b339-6d547f424646",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "699X0"
+          }
+        }
+      }],
+      "status" : "current",
+      "type" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "1054161000000101",
+          "display" : "Genetic report"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "date" : "2025-01-29T10:37:26+00:00",
+      "content" : [{
+        "attachment" : {
+          "contentType" : "application/pdf",
+          "url" : "urn:uuid:d6eeedd1-92d3-45b9-bf33-6401e804425f"
+        }
+      }],
+      "context" : {
+        "encounter" : [{
+          "identifier" : {
+            "system" : "http://www.acme.org/encounter/identifiers/R0A",
+            "value" : "1001166717",
+            "assigner" : {
+              "identifier" : {
+                "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value" : "R0A"
+              }
+            }
+          }
+        }],
+        "event" : [{
+          "coding" : [{
+            "system" : "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+            "code" : "R240.1"
+          }]
+        }],
+        "sourcePatientInfo" : {
+          "identifier" : {
+            "type" : {
+              "coding" : [{
+                "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code" : "MR"
+              }]
+            },
+            "system" : "http://www.acme.org/patient/identifier",
+            "value" : "633",
+            "assigner" : {
+              "identifier" : {
+                "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value" : "R0A"
+              }
+            }
+          }
+        },
+        "related" : [{
+          "type" : "DiagnosticReport",
+          "identifier" : {
+            "type" : {
+              "coding" : [{
+                "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code" : "FILL"
+              }]
+            },
+            "system" : "http://www.example.org/servicerequest/identifier",
+            "value" : "1001166717",
+            "assigner" : {
+              "identifier" : {
+                "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value" : "699X0"
+              }
+            }
+          }
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:d6eeedd1-92d3-45b9-bf33-6401e804425f",
+    "resource" : {
+      "resourceType" : "Binary",
+      "id" : "Binary-Sample",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"]
+      },
+      "language" : "en",
+      "contentType" : "application/pdf",
+      "data" : "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+    "resource" : {
+      "resourceType" : "PractitionerRole",
+      "id" : "ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8</b></p><a name=\"ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\"> </a><a name=\"hcee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerRole.html\">PractitionerRole</a></p></div><p><b>practitioner</b>: Dr Samuel Darwin (Identifier: <a href=\"NamingSystem-gmcnumber-namingsystem.html\" title=\"General Medical Council Consultant Code. For more details see: [NHS Data Model Dictionary](https://www.datadictionary.nhs.uk/attributes/general_medical_council_reference_number.html)\">GMC Number</a>/C3456789)</p><p><b>organization</b>: Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/R0A</p><p><b>specialty</b>: <span title=\"Codes:{https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode 100}\">General Surgery</span></p></div>"
+      },
+      "practitioner" : {
+        "identifier" : {
+          "system" : "https://fhir.hl7.org.uk/Id/gmc-number",
+          "value" : "C3456789"
+        },
+        "display" : "Dr Samuel Darwin"
+      },
+      "organization" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "R0A"
+        }
+      },
+      "specialty" : [{
+        "coding" : [{
+          "system" : "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+          "code" : "100"
+        }]
+      }]
+    }
+  }]
+}
