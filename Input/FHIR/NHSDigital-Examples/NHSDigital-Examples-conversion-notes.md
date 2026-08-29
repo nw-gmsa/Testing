@@ -424,3 +424,57 @@ specific rule here, not "known only by any identifier." Confirmed live: Scenario
 FetusA's `NK1-2` (name, previously blank) now reads `TO BE RESOLVED VIA PDS^TO BE
 RESOLVED VIA PDS`, ahead of `NK1-3`'s existing `NMTHF^natural mother of fetus^...`
 relationship coding. `nhsd_examples` still 17/17 after every one of these changes.
+
+`check_patient_demographics_preserved` (`IntegrationTest.py`) makes the audit behind
+this section repeatable: for the primary subject's `Patient`, compares
+`name`/`birthDate`/`gender` against the live `transformToV2` output's `PID-5`/`-7`/`-8`,
+flagging anything present in FHIR that went missing in v2. Wired into
+`run_fhir_source_case` as a `demographicsPreserved` stage (non-fatal - like
+`fhirStructure`, recorded but doesn't block `sendToServer`) for every group sourced from
+FHIR (`dwgs`, `nwgmsa_examples`, `nhsd_examples`). Not applicable (and silently skipped)
+where the subject doesn't resolve to a real `Patient` resource at all, or that `Patient`
+has no name/DOB/gender to lose in the first place - both real states, not failures.
+
+## Placeholder identities upgraded to real ones via NHS Digital's own Patient/ folder
+
+The "`TO BE RESOLVED VIA PDS`" placeholders above were a deliberately honest stand-in
+for "we don't know, and would ask PDS" - but in practice, a real RGL integration
+*would* be able to resolve some of these, and so, it turns out, can this repo: NHS
+Digital's IG publishes a
+[`Patient/`](https://github.com/NHSDigital/NHSDigital-FHIR-Genomics-ImplementationGuide/tree/main/Patient)
+folder of named example patients, keyed by NHS number, separately from the order/report
+Bundles that reference them only by identifier. Checked every placeholder's NHS number
+against it:
+
+- **QRPatientExtensions' subject** (NHS `9449307873`) - two different published
+  `Patient`s share this NHS number in the IG's own test data
+  (`Patient-MeirLieberman-Example` and `Patient-PatrickSammy-Example`), so identifier
+  alone doesn't disambiguate. Resolved by cross-referencing the *order* content instead:
+  `Bundle-NonWGSTestOrderForm-Example` (this file's non-QuestionnaireResponse sibling)
+  already carries the same NHS number, the same `GT488`/`TP439` test/reason codes, and
+  the same `RGT01` (Addenbrooke's) requester - clearly the same underlying scenario -
+  and its own embedded `Patient` is "Meir Anah Lieberman", born 2005-12-19, no `.gender`
+  populated (only a `BirthSex` extension, not carried across here either, matching that
+  sibling). Replaced the placeholder with the real name/DOB and dropped the placeholder
+  `gender: "unknown"` to match. Confirmed live: `PID-5`/`PID-7` now read
+  `Lieberman^Meir^Anah`/`20051219`.
+- **Updated-FetalScenario's father** (local ID `P-RWT13521`) - the published
+  `Patient-RyanneBoulderPartner-Example` genuinely has no `name` either (nothing to
+  upgrade there - the placeholder name would have been wrong to invent regardless), but
+  *does* specify `gender: "male"`, not `"unknown"`. Corrected the gender; left the name
+  absent, matching upstream honestly rather than keeping a placeholder for something now
+  confirmed unknowable from this source. Confirmed live: `PID-8` now reads `M`.
+- **FetalScenario-Fetus/-Mother's mother-of-fetus `RelatedPerson`** (NHS `9449307687`)
+  - this is Ryanne Boulder, whose real `name`/`gender` were already sitting one file
+  away as her own committed `Patient` resource (`Bundle-NonWGSTestOrderForm-
+  FetalScenario-Example-Mother.json`), and confirmed against the IG's published
+  `Patient-RyanneBoulder-Example` too. Replaced the placeholder `RelatedPerson.name`
+  with `Ryanne`/`Boulder` and `gender: "unknown"` with `"female"` (her `BirthSex`
+  extension) in both files. Confirmed live: FetalScenario-Fetus's `NK1-2` now reads
+  `Boulder^Ryanne` (previously the placeholder).
+- **Scenario3/Scenario4's mother** (NHS `9449308322`) - checked against every file in
+  the IG's `Patient/` folder; no match. Genuinely unresolvable from this source - the
+  `TO BE RESOLVED VIA PDS` placeholder (on both her own `Patient` and the two
+  `6473db02-.../86c36eee-...` `RelatedPerson` records) stays as the honest answer.
+
+`nhsd_examples` still 17/17 live after every one of these corrections.

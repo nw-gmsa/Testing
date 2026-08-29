@@ -658,6 +658,69 @@ def split_message_bundle_by_patient(bundle):
     return split_bundles
 
 
+def check_patient_demographics_preserved(bundle, v2_text):
+    """Checks that a Patient's name/birthDate/gender - wherever present on the FHIR
+    side - survived transformToV2's conversion into the resulting message's PID
+    segment (PID-5/PID-7/PID-8), for the Bundle's *primary* subject (the
+    ServiceRequest's, or a DiagnosticReport's for an R01 report).
+
+    Added after an ad hoc audit of all 18 NHSDigital-Examples files found no losses -
+    this makes that check repeatable on every future resync rather than a one-off.
+
+    Returns (applicable, problems): applicable is False (and problems is []) when
+    there's nothing to compare - no ServiceRequest/DiagnosticReport, its subject
+    doesn't resolve to an actual Patient resource in the Bundle (a missing Patient is
+    a different concern - see split_message_bundle_by_patient's docstring and
+    NHSDigital-Examples-conversion-notes.md), or that Patient has no
+    name/birthDate/gender to lose in the first place.
+    """
+    entries = bundle.get("entry", []) if isinstance(bundle, dict) else []
+    primary = next(
+        (e.get("resource", {}) for e in entries
+         if e.get("resource", {}).get("resourceType") in ("ServiceRequest", "DiagnosticReport")),
+        None,
+    )
+    if not primary:
+        return False, []
+
+    patient_entry = _resolve_bundle_reference(bundle, (primary.get("subject") or {}).get("reference"))
+    patient = patient_entry.get("resource", {}) if patient_entry else None
+    if not patient or patient.get("resourceType") != "Patient":
+        return False, []
+
+    names = patient.get("name")
+    src_name = None
+    if names:
+        n = names[0]
+        src_name = f"{' '.join(n.get('given', []))} {n.get('family', '')}".strip()
+    src_dob = patient.get("birthDate")
+    src_gender = patient.get("gender")
+
+    if not (src_name or src_dob or src_gender):
+        return False, []
+
+    pid_fields = next(
+        (seg.split("|") for seg in v2_text.replace("\r\n", "\r").split("\r") if seg.startswith("PID|")),
+        None,
+    )
+    if not pid_fields:
+        return True, ["Patient has name/birthDate/gender but the transformToV2 output has no PID segment at all"]
+
+    v2_name = pid_fields[5] if len(pid_fields) > 5 else ""
+    v2_dob = pid_fields[7] if len(pid_fields) > 7 else ""
+    v2_gender = pid_fields[8] if len(pid_fields) > 8 else ""
+
+    problems = []
+    if src_name and not v2_name:
+        problems.append(f"Patient.name {src_name!r} present in FHIR but PID-5 is blank")
+    if src_dob and v2_dob.replace("-", "") != src_dob.replace("-", ""):
+        problems.append(f"Patient.birthDate {src_dob!r} present in FHIR but PID-7 is {v2_dob!r}")
+    if src_gender and not v2_gender:
+        problems.append(f"Patient.gender {src_gender!r} present in FHIR but PID-8 is blank")
+
+    return True, problems
+
+
 # iGene convention: a PID-5 given name of "Baby of <mother>" / "Fetus of <mother>" signals
 # that PID and NK1 have been combined into one segment (see IntegrationTest change adding the
 # mother's NHS number/DOB into the baby/fetus's own PID). transformToFHIR is expected to
@@ -1095,6 +1158,14 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
     log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
+
+    applicable, demographics_problems = check_patient_demographics_preserved(fhir_json, v2_roundtrip)
+    if applicable:
+        if demographics_problems:
+            result.record("demographicsPreserved", False, "; ".join(demographics_problems))
+            log(f"FAILED demographicsPreserved: {'; '.join(demographics_problems)}")
+        else:
+            result.record("demographicsPreserved", True, "name/birthDate/gender all preserved in PID")
 
     if save_output:
         out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
