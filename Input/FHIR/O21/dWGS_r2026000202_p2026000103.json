@@ -270,18 +270,18 @@
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699N0"
+                "value": "8J834"
               }
             },
             "type": {
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PLAC"
+                  "code": "FILL"
                 }
               ]
             },
-            "value": "r2026000202"
+            "value": "r2026000202-p2026000103"
           }
         ],
         "subject": {
@@ -311,6 +311,36 @@
             "type": "Observation"
           }
         ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2834e986-402a-4791-8228-b6be3cfafa78",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "name": [
+          {
+            "family": "Middlesborough",
+            "given": [
+              "Allanys"
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "urn:uuid:bfcf4691-b19d-493b-8545-d16c4ffc98f2",
+          "type": "Patient"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "MTH",
+                "display": "mother"
+              }
+            ]
+          }
+        ],
+        "birthDate": "1947-04-27"
       }
     }
   ]

@@ -270,18 +270,18 @@
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699D0"
+                "value": "8J834"
               }
             },
             "type": {
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PLAC"
+                  "code": "FILL"
                 }
               ]
             },
-            "value": "r2026000203"
+            "value": "r2026000203-p2026000104"
           }
         ],
         "subject": {
@@ -316,6 +316,66 @@
             "text": "Patient has intellectual disability"
           }
         ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:da04d0e4-ccee-49f9-839c-ca9d9dc852ef",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "name": [
+          {
+            "family": "Editestpatient",
+            "given": [
+              "Thirteen"
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "urn:uuid:69e35006-a02b-4e6d-a61d-d914928f37e9",
+          "type": "Patient"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "FTH",
+                "display": "father"
+              }
+            ]
+          }
+        ],
+        "birthDate": "1960-01-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b7ec8788-156f-4844-a53e-6b5c99a42eea",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "name": [
+          {
+            "family": "Editestpatient",
+            "given": [
+              "Six"
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "urn:uuid:69e35006-a02b-4e6d-a61d-d914928f37e9",
+          "type": "Patient"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIB",
+                "display": "sibling"
+              }
+            ]
+          }
+        ],
+        "birthDate": "1988-01-14"
       }
     }
   ]
