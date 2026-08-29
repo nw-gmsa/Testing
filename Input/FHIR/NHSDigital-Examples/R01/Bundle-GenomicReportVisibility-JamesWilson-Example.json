@@ -1,0 +1,119 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bundle-GenomicReportVisibility-JamesWilson-Example",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:bf1aaf44-052a-47a5-b8c4-ed8ddbf0c17a",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "bf1aaf44-052a-47a5-b8c4-ed8ddbf0c17a",
+        "eventCoding": {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003",
+          "code": "R01"
+        },
+        "destination": [
+          {
+            "name": "National Genomic Medicine Service",
+            "endpoint": "https://api.service.nhs.uk/GMS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH LED BY MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+            }
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NORTH WEST GLH LED BY MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        "source": {
+          "endpoint": "https://example.org/fhir/SendingSystem"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:2d2a9ccf-12c6-4947-8536-7bdccb0defed"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-JamesWilson",
+        "meta": {
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PROCESSINLINELABEL",
+              "display": "Process Inline Security Labels"
+            }
+          ]
+        },
+        "gender": "male",
+        "_gender": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/security-label-ds4p/StructureDefinition/extension-inline-sec-label",
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "NOPAT",
+                "display": "No disclosure to patient"
+              }
+            }
+          ]
+        },
+        "name": [
+          {
+            "given": [
+              "James"
+            ],
+            "family": "Wilson"
+          }
+        ]
+      },
+      "fullUrl": "urn:uuid:e01d5279-f033-4216-8472-08756cf28978"
+    },
+    {
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "SR-JamesWilson",
+        "status": "active",
+        "intent": "order",
+        "subject": {
+          "reference": "Patient/Patient-JamesWilson"
+        },
+        "code": {
+          "text": "Whole Genome Sequencing"
+        },
+        "authoredOn": "2026-06-15T09:00:00Z"
+      },
+      "fullUrl": "urn:uuid:633496c3-736f-41c4-94bb-9128e51b15ac"
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DR-JamesWilson",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/Patient-JamesWilson"
+        },
+        "code": {
+          "text": "Genomic Report"
+        },
+        "conclusion": "No clinically significant variants identified."
+      },
+      "fullUrl": "urn:uuid:2d2a9ccf-12c6-4947-8536-7bdccb0defed"
+    }
+  ],
+  "identifier": {
+    "system": "https://tools.ietf.org/html/rfc4122",
+    "value": "b2c01043-6f46-424b-b955-c8395c954abe"
+  },
+  "timestamp": "2026-06-15T09:00:00Z"
+}

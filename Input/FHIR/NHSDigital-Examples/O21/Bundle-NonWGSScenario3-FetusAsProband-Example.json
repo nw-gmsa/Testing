@@ -1,0 +1,843 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bundle-NonWGSScenario3-FetusAsProband-Example",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:b63b1eab-512e-4677-9a00-0e8886e318e7",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "b63b1eab-512e-4677-9a00-0e8886e318e7",
+        "eventCoding": {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003",
+          "code": "O21"
+        },
+        "destination": [
+          {
+            "name": "National Genomic Medicine Service",
+            "endpoint": "https://api.service.nhs.uk/GMS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH LED BY MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+            }
+          }
+        ],
+        "source": {
+          "endpoint": "https://example.org/fhir/SendingSystem"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:d302e6f8-c09f-4153-a669-8fa6b3a95d52"
+          },
+          {
+            "reference": "urn:uuid:e302e6f8-c09f-4153-a669-8fa6b3a95d53"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RAX01"
+          },
+          "display": "Kingston Hospital"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:01f81774-4153-4c18-a7df-1c4cdbba4f2f",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "01f81774-4153-4c18-a7df-1c4cdbba4f2f",
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/sds-user-id",
+            "value": "3208835210"
+          },
+          "display": "Dr. Lois Lane"
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RAX01"
+          },
+          "display": "Kingston Hospital"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                "code": "311",
+                "display": "Clinical Genetics"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "02085467711"
+          },
+          {
+            "system": "email",
+            "value": "Hazel.smith12@nhs.net"
+          },
+          {
+            "system": "email",
+            "value": "clinicalgeneticskingston@nhs.net",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-comment",
+                "valueString": "reporting"
+              }
+            ]
+          },
+          {
+            "system": "email",
+            "value": "fetalmedicinekingston@nhs.net",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-comment",
+                "valueString": "reporting"
+              }
+            ]
+          },
+          {
+            "system": "email",
+            "value": "gptestpracticekingston@nhs.net",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-comment",
+                "valueString": "reporting"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:849705be-9ed3-499c-ab8a-5579dd02d305",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "849705be-9ed3-499c-ab8a-5579dd02d305",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Patient.fetalStatus",
+            "valueCode": "potential-for-live-birth"
+          }
+        ],
+        "gender": "unknown",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
+            "value": "Fetus-A-8955713713",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RAX"
+              }
+            }
+          }
+        ],
+        "name": [
+          {
+            "given": [
+              "FETUS A"
+            ],
+            "family": "MUM"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d302e6f8-c09f-4153-a669-8fa6b3a95d52",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "d302e6f8-c09f-4153-a669-8fa6b3a95d52",
+        "extension": [
+          {
+            "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-Genomic-Patient-Role",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.nhs.uk/CodeSystem/patient-role-genomics",
+                  "code": "proband",
+                  "display": "Proband"
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-GenomicTest-ParticipantCount",
+            "valueInteger": 2
+          },
+          {
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-Coverage",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-FundingCategory",
+                  "code": "nhs-england",
+                  "display": "NHS England"
+                }
+              ]
+            }
+          }
+        ],
+        "requisition": {
+          "system": "https://fhir.leedssth.nhs.uk//Id/grouptestId",
+          "value": "RR-REQ20262701",
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "RR8"
+            }
+          }
+        },
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nhs.uk/CodeSystem/rare-diseaseTesting-genomics",
+                "code": "prenatal-diagnosis",
+                "display": "Prenatal diagnosis"
+              }
+            ]
+          }
+        ],
+        "priority": "urgent",
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+              "code": "GT1133",
+              "display": "Common aneuploidy testing",
+              "extension": [
+                {
+                  "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-GenomicTestCode-Version",
+                  "valueDecimal": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/849705be-9ed3-499c-ab8a-5579dd02d305",
+          "identifier": {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
+            "value": "Fetus-A-8955713713",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RAX"
+              }
+            }
+          }
+        },
+        "authoredOn": "2023-09-25",
+        "requester": {
+          "reference": "PractitionerRole/01f81774-4153-4c18-a7df-1c4cdbba4f2f"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+                "code": "TP289",
+                "display": "Common aneuploidy testing - prenatal",
+                "extension": [
+                  {
+                    "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-GenomicTestCode-Version",
+                    "valueDecimal": 1.0
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699N0"
+            }
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "Observation/2a6e7070-5ea2-4ef3-96b6-607b474fcc0b"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "Specimen/9fa291ba-d9a4-46a9-87e5-486bcaae47fa"
+          }
+        ],
+        "note": [
+          {
+            "text": "Samples are to be provided at a later date"
+          },
+          {
+            "text": "Free text for diagnosis/reason for referral, relevant information including family history, phenotypic details/ HPO Terms/ E.g. large echogenic kidneys with normal bladder"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2a6e7070-5ea2-4ef3-96b6-607b474fcc0b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "2a6e7070-5ea2-4ef3-96b6-607b474fcc0b",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "160475008",
+              "display": "Family history of consanguinity"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/849705be-9ed3-499c-ab8a-5579dd02d305",
+          "identifier": {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
+            "value": "Fetus-A-8955713713",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RAX"
+              }
+            }
+          }
+        },
+        "effectiveDateTime": "2023-09-25",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "260385009",
+              "display": "Negative"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9fa291ba-d9a4-46a9-87e5-486bcaae47fa",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "9fa291ba-d9a4-46a9-87e5-486bcaae47fa",
+        "identifier": [
+          {
+            "system": "https://fhir.add.nhs.uk/Id/specimenId",
+            "value": "RGT70280930"
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258565009",
+              "display": "Chorionic villi specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/849705be-9ed3-499c-ab8a-5579dd02d305",
+          "identifier": {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
+            "value": "Fetus-A-8955713713",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RAX"
+              }
+            }
+          }
+        },
+        "request": [
+          {
+            "reference": "ServiceRequest/d302e6f8-c09f-4153-a669-8fa6b3a95d52"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e302e6f8-c09f-4153-a669-8fa6b3a95d53",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "e302e6f8-c09f-4153-a669-8fa6b3a95d53",
+        "extension": [
+          {
+            "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-Genomic-Patient-Role",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.nhs.uk/CodeSystem/patient-role-genomics",
+                  "code": "consultand",
+                  "display": "Consultand"
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-Coverage",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-FundingCategory",
+                  "code": "nhs-england",
+                  "display": "NHS England"
+                }
+              ]
+            }
+          }
+        ],
+        "requisition": {
+          "system": "https://fhir.leedssth.nhs.uk//Id/grouptestId",
+          "value": "RR-REQ20262701",
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "RR8"
+            }
+          }
+        },
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nhs.uk/CodeSystem/rare-diseaseTesting-genomics",
+                "code": "diagnostic",
+                "display": "Diagnostic"
+              }
+            ]
+          }
+        ],
+        "priority": "urgent",
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+              "code": "GT1133",
+              "display": "Common aneuploidy testing",
+              "extension": [
+                {
+                  "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-GenomicTestCode-Version",
+                  "valueDecimal": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "authoredOn": "2026-01-27",
+        "requester": {
+          "reference": "PractitionerRole/01f81774-4153-4c18-a7df-1c4cdbba4f2f"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+                "code": "TP289",
+                "display": "Common aneuploidy testing - prenatal",
+                "extension": [
+                  {
+                    "url": "https://fhir.nhs.uk/England/StructureDefinition/Extension-GenomicTestCode-Version",
+                    "valueDecimal": 1.0
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699N0"
+            }
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "Observation/2f4ef82c-3125-4ebf-8d5e-e19b86ea47c6"
+          },
+          {
+            "reference": "Observation/b32f8456-be57-4f67-ade3-97a3a6cbda0a"
+          },
+          {
+            "reference": "Observation/9080a716-c023-46c1-b479-b669074f4b3e"
+          },
+          {
+            "reference": "Observation/7c3a876d-3e62-42e1-8fcf-2c233eba8289"
+          },
+          {
+            "reference": "Observation/41654044-afd4-4b5d-add5-16afc73f97a5"
+          },
+          {
+            "reference": "Procedure/1ee371f7-00c5-4787-a910-89dc42cbbf47"
+          },
+          {
+            "reference": "RelatedPerson/6473db02-3c45-42f0-9b8c-9d063753f86b"
+          }
+        ],
+        "note": [
+          {
+            "text": "Samples are to be provided at a later date"
+          },
+          {
+            "text": "No family history of relevant testing"
+          },
+          {
+            "text": "Free text for diagnosis/reason for referral, relevant information including family history, phenotypic details/ HPO Terms/ E.g. large echogenic kidneys with normal bladder"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2f4ef82c-3125-4ebf-8d5e-e19b86ea47c6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "2f4ef82c-3125-4ebf-8d5e-e19b86ea47c6",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "161743003",
+              "display": "Past pregnancy history of stillbirth"
+            }
+          ],
+          "text": "Is the testing for a fetal loss from 24+0 or more weeks of gestation?"
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "effectiveDateTime": "2023-09-25",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "260385009",
+              "display": "Negative"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b32f8456-be57-4f67-ade3-97a3a6cbda0a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "b32f8456-be57-4f67-ade3-97a3a6cbda0a",
+        "status": "preliminary",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "723621000000103",
+              "display": "Ethnicity"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "valueString": "unknown"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9080a716-c023-46c1-b479-b669074f4b3e",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "9080a716-c023-46c1-b479-b669074f4b3e",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "77386006",
+              "display": "Pregnancy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "720451000000102",
+                  "display": "Assisted conception"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "226081000000107",
+                  "display": "Gestational age"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 87,
+              "unit": "day",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "161714006",
+                  "display": "Estimated date of delivery"
+                }
+              ]
+            },
+            "valueDateTime": "2024-05-01"
+          }
+        ],
+        "effectiveDateTime": "2023-09-25"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7c3a876d-3e62-42e1-8fcf-2c233eba8289",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "7c3a876d-3e62-42e1-8fcf-2c233eba8289",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "416128008",
+              "display": "No history of procedure"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "263903005",
+              "display": "Transplant"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "effectiveDateTime": "2023-09-25"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:41654044-afd4-4b5d-add5-16afc73f97a5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "41654044-afd4-4b5d-add5-16afc73f97a5",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "609520005",
+              "display": "Disorder of fetal structure"
+            }
+          ],
+          "text": "First Trimester Anomalies?"
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "255246003",
+                  "display": "First trimester"
+                }
+              ]
+            }
+          }
+        ],
+        "effectiveDateTime": "2023-09-25",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "260385009",
+              "display": "Negative"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4512e4e9-9b42-4464-b52f-81e5f7e380b0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "4512e4e9-9b42-4464-b52f-81e5f7e380b0",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "609520005",
+              "display": "Disorder of fetal structure"
+            }
+          ],
+          "text": "Second Trimester Anomalies?"
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "255247007",
+                  "display": "Second trimester"
+                }
+              ]
+            }
+          }
+        ],
+        "effectiveDateTime": "2023-09-25",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "260385009",
+              "display": "Negative"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1ee371f7-00c5-4787-a910-89dc42cbbf47",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "1ee371f7-00c5-4787-a910-89dc42cbbf47",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "52637005",
+              "display": "In vitro fertilisation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/51008c44-551e-4272-a2a8-36f7d5363c9c",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        },
+        "performedDateTime": "2023-09-25",
+        "note": [
+          {
+            "text": "Woman`s own egg"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6473db02-3c45-42f0-9b8c-9d063753f86b",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "6473db02-3c45-42f0-9b8c-9d063753f86b",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449308322"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/849705be-9ed3-499c-ab8a-5579dd02d305",
+          "identifier": {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
+            "value": "Fetus-A-8955713713",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RAX01"
+              }
+            }
+          }
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "NMTHF",
+                "display": "natural mother of fetus"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identifier": {
+    "system": "https://tools.ietf.org/html/rfc4122",
+    "value": "936c0366-fdf0-4c0b-9751-f0a614d82039"
+  },
+  "timestamp": "2026-06-15T09:00:00Z"
+}
