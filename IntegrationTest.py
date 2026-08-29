@@ -749,6 +749,62 @@ def _service_request_role(service_request):
     return None
 
 
+RELATIONSHIP_ROLE_LABELS = {
+    "NMTHF": "Mother",
+    "NFTHF": "Father",
+    "MTH": "Mother",
+    "FTH": "Father",
+    "NCHILD": "Child",
+    "SIB": "Sibling",
+}
+
+
+def _consultand_identity_label(consultand_sr, consultand_bundle, proband_bundle):
+    """A human-readable "who is this information about" label for a consultand
+    ServiceRequest's subject - 'Jane Smith (Mother)', or '(Father)' where no name is
+    known, or None where neither a name nor a relationship can be found - by matching
+    the consultand's own subject.identifier against a RelatedPerson (in either bundle)
+    carrying the identical identifier. RelatedPerson.name/.relationship describe that
+    same person relative to the *proband*, which is exactly the context this label
+    needs to give inside the proband's own ServiceRequest.note.
+    """
+    subject_ident = (consultand_sr.get("subject") or {}).get("identifier") or {}
+    subject_ident_value = subject_ident.get("value")
+
+    name_text = None
+    role_label = None
+    if subject_ident_value:
+        for bundle in (proband_bundle, consultand_bundle):
+            for entry in bundle.get("entry", []):
+                resource = entry["resource"]
+                if resource.get("resourceType") != "RelatedPerson":
+                    continue
+                if subject_ident_value not in [i.get("value") for i in resource.get("identifier", [])]:
+                    continue
+                names = resource.get("name")
+                if names and not name_text:
+                    n = names[0]
+                    name_text = f"{' '.join(n.get('given', []))} {n.get('family', '')}".strip()
+                relationships = resource.get("relationship")
+                if relationships and not role_label:
+                    coding = relationships[0].get("coding", [{}])[0]
+                    role_label = RELATIONSHIP_ROLE_LABELS.get(coding.get("code"), coding.get("display"))
+
+    if not name_text:
+        patient_entry = _resolve_bundle_reference(consultand_bundle, (consultand_sr.get("subject") or {}).get("reference"))
+        patient = patient_entry.get("resource") if patient_entry else None
+        names = patient.get("name") if patient else None
+        if names:
+            n = names[0]
+            name_text = f"{' '.join(n.get('given', []))} {n.get('family', '')}".strip()
+
+    if name_text and role_label:
+        return f"{name_text} ({role_label})"
+    if role_label:
+        return f"({role_label})"
+    return name_text
+
+
 def _observation_summary(obs):
     """A short human-readable rendering of an Observation's code/value(s) - 'Ethnicity:
     unknown', 'Pregnancy: Assisted conception; Gestational age 87 day' (components
@@ -826,23 +882,22 @@ def drop_consultand_orders(bundles):
         else:
             proband_bundles.append((bundle, srs))
 
-    proband_srs_by_requisition = {
-        requisition_key(sr): sr for _, srs in proband_bundles for sr in srs
+    proband_by_requisition = {
+        requisition_key(sr): (proband_bundle, sr) for proband_bundle, srs in proband_bundles for sr in srs
     }
 
     for consultand_bundle, consultand_srs in consultand_bundles:
         for consultand_sr in consultand_srs:
-            proband_sr = proband_srs_by_requisition.get(requisition_key(consultand_sr))
-            if proband_sr is None:
+            matched = proband_by_requisition.get(requisition_key(consultand_sr))
+            if matched is None:
                 continue  # nothing to fold into - content is dropped along with the bundle
+            proband_bundle, proband_sr = matched
 
             existing_note = proband_sr.get("note", [{}])[0].get("text", "") if proband_sr.get("note") else ""
             lines = []
 
             own_note = consultand_sr.get("note", [{}])[0].get("text", "") if consultand_sr.get("note") else ""
-            for line in own_note.split("\n"):
-                if line and line not in existing_note:
-                    lines.append(line)
+            own_lines = [line for line in own_note.split("\n") if line and line not in existing_note]
 
             obs_summaries = []
             for si in consultand_sr.get("supportingInfo", []):
@@ -850,9 +905,26 @@ def drop_consultand_orders(bundles):
                 obs = entry.get("resource") if entry else None
                 if obs and obs.get("resourceType") == "Observation":
                     obs_summaries.append(_observation_summary(obs))
+
+            folded_lines = list(own_lines)
             if obs_summaries:
-                lines.append("Consultand supporting information:")
-                lines.extend(obs_summaries)
+                if own_lines:
+                    folded_lines.append("Supporting information:")
+                folded_lines.extend(obs_summaries)
+
+            if folded_lines:
+                # Who this folded-in content is about, e.g. "Ryanne Boulder (Mother):",
+                # "Consultand (Father):" (name unknown), or "Consultand:" (neither
+                # name nor relationship resolvable) - see _consultand_identity_label.
+                identity = _consultand_identity_label(consultand_sr, consultand_bundle, proband_bundle)
+                if identity and not identity.startswith("("):
+                    header = f"{identity}:"
+                elif identity:
+                    header = f"Consultand {identity}:"
+                else:
+                    header = "Consultand:"
+                lines.append(header)
+                lines.extend(folded_lines)
 
             if lines:
                 new_note_text = existing_note + ("\n" if existing_note else "") + "\n".join(lines)

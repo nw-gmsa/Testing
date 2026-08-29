@@ -530,10 +530,17 @@ Dropping a consultand order doesn't mean losing its clinical content outright: i
 a plain-text summary of its `supportingInfo` `Observation`s (code + value, e.g.
 `"Ethnicity: unknown"`, a single `Observation`'s own components joined on the same
 line) are folded into the matched proband `ServiceRequest.note` first - one line per
-`Observation`, under a `"Consultand supporting information:"` header line, for
-readability (confirmed live: this becomes one `NTE` segment per note line once
-converted, e.g. Scenario3-FetusA's note now converts to 10 separate `NTE` segments
-rather than one long combined line). Matching is by **`requisition`** (system + value) -
+`Observation`, for readability (confirmed live: this becomes one `NTE` segment per note
+line once converted, e.g. Scenario3-FetusA's note now converts to 10 separate `NTE`
+segments rather than one long combined line). Each dropped consultand's block is headed
+by **who it's about** - `"Ryanne Boulder (Mother):"`, or `"Consultand (Father):"` where
+no name is known - resolved via `_consultand_identity_label`, which matches the
+consultand `ServiceRequest.subject`'s own identifier against a `RelatedPerson` (in
+either bundle) carrying the identical identifier, and reads that `RelatedPerson`'s own
+`.name`/`.relationship` (mapped to a short label - `NMTHF`/`MTH` → `Mother`,
+`NFTHF`/`FTH` → `Father`, etc.) - the same `RelatedPerson` that already exists to
+support the proband's own `NK1` segments, so no new data is invented to build the
+label. Matching is by **`requisition`** (system + value) -
 every family-group example checked shares one requisition across all its members'
 `ServiceRequest`s (confirmed for both Scenario3/4 and FetalScenario), a simpler and more
 robust correlation than chasing shared `RelatedPerson` links, and it correctly keeps
