@@ -853,12 +853,16 @@ def drop_consultand_orders(bundles):
     A dropped consultand order's own clinically-relevant content isn't just discarded:
     its ServiceRequest.note (any lines not already present on the matched proband's own
     note) and a summary of its supportingInfo Observations are folded into the matched
-    proband ServiceRequest's own .note instead. Matched by requisition (system+value) -
-    every family-group example seen so far shares one requisition across all its
-    members' ServiceRequests, a simpler and more robust correlation than chasing shared
-    RelatedPerson links. A consultand bundle whose requisition matches no proband
-    bundle's (e.g. a standalone consultand-only Bundle, split alone) is dropped with its
-    content unrecovered - there's nothing to fold it into.
+    proband ServiceRequest's own .note instead, each as its own " - "-prefixed detail
+    line under a header naming who they're about (see _consultand_identity_label) - a
+    consultand with nothing left to fold in still gets its header, followed by a single
+    " - no details presented" line, so its existence isn't silently dropped without a
+    trace. Matched by requisition (system+value) - every family-group example seen so
+    far shares one requisition across all its members' ServiceRequests, a simpler and
+    more robust correlation than chasing shared RelatedPerson links. A consultand
+    bundle whose requisition matches no proband bundle's (e.g. a standalone
+    consultand-only Bundle, split alone) is dropped with its content unrecovered -
+    there's nothing to fold it into.
     """
     def service_requests(bundle):
         return [e["resource"] for e in bundle.get("entry", []) if e["resource"]["resourceType"] == "ServiceRequest"]
@@ -906,30 +910,29 @@ def drop_consultand_orders(bundles):
                 if obs and obs.get("resourceType") == "Observation":
                     obs_summaries.append(_observation_summary(obs))
 
-            folded_lines = list(own_lines)
-            if obs_summaries:
-                if own_lines:
-                    folded_lines.append("Supporting information:")
-                folded_lines.extend(obs_summaries)
+            detail_lines = own_lines + obs_summaries
 
-            if folded_lines:
-                # Who this folded-in content is about, e.g. "Ryanne Boulder (Mother):",
-                # "Consultand (Father):" (name unknown), or "Consultand:" (neither
-                # name nor relationship resolvable) - see _consultand_identity_label.
-                identity = _consultand_identity_label(consultand_sr, consultand_bundle, proband_bundle)
-                if identity and not identity.startswith("("):
-                    header = f"{identity}:"
-                elif identity:
-                    header = f"Consultand {identity}:"
-                else:
-                    header = "Consultand:"
-                lines.append(header)
-                lines.extend(folded_lines)
+            # Who this folded-in content is about, e.g. "Ryanne Boulder (Mother):",
+            # "Consultand (Father):" (name unknown), or "Consultand:" (neither name
+            # nor relationship resolvable) - see _consultand_identity_label. Always
+            # emitted, even with nothing to fold in, so a proband with more than one
+            # linked consultand doesn't silently drop one without a trace.
+            identity = _consultand_identity_label(consultand_sr, consultand_bundle, proband_bundle)
+            if identity and not identity.startswith("("):
+                header = f"{identity}:"
+            elif identity:
+                header = f"Consultand {identity}:"
+            else:
+                header = "Consultand:"
+            lines.append(header)
+            if detail_lines:
+                lines.extend(f" - {detail}" for detail in detail_lines)
+            else:
+                lines.append(" - no details presented")
 
-            if lines:
-                new_note_text = existing_note + ("\n" if existing_note else "") + "\n".join(lines)
-                proband_sr["note"] = [{"text": new_note_text}]
-                existing_note = new_note_text
+            new_note_text = existing_note + ("\n" if existing_note else "") + "\n".join(lines)
+            proband_sr["note"] = [{"text": new_note_text}]
+            existing_note = new_note_text
 
     return [b for b, _ in proband_bundles]
 

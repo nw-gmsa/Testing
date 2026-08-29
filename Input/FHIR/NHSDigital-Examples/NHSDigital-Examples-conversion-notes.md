@@ -529,8 +529,8 @@ Dropping a consultand order doesn't mean losing its clinical content outright: i
 `ServiceRequest.note` (any lines not already present on the matched proband's note) and
 a plain-text summary of its `supportingInfo` `Observation`s (code + value, e.g.
 `"Ethnicity: unknown"`, a single `Observation`'s own components joined on the same
-line) are folded into the matched proband `ServiceRequest.note` first - one line per
-`Observation`, for readability (confirmed live: this becomes one `NTE` segment per note
+line) are folded into the matched proband `ServiceRequest.note` first, each as its own
+`" - "`-prefixed detail line (confirmed live: this becomes one `NTE` segment per note
 line once converted, e.g. Scenario3-FetusA's note now converts to 10 separate `NTE`
 segments rather than one long combined line). Each dropped consultand's block is headed
 by **who it's about** - `"Ryanne Boulder (Mother):"`, or `"Consultand (Father):"` where
@@ -540,7 +540,11 @@ either bundle) carrying the identical identifier, and reads that `RelatedPerson`
 `.name`/`.relationship` (mapped to a short label - `NMTHF`/`MTH` → `Mother`,
 `NFTHF`/`FTH` → `Father`, etc.) - the same `RelatedPerson` that already exists to
 support the proband's own `NK1` segments, so no new data is invented to build the
-label. Matching is by **`requisition`** (system + value) -
+label. The header is always emitted, even for a consultand with nothing left to fold in
+(everything it had was already duplicate of the proband's own note, and it had no
+`supportingInfo` `Observation`s) - that case gets a single `" - no details presented"`
+line, so its existence in the source data isn't silently dropped without a trace.
+Matching is by **`requisition`** (system + value) -
 every family-group example checked shares one requisition across all its members'
 `ServiceRequest`s (confirmed for both Scenario3/4 and FetalScenario), a simpler and more
 robust correlation than chasing shared `RelatedPerson` links, and it correctly keeps
