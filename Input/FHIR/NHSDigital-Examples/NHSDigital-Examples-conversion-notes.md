@@ -114,6 +114,38 @@ after:
   files, up from the original 3) — every one confirmed live, both `transformToV2` and
   `sendToServer` (8/8 `check_fhir_bundle`-clean, 200 OK, `response.code=ok`).
 
+## Scenario3/Scenario4's mother: a RelatedPerson standing in for a Patient
+
+The `-Mother` split of both Scenario3 and Scenario4 had a real, correctly-formed NHS
+number (`9449308322`) - but only ever as a `RelatedPerson.identifier`, never as a
+`Patient`. NHS Digital's own source data represents the mother purely via a
+`RelatedPerson` resource attached to the **fetus's** record (`RelatedPerson.patient` =
+the fetus, `relationship` = `NMTHF` "natural mother of fetus") - correct usage for that
+purpose (it survives untouched in the `-FetusA`/`-FetusB` splits, feeding their `NK1`
+segments). But the mother's *own* `ServiceRequest` (her own order, in her own split
+message) pointed its `subject` at `Patient/51008c44-551e-4272-a2a8-36f7d5363c9c` - an id
+with no matching `Patient` entry anywhere in the source Bundle - and her
+`supportingInfo` list even referenced the `RelatedPerson` resource directly, as if a
+description of her relationship to the fetus were "information supporting" her own
+order. Same dangling id reused by **7 different `Observation.subject`s** too - `Patient/
+51008c44-...` appeared 8 times in Scenario3's `-Mother` split and 9 times in Scenario4's
+(2 `ServiceRequest.subject`s there, one per fetus's order group) - none of them caught
+by `check_fhir_bundle`'s dangling-reference check, since that only inspects `urn:uuid:`
+references, not relative `ResourceType/id` ones. This looks like NHS Digital example
+authoring shorthand specific to this file pair, not a pattern seen anywhere else in the
+13 files - no other example's own subject is missing a `Patient` resource while a
+`RelatedPerson` carrying the identical identifier sits elsewhere in the same Bundle.
+
+Fixed in both `-Mother` splits: added a real `Patient` entry (identifier-only - no
+name/DOB is available anywhere in the source data, so none is invented), rewrote every
+`Patient/51008c44-...` reference (`ServiceRequest.subject` and all 7
+`Observation.subject`s) to the new Patient's `urn:uuid:` fullUrl, and removed the
+`RelatedPerson` entry plus its `supportingInfo` reference from the mother's own message
+- a `RelatedPerson` describing "this order's subject in relation to a different
+patient" isn't supporting information about her own order once she has her own `Patient`
+identity as its `subject`. Confirmed live: both `-Mother` files convert and send clean
+(`check_fhir_bundle` OK, 200 OK, `response.code=ok`), `nhsd_examples` still 17/17.
+
 ## Missing MessageHeader.destination / ServiceRequest.performer
 
 `UKCore-Bundle-MichaelJonesRequest-Example_minimal` had neither
