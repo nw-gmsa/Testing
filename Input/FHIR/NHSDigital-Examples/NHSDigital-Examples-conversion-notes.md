@@ -64,6 +64,56 @@ converting the rest, and copied into place otherwise unconverted (aside from the
 eventCoding and Practitioner/Organization fixes below, which applied to these two same
 as everything else).
 
+## Multi-patient family-group orders split into one message per patient
+
+Three of the 11 order examples don't just carry one order — they bundle a whole family
+group's *linked* orders into a single FHIR message, each with its own `ServiceRequest`
+(and, for the fetuses, `Specimen`):
+
+- `Bundle-NonWGSScenario3-FetusAsProband-Example` — fetus + mother (2 `ServiceRequest`s).
+- `Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example` — two fetuses + mother, the
+  mother carrying *two* `ServiceRequest`s of her own (one per fetus's requisition/order
+  group) — 4 `ServiceRequest`s across 3 patients.
+- `Bundle-NonWGSTestOrderForm-FetalScenario-Example` — fetus + mother + father
+  (3 `ServiceRequest`s).
+
+OML^O21 (and this repo's LIMS) model one order per message - the live `transformToV2`
+tool converting one of these straight to v2 produces a single message with several
+repeated `ORC`/`OBR`/`PID` groups rather than several independent orders, which isn't
+how NW Genomics' own LIMS expects to receive family-group referrals (see e.g.
+`08-subcontracted-laboratory-order-from-external-glh.ipynb`'s Duo/Trio worked examples,
+each sent as its own message). Added `split_message_bundle_by_patient` to
+`IntegrationTest.py` to do this split on the FHIR side, before `transformToV2` - not
+after:
+
+- Grouping is by **patient**, not by `ServiceRequest` — a patient with more than one
+  `ServiceRequest` (Scenario4's mother) still ends up as a single message carrying both,
+  rather than being split further into one message per order.
+- Each output message carries: the patient's own `ServiceRequest`(s); whatever they
+  reference (`requester`, `specimen`, `supportingInfo`, `reasonReference`); and any
+  `Specimen`/`Observation`/`RelatedPerson` linked to that patient only via its own
+  `.subject`/`.patient` field rather than a `ServiceRequest` reference — needed because
+  FetalScenario's two `Specimen`s are both on the mother but referenced by no
+  `ServiceRequest.specimen` at all, and Scenario3 has an orphan "Second Trimester
+  Anomalies?" `Observation` on the mother that NHS Digital's own source data never wires
+  into any `ServiceRequest.supportingInfo` either (an upstream authoring gap, preserved
+  rather than silently dropped).
+- Some of NHS Digital's own mother references have **no `Patient` resource in the
+  Bundle at all** — `subject` carries an NHS number `identifier` with no matching
+  `Patient` entry (relying on PDS, the same "reference by identifier" pattern applied to
+  `Practitioner`/`Organization` elsewhere). Grouping keys on the resolved `Patient`
+  fullUrl when one exists, falling back to the raw `Reference.reference` string (both
+  the mother's `ServiceRequest.subject` and the Scenario3 orphan `Observation.subject`
+  use the identical relative reference, so they still land in the same group) rather
+  than treating every such reference as unrelated.
+- The combined source files were **replaced** by their per-patient outputs (not kept
+  alongside them) — `IntegrationTest.py`'s `nhsd_examples` group now lists
+  `Bundle-NonWGSScenario3-FetusAsProband-Example-{FetusA,Mother}.json`,
+  `Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-{FetusA,FetusB,Mother}.json`,
+  and `Bundle-NonWGSTestOrderForm-FetalScenario-Example-{Fetus,Mother,Father}.json` (8
+  files, up from the original 3) — every one confirmed live, both `transformToV2` and
+  `sendToServer` (8/8 `check_fhir_bundle`-clean, 200 OK, `response.code=ok`).
+
 ## Missing MessageHeader.destination / ServiceRequest.performer
 
 `UKCore-Bundle-MichaelJonesRequest-Example_minimal` had neither

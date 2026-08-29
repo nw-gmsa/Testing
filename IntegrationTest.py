@@ -51,6 +51,7 @@ import json
 import os
 import sys
 import time
+import uuid
 
 import requests
 import urllib3
@@ -318,17 +319,32 @@ TEST_GROUPS = {
     # full rebuild.
     # Two examples (UKCore-Bundle-MichaelJonesRequest-Example_{minimal,v3_message}) were
     # already proper message Bundles with a MessageHeader - copied verbatim, unconverted.
+    #
+    # Three of those 11 (Scenario3, Scenario4, FetalScenario) bundle a whole family
+    # group's linked orders - e.g. a fetus, its mother, and its father, each with their
+    # own ServiceRequest - into one FHIR message. OML^O21 (and this repo's LIMS) model
+    # one order per message, so each was further split with
+    # split_message_bundle_by_patient (one output message per distinct patient; a
+    # patient with more than one ServiceRequest, e.g. Scenario4's mother, stays together
+    # as one message) and the combined source file replaced by its per-patient outputs -
+    # Scenario3 -> {-FetusA,-Mother}, Scenario4 -> {-FetusA,-FetusB,-Mother},
+    # FetalScenario -> {-Fetus,-Mother,-Father}. See NHSDigital-Examples-conversion-notes.md.
     "nhsd_examples": {
         "input_dir": os.path.join("Input", "FHIR", "NHSDigital-Examples"),
         "input_format": "fhir",
         "cases": {
             "O21": [
-                "Bundle-NonWGSScenario3-FetusAsProband-Example.json",
-                "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example.json",
+                "Bundle-NonWGSScenario3-FetusAsProband-Example-FetusA.json",
+                "Bundle-NonWGSScenario3-FetusAsProband-Example-Mother.json",
+                "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-FetusA.json",
+                "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-FetusB.json",
+                "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-Mother.json",
                 "Bundle-NonWGSScenario5-ProductsofConception-Example.json",
                 "Bundle-NonWGSTestOrderForm-CancerSolidTumor-Example.json",
                 "Bundle-NonWGSTestOrderForm-Example.json",
-                "Bundle-NonWGSTestOrderForm-FetalScenario-Example.json",
+                "Bundle-NonWGSTestOrderForm-FetalScenario-Example-Fetus.json",
+                "Bundle-NonWGSTestOrderForm-FetalScenario-Example-Mother.json",
+                "Bundle-NonWGSTestOrderForm-FetalScenario-Example-Father.json",
                 "Bundle-NonWGSTestOrderForm-Reanalysis-Example.json",
                 "Bundle-NonWGSTestOrderFormQRPatientExtensions-Example.json",
                 "Bundle-NonWGSTestOrderFormUpdated-FetalScenario-Example.json",
@@ -500,6 +516,146 @@ def check_fhir_bundle(bundle):
         walk(entry.get("resource"))
 
     return list(dict.fromkeys(problems))  # de-dupe, preserve order
+
+
+def _resolve_bundle_reference(bundle, reference):
+    """Resolves a Reference.reference string against Bundle.entry.fullUrl - either an
+    exact match (the fullUrl form), or, for a relative 'ResourceType/id' reference (the
+    form several of the NHSDigital-Examples source Bundles actually use, inconsistently
+    with their own http://example.org/... fullUrls), the entry of that resourceType
+    whose fullUrl or resource.id ends with that id. Returns the matching entry dict, or
+    None if reference is empty/unresolvable.
+    """
+    if not reference:
+        return None
+    for entry in bundle.get("entry", []):
+        if entry.get("fullUrl") == reference:
+            return entry
+    if "/" in reference:
+        want_type, want_id = reference.split("/", 1)
+        for entry in bundle.get("entry", []):
+            resource = entry.get("resource", {})
+            if resource.get("resourceType") != want_type:
+                continue
+            full_url = entry.get("fullUrl", "")
+            if full_url.rsplit("/", 1)[-1] == want_id or resource.get("id") == want_id:
+                return entry
+    return None
+
+
+def _patient_key(bundle, reference_obj):
+    """Canonical key identifying "which patient" a Reference (e.g.
+    ServiceRequest.subject, Specimen.subject, RelatedPerson.patient) points at - the
+    matching entry's fullUrl if it resolves to one actually present in the Bundle,
+    else the raw Reference.reference string, else a stringified Reference.identifier.
+    Two references to the same patient produce the same key even when, as for some of
+    NHS Digital's own mother references, no Patient *resource* for them exists in the
+    Bundle at all (identifier-only, relying on PDS) - matching on the resolved fullUrl
+    alone would treat every such reference as unrelated.
+    """
+    if not reference_obj:
+        return None
+    reference = reference_obj.get("reference")
+    resolved = _resolve_bundle_reference(bundle, reference)
+    if resolved:
+        return resolved.get("fullUrl")
+    if reference:
+        return reference
+    identifier = reference_obj.get("identifier")
+    return json.dumps(identifier, sort_keys=True) if identifier else None
+
+
+def split_message_bundle_by_patient(bundle):
+    """Splits a converted FHIR message Bundle whose ServiceRequests belong to more than
+    one Patient into one message Bundle per patient - each patient's own order(s) plus
+    whatever it references (requester, specimens, supportingInfo Observations, linked
+    RelatedPersons). A Bundle with only one distinct patient is returned unchanged, as a
+    one-item list.
+
+    Rationale: OML^O21 (and this repo's LIMS) model one order per message. NHS Digital's
+    own examples instead bundle a whole family group's linked orders - e.g. a fetus, its
+    mother, and its father, each with their own ServiceRequest/Specimen - into a single
+    FHIR message. Converting that straight to v2 produces one message with several
+    repeated ORC/OBR/PID groups rather than several independent orders, so the split has
+    to happen on the FHIR side, before transformToV2 - not after.
+
+    Grouping is by patient (ServiceRequest.subject), not by ServiceRequest: a patient
+    with more than one ServiceRequest (e.g. Scenario4's mother, who has two - one per
+    fetus's requisition/order group) still ends up as a single message carrying both,
+    rather than being split further.
+    """
+    entries = bundle.get("entry", [])
+    message_header_entry = next(
+        (e for e in entries if e.get("resource", {}).get("resourceType") == "MessageHeader"), None
+    )
+    service_requests = [e for e in entries if e.get("resource", {}).get("resourceType") == "ServiceRequest"]
+
+    groups = {}  # _patient_key(...) -> [ServiceRequest entry, ...]
+    group_order = []
+    for sr_entry in service_requests:
+        key = _patient_key(bundle, sr_entry["resource"].get("subject"))
+        if key not in groups:
+            groups[key] = []
+            group_order.append(key)
+        groups[key].append(sr_entry)
+
+    if len(groups) <= 1:
+        return [bundle]
+
+    split_bundles = []
+    for patient_key in group_order:
+        sr_entries = groups[patient_key]
+        included = {}  # fullUrl -> entry, dict preserves first-seen order
+
+        def include(entry):
+            if entry and entry.get("fullUrl") not in included:
+                included[entry["fullUrl"]] = entry
+
+        include(next((e for e in entries if e.get("fullUrl") == patient_key), None))
+
+        for sr_entry in sr_entries:
+            include(sr_entry)
+            sr = sr_entry["resource"]
+            include(_resolve_bundle_reference(bundle, sr.get("requester", {}).get("reference")))
+            for ref_list_field in ("specimen", "supportingInfo", "reasonReference"):
+                for ref in sr.get(ref_list_field, []):
+                    include(_resolve_bundle_reference(bundle, ref.get("reference")))
+
+        # Specimens/Observations/RelatedPersons linked to this patient only via their
+        # own .subject/.patient (not referenced from any ServiceRequest field) - e.g.
+        # FetalScenario's two Specimens, both on the mother, referenced by no
+        # ServiceRequest.specimen; or Scenario3's "Second Trimester Anomalies?"
+        # Observation, on the mother but not wired into any ServiceRequest.supportingInfo
+        # at all in NHS Digital's own source data (an upstream authoring gap, not
+        # something this conversion should silently drop).
+        for entry in entries:
+            resource = entry["resource"]
+            rtype = resource.get("resourceType")
+            if rtype not in ("Specimen", "Observation", "RelatedPerson"):
+                continue
+            owner_field = "patient" if rtype == "RelatedPerson" else "subject"
+            if _patient_key(bundle, resource.get(owner_field)) == patient_key:
+                include(entry)
+
+        new_header = json.loads(json.dumps(message_header_entry["resource"])) if message_header_entry else {}
+        new_header["id"] = str(uuid.uuid4())
+        new_header["focus"] = [{"reference": sr_entry["fullUrl"]} for sr_entry in sr_entries]
+
+        split_bundles.append({
+            "resourceType": "Bundle",
+            "type": "message",
+            "identifier": {
+                "system": bundle.get("identifier", {}).get("system", "https://tools.ietf.org/html/rfc4122"),
+                "value": str(uuid.uuid4()),
+            },
+            "timestamp": bundle.get("timestamp"),
+            "entry": (
+                [{"fullUrl": f"urn:uuid:{new_header['id']}", "resource": new_header}]
+                + list(included.values())
+            ),
+        })
+
+    return split_bundles
 
 
 # iGene convention: a PID-5 given name of "Baby of <mother>" / "Fetus of <mother>" signals
