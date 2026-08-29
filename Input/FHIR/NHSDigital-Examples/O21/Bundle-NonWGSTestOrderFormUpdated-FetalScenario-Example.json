@@ -36,6 +36,34 @@
       }
     },
     {
+      "fullUrl": "http://example.org/fhir/Patient/Patient-RyanneBoulderPartner-Example",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-RyanneBoulderPartner-Example",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
+            "value": "P-RWT13521",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RAX"
+              }
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": "TO BE RESOLVED VIA PDS",
+            "given": [
+              "TO BE RESOLVED VIA PDS"
+            ]
+          }
+        ],
+        "gender": "unknown"
+      }
+    },
+    {
       "fullUrl": "http://example.org/fhir/ServiceRequest/ServiceRequest-NonWGSTestOrderForm-FetalScenarioFather-Example",
       "resource": {
         "resourceType": "ServiceRequest",
@@ -91,7 +119,7 @@
         ],
         "priority": "urgent",
         "subject": {
-          "reference": "Patient/Patient-RyanneBoulderPartner-Example",
+          "reference": "http://example.org/fhir/Patient/Patient-RyanneBoulderPartner-Example",
           "identifier": {
             "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
             "value": "P-RWT13521",
@@ -158,7 +186,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/Patient-RyanneBoulderPartner-Example",
+          "reference": "http://example.org/fhir/Patient/Patient-RyanneBoulderPartner-Example",
           "identifier": {
             "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.24",
             "value": "P-RWT13521",

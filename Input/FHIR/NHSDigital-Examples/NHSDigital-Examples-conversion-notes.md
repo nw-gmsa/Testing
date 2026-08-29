@@ -382,3 +382,45 @@ Confirmed live: removing `ServiceRequest.basedOn` alone took `sendToServer` from
 the removal added to `ServiceRequest.note`/`Specimen.note` respectively, per the same
 convention used for CancerSolidTumor's external `Observation` reference above. With
 both removed, `nhsd_examples` passes 12/12 live.
+
+## Missing Patient/RelatedPerson identity: a placeholder name, not a blank one
+
+Two more gaps, found by counting how many of the 18 files had no `Patient` resource at
+all: `Bundle-NonWGSTestOrderFormQRPatientExtensions-Example` (subject is
+identifier-only NHS number `9449307873`, no `Patient` anywhere - 10 different
+`.subject`/`.patient` fields across the Bundle share that identifier) and
+`Bundle-NonWGSTestOrderFormUpdated-FetalScenario-Example` (subject/specimen `.subject`
+both `reference`-and-`identifier`, pointing at `Patient/Patient-RyanneBoulderPartner-
+Example` - an id with no matching entry, the 2-entry partial "update" fixture missing
+even its own father). Both are legitimate "person known only by identifier, relying on
+PDS" cases per the general rule - the fix isn't to remove the reference (there's a real
+identifier to resolve on), it's to add the missing `Patient`.
+
+Added an identifier-only `Patient` (or, for `RelatedPerson`s in the same situation - see
+below - `name`/`gender` added to the existing resource) with `name.family`/`name.given`
+both set to the literal string **`"TO BE RESOLVED VIA PDS"`** and `gender: "unknown"` -
+a placeholder that's honestly a placeholder (not a fabricated real-looking name), for
+every field a v2 `PID-5`/`NK1` name component would otherwise render blank. Wired every
+matching `.subject`/`.patient` reference to the new `Patient`'s fullUrl. One
+reference-matching subtlety worth recording: the live `transformToV2` tool resolves
+`Reference.reference` by **exact fullUrl match only** - not the fullUrl-or-id-suffix
+fallback this repo's own `_resolve_bundle_reference`/notebook `find_entry` helpers use.
+`Updated-FetalScenario`'s existing relative reference (`"Patient/Patient-RyanneBoulder
+Partner-Example"`) needed rewriting to the new Patient's exact `http://example.org/fhir/
+Patient/...` fullUrl before the live tool would actually pick up the new name - adding
+the `Patient` entry alone wasn't enough. Confirmed live: `PID-5` on both files went from
+blank to `TO BE RESOLVED VIA PDS^TO BE RESOLVED VIA PDS^^^^^L`.
+
+Same treatment applied to `RelatedPerson` resources carrying only an NHS number
+`identifier` and a `relationship` coding, no `name` - five of them, all `NMTHF`
+"natural mother of fetus": Scenario3-FetusA and Scenario4-FetusA/FetusB (the shared
+`6473db02-.../86c36eee-...` mother-of-fetus records) and FetalScenario-Fetus/-Mother
+(`RelatedPerson-RyanneBoulder-Example`, the mother's own record, duplicated by
+`split_message_bundle_by_patient` into both her own message and the fetus's). Not
+touched: the three `RelatedPerson`s identified only by a *local* OID (Scenario5's
+`NCHILD` record, FetalScenario's father-of-fetus records) rather than an NHS number -
+out of scope for this pass, since "known only by NHS number, relying on PDS" is the
+specific rule here, not "known only by any identifier." Confirmed live: Scenario3-
+FetusA's `NK1-2` (name, previously blank) now reads `TO BE RESOLVED VIA PDS^TO BE
+RESOLVED VIA PDS`, ahead of `NK1-3`'s existing `NMTHF^natural mother of fetus^...`
+relationship coding. `nhsd_examples` still 17/17 after every one of these changes.
