@@ -36,8 +36,9 @@ split cases (O21/R01), Shire <-> HODS reports (R01), Clatterbridge/Histotrac ord
 reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01), and
 Cepheid results (R32, sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
-isn't yet verified for R32). Extend TEST_GROUPS with further scenarios/files as they're
-added.
+isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
+(O21/R01/A31, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
+group below). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
     python3 IntegrationTest.py [--skip-send] [--type O21] [--type R01] [--group shire]
@@ -50,6 +51,7 @@ import json
 import os
 import sys
 import time
+import uuid
 
 import requests
 import urllib3
@@ -220,6 +222,144 @@ TEST_GROUPS = {
             ],
         },
     },
+    # Reference examples published by the NW-GMSA IG itself, not built by this repo -
+    # https://nw-gmsa.github.io/en/StructureDefinition-BundleMessage-examples.html
+    # (source: https://github.com/nw-gmsa/nw-gmsa.github.com). Fetched as the IG's own
+    # published JSON (e.g. https://nw-gmsa.github.io/en/Bundle-GenomicsOrderMessage-ctDNA.json)
+    # and kept verbatim, filenames unchanged, so they stay traceable back to that page.
+    # FHIR-sourced like "dwgs" - input_format "fhir" runs run_fhir_source_case. 7 of the
+    # page's 10 examples are included; none overlap with this repo's own hand-built
+    # Input/FHIR content (checked by patient identity, not just filename - the ctDNA
+    # pair reuses this repo's existing NHS-number test patients, per this repo's own
+    # convention of reusing the same test-patient pool, but the Bundle content itself is
+    # the IG's, not a copy of anything already in Input/). The other 3
+    # (GenomicsOrderMessageReply{Acknowledge,Fatal,Ok}) are excluded - they're
+    # MessageHeader-only $process-message *responses* (MessageHeader.response populated,
+    # no Patient/ServiceRequest/etc.), not order/report messages to send in the first
+    # place, so this harness's send-as-a-new-message model doesn't apply to them.
+    # Deviation/known-failure notes, verified live rather than pre-filtered out (same
+    # practice as e.g. cepheid): Bundle-GenomicsReportMessage.json (DocumentReference +
+    # inline Binary PDF, no ctDNA data) gets a bare HTTP 500 from transformToV2 sometimes
+    # (live infra, intermittent - not reproducible on every run).
+    #
+    # Both R01 examples also fail check_fhir_bundle's dangling-reference check - traced to
+    # source (input/fsh/Examples/... in the IG's own repo): each Bundle's DiagnosticReport
+    # (and, for -ctDNA, ServiceRequest too) is a FSH instance *shared* with a sibling
+    # "document"-shaped Bundle example, and hardcodes a reference to a resource only that
+    # sibling actually includes (two Observations + a Specimen for -ctDNA; a Composition,
+    # via the DiagnosticReportCompositionR5 extension, for the other) - a real upstream
+    # authoring gap in the IG's published examples, not something fixable by editing our
+    # fetched copy. Out of scope for this repo to fix (suggested FSH-level fixes written
+    # up and left with the IG maintainers) - known_dangling_refs below tells
+    # run_fhir_source_case to stop treating those two specific, already-diagnosed
+    # references as a failure here, while still surfacing any other/new problem.
+    "nwgmsa_examples": {
+        "input_dir": os.path.join("Input", "FHIR", "NWGMSA-Examples"),
+        "input_format": "fhir",
+        "cases": {
+            "O21": [
+                "Bundle-748683741.json",
+                "Bundle-GenomicsOrderMessage-ctDNA.json",
+                "Bundle-GenomicsOrderMessageAttachment.json",
+                "Bundle-GenomicsOrderMessageCodedEntries.json",
+            ],
+            "R01": [
+                "Bundle-GenomicsReportMessage-ctDNA.json",
+                "Bundle-GenomicsReportMessage.json",
+            ],
+            "A31": [
+                "Bundle-PatientMessage.json",
+            ],
+        },
+        "known_dangling_refs": {
+            # Two Observations (variant-egfr, region-studied-egfr-dpcr) + a Specimen -
+            # all three only exist in the sibling Bundle-FHIRDocumentGeneticReportBundle-ctDNA.
+            "Bundle-GenomicsReportMessage-ctDNA.json": {
+                "urn:uuid:00c22e97-a226-4845-b17a-e24ec1f4f77a",
+                "urn:uuid:a151b1ed-5aef-4c36-af50-987cfbd5bad4",
+                "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5",
+            },
+            # DiagnosticReportCompositionR5 extension points at
+            # Composition-GenomicsReport-OctaviaCHISLETT, which only exists in the
+            # sibling FHIRDocumentGeneticReportBundle (the "Jack Dawkins" example).
+            "Bundle-GenomicsReportMessage.json": {
+                "urn:uuid:30551ce1-5a28-4356-b684-1e639094ad4d",
+            },
+        },
+    },
+    # Genomic order/report examples from NHS Digital's own national IG -
+    # https://github.com/NHSDigital/NHSDigital-FHIR-Genomics-ImplementationGuide/tree/main/Bundle
+    # (the National Genomic Medicine Service order/report model this repo's own NW-GMSA
+    # IG sits underneath). Not every Bundle in that folder is an order/report - excluded:
+    # Bundle-Searchset-Example (searchset, no clinical content), Bundle-TransactionResponse
+    # {Error,Success}-Example (process-message *responses*, same reasoning as
+    # nwgmsa_examples' excluded Reply bundles), Bundle-WGSRoD-Example (Consent +
+    # QuestionnaireResponse, a "Record of Discussion" artifact, not an order/report),
+    # CommunityCloud-Bundle-Example (DocumentReference/Specimen/Device/Procedure tracking
+    # data, not an order/report), UKCore-Bundle-MichaelJonesSpecimen-Example (a bare
+    # Specimen, referenced by the MichaelJonesRequest examples below rather than a
+    # standalone case), and Bundle-GenomicReportVisibility-JamesWilson-Example (NHS
+    # Digital's only R01/report example - not fully formed: no fullUrls at all (a
+    # "collection" Bundle) and too thin a resource set to be a genuine report).
+    #
+    # FHIR_SERVER's $process-message (the ESB) doesn't support Bundle.type "transaction" -
+    # the other 11 examples are order/report Bundles built as one (a conditional-upload
+    # payload, entry[].request present, no MessageHeader), needing the basic conversion
+    # to "message" this group's local copies carry out (see
+    # NHSDigital-Examples-conversion-notes.md alongside them): Bundle.type -> "message",
+    # drop entry[].request, add Bundle.identifier/timestamp, prepend a MessageHeader
+    # (eventCoding http://terminology.hl7.org/CodeSystem/v2-0003#O21, matching every
+    # other message this repo sends - NHS Digital's own local eventCoding
+    # (CodeSystem-Genomics-message-events.json's genomictestrequest/genomictestresponse)
+    # isn't recognised by FHIR_SERVER, destination fixed at NW Genomics 699X0 -
+    # where FHIR_SERVER actually routes everything in this harness regardless of an
+    # example's "real" intended GLH - sender identity best-effort extracted from each
+    # Bundle's own ServiceRequest.requester -> PractitionerRole.organization). Existing
+    # fullUrls/references are left untouched other than that - genuinely "basic", not a
+    # full rebuild.
+    # Two examples (UKCore-Bundle-MichaelJonesRequest-Example_{minimal,v3_message}) were
+    # already proper message Bundles with a MessageHeader - copied verbatim, unconverted.
+    #
+    # Three of those 11 (Scenario3, Scenario4, FetalScenario) bundle a whole family
+    # group's linked orders - e.g. a fetus, its mother, and its father, each with their
+    # own ServiceRequest - into one FHIR message. OML^O21 (and this repo's LIMS) model
+    # one order per message, so each was further split with
+    # split_message_bundle_by_patient (one output message per distinct patient; a
+    # patient with more than one ServiceRequest, e.g. Scenario4's mother, stays together
+    # as one message) and the combined source file replaced by its per-patient outputs.
+    #
+    # Of those per-patient messages, only the "proband" ones (Extension-Genomic-
+    # Patient-Role) are kept - this repo's LIMS/RIE doesn't support "consultand" orders
+    # (a ServiceRequest whose subject is actually a relative of the patient being
+    # tested), which OML^O21 has no way to represent. drop_consultand_orders removes
+    # them, folding each dropped consultand order's own note text and a summary of its
+    # supportingInfo Observations into the matching proband ServiceRequest.note first
+    # (matched by shared requisition) rather than silently losing that content -
+    # Scenario3 -> {-FetusA} (Mother dropped), Scenario4 -> {-FetusA,-FetusB} (Mother
+    # dropped), FetalScenario -> {-Fetus} (Mother and Father dropped).
+    # Bundle-NonWGSTestOrderFormUpdated-FetalScenario-Example was dropped entirely -
+    # a standalone consultand-only (father) Bundle with no proband ServiceRequest in
+    # the same message to fold into. See NHSDigital-Examples-conversion-notes.md.
+    "nhsd_examples": {
+        "input_dir": os.path.join("Input", "FHIR", "NHSDigital-Examples"),
+        "input_format": "fhir",
+        "cases": {
+            "O21": [
+                "Bundle-NonWGSScenario3-FetusAsProband-Example-FetusA.json",
+                "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-FetusA.json",
+                "Bundle-NonWGSScenario4-ProbandWithMultipleFetus-Example-FetusB.json",
+                "Bundle-NonWGSScenario5-ProductsofConception-Example.json",
+                "Bundle-NonWGSTestOrderForm-CancerSolidTumor-Example.json",
+                "Bundle-NonWGSTestOrderForm-Example.json",
+                "Bundle-NonWGSTestOrderForm-FetalScenario-Example-Fetus.json",
+                "Bundle-NonWGSTestOrderForm-Reanalysis-Example.json",
+                "Bundle-NonWGSTestOrderFormQRPatientExtensions-Example.json",
+                "Bundle-WGSTestOrderForm-Example.json",
+                "UKCore-Bundle-MichaelJonesRequest-Example_minimal.json",
+                "UKCore-Bundle-MichaelJonesRequest-Example_v3_message.json",
+            ],
+        },
+    },
     # Cepheid GeneXpert results (message type R32). Sourced from Input/ASTM/R32 - see
     # Testing-Cephied.ipynb, which flags the old Input/V2/R32 source as superseded by
     # these files and skips the transformToV2 round-trip stage, so we do too.
@@ -382,6 +522,419 @@ def check_fhir_bundle(bundle):
         walk(entry.get("resource"))
 
     return list(dict.fromkeys(problems))  # de-dupe, preserve order
+
+
+def _resolve_bundle_reference(bundle, reference):
+    """Resolves a Reference.reference string against Bundle.entry.fullUrl - either an
+    exact match (the fullUrl form), or, for a relative 'ResourceType/id' reference (the
+    form several of the NHSDigital-Examples source Bundles actually use, inconsistently
+    with their own http://example.org/... fullUrls), the entry of that resourceType
+    whose fullUrl or resource.id ends with that id. Returns the matching entry dict, or
+    None if reference is empty/unresolvable.
+    """
+    if not reference:
+        return None
+    for entry in bundle.get("entry", []):
+        if entry.get("fullUrl") == reference:
+            return entry
+    if "/" in reference:
+        want_type, want_id = reference.split("/", 1)
+        for entry in bundle.get("entry", []):
+            resource = entry.get("resource", {})
+            if resource.get("resourceType") != want_type:
+                continue
+            full_url = entry.get("fullUrl", "")
+            if full_url.rsplit("/", 1)[-1] == want_id or resource.get("id") == want_id:
+                return entry
+    return None
+
+
+def _patient_key(bundle, reference_obj):
+    """Canonical key identifying "which patient" a Reference (e.g.
+    ServiceRequest.subject, Specimen.subject, RelatedPerson.patient) points at - the
+    matching entry's fullUrl if it resolves to one actually present in the Bundle,
+    else the raw Reference.reference string, else a stringified Reference.identifier.
+    Two references to the same patient produce the same key even when, as for some of
+    NHS Digital's own mother references, no Patient *resource* for them exists in the
+    Bundle at all (identifier-only, relying on PDS) - matching on the resolved fullUrl
+    alone would treat every such reference as unrelated.
+    """
+    if not reference_obj:
+        return None
+    reference = reference_obj.get("reference")
+    resolved = _resolve_bundle_reference(bundle, reference)
+    if resolved:
+        return resolved.get("fullUrl")
+    if reference:
+        return reference
+    identifier = reference_obj.get("identifier")
+    return json.dumps(identifier, sort_keys=True) if identifier else None
+
+
+def split_message_bundle_by_patient(bundle):
+    """Splits a converted FHIR message Bundle whose ServiceRequests belong to more than
+    one Patient into one message Bundle per patient - each patient's own order(s) plus
+    whatever it references (requester, specimens, supportingInfo Observations, linked
+    RelatedPersons). A Bundle with only one distinct patient is returned unchanged, as a
+    one-item list.
+
+    Rationale: OML^O21 (and this repo's LIMS) model one order per message. NHS Digital's
+    own examples instead bundle a whole family group's linked orders - e.g. a fetus, its
+    mother, and its father, each with their own ServiceRequest/Specimen - into a single
+    FHIR message. Converting that straight to v2 produces one message with several
+    repeated ORC/OBR/PID groups rather than several independent orders, so the split has
+    to happen on the FHIR side, before transformToV2 - not after.
+
+    Grouping is by patient (ServiceRequest.subject), not by ServiceRequest: a patient
+    with more than one ServiceRequest (e.g. Scenario4's mother, who has two - one per
+    fetus's requisition/order group) still ends up as a single message carrying both,
+    rather than being split further.
+    """
+    entries = bundle.get("entry", [])
+    message_header_entry = next(
+        (e for e in entries if e.get("resource", {}).get("resourceType") == "MessageHeader"), None
+    )
+    service_requests = [e for e in entries if e.get("resource", {}).get("resourceType") == "ServiceRequest"]
+
+    groups = {}  # _patient_key(...) -> [ServiceRequest entry, ...]
+    group_order = []
+    for sr_entry in service_requests:
+        key = _patient_key(bundle, sr_entry["resource"].get("subject"))
+        if key not in groups:
+            groups[key] = []
+            group_order.append(key)
+        groups[key].append(sr_entry)
+
+    if len(groups) <= 1:
+        return [bundle]
+
+    split_bundles = []
+    for patient_key in group_order:
+        sr_entries = groups[patient_key]
+        included = {}  # fullUrl -> entry, dict preserves first-seen order
+
+        def include(entry):
+            if entry and entry.get("fullUrl") not in included:
+                included[entry["fullUrl"]] = entry
+
+        include(next((e for e in entries if e.get("fullUrl") == patient_key), None))
+
+        for sr_entry in sr_entries:
+            include(sr_entry)
+            sr = sr_entry["resource"]
+            include(_resolve_bundle_reference(bundle, sr.get("requester", {}).get("reference")))
+            for ref_list_field in ("specimen", "supportingInfo", "reasonReference"):
+                for ref in sr.get(ref_list_field, []):
+                    include(_resolve_bundle_reference(bundle, ref.get("reference")))
+
+        # Specimens/Observations/RelatedPersons linked to this patient only via their
+        # own .subject/.patient (not referenced from any ServiceRequest field) - e.g.
+        # FetalScenario's two Specimens, both on the mother, referenced by no
+        # ServiceRequest.specimen; or Scenario3's "Second Trimester Anomalies?"
+        # Observation, on the mother but not wired into any ServiceRequest.supportingInfo
+        # at all in NHS Digital's own source data (an upstream authoring gap, not
+        # something this conversion should silently drop).
+        for entry in entries:
+            resource = entry["resource"]
+            rtype = resource.get("resourceType")
+            if rtype not in ("Specimen", "Observation", "RelatedPerson"):
+                continue
+            owner_field = "patient" if rtype == "RelatedPerson" else "subject"
+            if _patient_key(bundle, resource.get(owner_field)) == patient_key:
+                include(entry)
+
+        new_header = json.loads(json.dumps(message_header_entry["resource"])) if message_header_entry else {}
+        new_header["id"] = str(uuid.uuid4())
+        new_header["focus"] = [{"reference": sr_entry["fullUrl"]} for sr_entry in sr_entries]
+
+        split_bundles.append({
+            "resourceType": "Bundle",
+            "type": "message",
+            "identifier": {
+                "system": bundle.get("identifier", {}).get("system", "https://tools.ietf.org/html/rfc4122"),
+                "value": str(uuid.uuid4()),
+            },
+            "timestamp": bundle.get("timestamp"),
+            "entry": (
+                [{"fullUrl": f"urn:uuid:{new_header['id']}", "resource": new_header}]
+                + list(included.values())
+            ),
+        })
+
+    return split_bundles
+
+
+def check_patient_demographics_preserved(bundle, v2_text):
+    """Checks that a Patient's name/birthDate/gender - wherever present on the FHIR
+    side - survived transformToV2's conversion into the resulting message's PID
+    segment (PID-5/PID-7/PID-8), for the Bundle's *primary* subject (the
+    ServiceRequest's, or a DiagnosticReport's for an R01 report).
+
+    Added after an ad hoc audit of all 18 NHSDigital-Examples files found no losses -
+    this makes that check repeatable on every future resync rather than a one-off.
+
+    Returns (applicable, problems): applicable is False (and problems is []) when
+    there's nothing to compare - no ServiceRequest/DiagnosticReport, its subject
+    doesn't resolve to an actual Patient resource in the Bundle (a missing Patient is
+    a different concern - see split_message_bundle_by_patient's docstring and
+    NHSDigital-Examples-conversion-notes.md), or that Patient has no
+    name/birthDate/gender to lose in the first place.
+    """
+    entries = bundle.get("entry", []) if isinstance(bundle, dict) else []
+    primary = next(
+        (e.get("resource", {}) for e in entries
+         if e.get("resource", {}).get("resourceType") in ("ServiceRequest", "DiagnosticReport")),
+        None,
+    )
+    if not primary:
+        return False, []
+
+    patient_entry = _resolve_bundle_reference(bundle, (primary.get("subject") or {}).get("reference"))
+    patient = patient_entry.get("resource", {}) if patient_entry else None
+    if not patient or patient.get("resourceType") != "Patient":
+        return False, []
+
+    names = patient.get("name")
+    src_name = None
+    if names:
+        n = names[0]
+        src_name = f"{' '.join(n.get('given', []))} {n.get('family', '')}".strip()
+    src_dob = patient.get("birthDate")
+    src_gender = patient.get("gender")
+
+    if not (src_name or src_dob or src_gender):
+        return False, []
+
+    all_pid_fields = [
+        seg.split("|") for seg in v2_text.replace("\r\n", "\r").split("\r") if seg.startswith("PID|")
+    ]
+    if not all_pid_fields:
+        return True, ["Patient has name/birthDate/gender but the transformToV2 output has no PID segment at all"]
+
+    # Some messages (e.g. a Specimen whose subject differs from the ServiceRequest's
+    # own subject) come back with more than one PID segment - transformToV2 puts the
+    # subject's own demographics in whichever one carries a matching PID-3 identifier
+    # value, not necessarily the first. Fall back to the first PID for the common
+    # single-PID case.
+    identifier_values = [i.get("value") for i in patient.get("identifier", []) if i.get("value")]
+    pid_fields = next(
+        (f for f in all_pid_fields if len(f) > 3 and any(v and v in f[3] for v in identifier_values)),
+        all_pid_fields[0],
+    )
+
+    v2_name = pid_fields[5] if len(pid_fields) > 5 else ""
+    v2_dob = pid_fields[7] if len(pid_fields) > 7 else ""
+    v2_gender = pid_fields[8] if len(pid_fields) > 8 else ""
+
+    problems = []
+    if src_name and not v2_name:
+        problems.append(f"Patient.name {src_name!r} present in FHIR but PID-5 is blank")
+    if src_dob and v2_dob.replace("-", "") != src_dob.replace("-", ""):
+        problems.append(f"Patient.birthDate {src_dob!r} present in FHIR but PID-7 is {v2_dob!r}")
+    if src_gender and not v2_gender:
+        problems.append(f"Patient.gender {src_gender!r} present in FHIR but PID-8 is blank")
+
+    return True, problems
+
+
+GENOMIC_PATIENT_ROLE_EXTENSION = "https://fhir.nhs.uk/England/StructureDefinition/Extension-Genomic-Patient-Role"
+
+
+def _service_request_role(service_request):
+    """The Extension-Genomic-Patient-Role code on a ServiceRequest ('proband',
+    'consultand', ...), or None if the extension isn't present."""
+    for ext in service_request.get("extension", []):
+        if ext.get("url") == GENOMIC_PATIENT_ROLE_EXTENSION:
+            return ext.get("valueCodeableConcept", {}).get("coding", [{}])[0].get("code")
+    return None
+
+
+RELATIONSHIP_ROLE_LABELS = {
+    "NMTHF": "Mother",
+    "NFTHF": "Father",
+    "MTH": "Mother",
+    "FTH": "Father",
+    "NCHILD": "Child",
+    "SIB": "Sibling",
+}
+
+
+def _consultand_identity_label(consultand_sr, consultand_bundle, proband_bundle):
+    """A human-readable "who is this information about" label for a consultand
+    ServiceRequest's subject - 'Jane Smith (Mother)', or '(Father)' where no name is
+    known, or None where neither a name nor a relationship can be found - by matching
+    the consultand's own subject.identifier against a RelatedPerson (in either bundle)
+    carrying the identical identifier. RelatedPerson.name/.relationship describe that
+    same person relative to the *proband*, which is exactly the context this label
+    needs to give inside the proband's own ServiceRequest.note.
+    """
+    subject_ident = (consultand_sr.get("subject") or {}).get("identifier") or {}
+    subject_ident_value = subject_ident.get("value")
+
+    name_text = None
+    role_label = None
+    if subject_ident_value:
+        for bundle in (proband_bundle, consultand_bundle):
+            for entry in bundle.get("entry", []):
+                resource = entry["resource"]
+                if resource.get("resourceType") != "RelatedPerson":
+                    continue
+                if subject_ident_value not in [i.get("value") for i in resource.get("identifier", [])]:
+                    continue
+                names = resource.get("name")
+                if names and not name_text:
+                    n = names[0]
+                    name_text = f"{' '.join(n.get('given', []))} {n.get('family', '')}".strip()
+                relationships = resource.get("relationship")
+                if relationships and not role_label:
+                    coding = relationships[0].get("coding", [{}])[0]
+                    role_label = RELATIONSHIP_ROLE_LABELS.get(coding.get("code"), coding.get("display"))
+
+    if not name_text:
+        patient_entry = _resolve_bundle_reference(consultand_bundle, (consultand_sr.get("subject") or {}).get("reference"))
+        patient = patient_entry.get("resource") if patient_entry else None
+        names = patient.get("name") if patient else None
+        if names:
+            n = names[0]
+            name_text = f"{' '.join(n.get('given', []))} {n.get('family', '')}".strip()
+
+    if name_text and role_label:
+        return f"{name_text} ({role_label})"
+    if role_label:
+        return f"({role_label})"
+    return name_text
+
+
+def _observation_summary(obs):
+    """A short human-readable rendering of an Observation's code/value(s) - 'Ethnicity:
+    unknown', 'Pregnancy: Assisted conception; Gestational age 87 day' (components
+    joined the same way) - for folding a dropped consultand order's supportingInfo into
+    a proband ServiceRequest.note as free text, per drop_consultand_orders below."""
+    code = obs.get("code", {})
+    code_display = (
+        code.get("text") or code.get("coding", [{}])[0].get("display") or code.get("coding", [{}])[0].get("code") or "?"
+    )
+
+    def value_text(node):
+        if "valueCodeableConcept" in node:
+            return node["valueCodeableConcept"].get("coding", [{}])[0].get("display", "")
+        if "valueString" in node:
+            return node["valueString"]
+        if "valueQuantity" in node:
+            q = node["valueQuantity"]
+            return f"{q.get('value')} {q.get('unit', '')}".strip()
+        if "valueDateTime" in node:
+            return node["valueDateTime"]
+        return ""
+
+    parts = [value_text(obs)]
+    for comp in obs.get("component", []):
+        comp_display = comp.get("code", {}).get("coding", [{}])[0].get("display", "")
+        parts.append(f"{comp_display} {value_text(comp)}".strip())
+
+    value_str = "; ".join(p for p in parts if p)
+    line = f"{code_display}: {value_str}" if value_str else code_display
+    if obs.get("note"):
+        line += f" ({obs['note'][0]['text']})"
+    return line
+
+
+def drop_consultand_orders(bundles):
+    """Given a list of per-patient message Bundles - typically
+    split_message_bundle_by_patient's output, but works just as well on a plain
+    [bundle] that was never split - drops any whose ServiceRequest is coded
+    'consultand' (Extension-Genomic-Patient-Role): this repo's LIMS/RIE only supports
+    proband orders, OML^O21 having no way to represent "this order is actually about a
+    different patient's relative". A ServiceRequest with no role extension at all
+    (most of the simpler, single-patient examples) is treated as proband-equivalent -
+    the extension only shows up where a Bundle actually distinguishes multiple family
+    members' roles.
+
+    A dropped consultand order's own clinically-relevant content isn't just discarded:
+    its ServiceRequest.note (any lines not already present on the matched proband's own
+    note) and a summary of its supportingInfo Observations are folded into the matched
+    proband ServiceRequest's own .note instead, each as its own " - "-prefixed detail
+    line under a header naming who they're about (see _consultand_identity_label) - a
+    consultand with nothing left to fold in still gets its header, followed by a single
+    " - no details presented" line, so its existence isn't silently dropped without a
+    trace. Matched by requisition (system+value) - every family-group example seen so
+    far shares one requisition across all its members' ServiceRequests, a simpler and
+    more robust correlation than chasing shared RelatedPerson links. A consultand
+    bundle whose requisition matches no proband bundle's (e.g. a standalone
+    consultand-only Bundle, split alone) is dropped with its content unrecovered -
+    there's nothing to fold it into.
+    """
+    def service_requests(bundle):
+        return [e["resource"] for e in bundle.get("entry", []) if e["resource"]["resourceType"] == "ServiceRequest"]
+
+    def requisition_key(sr):
+        req = (sr or {}).get("requisition") or {}
+        return (req.get("system"), req.get("value"))
+
+    # Classify whole bundles by their first ServiceRequest's role - a bundle's
+    # ServiceRequests are homogeneous in every example seen so far (role is really a
+    # per-patient attribute: a consultand bundle can carry more than one ServiceRequest,
+    # e.g. Scenario4's mother has two - one per fetus's requisition/order group - but
+    # never a mix of proband and consultand ServiceRequests in the same bundle).
+    proband_bundles = []  # (bundle, [ServiceRequest, ...])
+    consultand_bundles = []
+    for bundle in bundles:
+        srs = service_requests(bundle)
+        first_role = _service_request_role(srs[0]) if srs else None
+        if first_role == "consultand":
+            consultand_bundles.append((bundle, srs))
+        else:
+            proband_bundles.append((bundle, srs))
+
+    proband_by_requisition = {
+        requisition_key(sr): (proband_bundle, sr) for proband_bundle, srs in proband_bundles for sr in srs
+    }
+
+    for consultand_bundle, consultand_srs in consultand_bundles:
+        for consultand_sr in consultand_srs:
+            matched = proband_by_requisition.get(requisition_key(consultand_sr))
+            if matched is None:
+                continue  # nothing to fold into - content is dropped along with the bundle
+            proband_bundle, proband_sr = matched
+
+            existing_note = proband_sr.get("note", [{}])[0].get("text", "") if proband_sr.get("note") else ""
+            lines = []
+
+            own_note = consultand_sr.get("note", [{}])[0].get("text", "") if consultand_sr.get("note") else ""
+            own_lines = [line for line in own_note.split("\n") if line and line not in existing_note]
+
+            obs_summaries = []
+            for si in consultand_sr.get("supportingInfo", []):
+                entry = _resolve_bundle_reference(consultand_bundle, si.get("reference"))
+                obs = entry.get("resource") if entry else None
+                if obs and obs.get("resourceType") == "Observation":
+                    obs_summaries.append(_observation_summary(obs))
+
+            detail_lines = own_lines + obs_summaries
+
+            # Who this folded-in content is about, e.g. "Ryanne Boulder (Mother):",
+            # "Consultand (Father):" (name unknown), or "Consultand:" (neither name
+            # nor relationship resolvable) - see _consultand_identity_label. Always
+            # emitted, even with nothing to fold in, so a proband with more than one
+            # linked consultand doesn't silently drop one without a trace.
+            identity = _consultand_identity_label(consultand_sr, consultand_bundle, proband_bundle)
+            if identity and not identity.startswith("("):
+                header = f"{identity}:"
+            elif identity:
+                header = f"Consultand {identity}:"
+            else:
+                header = "Consultand:"
+            lines.append(header)
+            if detail_lines:
+                lines.extend(f" - {detail}" for detail in detail_lines)
+            else:
+                lines.append(" - no details presented")
+
+            new_note_text = existing_note + ("\n" if existing_note else "") + "\n".join(lines)
+            proband_sr["note"] = [{"text": new_note_text}]
+            existing_note = new_note_text
+
+    return [b for b, _ in proband_bundles]
 
 
 # iGene convention: a PID-5 given name of "Baby of <mother>" / "Fetus of <mother>" signals
@@ -742,7 +1295,8 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     return result
 
 
-def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_send=False, save_output=True):
+def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_send=False,
+                          save_output=True, known_dangling_refs=()):
     """Like run_case, but for a group whose fixtures are already a FHIR Bundle
     (Input/FHIR/<type>/<filename>.json) rather than raw v2 - the "dwgs" group. Runs
     transformToV2 (there's no v2 original to run transformToFHIR on first), then
@@ -750,6 +1304,14 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
     client-credentials bearer token, same flow Testing.ipynb and notebook 08's worked
     example use) rather than a raw v2 message to V2_SERVER - the FHIR-sourced equivalent
     of run_case's stage 3.
+
+    known_dangling_refs: "urn:uuid:..." values check_fhir_bundle's dangling-reference
+    check is allowed to report for this specific fixture without failing the
+    fhirStructure stage - for fixtures we don't author ourselves (e.g. nwgmsa_examples)
+    where the dangling reference is a confirmed, external, upstream authoring gap (a
+    resource that only exists in a *different* published Bundle), not something this
+    repo can fix by editing the fixture. Still recorded in the stage detail, just not
+    as a failure - see the nwgmsa_examples group's comment in TEST_GROUPS.
     """
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
@@ -775,8 +1337,16 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
     result.record("jsonValid", True)
 
     problems = check_fhir_bundle(fhir_json)
-    if problems:
-        result.record("fhirStructure", False, "; ".join(problems))
+    known = [p for p in problems if any(ref in p for ref in known_dangling_refs)]
+    unknown = [p for p in problems if p not in known]
+    if unknown:
+        result.record("fhirStructure", False, "; ".join(unknown))
+    elif known:
+        result.record(
+            "fhirStructure", True,
+            f"{len(fhir_json.get('entry', []))} entries structurally sound "
+            f"(known upstream issue ignored: {'; '.join(known)})",
+        )
     else:
         result.record("fhirStructure", True, f"{len(fhir_json.get('entry', []))} entries structurally sound")
 
@@ -804,6 +1374,14 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
     log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
+
+    applicable, demographics_problems = check_patient_demographics_preserved(fhir_json, v2_roundtrip)
+    if applicable:
+        if demographics_problems:
+            result.record("demographicsPreserved", False, "; ".join(demographics_problems))
+            log(f"FAILED demographicsPreserved: {'; '.join(demographics_problems)}")
+        else:
+            result.record("demographicsPreserved", True, "name/birthDate/gender all preserved in PID")
 
     if save_output:
         out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
@@ -924,6 +1502,7 @@ def main():
                         session, group_name, msg_type, filename,
                         input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
                         skip_send=args.skip_send,
+                        known_dangling_refs=group.get("known_dangling_refs", {}).get(filename, ()),
                     ))
                 else:
                     results.append(run_case(

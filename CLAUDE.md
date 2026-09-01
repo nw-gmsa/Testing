@@ -88,6 +88,18 @@ results in `Results/FHIR/GenomicsReporting/`.
 - `Input/V2/{O01,O21,R01}` — hand-crafted/generated source HL7 v2 test messages, keyed
   by trigger event.
 - `Input/FHIR/` — source FHIR examples used for `transformToV2`.
+  `Input/FHIR/NWGMSA-Examples/{O21,R01,A31}` holds the NW-GMSA IG's own published
+  `BundleMessage` examples verbatim (fetched from
+  https://nw-gmsa.github.io/en/StructureDefinition-BundleMessage-examples.html, source
+  https://github.com/nw-gmsa/nw-gmsa.github.com), used by `IntegrationTest.py`'s
+  `nwgmsa_examples` group — distinct from this repo's own hand-built `Input/FHIR/O21`
+  content. `Input/FHIR/NHSDigital-Examples/{O21,R01}` similarly holds genomic order/report
+  examples from NHS Digital's national IG
+  (https://github.com/NHSDigital/NHSDigital-FHIR-Genomics-ImplementationGuide), converted
+  from `transaction`/`collection` Bundles to `message` Bundles since `FHIR_SERVER` only
+  accepts the latter — see `NHSDigital-Examples-conversion-notes.md` alongside them for
+  exactly what the conversion does and doesn't change. Used by `IntegrationTest.py`'s
+  `nhsd_examples` group.
 - `Input/PDS/`, `Input/ctDNA/`, `Input/ASTM/` — reference patient data (PDS extracts) and
   other source formats (ASTM instrument output).
 - `Input/VCF/` — source VCF files for the standalone `miscellaneous-notebooks/VCFToFHIRVariant.ipynb` demo (HL7
@@ -122,3 +134,16 @@ results in `Results/FHIR/GenomicsReporting/`.
   changes/grows too, and `Input/FHIR/O21/`'s corresponding file(s) must be added to that
   group's `"O21"` case list (or replace the current one) so the script's coverage
   doesn't silently drift from what the notebook actually exercises.
+- `Input/FHIR/NWGMSA-Examples/` and `Input/FHIR/NHSDigital-Examples/` are periodically
+  resynced from their upstream IG repos (https://github.com/nw-gmsa/nw-gmsa.github.com
+  and https://github.com/NHSDigital/NHSDigital-FHIR-Genomics-ImplementationGuide
+  respectively) — both repos keep publishing/adding examples independently of this one.
+  When resyncing: re-fetch each example listed in `IntegrationTest.py`'s
+  `nwgmsa_examples`/`nhsd_examples` groups (and check for newly-added ones worth
+  including - see each group's TEST_GROUPS comment for what's deliberately excluded and
+  why), re-apply the NHS Digital set's transaction/collection → message conversion
+  (`Input/FHIR/NHSDigital-Examples/NHSDigital-Examples-conversion-notes.md`), and re-run
+  `IntegrationTest.py --group nwgmsa_examples --group nhsd_examples` live to catch
+  upstream changes (a previously-passing example silently starting to fail, a new
+  dangling reference, an eventCoding the ESB no longer/still doesn't recognise) before
+  assuming the resync is clean.

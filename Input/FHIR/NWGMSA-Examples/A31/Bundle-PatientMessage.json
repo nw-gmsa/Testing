@@ -1,0 +1,145 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "PatientMessage",
+  "meta" : {
+    "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"]
+  },
+  "language" : "en",
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:uuid:3ecc4efb-d1d4-4c9f-8d36-9dca65902a2f"
+  },
+  "type" : "message",
+  "timestamp" : "2024-10-13T10:33:00+00:00",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:c149f104-89de-4e23-b84a-419e2381f92b",
+    "resource" : {
+      "resourceType" : "MessageHeader",
+      "id" : "MessageHeaderPatient",
+      "meta" : {
+        "lastUpdated" : "2025-02-01T13:39:26+00:00",
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_MessageHeaderPatient\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MessageHeader MessageHeaderPatient</b></p><a name=\"MessageHeaderPatient\"> </a><a name=\"hcMessageHeaderPatient\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Last updated: 2025-02-01 13:39:26+0000</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MessageHeader.html\">Document Message (MessageHeader)</a></p></div><p><b>event</b>: <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0003.html#v2-0003-A31\">event: A31</a> (ADT/ACK -  Update person information)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=http://www.acme.org/endpoint/identifier/RBS\">http://www.acme.org/endpoint/identifier/RBS</a></td><td>ALDER HEY CHILDREN'S NHS FOUNDATION TRUST (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/RBS)</td></tr></table><p><b>sender</b>: NORTH WEST GLH (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/699X0)</p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Software</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>GMSA RIE</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=https://fhir.nwgenomics.nhs.uk/Endpoint/RIE\">https://fhir.nwgenomics.nhs.uk/Endpoint/RIE</a></td></tr></table><p><b>focus</b>: <a href=\"Bundle-FHIRDocumentGeneticReportBundle.html#urn-uuid-d6faafcf-db64-4c11-9da8-25f36774c1bd\">Octavia CHISLETT (official) Female, DoB: 2008-09-20 ( Medical record number)</a></p></div>"
+      },
+      "eventCoding" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0003",
+        "code" : "A31"
+      },
+      "destination" : [{
+        "endpoint" : "http://www.acme.org/endpoint/identifier/RBS",
+        "receiver" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "RBS"
+          },
+          "display" : "ALDER HEY CHILDREN'S NHS FOUNDATION TRUST"
+        }
+      }],
+      "sender" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "699X0"
+        },
+        "display" : "NORTH WEST GLH"
+      },
+      "source" : {
+        "software" : "GMSA RIE",
+        "endpoint" : "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+      },
+      "focus" : [{
+        "reference" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+        "type" : "Patient"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "Patient-OctaviaCHISLETT-9449305552",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_Patient-OctaviaCHISLETT-9449305552\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient Patient-OctaviaCHISLETT-9449305552</b></p><a name=\"Patient-OctaviaCHISLETT-9449305552\"> </a><a name=\"hcPatient-OctaviaCHISLETT-9449305552\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Patient.html\">Patient</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Octavia CHISLETT (official) Female, DoB: 2008-09-20 ( Medical record number)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Ids (see the one above)\">Other Ids:</td><td colspan=\"3\"><ul><li>National Health Plan Identifier/9449305552\u00a0(use:\u00a0official,\u00a0)</li><li>Medical record number/633</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\">1 RAVENSFIELD GARDENS EPSOM KT19 0ST (home)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Patient contact\">Contact:</td><td colspan=\"3\"><ul><li>Bob DAWKINS (Official)</li><li>ph: 077021231231(Mobile)</li></ul></td></tr></table></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "NH"
+          }]
+        },
+        "system" : "https://fhir.nhs.uk/Id/nhs-number",
+        "value" : "9449305552"
+      },
+      {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MR"
+          }]
+        },
+        "system" : "http://www.acme.org/patient/identifier",
+        "value" : "A12356565",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "RBS"
+          }
+        }
+      },
+      {
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MR"
+          }]
+        },
+        "system" : "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14",
+        "value" : "633",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "active" : true,
+      "name" : [{
+        "use" : "official",
+        "family" : "CHISLETT",
+        "given" : ["Octavia"]
+      }],
+      "gender" : "female",
+      "birthDate" : "2008-09-20",
+      "address" : [{
+        "use" : "home",
+        "type" : "both",
+        "line" : ["1 RAVENSFIELD GARDENS"],
+        "city" : "EPSOM",
+        "district" : "SURREY",
+        "postalCode" : "KT19 0ST"
+      }],
+      "contact" : [{
+        "name" : {
+          "use" : "official",
+          "family" : "DAWKINS",
+          "given" : ["Bob"]
+        },
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "077021231231",
+          "use" : "mobile"
+        }]
+      }]
+    }
+  }]
+}
