@@ -1,0 +1,264 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "value": "SHIRE:CPP:RTST-260416-0"
+  },
+  "timestamp": "2026-04-16T10:38:39+00:00",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:45a1d9f7-aebc-4e5c-bc88-6a39632bc2af",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/HODS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "HODS"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:2ebb9c8d-eb68-42cc-ab53-c07f55869788"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "CPP"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:52f677f9-6ab0-4a95-8b68-8b12762eedfb",
+      "resource": {
+        "resourceType": "Patient",
+        "birthDate": "1942-06-18",
+        "gender": "unknown",
+        "identifier": [
+          {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PI",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "00123456789"
+          }
+        ],
+        "name": [
+          {
+            "family": "LIVERPOOL",
+            "given": [
+              "NED"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7b14e763-b7a6-49de-9686-2fcd0e1da322",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "62356-1",
+              "display": "Chromosome analysis result in ISCN expression"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:52f677f9-6ab0-4a95-8b68-8b12762eedfb"
+        },
+        "valueString": "48~50,XY,+X,-Y,-3,-6,-7,del(7)(q?31q36),+8,+11,add(12)(p11.2),+14,+15,-16,+19,+20,+22-,+1~2mar[cp10]",
+        "note": [
+          {
+            "text": "48\\R\\50,XY,+X,-Y,-3,-6,-7,del(7)(q?31q36),+8,+11,add(12)(p11.2),+14,+15,-16,+19,+20,+22- ,+1\\R\\2mar[cp10] -Amendment 14/10/20"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b6fedd0a-7cf6-4308-948e-5c9531ccda0d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "62367-8",
+              "display": "Chromosome analysis panel by FISH"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:52f677f9-6ab0-4a95-8b68-8b12762eedfb"
+        },
+        "valueString": "7q deletion detected.",
+        "component": [
+          {
+            "code": {
+              "text": "Interphase cells positive"
+            },
+            "valueQuantity": {
+              "value": 93,
+              "unit": "cells"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "62361-1",
+                  "display": "Cells counted [#]"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 100,
+              "unit": "cells"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d54744fb-f490-44a1-90a0-1bfbce716fc5",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "62389-2",
+              "display": "Chromosome analysis master panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:52f677f9-6ab0-4a95-8b68-8b12762eedfb"
+        },
+        "hasMember": [
+          {
+            "reference": "urn:uuid:7b14e763-b7a6-49de-9686-2fcd0e1da322"
+          },
+          {
+            "reference": "urn:uuid:b6fedd0a-7cf6-4308-948e-5c9531ccda0d"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2ebb9c8d-eb68-42cc-ab53-c07f55869788",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "corrected",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "33893-9",
+              "display": "Karyotype [Identifier] in Bone marrow Nominal"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:52f677f9-6ab0-4a95-8b68-8b12762eedfb"
+        },
+        "result": [
+          {
+            "reference": "urn:uuid:d54744fb-f490-44a1-90a0-1bfbce716fc5"
+          }
+        ],
+        "conclusion": "Complex abnormal hyperdiploid karyotype with  gains of chromosomes 8 and\n11, and loss of 7q and 12p which  are recognised findings in myeloid neoplasms\nincluding AML"
+      }
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "value": "SHIRE:CPP:RTST-260416-2"
+  },
+  "timestamp": "2026-04-16T11:09:00+00:00",
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:09eefbd5-5414-4d7e-80db-82b8d0cdeaba",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/HODS",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "HODS"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:d918c758-03a0-42e8-9da7-1586e6369980"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "CPP"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/SHIRE",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dad58958-991b-4431-bd91-35c113dfafb8",
+      "resource": {
+        "resourceType": "Patient",
+        "birthDate": "1972-09-21",
+        "gender": "female",
+        "identifier": [
+          {
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383192"
+          }
+        ],
+        "name": [
+          {
+            "family": "MANCHESTER",
+            "given": [
+              "SANSA"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1d085155-0068-4cfe-b3ba-0fac6fcd630b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "62356-1",
+              "display": "Chromosome analysis result in ISCN expression"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:dad58958-991b-4431-bd91-35c113dfafb8"
+        },
+        "valueString": "46,XY,del(20)(q*q*)[]",
+        "note": [
+          {
+            "text": "Chromosome analysis has shown an abnormal karyotype with a deletion in the long arm of chromosome 20."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:72387d7b-3b87-4845-875e-7910cd245b7f",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "62389-2",
+              "display": "Chromosome analysis master panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:dad58958-991b-4431-bd91-35c113dfafb8"
+        },
+        "hasMember": [
+          {
+            "reference": "urn:uuid:1d085155-0068-4cfe-b3ba-0fac6fcd630b"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d918c758-03a0-42e8-9da7-1586e6369980",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "33893-9",
+              "display": "Karyotype [Identifier] in Bone marrow Nominal"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:dad58958-991b-4431-bd91-35c113dfafb8"
+        },
+        "result": [
+          {
+            "reference": "urn:uuid:72387d7b-3b87-4845-875e-7910cd245b7f"
+          }
+        ]
+      }
+    }
+  ]
+}
