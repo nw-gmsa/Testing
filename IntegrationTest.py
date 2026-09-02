@@ -179,9 +179,15 @@ TEST_GROUPS = {
     #    HISTOTRACEAP/no-OBR-at-all versions), and the embedded-PDF OBX per the IG's literal
     #    example: OBX-2 "ED", OBX-3 "1054161000000101^Genetic report^SNM3", OBX-5
     #    "MOL^IM^PDF^Base64^<data>", OBX-11 "F".
+    #  - histotrac-MFT.txt (O01) was renamed to histotrac-MFT-HLA.txt, and
+    #    histotrac-MFT-chimerism.txt added alongside it: Clatterbridge's own orders to
+    #    Histotrac are chimerism-only (see notebooks/10's "One order, one test code"
+    #    section), so the chimerism file - not the HLA one - is what that notebook's
+    #    conversion is actually checked against. Both are still real, independently
+    #    valid round-trip fixtures for this group regardless.
     "clatterbridge_histotrac": {
         "cases": {
-            "O01": ["Clatterbridge-Order.txt", "histotrac-MFT.txt"],
+            "O01": ["Clatterbridge-Order.txt", "histotrac-MFT-HLA.txt", "histotrac-MFT-chimerism.txt"],
             "R01": [
                 "Clatterbridge-REN-ORU_R01.txt",
                 "histotrac.txt",
