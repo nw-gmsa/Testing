@@ -1,0 +1,860 @@
+  {
+  "info": {
+    "_postman_id": "b3f6b6b0-6f2a-4c1e-9b7a-nwgmsa010200",
+    "name": "NW-GMSA FHIR Repository & GEL Terminology Server",
+    "description": "Requests mirrored from notebooks/01-fhir-search-basics.ipynb, notebooks/02-work-orders-worked-example.ipynb (both against the NW-GMSA FHIR repository, {{base_url}}, HTTP Basic auth), and notebooks/13-snomed-to-hpo-genomic-clinical-indication.ipynb (against the public Genomics England terminology server, {{ontoserver}}, no auth). Requests marked \"[WRITE]\" are illustrative PUTs from notebook 02, section 5 — they change real Task state and are NOT executed by the notebook itself; only send them deliberately.\n\nEvery example value in folders 01/02 is a *real* identifier that either (a) is one of the NW-GMSA IG's own published genomics test patients (https://nw-gmsa.github.io/en/testing.html#genomics-test-patients), or (b) appears verbatim in one of this repo's own committed FHIR/V2 examples (which is what the FHIR repository has actually been pre-loaded with) — cross-referenced against MRN-Mapping.md. Nothing here is a made-up placeholder like \"Smith\" — that fictional example (from an earlier revision of this collection) does not exist in the IG or in this repo's fixtures, so it was replaced.\n\nThe chained internal-id variables (patient_id, owner_organization_id, service_request_id, specimen_ref_id, task_id, task_version_id) are pre-filled with real ids confirmed by notebooks 01/02's own already-executed live cells (captured 2026-08-26/27) rather than left blank — but a FHIR repository is mutable, so treat these as a known-good starting point, not a permanent guarantee. Each has a test script on its source request that refreshes it automatically when that request is re-run; if a chained request 404s, re-run the request that's supposed to produce that id first.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{fhir_user}}", "type": "string" },
+      { "key": "password", "value": "{{fhir_password}}", "type": "string" }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": { "type": "text/javascript", "exec": [""] }
+    },
+    {
+      "listen": "test",
+      "script": { "type": "text/javascript", "exec": [""] }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "https://gen-tie-dev.nwgenomics.nhs.uk/clinicaldatarepository/fhir/r4", "type": "string" },
+    { "key": "fhir_user", "value": "", "type": "string" },
+    { "key": "fhir_password", "value": "", "type": "string" },
+    { "key": "nhs_number", "value": "9737383206", "type": "string", "description": "LIVERPOOL, Ned — published NW-GMSA IG test patient (DOB 1942-06-18, ODS N82035). Loaded into this repo's own fixtures verbatim, e.g. Output/FHIR/R01/Clatterbridge-REN-ORU_R01.txt.json's Patient.identifier." },
+    { "key": "patient_family_name", "value": "Manchester", "type": "string", "description": "MANCHESTER, Sansa — published NW-GMSA IG test patient (NHS 9737383192, DOB 1972-09-21, ODS P84673). Also in Input/PDS/NW.csv." },
+    { "key": "patient_dob", "value": "1972-09-21", "type": "string", "description": "MANCHESTER, Sansa's DOB — pairs with patient_family_name above." },
+    { "key": "mrn", "value": "REM7442130", "type": "string", "description": "LIVERPOOL, Ned's real Liverpool University Hospitals NHS Foundation Trust (REM) MRN — see MRN-Mapping.md, NHS 973 738 3206 row." },
+    { "key": "ods_code", "value": "REN", "type": "string", "description": "Clatterbridge Cancer Centre NHS Foundation Trust — the assigner ODS code on LIVERPOOL, Ned's real loaded Clatterbridge order (Output/FHIR/R01/Clatterbridge-REN-ORU_R01.txt.json)." },
+    { "key": "glh_ods_code", "value": "K1S6S", "type": "string", "description": "Liverpool GLH delivery site — used throughout this repo's own O21/R01 examples as the filler-side lab." },
+    { "key": "organization_id", "value": "", "type": "string", "description": "Internal FHIR id (not the ODS code) for the Organization matched by 'ods_code' above. Auto-captured by request 5's test script when run — or set manually from its response." },
+    { "key": "practitioner_family_name", "value": "Iqbal", "type": "string", "description": "Real requesting Practitioner (Shahid Iqbal, GMC C7667069) on LIVERPOOL, Ned's loaded Clatterbridge order." },
+    { "key": "order_number", "value": "CB-260817-01", "type": "string", "description": "LIVERPOOL, Ned's real Placer Order Number (assigner REN) from Output/FHIR/R01/Clatterbridge-REN-ORU_R01.txt.json. The matching Filler Order Number in the same fixture is C,26.6512478.P (assigner 699X0)." },
+    { "key": "specimen_id", "value": "S26-1K1Q", "type": "string", "description": "Real iGene-system-tagged Specimen business identifier from the NW-GMSA IG's own published ctDNA example (Input/FHIR/NWGMSA-Examples/O21/Bundle-GenomicsOrderMessage-ctDNA.json), patient SHEFFIELD, Theon (NHS 9737873858)." },
+    { "key": "date_range_start", "value": "2026-01-01", "type": "string", "description": "Wide enough to cover this repo's loaded 2026-dated ServiceRequest.authoredOn examples." },
+    { "key": "date_range_end", "value": "2026-12-31", "type": "string" },
+    { "key": "patient_id", "value": "203362", "type": "string", "description": "Internal FHIR id for LIVERPOOL, Ned. Confirmed live 2026-08-27 by notebook 01's own 'Optional: try a real call' section (identifier=9737383206 resolved to Patient/203362). Auto-captured/refreshed by request 3a's test script — or by folder 02 request 3a, which will overwrite it with whichever patient the live Task chain actually points at." },
+    { "key": "owner_organization_id", "value": "21567", "type": "string", "description": "Internal FHIR id for the Liverpool GLH Organization (glh_ods_code=K1S6S). Confirmed live 2026-08-26 by notebook 02 section 1 ('NORTH WEST GENOMIC LABORATORY HUB LIVERPOOL'). Auto-captured/refreshed by folder 02 request 1's test script." },
+    { "key": "service_request_id", "value": "206226", "type": "string", "description": "Confirmed live 2026-08-26 by notebook 02 — Task/207396's focus. ServiceRequest/206226 is a filler-order (Order Filler Number T26-6V04) for Patient/200770 ('Baby of Lysa Buxton'). Auto-captured/refreshed from Task.focus.reference by folder 02 request 2's test script." },
+    { "key": "specimen_ref_id", "value": "206224", "type": "string", "description": "Internal FHIR id (not the business identifier in 'specimen_id' above) for the Specimen referenced off ServiceRequest/206226 (identifier S26-1ZZ4, a Fresh tissue specimen) — confirmed live 2026-08-26 by notebook 02. Auto-captured/refreshed by folder 02 request 3a's test script." },
+    { "key": "task_id", "value": "207396", "type": "string", "description": "Confirmed live 2026-08-26 by notebook 02 section 2 — the first of 38 requested filler-order Tasks owned by Organization/21567 at that time. Auto-captured/refreshed by folder 02 request 2's test script — expect this list to have moved on since, so re-run request 2 rather than trusting this default stays current." },
+    { "key": "task_version_id", "value": "1", "type": "string", "description": "Task/207396's real meta.versionId at the time of the same 2026-08-26 capture, used for If-Match. Auto-captured/refreshed by folder 02 request 2's test script — a stale value here is exactly what If-Match is meant to catch (expect 412 if it's moved on)." },
+    { "key": "ontoserver", "value": "https://ontoserver.aws.gel.ac/fhir", "type": "string", "description": "Genomics England public terminology server — no auth required" },
+    { "key": "snomed_system", "value": "http://snomed.info/sct", "type": "string" },
+    { "key": "hpo_system", "value": "http://purl.obolibrary.org/obo/hp.owl", "type": "string" },
+    { "key": "sct_finding_code", "value": "20262006", "type": "string", "description": "Ataxia — a clinical sign/finding, maps cleanly to HPO" },
+    { "key": "sct_disease_code", "value": "716318002", "type": "string", "description": "Lynch syndrome — a named diagnosis, does NOT map to HPO" },
+    { "key": "sct_made_up_code", "value": "99999999999", "type": "string" },
+    { "key": "sct_non_member_code", "value": "80146002", "type": "string", "description": "Appendectomy — a real SNOMED code, but not a 'Clinical finding' descendant" },
+    { "key": "clinical_finding_ecl_vs", "value": "http://snomed.info/sct?fhir_vs=ecl/<404684003", "type": "string", "description": "ValueSet: descendants of 404684003 'Clinical finding'" },
+    { "key": "any_sct_vs", "value": "http://snomed.info/sct?fhir_vs", "type": "string", "description": "ValueSet: any SNOMED CT concept" },
+    { "key": "hpo_finding_code", "value": "HP:0001251", "type": "string", "description": "Ataxia — round-trips back to sct_finding_code" },
+    { "key": "hpo_maps_code", "value": "HP:0001166", "type": "string", "description": "Arachnodactyly — maps back to SNOMED" },
+    { "key": "hpo_no_map_code", "value": "HP:0001519", "type": "string", "description": "Disproportionate tall stature — does NOT map back, despite being a real HPO term" }
+  ],
+  "item": [
+    {
+      "name": "01 - FHIR Search Basics",
+      "item": [
+        {
+          "name": "1. Search Patient by name",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Patient?name={{patient_family_name}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Patient"],
+              "query": [
+                { "key": "name", "value": "{{patient_family_name}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Patient?name= is a fuzzy match against Patient.name — used as a fallback after NHS number. 'Manchester' is a real published NW-GMSA IG test patient (Sansa Manchester), not a made-up name."
+          }
+        },
+        {
+          "name": "2. Search Patient by date of birth",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Patient?birthdate={{patient_dob}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Patient"],
+              "query": [
+                { "key": "birthdate", "value": "{{patient_dob}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "1972-09-21 is Sansa Manchester's real DOB — same patient as request 1."
+          }
+        },
+        {
+          "name": "3a. Search Patient by NHS Number (bare value)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const body = pm.response.json();",
+                  "    const patient = (body.entry || []).map(e => e.resource).find(r => r && r.resourceType === 'Patient');",
+                  "    if (patient && patient.id) {",
+                  "        pm.collectionVariables.set('patient_id', patient.id);",
+                  "        console.log('patient_id set to ' + patient.id + ' (LIVERPOOL, Ned)');",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Patient?identifier={{nhs_number}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Patient"],
+              "query": [
+                { "key": "identifier", "value": "{{nhs_number}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "What the app actually sends — bare value matches any identifier system. 9737383206 is LIVERPOOL, Ned, a real published IG test patient also used by notebook 02's worked example. Running this captures {{patient_id}} for the patient-scoped requests later in this folder."
+          }
+        },
+        {
+          "name": "3b. Search Patient by NHS Number (system-qualified)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Patient?identifier=https://fhir.nhs.uk/Id/nhs-number|{{nhs_number}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Patient"],
+              "query": [
+                { "key": "identifier", "value": "https://fhir.nhs.uk/Id/nhs-number|{{nhs_number}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "system|value form for an unambiguous match."
+          }
+        },
+        {
+          "name": "4. Search Patient by Medical Record Number (MRN)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Patient?identifier={{mrn}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Patient"],
+              "query": [
+                { "key": "identifier", "value": "{{mrn}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Base FHIR identifier search matches on value only — filter identifier[].type.coding[].code == 'MR' client-side if needed. REM7442130 is LIVERPOOL, Ned's real Liverpool University Hospitals Trust MRN (MRN-Mapping.md)."
+          }
+        },
+        {
+          "name": "5. Search Organization by ODS code",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const body = pm.response.json();",
+                  "    const org = (body.entry || []).map(e => e.resource).find(r => r && r.resourceType === 'Organization');",
+                  "    if (org && org.id) {",
+                  "        pm.collectionVariables.set('organization_id', org.id);",
+                  "        console.log('organization_id set to ' + org.id + ' (' + (org.name || '{{ods_code}}') + ')');",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Organization?identifier={{ods_code}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Organization"],
+              "query": [
+                { "key": "identifier", "value": "{{ods_code}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Never run this unfiltered from user input — an unscoped Organization search can 413 this server. REN = Clatterbridge Cancer Centre, the real assigner ODS on LIVERPOOL, Ned's loaded Clatterbridge order. Running this captures {{organization_id}} for request 7a below."
+          }
+        },
+        {
+          "name": "6a. Search ServiceRequest by intent (filler-order)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?intent=filler-order&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "intent", "value": "filler-order" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "None of this repo's loaded ServiceRequest examples actually carry intent=filler-order (that value shows up on Task.intent instead — see folder 02). This demonstrates the query syntax; an empty result set here is expected against the pre-loaded data, not a bug."
+          }
+        },
+        {
+          "name": "6b. Search ServiceRequest by intent (order OR original-order)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?intent=order,original-order&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "intent", "value": "order,original-order" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Comma-joined values inside ONE intent= parameter mean OR. Two separate intent= parameters would mean AND (and always match nothing, since ServiceRequest only has one intent). Unlike 6a, this should genuinely hit loaded data — most of this repo's committed ServiceRequest examples (e.g. Liverpool_O21_Apr26.json, Clatterbridge-REN-ORU_R01.txt.json) use intent=order."
+          }
+        },
+        {
+          "name": "7a. Search ServiceRequest by performer (reference)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?performer=Organization/{{organization_id}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "performer", "value": "Organization/{{organization_id}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Run request 5 first to populate {{organization_id}}. Caveat: no loaded ServiceRequest example in this repo actually sets .performer, so a genuinely empty result here is expected against the pre-loaded data — this demonstrates the query shape, not a guaranteed hit."
+          }
+        },
+        {
+          "name": "7b. Search ServiceRequest by performer (chained, Practitioner.name)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?performer:Practitioner.name={{practitioner_family_name}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "performer:Practitioner.name", "value": "{{practitioner_family_name}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Chained search support varies by server — fall back to a two-step Practitioner lookup + performer=<id> if this comes back empty unexpectedly. 'Iqbal' is a real requesting Practitioner (Shahid Iqbal) on LIVERPOOL, Ned's loaded Clatterbridge order — note that example sets ServiceRequest.requester, not .performer, so this chained performer search may still come back empty against the pre-loaded data even though the Practitioner itself is real."
+          }
+        },
+        {
+          "name": "8. Search ServiceRequest by order number (placer/filler)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?identifier={{order_number}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "identifier", "value": "{{order_number}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Same pattern works for DiagnosticReport?identifier= too — try both when you can't tell which kind of number you have. CB-260817-01 is LIVERPOOL, Ned's real Placer Order Number, assigner REN, from Output/FHIR/R01/Clatterbridge-REN-ORU_R01.txt.json."
+          }
+        },
+        {
+          "name": "9. Search ServiceRequest by authored date range (ge/le)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?authored=ge{{date_range_start}}&authored=le{{date_range_end}}&_count=100",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "authored", "value": "ge{{date_range_start}}" },
+                { "key": "authored", "value": "le{{date_range_end}}" },
+                { "key": "_count", "value": "100" }
+              ]
+            },
+            "description": "Repeated authored= parameters here mean AND (contrast with intent's comma-for-OR above). Full-year 2026 range chosen to cover this repo's own loaded ServiceRequest.authoredOn examples, which span 2026-01 through 2026-08."
+          }
+        },
+        {
+          "name": "10a. Search Specimen by identifier (bare value)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Specimen?identifier={{specimen_id}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Specimen"],
+              "query": [
+                { "key": "identifier", "value": "{{specimen_id}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "S26-1K1Q is a real Specimen identifier from the NW-GMSA IG's own published ctDNA example (patient SHEFFIELD, Theon)."
+          }
+        },
+        {
+          "name": "10b. Search Specimen by identifier (system-qualified, iGene)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Specimen?identifier=https://fhir.nwgenomics.nhs.uk/iGene/SpecimenIdentifier|{{specimen_id}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Specimen"],
+              "query": [
+                { "key": "identifier", "value": "https://fhir.nwgenomics.nhs.uk/iGene/SpecimenIdentifier|{{specimen_id}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Same S26-1K1Q value, but this one genuinely IS tagged with this exact system in the source example (Input/FHIR/NWGMSA-Examples/O21/Bundle-GenomicsOrderMessage-ctDNA.json), unlike the made-up specimen used in an earlier revision of this collection."
+          }
+        },
+        {
+          "name": "11a. Search ServiceRequest by patient",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?patient={{patient_id}}&_count=50",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "patient", "value": "{{patient_id}}" },
+                { "key": "_count", "value": "50" }
+              ]
+            },
+            "description": "Run request 3a first (or set {{patient_id}} manually) — this is the internal FHIR id for LIVERPOOL, Ned, not his NHS number."
+          }
+        },
+        {
+          "name": "11b. Search Specimen by patient",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Specimen?patient={{patient_id}}&_count=50",
+              "host": ["{{base_url}}"],
+              "path": ["Specimen"],
+              "query": [
+                { "key": "patient", "value": "{{patient_id}}" },
+                { "key": "_count", "value": "50" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "11c. Search ServiceRequest by patient with _include (specimen + requester)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest?patient={{patient_id}}&_include=ServiceRequest:specimen&_include=ServiceRequest:requester&_count=50",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest"],
+              "query": [
+                { "key": "patient", "value": "{{patient_id}}" },
+                { "key": "_include", "value": "ServiceRequest:specimen" },
+                { "key": "_include", "value": "ServiceRequest:requester" },
+                { "key": "_count", "value": "50" }
+              ]
+            },
+            "description": "Pulls related resources into the same Bundle (search.mode=include) instead of an N+1 fan-out."
+          }
+        },
+        {
+          "name": "12. [Live] Search Patient by NHS number (published test patient)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Patient?identifier={{nhs_number}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Patient"],
+              "query": [
+                { "key": "identifier", "value": "{{nhs_number}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "Same {{nhs_number}} (LIVERPOOL, Ned) as request 3a above — kept as a separate entry only to mirror notebook 01's own structure, which calls this out as its one 'live' network cell."
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - Work Orders Worked Example (Task-Based)",
+      "item": [
+        {
+          "name": "1. Find laboratory Organization by ODS code (Liverpool GLH)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const body = pm.response.json();",
+                  "    const org = (body.entry || []).map(e => e.resource).find(r => r && r.resourceType === 'Organization');",
+                  "    if (org && org.id) {",
+                  "        pm.collectionVariables.set('owner_organization_id', org.id);",
+                  "        console.log('owner_organization_id set to ' + org.id);",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Organization?identifier={{glh_ods_code}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["Organization"],
+              "query": [
+                { "key": "identifier", "value": "{{glh_ods_code}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "K1S6S = Liverpool Clinical Laboratories, the delivery site under the 699X0 North West GLH network — used throughout this repo's own loaded O21/R01 examples. Running this auto-captures {{owner_organization_id}} for request 2 below."
+          }
+        },
+        {
+          "name": "2. Find work orders (Task, filler-order, requested, owned by lab)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const body = pm.response.json();",
+                  "    const task = (body.entry || []).map(e => e.resource).find(r => r && r.resourceType === 'Task');",
+                  "    if (task) {",
+                  "        if (task.id) { pm.collectionVariables.set('task_id', task.id); }",
+                  "        if (task.meta && task.meta.versionId) { pm.collectionVariables.set('task_version_id', task.meta.versionId); }",
+                  "        if (task.focus && task.focus.reference) {",
+                  "            const parts = task.focus.reference.split('/');",
+                  "            if (parts[0] === 'ServiceRequest' && parts[1]) { pm.collectionVariables.set('service_request_id', parts[1]); }",
+                  "        }",
+                  "        console.log('Captured task_id/task_version_id/service_request_id from Task/' + task.id);",
+                  "    } else {",
+                  "        console.log('No requested filler-order Task found for this owner — nothing to chain into request 3a/5a/5b.');",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Task?status=requested&intent=filler-order&owner=Organization/{{owner_organization_id}}&_count=100&_include=Task:patient&_include=Task:focus&_include=Task:owner&_include=Task:requester&_include:iterate=PractitionerRole:practitioner&_include:iterate=PractitionerRole:organization&_include:iterate=ServiceRequest:specimen",
+              "host": ["{{base_url}}"],
+              "path": ["Task"],
+              "query": [
+                { "key": "status", "value": "requested" },
+                { "key": "intent", "value": "filler-order" },
+                { "key": "owner", "value": "Organization/{{owner_organization_id}}" },
+                { "key": "_count", "value": "100" },
+                { "key": "_include", "value": "Task:patient" },
+                { "key": "_include", "value": "Task:focus" },
+                { "key": "_include", "value": "Task:owner" },
+                { "key": "_include", "value": "Task:requester" },
+                { "key": "_include:iterate", "value": "PractitionerRole:practitioner" },
+                { "key": "_include:iterate", "value": "PractitionerRole:organization" },
+                { "key": "_include:iterate", "value": "ServiceRequest:specimen" }
+              ]
+            },
+            "description": "Matches FhirClient.active_filler_tasks(). Deliberately scoped by owner (never system-wide) to avoid the 413s an unscoped query can trigger. Task resources aren't part of this repo's static example files — they're expected to exist live in the FHIR repository as a side effect of the pre-loaded orders having actually been processed by the RIE. Running this auto-captures {{task_id}}, {{task_version_id}} and {{service_request_id}} for the requests below."
+          }
+        },
+        {
+          "name": "3a. Read ServiceRequest by id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const sr = pm.response.json();",
+                  "    const specimenRef = (sr.specimen || [])[0];",
+                  "    if (specimenRef && specimenRef.reference) {",
+                  "        const parts = specimenRef.reference.split('/');",
+                  "        if (parts[0] === 'Specimen' && parts[1]) {",
+                  "            pm.collectionVariables.set('specimen_ref_id', parts[1]);",
+                  "            console.log('specimen_ref_id set to ' + parts[1]);",
+                  "        }",
+                  "    }",
+                  "    if (sr.subject && sr.subject.reference) {",
+                  "        const parts = sr.subject.reference.split('/');",
+                  "        if (parts[0] === 'Patient' && parts[1]) {",
+                  "            pm.collectionVariables.set('patient_id', parts[1]);",
+                  "            console.log('patient_id set to ' + parts[1] + ' from ServiceRequest.subject');",
+                  "        }",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/ServiceRequest/{{service_request_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["ServiceRequest", "{{service_request_id}}"]
+            },
+            "description": "A plain FHIR read (Task.focus target) — returns the resource itself, not a searchset Bundle. Order Filler Number = identifier[] typed 'FILL'; Order Placer Number = typed 'PLAC'. Auto-captures {{specimen_ref_id}} and {{patient_id}} for the requests below."
+          }
+        },
+        {
+          "name": "3b. Read Specimen by id",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Specimen/{{specimen_ref_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["Specimen", "{{specimen_ref_id}}"]
+            },
+            "description": "From a specimen reference on the ServiceRequest above (ServiceRequest.specimen[]) — {{specimen_ref_id}} is the internal FHIR id captured by request 3a, distinct from the business identifier used in folder 01's {{specimen_id}}."
+          }
+        },
+        {
+          "name": "3c. Read Patient by id",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/Patient/{{patient_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["Patient", "{{patient_id}}"]
+            },
+            "description": "From ServiceRequest.subject, captured by request 3a."
+          }
+        },
+        {
+          "name": "4. Search RelatedPerson by patient (mother of fetus/baby)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{base_url}}/RelatedPerson?patient={{patient_id}}&_count=20",
+              "host": ["{{base_url}}"],
+              "path": ["RelatedPerson"],
+              "query": [
+                { "key": "patient", "value": "{{patient_id}}" },
+                { "key": "_count", "value": "20" }
+              ]
+            },
+            "description": "For a fetus/baby Patient with no NHS number yet — the mother's own demographics are carried directly on the RelatedPerson resource. relationship.coding[].code is expected to be HL7 v3 RoleCode MTH/NMTH, but this is unconfirmed against this server. This repo's own fetus/baby fixtures (e.g. Input/V2/O21/OML_O21_R0A_FetusOfCersei_R22.1.txt, ...BabyOfGilly..., ...BabyOfLysa..., ...BabyOfBrienne...) are a better fit for exercising this than the {{patient_id}} chained from LIVERPOOL, Ned above, who is an adult."
+          }
+        },
+        {
+          "name": "5a. [WRITE][ILLUSTRATIVE] PUT Task status -> accepted",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/fhir+json" },
+              { "key": "If-Match", "value": "W/\"{{task_version_id}}\"" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/Task/{{task_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["Task", "{{task_id}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"_comment\": \"Illustrative only, from notebook 02 section 5. Fetch the full Task resource first and change ONLY the fields below on it before sending - this app's update_organization_name() pattern is fetch -> modify -> PUT the whole resource, not this partial stub. Sending this stub as-is will erase every other field on the Task.\",\n  \"resourceType\": \"Task\",\n  \"id\": \"{{task_id}}\",\n  \"status\": \"accepted\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "NOT executed by notebook 02 (illustrative only). This app has no button for this yet — moving a real Task to 'accepted' has real downstream workflow consequences. Replace the body with the full Task fetched from request 2 above, with only .status changed, before ever sending this for real. If-Match uses Task.meta.versionId for optimistic concurrency (expect 412 Precondition Failed on a stale version)."
+          }
+        },
+        {
+          "name": "5b. [WRITE][ILLUSTRATIVE] PUT Task status -> rejected (with reason)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/fhir+json" },
+              { "key": "If-Match", "value": "W/\"{{task_version_id}}\"" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/Task/{{task_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["Task", "{{task_id}}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"_comment\": \"Illustrative only, from notebook 02 section 5. Fetch the full Task resource first and change ONLY status/statusReason on it before sending - see 5a's comment.\",\n  \"resourceType\": \"Task\",\n  \"id\": \"{{task_id}}\",\n  \"status\": \"rejected\",\n  \"statusReason\": {\n    \"text\": \"Specimen received in an unsuitable condition for genomic testing.\"\n  }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "NOT executed by notebook 02 (illustrative only). Task.statusReason carries the why, separate from status itself — worth populating on rejected/cancelled transitions."
+          }
+        }
+      ]
+    },
+    {
+      "name": "13 - Genomics England Terminology Server (SNOMED <-> HPO)",
+      "description": "https://re-docs.genomicsengland.co.uk/terminology_server — public, no auth required. Overrides the collection's Basic Auth with noauth on every request here since {{ontoserver}} isn't this repo's own FHIR_SERVER.",
+      "auth": { "type": "noauth" },
+      "item": [
+        {
+          "name": "1. CapabilityStatement (no auth needed)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/metadata",
+              "host": ["{{ontoserver}}"],
+              "path": ["metadata"]
+            },
+            "description": "Confirms reachability. Unlike this repo's own FHIR_SERVER, no Authorization header is needed here — expect 200."
+          }
+        },
+        {
+          "name": "2a. CodeSystem $lookup — confirm a SNOMED code is real (finding)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/CodeSystem/$lookup?system={{snomed_system}}&code={{sct_finding_code}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["CodeSystem", "$lookup"],
+              "query": [
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_finding_code}}" }
+              ]
+            },
+            "description": "Returns a Parameters resource with the concept's real display term, or an OperationOutcome if the code doesn't exist. $translate alone can't distinguish a made-up code from a real one with no mapping — $lookup is the way to tell them apart first."
+          }
+        },
+        {
+          "name": "2b. CodeSystem $lookup — made-up code (expect 404 + OperationOutcome)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/CodeSystem/$lookup?system={{snomed_system}}&code={{sct_made_up_code}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["CodeSystem", "$lookup"],
+              "query": [
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_made_up_code}}" }
+              ]
+            },
+            "description": "Verified live 2026-09-06: returns HTTP 404 (not 200) with an OperationOutcome body — issue[0].code=\"not-found\". The notebook's own check (resourceType == \"OperationOutcome\") still works since requests.json() parses the body regardless of status code, but a raise_for_status()-style check would need to tolerate 404 here specifically."
+          }
+        },
+        {
+          "name": "3a. ValueSet $validate-code — real code, any SNOMED concept",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ValueSet/$validate-code?url={{any_sct_vs}}&system={{snomed_system}}&code={{sct_finding_code}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["ValueSet", "$validate-code"],
+              "query": [
+                { "key": "url", "value": "{{any_sct_vs}}" },
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_finding_code}}" }
+              ]
+            },
+            "description": "\"Is this a real code at all\" — result=true expected for a genuine SNOMED CT concept."
+          }
+        },
+        {
+          "name": "3b. ValueSet $validate-code — made-up code (expect result=false)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ValueSet/$validate-code?url={{any_sct_vs}}&system={{snomed_system}}&code={{sct_made_up_code}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["ValueSet", "$validate-code"],
+              "query": [
+                { "key": "url", "value": "{{any_sct_vs}}" },
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_made_up_code}}" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "3c. ValueSet $validate-code — scoped to ECL 'Clinical finding' (member)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ValueSet/$validate-code?url={{clinical_finding_ecl_vs}}&system={{snomed_system}}&code={{sct_finding_code}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["ValueSet", "$validate-code"],
+              "query": [
+                { "key": "url", "value": "{{clinical_finding_ecl_vs}}" },
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_finding_code}}" }
+              ]
+            },
+            "description": "An ECL expression for descendants of 404684003 'Clinical finding'. Ataxia (20262006) is a member — expect result=true."
+          }
+        },
+        {
+          "name": "3d. ValueSet $validate-code — scoped to ECL 'Clinical finding' (non-member)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ValueSet/$validate-code?url={{clinical_finding_ecl_vs}}&system={{snomed_system}}&code={{sct_non_member_code}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["ValueSet", "$validate-code"],
+              "query": [
+                { "key": "url", "value": "{{clinical_finding_ecl_vs}}" },
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_non_member_code}}" }
+              ]
+            },
+            "description": "Appendectomy (80146002) is a real, valid SNOMED code — just a Procedure, not a Clinical finding descendant. Expect result=false: a different kind of 'invalid' than a made-up code."
+          }
+        },
+        {
+          "name": "4a. ConceptMap sct-to-hpo $translate — SNOMED finding -> HPO (maps)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ConceptMap/sct-to-hpo/$translate?conceptMapVersion=1.0.0&system={{snomed_system}}&code={{sct_finding_code}}&target={{hpo_system}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["ConceptMap", "sct-to-hpo", "$translate"],
+              "query": [
+                { "key": "conceptMapVersion", "value": "1.0.0" },
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_finding_code}}" },
+                { "key": "target", "value": "{{hpo_system}}" }
+              ]
+            },
+            "description": "For NOS/HPOTerm on Questionnaire-GMSWGSRareDisease.html. Clinical signs/findings (Ataxia here) translate cleanly to HPO."
+          }
+        },
+        {
+          "name": "4b. ConceptMap sct-to-hpo $translate — SNOMED diagnosis -> HPO (no mapping)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ConceptMap/sct-to-hpo/$translate?conceptMapVersion=1.0.0&system={{snomed_system}}&code={{sct_disease_code}}&target={{hpo_system}}",
+              "host": ["{{ontoserver}}"],
+              "path": ["ConceptMap", "sct-to-hpo", "$translate"],
+              "query": [
+                { "key": "conceptMapVersion", "value": "1.0.0" },
+                { "key": "system", "value": "{{snomed_system}}" },
+                { "key": "code", "value": "{{sct_disease_code}}" },
+                { "key": "target", "value": "{{hpo_system}}" }
+              ]
+            },
+            "description": "Lynch syndrome (716318002) is a named diagnosis, not a single phenotype — result=false expected. Not a coverage gap: a disease implies many possible HPO terms, so there's nothing single-valued for $translate to return."
+          }
+        },
+        {
+          "name": "5a. ConceptMap sct-to-hpo $translate reverse — HPO -> SNOMED (maps)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ConceptMap/sct-to-hpo/$translate?conceptMapVersion=1.0.0&system={{hpo_system}}&code={{hpo_finding_code}}&target={{snomed_system}}&reverse=true",
+              "host": ["{{ontoserver}}"],
+              "path": ["ConceptMap", "sct-to-hpo", "$translate"],
+              "query": [
+                { "key": "conceptMapVersion", "value": "1.0.0" },
+                { "key": "system", "value": "{{hpo_system}}" },
+                { "key": "code", "value": "{{hpo_finding_code}}" },
+                { "key": "target", "value": "{{snomed_system}}" },
+                { "key": "reverse", "value": "true" }
+              ]
+            },
+            "description": "For writing an HPO-coded genomic finding back into a SNOMED-native EPR problem list. Same ConceptMap, reverse=true inverts direction — no separate hpo-to-sct map needed. HP:0001251 (Ataxia) round-trips back to sct_finding_code exactly. Expect an informational 'ignored target scope' warning in the response — not a sign the match is wrong."
+          }
+        },
+        {
+          "name": "5b. ConceptMap sct-to-hpo $translate reverse — HPO -> SNOMED (no mapping)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ConceptMap/sct-to-hpo/$translate?conceptMapVersion=1.0.0&system={{hpo_system}}&code={{hpo_no_map_code}}&target={{snomed_system}}&reverse=true",
+              "host": ["{{ontoserver}}"],
+              "path": ["ConceptMap", "sct-to-hpo", "$translate"],
+              "query": [
+                { "key": "conceptMapVersion", "value": "1.0.0" },
+                { "key": "system", "value": "{{hpo_system}}" },
+                { "key": "code", "value": "{{hpo_no_map_code}}" },
+                { "key": "target", "value": "{{snomed_system}}" },
+                { "key": "reverse", "value": "true" }
+              ]
+            },
+            "description": "HP:0001519 'Disproportionate tall stature' — a real, valid HPO term (associated with Marfan syndrome), but not in the map. Contrast with 5a's hpo_maps_code (HP:0001166 Arachnodactyly), which does map — coverage needs checking per code, not assumed from the sign/diagnosis pattern alone."
+          }
+        },
+        {
+          "name": "6. List every ConceptMap published on this server",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/fhir+json" }],
+            "url": {
+              "raw": "{{ontoserver}}/ConceptMap?_summary=true&_count=50",
+              "host": ["{{ontoserver}}"],
+              "path": ["ConceptMap"],
+              "query": [
+                { "key": "_summary", "value": "true" },
+                { "key": "_count", "value": "50" }
+              ]
+            },
+            "description": "Confirms there is no sct-to-genomic-clinical-indication (or similar) map for OBR-31's CodeSystem-GenomicClinicalIndication — only four ConceptMaps exist on this server today, none targeting it. Checked by listing, not assumed from docs silence."
+          }
+        }
+      ]
+    }
+  ]
+}
