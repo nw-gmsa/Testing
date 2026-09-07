@@ -1,0 +1,1319 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:df8c6427-28d1-44c0-83f1-de65fc6166bd",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "destination": [
+          {
+            "endpoint": "https//fhir.mft.nhs.uk/Endpoint/Meditech",
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            }
+          }
+        ],
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:e2c70b72-0f5c-471c-8cfe-15715e4cb58d"
+          },
+          {
+            "reference": "urn:uuid:fb142838-860e-4511-ab4c-1e430ef7aad2"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RQ6"
+          }
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/ILABTP",
+          "software": "NW GLH"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0",
+      "resource": {
+        "resourceType": "Patient",
+        "address": [
+          {
+            "city": "LIVERPOOL",
+            "district": "MERSEYSIDE",
+            "postalCode": "L7 8XP"
+          }
+        ],
+        "birthDate": "1942-06-18",
+        "gender": "male",
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CB07442115"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "extension": [
+              {
+                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "05",
+                      "display": "Trace needs to be resolved - (NHS number or patient detail conflict)",
+                      "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatusEngland"
+                    }
+                  ]
+                }
+              }
+            ],
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          }
+        ],
+        "name": [
+          {
+            "family": "LIVERPOOL",
+            "given": [
+              "Ned"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cd3a9bae-904c-47c2-b754-8c27e7b9ecda",
+      "resource": {
+        "resourceType": "Encounter",
+        "class": {
+          "code": "OBSENC",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CAN0000222569"
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "identifier": {
+                "value": "CGON^Clatterbridge Oncology^CCO^REN^REN20^EOP"
+              }
+            }
+          }
+        ],
+        "status": "finished",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6cb9df82-aed7-44fd-a3ae-e508a01fed6b",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "value": "C7667069"
+          }
+        ],
+        "name": [
+          {
+            "family": "Dr S. Iqbal"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bd4e449d-9123-4b1a-a20f-6121c5dfc2a2",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "practitioner": {
+          "reference": "urn:uuid:6cb9df82-aed7-44fd-a3ae-e508a01fed6b"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a4ba076b-fbf9-4d63-9f8b-90637167fdb8",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "RECD",
+              "display": "Received",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-06T09:40:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "Chimerism Sample recd"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:52463a5c-d636-427b-82b3-99ae314fd854",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "authoredOn": "2026-01-02",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "RECD",
+              "display": "Chimerism Sample rcd",
+              "system": "IMM"
+            }
+          ]
+        },
+        "encounter": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CAN0000222569"
+          },
+          "reference": "urn:uuid:cd3a9bae-904c-47c2-b754-8c27e7b9ecda"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "intent": "order",
+        "requester": {
+          "reference": "urn:uuid:bd4e449d-9123-4b1a-a20f-6121c5dfc2a2"
+        },
+        "status": "completed",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e2c70b72-0f5c-471c-8cfe-15715e4cb58d",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "basedOn": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "FILL",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "value": "C,26.6506005.P"
+            },
+            "reference": "urn:uuid:52463a5c-d636-427b-82b3-99ae314fd854",
+            "type": "ServiceRequest"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "RECD",
+              "display": "Chimerism Sample rcd",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-06T09:40:00+00:00",
+        "encounter": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CAN0000222569"
+          },
+          "reference": "urn:uuid:cd3a9bae-904c-47c2-b754-8c27e7b9ecda"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "result": [
+          {
+            "display": "Received",
+            "reference": "urn:uuid:a4ba076b-fbf9-4d63-9f8b-90637167fdb8",
+            "type": "Observation"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:91f0dc15-ea60-494e-ae2e-4094b093c9bc",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "STR",
+              "display": "Average % chimaerism",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueQuantity": {
+          "system": "http://unitsofmeasure.org",
+          "value": 100
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b2de023e-029d-40b8-816e-ebe66c6262d9",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "IM",
+              "display": "Informative Markers:",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "D13S317 PENTA E CSF1PO PENTA D D21S11 D8S1179 D12S391"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b4198898-8418-4efa-8ad5-5071edb51ab4",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "RANGE",
+              "display": "Range",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "NA"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7f61b11b-9cfa-4cf9-8f95-0b66bb8d2a4a",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "CV",
+              "display": "CV",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "NA"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:711b131b-5daa-4316-a8bf-be844ea8a618",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "EXT",
+              "display": "Extraction Method",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "DNA extracted from myeloid lineage"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59e7b97e-a027-41a2-ad92-566d0dc992f1",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "PURE",
+              "display": "% Purity",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueQuantity": {
+          "system": "http://unitsofmeasure.org",
+          "unit": "%",
+          "value": 87
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:71e6cf0c-1e89-406c-ad76-d35cece6dbde",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "POST",
+              "display": "Time post transplant",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "2YR 7 MONTHS"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:45159c3f-865b-4be8-a608-a349a7d738af",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "DTP",
+              "display": "Date of transplant",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "10.5.23"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1cbe7def-1198-46cb-9bdb-0091c07518d7",
+      "resource": {
+        "resourceType": "Observation",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "DID",
+              "display": "Donor ID",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        },
+        "valueString": "6939 DKM0 0096 2141 100"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fb142838-860e-4511-ab4c-1e430ef7aad2",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "STR",
+              "display": "Chimaerism analysis",
+              "system": "IMM"
+            }
+          ]
+        },
+        "effectiveDateTime": "2026-01-07T10:32:00+00:00",
+        "encounter": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CAN0000222569"
+          },
+          "reference": "urn:uuid:cd3a9bae-904c-47c2-b754-8c27e7b9ecda"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "C,26.6506005.P"
+          }
+        ],
+        "performer": [
+          {
+            "display": "NHS North West Genomics",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization"
+          }
+        ],
+        "result": [
+          {
+            "display": "Average % chimaerism",
+            "reference": "urn:uuid:91f0dc15-ea60-494e-ae2e-4094b093c9bc",
+            "type": "Observation"
+          },
+          {
+            "display": "Informative Markers:",
+            "reference": "urn:uuid:b2de023e-029d-40b8-816e-ebe66c6262d9",
+            "type": "Observation"
+          },
+          {
+            "display": "Range",
+            "reference": "urn:uuid:b4198898-8418-4efa-8ad5-5071edb51ab4",
+            "type": "Observation"
+          },
+          {
+            "display": "CV",
+            "reference": "urn:uuid:7f61b11b-9cfa-4cf9-8f95-0b66bb8d2a4a",
+            "type": "Observation"
+          },
+          {
+            "display": "Extraction Method",
+            "reference": "urn:uuid:711b131b-5daa-4316-a8bf-be844ea8a618",
+            "type": "Observation"
+          },
+          {
+            "display": "% Purity",
+            "reference": "urn:uuid:59e7b97e-a027-41a2-ad92-566d0dc992f1",
+            "type": "Observation"
+          },
+          {
+            "display": "Time post transplant",
+            "reference": "urn:uuid:71e6cf0c-1e89-406c-ad76-d35cece6dbde",
+            "type": "Observation"
+          },
+          {
+            "display": "Date of transplant",
+            "reference": "urn:uuid:45159c3f-865b-4be8-a608-a349a7d738af",
+            "type": "Observation"
+          },
+          {
+            "display": "Donor ID",
+            "reference": "urn:uuid:1cbe7def-1198-46cb-9bdb-0091c07518d7",
+            "type": "Observation"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "X24"
+              }
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "9737383206"
+          },
+          "reference": "urn:uuid:f158a213-00b7-477b-885d-755a38f88cb0"
+        }
+      }
+    }
+  ],
+  "identifier": {
+    "value": "iLABTP:RQ6:131332321"
+  },
+  "timestamp": "2026-01-07T10:33:23+00:00",
+  "type": "message"
+}
