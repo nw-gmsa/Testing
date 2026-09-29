@@ -18,7 +18,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      DocumentReference.type ends up with the expected SNOMED/LOINC coding - preserved as-is
      for the 'ED' case, substituted in if missing for the 'CE'+PDF case - see
      check_document_reference_code.
-  2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back
+  2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back.
+     Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
+     corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
   3. POST the *original* raw v2 message to {V2_SERVER} (the RIE), simulating a real feed;
      expect an ACK within SEND_TIMEOUT seconds with MSA-1 of AA/CA (a slow or negative ACK
      is treated as a fault worth raising, not something to silently wait out).
@@ -1116,6 +1118,43 @@ def check_document_reference_code(v2_text, bundle):
     return applicable, list(dict.fromkeys(problems))
 
 
+def check_expected_segments_present(bundle, v2_text):
+    """Checks that certain FHIR resource types present in `bundle` produce their
+    corresponding HL7 v2 segment somewhere in `v2_text` (a transformToV2 output):
+
+      - Encounter -> PV1
+      - Patient   -> PID
+      - Specimen  -> SPM
+
+    This is a coarse presence check only (the segment exists somewhere in the
+    message) - it does not check field-level content; see
+    check_patient_demographics_preserved for a content-level PID check tied to the
+    Bundle's primary subject.
+
+    Returns (applicable, problems): applicable is False (and problems is []) when the
+    bundle has none of Encounter/Patient/Specimen.
+    """
+    entries = bundle.get("entry", []) if isinstance(bundle, dict) else []
+    resource_types = {e.get("resource", {}).get("resourceType") for e in entries}
+
+    segments_present = {
+        s.split("|", 1)[0] for s in v2_text.replace("\r\n", "\r").split("\r") if s
+    }
+
+    applicable = False
+    problems = []
+    for resource_type, segment in (("Encounter", "PV1"), ("Patient", "PID"), ("Specimen", "SPM")):
+        if resource_type in resource_types:
+            applicable = True
+            if segment not in segments_present:
+                problems.append(
+                    f"bundle has a {resource_type} resource but the transformToV2 output "
+                    f"has no {segment} segment"
+                )
+
+    return applicable, problems
+
+
 class CaseResult:
     def __init__(self, name):
         self.name = name
@@ -1249,6 +1288,15 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
 
         result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
         log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
+
+        # --- Encounter/Patient/Specimen -> PV1/PID/SPM segment presence check ---
+        segments_applicable, segment_problems = check_expected_segments_present(fhir_json, v2_roundtrip)
+        if segments_applicable:
+            if segment_problems:
+                result.record("expectedSegments", False, "; ".join(segment_problems))
+                log(f"FAILED expectedSegments: {'; '.join(segment_problems)}")
+            else:
+                result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
 
         if save_output:
             out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
@@ -1388,6 +1436,15 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
             log(f"FAILED demographicsPreserved: {'; '.join(demographics_problems)}")
         else:
             result.record("demographicsPreserved", True, "name/birthDate/gender all preserved in PID")
+
+    # --- Encounter/Patient/Specimen -> PV1/PID/SPM segment presence check ---
+    segments_applicable, segment_problems = check_expected_segments_present(fhir_json, v2_roundtrip)
+    if segments_applicable:
+        if segment_problems:
+            result.record("expectedSegments", False, "; ".join(segment_problems))
+            log(f"FAILED expectedSegments: {'; '.join(segment_problems)}")
+        else:
+            result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
 
     if save_output:
         out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
