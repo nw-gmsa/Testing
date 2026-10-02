@@ -198,9 +198,24 @@ TEST_GROUPS = {
         },
     },
     # ctDNA orders/reports between NW Genomics (iGene) and NEY Genomics.
+    # ctdna97378739xx/97378738xx are the NEY Genomics test patients from
+    # https://nw-gmsa.github.io/en/testing.html#nhs-north-east-and-yorkshire-genomics
+    # (GP practice in the NEY region, carried in PD1-3), each reported back to their
+    # local NEY Trust using that Trust's MRN from MRN-Mapping.md. York/Euron is
+    # deliberately excluded - deceased, with no registered GP.
     "ctdna": {
         "cases": {
-            "R01": ["ctDNA-Glasgow.txt", "ctdna9737383222.txt"],
+            "R01": [
+                "ctDNA-Glasgow.txt",
+                "ctdna9737383222.txt",
+                "ctdna9737873947.txt",
+                "ctdna9737873858.txt",
+                "ctdna9737873963.txt",
+                "ctdna9737873971.txt",
+                "ctdna9737873874.txt",
+                "ctdna9737873998.txt",
+                "ctdna9737873882.txt",
+            ],
         },
     },
     # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
