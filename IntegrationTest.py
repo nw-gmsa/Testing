@@ -28,6 +28,15 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      DocumentReference-code checks found a problem - a message transformToFHIR got wrong
      isn't sent on to the RIE.
 
+Alongside those stages, every case's v2 and FHIR are checked against the NW-GMSA HL7 v2
+page's required fields (https://nw-gmsa.github.io/en/hl7v2.html) and their FHIR
+equivalents - the source v2 and the transformToFHIR output for a v2 case, the source
+Bundle and the transformToV2 output for a FHIR case - reported as v2Conformance,
+fhirConformance and conformanceParity (rules one format meets and the other doesn't), with
+a per-rule v2-vs-FHIR summary at the end of the run. See CONFORMANCE_RULES for each rule's
+v2 field, FHIR element and how the two differ. Advisory (WARN) by default;
+--strict-conformance fails the case instead.
+
 Stage 1/2 outputs are saved under TestingOutput/FHIR/<messageType>/ and TestingOutput/V2/<messageType>/
 - the same layout Testing.ipynb uses under Output/, but in its own top-level directory so a script
 run doesn't clobber a notebook run's output (or vice versa).
@@ -43,14 +52,16 @@ isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage ex
 group below). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
-    python3 IntegrationTest.py [--skip-send] [--type O21] [--type R01] [--group shire]
+    python3 IntegrationTest.py [--skip-send] [--strict-conformance] [--type O21] [--type R01] [--group shire]
 
-Exit code is 0 if every stage of every case passed, 1 otherwise.
+Exit code is 0 if every stage of every case passed (conformance WARNs don't count unless
+--strict-conformance), 1 otherwise.
 """
 
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import uuid
@@ -1182,17 +1193,806 @@ def check_expected_segments_present(bundle, v2_text):
     return applicable, problems
 
 
+# ---------------------------------------------------------------------------------------
+# NW-GMSA conformance - HL7 v2 (https://nw-gmsa.github.io/en/hl7v2.html) and FHIR
+# ---------------------------------------------------------------------------------------
+#
+# Field-level conformance against the NW-GMSA HL7 v2 page's own segment and data type
+# tables, for the three message types it defines (OML_O21, ORU_R01, MDM_T02), plus the
+# equivalent constraint on the FHIR side of the same message. Other message types (ORM_O01,
+# the Cepheid R32s, A31) aren't defined by that page, so they're reported as not
+# applicable rather than checked.
+#
+# This complements, rather than replaces, FHIR Validation.ipynb: the HL7 FHIR validator
+# checks each resource against its StructureDefinition profile, whereas these rules check
+# the *v2 page's* required fields and their FHIR counterparts - the content an RIE feed
+# needs, whichever format it arrives in - and, by evaluating the same rule on both sides
+# of every case, show where v2 and FHIR conformance diverge (see conformanceParity).
+#
+# Advisory by default: a conformance problem is reported as WARN without failing the case,
+# since most legacy fixtures (MSH-12 2.3/2.4, no PID-13, local test codes, ...) predate the
+# spec and are kept deliberately as real-world shapes. --strict-conformance turns every
+# conformance problem into a case failure.
+#
+# Where the spec page contradicts itself, the field table wins over the page's own
+# examples, and the rule's note says so:
+#   - OBX-5/OBX-11 are R, yet the OML_O21 example OBXs ("ask at order entry" questions)
+#     leave both empty.
+#   - ORC-21 XON-1 (organisation name) is R, yet the ORC example sends "^^R0A^^^ODS".
+#   - PV1-8/PV1-9/PV1-17 are listed R (PV1-8 twice, with two different names), yet the PV1
+#     example populates only PV1-7 - not checked until the spec settles which it means.
+#   - XCN's practitioner register is described as XCN-8, but every example puts GMC in
+#     XCN-9 (HL7's actual assigning-authority component) - not checked either way.
+#   - OBR-22 (report status date) is R with no message-type qualifier, but an order has
+#     no report yet - only checked for ORU_R01.
+#   - The MSH table calls Accept Acknowledgment Type "MSH-13", but in HL7 v2 MSH-13 is
+#     Sequence Number and Accept Acknowledgment Type is MSH-15 - where every fixture,
+#     including the IG's own examples, puts "AL". Checked as MSH-15.
+
+STRICT_CONFORMANCE = False  # set from --strict-conformance in main()
+
+NWGMSA_V2_EVENTS = {"O21": "OML", "R01": "ORU", "T02": "MDM"}
+
+ODS_ORG_SYSTEM = "https://fhir.nhs.uk/Id/ods-organization-code"
+ODS_SITE_SYSTEM = "https://fhir.nhs.uk/Id/ods-site-code"
+NHS_NUMBER_SYSTEM = "https://fhir.nhs.uk/Id/nhs-number"
+SNOMED_SYSTEM = "http://snomed.info/sct"
+GENOMIC_TEST_DIRECTORY_SYSTEM = "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+V2_GENOMIC_TEST_DIRECTORY = "England-GenomicTestDirectory"
+V2_SNOMED_SYSTEMS = ("SNM3", "SCT", "SNOMED-CT")
+
+# rule id -> (v2 constraint, FHIR equivalent, difference between the two).
+# None on either side = the constraint only exists in that format.
+CONFORMANCE_RULES = {
+    "message-type": (
+        "MSH-9 = OML^O21^OML_O21 / ORU^R01^ORU_R01 / MDM^T02^MDM_T02",
+        "Bundle.type = message, MessageHeader.eventCoding = v2-0003 O21/R01/T02",
+        "FHIR carries only the trigger event - no equivalent of MSH-9.3 (message structure).",
+    ),
+    "structure": (
+        "segment cardinality: O21 PID 1..1, ORC/OBR 1..* with one ORC per OBR; "
+        "R01 PID 1..1, ORC/OBR/OBX 1..*; T02 EVN/PID/PV1/TXA 1..1, OBX 1..*",
+        "O21 ServiceRequest + Patient; R01 DiagnosticReport + Patient, with results or "
+        "a presentedForm; T02 DocumentReference + Patient",
+        "v2 order/grouping is positional (an OBR belongs to the ORC before it); FHIR links by "
+        "reference, so 'one ORC per OBR' has no FHIR counterpart.",
+    ),
+    "msh-version": (
+        "MSH-12 = 2.5.1",
+        None,
+        "v2 only - a FHIR Bundle has no version-of-the-message-format field.",
+    ),
+    "msh-sending-app": (
+        "MSH-3 Sending Application R",
+        "MessageHeader.source.endpoint",
+        "v2 is a free-text name; FHIR needs an endpoint URL (source.software/name are optional).",
+    ),
+    "msh-sending-facility": (
+        "MSH-4 Sending Facility R, ODS code",
+        "MessageHeader.sender -> ODS identifier",
+        "v2 can only be checked for an ODS-shaped code; FHIR's ODS identifier system makes "
+        "the code's meaning explicit.",
+    ),
+    "msh-receiving-app": (
+        "MSH-5 Receiving Application R",
+        "MessageHeader.destination.endpoint",
+        "As MSH-3: name in v2, endpoint URL in FHIR.",
+    ),
+    "msh-receiving-facility": (
+        "MSH-6 Receiving Facility R, ODS code",
+        "MessageHeader.destination.receiver -> ODS identifier",
+        "As MSH-4.",
+    ),
+    "msh-timestamp": ("MSH-7 Date/Time of Message R", "Bundle.timestamp", None),
+    "msh-control-id": (
+        "MSH-10 Message Control ID R",
+        "Bundle.identifier.value",
+        "FHIR's MessageHeader.id is a resource id, not the message id - Bundle.identifier is "
+        "the MSH-10 equivalent.",
+    ),
+    "msh-processing-id": (
+        "MSH-11 Processing ID R (P/T/D)",
+        None,
+        "v2 only - FHIR has no production/test/debug flag on the message.",
+    ),
+    "msh-accept-ack": (
+        "MSH-15 Accept Acknowledgment Type R (the spec labels it MSH-13 - see above)",
+        None,
+        "v2 only - FHIR $process-message always returns a response; there's no ack-mode field.",
+    ),
+    "set-id": (
+        "PID-1, PV1-1, OBR-1, OBX-1 Set ID R",
+        None,
+        "v2 only - FHIR identifies resources by fullUrl, not by sequence number.",
+    ),
+    "patient-identifier": (
+        "PID-3 R; every CX repeat has CX.1, CX.4 (assigning authority), CX.5 (type)",
+        "Patient.identifier present; every identifier has system and value",
+        "v2 types an identifier with CX.4/CX.5; FHIR with system (plus optional type/assigner).",
+    ),
+    "patient-nhs-number": (
+        "PID-3 carries an NHS Number repeat (CX.5 = NH)",
+        "Patient.identifier with system https://fhir.nhs.uk/Id/nhs-number",
+        "v2 flags NHS-number trace status in PID-32; FHIR in the identifier's "
+        "NHSNumberVerificationStatus extension. An NHS Number in PID-2/PID-19 doesn't count.",
+    ),
+    "patient-name": ("PID-5 Patient Name R", "Patient.name", None),
+    "patient-birth-date": ("PID-7 Date/Time of Birth R", "Patient.birthDate", None),
+    "patient-address": ("PID-11 Patient Address R", "Patient.address", None),
+    "patient-telecom": ("PID-13 Phone Number - Home R", "Patient.telecom", None),
+    "related-person-relationship": ("NK1-3 Relationship R", "RelatedPerson.relationship", None),
+    "related-person-identifier": (
+        "NK1-33 R; every CX repeat has CX.1, CX.4, CX.5",
+        "RelatedPerson.identifier present; every identifier has system and value",
+        "As patient-identifier.",
+    ),
+    "encounter-location": (
+        "PV1-3 R; PL.4 (ODS site code) and PL.11 (owning ODS code) R",
+        "Encounter.location -> ODS site code identifier with an ODS assigner",
+        "v2 packs site and owning organisation into one PL; FHIR needs the ods-site-code "
+        "system plus an assigner (or Location.managingOrganization).",
+    ),
+    "encounter-service": (
+        "PV1-10 Hospital Service R, coded (code + coding system)",
+        "Encounter.serviceType coded (system + code)",
+        None,
+    ),
+    "encounter-visit-number": (
+        "PV1 present -> PV1-19 R (spec: send PV1 only if PV1-19 is known), CX-typed",
+        "Encounter.identifier with value and system or assigner",
+        None,
+    ),
+    "order-placer-number": (
+        "ORC-2 R; ORC-2/OBR-2 EI.1 + EI.2 (namespace) R",
+        "ServiceRequest.identifier type PLAC with value and system or assigner",
+        "v2 EI.2 is a namespace name; FHIR uses a system URI and/or an ODS assigner.",
+    ),
+    "order-filler-number": (
+        "OBR-3 R; ORC-3 R for ORU_R01; EI.1 + EI.2 R",
+        "O21: ServiceRequest.identifier type FILL; R01: DiagnosticReport.identifier type FILL",
+        "One v2 field pair (ORC-3/OBR-3) maps to different FHIR resources depending on "
+        "message type.",
+    ),
+    "ordering-provider": (
+        "OBR-16 R; ORC-12 R for ORU_R01",
+        "ServiceRequest.requester -> Practitioner/PractitionerRole (a person)",
+        "v2 has two clinician slots (ORC-12, OBR-16) plus the organisation (ORC-21); FHIR "
+        "folds all three into ServiceRequest.requester, so an Organization-only requester "
+        "can satisfy ORC-21 but never ORC-12/OBR-16.",
+    ),
+    "ordering-facility": (
+        "ORC-21 R; XON-1 name, XON-3 code, XON-6 assigning authority R",
+        "ServiceRequest.requester -> organisation with an ODS identifier",
+        "v2 checks name + code + authority; FHIR needs only the ODS identifier (the name is "
+        "an optional display).",
+    ),
+    "test-code": (
+        "OBR-4 R, coded (code + coding system)",
+        "ServiceRequest.code / DiagnosticReport.code coded (system + code)",
+        None,
+    ),
+    "test-code-gtd": (
+        "OBR-4 from the Genomic Test Directory (England-GenomicTestDirectory)",
+        "code has an England-GenomicTestDirectory coding",
+        "FHIR's CodeableConcept can carry the GTD code alongside a local one; v2 can only "
+        "put one in OBR-4.1-3 (an alternate goes in OBR-4.4-6, which isn't checked here).",
+    ),
+    "requested-datetime": ("OBR-6 R for OML_O21", "ServiceRequest.authoredOn", None),
+    "observation-datetime": ("OBR-7 R for ORU_R01", "DiagnosticReport.effective[x]", None),
+    "report-datetime": ("OBR-22 R (ORU_R01 only, see above)", "DiagnosticReport.issued", None),
+    "observation-code": (
+        "OBX-3 R, coded (code + coding system)",
+        "Observation.code coded (system + code)",
+        None,
+    ),
+    "observation-value": (
+        "OBX-2 and OBX-5 R",
+        "Observation.value[x], component, hasMember or dataAbsentReason",
+        "FHIR has dataAbsentReason to say *why* there's no value; v2 can only leave OBX-5 empty.",
+    ),
+    "observation-status": (
+        "OBX-11 R",
+        "Observation.status",
+        "Observation.status is 1..1 in base FHIR, so a parseable FHIR Observation can't omit it.",
+    ),
+    "document-type-snomed": (
+        "OBX-3 of a document OBX (ED, or an embedded PDF) is SNOMED CT",
+        "DocumentReference.type has a SNOMED CT coding",
+        None,
+    ),
+    "document-attachment": (
+        "a document is sent as OBX-2 = ED with ED.2 type, ED.3 subtype, ED.4 encoding, "
+        "ED.5 data",
+        "DocumentReference.content.attachment has contentType and data or url",
+        "v2 needs the ED value type to carry a document at all; FHIR has a dedicated "
+        "DocumentReference/Binary, so a PDF embedded in a CE OBX is a v2-only problem.",
+    ),
+    "specimen-present": (
+        "OML_O21 SPECIMEN group (SPM) - conditional, required for a complete order",
+        "O21: a Specimen resource",
+        None,
+    ),
+    "specimen-type": (
+        "SPM-4 R, SNOMED CT (not HL7 table 0487)",
+        "Specimen.type has a SNOMED CT coding",
+        None,
+    ),
+    "document-header": (
+        "TXA-1, TXA-2, TXA-4, TXA-12, TXA-17 R",
+        "DocumentReference type, date, masterIdentifier/identifier and docStatus",
+        None,
+    ),
+}
+
+
+def _v2_segment_fields(v2_text):
+    text = v2_text.replace("\r\n", "\r").replace("\n", "\r")
+    return [s.split("|") for s in text.split("\r") if s.strip()]
+
+
+def _v2_field(fields, n):
+    """SEG-n for any segment except MSH (fields[0] is the segment name)."""
+    return fields[n].strip() if len(fields) > n else ""
+
+
+def _v2_msh_field(fields, n):
+    """MSH-n - MSH-1 *is* the '|' separator, so every MSH field sits one place earlier."""
+    return fields[n - 1].strip() if len(fields) > n - 1 else ""
+
+
+def _v2_component(value, n):
+    parts = value.split("^")
+    return parts[n - 1].strip() if len(parts) >= n else ""
+
+
+def _v2_repeats(value):
+    return [r for r in value.split("~") if r.strip("^& ")]
+
+
+def _v2_cx_problem(value, label):
+    missing = [name for n, name in ((1, "CX.1 ID"), (4, "CX.4 assigning authority"),
+                                   (5, "CX.5 identifier type")) if not _v2_component(value, n)]
+    return f"{label} {value!r} has no {', '.join(missing)}" if missing else None
+
+
+def _v2_ei_problem(value, label):
+    missing = [name for n, name in ((1, "EI.1 entity identifier"), (2, "EI.2 namespace"))
+               if not _v2_component(value, n)]
+    return f"{label} {value!r} has no {', '.join(missing)}" if missing else None
+
+
+def _v2_coded_problem(value, label):
+    if not value:
+        return f"{label} is empty"
+    if not (_v2_component(value, 1) and _v2_component(value, 3)):
+        return f"{label} {value!r} needs both a code (.1) and a coding system (.3)"
+    return None
+
+
+def _v2_looks_like_document(value):
+    lowered = value.lower()
+    return "application/pdf" in lowered or "^base64^" in lowered
+
+
+def check_v2_conformance(v2_text):
+    """Checks a raw v2 message against the NW-GMSA HL7 v2 page's required fields.
+
+    Returns (event, results): event is the trigger ('O21'/'R01'/'T02') or None when the
+    message isn't one of the types the spec defines (results is then {}); results maps
+    each evaluated CONFORMANCE_RULES id to its list of problems ([] = conforms).
+    """
+    segments = _v2_segment_fields(v2_text)
+    if not segments or segments[0][0] != "MSH":
+        return None, {}
+    msh = segments[0]
+    msh9 = _v2_msh_field(msh, 9)
+    event = _v2_component(msh9, 2)
+    if event not in NWGMSA_V2_EVENTS:
+        return None, {}
+
+    results = {}
+
+    def check(rule_id, problem=None):
+        results.setdefault(rule_id, [])
+        if problem:
+            results[rule_id].append(problem)
+
+    by_type = {}
+    for fields in segments:
+        by_type.setdefault(fields[0], []).append(fields)
+
+    def count(seg):
+        return len(by_type.get(seg, []))
+
+    # --- message type / structure ---
+    expected_msh9 = f"{NWGMSA_V2_EVENTS[event]}^{event}^{NWGMSA_V2_EVENTS[event]}_{event}"
+    check("message-type", None if msh9 == expected_msh9 else f"MSH-9 is {msh9!r}, expected {expected_msh9!r}")
+
+    check("structure")
+    if count("PID") != 1:
+        check("structure", f"{count('PID')} PID segments, expected exactly 1")
+    if event == "O21":
+        for seg in ("ORC", "OBR"):
+            if not count(seg):
+                check("structure", f"no {seg} segment (1..* required)")
+        orc_open = False
+        for fields in segments:
+            if fields[0] == "ORC":
+                orc_open = True
+            elif fields[0] == "OBR":
+                if not orc_open:
+                    check("structure", f"OBR-1={_v2_field(fields, 1)!r} has no ORC of its own - "
+                                       "OML_O21 needs one ORC per ORDER")
+                orc_open = False
+    elif event == "R01":
+        for seg in ("ORC", "OBR", "OBX"):
+            if not count(seg):
+                check("structure", f"no {seg} segment (1..* required)")
+    elif event == "T02":
+        for seg in ("EVN", "PV1", "TXA"):
+            if count(seg) != 1:
+                check("structure", f"{count(seg)} {seg} segments, expected exactly 1")
+        if not count("OBX"):
+            check("structure", "no OBX segment (1..* required)")
+
+    # --- MSH ---
+    check("msh-version", None if _v2_msh_field(msh, 12) == "2.5.1"
+          else f"MSH-12 is {_v2_msh_field(msh, 12)!r}, expected '2.5.1'")
+    for n, rule_id, name in ((3, "msh-sending-app", "Sending Application"),
+                             (5, "msh-receiving-app", "Receiving Application"),
+                             (7, "msh-timestamp", "Date/Time of Message"),
+                             (10, "msh-control-id", "Message Control ID"),
+                             (15, "msh-accept-ack", "Accept Acknowledgment Type")):
+        check(rule_id, None if _v2_msh_field(msh, n) else f"MSH-{n} {name} is empty")
+    for n, rule_id, name in ((4, "msh-sending-facility", "Sending Facility"),
+                             (6, "msh-receiving-facility", "Receiving Facility")):
+        code = _v2_component(_v2_msh_field(msh, n), 1)
+        if not code:
+            check(rule_id, f"MSH-{n} {name} is empty")
+        elif not re.fullmatch(r"[A-Z0-9]{3,6}", code):
+            check(rule_id, f"MSH-{n} {name} {code!r} isn't an ODS-shaped code")
+        else:
+            check(rule_id)
+    processing_id = _v2_component(_v2_msh_field(msh, 11), 1)
+    check("msh-processing-id", None if processing_id in ("P", "T", "D")
+          else f"MSH-11 is {processing_id!r}, expected P, T or D")
+
+    # --- Set IDs ---
+    check("set-id")
+    for seg in ("PID", "PV1", "OBR", "OBX"):
+        for fields in by_type.get(seg, []):
+            if not _v2_field(fields, 1):
+                check("set-id", f"{seg}-1 Set ID is empty")
+
+    # --- PID ---
+    for pid in by_type.get("PID", [])[:1]:
+        repeats = _v2_repeats(_v2_field(pid, 3))
+        check("patient-identifier", None if repeats else "PID-3 Patient Identifier List is empty")
+        for rep in repeats:
+            check("patient-identifier", _v2_cx_problem(rep, "PID-3"))
+        has_nhs = any(_v2_component(rep, 5) == "NH" for rep in repeats)
+        stray = [f"PID-{n}" for n in (2, 19) if re.fullmatch(r"\d{10}", _v2_field(pid, n).replace(" ", ""))]
+        check("patient-nhs-number", None if has_nhs else
+              "no PID-3 repeat with CX.5 = NH" + (f" (an NHS-number-like value is in {', '.join(stray)} instead)" if stray else ""))
+        for n, rule_id, name in ((5, "patient-name", "Patient Name"),
+                                 (7, "patient-birth-date", "Date/Time of Birth"),
+                                 (11, "patient-address", "Patient Address"),
+                                 (13, "patient-telecom", "Phone Number - Home")):
+            check(rule_id, None if _v2_field(pid, n).strip("^~") else f"PID-{n} {name} is empty")
+
+    # --- NK1 ---
+    for nk1 in by_type.get("NK1", []):
+        check("related-person-relationship", None if _v2_field(nk1, 3) else "NK1-3 Relationship is empty")
+        repeats = _v2_repeats(_v2_field(nk1, 33))
+        if not repeats:
+            populated = [f"NK1-{n}" for n in range(30, len(nk1)) if "^" in _v2_field(nk1, n)
+                         and any(_v2_component(r, 5) for r in _v2_repeats(_v2_field(nk1, n)))]
+            check("related-person-identifier", "NK1-33 Next of Kin Identifiers is empty"
+                  + (f" (CX identifiers found in {', '.join(populated)} instead)" if populated else ""))
+        for rep in repeats:
+            check("related-person-identifier", _v2_cx_problem(rep, "NK1-33"))
+
+    # --- PV1 ---
+    for pv1 in by_type.get("PV1", []):
+        location = _v2_field(pv1, 3)
+        if not location:
+            check("encounter-location", "PV1-3 Assigned Patient Location is empty")
+        else:
+            missing = [name for n, name in ((4, "PL.4 site code"), (11, "PL.11 ODS code"))
+                       if not _v2_component(location, n)]
+            check("encounter-location", f"PV1-3 {location!r} has no {', '.join(missing)}" if missing else None)
+        check("encounter-service", _v2_coded_problem(_v2_field(pv1, 10), "PV1-10 Hospital Service"))
+        visit = _v2_field(pv1, 19)
+        check("encounter-visit-number", _v2_cx_problem(visit, "PV1-19") if visit else
+              "PV1 sent but PV1-19 Visit Number is empty (spec: only send PV1 when PV1-19 is known)")
+
+    # --- ORC ---
+    for orc in by_type.get("ORC", []):
+        placer = _v2_field(orc, 2)
+        check("order-placer-number", _v2_ei_problem(placer, "ORC-2") if placer else "ORC-2 Placer Order Number is empty")
+        filler = _v2_field(orc, 3)
+        if filler:
+            check("order-filler-number", _v2_ei_problem(filler, "ORC-3"))
+        elif event == "R01":
+            check("order-filler-number", "ORC-3 Filler Order Number is empty (SHALL for ORU_R01)")
+        if event == "R01":
+            check("ordering-provider", None if _v2_field(orc, 12) else "ORC-12 Ordering Provider is empty (SHALL for ORU_R01)")
+        facility = _v2_field(orc, 21)
+        if not facility:
+            check("ordering-facility", "ORC-21 Ordering Facility Name is empty")
+        else:
+            missing = [name for n, name in ((1, "XON-1 name"), (3, "XON-3 code"), (6, "XON-6 assigning authority"))
+                       if not _v2_component(facility, n)]
+            check("ordering-facility", f"ORC-21 {facility!r} has no {', '.join(missing)}" if missing else None)
+
+    # --- OBR ---
+    for obr in by_type.get("OBR", []):
+        label = f"OBR-1={_v2_field(obr, 1)!r}"
+        placer = _v2_field(obr, 2)
+        if placer:
+            check("order-placer-number", _v2_ei_problem(placer, "OBR-2"))
+        filler = _v2_field(obr, 3)
+        check("order-filler-number", _v2_ei_problem(filler, "OBR-3") if filler else f"{label}: OBR-3 Filler Order Number is empty")
+        test_code = _v2_field(obr, 4)
+        check("test-code", _v2_coded_problem(test_code, f"{label}: OBR-4"))
+        check("test-code-gtd", None if _v2_component(test_code, 3) == V2_GENOMIC_TEST_DIRECTORY
+              else f"{label}: OBR-4 coding system is {_v2_component(test_code, 3)!r}, not {V2_GENOMIC_TEST_DIRECTORY}")
+        check("ordering-provider", None if _v2_field(obr, 16) else f"{label}: OBR-16 Ordering Provider is empty")
+        if event == "O21":
+            check("requested-datetime", None if _v2_field(obr, 6) else f"{label}: OBR-6 Requested Date/Time is empty")
+        if event == "R01":
+            check("observation-datetime", None if _v2_field(obr, 7) else f"{label}: OBR-7 Observation Date/Time is empty")
+            check("report-datetime", None if _v2_field(obr, 22) else f"{label}: OBR-22 Results Rpt/Status Chng is empty")
+
+    # --- OBX ---
+    for obx in by_type.get("OBX", []):
+        label = f"OBX-1={_v2_field(obx, 1)!r}"
+        value_type = _v2_field(obx, 2)
+        identifier = _v2_field(obx, 3)
+        value = _v2_field(obx, 5)
+        check("observation-code", _v2_coded_problem(identifier, f"{label}: OBX-3"))
+        missing = [f"OBX-{n}" for n, v in ((2, value_type), (5, value)) if not v]
+        check("observation-value", f"{label}: {', '.join(missing)} empty" if missing else None)
+        check("observation-status", None if _v2_field(obx, 11) else f"{label}: OBX-11 Observation Result Status is empty")
+        if value_type == "ED" or _v2_looks_like_document(value):
+            check("document-type-snomed", None if _v2_component(identifier, 3).upper() in V2_SNOMED_SYSTEMS
+                  else f"{label}: document OBX-3 {identifier[:60]!r} isn't SNOMED CT")
+            if value_type != "ED":
+                check("document-attachment", f"{label}: OBX-5 embeds a document but OBX-2 is {value_type!r}, not ED")
+            else:
+                missing = [name for n, name in ((2, "ED.2 type"), (3, "ED.3 subtype"), (4, "ED.4 encoding"), (5, "ED.5 data"))
+                           if not _v2_component(value, n)]
+                check("document-attachment", f"{label}: OBX-5 has no {', '.join(missing)}" if missing else None)
+
+    # --- SPM ---
+    if event == "O21":
+        check("specimen-present", None if count("SPM") else "no SPM segment - SPECIMEN group is required for a complete order")
+    for spm in by_type.get("SPM", []):
+        specimen_type = _v2_field(spm, 4)
+        problem = _v2_coded_problem(specimen_type, "SPM-4 Specimen Type")
+        if not problem and _v2_component(specimen_type, 3).upper() not in V2_SNOMED_SYSTEMS:
+            problem = f"SPM-4 {specimen_type!r} isn't SNOMED CT"
+        check("specimen-type", problem)
+
+    # --- TXA ---
+    for txa in by_type.get("TXA", []):
+        missing = [f"TXA-{n}" for n in (1, 2, 4, 12, 17) if not _v2_field(txa, n)]
+        check("document-header", f"{', '.join(missing)} empty" if missing else None)
+
+    return event, results
+
+
+def _fhir_resources(bundle, resource_type):
+    return [e.get("resource", {}) for e in bundle.get("entry", [])
+            if e.get("resource", {}).get("resourceType") == resource_type]
+
+
+def _fhir_coded(concept):
+    return any(c.get("system") and c.get("code") for c in (concept or {}).get("coding", []))
+
+
+def _fhir_has_system(concept, system):
+    return any(c.get("system") == system for c in (concept or {}).get("coding", []))
+
+
+def _fhir_identifier_type(identifier):
+    return next((c.get("code") for c in identifier.get("type", {}).get("coding", [])), None)
+
+
+def _fhir_ods_code(bundle, ref):
+    """ODS code for an organisation reference - from the reference's own identifier, or by
+    resolving it to an Organization (or a PractitionerRole's organization) in the bundle."""
+    if not ref:
+        return None
+    ident = ref.get("identifier") or {}
+    if ident.get("system") == ODS_ORG_SYSTEM and ident.get("value"):
+        return ident["value"]
+    entry = _resolve_bundle_reference(bundle, ref.get("reference"))
+    resource = entry.get("resource", {}) if entry else {}
+    if resource.get("resourceType") == "Organization":
+        return next((i.get("value") for i in resource.get("identifier", [])
+                     if i.get("system") == ODS_ORG_SYSTEM and i.get("value")), None)
+    if resource.get("resourceType") == "PractitionerRole":
+        return _fhir_ods_code(bundle, resource.get("organization"))
+    return None
+
+
+def _fhir_requester_is_person(bundle, ref):
+    if not ref:
+        return False
+    if ref.get("type") in ("Practitioner", "PractitionerRole"):
+        return True
+    entry = _resolve_bundle_reference(bundle, ref.get("reference"))
+    resource = entry.get("resource", {}) if entry else {}
+    if resource.get("resourceType") == "Practitioner":
+        return True
+    return resource.get("resourceType") == "PractitionerRole" and bool(resource.get("practitioner"))
+
+
+def check_fhir_conformance(bundle):
+    """The FHIR counterpart of check_v2_conformance: the same CONFORMANCE_RULES ids,
+    evaluated against the equivalent FHIR elements (see each rule's FHIR column).
+
+    Returns (event, results) exactly like check_v2_conformance.
+    """
+    if not isinstance(bundle, dict):
+        return None, {}
+    headers = _fhir_resources(bundle, "MessageHeader")
+    event = (headers[0].get("eventCoding") or {}).get("code") if headers else None
+    if event not in NWGMSA_V2_EVENTS:
+        return None, {}
+    header = headers[0]
+
+    results = {}
+
+    def check(rule_id, problem=None):
+        results.setdefault(rule_id, [])
+        if problem:
+            results[rule_id].append(problem)
+
+    # --- message type / structure ---
+    event_coding = header.get("eventCoding") or {}
+    problem = None
+    if bundle.get("type") != "message":
+        problem = f"Bundle.type is {bundle.get('type')!r}, expected 'message'"
+    elif event_coding.get("system") != "http://terminology.hl7.org/CodeSystem/v2-0003":
+        problem = f"MessageHeader.eventCoding.system is {event_coding.get('system')!r}, expected v2-0003"
+    check("message-type", problem)
+
+    patients = _fhir_resources(bundle, "Patient")
+    service_requests = _fhir_resources(bundle, "ServiceRequest")
+    reports = _fhir_resources(bundle, "DiagnosticReport")
+    documents = _fhir_resources(bundle, "DocumentReference")
+    check("structure", None if patients else "no Patient resource")
+    if event == "O21":
+        check("structure", None if service_requests else "no ServiceRequest resource")
+    elif event == "R01":
+        if not reports:
+            check("structure", "no DiagnosticReport resource")
+        for report in reports:
+            if not (report.get("result") or report.get("presentedForm") or report.get("conclusionCode")):
+                check("structure", "DiagnosticReport has no result, presentedForm or conclusionCode (the OBX 1..* equivalent)")
+    elif event == "T02":
+        check("structure", None if documents else "no DocumentReference resource")
+
+    # --- MessageHeader / Bundle ---
+    check("msh-sending-app", None if (header.get("source") or {}).get("endpoint") else "MessageHeader.source.endpoint is empty")
+    check("msh-sending-facility", None if _fhir_ods_code(bundle, header.get("sender"))
+          else "MessageHeader.sender has no ODS organisation identifier")
+    destinations = header.get("destination") or []
+    check("msh-receiving-app", None if destinations and all(d.get("endpoint") for d in destinations)
+          else "MessageHeader.destination.endpoint is empty")
+    check("msh-receiving-facility", None if destinations and all(_fhir_ods_code(bundle, d.get("receiver")) for d in destinations)
+          else "MessageHeader.destination.receiver has no ODS organisation identifier")
+    check("msh-timestamp", None if bundle.get("timestamp") else "Bundle.timestamp is empty")
+    check("msh-control-id", None if (bundle.get("identifier") or {}).get("value") else "Bundle.identifier.value is empty")
+
+    # --- Patient ---
+    for patient in patients:
+        identifiers = patient.get("identifier") or []
+        check("patient-identifier", None if identifiers else "Patient has no identifier")
+        for ident in identifiers:
+            if not (ident.get("system") and ident.get("value")):
+                check("patient-identifier", f"Patient.identifier {ident.get('value')!r} has no system")
+        check("patient-nhs-number", None if any(i.get("system") == NHS_NUMBER_SYSTEM for i in identifiers)
+              else "no Patient.identifier with the NHS Number system")
+        for element, rule_id in (("name", "patient-name"), ("birthDate", "patient-birth-date"),
+                                 ("address", "patient-address"), ("telecom", "patient-telecom")):
+            check(rule_id, None if patient.get(element) else f"Patient.{element} is empty")
+
+    # --- RelatedPerson ---
+    for related in _fhir_resources(bundle, "RelatedPerson"):
+        check("related-person-relationship", None if related.get("relationship") else "RelatedPerson.relationship is empty")
+        identifiers = related.get("identifier") or []
+        check("related-person-identifier", None if identifiers else "RelatedPerson has no identifier")
+        for ident in identifiers:
+            if not (ident.get("system") and ident.get("value")):
+                check("related-person-identifier", f"RelatedPerson.identifier {ident.get('value')!r} has no system")
+
+    # --- Encounter ---
+    for encounter in _fhir_resources(bundle, "Encounter"):
+        locations = encounter.get("location") or []
+        if not locations:
+            check("encounter-location", "Encounter.location is empty")
+        for loc in locations:
+            ref = loc.get("location") or {}
+            ident = ref.get("identifier") or {}
+            entry = _resolve_bundle_reference(bundle, ref.get("reference"))
+            resource = entry.get("resource", {}) if entry else {}
+            site = ident if ident.get("system") == ODS_SITE_SYSTEM else next(
+                (i for i in resource.get("identifier", []) if i.get("system") == ODS_SITE_SYSTEM), None)
+            if not (site and site.get("value")):
+                check("encounter-location", f"Encounter.location {ident.get('value') or ref.get('reference')!r} "
+                                            "has no ODS site code identifier")
+            elif not (_fhir_ods_code(bundle, site.get("assigner")) or _fhir_ods_code(bundle, resource.get("managingOrganization"))):
+                check("encounter-location", f"Encounter.location site {site['value']!r} has no owning ODS organisation")
+            else:
+                check("encounter-location")
+        check("encounter-service", None if _fhir_coded(encounter.get("serviceType"))
+              else f"Encounter.serviceType {encounter.get('serviceType')} isn't coded with a system")
+        visit = [i for i in encounter.get("identifier", []) if i.get("value")]
+        check("encounter-visit-number", None if any(i.get("system") or i.get("assigner") for i in visit)
+              else "Encounter has no identifier with a value and system or assigner")
+
+    # --- ServiceRequest (ORC, and OBR for O21) ---
+    for sr in service_requests:
+        identifiers = sr.get("identifier") or []
+        placer = [i for i in identifiers if _fhir_identifier_type(i) == "PLAC"]
+        check("order-placer-number", None if any(i.get("value") and (i.get("system") or i.get("assigner")) for i in placer)
+              else "ServiceRequest has no PLAC identifier with a value and system or assigner")
+        if event == "O21":
+            check("order-filler-number", None if any(_fhir_identifier_type(i) == "FILL" and i.get("value") for i in identifiers)
+                  else "ServiceRequest has no FILL identifier")
+            check("test-code", None if _fhir_coded(sr.get("code")) else "ServiceRequest.code isn't coded with a system")
+            check("test-code-gtd", None if _fhir_has_system(sr.get("code"), GENOMIC_TEST_DIRECTORY_SYSTEM)
+                  else "ServiceRequest.code has no England-GenomicTestDirectory coding")
+            check("requested-datetime", None if sr.get("authoredOn") else "ServiceRequest.authoredOn is empty")
+        requester = sr.get("requester")
+        check("ordering-provider", None if _fhir_requester_is_person(bundle, requester) else
+              "ServiceRequest.requester is " + ("empty" if not requester else "an organisation, not a Practitioner/PractitionerRole"))
+        check("ordering-facility", None if _fhir_ods_code(bundle, requester)
+              else "ServiceRequest.requester has no ODS organisation identifier")
+
+    # --- DiagnosticReport (OBR for R01) ---
+    if event == "R01":
+        if not service_requests:
+            for rule_id in ("order-placer-number", "ordering-provider", "ordering-facility"):
+                check(rule_id, "no ServiceRequest (the ORC equivalent) in the Bundle")
+        for report in reports:
+            check("order-filler-number", None if any(_fhir_identifier_type(i) == "FILL" and i.get("value")
+                                                     for i in report.get("identifier", []))
+                  else "DiagnosticReport has no FILL identifier")
+            check("test-code", None if _fhir_coded(report.get("code")) else "DiagnosticReport.code isn't coded with a system")
+            check("test-code-gtd", None if _fhir_has_system(report.get("code"), GENOMIC_TEST_DIRECTORY_SYSTEM)
+                  else "DiagnosticReport.code has no England-GenomicTestDirectory coding")
+            check("observation-datetime", None if (report.get("effectiveDateTime") or report.get("effectivePeriod"))
+                  else "DiagnosticReport.effective[x] is empty")
+            check("report-datetime", None if report.get("issued") else "DiagnosticReport.issued is empty")
+
+    # --- Observation (OBX) ---
+    for obs in _fhir_resources(bundle, "Observation"):
+        label = next((c.get("code") for c in (obs.get("code") or {}).get("coding", [])), None) or "?"
+        check("observation-code", None if _fhir_coded(obs.get("code")) else f"Observation {label!r}: code isn't coded with a system")
+        has_value = any(k.startswith("value") for k in obs) or obs.get("component") or obs.get("hasMember") or obs.get("dataAbsentReason")
+        check("observation-value", None if has_value else f"Observation {label!r}: no value[x], component, hasMember or dataAbsentReason")
+        check("observation-status", None if obs.get("status") else f"Observation {label!r}: status is empty")
+
+    # --- DocumentReference (OBX ED / TXA) ---
+    for doc in documents:
+        check("document-type-snomed", None if _fhir_has_system(doc.get("type"), SNOMED_SYSTEM)
+              else "DocumentReference.type has no SNOMED CT coding")
+        attachments = [c.get("attachment") or {} for c in doc.get("content", [])]
+        check("document-attachment", None if attachments and all(a.get("contentType") and (a.get("data") or a.get("url")) for a in attachments)
+              else "DocumentReference.content.attachment needs contentType and data or url")
+        if event == "T02":
+            missing = [name for name, ok in (("type", doc.get("type")), ("date", doc.get("date")),
+                                             ("masterIdentifier/identifier", doc.get("masterIdentifier") or doc.get("identifier")),
+                                             ("docStatus", doc.get("docStatus"))) if not ok]
+            check("document-header", f"DocumentReference has no {', '.join(missing)}" if missing else None)
+
+    # --- Specimen (SPM) ---
+    specimens = _fhir_resources(bundle, "Specimen")
+    if event == "O21":
+        check("specimen-present", None if specimens else "no Specimen resource - required for a complete order")
+    for specimen in specimens:
+        check("specimen-type", None if _fhir_has_system(specimen.get("type"), SNOMED_SYSTEM)
+              else "Specimen.type has no SNOMED CT coding")
+
+    return event, results
+
+
+def record_conformance(result, stage, event, results):
+    """Records one side's conformance (stage 'v2Conformance' or 'fhirConformance') -
+    advisory WARN unless STRICT_CONFORMANCE."""
+    result.conformance[stage] = results if event else None
+    if not event:
+        result.record(stage, True, "n/a - message type not defined by https://nw-gmsa.github.io/en/hl7v2.html")
+        return
+    failing = {rule_id: problems for rule_id, problems in results.items() if problems}
+    if not failing:
+        result.record(stage, True, f"{event}: all {len(results)} applicable rules conform")
+        return
+    def summarise(problems):
+        problems = list(dict.fromkeys(problems))
+        shown = "; ".join(problems[:3])
+        return shown + (f"; ... and {len(problems) - 3} more" if len(problems) > 3 else "")
+
+    detail = f"{event}: {len(failing)}/{len(results)} rules not met" + "".join(
+        f"\n        - [{rule_id}] {summarise(problems)}" for rule_id, problems in failing.items()
+    )
+    if STRICT_CONFORMANCE:
+        result.record(stage, False, detail)
+    else:
+        result.warn(stage, detail)
+
+
+def record_conformance_parity(result, source_format):
+    """Notes where the same rule conforms in one format but not the other for this case.
+    source_format is the case's input side ('v2' or 'FHIR') - a rule met by the source but
+    not by the transform's output points at the transform; the reverse means the transform
+    filled a gap (derived or defaulted something the source didn't send)."""
+    v2, fhir = result.conformance.get("v2Conformance"), result.conformance.get("fhirConformance")
+    if v2 is None or fhir is None:
+        return
+    lines = []
+    for rule_id in CONFORMANCE_RULES:
+        if rule_id not in v2 or rule_id not in fhir:
+            continue
+        v2_ok, fhir_ok = not v2[rule_id], not fhir[rule_id]
+        if v2_ok != fhir_ok:
+            met, unmet = ("v2", "FHIR") if v2_ok else ("FHIR", "v2")
+            cause = "lost or not mapped by the transform" if met == source_format else "filled in by the transform"
+            lines.append(f"[{rule_id}] {met} conforms, {unmet} doesn't - {cause}")
+    if lines:
+        result.warn("conformanceParity", f"{len(lines)} rule(s) differ between v2 and FHIR"
+                    + "".join(f"\n        - {line}" for line in lines))
+    else:
+        result.record("conformanceParity", True, "v2 and FHIR agree on every rule both sides evaluate")
+
+
+def print_conformance_summary(results):
+    """Per-rule count of cases not meeting it, v2 vs FHIR side by side, plus each rule's
+    v2/FHIR difference note."""
+    totals = {rule_id: [0, 0, 0, 0] for rule_id in CONFORMANCE_RULES}  # v2 fail, v2 eval, fhir fail, fhir eval
+    for r in results:
+        for offset, stage in ((0, "v2Conformance"), (2, "fhirConformance")):
+            for rule_id, problems in (r.conformance.get(stage) or {}).items():
+                totals[rule_id][offset + 1] += 1
+                if problems:
+                    totals[rule_id][offset] += 1
+    if not any(t[1] or t[3] for t in totals.values()):
+        return
+    print()
+    print("NW-GMSA conformance summary (cases not meeting each rule / cases evaluated):")
+    print(f"    {'rule':30} {'v2':>9} {'FHIR':>9}")
+    for rule_id, (v2_fail, v2_eval, fhir_fail, fhir_eval) in totals.items():
+        if not (v2_eval or fhir_eval):
+            continue
+        v2_col = f"{v2_fail}/{v2_eval}" if CONFORMANCE_RULES[rule_id][0] else "v2 n/a"
+        fhir_col = f"{fhir_fail}/{fhir_eval}" if CONFORMANCE_RULES[rule_id][1] else "FHIR n/a"
+        print(f"    {rule_id:30} {v2_col:>9} {fhir_col:>9}")
+    print()
+    print("v2 vs FHIR conformance differences:")
+    for rule_id, (v2_rule, fhir_rule, difference) in CONFORMANCE_RULES.items():
+        if difference:
+            print(f"    [{rule_id}] {difference}")
+
+
 class CaseResult:
     def __init__(self, name):
         self.name = name
-        self.stages = []  # list of (stage_name, passed, detail)
+        self.stages = []  # list of (stage_name, passed, detail); passed None = advisory warning
+        self.conformance = {}  # 'v2Conformance'/'fhirConformance' -> {rule_id: problems}, or None if n/a
 
     def record(self, stage, passed, detail=""):
         self.stages.append((stage, passed, detail))
 
+    def warn(self, stage, detail):
+        self.stages.append((stage, None, detail))
+
     @property
     def passed(self):
-        return all(passed for _, passed, _ in self.stages)
+        return all(passed is not False for _, passed, _ in self.stages)
 
 
 def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
@@ -1211,6 +2011,9 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         v2_bytes = f.read()
     result.record("load", True, f"{len(v2_bytes)} bytes")
     log(f"loaded {len(v2_bytes)} bytes")
+
+    # --- NW-GMSA conformance of the source v2 message ---
+    record_conformance(result, "v2Conformance", *check_v2_conformance(v2_bytes.decode("utf-8", errors="replace")))
 
     # --- Stage 1: transformToFHIR ---
     log(f"POST {V2_TOOLS}/transformToFHIR (timeout=30s)")
@@ -1239,6 +2042,10 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         result.record("jsonValid", False, f"invalid JSON: {e}")
         return result
     result.record("jsonValid", True)
+
+    # --- NW-GMSA conformance of the transformToFHIR output, and where it differs from the v2 ---
+    record_conformance(result, "fhirConformance", *check_fhir_conformance(fhir_json))
+    record_conformance_parity(result, source_format="v2")
 
     resource_types = [
         e.get("resource", {}).get("resourceType") for e in fhir_json.get("entry", [])
@@ -1417,6 +2224,9 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
         return result
     result.record("jsonValid", True)
 
+    # --- NW-GMSA conformance of the source FHIR Bundle ---
+    record_conformance(result, "fhirConformance", *check_fhir_conformance(fhir_json))
+
     problems = check_fhir_bundle(fhir_json)
     known = [p for p in problems if any(ref in p for ref in known_dangling_refs)]
     unknown = [p for p in problems if p not in known]
@@ -1455,6 +2265,10 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
     log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
+
+    # --- NW-GMSA conformance of the transformToV2 output, and where it differs from the FHIR ---
+    record_conformance(result, "v2Conformance", *check_v2_conformance(v2_roundtrip))
+    record_conformance_parity(result, source_format="FHIR")
 
     applicable, demographics_problems = check_patient_demographics_preserved(fhir_json, v2_roundtrip)
     if applicable:
@@ -1562,7 +2376,14 @@ def main():
         help="Skip stage 3 (posting the original v2 message to V2_SERVER, or for "
              "FHIR-sourced groups like dwgs, the Bundle to FHIR_SERVER's $process-message).",
     )
+    parser.add_argument(
+        "--strict-conformance", action="store_true",
+        help="Fail a case on any NW-GMSA v2/FHIR conformance problem (default: report as WARN only).",
+    )
     args = parser.parse_args()
+
+    global STRICT_CONFORMANCE
+    STRICT_CONFORMANCE = args.strict_conformance
 
     if not V2_TOOLS or not V2_SERVER:
         print("V2_TOOLS / V2_SERVER not set - check .env", file=sys.stderr)
@@ -1607,13 +2428,15 @@ def main():
         status = "PASS" if r.passed else "FAIL"
         print(f"[{status}] {r.name}")
         for stage, passed, detail in r.stages:
-            marker = "ok" if passed else "FAILED"
+            marker = "ok" if passed else ("WARN" if passed is None else "FAILED")
             line = f"    {stage}: {marker}"
             if detail:
                 line += f" - {detail}"
             print(line)
         if not r.passed:
             failures += 1
+
+    print_conformance_summary(results)
 
     print()
     print(f"{len(results) - failures}/{len(results)} cases passed")
