@@ -39,7 +39,7 @@ reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01), a
 Cepheid results (R32, sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
 isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
-(O21/R01/A31, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
+(O21/R01, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
 group below). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
@@ -190,6 +190,10 @@ TEST_GROUPS = {
     "clatterbridge_histotrac": {
         "cases": {
             "O01": ["Clatterbridge-Order.txt", "histotrac-MFT-HLA.txt", "histotrac-MFT-chimerism.txt"],
+            # A Clatterbridge Meditech ORM^O01 chimerism order hand-converted to the NW
+            # standard's OML^O21^OML_O21 at 2.5.1 (the shape H&I is heading towards - see
+            # notebook 10), rather than the ORM^O01 shape the O01 files above use.
+            "O21": ["OML_O21_REN_Chimerism.txt"],
             "R01": [
                 "Clatterbridge-REN-ORU_R01.txt",
                 "histotrac.txt",
@@ -250,7 +254,7 @@ TEST_GROUPS = {
     # (source: https://github.com/nw-gmsa/nw-gmsa.github.com). Fetched as the IG's own
     # published JSON (e.g. https://nw-gmsa.github.io/en/Bundle-GenomicsOrderMessage-ctDNA.json)
     # and kept verbatim, filenames unchanged, so they stay traceable back to that page.
-    # FHIR-sourced like "dwgs" - input_format "fhir" runs run_fhir_source_case. 7 of the
+    # FHIR-sourced like "dwgs" - input_format "fhir" runs run_fhir_source_case. 6 of the
     # page's 10 examples are included; none overlap with this repo's own hand-built
     # Input/FHIR content (checked by patient identity, not just filename - the ctDNA
     # pair reuses this repo's existing NHS-number test patients, per this repo's own
@@ -260,6 +264,10 @@ TEST_GROUPS = {
     # MessageHeader-only $process-message *responses* (MessageHeader.response populated,
     # no Patient/ServiceRequest/etc.), not order/report messages to send in the first
     # place, so this harness's send-as-a-new-message model doesn't apply to them.
+    # Bundle-PatientMessage.json (A31 patient update) is also excluded for now - A31
+    # isn't currently supported by the pipeline and the case only produced errors. The
+    # file is still kept in Input/FHIR/NWGMSA-Examples/A31/; re-add it here as an "A31"
+    # case once A31 support lands.
     # Deviation/known-failure notes, verified live rather than pre-filtered out (same
     # practice as e.g. cepheid): Bundle-GenomicsReportMessage.json (DocumentReference +
     # inline Binary PDF, no ctDNA data) gets a bare HTTP 500 from transformToV2 sometimes
@@ -276,6 +284,14 @@ TEST_GROUPS = {
     # up and left with the IG maintainers) - known_dangling_refs below tells
     # run_fhir_source_case to stop treating those two specific, already-diagnosed
     # references as a failure here, while still surfacing any other/new problem.
+    #
+    # Local deviation from "kept verbatim": Bundle-GenomicsReportMessage-ctDNA.json has had
+    # its two DiagnosticReport.result references (urn:uuid:00c22e97-... variant-egfr and
+    # urn:uuid:a151b1ed-... region-studied-egfr-dpcr, both absent from this Bundle) removed.
+    # With them in place FHIR_SERVER's $process-message rejected the Bundle with a bare
+    # HTTP 422 every run; with them gone it's accepted - the remaining dangling
+    # ServiceRequest.specimen reference is tolerated. Re-apply this edit after any resync
+    # from upstream until the IG fixes the example itself.
     "nwgmsa_examples": {
         "input_dir": os.path.join("Input", "FHIR", "NWGMSA-Examples"),
         "input_format": "fhir",
@@ -290,16 +306,12 @@ TEST_GROUPS = {
                 "Bundle-GenomicsReportMessage-ctDNA.json",
                 "Bundle-GenomicsReportMessage.json",
             ],
-            "A31": [
-                "Bundle-PatientMessage.json",
-            ],
         },
         "known_dangling_refs": {
-            # Two Observations (variant-egfr, region-studied-egfr-dpcr) + a Specimen -
-            # all three only exist in the sibling Bundle-FHIRDocumentGeneticReportBundle-ctDNA.
+            # ServiceRequest.specimen -> a Specimen that only exists in the sibling
+            # Bundle-FHIRDocumentGeneticReportBundle-ctDNA (its two DiagnosticReport.result
+            # Observations were removed locally - see the nwgmsa_examples comment above).
             "Bundle-GenomicsReportMessage-ctDNA.json": {
-                "urn:uuid:00c22e97-a226-4845-b17a-e24ec1f4f77a",
-                "urn:uuid:a151b1ed-5aef-4c36-af50-987cfbd5bad4",
                 "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5",
             },
             # DiagnosticReportCompositionR5 extension points at
