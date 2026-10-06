@@ -62,9 +62,11 @@ import argparse
 import json
 import os
 import re
+import socket
 import sys
 import time
 import uuid
+from urllib.parse import urlsplit
 
 import requests
 import urllib3
@@ -101,8 +103,11 @@ SEND_TIMEOUT = 60
 
 # Registry of test scenarios. Each group maps message type -> list of filenames.
 # Filenames are read from Input/V2/<type>/<filename> unless the group sets "input_dir",
-# in which case they're read from <input_dir>/<type>/<filename> instead. A group can set
-# "skip_transform_to_v2" to skip stage 2 for every case in it (see Cepheid, below).
+# in which case they're read from <input_dir>/<type>/<filename> instead (or straight from
+# <input_dir>/<filename> if it also sets "input_flat"). A group can set
+# "skip_transform_to_v2" to skip stage 2 for every case in it (see Cepheid, below), and
+# "v2_mllp_port" to send stage 3 over MLLP (raw TCP) to that port on V2_SERVER's host
+# instead of HTTP POSTing to V2_SERVER.
 #
 # HL7 v2 spec compliance note - https://nw-gmsa.github.io/en/hl7v2.html requires MSH-12
 # = "2.5.1" and an explicit MSH-9 trigger structure ("OML^O21^OML_O21" / "ORU^R01^ORU_R01")
@@ -231,6 +236,19 @@ TEST_GROUPS = {
                 "ctdna9737873998.txt",
                 "ctdna9737873882.txt",
             ],
+        },
+    },
+    # Clatterbridge (Meditech) chimerism orders as OML^O21^OML_O21 at 2.5.1 - bone marrow
+    # (CCC-Example1) and peripheral blood (CCC-Example2) - with OBR-4 the Genomic Test Directory code
+    # GT1368 and an SPM carrying the SNOMED specimen type. Read flat from Input/Chimerism/
+    # (no <type> subfolder). Sent by HTTP POST to V2_SERVER like the other groups - the
+    # RIE's MLLP listener on port 30015 (set "v2_mllp_port": 30015 to use it) isn't
+    # reachable from the test machine yet.
+    "chimerism": {
+        "input_dir": os.path.join("Input", "Chimerism"),
+        "input_flat": True,
+        "cases": {
+            "O21": ["CCC-Example1.txt", "CCC-Example2.txt"],
         },
     },
     # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
@@ -439,6 +457,29 @@ def parse_ack(text):
     fields = msa.split("|")
     ack_code = fields[1] if len(fields) > 1 else None
     return ack_code, (err or msa)
+
+
+# MLLP framing: <VT> message <FS><CR>
+MLLP_START, MLLP_END = b"\x0b", b"\x1c\x0d"
+
+
+def send_mllp(host, port, v2_bytes, timeout):
+    """Send one framed v2 message over MLLP and return the (unframed) ACK text.
+    Raises socket.timeout if no complete ACK arrives within `timeout` seconds."""
+    try:
+        sock = socket.create_connection((host, port), timeout=timeout)
+    except OSError as e:
+        raise ConnectionError(f"can't connect to {host}:{port} - {e}") from e
+    with sock:
+        sock.settimeout(timeout)
+        sock.sendall(MLLP_START + v2_bytes + MLLP_END)
+        buf = b""
+        while MLLP_END not in buf:
+            chunk = sock.recv(4096)
+            if not chunk:
+                break
+            buf += chunk
+    return buf.split(MLLP_END, 1)[0].lstrip(MLLP_START).decode("utf-8", errors="replace")
 
 
 _fhir_bearer_token = None
@@ -1996,11 +2037,15 @@ class CaseResult:
 
 
 def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
-             skip_transform_to_v2=False, save_output=True):
+             skip_transform_to_v2=False, save_output=True, input_flat=False,
+             mllp_port=None):
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
     result = CaseResult(case_name)
-    in_path = os.path.join(input_dir or os.path.join("Input", "V2"), msg_type, filename)
+    if input_flat:
+        in_path = os.path.join(input_dir, filename)
+    else:
+        in_path = os.path.join(input_dir or os.path.join("Input", "V2"), msg_type, filename)
 
     log(f"loading {in_path}")
     if not os.path.exists(in_path):
@@ -2153,6 +2198,28 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         log("sendToServer skipped (--skip-send)")
         return result
 
+    if mllp_port:
+        host = urlsplit(V2_SERVER).hostname
+        log(f"MLLP {host}:{mllp_port} (waiting up to {SEND_TIMEOUT}s for an ACK)")
+        try:
+            ack_text = send_mllp(host, mllp_port, v2_bytes, SEND_TIMEOUT)
+        except ConnectionError as e:
+            result.record("sendToServer", False, f"MLLP {e}")
+            log(f"FAILED sendToServer: MLLP {e}")
+            return result
+        except socket.timeout:
+            result.record(
+                "sendToServer", False,
+                f"TIMEOUT after {SEND_TIMEOUT}s waiting for an MLLP ACK - likely a fault, raise an issue",
+            )
+            log(f"FAILED sendToServer: TIMEOUT after {SEND_TIMEOUT}s waiting for an MLLP ACK")
+            return result
+        except OSError as e:
+            result.record("sendToServer", False, f"MLLP error: {e}")
+            log(f"FAILED sendToServer: MLLP error: {e}")
+            return result
+        return record_ack(result, ack_text)
+
     log(f"POST {V2_SERVER} (waiting up to {SEND_TIMEOUT}s for an ACK)")
     try:
         r3 = session.post(V2_SERVER, data=v2_bytes, verify=False, timeout=SEND_TIMEOUT)
@@ -2173,7 +2240,12 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         log(f"FAILED sendToServer: HTTP {r3.status_code}")
         return result
 
-    ack_code, detail = parse_ack(r3.text)
+    return record_ack(result, r3.text)
+
+
+def record_ack(result, ack_text):
+    """Record stage 3's outcome from the RIE's ACK, however it was delivered."""
+    ack_code, detail = parse_ack(ack_text)
     if ack_code in ("AA", "CA"):
         result.record("sendToServer", True, f"ACK {ack_code}")
         log(f"sendToServer ok: ACK {ack_code}")
@@ -2420,6 +2492,8 @@ def main():
                         session, group_name, msg_type, filename, args.skip_send,
                         input_dir=group.get("input_dir"),
                         skip_transform_to_v2=group.get("skip_transform_to_v2", False),
+                        input_flat=group.get("input_flat", False),
+                        mllp_port=group.get("v2_mllp_port"),
                     ))
 
     log("all cases complete, printing summary")
