@@ -240,7 +240,9 @@ TEST_GROUPS = {
     },
     # Clatterbridge (Meditech) chimerism orders as OML^O21^OML_O21 at 2.5.1 - bone marrow
     # (CCC-Example1) and peripheral blood (CCC-Example2) - with OBR-4 the Genomic Test Directory code
-    # GT1368 and an SPM carrying the SNOMED specimen type. Read flat from Input/Chimerism/
+    # GT1368 and an SPM carrying the SNOMED specimen type. CCC-Example3 is a peripheral blood
+    # order sent to Histotrac with a local OBR-4 code (STR^Chimerism (PB)^L) and no NHS
+    # number in PID-3. Read flat from Input/Chimerism/
     # (no <type> subfolder). Sent by HTTP POST to V2_SERVER like the other groups - the
     # RIE's MLLP listener on port 30015 (set "v2_mllp_port": 30015 to use it) isn't
     # reachable from the test machine yet.
@@ -248,7 +250,7 @@ TEST_GROUPS = {
         "input_dir": os.path.join("Input", "Chimerism"),
         "input_flat": True,
         "cases": {
-            "O21": ["CCC-Example1.txt", "CCC-Example2.txt"],
+            "O21": ["CCC-Example1.txt", "CCC-Example2.txt", "CCC-Example3.txt"],
         },
     },
     # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
