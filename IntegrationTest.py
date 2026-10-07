@@ -451,6 +451,16 @@ TEST_GROUPS = {
                 "UKCore-Bundle-MichaelJonesRequest-Example_v3_message.json",
             ],
         },
+        "known_date_issues": {
+            # transformToV2 drops the sign of a negative timezone offset - deceasedDateTime
+            # 2024-05-16T00:00:00-05:00 comes out as PID-29 '202405160000000500' rather than
+            # '20240516000000-0500'. Accepted: a negative (west-of-UTC) offset isn't expected
+            # from UK senders in practice. Only this exact value is excused - any other
+            # malformed date in this fixture's round-trip still fails.
+            "Bundle-NonWGSScenario5-ProductsofConception-Example.json": {
+                "PID-29 Patient Death Date and Time = '202405160000000500'",
+            },
+        },
     },
     # Cepheid GeneXpert results (message type R32). Sourced from Input/ASTM/R32 - see
     # Testing-Cephied.ipynb, which flags the old Input/V2/R32 source as superseded by
@@ -802,14 +812,19 @@ def check_v2_dates(v2_text):
     return problems
 
 
-def record_date_check(result, stage, problems, advisory):
+def record_date_check(result, stage, problems, advisory, known_issues=()):
     """Records a v2Dates/fhirDates stage. A malformed date in a fixture we were given is
-    advisory (WARN); one in a transform's output is the transform's bug, so it fails."""
+    advisory (WARN); one in a transform's output is the transform's bug, so it fails.
+    known_issues: problem-string prefixes (see a group's "known_date_issues") accepted as
+    WARN rather than failure - still shown, so they don't silently disappear."""
     if not problems:
         result.record(stage, True, "all date/time values well-formed")
         return
-    detail = f"{len(problems)} malformed date/time value(s)" + "".join(f"\n        - {p}" for p in problems)
-    if advisory:
+    known = [p for p in problems if any(p.startswith(k) for k in known_issues)]
+    detail = f"{len(problems)} malformed date/time value(s)" + "".join(
+        f"\n        - {p}" + (" (known issue, accepted)" if p in known else "") for p in problems
+    )
+    if advisory or len(known) == len(problems):
         result.warn(stage, detail)
     else:
         result.record(stage, False, detail)
@@ -2468,7 +2483,7 @@ def record_ack(result, ack_text):
 
 
 def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_send=False,
-                          save_output=True, known_dangling_refs=()):
+                          save_output=True, known_dangling_refs=(), known_date_issues=()):
     """Like run_case, but for a group whose fixtures are already a FHIR Bundle
     (Input/FHIR/<type>/<filename>.json) rather than raw v2 - the "dwgs" group. Runs
     transformToV2 (there's no v2 original to run transformToFHIR on first), then
@@ -2484,6 +2499,9 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
     resource that only exists in a *different* published Bundle), not something this
     repo can fix by editing the fixture. Still recorded in the stage detail, just not
     as a failure - see the nwgmsa_examples group's comment in TEST_GROUPS.
+
+    known_date_issues: the same idea for v2RoundTripDates - exact '<field> <name> = <value>'
+    problem prefixes accepted as WARN for this fixture (see nhsd_examples).
     """
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
@@ -2554,7 +2572,8 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
     # --- NW-GMSA conformance of the transformToV2 output, and where it differs from the FHIR ---
     record_conformance(result, "v2Conformance", *check_v2_conformance(v2_roundtrip))
     record_conformance_parity(result, source_format="FHIR")
-    record_date_check(result, "v2RoundTripDates", check_v2_dates(v2_roundtrip), advisory=False)
+    record_date_check(result, "v2RoundTripDates", check_v2_dates(v2_roundtrip), advisory=False,
+                      known_issues=known_date_issues)
 
     applicable, demographics_problems = check_patient_demographics_preserved(fhir_json, v2_roundtrip)
     if applicable:
@@ -2700,6 +2719,7 @@ def main():
                         input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
                         skip_send=args.skip_send,
                         known_dangling_refs=group.get("known_dangling_refs", {}).get(filename, ()),
+                        known_date_issues=group.get("known_date_issues", {}).get(filename, ()),
                     ))
                 else:
                     results.append(run_case(
