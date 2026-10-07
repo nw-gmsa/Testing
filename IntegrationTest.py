@@ -13,6 +13,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      (PID and NK1 combined into one segment), also checks that the transform split it back
      out into a Patient (the baby/fetus) plus a RelatedPerson (the mother, relationship MTH)
      rather than collapsing them into one Patient - see check_baby_fetus_split.
+     Also checks every date/dateTime/instant in the Bundle is a well-formed FHIR R4 value
+     (fhirDates - e.g. SPM-17 '202610061106+0000' must not become '2026-10-06T11:06:+0+00:00');
+     a malformed one fails the case and blocks stage 3, like a structural problem.
      For messages carrying an OBX-2 'ED' segment whose OBX-3 identifier already supplies a
      SNOMED/LOINC code, or an OBX-2 'CE' segment whose value embeds a PDF, also checks that
      DocumentReference.type ends up with the expected SNOMED/LOINC coding - preserved as-is
@@ -21,6 +24,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back.
      Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
      corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
+     Its date/time fields are checked as well-formed v2 DTMs (v2RoundTripDates - fails the
+     case). The source message's own dates get the same check as advisory WARN (v2Dates),
+     since a malformed date in a fixture is the sender's problem, not the transform's.
   3. POST the *original* raw v2 message to {V2_SERVER} (the RIE), simulating a real feed;
      expect an ACK within SEND_TIMEOUT seconds with MSA-1 of AA/CA (a slow or negative ACK
      is treated as a fault worth raising, not something to silently wait out).
@@ -59,6 +65,7 @@ Exit code is 0 if every stage of every case passed (conformance WARNs don't coun
 """
 
 import argparse
+import datetime
 import json
 import os
 import re
@@ -241,8 +248,9 @@ TEST_GROUPS = {
     # Clatterbridge (Meditech) chimerism orders as OML^O21^OML_O21 at 2.5.1 - bone marrow
     # (CCC-Example1) and peripheral blood (CCC-Example2) - with OBR-4 the Genomic Test Directory code
     # GT1368 and an SPM carrying the SNOMED specimen type. CCC-Example3 is a peripheral blood
-    # order sent to Histotrac with a local OBR-4 code (STR^Chimerism (PB)^L) and no NHS
-    # number in PID-3. Read flat from Input/Chimerism/
+    # order sent to Histotrac with no NHS number in PID-3, and an SPM-17 with minutes but no
+    # seconds (202610061106+0000) - the shape that transformToFHIR once mangled into
+    # '2026-10-06T11:06:+0+00:00' (caught by fhirDates). Read flat from Input/Chimerism/
     # (no <type> subfolder). Sent by HTTP POST to V2_SERVER like the other groups - the
     # RIE's MLLP listener on port 30015 (set "v2_mllp_port": 30015 to use it) isn't
     # reachable from the test machine yet.
@@ -611,6 +619,183 @@ def check_fhir_bundle(bundle):
         walk(entry.get("resource"))
 
     return list(dict.fromkeys(problems))  # de-dupe, preserve order
+
+
+# --- Date/time format checks ---
+#
+# FHIR R4 primitive formats (https://hl7.org/fhir/R4/datatypes.html). A dateTime with a
+# time part SHALL carry seconds and a timezone; an instant always has both.
+_FHIR_DATE_PART = r"\d{4}(?:-(\d{2})(?:-(\d{2}))?)?"
+_FHIR_TIME_PART = r"T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(?:Z|([+-])(\d{2}):(\d{2}))"
+_FHIR_DATE_RE = re.compile(rf"^{_FHIR_DATE_PART}$")
+_FHIR_DATETIME_RE = re.compile(rf"^{_FHIR_DATE_PART}(?:{_FHIR_TIME_PART})?$")
+_FHIR_INSTANT_RE = re.compile(rf"^\d{{4}}-(\d{{2}})-(\d{{2}}){_FHIR_TIME_PART}$")
+
+# Elements whose name alone gives their type - everything else matched by
+# _fhir_date_kind is a dateTime (which also accepts a bare date).
+_FHIR_DATE_ELEMENTS = {"birthDate", "valueDate"}
+_FHIR_INSTANT_ELEMENTS = {"issued", "lastUpdated", "timestamp", "valueInstant", "effectiveInstant"}
+_FHIR_DATETIME_ELEMENTS = {
+    "date", "authoredOn", "recorded", "created", "sent", "received", "receivedTime",
+    "start", "end", "time",
+}
+
+
+def _fhir_date_kind(key):
+    """'date', 'dateTime' or 'instant' for an element name holding a FHIR date-ish
+    primitive, None otherwise. Name-based, so it covers choice types (collectedDateTime,
+    effectiveDateTime, valueDateTime, ...) without needing every resource's
+    StructureDefinition."""
+    if key in _FHIR_INSTANT_ELEMENTS or key.endswith("Instant"):
+        return "instant"
+    if key in _FHIR_DATE_ELEMENTS:
+        return "date"
+    if key in _FHIR_DATETIME_ELEMENTS or key.endswith("DateTime") or key.endswith("Date"):
+        return "dateTime"
+    return None
+
+
+def _calendar_problem(year, month, day, hour=None, minute=None, second=None, tz_hour=None, tz_minute=None):
+    """Range-checks already-split date/time parts (strings or None) - the regexes only
+    check shape, so 2026-13-45 or 25:61 would otherwise slip through."""
+    try:
+        datetime.date(int(year), int(month or 1), int(day or 1))
+    except ValueError:
+        return "not a real calendar date"
+    if hour is not None and not (0 <= int(hour) <= 23):
+        return f"hour {hour} out of range"
+    if minute is not None and not (0 <= int(minute) <= 59):
+        return f"minute {minute} out of range"
+    if second is not None and not (0 <= int(second) <= 60):
+        return f"second {second} out of range"
+    if tz_hour is not None and not (int(tz_hour) <= 14 and int(tz_minute) <= 59):
+        return f"timezone offset {tz_hour}:{tz_minute} out of range"
+    return None
+
+
+def _fhir_date_problem(value, kind):
+    regex = {"date": _FHIR_DATE_RE, "dateTime": _FHIR_DATETIME_RE, "instant": _FHIR_INSTANT_RE}[kind]
+    m = regex.match(value)
+    if not m:
+        return f"not a valid FHIR {kind}"
+    if kind == "date":
+        month, day = m.groups()
+        problem = _calendar_problem(value[:4], month, day)
+        return f"not a valid FHIR {kind} ({problem})" if problem else None
+    month, day, hh, mi, ss, _sign, tzh, tzm = m.groups()
+    if hh is not None and day is None:
+        return f"not a valid FHIR {kind} (time without a full date)"
+    problem = _calendar_problem(value[:4], month, day, hh, mi, ss, tzh, tzm)
+    return f"not a valid FHIR {kind} ({problem})" if problem else None
+
+
+def check_fhir_dates(bundle):
+    """Every date/dateTime/instant value in the Bundle (Bundle.timestamp, meta.lastUpdated,
+    Patient.birthDate, Specimen.collection.collectedDateTime, ...) is well-formed per the
+    FHIR R4 primitive formats. Returns a list of '<Resource>.<path> = <value>: <problem>'
+    strings; empty = OK."""
+    problems = []
+
+    def walk(node, path):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k.startswith("_"):
+                    continue  # primitive extension, not the value itself
+                kind = _fhir_date_kind(k)
+                if kind and isinstance(v, str):
+                    problem = _fhir_date_problem(v, kind)
+                    if problem:
+                        problems.append(f"{path}.{k} = {v!r}: {problem}")
+                else:
+                    walk(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                walk(v, f"{path}[{i}]")
+
+    if not isinstance(bundle, dict):
+        return problems
+    if isinstance(bundle.get("timestamp"), str):
+        problem = _fhir_date_problem(bundle["timestamp"], "instant")
+        if problem:
+            problems.append(f"Bundle.timestamp = {bundle['timestamp']!r}: {problem}")
+    walk(bundle.get("meta"), "Bundle.meta")
+    for entry in bundle.get("entry") or []:
+        resource = entry.get("resource") if isinstance(entry, dict) else None
+        if isinstance(resource, dict):
+            walk(resource, resource.get("resourceType", "?"))
+    return problems
+
+
+# HL7 v2.5.1 DTM: YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] (DT is the date-only subset).
+_V2_DTM_RE = re.compile(
+    r"^(\d{4})(?:(\d{2})(?:(\d{2})(?:(\d{2})(?:(\d{2})(?:(\d{2})(?:\.\d{1,4})?)?)?)?)?)?"
+    r"(?:[+-](\d{2})(\d{2}))?$"
+)
+
+# Date/time fields checked per segment (2.5.1 positions): field number -> label, or
+# (field, component) -> label for a date inside a composite (TQ/DR).
+V2_DATE_FIELDS = {
+    "MSH": {7: "Date/Time Of Message"},
+    "EVN": {2: "Recorded Date/Time", 6: "Event Occurred"},
+    "PID": {7: "Date/Time of Birth", 29: "Patient Death Date and Time"},
+    "NK1": {16: "Date/Time of Birth"},
+    "PV1": {44: "Admit Date/Time", 45: "Discharge Date/Time"},
+    "ORC": {9: "Date/Time of Transaction", 15: "Order Effective Date/Time",
+            (7, 4): "Quantity/Timing start", (7, 5): "Quantity/Timing end"},
+    "TQ1": {7: "Start date/time", 8: "End date/time"},
+    "OBR": {6: "Requested Date/Time", 7: "Observation Date/Time", 8: "Observation End Date/Time",
+            14: "Specimen Received Date/Time", 22: "Results Rpt/Status Chng - Date/Time",
+            36: "Scheduled Date/Time", (27, 4): "Quantity/Timing start", (27, 5): "Quantity/Timing end"},
+    "OBX": {14: "Date/Time of the Observation", 19: "Date/Time of the Analysis"},
+    "SPM": {(17, 1): "Specimen Collection Date/Time (start)", (17, 2): "Specimen Collection Date/Time (end)",
+            18: "Specimen Received Date/Time"},
+    "TXA": {4: "Activity Date/Time", 6: "Origination Date/Time", 7: "Transcription Date/Time",
+            8: "Edit Date/Time"},
+}
+
+
+def _v2_date_problem(value):
+    m = _V2_DTM_RE.match(value)
+    if not m:
+        return "not a valid HL7 v2 DTM (YYYY[MM[DD[HH[MM[SS[.SSSS]]]]]][+/-ZZZZ])"
+    year, month, day, hh, mi, ss, tzh, tzm = m.groups()
+    problem = _calendar_problem(year, month, day, hh, mi, ss, tzh, tzm)
+    return f"not a valid HL7 v2 DTM ({problem})" if problem else None
+
+
+def check_v2_dates(v2_text):
+    """Every populated date/time field listed in V2_DATE_FIELDS is a well-formed v2 DTM.
+    Returns a list of '<SEG>-<n> <name> = <value>: <problem>' strings; empty = OK. Repeats
+    are checked individually; empty and "" (explicit null) values are skipped."""
+    problems = []
+    for fields in _v2_segment_fields(v2_text):
+        seg = fields[0]
+        for pos, label in V2_DATE_FIELDS.get(seg, {}).items():
+            n, comp = pos if isinstance(pos, tuple) else (pos, None)
+            raw = _v2_msh_field(fields, n) if seg == "MSH" else _v2_field(fields, n)
+            for rep in raw.split("~"):
+                value = _v2_component(rep, comp) if comp else rep.split("^")[0].strip()
+                if not value or value == '""':
+                    continue
+                problem = _v2_date_problem(value)
+                if problem:
+                    where = f"{seg}-{n}" + (f".{comp}" if comp else "")
+                    problems.append(f"{where} {label} = {value!r}: {problem}")
+    return problems
+
+
+def record_date_check(result, stage, problems, advisory):
+    """Records a v2Dates/fhirDates stage. A malformed date in a fixture we were given is
+    advisory (WARN); one in a transform's output is the transform's bug, so it fails."""
+    if not problems:
+        result.record(stage, True, "all date/time values well-formed")
+        return
+    detail = f"{len(problems)} malformed date/time value(s)" + "".join(f"\n        - {p}" for p in problems)
+    if advisory:
+        result.warn(stage, detail)
+    else:
+        result.record(stage, False, detail)
+        log(f"FAILED {stage}: {'; '.join(problems)}")
 
 
 def _resolve_bundle_reference(bundle, reference):
@@ -2061,6 +2246,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
 
     # --- NW-GMSA conformance of the source v2 message ---
     record_conformance(result, "v2Conformance", *check_v2_conformance(v2_bytes.decode("utf-8", errors="replace")))
+    record_date_check(result, "v2Dates", check_v2_dates(v2_bytes.decode("utf-8", errors="replace")), advisory=True)
 
     # --- Stage 1: transformToFHIR ---
     log(f"POST {V2_TOOLS}/transformToFHIR (timeout=30s)")
@@ -2105,6 +2291,10 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     else:
         result.record("fhirStructure", True, f"{len(resource_types)} entries structurally sound")
 
+    # --- Date/time formats in the transformToFHIR output (e.g. SPM-17 -> collectedDateTime) ---
+    date_problems = check_fhir_dates(fhir_json)
+    record_date_check(result, "fhirDates", date_problems, advisory=False)
+
     # --- Baby/fetus PID+NK1 -> Patient+RelatedPerson split (only applies to 'Baby of'/'Fetus of' cases) ---
     applicable, split_problems = check_baby_fetus_split(v2_bytes.decode("utf-8"), fhir_json)
     if applicable:
@@ -2125,11 +2315,12 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
                 "DocumentReference.type carries the expected SNOMED/LOINC coding",
             )
 
-    # A structural/split/coding problem means transformToFHIR produced something wrong -
+    # A structural/date/split/coding problem means transformToFHIR produced something wrong -
     # don't let a bad transform reach the RIE. transformToV2 still runs below (useful
     # diagnostic on its own), but stage 3 (send to server) is skipped once we reach it.
     transform_error = (
         bool(problems)
+        or bool(date_problems)
         or (applicable and bool(split_problems))
         or (doc_applicable and bool(doc_problems))
     )
@@ -2169,6 +2360,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
 
         result.record("transformToV2", True, f"{len(v2_roundtrip)} chars")
         log(f"transformToV2 ok: {len(v2_roundtrip)} chars")
+        record_date_check(result, "v2RoundTripDates", check_v2_dates(v2_roundtrip), advisory=False)
 
         # --- Encounter/Patient/Specimen -> PV1/PID/SPM segment presence check ---
         segments_applicable, segment_problems = check_expected_segments_present(fhir_json, v2_roundtrip)
@@ -2189,8 +2381,8 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     if transform_error:
         result.record(
             "sendToServer", False,
-            "skipped - transformToFHIR produced a structurally invalid or incorrectly split "
-            "result; refusing to send to the RIE",
+            "skipped - transformToFHIR produced a structurally invalid, malformed-date or "
+            "incorrectly split result; refusing to send to the RIE",
         )
         log("sendToServer skipped - earlier stage produced a structurally invalid result")
         return result
@@ -2300,6 +2492,7 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     # --- NW-GMSA conformance of the source FHIR Bundle ---
     record_conformance(result, "fhirConformance", *check_fhir_conformance(fhir_json))
+    record_date_check(result, "fhirDates", check_fhir_dates(fhir_json), advisory=True)
 
     problems = check_fhir_bundle(fhir_json)
     known = [p for p in problems if any(ref in p for ref in known_dangling_refs)]
@@ -2343,6 +2536,7 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
     # --- NW-GMSA conformance of the transformToV2 output, and where it differs from the FHIR ---
     record_conformance(result, "v2Conformance", *check_v2_conformance(v2_roundtrip))
     record_conformance_parity(result, source_format="FHIR")
+    record_date_check(result, "v2RoundTripDates", check_v2_dates(v2_roundtrip), advisory=False)
 
     applicable, demographics_problems = check_patient_demographics_preserved(fhir_json, v2_roundtrip)
     if applicable:
