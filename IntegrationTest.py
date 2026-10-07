@@ -108,6 +108,24 @@ HEADERS_FHIR = {"Content-Type": "application/fhir+json"}
 # indefinitely - see stage 3 below.
 SEND_TIMEOUT = 60
 
+# HTTP 503 (Service Unavailable) is usually a server briefly restarting or overloaded, not
+# a problem with the message - pause and retry before recording it as a failure.
+RETRY_503_ATTEMPTS = 3  # first try + 2 retries
+RETRY_503_DELAY = 5     # seconds between attempts
+
+
+def post_with_retry(session, url, **kwargs):
+    """session.post(), retried up to RETRY_503_ATTEMPTS times in all while the server
+    answers 503. Returns the last response (so a persistent 503 still reaches the caller
+    as a 503); request exceptions propagate unchanged."""
+    for attempt in range(1, RETRY_503_ATTEMPTS + 1):
+        r = session.post(url, **kwargs)
+        if r.status_code != 503 or attempt == RETRY_503_ATTEMPTS:
+            return r
+        log(f"HTTP 503 from {url} (attempt {attempt}/{RETRY_503_ATTEMPTS}) - "
+            f"retrying in {RETRY_503_DELAY}s")
+        time.sleep(RETRY_503_DELAY)
+
 # Registry of test scenarios. Each group maps message type -> list of filenames.
 # Filenames are read from Input/V2/<type>/<filename> unless the group sets "input_dir",
 # in which case they're read from <input_dir>/<type>/<filename> instead (or straight from
@@ -503,8 +521,8 @@ def get_fhir_bearer_token(session):
     global _fhir_bearer_token
     if _fhir_bearer_token is None:
         log(f"POST {OAUTH2_TOKEN_URL} (fetching FHIR_SERVER OAuth2 bearer token)")
-        resp = session.post(
-            OAUTH2_TOKEN_URL,
+        resp = post_with_retry(
+            session, OAUTH2_TOKEN_URL,
             auth=HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET),
             data={"grant_type": "client_credentials", "scope": "system/*.*"},
             headers={"Content-Type": "application/x-www-form-urlencoded"},
@@ -2251,8 +2269,8 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     # --- Stage 1: transformToFHIR ---
     log(f"POST {V2_TOOLS}/transformToFHIR (timeout=30s)")
     try:
-        r1 = session.post(
-            f"{V2_TOOLS}/transformToFHIR", data=v2_bytes,
+        r1 = post_with_retry(
+            session, f"{V2_TOOLS}/transformToFHIR", data=v2_bytes,
             headers=HEADERS_V2, verify=False, timeout=30,
         )
     except requests.RequestException as e:
@@ -2338,8 +2356,8 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
     else:
         log(f"POST {V2_TOOLS}/transformToV2 (timeout=30s)")
         try:
-            r2 = session.post(
-                f"{V2_TOOLS}/transformToV2", data=r1.text,
+            r2 = post_with_retry(
+                session, f"{V2_TOOLS}/transformToV2", data=r1.text,
                 headers=HEADERS_FHIR, verify=False, timeout=30,
             )
         except requests.RequestException as e:
@@ -2416,7 +2434,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
 
     log(f"POST {V2_SERVER} (waiting up to {SEND_TIMEOUT}s for an ACK)")
     try:
-        r3 = session.post(V2_SERVER, data=v2_bytes, verify=False, timeout=SEND_TIMEOUT)
+        r3 = post_with_retry(session, V2_SERVER, data=v2_bytes, verify=False, timeout=SEND_TIMEOUT)
     except requests.Timeout:
         result.record(
             "sendToServer", False,
@@ -2510,8 +2528,8 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     log(f"POST {V2_TOOLS}/transformToV2 (timeout=30s)")
     try:
-        r2 = session.post(
-            f"{V2_TOOLS}/transformToV2", data=fhir_bytes,
+        r2 = post_with_retry(
+            session, f"{V2_TOOLS}/transformToV2", data=fhir_bytes,
             headers=HEADERS_FHIR, verify=False, timeout=30,
         )
     except requests.RequestException as e:
@@ -2585,8 +2603,8 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     log(f"POST {FHIR_SERVER}$process-message (timeout={SEND_TIMEOUT}s)")
     try:
-        r3 = session.post(
-            f"{FHIR_SERVER}$process-message", data=fhir_bytes,
+        r3 = post_with_retry(
+            session, f"{FHIR_SERVER}$process-message", data=fhir_bytes,
             headers={"Content-Type": "application/fhir+json", "Authorization": f"Bearer {token}"},
             verify=False, timeout=SEND_TIMEOUT,
         )
