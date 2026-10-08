@@ -50,8 +50,9 @@ run doesn't clobber a notebook run's output (or vice versa).
 TEST_GROUPS covers several exchange scenarios extracted from Testing.ipynb - general
 NHS Trust <-> iGene order/report exchange (O01/O21/R01), the mother/baby-fetus PID+NK1
 split cases (O21/R01), Shire <-> HODS reports (R01), Clatterbridge/Histotrac orders and
-reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01), and
-Cepheid results (R32, sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
+reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01),
+international patients with an 'n/a' NHS number (R01), and Cepheid results (R32,
+sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
 isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
 (O21/R01, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
@@ -204,6 +205,15 @@ TEST_GROUPS = {
     "shire": {
         "cases": {
             "R01": ["SHIRE_ORU_R01_RM3.txt", "Shire-1.txt", "Shire-2.txt"],
+        },
+    },
+    # International (non-NHS) patients. On live these have arrived with "n/a" in the NHS
+    # number field - R0A-Belgium.txt carries "n/a" in PID-2 and PID-19 to reproduce that.
+    # The nhsNumberValid stage is expected to FAIL until transformToFHIR stops copying
+    # "n/a" into a Patient nhs-number identifier.
+    "international": {
+        "cases": {
+            "R01": ["R0A-Belgium.txt"],
         },
     },
     # Clatterbridge Cancer Centre and Histotrac orders/reports.
@@ -1417,6 +1427,40 @@ def check_document_reference_code(v2_text, bundle):
     return applicable, list(dict.fromkeys(problems))
 
 
+def is_valid_nhs_number(value):
+    """10 digits (spaces ignored) with a correct modulus 11 check digit."""
+    digits = str(value).replace(" ", "")
+    if not re.fullmatch(r"\d{10}", digits):
+        return False
+    check = 11 - sum(int(d) * (10 - i) for i, d in enumerate(digits[:9])) % 11
+    check = 0 if check == 11 else check
+    return check != 10 and check == int(digits[9])
+
+
+def check_patient_nhs_numbers(bundle):
+    """Every Patient.identifier with system https://fhir.nhs.uk/Id/nhs-number must carry a
+    valid NHS number. Live, international patients have arrived with a placeholder such as
+    'n/a' in the NHS number field (see the international group's R0A-Belgium.txt), which
+    transformToFHIR copied straight into an nhs-number identifier rather than omitting it.
+    Applicable only when the bundle has such an identifier - a Patient with no NHS number
+    at all is fine here.
+    """
+    applicable, problems = False, []
+    for e in bundle.get("entry", []) if isinstance(bundle, dict) else []:
+        resource = e.get("resource", {})
+        if resource.get("resourceType") != "Patient":
+            continue
+        for identifier in resource.get("identifier", []):
+            if identifier.get("system") != NHS_NUMBER_SYSTEM:
+                continue
+            applicable = True
+            if not is_valid_nhs_number(identifier.get("value", "")):
+                patient = f"Patient/{resource['id']}" if resource.get("id") else e.get("fullUrl", "Patient")
+                problems.append(f"{patient} nhs-number identifier value "
+                                f"{identifier.get('value')!r} is not a valid NHS number")
+    return applicable, problems
+
+
 def check_expected_segments_present(bundle, v2_text):
     """Checks that certain FHIR resource types present in `bundle` produce their
     corresponding HL7 v2 segment somewhere in `v2_text` (a transformToV2 output):
@@ -2347,6 +2391,16 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
                 "documentReferenceCode", True,
                 "DocumentReference.type carries the expected SNOMED/LOINC coding",
             )
+
+    # --- Patient nhs-number identifiers hold a real NHS number (not e.g. 'n/a'). Recorded as
+    # a failure but deliberately not a transform_error: the send still runs, so the case
+    # also shows how the RIE handles the bad identifier, as happened live. ---
+    nhs_applicable, nhs_problems = check_patient_nhs_numbers(fhir_json)
+    if nhs_applicable:
+        if nhs_problems:
+            result.record("nhsNumberValid", False, "; ".join(nhs_problems))
+        else:
+            result.record("nhsNumberValid", True, "Patient nhs-number identifier(s) valid")
 
     # A structural/date/split/coding problem means transformToFHIR produced something wrong -
     # don't let a bad transform reach the RIE. transformToV2 still runs below (useful
