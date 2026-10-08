@@ -209,12 +209,14 @@ TEST_GROUPS = {
     },
     # International (non-NHS) patients. On live these have arrived with "n/a" in the NHS
     # number field - R0A-Belgium.txt carries "n/a" in PID-2 and PID-19 to reproduce that.
-    # The nhsNumberValid stage is expected to FAIL until transformToFHIR stops copying
-    # "n/a" into a Patient nhs-number identifier.
+    # expect_no_nhs_number lists files whose transformToFHIR Patient must have no
+    # nhs-number identifier at all (the noNhsNumber stage) - transformToFHIR used to copy
+    # "n/a" into one, and this guards against that coming back.
     "international": {
         "cases": {
             "R01": ["R0A-Belgium.txt"],
         },
+        "expect_no_nhs_number": ["R0A-Belgium.txt"],
     },
     # Clatterbridge Cancer Centre and Histotrac orders/reports.
     # Deviation notes (MSH-9/MSH-12, not patient data - see Clatterbridge-Order-review.md
@@ -1445,20 +1447,24 @@ def check_patient_nhs_numbers(bundle):
     Applicable only when the bundle has such an identifier - a Patient with no NHS number
     at all is fine here.
     """
-    applicable, problems = False, []
+    nhs_numbers = patient_nhs_numbers(bundle)
+    problems = [f"{patient} nhs-number identifier value {value!r} is not a valid NHS number"
+                for patient, value in nhs_numbers if not is_valid_nhs_number(value)]
+    return bool(nhs_numbers), problems
+
+
+def patient_nhs_numbers(bundle):
+    """(Patient label, value) for every Patient.identifier with the nhs-number system."""
+    found = []
     for e in bundle.get("entry", []) if isinstance(bundle, dict) else []:
         resource = e.get("resource", {})
         if resource.get("resourceType") != "Patient":
             continue
+        patient = f"Patient/{resource['id']}" if resource.get("id") else e.get("fullUrl", "Patient")
         for identifier in resource.get("identifier", []):
-            if identifier.get("system") != NHS_NUMBER_SYSTEM:
-                continue
-            applicable = True
-            if not is_valid_nhs_number(identifier.get("value", "")):
-                patient = f"Patient/{resource['id']}" if resource.get("id") else e.get("fullUrl", "Patient")
-                problems.append(f"{patient} nhs-number identifier value "
-                                f"{identifier.get('value')!r} is not a valid NHS number")
-    return applicable, problems
+            if identifier.get("system") == NHS_NUMBER_SYSTEM:
+                found.append((patient, identifier.get("value", "")))
+    return found
 
 
 def check_expected_segments_present(bundle, v2_text):
@@ -2302,7 +2308,7 @@ class CaseResult:
 
 def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
              skip_transform_to_v2=False, save_output=True, input_flat=False,
-             mllp_port=None):
+             mllp_port=None, expect_no_nhs_number=False):
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
     result = CaseResult(case_name)
@@ -2401,6 +2407,18 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             result.record("nhsNumberValid", False, "; ".join(nhs_problems))
         else:
             result.record("nhsNumberValid", True, "Patient nhs-number identifier(s) valid")
+
+    # --- Source has no NHS number (e.g. an international patient sent with 'n/a'), so the
+    # Patient must carry no nhs-number identifier at all - see the group's
+    # "expect_no_nhs_number". Same non-blocking treatment as nhsNumberValid. ---
+    if expect_no_nhs_number:
+        nhs_numbers = patient_nhs_numbers(fhir_json)
+        if nhs_numbers:
+            result.record("noNhsNumber", False, "; ".join(
+                f"{patient} has an nhs-number identifier ({value!r}) but the source has no NHS number"
+                for patient, value in nhs_numbers))
+        else:
+            result.record("noNhsNumber", True, "Patient has no nhs-number identifier")
 
     # A structural/date/split/coding problem means transformToFHIR produced something wrong -
     # don't let a bad transform reach the RIE. transformToV2 still runs below (useful
@@ -2782,6 +2800,7 @@ def main():
                         skip_transform_to_v2=group.get("skip_transform_to_v2", False),
                         input_flat=group.get("input_flat", False),
                         mllp_port=group.get("v2_mllp_port"),
+                        expect_no_nhs_number=filename in group.get("expect_no_nhs_number", ()),
                     ))
 
     log("all cases complete, printing summary")
