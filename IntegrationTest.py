@@ -1453,6 +1453,52 @@ def check_patient_nhs_numbers(bundle):
     return bool(nhs_numbers), problems
 
 
+def source_nhs_numbers(v2_text):
+    """Valid NHS numbers the source PID carries where transformToFHIR is expected to map
+    them: PID-2 (iGene's convention), any PID-3 repeat with CX.5 = NH, and - for MSH-3
+    SHIRE only - a PID-3 repeat with CX.5 = PATNUMBER. PID-19 isn't included: the
+    transform has never mapped it (e.g. Histotrac's histotrac-MFT.txt). Invalid values
+    ('n/a', a bad check digit) are left out - the transform is expected to drop those.
+    """
+    segments = _v2_segment_fields(v2_text)
+    msh = next((s for s in segments if s[0] == "MSH"), [])
+    pid = next((s for s in segments if s[0] == "PID"), None)
+    if pid is None:
+        return []
+    nh_types = {"NH", "PATNUMBER"} if _v2_msh_field(msh, 3).upper() == "SHIRE" else {"NH"}
+    candidates = [_v2_component(_v2_field(pid, 2), 1)] + [
+        _v2_component(rep, 1) for rep in _v2_repeats(_v2_field(pid, 3))
+        if _v2_component(rep, 5) in nh_types
+    ]
+    return list(dict.fromkeys(c.replace(" ", "") for c in candidates if is_valid_nhs_number(c)))
+
+
+def check_nhs_number_preserved(v2_text, bundle):
+    """Every valid NHS number in the source PID (see source_nhs_numbers) must come out as an
+    nhs-number identifier - on the Patient, or for an iGene 'Baby of'/'Fetus of' message on
+    the mother's RelatedPerson (the PID's NHS number is hers - see check_baby_fetus_split).
+    Caught a deployed IsValidNHSNumber that dropped most valid PID-2 NHS numbers (ObjectScript
+    evaluates operators left to right, so its check-digit sum was wrong).
+
+    Returns (applicable, problems): not applicable when the source has no valid NHS number.
+    """
+    expected = source_nhs_numbers(v2_text)
+    if not expected:
+        return False, []
+    given = extract_pid5_given_name(v2_text)
+    is_baby_fetus = bool(given) and given.strip().lower().startswith(BABY_FETUS_PREFIXES)
+    target = "RelatedPerson" if is_baby_fetus else "Patient"
+    found = {
+        str(identifier.get("value", "")).replace(" ", "")
+        for e in (bundle.get("entry", []) if isinstance(bundle, dict) else [])
+        if e.get("resource", {}).get("resourceType") == target
+        for identifier in e["resource"].get("identifier", [])
+        if identifier.get("system") == NHS_NUMBER_SYSTEM
+    }
+    return True, [f"source NHS number {n} is missing from {target}.identifier"
+                  for n in expected if n not in found]
+
+
 def patient_nhs_numbers(bundle):
     """(Patient label, value) for every Patient.identifier with the nhs-number system."""
     found = []
@@ -2407,6 +2453,14 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             result.record("nhsNumberValid", False, "; ".join(nhs_problems))
         else:
             result.record("nhsNumberValid", True, "Patient nhs-number identifier(s) valid")
+
+    # --- A valid source NHS number must survive the transform (same non-blocking treatment) ---
+    kept_applicable, kept_problems = check_nhs_number_preserved(v2_bytes.decode("utf-8", errors="replace"), fhir_json)
+    if kept_applicable:
+        if kept_problems:
+            result.record("nhsNumberPreserved", False, "; ".join(kept_problems))
+        else:
+            result.record("nhsNumberPreserved", True, "source NHS number(s) carried into FHIR")
 
     # --- Source has no NHS number (e.g. an international patient sent with 'n/a'), so the
     # Patient must carry no nhs-number identifier at all - see the group's
