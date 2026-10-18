@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:a2775d19-8d42-4f35-b102-62992041c2d7"
+    "value": "urn:uuid:93c34d3e-b2ad-4076-b7bc-1a4754ce98c1"
   },
-  "timestamp": "2026-08-28T11:45:57+00:00",
+  "timestamp": "2026-10-18T08:38:50+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:ef86bfd4-5ec0-4796-a407-e8109a307dad",
+      "fullUrl": "urn:uuid:2cc6b194-e871-4f7e-a253-778888310918",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:81202ddd-f468-4660-a1ce-d9f110b07edd"
+            "reference": "urn:uuid:c0f596f5-9f6e-410e-bf75-30bdbcb069c6"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:80ffc609-c0f9-417d-b575-0c729434addc",
+      "fullUrl": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:619b4dab-65f5-44e6-8e65-e3be3d00b0bf",
+      "fullUrl": "urn:uuid:7672dd87-25bb-4a01-8c80-bec8cd903a20",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -155,10 +155,19 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:80ffc609-c0f9-417d-b575-0c729434addc"
+          "reference": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1"
         },
         "collection": {
-          "collectedDateTime": "2026-08-18T00:00:00+00:00"
+          "collectedDateTime": "2026-08-18T00:00:00+00:00",
+          "method": {
+            "text": "Qiagen"
+          },
+          "quantity": {
+            "value": 120.0,
+            "unit": "uL",
+            "system": "http://unitsofmeasure.org",
+            "code": "uL"
+          }
         },
         "receivedTime": "2026-08-20T00:00:00+00:00",
         "container": [
@@ -181,59 +190,76 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d61ee0cc-4cc8-482c-97e9-f6f6b1853086",
+      "fullUrl": "urn:uuid:0e06d8fe-a123-4f97-9121-02ea8cfbdd4b",
       "resource": {
-        "resourceType": "Observation",
-        "status": "final",
-        "category": [
+        "resourceType": "Group",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyGeneticGroup"
+          ]
+        },
+        "identifier": [
           {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "exam"
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PGN"
+                }
+              ]
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/Identifier/NGIS-ReferralIdentifier",
+            "value": "r2026000203",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "8J834"
               }
-            ]
+            }
           }
         ],
+        "type": "person",
+        "actual": true,
         "code": {
-          "text": "Family Structure"
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+              "code": "FamilyStructureTrio",
+              "display": "Trio"
+            }
+          ]
         },
-        "subject": {
-          "reference": "urn:uuid:80ffc609-c0f9-417d-b575-0c729434addc"
-        },
-        "valueCodeableConcept": {
-          "text": "Trio"
-        }
+        "quantity": 3,
+        "member": [
+          {
+            "extension": [
+              {
+                "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberRelationship",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "FAMMEMB",
+                      "display": "family member"
+                    }
+                  ]
+                }
+              }
+            ],
+            "entity": {
+              "reference": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1",
+              "type": "Patient",
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/nhs-number",
+                "value": "9999999514"
+              }
+            }
+          }
+        ]
       }
     },
     {
-      "fullUrl": "urn:uuid:e94acc04-02ec-47a1-89cb-c2f851eecdce",
-      "resource": {
-        "resourceType": "Observation",
-        "status": "final",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "exam"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "text": "Participant Type"
-        },
-        "subject": {
-          "reference": "urn:uuid:80ffc609-c0f9-417d-b575-0c729434addc"
-        },
-        "valueCodeableConcept": {
-          "text": "Family Member"
-        }
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:81202ddd-f468-4660-a1ce-d9f110b07edd",
+      "fullUrl": "urn:uuid:c0f596f5-9f6e-410e-bf75-30bdbcb069c6",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -257,22 +283,25 @@
           ]
         },
         "requisition": {
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code": "PGN"
+              }
+            ]
+          },
+          "system": "https://fhir.nwgenomics.nhs.uk/Identifier/NGIS-ReferralIdentifier",
+          "value": "r2026000203",
           "assigner": {
             "identifier": {
               "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699D0"
+              "value": "8J834"
             }
-          },
-          "value": "r2026000203"
+          }
         },
         "identifier": [
           {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "8J834"
-              }
-            },
             "type": {
               "coding": [
                 {
@@ -281,11 +310,17 @@
                 }
               ]
             },
-            "value": "r2026000203-p2026000106"
+            "value": "r2026000203-p2026000106",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "8J834"
+              }
+            }
           }
         ],
         "subject": {
-          "reference": "urn:uuid:80ffc609-c0f9-417d-b575-0c729434addc"
+          "reference": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1"
         },
         "requester": {
           "display": "Sheffield Diagnostic Genetics Service (NE&Y Genomics)",
@@ -297,80 +332,16 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:619b4dab-65f5-44e6-8e65-e3be3d00b0bf",
+            "reference": "urn:uuid:7672dd87-25bb-4a01-8c80-bec8cd903a20",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:d61ee0cc-4cc8-482c-97e9-f6f6b1853086",
-            "type": "Observation"
-          },
-          {
-            "reference": "urn:uuid:e94acc04-02ec-47a1-89cb-c2f851eecdce",
-            "type": "Observation"
+            "reference": "urn:uuid:0e06d8fe-a123-4f97-9121-02ea8cfbdd4b",
+            "type": "Group"
           }
         ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:890c0a5b-1f08-4881-935a-0fb17925941b",
-      "resource": {
-        "resourceType": "RelatedPerson",
-        "name": [
-          {
-            "family": "Brough",
-            "given": [
-              "Gilly"
-            ]
-          }
-        ],
-        "patient": {
-          "reference": "urn:uuid:80ffc609-c0f9-417d-b575-0c729434addc",
-          "type": "Patient"
-        },
-        "relationship": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "SIB",
-                "display": "sibling"
-              }
-            ]
-          }
-        ],
-        "birthDate": "1989-07-01"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:f05338f0-1711-4db3-9b8d-d4274be2d7e5",
-      "resource": {
-        "resourceType": "RelatedPerson",
-        "name": [
-          {
-            "family": "Editestpatient",
-            "given": [
-              "Thirteen"
-            ]
-          }
-        ],
-        "patient": {
-          "reference": "urn:uuid:80ffc609-c0f9-417d-b575-0c729434addc",
-          "type": "Patient"
-        },
-        "relationship": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "FTH",
-                "display": "father"
-              }
-            ]
-          }
-        ],
-        "birthDate": "1960-01-01"
       }
     }
   ]
