@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:4f82522f-95f6-4ec1-807e-055317c277cb"
+    "value": "urn:uuid:9fb86fa7-a2dc-423b-9afe-8446f72aef65"
   },
-  "timestamp": "2026-10-18T09:13:06+00:00",
+  "timestamp": "2026-10-18T10:10:59+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:3f6647b8-d428-4c9b-9fd3-cfb8726ccf66",
+      "fullUrl": "urn:uuid:a9d26a71-46f4-4b10-b5f0-1ea486c0bc27",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:dd39d9c5-208d-4b4e-941d-463e265bbbb8"
+            "reference": "urn:uuid:e396fbf9-67bf-4ffa-8644-3b86001c172e"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e",
+      "fullUrl": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0cb5c5a4-7502-421e-957c-c65a3fe59b24",
+      "fullUrl": "urn:uuid:fd796538-197b-4b8d-bcc3-dac7f580ca2c",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -155,7 +155,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e"
+          "reference": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240"
         },
         "collection": {
           "collectedDateTime": "2026-08-18T00:00:00+00:00",
@@ -190,7 +190,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1f9a4df8-1218-4ff8-a318-8eecbd701d75",
+      "fullUrl": "urn:uuid:48a35a7d-a141-4f22-ab7f-f7f4d871dbf7",
       "resource": {
         "resourceType": "Group",
         "meta": {
@@ -271,7 +271,7 @@
               }
             ],
             "entity": {
-              "reference": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e",
+              "reference": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240",
               "type": "Patient",
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -283,7 +283,28 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dd39d9c5-208d-4b4e-941d-463e265bbbb8",
+      "fullUrl": "urn:uuid:5160487a-717c-4d1a-ad05-e250ac28883e",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "practitioner": {
+          "display": "Duty Scientist on behalf of NEY GMS"
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699N0"
+          },
+          "display": "Northern Genetics Service, Newcastle (NE&Y Genomics)"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e396fbf9-67bf-4ffa-8644-3b86001c172e",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -344,25 +365,21 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e"
+          "reference": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240"
         },
         "requester": {
-          "display": "Northern Genetics Service, Newcastle (NE&Y Genomics)",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "699N0"
-          },
-          "type": "Organization"
+          "reference": "urn:uuid:5160487a-717c-4d1a-ad05-e250ac28883e",
+          "type": "PractitionerRole"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:0cb5c5a4-7502-421e-957c-c65a3fe59b24",
+            "reference": "urn:uuid:fd796538-197b-4b8d-bcc3-dac7f580ca2c",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:1f9a4df8-1218-4ff8-a318-8eecbd701d75",
+            "reference": "urn:uuid:48a35a7d-a141-4f22-ab7f-f7f4d871dbf7",
             "type": "Group"
           }
         ]
