@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:21d367e4-cff8-4443-b5c8-45b01173f5a3"
+    "value": "urn:uuid:4f82522f-95f6-4ec1-807e-055317c277cb"
   },
-  "timestamp": "2026-10-18T08:38:50+00:00",
+  "timestamp": "2026-10-18T09:13:06+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:2a95fa65-da0d-4a37-8efc-00c5eb634d27",
+      "fullUrl": "urn:uuid:3f6647b8-d428-4c9b-9fd3-cfb8726ccf66",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:59752f64-8050-4ae5-a88c-48b660074039"
+            "reference": "urn:uuid:dd39d9c5-208d-4b4e-941d-463e265bbbb8"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:20079555-6ad2-4bfc-88e9-f8aebbdfacfa",
+      "fullUrl": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:91e20e14-1ea0-4239-b1ac-71a1a4f1fae5",
+      "fullUrl": "urn:uuid:0cb5c5a4-7502-421e-957c-c65a3fe59b24",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -155,7 +155,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:20079555-6ad2-4bfc-88e9-f8aebbdfacfa"
+          "reference": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e"
         },
         "collection": {
           "collectedDateTime": "2026-08-18T00:00:00+00:00",
@@ -190,7 +190,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c0f09faf-987a-48f2-ba96-71b947e2e682",
+      "fullUrl": "urn:uuid:1f9a4df8-1218-4ff8-a318-8eecbd701d75",
       "resource": {
         "resourceType": "Group",
         "meta": {
@@ -239,6 +239,30 @@
                   "coding": [
                     {
                       "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "ONESELF",
+                      "display": "self"
+                    }
+                  ]
+                }
+              }
+            ],
+            "entity": {
+              "type": "Patient",
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/nhs-number",
+                "value": "9737873971"
+              },
+              "display": "p2026000102"
+            }
+          },
+          {
+            "extension": [
+              {
+                "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberRelationship",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
                       "code": "FAMMEMB",
                       "display": "family member"
                     }
@@ -247,7 +271,7 @@
               }
             ],
             "entity": {
-              "reference": "urn:uuid:20079555-6ad2-4bfc-88e9-f8aebbdfacfa",
+              "reference": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e",
               "type": "Patient",
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -259,7 +283,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:59752f64-8050-4ae5-a88c-48b660074039",
+      "fullUrl": "urn:uuid:dd39d9c5-208d-4b4e-941d-463e265bbbb8",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -320,7 +344,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:20079555-6ad2-4bfc-88e9-f8aebbdfacfa"
+          "reference": "urn:uuid:6a9f538d-db7d-41f8-a86c-b290506d465e"
         },
         "requester": {
           "display": "Northern Genetics Service, Newcastle (NE&Y Genomics)",
@@ -332,13 +356,13 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:91e20e14-1ea0-4239-b1ac-71a1a4f1fae5",
+            "reference": "urn:uuid:0cb5c5a4-7502-421e-957c-c65a3fe59b24",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:c0f09faf-987a-48f2-ba96-71b947e2e682",
+            "reference": "urn:uuid:1f9a4df8-1218-4ff8-a318-8eecbd701d75",
             "type": "Group"
           }
         ]

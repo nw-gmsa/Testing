@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:93c34d3e-b2ad-4076-b7bc-1a4754ce98c1"
+    "value": "urn:uuid:fb556c1d-4ecd-4226-bf43-60e6bcacef46"
   },
-  "timestamp": "2026-10-18T08:38:50+00:00",
+  "timestamp": "2026-10-18T09:13:06+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:2cc6b194-e871-4f7e-a253-778888310918",
+      "fullUrl": "urn:uuid:f5c2c859-a864-4372-bd5c-32abce2cbc2f",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:c0f596f5-9f6e-410e-bf75-30bdbcb069c6"
+            "reference": "urn:uuid:e5a7a7de-241f-44c8-8fe0-d3da933322c5"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1",
+      "fullUrl": "urn:uuid:b0b78dfc-4447-4ef3-a36b-539b9fd0a92a",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7672dd87-25bb-4a01-8c80-bec8cd903a20",
+      "fullUrl": "urn:uuid:b6887078-48ab-422a-b5da-27aea82a0d6f",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -155,7 +155,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1"
+          "reference": "urn:uuid:b0b78dfc-4447-4ef3-a36b-539b9fd0a92a"
         },
         "collection": {
           "collectedDateTime": "2026-08-18T00:00:00+00:00",
@@ -190,7 +190,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0e06d8fe-a123-4f97-9121-02ea8cfbdd4b",
+      "fullUrl": "urn:uuid:29eae91d-d457-4164-9023-b1fda34141b2",
       "resource": {
         "resourceType": "Group",
         "meta": {
@@ -239,6 +239,30 @@
                   "coding": [
                     {
                       "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "ONESELF",
+                      "display": "self"
+                    }
+                  ]
+                }
+              }
+            ],
+            "entity": {
+              "type": "Patient",
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/nhs-number",
+                "value": "9737383362"
+              },
+              "display": "p2026000104"
+            }
+          },
+          {
+            "extension": [
+              {
+                "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberRelationship",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
                       "code": "FAMMEMB",
                       "display": "family member"
                     }
@@ -247,7 +271,31 @@
               }
             ],
             "entity": {
-              "reference": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1",
+              "type": "Patient",
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/nhs-number",
+                "value": "9999999581"
+              },
+              "display": "p2026000105"
+            }
+          },
+          {
+            "extension": [
+              {
+                "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberRelationship",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "FAMMEMB",
+                      "display": "family member"
+                    }
+                  ]
+                }
+              }
+            ],
+            "entity": {
+              "reference": "urn:uuid:b0b78dfc-4447-4ef3-a36b-539b9fd0a92a",
               "type": "Patient",
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -259,7 +307,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c0f596f5-9f6e-410e-bf75-30bdbcb069c6",
+      "fullUrl": "urn:uuid:e5a7a7de-241f-44c8-8fe0-d3da933322c5",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -320,7 +368,7 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:52a08206-152d-45cb-a638-ba9a3be221a1"
+          "reference": "urn:uuid:b0b78dfc-4447-4ef3-a36b-539b9fd0a92a"
         },
         "requester": {
           "display": "Sheffield Diagnostic Genetics Service (NE&Y Genomics)",
@@ -332,13 +380,13 @@
         },
         "specimen": [
           {
-            "reference": "urn:uuid:7672dd87-25bb-4a01-8c80-bec8cd903a20",
+            "reference": "urn:uuid:b6887078-48ab-422a-b5da-27aea82a0d6f",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:0e06d8fe-a123-4f97-9121-02ea8cfbdd4b",
+            "reference": "urn:uuid:29eae91d-d457-4164-9023-b1fda34141b2",
             "type": "Group"
           }
         ]
