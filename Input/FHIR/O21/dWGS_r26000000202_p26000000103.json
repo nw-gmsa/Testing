@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:9fb86fa7-a2dc-423b-9afe-8446f72aef65"
+    "value": "urn:uuid:eed1edf8-7236-41f8-b638-5bde255c4a6e"
   },
-  "timestamp": "2026-10-18T10:10:59+00:00",
+  "timestamp": "2026-10-19T11:44:52+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:a9d26a71-46f4-4b10-b5f0-1ea486c0bc27",
+      "fullUrl": "urn:uuid:2e917c23-e0fb-4519-8fbd-4ebdedcd62c6",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:e396fbf9-67bf-4ffa-8644-3b86001c172e"
+            "reference": "urn:uuid:19d43eb5-98a7-4f50-a695-e114b70ce854"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240",
+      "fullUrl": "urn:uuid:2d0e73ae-3838-4610-b178-7eff400bca39",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,17 +89,11 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:fd796538-197b-4b8d-bcc3-dac7f580ca2c",
+      "fullUrl": "urn:uuid:b46b2c09-45c4-4592-a4a6-8b2c05f707f0",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
           {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "RTR"
-              }
-            },
             "type": {
               "coding": [
                 {
@@ -108,7 +102,13 @@
                 }
               ]
             },
-            "value": "RTR-P0002"
+            "value": "S26-1A03",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RTR"
+              }
+            }
           },
           {
             "assigner": {
@@ -125,7 +125,7 @@
                 }
               ]
             },
-            "value": "YNE26-P0003"
+            "value": "S26-1A03"
           },
           {
             "assigner": {
@@ -142,7 +142,7 @@
                 }
               ]
             },
-            "value": "NEY-CONSIGN-2026-102"
+            "value": "NEY GLH 2026-08-26"
           }
         ],
         "type": {
@@ -155,19 +155,16 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240"
+          "reference": "urn:uuid:2d0e73ae-3838-4610-b178-7eff400bca39"
         },
         "collection": {
-          "collectedDateTime": "2026-08-18T00:00:00+00:00",
-          "method": {
-            "text": "Qiagen"
-          },
           "quantity": {
-            "value": 120.0,
+            "value": 150.0,
             "unit": "uL",
             "system": "http://unitsofmeasure.org",
             "code": "uL"
-          }
+          },
+          "collectedDateTime": "2026-08-18T00:00:00+00:00"
         },
         "receivedTime": "2026-08-20T00:00:00+00:00",
         "container": [
@@ -182,7 +179,7 @@
                     }
                   ]
                 },
-                "value": "FX000000003"
+                "value": "4000000003"
               }
             ]
           }
@@ -190,7 +187,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:48a35a7d-a141-4f22-ab7f-f7f4d871dbf7",
+      "fullUrl": "urn:uuid:35c4c33f-6ff3-43fe-aa38-cafd2e506318",
       "resource": {
         "resourceType": "Group",
         "meta": {
@@ -271,7 +268,7 @@
               }
             ],
             "entity": {
-              "reference": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240",
+              "reference": "urn:uuid:2d0e73ae-3838-4610-b178-7eff400bca39",
               "type": "Patient",
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -283,7 +280,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5160487a-717c-4d1a-ad05-e250ac28883e",
+      "fullUrl": "urn:uuid:93e0d663-0c53-4627-8b0e-f6b041db7ce2",
       "resource": {
         "resourceType": "PractitionerRole",
         "meta": {
@@ -292,7 +289,7 @@
           ]
         },
         "practitioner": {
-          "display": "Duty Scientist on behalf of NEY GMS"
+          "display": "Duty Scientist on behalf of NEYGLH Medical"
         },
         "organization": {
           "identifier": {
@@ -304,7 +301,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e396fbf9-67bf-4ffa-8644-3b86001c172e",
+      "fullUrl": "urn:uuid:19d43eb5-98a7-4f50-a695-e114b70ce854",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -351,35 +348,35 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "FILL"
+                  "code": "PLAC"
                 }
               ]
             },
-            "value": "r26000000202-p26000000103",
+            "value": "4000000003",
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "8J834"
+                "value": "699N0"
               }
             }
           }
         ],
         "subject": {
-          "reference": "urn:uuid:de237f19-d96f-414e-a6bb-863b9899a240"
+          "reference": "urn:uuid:2d0e73ae-3838-4610-b178-7eff400bca39"
         },
         "requester": {
-          "reference": "urn:uuid:5160487a-717c-4d1a-ad05-e250ac28883e",
+          "reference": "urn:uuid:93e0d663-0c53-4627-8b0e-f6b041db7ce2",
           "type": "PractitionerRole"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:fd796538-197b-4b8d-bcc3-dac7f580ca2c",
+            "reference": "urn:uuid:b46b2c09-45c4-4592-a4a6-8b2c05f707f0",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:48a35a7d-a141-4f22-ab7f-f7f4d871dbf7",
+            "reference": "urn:uuid:35c4c33f-6ff3-43fe-aa38-cafd2e506318",
             "type": "Group"
           }
         ]

@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:aeb51509-ca44-4ca9-b1c3-20ad9f466e6e"
+    "value": "urn:uuid:b9f3ab66-465a-4d61-9bd5-b56010b59cc4"
   },
-  "timestamp": "2026-10-18T10:10:59+00:00",
+  "timestamp": "2026-10-19T11:41:56+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:d287d148-91ed-4912-a800-220e76b86df4",
+      "fullUrl": "urn:uuid:b0edaece-711a-4104-9b97-1f1936eaf9fa",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -17,7 +17,7 @@
         "sender": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "699D0"
+            "value": "699N0"
           }
         },
         "destination": [
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:dd7e1a0c-f6ca-49b7-a9d9-199832486a3b"
+            "reference": "urn:uuid:74e1181c-035a-42c4-9f05-d14831a99980"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:af2b14dd-8384-40e2-9953-7112e8ff37ff",
+      "fullUrl": "urn:uuid:68bc4b8d-1617-470f-888f-0ae461ad4f3d",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,17 +89,11 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b2a1cb09-e712-41f2-a5fa-d5fc38530fc1",
+      "fullUrl": "urn:uuid:ace6ede5-177c-4560-a407-02e27a6545bc",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
           {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "RNN"
-              }
-            },
             "type": {
               "coding": [
                 {
@@ -108,13 +102,19 @@
                 }
               ]
             },
-            "value": "RNN-P0001"
+            "value": "S26-1A04",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RNN"
+              }
+            }
           },
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699D0"
+                "value": "699N0"
               }
             },
             "type": {
@@ -125,13 +125,13 @@
                 }
               ]
             },
-            "value": "YNE26-P0004"
+            "value": "S26-1A04"
           },
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699D0"
+                "value": "699N0"
               }
             },
             "type": {
@@ -142,7 +142,7 @@
                 }
               ]
             },
-            "value": "NEY-CONSIGN-2026-103"
+            "value": "NEY GLH 2026-08-26"
           }
         ],
         "type": {
@@ -155,19 +155,16 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:af2b14dd-8384-40e2-9953-7112e8ff37ff"
+          "reference": "urn:uuid:68bc4b8d-1617-470f-888f-0ae461ad4f3d"
         },
         "collection": {
-          "collectedDateTime": "2026-08-18T00:00:00+00:00",
-          "method": {
-            "text": "Qiagen"
-          },
           "quantity": {
-            "value": 120.0,
+            "value": 150.0,
             "unit": "uL",
             "system": "http://unitsofmeasure.org",
             "code": "uL"
-          }
+          },
+          "collectedDateTime": "2026-08-18T00:00:00+00:00"
         },
         "receivedTime": "2026-08-20T00:00:00+00:00",
         "container": [
@@ -182,7 +179,7 @@
                     }
                   ]
                 },
-                "value": "FX000000004"
+                "value": "4000000004"
               }
             ]
           }
@@ -190,7 +187,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:812a19a3-bde3-416e-a1f4-b85ccd1c1baa",
+      "fullUrl": "urn:uuid:24b92d8a-e1f0-4120-a177-fd85fd0a6bc5",
       "resource": {
         "resourceType": "Group",
         "meta": {
@@ -247,7 +244,7 @@
               }
             ],
             "entity": {
-              "reference": "urn:uuid:af2b14dd-8384-40e2-9953-7112e8ff37ff",
+              "reference": "urn:uuid:68bc4b8d-1617-470f-888f-0ae461ad4f3d",
               "type": "Patient",
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -307,7 +304,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:bd878c79-9814-4619-907c-0cf64fbd45fc",
+      "fullUrl": "urn:uuid:d8573b87-4984-48e4-87f5-599509c0a5bc",
       "resource": {
         "resourceType": "PractitionerRole",
         "meta": {
@@ -316,19 +313,19 @@
           ]
         },
         "practitioner": {
-          "display": "Duty Scientist on behalf of NEY GMS"
+          "display": "Duty Scientist on behalf of NEYGLH Medical"
         },
         "organization": {
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "699D0"
+            "value": "699N0"
           },
-          "display": "Sheffield Diagnostic Genetics Service (NE&Y Genomics)"
+          "display": "Northern Genetics Service, Newcastle (NE&Y Genomics)"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:dd7e1a0c-f6ca-49b7-a9d9-199832486a3b",
+      "fullUrl": "urn:uuid:74e1181c-035a-42c4-9f05-d14831a99980",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -375,35 +372,35 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "FILL"
+                  "code": "PLAC"
                 }
               ]
             },
-            "value": "r26000000203-p26000000104",
+            "value": "4000000004",
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "8J834"
+                "value": "699N0"
               }
             }
           }
         ],
         "subject": {
-          "reference": "urn:uuid:af2b14dd-8384-40e2-9953-7112e8ff37ff"
+          "reference": "urn:uuid:68bc4b8d-1617-470f-888f-0ae461ad4f3d"
         },
         "requester": {
-          "reference": "urn:uuid:bd878c79-9814-4619-907c-0cf64fbd45fc",
+          "reference": "urn:uuid:d8573b87-4984-48e4-87f5-599509c0a5bc",
           "type": "PractitionerRole"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:b2a1cb09-e712-41f2-a5fa-d5fc38530fc1",
+            "reference": "urn:uuid:ace6ede5-177c-4560-a407-02e27a6545bc",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:812a19a3-bde3-416e-a1f4-b85ccd1c1baa",
+            "reference": "urn:uuid:24b92d8a-e1f0-4120-a177-fd85fd0a6bc5",
             "type": "Group"
           }
         ],
