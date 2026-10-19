@@ -297,7 +297,7 @@ TEST_GROUPS = {
     # itself POSTed to FHIR_SERVER's $process-message) via run_fhir_source_case instead
     # of run_case; there's no v2 original here to run transformToFHIR on first.
     # notebooks/08-subcontracted-laboratory-order-from-external-glh.ipynb builds and
-    # narrates one worked example by hand (Input/dWGS.csv row 0, dWGS_r2026000201.json)
+    # narrates one worked example by hand (Input/dWGS.csv row 0, dWGS_r26000000201.json)
     # end to end; the other five rows in that CSV were built the same way (same
     # Patient/Specimen/ServiceRequest shapes, same profiles) purely as fixtures for this
     # script's coverage, without a matching notebook walkthrough. Two of dWGS.csv's
@@ -309,12 +309,12 @@ TEST_GROUPS = {
         "input_format": "fhir",
         "cases": {
             "O21": [
-                "dWGS_r2026000201.json",
-                "dWGS_r2026000202_p2026000102.json",
-                "dWGS_r2026000202_p2026000103.json",
-                "dWGS_r2026000203_p2026000104.json",
-                "dWGS_r2026000203_p2026000105.json",
-                "dWGS_r2026000203_p2026000106.json",
+                "dWGS_r26000000201.json",
+                "dWGS_r26000000202_p26000000102.json",
+                "dWGS_r26000000202_p26000000103.json",
+                "dWGS_r26000000203_p26000000104.json",
+                "dWGS_r26000000203_p26000000105.json",
+                "dWGS_r26000000203_p26000000106.json",
             ],
         },
     },
