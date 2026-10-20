@@ -148,11 +148,16 @@
         "type": {
           "coding": [
             {
+              "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/SampleSource",
+              "code": "BLOOD"
+            },
+            {
               "system": "http://snomed.info/sct",
               "code": "258580003",
               "display": "Whole blood specimen (specimen)"
             }
-          ]
+          ],
+          "text": "blood_unsorted_edta"
         },
         "subject": {
           "reference": "urn:uuid:fc6318c5-8bcb-4af1-abcf-4f9f5cc44693"
@@ -164,9 +169,30 @@
             "system": "http://unitsofmeasure.org",
             "code": "uL"
           },
-          "collectedDateTime": "2026-08-18T00:00:00+00:00"
+          "collectedDateTime": "2026-08-18T00:00:00+00:00",
+          "method": {
+            "coding": [
+              {
+                "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/Method",
+                "code": "UNSORTED"
+              }
+            ]
+          }
         },
         "receivedTime": "2026-08-20T00:00:00+00:00",
+        "processing": [
+          {
+            "description": "Storage medium",
+            "procedure": {
+              "coding": [
+                {
+                  "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/StorageMedium",
+                  "code": "EDTA"
+                }
+              ]
+            }
+          }
+        ],
         "container": [
           {
             "identifier": [

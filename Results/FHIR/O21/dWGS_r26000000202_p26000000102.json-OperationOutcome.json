@@ -2,7 +2,7 @@
   "resourceType" : "OperationOutcome",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Information</td><td>Bundle.entry[0].resource/*MessageHeader/null*/.destination[0].endpoint</td><td>Informational Note</td><td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/RIE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/RIE' - change from https: to http:</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint</td><td>Informational Note</td><td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/NEYGenomics' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/NEYGenomics' - change from https: to http:</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.identifier[2].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#STN)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.collection.quantity</td><td>Business Rule Violation</td><td>Unable to validate code 'uL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Specimen/null*/.container[0].identifier[0].type.coding[0].code</td><td>Invalid Code</td><td>Unknown code 'ZCID' in the CodeSystem 'http://terminology.hl7.org/CodeSystem/v2-0203' version '5.0.0'</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.container[0].identifier[0].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#ZCID)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[3].resource/*Group/null*/.code</td><td>Invalid Code</td><td>Binding for path Bundle.entry[3].resource/*Group/null*/.code in profile StructureDefinition[http://hl7.org/fhir/StructureDefinition/Group|4.0.1] has no source, so can't be checked</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*Group/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*PractitionerRole/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*ServiceRequest/null*/.code.coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R59.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '2.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*ServiceRequest/null*/.specimen[0]</td><td>Structural Issue</td><td>Details for urn:uuid:e67648e0-5874-45f2-8e8b-eda1cf5a46cc matching against profile http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*ServiceRequest/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[5].resource.specimen[0]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:e67648e0-5874-45f2-8e8b-eda1cf5a46cc among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource.specimen[0]</td><td>Structural Issue</td><td>Details for urn:uuid:e67648e0-5874-45f2-8e8b-eda1cf5a46cc matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen|2.2.1</td><td/><td>InstanceValidator</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>OperationOutcome </b></p><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td><td><b>Source</b></td></tr><tr><td>Information</td><td>Bundle.entry[0].resource/*MessageHeader/null*/.destination[0].endpoint</td><td>Informational Note</td><td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/RIE' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/RIE' - change from https: to http:</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[0].resource/*MessageHeader/null*/.source.endpoint</td><td>Informational Note</td><td>A definition could not be found for Canonical URL 'https://fhir.nwgenomics.nhs.uk/Endpoint/NEYGenomics' but a definition can be found for 'http://fhir.nwgenomics.nhs.uk/Endpoint/NEYGenomics' - change from https: to http:</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[0].resource/*MessageHeader/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[1].resource/*Patient/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.identifier[2].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#STN)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.collection.quantity</td><td>Business Rule Violation</td><td>Unable to validate code 'uL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.collection.method.coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'https://gelreportmodels.genomicsengland.co.uk/CodeSystem/Method' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.processing[0].procedure.coding[0].system</td><td>Not Found</td><td>A definition for CodeSystem 'https://gelreportmodels.genomicsengland.co.uk/CodeSystem/StorageMedium' could not be found, so the code cannot be validated</td><td/><td>TerminologyEngine</td></tr><tr><td>Error</td><td>Bundle.entry[2].resource/*Specimen/null*/.container[0].identifier[0].type.coding[0].code</td><td>Invalid Code</td><td>Unknown code 'ZCID' in the CodeSystem 'http://terminology.hl7.org/CodeSystem/v2-0203' version '5.0.0'</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/.container[0].identifier[0].type</td><td>Invalid Code</td><td>None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#ZCID)</td><td/><td>TerminologyEngine</td></tr><tr><td>Warning</td><td>Bundle.entry[2].resource/*Specimen/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[3].resource/*Group/null*/.code</td><td>Invalid Code</td><td>Binding for path Bundle.entry[3].resource/*Group/null*/.code in profile StructureDefinition[http://hl7.org/fhir/StructureDefinition/Group|4.0.1] has no source, so can't be checked</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[3].resource/*Group/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[4].resource/*PractitionerRole/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*ServiceRequest/null*/.code.coding[0].code</td><td>Invalid Code</td><td>Unknown Code 'R59.1' in the CodeSystem 'https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory' version '2.2.1' - note that the code system is labeled as a fragment, so the code may be valid in some other fragment</td><td/><td>TerminologyEngine</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource/*ServiceRequest/null*/.specimen[0]</td><td>Structural Issue</td><td>Details for urn:uuid:e67648e0-5874-45f2-8e8b-eda1cf5a46cc matching against profile http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1</td><td/><td>InstanceValidator</td></tr><tr><td>Warning</td><td>Bundle.entry[5].resource/*ServiceRequest/null*/</td><td>Validation rule failed</td><td>Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)</td><td/><td>InstanceValidator</td></tr><tr><td>Error</td><td>Bundle.entry[5].resource.specimen[0]</td><td>Structural Issue</td><td>Unable to find a profile match for urn:uuid:e67648e0-5874-45f2-8e8b-eda1cf5a46cc among choices: https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen</td><td/><td>InstanceValidator</td></tr><tr><td>Information</td><td>Bundle.entry[5].resource.specimen[0]</td><td>Structural Issue</td><td>Details for urn:uuid:e67648e0-5874-45f2-8e8b-eda1cf5a46cc matching against profile https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen|2.2.1</td><td/><td>InstanceValidator</td></tr></table></div>"
   },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-file",
@@ -131,7 +131,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 161
+      "valueInteger" : 166
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -155,7 +155,55 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 174
+      "valueInteger" : 173
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 12
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "UNKNOWN_CODESYSTEM"
+    }],
+    "severity" : "warning",
+    "code" : "not-found",
+    "details" : {
+      "text" : "A definition for CodeSystem 'https://gelreportmodels.genomicsengland.co.uk/CodeSystem/Method' could not be found, so the code cannot be validated"
+    },
+    "expression" : ["Bundle.entry[2].resource/*Specimen/null*/.collection.method.coding[0].system"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 186
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger" : 14
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source",
+      "valueString" : "TerminologyEngine"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueCode" : "UNKNOWN_CODESYSTEM"
+    }],
+    "severity" : "warning",
+    "code" : "not-found",
+    "details" : {
+      "text" : "A definition for CodeSystem 'https://gelreportmodels.genomicsengland.co.uk/CodeSystem/StorageMedium' could not be found, so the code cannot be validated"
+    },
+    "expression" : ["Bundle.entry[2].resource/*Specimen/null*/.processing[0].procedure.coding[0].system"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger" : 200
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -179,7 +227,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 174
+      "valueInteger" : 200
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -227,7 +275,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 220
+      "valueInteger" : 246
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -251,7 +299,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 191
+      "valueInteger" : 217
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -275,7 +323,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 284
+      "valueInteger" : 310
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -299,7 +347,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 319
+      "valueInteger" : 345
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -323,7 +371,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 372
+      "valueInteger" : 398
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -347,7 +395,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 305
+      "valueInteger" : 331
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -371,7 +419,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 372
+      "valueInteger" : 398
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
@@ -395,7 +443,7 @@
   {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
-      "valueInteger" : 372
+      "valueInteger" : 398
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",

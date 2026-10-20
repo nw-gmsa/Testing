@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:c901a0b1-4812-4b0c-bc46-5cef269ff266"
+    "value": "urn:uuid:fb6be998-c640-4ca3-90a2-4c3373910439"
   },
-  "timestamp": "2026-10-19T11:36:01+00:00",
+  "timestamp": "2026-10-20T11:35:02+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:f5cf2252-854d-426a-9abf-42f263925515",
+      "fullUrl": "urn:uuid:bea3931e-d2e7-4895-9456-9fcc376263ee",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:99d09268-6216-4bb8-bed3-3d9898e9e34b"
+            "reference": "urn:uuid:a8d84f1f-3fe1-42ff-958c-7726f669fd25"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:3adce7f2-72c9-4791-8248-188b7abfd6a5",
+      "fullUrl": "urn:uuid:81e78521-2d01-403f-89ec-4a916c2a1531",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d653019e-5e3f-42ee-9a51-899309c2b73c",
+      "fullUrl": "urn:uuid:d1bc787a-48d0-40c1-aa84-67f820b5ef7e",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -148,14 +148,19 @@
         "type": {
           "coding": [
             {
+              "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/SampleSource",
+              "code": "BLOOD"
+            },
+            {
               "system": "http://snomed.info/sct",
               "code": "258580003",
               "display": "Whole blood specimen (specimen)"
             }
-          ]
+          ],
+          "text": "blood_unsorted_edta"
         },
         "subject": {
-          "reference": "urn:uuid:3adce7f2-72c9-4791-8248-188b7abfd6a5"
+          "reference": "urn:uuid:81e78521-2d01-403f-89ec-4a916c2a1531"
         },
         "collection": {
           "quantity": {
@@ -164,9 +169,30 @@
             "system": "http://unitsofmeasure.org",
             "code": "uL"
           },
-          "collectedDateTime": "2026-08-18T00:00:00+00:00"
+          "collectedDateTime": "2026-08-18T00:00:00+00:00",
+          "method": {
+            "coding": [
+              {
+                "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/Method",
+                "code": "UNSORTED"
+              }
+            ]
+          }
         },
         "receivedTime": "2026-08-20T00:00:00+00:00",
+        "processing": [
+          {
+            "description": "Storage medium",
+            "procedure": {
+              "coding": [
+                {
+                  "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/StorageMedium",
+                  "code": "EDTA"
+                }
+              ]
+            }
+          }
+        ],
         "container": [
           {
             "identifier": [
@@ -187,7 +213,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:410dfab0-89bc-4e2c-8225-71a6dab40545",
+      "fullUrl": "urn:uuid:019bbda8-d941-46ac-9722-2ac6b2fb096b",
       "resource": {
         "resourceType": "Group",
         "meta": {
@@ -244,7 +270,7 @@
               }
             ],
             "entity": {
-              "reference": "urn:uuid:3adce7f2-72c9-4791-8248-188b7abfd6a5",
+              "reference": "urn:uuid:81e78521-2d01-403f-89ec-4a916c2a1531",
               "type": "Patient",
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/nhs-number",
@@ -256,7 +282,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4d5fb3ec-20c7-4ede-af0d-38be9be840a2",
+      "fullUrl": "urn:uuid:1dba407f-ae01-4504-9178-a903b007d8e8",
       "resource": {
         "resourceType": "PractitionerRole",
         "meta": {
@@ -277,7 +303,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:99d09268-6216-4bb8-bed3-3d9898e9e34b",
+      "fullUrl": "urn:uuid:a8d84f1f-3fe1-42ff-958c-7726f669fd25",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -338,21 +364,21 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:3adce7f2-72c9-4791-8248-188b7abfd6a5"
+          "reference": "urn:uuid:81e78521-2d01-403f-89ec-4a916c2a1531"
         },
         "requester": {
-          "reference": "urn:uuid:4d5fb3ec-20c7-4ede-af0d-38be9be840a2",
+          "reference": "urn:uuid:1dba407f-ae01-4504-9178-a903b007d8e8",
           "type": "PractitionerRole"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:d653019e-5e3f-42ee-9a51-899309c2b73c",
+            "reference": "urn:uuid:d1bc787a-48d0-40c1-aa84-67f820b5ef7e",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:410dfab0-89bc-4e2c-8225-71a6dab40545",
+            "reference": "urn:uuid:019bbda8-d941-46ac-9722-2ac6b2fb096b",
             "type": "Group"
           }
         ],
