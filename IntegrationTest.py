@@ -207,6 +207,30 @@ TEST_GROUPS = {
             "R01": ["SHIRE_ORU_R01_RM3.txt", "Shire-1.txt", "Shire-2.txt"],
         },
     },
+    # MRN conflicts from https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PatientDemographics.md.
+    # The RIE matches a patient on the MRN before the NHS Number, so in each pair below
+    # the second message's MRN collides with the first patient's. Each file's NHS Number
+    # and demographics are correct for its own patient - only the MRN is wrong. Run in
+    # order (_1 then _2): the first message creates/matches the patient, the second
+    # collides with it.
+    #  - FamilyIDAsMRN (problem 1): two members of the dWGS Trio r26000000203 (Brough
+    #    p26000000104, Editestpatient Thirteen p26000000105) with the Genomics England
+    #    family/referral ID entered as an 8J834 MRN in PID-3.
+    #  - DuplicateMRN (problem 2): Manchester/Sansa's real R0A MRN R0A4990415 entered
+    #    in iGene for Burnley/Selyse (whose own R0A MRN is R0A2235764).
+    # A pass here only means the messages were accepted. Check the CDR to see whether
+    # the second patient was falsely merged into the first (a Patient with two NHS
+    # Numbers), rejected ('Serious demographics issue'), or created as a new patient.
+    "patient_demographics": {
+        "cases": {
+            "R01": [
+                "ORU_R01_8J834_FamilyIDAsMRN_1_Brough.txt",
+                "ORU_R01_8J834_FamilyIDAsMRN_2_Editestpatient.txt",
+                "ORU_R01_R0A_DuplicateMRN_1_Manchester.txt",
+                "ORU_R01_R0A_DuplicateMRN_2_Burnley.txt",
+            ],
+        },
+    },
     # International (non-NHS) patients. On live these have arrived with "n/a" in the NHS
     # number field - R0A-Belgium.txt carries "n/a" in PID-2 and PID-19 to reproduce that.
     # expect_no_nhs_number lists files whose transformToFHIR Patient must have no
