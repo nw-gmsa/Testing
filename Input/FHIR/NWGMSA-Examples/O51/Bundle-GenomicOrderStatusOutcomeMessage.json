@@ -1,0 +1,171 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "GenomicOrderStatusOutcomeMessage",
+  "meta" : {
+    "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"]
+  },
+  "language" : "en",
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:uuid:9efaef2e-8dbb-4e03-aa25-4968c76bd1fc"
+  },
+  "type" : "message",
+  "timestamp" : "2025-02-20T11:00:00+00:00",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:5597012c-542f-4a2d-ad4c-3431403f4b54",
+    "resource" : {
+      "resourceType" : "MessageHeader",
+      "id" : "MessageHeaderGenomicOrderStatusOutcome",
+      "meta" : {
+        "lastUpdated" : "2025-02-20T11:00:00+00:00",
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_MessageHeaderGenomicOrderStatusOutcome\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MessageHeader MessageHeaderGenomicOrderStatusOutcome</b></p><a name=\"MessageHeaderGenomicOrderStatusOutcome\"> </a><a name=\"hcMessageHeaderGenomicOrderStatusOutcome\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Last updated: 2025-02-20 11:00:00+0000</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MessageHeader.html\">Document Message (MessageHeader)</a></p></div><p><b>event</b>: <a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-v2-0003.html#v2-0003-O51\">event: O51</a> (OSU – Order Status Update)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC\">https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC</a></td><td>MANCHESTER UNIVERSITY NHS FOUNDATION TRUST (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/R0A)</td></tr></table><p><b>sender</b>: NORTH WEST GLH (Identifier: <a href=\"NamingSystem-ods-organization-code-namingsystem.html\" title=\"The identifier system for an Organisation registered with the Organisation Data Service (ODS).\">ODS Organisation Code</a>/699X0)</p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Software</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>RIE</td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=https://fhir.nwgenomics.nhs.uk/Endpoint/RIE\">https://fhir.nwgenomics.nhs.uk/Endpoint/RIE</a></td></tr></table><p><b>focus</b>: <a href=\"Task-TaskGenomicOrderCompleted.html\">Task Fulfill the focal request</a></p><p><b>definition</b>: <a href=\"MessageDefinition-referral-order-status.html\">Referral Order Status (O51)</a></p></div>"
+      },
+      "eventCoding" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0003",
+        "code" : "O51"
+      },
+      "destination" : [{
+        "endpoint" : "https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC",
+        "receiver" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          },
+          "display" : "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        }
+      }],
+      "sender" : {
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "699X0"
+        },
+        "display" : "NORTH WEST GLH"
+      },
+      "source" : {
+        "software" : "RIE",
+        "endpoint" : "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+      },
+      "focus" : [{
+        "reference" : "Task/TaskGenomicOrderCompleted"
+      }],
+      "definition" : "https://fhir.nwgenomics.nhs.uk/MessageDefinition/referral-order-status"
+    }
+  },
+  {
+    "fullUrl" : "https://fhir.nwgenomics.nhs.uk/Task/TaskGenomicOrderCompleted",
+    "resource" : {
+      "resourceType" : "Task",
+      "id" : "TaskGenomicOrderCompleted",
+      "meta" : {
+        "profile" : ["https://fhir.nwgenomics.nhs.uk/StructureDefinition/Task"]
+      },
+      "language" : "en",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_TaskGenomicOrderCompleted\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Task TaskGenomicOrderCompleted</b></p><a name=\"TaskGenomicOrderCompleted\"> </a><a name=\"hcTaskGenomicOrderCompleted\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-Task.html\">Task</a></p></div><p><b>identifier</b>: <code>http://www.acme.org/specimen/Beaker</code>/25GEN-029GN00001</p><p><b>status</b>: Completed</p><p><b>businessStatus</b>: <span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status completed}\">Referral completed</span></p><p><b>intent</b>: order</p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/CodeSystem/task-code fulfill}\">Fulfill the focal request</span></p><p><b>focus</b>: <a href=\"ServiceRequest-ServiceRequestGenomicsOrderCodedEntries.html\">ServiceRequest Diagnostic testing for known variant(s) (Targeted variant testing)</a></p><p><b>for</b>: <a href=\"Patient-Patient-OctaviaCHISLETT-9449305552.html\">Octavia CHISLETT</a></p><p><b>authoredOn</b>: 2025-01-29</p><p><b>requester</b>: <a href=\"Organization-R0A.html\">MANCHESTER UNIVERSITY NHS FOUNDATION TRUST</a></p><p><b>owner</b>: <a href=\"Organization-699X0.html\">NORTH WEST GLH</a></p><h3>Outputs</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Value[x]</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{https://fhir.nwgenomics.nhs.uk/CodeSystem/TaskInputOutputParameterType reference-results}\">reference-results</span></td><td><a href=\"https://simplifier.net/resolve?scope=fhir.r4.ukcore.stu3.currentbuild@0.29.0-pre-release&amp;canonical=https://ugr.example.nhs.uk/FHIR/R4/DiagnosticReport/25edee2b-add8-4522-9fa2-1ee8f229bd75\">Genomic test report (NHS England Unified Genomic Record)</a></td></tr></table></div>"
+      },
+      "identifier" : [{
+        "system" : "http://www.acme.org/specimen/Beaker",
+        "value" : "25GEN-029GN00001",
+        "assigner" : {
+          "identifier" : {
+            "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value" : "R0A"
+          }
+        }
+      }],
+      "status" : "completed",
+      "businessStatus" : {
+        "coding" : [{
+          "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status",
+          "code" : "completed"
+        }]
+      },
+      "intent" : "order",
+      "code" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/CodeSystem/task-code",
+          "code" : "fulfill"
+        }]
+      },
+      "focus" : {
+        "reference" : "ServiceRequest/ServiceRequestGenomicsOrderCodedEntries",
+        "identifier" : {
+          "type" : {
+            "coding" : [{
+              "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code" : "PLAC"
+            }]
+          },
+          "system" : "http://www.acme.org/servicerequest/identifier",
+          "value" : "1601737",
+          "assigner" : {
+            "identifier" : {
+              "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value" : "R0A"
+            }
+          }
+        }
+      },
+      "for" : {
+        "reference" : "Patient/Patient-OctaviaCHISLETT-9449305552",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/nhs-number",
+          "value" : "9449305552"
+        },
+        "display" : "Octavia CHISLETT"
+      },
+      "authoredOn" : "2025-01-29",
+      "requester" : {
+        "reference" : "Organization/R0A",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "R0A"
+        },
+        "display" : "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+      },
+      "owner" : {
+        "reference" : "Organization/699X0",
+        "identifier" : {
+          "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value" : "699X0"
+        },
+        "display" : "NORTH WEST GLH"
+      },
+      "output" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "https://fhir.nwgenomics.nhs.uk/CodeSystem/TaskInputOutputParameterType",
+            "code" : "reference-results"
+          }]
+        },
+        "valueReference" : {
+          "reference" : "https://ugr.example.nhs.uk/FHIR/R4/DiagnosticReport/25edee2b-add8-4522-9fa2-1ee8f229bd75",
+          "type" : "DiagnosticReport",
+          "identifier" : {
+            "type" : {
+              "coding" : [{
+                "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code" : "FILL"
+              }]
+            },
+            "system" : "http://www.acme.org/diagnosticreport/identifiers",
+            "value" : "25edee2b-add8-4522-9fa2-1ee8f229bd75",
+            "assigner" : {
+              "identifier" : {
+                "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value" : "699X0"
+              }
+            }
+          },
+          "display" : "Genomic test report (NHS England Unified Genomic Record)"
+        }
+      }]
+    }
+  }]
+}

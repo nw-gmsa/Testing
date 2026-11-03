@@ -88,7 +88,7 @@ results in `Results/FHIR/GenomicsReporting/`.
 - `Input/V2/{O01,O21,R01}` — hand-crafted/generated source HL7 v2 test messages, keyed
   by trigger event.
 - `Input/FHIR/` — source FHIR examples used for `transformToV2`.
-  `Input/FHIR/NWGMSA-Examples/{O21,R01,A31}` holds the NW-GMSA IG's own published
+  `Input/FHIR/NWGMSA-Examples/{O21,R01,O51,A31}` holds the NW-GMSA IG's own published
   `BundleMessage` examples verbatim (fetched from
   https://nw-gmsa.github.io/en/StructureDefinition-BundleMessage-examples.html, source
   https://github.com/nw-gmsa/nw-gmsa.github.com), used by `IntegrationTest.py`'s

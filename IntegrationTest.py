@@ -399,6 +399,19 @@ TEST_GROUPS = {
                 "Bundle-GenomicsReportMessage-ctDNA.json",
                 "Bundle-GenomicsReportMessage.json",
             ],
+            # Order status (O51) Task messages - PCC-55 accept/decline, PCC-56 later
+            # decline, PCC-57 outcome (MessageHeader + Task only; Task.for/focus/requester
+            # are relative references to resources not in the Bundle, and the outcome's
+            # Task.output points at a UGR DiagnosticReport by absolute URL).
+            # Known gap, verified live: these "pass", but only because nothing checks the
+            # round-trip's content - transformToV2 has no O51 mapping and returns a bare
+            # MSH (empty MSH-9, no PID/ORC), and FHIR_SERVER still answers code=ok.
+            "O51": [
+                "Bundle-GenomicOrderStatusAcceptMessage.json",
+                "Bundle-GenomicOrderStatusDeclineMessage.json",
+                "Bundle-GenomicOrderStatusLaterDeclineMessage.json",
+                "Bundle-GenomicOrderStatusOutcomeMessage.json",
+            ],
         },
         "known_dangling_refs": {
             # ServiceRequest.specimen -> a Specimen that only exists in the sibling
@@ -508,6 +521,25 @@ TEST_GROUPS = {
     # runs, then passed cleanly with no code/data change at all in a later run, which points to
     # transient RIE-side unavailability for this group rather than a routing gap - but with an
     # off-spec trigger event in the mix too, that's not fully ruled out either.
+    # OSU^O51 order status updates (PCC-55 accept/decline, PCC-56 later decline, PCC-57
+    # referral outcome) - the IG's own HL7 v2 examples verbatim from
+    # https://nw-gmsa.github.io/en/PCC-55.html, PCC-56.html and PCC-57.html (the v2
+    # counterparts of nwgmsa_examples' "O51" FHIR Bundles). Octavia CHISLETT's MRN is the
+    # IG's own 633^^^R0A, not MRN-Mapping.md's R0A G179494, kept verbatim like the rest
+    # of the IG examples.
+    # Known failure, verified live: transformToFHIR has no OSU^O51 mapping - it returns a
+    # MessageHeader-only Bundle with an empty eventCoding/sender, no Task or Patient, and
+    # timestamp 0000-00-00 (so fhirDates/nhsNumberPreserved fail and the send is skipped).
+    "o51": {
+        "cases": {
+            "O51": [
+                "NWGMSA-PCC-55-Accept-OSU_O51.txt",
+                "NWGMSA-PCC-55-Decline-OSU_O51.txt",
+                "NWGMSA-PCC-56-LaterDecline-OSU_O51.txt",
+                "NWGMSA-PCC-57-Outcome-OSU_O51.txt",
+            ],
+        },
+    },
     "cepheid": {
         "input_dir": os.path.join("Input", "ASTM"),
         "skip_transform_to_v2": True,
