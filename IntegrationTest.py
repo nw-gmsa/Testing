@@ -24,6 +24,8 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back.
      Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
      corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
+     For an O51 message, the Task.status must come back as the IG's ORC-1/ORC-5 pair
+     (orderStatus - see check_order_status).
      Its date/time fields are checked as well-formed v2 DTMs (v2RoundTripDates - fails the
      case). The source message's own dates get the same check as advisory WARN (v2Dates),
      since a malformed date in a fixture is the sender's problem, not the transform's.
@@ -403,9 +405,10 @@ TEST_GROUPS = {
             # decline, PCC-57 outcome (MessageHeader + Task only; Task.for/focus/requester
             # are relative references to resources not in the Bundle, and the outcome's
             # Task.output points at a UGR DiagnosticReport by absolute URL).
-            # Known gap, verified live: these "pass", but only because nothing checks the
-            # round-trip's content - transformToV2 has no O51 mapping and returns a bare
-            # MSH (empty MSH-9, no PID/ORC), and FHIR_SERVER still answers code=ok.
+            # Verified live: transformToV2 maps each Task.status to the IG's ORC-1/ORC-5
+            # pair (orderStatus) and the decline statusReason to ORC-16, with a PID built
+            # from Task.for's identifier/display (the Patient isn't in the Bundle). Known
+            # gap: ORC-12 is empty - the IG's v2 examples carry the requesting clinician.
             "O51": [
                 "Bundle-GenomicOrderStatusAcceptMessage.json",
                 "Bundle-GenomicOrderStatusDeclineMessage.json",
@@ -1623,6 +1626,61 @@ def check_expected_segments_present(bundle, v2_text):
     return applicable, problems
 
 
+# Task.status -> the OSU^O51 (ORC-1 Order Control, ORC-5 Order Status) pair the IG's
+# order status pages use for it: PCC-55 accept (OK/IP) and decline (UA/CA), PCC-56
+# later decline (UA/CA), PCC-57 outcome (SC/CM) and its interim "more reports to
+# follow" update (SC/A).
+O51_ORDER_STATUS = {
+    "accepted": ("OK", "IP"),
+    "rejected": ("UA", "CA"),
+    "completed": ("SC", "CM"),
+    "in-progress": ("SC", "A"),
+}
+
+
+def check_order_status(bundle, v2_text):
+    """For an O51 FHIR Message (MessageHeader.eventCoding O51), checks the focus Task's
+    status is carried into the transformToV2 output's ORC-1/ORC-5 as the pair the IG
+    uses for it (O51_ORDER_STATUS) - e.g. a rejected Task must not come back as
+    ORC|SC|...|IP, which an EPR would read as the order still in progress.
+
+    Returns (applicable, problems): applicable is False (and problems is []) when the
+    bundle isn't an O51 message or has no Task.
+    """
+    headers = _fhir_resources(bundle, "MessageHeader")
+    tasks = _fhir_resources(bundle, "Task")
+    if not headers or not tasks or headers[0].get("eventCoding", {}).get("code") != "O51":
+        return False, []
+
+    status = tasks[0].get("status")
+    expected = O51_ORDER_STATUS.get(status)
+    if expected is None:
+        return True, [f"Task.status {status!r} has no IG-defined ORC-1/ORC-5 pair"]
+
+    orcs = [f for f in _v2_segment_fields(v2_text) if f[0] == "ORC"]
+    if not orcs:
+        return True, [f"Task.status {status!r} but the transformToV2 output has no ORC segment"]
+
+    actual = (_v2_field(orcs[0], 1), _v2_field(orcs[0], 5))
+    if actual != expected:
+        return True, [
+            f"Task.status {status!r} came back as ORC-1/ORC-5 {'/'.join(actual) or '(empty)'}, "
+            f"expected {'/'.join(expected)}"
+        ]
+    return True, []
+
+
+def record_order_status_check(result, bundle, v2_text):
+    applicable, problems = check_order_status(bundle, v2_text)
+    if not applicable:
+        return
+    if problems:
+        result.record("orderStatus", False, "; ".join(problems))
+        log(f"FAILED orderStatus: {'; '.join(problems)}")
+    else:
+        result.record("orderStatus", True, "Task.status carried into ORC-1/ORC-5 as the IG pair")
+
+
 # ---------------------------------------------------------------------------------------
 # NW-GMSA conformance - HL7 v2 (https://nw-gmsa.github.io/en/hl7v2.html) and FHIR
 # ---------------------------------------------------------------------------------------
@@ -2602,6 +2660,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
                 log(f"FAILED expectedSegments: {'; '.join(segment_problems)}")
             else:
                 result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
+        record_order_status_check(result, fhir_json, v2_roundtrip)
 
         if save_output:
             out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
@@ -2790,6 +2849,7 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
             log(f"FAILED expectedSegments: {'; '.join(segment_problems)}")
         else:
             result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
+    record_order_status_check(result, fhir_json, v2_roundtrip)
 
     if save_output:
         out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
