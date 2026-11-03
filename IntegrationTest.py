@@ -540,6 +540,23 @@ TEST_GROUPS = {
             ],
         },
     },
+    # iGene order-complete messages - the start of PCC-57 Referral Outcome. iGene sends
+    # these as a bare ORU^R01 (MSH-12 "2.3", ORC-1 RE, OBR-25 F, no OBX), not OSU^O51;
+    # Output/V2/O51/igene-o51-{1,2}-expected.txt hold the target OSU^O51 the RIE should
+    # turn each into. Read flat from Input/V2/O51iGene/. Verified live: transformToFHIR
+    # maps them to an O51 message (MessageHeader, Patient, completed Task with
+    # Task.output -> the OBR-3 report identifier) and transformToV2 back to
+    # OSU^O51^OSU_O51 (ORC-1 SC, ORC-5 CM). Known deviations from the expected files, not
+    # yet checked by this script: seconds truncated from OBR-22/MSH-7, times taken as UTC
+    # (no BST offset), MSH-5/6 receiver 699X0 rather than the ORC-21 referrer, and a
+    # PID-32 trace status of 05 that iGene never sent.
+    "o51_igene": {
+        "input_dir": os.path.join("Input", "V2", "O51iGene"),
+        "input_flat": True,
+        "cases": {
+            "R01": ["igene-o51-1.txt", "igene-o51-2.txt"],
+        },
+    },
     "cepheid": {
         "input_dir": os.path.join("Input", "ASTM"),
         "skip_transform_to_v2": True,
