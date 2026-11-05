@@ -25,7 +25,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
      corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
      For an O51 message, the Task.status must come back as the IG's ORC-1/ORC-5 pair
-     (orderStatus - see check_order_status).
+     (orderStatus - see check_order_status). Every ORC-3/OBR-3 Filler Order Number in the
+     source (iGene's R-Number/T-Number) must come back in the same field, not swapped or
+     copied across (fillerNumbers - see check_filler_numbers_preserved).
      Its date/time fields are checked as well-formed v2 DTMs (v2RoundTripDates - fails the
      case). The source message's own dates get the same check as advisory WARN (v2Dates),
      since a malformed date in a fixture is the sender's problem, not the transform's.
@@ -1670,6 +1672,58 @@ def check_order_status(bundle, v2_text):
     return True, []
 
 
+def check_filler_numbers_preserved(source_v2, v2_text):
+    """Checks each ORC-3/OBR-3 Filler Order Number in the source v2 message comes back
+    in the same field of the transformToV2 output (EI.1 + EI.2 compared; any EI.3/EI.4
+    the transform adds is ignored). iGene sends its R-Number (order) in ORC-3 and its
+    T-Number (test/report) in OBR-3, both under 699X0 - they map to different FHIR
+    resources (ServiceRequest/Task vs DiagnosticReport), so one field coming back
+    holding the other's value (e.g. ORC-3 = the T-Number) means the RIE can no longer
+    link a report to its order. An empty source field must also stay empty.
+
+    Segments are paired by position. A segment type absent from the output altogether
+    (e.g. OBR in an OSU^O51) is skipped - expectedSegments covers presence.
+
+    Returns (applicable, problems): applicable is False (and problems is []) when the
+    source has no non-empty ORC-3 or OBR-3.
+    """
+    def filler_numbers(text, segment):
+        values = []
+        for f in _v2_segment_fields(text):
+            if f[0] == segment:
+                ei = _v2_field(f, 3)
+                values.append((_v2_component(ei, 1), _v2_component(ei, 2)))
+        return values
+
+    applicable = False
+    problems = []
+    for segment in ("ORC", "OBR"):
+        source = filler_numbers(source_v2, segment)
+        output = filler_numbers(v2_text, segment)
+        if any(v != ("", "") for v in source):
+            applicable = True
+        if not output:
+            continue
+        for i, (expected, actual) in enumerate(zip(source, output), start=1):
+            if expected != actual:
+                problems.append(
+                    f"{segment}[{i}]-3 came back as {'^'.join(actual).strip('^') or '(empty)'}, "
+                    f"expected {'^'.join(expected).strip('^') or '(empty)'}"
+                )
+    return applicable, problems
+
+
+def record_filler_numbers_check(result, source_v2, v2_text):
+    applicable, problems = check_filler_numbers_preserved(source_v2, v2_text)
+    if not applicable:
+        return
+    if problems:
+        result.record("fillerNumbers", False, "; ".join(problems))
+        log(f"FAILED fillerNumbers: {'; '.join(problems)}")
+    else:
+        result.record("fillerNumbers", True, "ORC-3/OBR-3 filler numbers carried through unchanged")
+
+
 def record_order_status_check(result, bundle, v2_text):
     applicable, problems = check_order_status(bundle, v2_text)
     if not applicable:
@@ -2661,6 +2715,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             else:
                 result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
         record_order_status_check(result, fhir_json, v2_roundtrip)
+        record_filler_numbers_check(result, v2_bytes.decode("utf-8", errors="replace"), v2_roundtrip)
 
         if save_output:
             out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
