@@ -70,7 +70,7 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "MR"
+                  "code": "PI"
                 }
               ]
             },
@@ -300,6 +300,51 @@
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
             "value": "RTR"
           }
+        },
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:785ddc75-eb9b-4409-a2bd-5e681fd80ffa",
+            "type": "Observation"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:785ddc75-eb9b-4409-a2bd-5e681fd80ffa",
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ObservationOrder"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:483fd373-fa89-48b7-8cd7-fa8acf50c1cc"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+              "code": "FamilyStructure",
+              "display": "Family Structure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:e9e0cabe-ef56-4cd8-bd4c-de5a78875014"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+              "code": "FamilyStructureDuo",
+              "display": "Duo"
+            }
+          ]
         }
       }
     },

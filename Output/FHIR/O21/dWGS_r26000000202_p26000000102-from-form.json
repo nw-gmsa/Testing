@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:fc033ded-ad76-464b-bd96-be0c88d81ad5"
+    "value": "urn:uuid:7b82d525-5b19-4d5e-b437-93a9e282ded6"
   },
-  "timestamp": "2026-11-09T11:58:08+00:00",
+  "timestamp": "2026-11-09T14:02:14+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:5f90bae9-235e-41b3-8427-2792fbe16884",
+      "fullUrl": "urn:uuid:4dbd4332-2068-4fe3-a940-0848bff4e1b6",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:02462d22-7af1-42bc-87aa-8c020752d56a"
+            "reference": "urn:uuid:0ee498b2-574c-4d1c-8fba-f8849bcaa4ea"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:a11c0c62-5535-4bc3-a3cf-ae32cee65b5a",
+      "fullUrl": "urn:uuid:2dc69cd8-2646-4d08-9e77-2166d9b0a6ac",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -70,7 +70,7 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "MR"
+                  "code": "PI"
                 }
               ]
             },
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:467fdc25-7f3b-4064-b80c-bea6e1371c75",
+      "fullUrl": "urn:uuid:4a008a45-b276-449b-8ee8-fb89ffb0341f",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -177,7 +177,7 @@
           "text": "blood_unsorted_edta"
         },
         "subject": {
-          "reference": "urn:uuid:a11c0c62-5535-4bc3-a3cf-ae32cee65b5a"
+          "reference": "urn:uuid:2dc69cd8-2646-4d08-9e77-2166d9b0a6ac"
         },
         "collection": {
           "collectedDateTime": "2026-08-18T00:00:00+00:00",
@@ -230,7 +230,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2e36ed6d-eb52-4e11-ac52-785e361b4108",
+      "fullUrl": "urn:uuid:dced09fb-69fb-4cb8-84f7-884a33ed46b6",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -300,11 +300,17 @@
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
             "value": "RTR"
           }
-        }
+        },
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:bcb41750-3b5a-44a1-be30-da4856bb84e6",
+            "type": "Observation"
+          }
+        ]
       }
     },
     {
-      "fullUrl": "urn:uuid:2999344c-4b05-448d-b3ae-1129ba6fe454",
+      "fullUrl": "urn:uuid:bcb41750-3b5a-44a1-be30-da4856bb84e6",
       "resource": {
         "resourceType": "Observation",
         "meta": {
@@ -315,7 +321,46 @@
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:uuid:dfd7dd68-3c2d-4f4d-a93e-84273fda6eaf"
+            "value": "urn:uuid:9aaa275b-dcd8-40f6-9af8-3f06fa9193f5"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+              "code": "FamilyStructure",
+              "display": "Family Structure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:2dc69cd8-2646-4d08-9e77-2166d9b0a6ac"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+              "code": "FamilyStructureDuo",
+              "display": "Duo"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:131f2efd-34aa-4ea3-85de-765c20004819",
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ObservationOrder"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:a96ca18f-69c0-4b04-80ee-ee0c30f7ecb4"
           }
         ],
         "status": "final",
@@ -329,7 +374,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:a11c0c62-5535-4bc3-a3cf-ae32cee65b5a"
+          "reference": "urn:uuid:2dc69cd8-2646-4d08-9e77-2166d9b0a6ac"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -343,7 +388,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:873f4937-076e-44b2-ad24-963a833e2401",
+      "fullUrl": "urn:uuid:95b31b96-56b2-4052-a872-da5a66021f1b",
       "resource": {
         "resourceType": "PractitionerRole",
         "meta": {
@@ -363,7 +408,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:02462d22-7af1-42bc-87aa-8c020752d56a",
+      "fullUrl": "urn:uuid:0ee498b2-574c-4d1c-8fba-f8849bcaa4ea",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -406,7 +451,7 @@
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:2e36ed6d-eb52-4e11-ac52-785e361b4108",
+            "reference": "urn:uuid:dced09fb-69fb-4cb8-84f7-884a33ed46b6",
             "type": "ServiceRequest"
           }
         ],
@@ -430,21 +475,21 @@
           }
         ],
         "subject": {
-          "reference": "urn:uuid:a11c0c62-5535-4bc3-a3cf-ae32cee65b5a"
+          "reference": "urn:uuid:2dc69cd8-2646-4d08-9e77-2166d9b0a6ac"
         },
         "requester": {
-          "reference": "urn:uuid:873f4937-076e-44b2-ad24-963a833e2401",
+          "reference": "urn:uuid:95b31b96-56b2-4052-a872-da5a66021f1b",
           "type": "PractitionerRole"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:467fdc25-7f3b-4064-b80c-bea6e1371c75",
+            "reference": "urn:uuid:4a008a45-b276-449b-8ee8-fb89ffb0341f",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:2999344c-4b05-448d-b3ae-1129ba6fe454",
+            "reference": "urn:uuid:131f2efd-34aa-4ea3-85de-765c20004819",
             "type": "Observation"
           }
         ]

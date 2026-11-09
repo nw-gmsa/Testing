@@ -1,13 +1,13 @@
 {
   "resourceType": "Bundle",
   "identifier": {
-    "value": "urn:uuid:0ad52d4c-b742-41bd-9f74-331977607da5"
+    "value": "urn:uuid:18294837-c6c0-45d6-b9e2-8eb4b5fd2b22"
   },
-  "timestamp": "2026-11-09T12:07:48+00:00",
+  "timestamp": "2026-11-09T13:57:54+00:00",
   "type": "message",
   "entry": [
     {
-      "fullUrl": "urn:uuid:c85f4e97-565b-44bb-9103-2ce5c5bd71a9",
+      "fullUrl": "urn:uuid:8de31467-8e2a-4fb3-a533-95ba4731bc68",
       "resource": {
         "resourceType": "MessageHeader",
         "eventCoding": {
@@ -37,13 +37,13 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:776823aa-84ee-49b1-a410-a1d18f0fa025"
+            "reference": "urn:uuid:d04ac820-f8d6-4e2a-b10b-0a15cbc5eb0b"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:298515d6-23a9-4ce1-a712-d6cf021b250f",
+      "fullUrl": "urn:uuid:677bbd17-f4c6-4ab4-8cfd-e6c3cdbb3b8c",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -70,7 +70,7 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "MR"
+                  "code": "PI"
                 }
               ]
             },
@@ -89,7 +89,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:258b56da-d67b-4f56-9dcf-6b3a291e5700",
+      "fullUrl": "urn:uuid:b2b02f22-5f0b-4d23-af37-f2f8a5a2e234",
       "resource": {
         "resourceType": "Specimen",
         "identifier": [
@@ -177,7 +177,7 @@
           "text": "blood_unsorted_edta"
         },
         "subject": {
-          "reference": "urn:uuid:298515d6-23a9-4ce1-a712-d6cf021b250f"
+          "reference": "urn:uuid:677bbd17-f4c6-4ab4-8cfd-e6c3cdbb3b8c"
         },
         "collection": {
           "quantity": {
@@ -230,7 +230,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:524d5774-3e1d-4cd5-a049-82126338a441",
+      "fullUrl": "urn:uuid:65bc1e3d-3984-400d-b700-24bd6fd07802",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -300,11 +300,17 @@
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
             "value": "RR8"
           }
-        }
+        },
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:38ee2741-4a42-4bab-901d-92d8b2971114",
+            "type": "Observation"
+          }
+        ]
       }
     },
     {
-      "fullUrl": "urn:uuid:5a5a078d-1a2e-42bc-8081-84a1d0308327",
+      "fullUrl": "urn:uuid:38ee2741-4a42-4bab-901d-92d8b2971114",
       "resource": {
         "resourceType": "Observation",
         "meta": {
@@ -315,7 +321,46 @@
         "identifier": [
           {
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:uuid:a73370f7-a577-4c9f-8c79-08c28975ddc0"
+            "value": "urn:uuid:e58ed27c-3313-40cf-b540-4577d72ca896"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+              "code": "FamilyStructure",
+              "display": "Family Structure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:677bbd17-f4c6-4ab4-8cfd-e6c3cdbb3b8c"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+              "code": "FamilyStructureSingleton",
+              "display": "Singleton"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c54ea40f-44cb-4352-a04f-d2f70fd8b568",
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ObservationOrder"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:251c9fbd-e56c-45ca-8612-719858f1cb37"
           }
         ],
         "status": "final",
@@ -329,7 +374,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:298515d6-23a9-4ce1-a712-d6cf021b250f"
+          "reference": "urn:uuid:677bbd17-f4c6-4ab4-8cfd-e6c3cdbb3b8c"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -343,7 +388,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:8c20acfa-d4ab-4836-b2a5-2dcc8f3fbe27",
+      "fullUrl": "urn:uuid:af14691f-9eaf-45bf-b548-73c7c6ca2cfb",
       "resource": {
         "resourceType": "PractitionerRole",
         "meta": {
@@ -364,7 +409,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:776823aa-84ee-49b1-a410-a1d18f0fa025",
+      "fullUrl": "urn:uuid:d04ac820-f8d6-4e2a-b10b-0a15cbc5eb0b",
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "active",
@@ -426,26 +471,26 @@
         ],
         "basedOn": [
           {
-            "reference": "urn:uuid:524d5774-3e1d-4cd5-a049-82126338a441",
+            "reference": "urn:uuid:65bc1e3d-3984-400d-b700-24bd6fd07802",
             "type": "ServiceRequest"
           }
         ],
         "subject": {
-          "reference": "urn:uuid:298515d6-23a9-4ce1-a712-d6cf021b250f"
+          "reference": "urn:uuid:677bbd17-f4c6-4ab4-8cfd-e6c3cdbb3b8c"
         },
         "requester": {
-          "reference": "urn:uuid:8c20acfa-d4ab-4836-b2a5-2dcc8f3fbe27",
+          "reference": "urn:uuid:af14691f-9eaf-45bf-b548-73c7c6ca2cfb",
           "type": "PractitionerRole"
         },
         "specimen": [
           {
-            "reference": "urn:uuid:258b56da-d67b-4f56-9dcf-6b3a291e5700",
+            "reference": "urn:uuid:b2b02f22-5f0b-4d23-af37-f2f8a5a2e234",
             "type": "Specimen"
           }
         ],
         "supportingInfo": [
           {
-            "reference": "urn:uuid:5a5a078d-1a2e-42bc-8081-84a1d0308327",
+            "reference": "urn:uuid:c54ea40f-44cb-4352-a04f-d2f70fd8b568",
             "type": "Observation"
           }
         ],
