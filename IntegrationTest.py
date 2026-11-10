@@ -532,9 +532,10 @@ TEST_GROUPS = {
     # counterparts of nwgmsa_examples' "O51" FHIR Bundles). Octavia CHISLETT's MRN is the
     # IG's own 633^^^R0A, not MRN-Mapping.md's R0A G179494, kept verbatim like the rest
     # of the IG examples.
-    # Known failure, verified live: transformToFHIR has no OSU^O51 mapping - it returns a
-    # MessageHeader-only Bundle with an empty eventCoding/sender, no Task or Patient, and
-    # timestamp 0000-00-00 (so fhirDates/nhsNumberPreserved fail and the send is skipped).
+    # transformToFHIR used to return a MessageHeader-only Bundle (timestamp 0000-00-00, no
+    # Patient or Task) because RIE.HL7v2.Tools parsed OSU^O51 as 2.5.1:OSU_O51, which the
+    # base schema lacks. Fixed to NWGMSA:OSU_O51; verified live that all four now map to
+    # MessageHeader (O51), Patient with the NHS number, and a Task with the IG's status.
     "o51": {
         "cases": {
             "O51": [
