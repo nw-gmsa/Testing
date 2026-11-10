@@ -54,6 +54,16 @@ OBR|2|5595441^LAB||CD348^Lymph Sub (CD3/4/8/45) (CCC-L)^L|||202601091638||||||||
   ordering clinician (`C6167060^Wells^Matthew^^^^^^XX`) is only present down in
   OBR-16, not ORC-12.
 - **ORC-21 (Ordering Facility Name, XON):** empty. Spec marks this required/suggested.
+- **XCN-9 assigning authority:** `XX` (PV1-7 and both OBR-16s) isn't an assigning
+  authority - it's an HL7 identifier *type* code. The IG puts the GMC number's authority
+  in XCN-9 as `GMC` (e.g. `C3456789^Darwin^Samuel^^^Dr^^^GMC`).
+- **Fixture status:** the test fixture now carries the clinician in ORC-12 as
+  `C6167060^Wells^Matthew^^^^^^GMC`, with `GMC` replacing `XX` in XCN-9 of PV1-7 and
+  both OBR-16s, and ORC-21 populated as
+  `The Clatterbridge Cancer Centre NHS Foundation Trust^^REN^^^ODS`. ORC-12 matters
+  beyond conformance: with it empty, the transformToV2 round trip dropped the ordering
+  provider altogether (OBR-16 came back empty), which IntegrationTest.py's
+  `orderingProviders` check catches. The one-ORC-for-two-OBRs structure is unchanged.
 - **Structure:** the OML_O21 grammar is `ORDER := ORC, OBSERVATION_REQUEST(1..*){OBR,
   NTE, DG1, OBSERVATION{OBX}, SPECIMEN{SPM}}` — each `ORDER` repeat needs its own ORC.
   Reusing one ORC across two OBRs (even with matching placer number `5595441^LAB`) is
@@ -112,8 +122,9 @@ OBR|2|5595441^LAB||CD348^Lymph Sub (CD3/4/8/45) (CCC-L)^L|||202601091638||||||||
    (v2.5.1) rather than `ORM^O01` (v2.3) — everything else in the spec assumes O21
    structure.
 2. **PID-3**: add a properly-typed NHS Number CX repeat.
-3. **ORC-12 / ORC-21**: populate ordering provider and ordering facility; split into
-   one ORC per OBR order group.
+3. **ORC-12 / ORC-21**: populate ordering provider (GMC in XCN-9, not `XX`) and
+   ordering facility; split into one ORC per OBR order group. *(Fixture: ORC-12/ORC-21
+   and the GMC authority done; ORC split still outstanding.)*
 4. **OBR-6**: move the request timestamp out of OBR-7 into OBR-6.
 5. **SPM**: add specimen segment(s) with type, source site, accession ID.
 6. **OBR-31**: populate Reason for Study.
