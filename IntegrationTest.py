@@ -27,7 +27,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      For an O51 message, the Task.status must come back as the IG's ORC-1/ORC-5 pair
      (orderStatus - see check_order_status). Every ORC-3/OBR-3 Filler Order Number in the
      source (iGene's R-Number/T-Number) must come back in the same field, not swapped or
-     copied across (fillerNumbers - see check_filler_numbers_preserved).
+     copied across (fillerNumbers - see check_filler_numbers_preserved). Every ORC-12/OBR-16
+     Ordering Provider must come back with the same XCN-1 ID, XCN-8 source table and XCN-9
+     assigning authority (orderingProviders - see check_ordering_providers_preserved).
      Its date/time fields are checked as well-formed v2 DTMs (v2RoundTripDates - fails the
      case). The source message's own dates get the same check as advisory WARN (v2Dates),
      since a malformed date in a fixture is the sender's problem, not the transform's.
@@ -1721,6 +1723,63 @@ def record_filler_numbers_check(result, source_v2, v2_text):
         result.record("fillerNumbers", True, "ORC-3/OBR-3 filler numbers carried through unchanged")
 
 
+def check_ordering_providers_preserved(source_v2, v2_text):
+    """Checks each ORC-12/OBR-16 Ordering Provider in the source v2 message comes back in
+    the same field of the transformToV2 output with the same XCN-1 ID, XCN-8 source table
+    (e.g. SDS) and XCN-9 assigning authority (HD.1 only, e.g. GMC/X26) - a GMC number
+    coming back under X26, or under no authority at all, is a different person to the
+    receiving system. Only the first repeat is compared, and only components the source
+    populates: FHIR folds ORC-12/OBR-16 into one ServiceRequest.requester, so an empty
+    source OBR-16 legitimately coming back filled from ORC-12 isn't a problem.
+
+    Segments are paired by position. A segment type absent from the output altogether is
+    skipped - expectedSegments covers presence.
+
+    Returns (applicable, problems): applicable is False (and problems is []) when the
+    source has no non-empty ORC-12 or OBR-16 XCN-1.
+    """
+    def providers(text, segment, field):
+        values = []
+        for f in _v2_segment_fields(text):
+            if f[0] == segment:
+                repeats = _v2_field(f, field).split("~")
+                xcn = repeats[0]
+                values.append((_v2_component(xcn, 1), _v2_component(xcn, 8),
+                               _v2_component(xcn, 9).split("&")[0].strip()))
+        return values
+
+    applicable = False
+    problems = []
+    for segment, field in (("ORC", 12), ("OBR", 16)):
+        source = providers(source_v2, segment, field)
+        output = providers(v2_text, segment, field)
+        if any(v[0] for v in source):
+            applicable = True
+        if not output:
+            continue
+        for i, (expected, actual) in enumerate(zip(source, output), start=1):
+            if not expected[0]:
+                continue
+            for name, e, a in zip(("XCN-1", "XCN-8", "XCN-9"), expected, actual):
+                if e and e != a:
+                    problems.append(
+                        f"{segment}[{i}]-{field} {name} came back as {a or '(empty)'}, expected {e}"
+                    )
+    return applicable, problems
+
+
+def record_ordering_providers_check(result, source_v2, v2_text):
+    applicable, problems = check_ordering_providers_preserved(source_v2, v2_text)
+    if not applicable:
+        return
+    if problems:
+        result.record("orderingProviders", False, "; ".join(problems))
+        log(f"FAILED orderingProviders: {'; '.join(problems)}")
+    else:
+        result.record("orderingProviders", True,
+                      "ORC-12/OBR-16 XCN-1/XCN-8/XCN-9 carried through unchanged")
+
+
 def record_order_status_check(result, bundle, v2_text):
     applicable, problems = check_order_status(bundle, v2_text)
     if not applicable:
@@ -1761,7 +1820,8 @@ def record_order_status_check(result, bundle, v2_text):
 #   - PV1-8/PV1-9/PV1-17 are listed R (PV1-8 twice, with two different names), yet the PV1
 #     example populates only PV1-7 - not checked until the spec settles which it means.
 #   - XCN's practitioner register is described as XCN-8, but every example puts GMC in
-#     XCN-9 (HL7's actual assigning-authority component) - not checked either way.
+#     XCN-9 (HL7's actual assigning-authority component) - not checked either way here
+#     (orderingProviders only checks the round trip keeps whatever the source sends).
 #   - OBR-22 (report status date) is R with no message-type qualifier, but an order has
 #     no report yet - only checked for ORU_R01.
 #   - The MSH table calls Accept Acknowledgment Type "MSH-13", but in HL7 v2 MSH-13 is
@@ -2713,6 +2773,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
                 result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
         record_order_status_check(result, fhir_json, v2_roundtrip)
         record_filler_numbers_check(result, v2_bytes.decode("utf-8", errors="replace"), v2_roundtrip)
+        record_ordering_providers_check(result, v2_bytes.decode("utf-8", errors="replace"), v2_roundtrip)
 
         if save_output:
             out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
