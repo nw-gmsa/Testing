@@ -1723,6 +1723,11 @@ def record_filler_numbers_check(result, source_v2, v2_text):
         result.record("fillerNumbers", True, "ORC-3/OBR-3 filler numbers carried through unchanged")
 
 
+# Source XCN-9 assigning authorities the transform is expected to correct on the way
+# through, mapped to the corrected value.
+XCN9_CORRECTIONS = {"GMCID": "GMC"}
+
+
 def check_ordering_providers_preserved(source_v2, v2_text):
     """Checks each ORC-12/OBR-16 Ordering Provider in the source v2 message comes back in
     the same field of the transformToV2 output with the same XCN-1 ID, XCN-8 source table
@@ -1737,6 +1742,9 @@ def check_ordering_providers_preserved(source_v2, v2_text):
 
     Returns (applicable, problems): applicable is False (and problems is []) when the
     source has no non-empty ORC-12 or OBR-16 XCN-1.
+
+    A source XCN-9 in XCN9_CORRECTIONS (e.g. the legacy 'GMCID') may come back as its
+    corrected value - the transform fixing the authority is a data correction, not a loss.
     """
     def providers(text, segment, field):
         values = []
@@ -1761,7 +1769,7 @@ def check_ordering_providers_preserved(source_v2, v2_text):
             if not expected[0]:
                 continue
             for name, e, a in zip(("XCN-1", "XCN-8", "XCN-9"), expected, actual):
-                if e and e != a:
+                if e and e != a and not (name == "XCN-9" and XCN9_CORRECTIONS.get(e) == a):
                     problems.append(
                         f"{segment}[{i}]-{field} {name} came back as {a or '(empty)'}, expected {e}"
                     )
