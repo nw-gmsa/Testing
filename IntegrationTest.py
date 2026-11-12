@@ -49,6 +49,15 @@ a per-rule v2-vs-FHIR summary at the end of the run. See CONFORMANCE_RULES for e
 v2 field, FHIR element and how the two differ. Advisory (WARN) by default;
 --strict-conformance fails the case instead.
 
+After every case has run, the FHIR repository itself ({FHIR_BASE_URL}, read-only) is
+checked for the shape Omics DSS orders are now stored in - see check_omics_dss_orders.
+Every intent=filler-order ServiceRequest whose performer is a Device must reference the
+DLIMS Device (performer.reference, not just a logical identifier), and must link at least
+one Specimen that resolves. The Omics DSS query (ServiceRequest?intent=filler-order
+&performer=Device/<id> with _include for the Specimen) must return exactly those orders
+with no OperationOutcome error. This is reported as its own case, cdr/omicsDss, and is
+skipped when FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD aren't set or with --skip-cdr-check.
+
 Stage 1/2 outputs are saved under TestingOutput/FHIR/<messageType>/ and TestingOutput/V2/<messageType>/
 - the same layout Testing.ipynb uses under Output/, but in its own top-level directory so a script
 run doesn't clobber a notebook run's output (or vice versa).
@@ -97,6 +106,11 @@ FHIR_SERVER = os.getenv("FHIR_SERVER")
 OAUTH2_TOKEN_URL = os.getenv("OAUTH2_TOKEN")
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+# The FHIR repository's own REST endpoint (FHIR_SERVER is only its $process-message entry
+# point), for read-only searches - see check_omics_dss_orders.
+FHIR_BASE_URL = os.getenv("FHIR_BASE_URL")
+FHIR_USER = os.getenv("FHIR_USER")
+FHIR_PASSWORD = os.getenv("FHIR_PASSWORD")
 
 # Kept separate from Output/ (which Testing.ipynb writes to) so running this script doesn't
 # clobber - or get clobbered by - a notebook run's output.
@@ -3046,6 +3060,135 @@ ALL_MSG_TYPES = sorted({
 })
 
 
+# Omics DSS orders are stored as filler orders performed by the D-LIMS Device, which the
+# server identifies by this identifier.
+DLIMS_DEVICE_IDENTIFIER = ("https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system", "DLIMS")
+
+
+def cdr_search(session, query):
+    """GET {FHIR_BASE_URL}/<query> and every following page of results. Returns
+    (resources, outcome_errors): resources maps (resourceType, id) -> resource across all
+    pages (search matches and _include'd resources alike); outcome_errors lists the
+    diagnostics of any error/fatal OperationOutcome issue the server returned - e.g.
+    '<HSFHIRErr>InvalidQueryParameter' for a search parameter it doesn't support, which it
+    reports alongside otherwise-normal results rather than failing the request.
+    Raises requests.RequestException/ValueError on failure."""
+    url = f"{FHIR_BASE_URL.rstrip('/')}/{query}"
+    resources, outcome_errors = {}, []
+    while url:
+        r = session.get(url, auth=HTTPBasicAuth(FHIR_USER, FHIR_PASSWORD),
+                        headers={"Accept": "application/fhir+json"}, verify=False, timeout=60)
+        r.raise_for_status()
+        bundle = r.json()
+        for entry in bundle.get("entry", []):
+            resource = entry.get("resource", {})
+            if resource.get("resourceType") == "OperationOutcome":
+                outcome_errors += [
+                    i.get("diagnostics") or i.get("details", {}).get("text") or i.get("code")
+                    for i in resource.get("issue", []) if i.get("severity") in ("error", "fatal")
+                ]
+            else:
+                resources[(resource.get("resourceType"), resource.get("id"))] = resource
+        url = next((l.get("url") for l in bundle.get("link", []) if l.get("relation") == "next"), None)
+    return resources, outcome_errors
+
+
+def _is_device_performer(performer):
+    return (performer.get("type") == "Device"
+            or performer.get("reference", "").startswith("Device/")
+            or performer.get("identifier", {}).get("system") == DLIMS_DEVICE_IDENTIFIER[0])
+
+
+def check_omics_dss_orders(session):
+    """Checks the FHIR repository holds Omics DSS orders in their current shape: an
+    intent=filler-order ServiceRequest whose performer is the DLIMS Device. Omics DSS
+    orders are recognised by a Device performer (type, reference or the DLIMS identifier
+    system), so an order whose performer was written with a logical identifier only and
+    no reference still counts and is reported - the Device search can't find it.
+
+    Returns a CaseResult with stages:
+      omicsDssDevice     - exactly one Device on the server carries the DLIMS identifier
+      omicsDssPerformer  - every Omics DSS order's performer is a single reference to it
+      omicsDssSpecimen   - every Omics DSS order links a Specimen that resolves
+      omicsDssQuery      - the Omics DSS query returns exactly those orders, error-free
+    """
+    result = CaseResult("cdr/omicsDss")
+    log("=== starting cdr/omicsDss (FHIR repository check) ===")
+    system, value = DLIMS_DEVICE_IDENTIFIER
+    try:
+        devices, _ = cdr_search(session, f"Device?identifier={system}|{value}")
+        orders, errors = cdr_search(
+            session, "ServiceRequest?intent=filler-order&_include=ServiceRequest:specimen&_count=200")
+    except (requests.RequestException, ValueError) as e:
+        result.record("omicsDssDevice", False, f"FHIR repository search failed: {e}")
+        log(f"FAILED omicsDss: FHIR repository search failed: {e}")
+        return result
+
+    if len(devices) != 1:
+        result.record("omicsDssDevice", False,
+                      f"{len(devices)} Device(s) with identifier {system}|{value}, expected 1")
+        log(f"FAILED omicsDssDevice: {len(devices)} DLIMS Device(s)")
+        return result
+    device_ref = f"Device/{next(iter(devices))[1]}"
+    result.record("omicsDssDevice", True, device_ref)
+
+    omics = {
+        sr_id: sr for (rtype, sr_id), sr in orders.items()
+        if rtype == "ServiceRequest" and sr.get("intent") == "filler-order"
+        and any(_is_device_performer(p) for p in sr.get("performer", []))
+    }
+    if not omics:
+        result.warn("omicsDssPerformer", "no filler-order ServiceRequest with a Device performer on the server")
+        return result
+
+    def label(sr_id):
+        ids = [i.get("value") for i in omics[sr_id].get("identifier", []) if i.get("value")]
+        return f"ServiceRequest/{sr_id}" + (f" ({', '.join(ids)})" if ids else "")
+
+    performer_problems, specimen_problems = [], []
+    for sr_id, sr in sorted(omics.items()):
+        refs = [p.get("reference") for p in sr.get("performer", [])]
+        if refs != [device_ref]:
+            shown = ", ".join(r or "(identifier only, no reference)" for r in refs)
+            performer_problems.append(f"{label(sr_id)} performer is {shown}, expected {device_ref}")
+        specimens = sr.get("specimen", [])
+        if not specimens:
+            specimen_problems.append(f"{label(sr_id)} has no specimen")
+        for s in specimens:
+            ref = s.get("reference", "")
+            if ("Specimen", ref.partition("/")[2]) not in orders:
+                specimen_problems.append(f"{label(sr_id)} specimen {ref or '(no reference)'} doesn't resolve")
+
+    for stage, problems, ok in (
+        ("omicsDssPerformer", performer_problems, f"{len(omics)} order(s) performed by {device_ref}"),
+        ("omicsDssSpecimen", specimen_problems, f"{len(omics)} order(s) with a resolvable Specimen"),
+    ):
+        if problems:
+            result.record(stage, False, "; ".join(problems))
+            log(f"FAILED {stage}: {'; '.join(problems)}")
+        else:
+            result.record(stage, True, ok)
+
+    query = (f"ServiceRequest?intent=filler-order&performer={device_ref}"
+             "&_include=ServiceRequest:specimen&_include=ServiceRequest:performer&_count=200")
+    try:
+        found, errors = cdr_search(session, query)
+    except (requests.RequestException, ValueError) as e:
+        result.record("omicsDssQuery", False, f"{query} failed: {e}")
+        log(f"FAILED omicsDssQuery: {e}")
+        return result
+    found_ids = {i for t, i in found if t == "ServiceRequest"}
+    problems = [f"OperationOutcome: {e}" for e in errors]
+    problems += [f"{label(i)} not returned" for i in sorted(set(omics) - found_ids)]
+    problems += [f"ServiceRequest/{i} returned but isn't an Omics DSS order" for i in sorted(found_ids - set(omics))]
+    if problems:
+        result.record("omicsDssQuery", False, "; ".join(problems))
+        log(f"FAILED omicsDssQuery: {'; '.join(problems)}")
+    else:
+        result.record("omicsDssQuery", True, f"{len(found_ids)} order(s) returned with their Specimens")
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -3064,6 +3207,10 @@ def main():
     parser.add_argument(
         "--strict-conformance", action="store_true",
         help="Fail a case on any NW-GMSA v2/FHIR conformance problem (default: report as WARN only).",
+    )
+    parser.add_argument(
+        "--skip-cdr-check", action="store_true",
+        help="Skip the read-only FHIR repository check of Omics DSS orders (cdr/omicsDss).",
     )
     args = parser.parse_args()
 
@@ -3110,6 +3257,13 @@ def main():
                         mllp_port=group.get("v2_mllp_port"),
                         expect_no_nhs_number=filename in group.get("expect_no_nhs_number", ()),
                     ))
+
+    if args.skip_cdr_check:
+        log("cdr/omicsDss skipped (--skip-cdr-check)")
+    elif not (FHIR_BASE_URL and FHIR_USER and FHIR_PASSWORD):
+        log("cdr/omicsDss skipped - FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD not set in .env")
+    else:
+        results.append(check_omics_dss_orders(session))
 
     log("all cases complete, printing summary")
     failures = 0
