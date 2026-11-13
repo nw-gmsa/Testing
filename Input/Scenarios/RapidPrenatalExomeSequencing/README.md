@@ -49,7 +49,7 @@ The report is sent to the central repository (NHS England Unified Genomic Record
 
 ## Known gaps
 
-- North Thames GLH's ODS code is not yet confirmed; the fixtures use the placeholder `NTGLH`. Set `NORTH_THAMES_GLH_ODS` in `../build_glh_sub_order_scenarios.py` and re-run it.
+- North Thames GLH's ODS code is taken to be `69A70`, "LONDON NORTH GENOMIC LABORATORY HUB (GLH)" in the NHS ODS directory. Check it against the GOMS onboarding details; to change it, set `NORTH_THAMES_GLH_ODS` in `../build_glh_sub_order_scenarios.py` and re-run it.
 - The Test Directory has no code for rapid prenatal exome sequencing in this IG's code system, so the sub-order uses `R21`.
 - North Thames GLH's report number system is not confirmed either; the fixtures use the placeholder `https://fhir.example.nhs.uk/NorthThamesGLH/ReportIdentifier` (`NORTH_THAMES_REPORT_SYSTEM` in the script).
 - PRE-05G fails IG validation on the North Thames report's `subject.identifier`: the IG's DiagnosticReport profile requires an NHS number there, which a fetus does not have. This is a gap in the IG profile, not in the fixture.

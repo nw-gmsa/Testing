@@ -14,8 +14,9 @@ import json
 import os
 import uuid
 
-# North Thames GLH's ODS code is not yet confirmed. Replace it here and re-run.
-NORTH_THAMES_GLH_ODS = "NTGLH"
+# North Thames GLH: "LONDON NORTH GENOMIC LABORATORY HUB (GLH)" in the NHS ODS directory (active,
+# Great Ormond Street postcode). Check against the GOMS onboarding details.
+NORTH_THAMES_GLH_ODS = "69A70"
 NORTH_THAMES_GLH_NAME = "North Thames Genomic Laboratory Hub"
 # North Thames GLH's report number system is also not yet confirmed.
 NORTH_THAMES_REPORT_SYSTEM = "https://fhir.example.nhs.uk/NorthThamesGLH/ReportIdentifier"

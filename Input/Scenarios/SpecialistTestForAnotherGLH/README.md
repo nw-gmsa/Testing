@@ -48,6 +48,6 @@ Myrcella WREXHAM (born 1999) is an existing NW-GMSA test patient in the London f
 
 ## Known gaps
 
-- North Thames GLH's ODS code is not yet confirmed; the fixtures use the placeholder `NTGLH`. Set `NORTH_THAMES_GLH_ODS` in `../build_glh_sub_order_scenarios.py` and re-run it.
+- North Thames GLH's ODS code is taken to be `69A70`, "LONDON NORTH GENOMIC LABORATORY HUB (GLH)" in the NHS ODS directory. Check it against the GOMS onboarding details; to change it, set `NORTH_THAMES_GLH_ODS` in `../build_glh_sub_order_scenarios.py` and re-run it.
 - Which specialist tests the North West GLH actually receives from other GLHs is not confirmed.
 - The simulated GOMS base URL is `https://goms.simulated.example.nhs.uk/FHIR/R4` (`GOMS` in the script).
