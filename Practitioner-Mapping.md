@@ -11,7 +11,6 @@ Each practitioner has at most one professional code, which is one of:
 | HCPC | Clinical scientists and other Health and Care Professions Council registrants | `https://fhir.hl7.org.uk/Id/hcpc-number` | `HCPC` | `CS` + 5 digits, fictitious range `CS90001`-`CS90099` |
 | Local | A system's own user code, e.g. an iGene user | The system's own URI | The system's own code | `ZZ_` + 3 letters for new entries |
 | None | No code, e.g. only a display name or a role | - | - | - |
-{:.grid}
 
 In HL7 v2 the code goes in XCN-1 (or NDL-1 for OBR-32), with the code type in XCN-9, e.g. `C3456789^Darwin^Samuel^^^Dr^^^GMC`. In FHIR it is `PractitionerRole.practitioner.identifier` (or the `identifier` of a reference such as `DiagnosticReport.resultsInterpreter`).
 
@@ -44,7 +43,6 @@ In HL7 v2 the code goes in XCN-1 (or NDL-1 for OBR-32), with the code type in XC
 | ACME SUPER USER | None | - | - | Result interpreter | `Input/V2/R01/WALES_ORU_R01_FULL.txt` |
 | Result INTERPRETER | None | - | `699X0` | Results interpreter (role only) | IG report examples |
 | Duty Scientist on behalf of NEYGLH Medical | None | - | `699N0` | Requester of dWGS sub-orders (role only) | IG and `Input/FHIR/O21/dWGS_*.json` |
-{:.grid}
 
 ## Fictitious practitioners for replacing possibly real ones
 
@@ -66,7 +64,6 @@ Use these when a fixture's practitioner may be a real person (see the next secti
 | FICTITIOUS, Dana |  | Local (iGene user) | `ZZ_DAN` | `699X0` | Laboratory user, results interpreter |
 | FICTITIOUS, Eli |  | Local (iGene user) | `ZZ_ELI` | `699X0` | Laboratory user, ordering provider on internal orders |
 | FICTITIOUS, Nell |  | None | - | - | Name only, no code |
-{:.grid}
 
 ## Replaced practitioners
 
@@ -98,7 +95,6 @@ These fictitious practitioners replaced practitioners in the fixtures who may ha
 | Peregrine FICTITIOUS | None (email only) | `peregrine.fictitious@example.nhs.uk` | Report-recipient email answers in `Input/V2/O01/EPICJune9.txt`, `Input/V2/O01/ORM_O01_R0A.txt` and `Input/FHIR/**/Bundle-748683741.json` |
 | Rafe FICTITIOUS | None (email only) | `Rafe.Fictitious@example.nhs.uk` | `Input/FHIR/O21/LiverpoolWomens-1.json` (`telecom`) |
 | Rhoda FICTITIOUS | None (email only) | `rhoda.fictitious@example.nhs.uk` | Referring clinician email answers in `Input/FHIR/O21/Liverpool_O21_Apr26.json` |
-{:.grid}
 
 Codes that came with placeholder names (`surname^forename`) were replaced on their own: GMC `C9000110`, `C9000111`, `C9000112`, GP `G9000103` and NMC `99Z9901E`, in `Input/V2/O01/histotrac-MFT-HLA.txt`, `Input/V2/R01/histotrac-MFT.txt` and `Input/FHIR/**/LiverpoolWomens-1.json`.
 
@@ -160,4 +156,3 @@ Codes that came with placeholder names (`surname^forename`) were replaced on the
 | Unknown Unknown | `UNK` | `UNK` |
 | Vito FICTITIOUS | `Vito_FICTITIOUS` | `REP` |
 | Wren FICTITIOUS | `Wren_FICTITIOUS_9000222` | `RA7` |
-{:.grid}
