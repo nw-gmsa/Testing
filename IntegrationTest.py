@@ -51,11 +51,12 @@ v2 field, FHIR element and how the two differ. Advisory (WARN) by default;
 
 After every case has run, the FHIR repository itself ({FHIR_BASE_URL}, read-only) is
 checked for the shape Omics DSS orders are now stored in - see check_omics_dss_orders.
-Every intent=filler-order ServiceRequest whose performer is a Device must reference the
-DLIMS Device (performer.reference, not just a logical identifier), and must link at least
-one Specimen that resolves. The Omics DSS query (ServiceRequest?intent=filler-order
-&performer=Device/<id> with _include for the Specimen) must return exactly those orders
-with no OperationOutcome error. This is reported as its own case, cdr/omicsDss, and is
+Omics DSS orders are LAB-4 work orders (intent=instance-order); intent=filler-order is still
+accepted, with a warning, until the RIE switches. Every such ServiceRequest whose performer
+is a Device must identify the DLIMS Device, by its identifier (the IG's primary reference)
+and/or a reference to it, and must link at least one Specimen that resolves. The Omics DSS
+query (ServiceRequest?intent=instance-order,filler-order&performer:identifier=<DLIMS> with
+_include for the Specimen) must return exactly those orders with no OperationOutcome error. This is reported as its own case, cdr/omicsDss, and is
 skipped when FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD aren't set or with --skip-cdr-check.
 
 Stage 1/2 outputs are saved under TestingOutput/FHIR/<messageType>/ and TestingOutput/V2/<messageType>/
@@ -3060,9 +3061,13 @@ ALL_MSG_TYPES = sorted({
 })
 
 
-# Omics DSS orders are stored as filler orders performed by the D-LIMS Device, which the
+# Omics DSS orders are stored as work orders performed by the D-LIMS Device, which the
 # server identifies by this identifier.
 DLIMS_DEVICE_IDENTIFIER = ("https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system", "DLIMS")
+
+# Omics DSS orders are LAB-4 work orders, so the IG uses intent=instance-order.
+# filler-order is the RIE's current value and is accepted, with a warning, until it switches.
+OMICS_DSS_INTENTS = ("instance-order", "filler-order")
 
 
 def cdr_search(session, query):
@@ -3099,16 +3104,25 @@ def _is_device_performer(performer):
             or performer.get("identifier", {}).get("system") == DLIMS_DEVICE_IDENTIFIER[0])
 
 
+def _is_dlims_performer(performer, device_ref):
+    """True when the performer identifies the DLIMS Device, by its identifier (the IG's
+    primary reference) and/or a reference to it."""
+    ident = performer.get("identifier", {})
+    by_identifier = (ident.get("system"), ident.get("value")) == DLIMS_DEVICE_IDENTIFIER
+    by_reference = performer.get("reference") == device_ref
+    return (by_identifier or by_reference) and (not performer.get("reference") or by_reference)
+
+
 def check_omics_dss_orders(session):
-    """Checks the FHIR repository holds Omics DSS orders in their current shape: an
-    intent=filler-order ServiceRequest whose performer is the DLIMS Device. Omics DSS
-    orders are recognised by a Device performer (type, reference or the DLIMS identifier
-    system), so an order whose performer was written with a logical identifier only and
-    no reference still counts and is reported - the Device search can't find it.
+    """Checks the FHIR repository holds Omics DSS orders in their current shape: a work
+    order (intent=instance-order; filler-order still accepted) whose performer is the DLIMS
+    Device. Omics DSS orders are recognised by a Device performer (type, reference or the
+    DLIMS identifier system).
 
     Returns a CaseResult with stages:
       omicsDssDevice     - exactly one Device on the server carries the DLIMS identifier
-      omicsDssPerformer  - every Omics DSS order's performer is a single reference to it
+      omicsDssIntent     - WARN for orders still using intent=filler-order
+      omicsDssPerformer  - every Omics DSS order's performer is the DLIMS Device, by identifier and/or reference
       omicsDssSpecimen   - every Omics DSS order links a Specimen that resolves
       omicsDssQuery      - the Omics DSS query returns exactly those orders, error-free
     """
@@ -3118,7 +3132,7 @@ def check_omics_dss_orders(session):
     try:
         devices, _ = cdr_search(session, f"Device?identifier={system}|{value}")
         orders, errors = cdr_search(
-            session, "ServiceRequest?intent=filler-order&_include=ServiceRequest:specimen&_count=200")
+            session, f"ServiceRequest?intent={','.join(OMICS_DSS_INTENTS)}&_include=ServiceRequest:specimen&_count=200")
     except (requests.RequestException, ValueError) as e:
         result.record("omicsDssDevice", False, f"FHIR repository search failed: {e}")
         log(f"FAILED omicsDss: FHIR repository search failed: {e}")
@@ -3134,23 +3148,35 @@ def check_omics_dss_orders(session):
 
     omics = {
         sr_id: sr for (rtype, sr_id), sr in orders.items()
-        if rtype == "ServiceRequest" and sr.get("intent") == "filler-order"
+        if rtype == "ServiceRequest" and sr.get("intent") in OMICS_DSS_INTENTS
         and any(_is_device_performer(p) for p in sr.get("performer", []))
     }
     if not omics:
-        result.warn("omicsDssPerformer", "no filler-order ServiceRequest with a Device performer on the server")
+        result.warn("omicsDssPerformer",
+                    f"no {' or '.join(OMICS_DSS_INTENTS)} ServiceRequest with a Device performer on the server")
         return result
 
     def label(sr_id):
         ids = [i.get("value") for i in omics[sr_id].get("identifier", []) if i.get("value")]
         return f"ServiceRequest/{sr_id}" + (f" ({', '.join(ids)})" if ids else "")
 
+    legacy = [label(i) for i, sr in sorted(omics.items()) if sr.get("intent") == "filler-order"]
+    if legacy:
+        result.warn("omicsDssIntent",
+                    f"{len(legacy)} order(s) still intent=filler-order, expected instance-order (LAB-4): "
+                    + "; ".join(legacy))
+    else:
+        result.record("omicsDssIntent", True, f"{len(omics)} order(s) with intent=instance-order")
+
     performer_problems, specimen_problems = [], []
     for sr_id, sr in sorted(omics.items()):
-        refs = [p.get("reference") for p in sr.get("performer", [])]
-        if refs != [device_ref]:
-            shown = ", ".join(r or "(identifier only, no reference)" for r in refs)
-            performer_problems.append(f"{label(sr_id)} performer is {shown}, expected {device_ref}")
+        devices_on_order = [p for p in sr.get("performer", []) if _is_device_performer(p)]
+        if len(devices_on_order) != 1 or not _is_dlims_performer(devices_on_order[0], device_ref):
+            shown = ", ".join(p.get("reference") or "|".join(filter(None, (p.get("identifier", {}).get("system"),
+                                                                            p.get("identifier", {}).get("value"))))
+                              or "(no reference or identifier)" for p in devices_on_order)
+            performer_problems.append(f"{label(sr_id)} Device performer is {shown}, expected the DLIMS Device "
+                                      f"({system}|{value} and/or {device_ref})")
         specimens = sr.get("specimen", [])
         if not specimens:
             specimen_problems.append(f"{label(sr_id)} has no specimen")
@@ -3160,7 +3186,7 @@ def check_omics_dss_orders(session):
                 specimen_problems.append(f"{label(sr_id)} specimen {ref or '(no reference)'} doesn't resolve")
 
     for stage, problems, ok in (
-        ("omicsDssPerformer", performer_problems, f"{len(omics)} order(s) performed by {device_ref}"),
+        ("omicsDssPerformer", performer_problems, f"{len(omics)} order(s) performed by the DLIMS Device"),
         ("omicsDssSpecimen", specimen_problems, f"{len(omics)} order(s) with a resolvable Specimen"),
     ):
         if problems:
@@ -3169,8 +3195,8 @@ def check_omics_dss_orders(session):
         else:
             result.record(stage, True, ok)
 
-    query = (f"ServiceRequest?intent=filler-order&performer={device_ref}"
-             "&_include=ServiceRequest:specimen&_include=ServiceRequest:performer&_count=200")
+    query = (f"ServiceRequest?intent={','.join(OMICS_DSS_INTENTS)}&performer:identifier={system}|{value}"
+             "&_include=ServiceRequest:specimen&_count=200")
     try:
         found, errors = cdr_search(session, query)
     except (requests.RequestException, ValueError) as e:
@@ -3210,7 +3236,7 @@ def main():
     )
     parser.add_argument(
         "--skip-cdr-check", action="store_true",
-        help="Skip the read-only FHIR repository check of Omics DSS orders (cdr/omicsDss).",
+        help="Skip the read-only FHIR repository check of Omics DSS work orders (cdr/omicsDss).",
     )
     args = parser.parse_args()
 

@@ -33,7 +33,7 @@
     { "key": "ods_code", "value": "REN", "type": "string", "description": "Clatterbridge Cancer Centre NHS Foundation Trust — the assigner ODS code on LIVERPOOL, Ned's real loaded Clatterbridge order (Output/FHIR/R01/Clatterbridge-REN-ORU_R01.txt.json)." },
     { "key": "glh_ods_code", "value": "K1S6S", "type": "string", "description": "Liverpool GLH delivery site — used throughout this repo's own O21/R01 examples as the filler-side lab." },
     { "key": "organization_id", "value": "", "type": "string", "description": "Internal FHIR id (not the ODS code) for the Organization matched by 'ods_code' above. Auto-captured by request 5's test script when run — or set manually from its response." },
-    { "key": "practitioner_family_name", "value": "Iqbal", "type": "string", "description": "Real requesting Practitioner (Shahid Iqbal, GMC C7667069) on LIVERPOOL, Ned's loaded Clatterbridge order." },
+    { "key": "practitioner_family_name", "value": "FICTITIOUS", "type": "string", "description": "Real requesting Practitioner (Bernard FICTITIOUS, GMC C9000102) on LIVERPOOL, Ned's loaded Clatterbridge order." },
     { "key": "order_number", "value": "CB-260817-01", "type": "string", "description": "LIVERPOOL, Ned's real Placer Order Number (assigner REN) from Output/FHIR/R01/Clatterbridge-REN-ORU_R01.txt.json. The matching Filler Order Number in the same fixture is C,26.6512478.P (assigner 699X0)." },
     { "key": "specimen_id", "value": "S26-1K1Q", "type": "string", "description": "Real iGene-system-tagged Specimen business identifier from the NW-GMSA IG's own published ctDNA example (Input/FHIR/NWGMSA-Examples/O21/Bundle-GenomicsOrderMessage-ctDNA.json), patient SHEFFIELD, Theon (NHS 9737873858)." },
     { "key": "date_range_start", "value": "2026-01-01", "type": "string", "description": "Wide enough to cover this repo's loaded 2026-dated ServiceRequest.authoredOn examples." },
@@ -264,7 +264,7 @@
                 { "key": "_count", "value": "20" }
               ]
             },
-            "description": "Chained search support varies by server — fall back to a two-step Practitioner lookup + performer=<id> if this comes back empty unexpectedly. 'Iqbal' is a real requesting Practitioner (Shahid Iqbal) on LIVERPOOL, Ned's loaded Clatterbridge order — note that example sets ServiceRequest.requester, not .performer, so this chained performer search may still come back empty against the pre-loaded data even though the Practitioner itself is real."
+            "description": "Chained search support varies by server — fall back to a two-step Practitioner lookup + performer=<id> if this comes back empty unexpectedly. 'FICTITIOUS' is a real requesting Practitioner (Bernard FICTITIOUS) on LIVERPOOL, Ned's loaded Clatterbridge order — note that example sets ServiceRequest.requester, not .performer, so this chained performer search may still come back empty against the pre-loaded data even though the Practitioner itself is real."
           }
         },
         {

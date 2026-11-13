@@ -8,11 +8,11 @@ terminators per repo convention):
 ```
 MSH|^~\&|LAB|CCC||CCC|20260109164121+0000||ORM^O01|27076860.1|P|2.3|||AL|NE|
 PID|1||CB0xxxxx15|C2-B20250217143952054|XXX^XXXX^XXX||XXXXXX|M||M|12 XXXX ROAD^HUYTON^LIVERPOOL^MERSEYSIDE^XXX XXXX|||||M||AN0000281729|xxxxxxxxx8652|||||||||||||01|
-PV1|1|O|PAL_C863^^^CCC||||C6167060^Wells^Matthew^^^^^^XX|||CLIN HAEM||||||||RCR||NHS|||||||||||||||||||CCC||REG|||202601081200|
+PV1|1|O|PAL_C863^^^CCC||||C9000107^FICTITIOUS^Wilfred^^^^^^XX|||CLIN HAEM||||||||RCR||NHS|||||||||||||||||||CCC||REG|||202601081200|
 ORC|NW|5595441^LAB||090126:RI6||N|^^^^^R||202601091641|
 NTE|1||Patient Location 5.Ward 5 TYA|
-OBR|1|5595441^LAB||STR^Chimerism (CCC-L)^L|||202601091638||||||||EB|C6167060^Wells^Matthew^^^^^^XX||05094286||||||LAB|||^^^^^R|
-OBR|2|5595441^LAB||CD348^Lymph Sub (CD3/4/8/45) (CCC-L)^L|||202601091638||||||||S|C6167060^Wells^Matthew^^^^^^XX||05094286||||||LAB|||^^^^^R|
+OBR|1|5595441^LAB||STR^Chimerism (CCC-L)^L|||202601091638||||||||EB|C9000107^FICTITIOUS^Wilfred^^^^^^XX||05094286||||||LAB|||^^^^^R|
+OBR|2|5595441^LAB||CD348^Lymph Sub (CD3/4/8/45) (CCC-L)^L|||202601091638||||||||S|C9000107^FICTITIOUS^Wilfred^^^^^^XX||05094286||||||LAB|||^^^^^R|
 ```
 
 ## 1. Message type — MSH-9 / MSH-12 (critical)
@@ -51,14 +51,14 @@ OBR|2|5595441^LAB||CD348^Lymph Sub (CD3/4/8/45) (CCC-L)^L|||202601091638||||||||
 - **Current:** single `ORC|NW|5595441^LAB||090126:RI6||N|^^^^^R||202601091641|` precedes
   both OBR segments.
 - **ORC-12 (Ordering Provider, XCN):** empty. Spec marks this required/suggested. The
-  ordering clinician (`C6167060^Wells^Matthew^^^^^^XX`) is only present down in
+  ordering clinician (`C9000107^FICTITIOUS^Wilfred^^^^^^XX`) is only present down in
   OBR-16, not ORC-12.
 - **ORC-21 (Ordering Facility Name, XON):** empty. Spec marks this required/suggested.
 - **XCN-9 assigning authority:** `XX` (PV1-7 and both OBR-16s) isn't an assigning
   authority - it's an HL7 identifier *type* code. The IG puts the GMC number's authority
   in XCN-9 as `GMC` (e.g. `C3456789^Darwin^Samuel^^^Dr^^^GMC`).
 - **Fixture status:** the test fixture now carries the clinician in ORC-12 as
-  `C6167060^Wells^Matthew^^^^^^GMC`, with `GMC` replacing `XX` in XCN-9 of PV1-7 and
+  `C9000107^FICTITIOUS^Wilfred^^^^^^GMC`, with `GMC` replacing `XX` in XCN-9 of PV1-7 and
   both OBR-16s, and ORC-21 populated as
   `The Clatterbridge Cancer Centre NHS Foundation Trust^^REN^^^ODS`. ORC-12 matters
   beyond conformance: with it empty, the transformToV2 round trip dropped the ordering

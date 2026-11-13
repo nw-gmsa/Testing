@@ -22,18 +22,18 @@
         },
         "destination": [
           {
-            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/EPR",
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/iGene",
             "receiver": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "RR8"
+                "value": "699X0"
               }
             }
           }
         ],
         "source": {
-          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/HIVE",
-          "software": "NW GLH"
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/OmicsDSS",
+          "software": "OmicsDSS"
         },
         "focus": [
           {
@@ -151,7 +151,7 @@
       "resource": {
         "resourceType": "ServiceRequest",
         "status": "completed",
-        "intent": "order",
+        "intent": "instance-order",
         "category": [
           {
             "coding": [
@@ -175,23 +175,6 @@
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "RR8"
-              }
-            },
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PLAC"
-                }
-              ]
-            },
-            "value": "1234-RR8"
-          },
-          {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
                 "value": "699X0"
               }
             },
@@ -200,11 +183,33 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "FILL"
+                  "code": "PLAC"
                 }
               ]
             },
             "value": "T26-59X2"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RR8"
+                }
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "PLAC"
+                  }
+                ]
+              },
+              "value": "1234-RR8"
+            }
           }
         ],
         "subject": {
@@ -223,13 +228,24 @@
           }
         },
         "requester": {
-          "display": "Leeds Teaching Hospitals NHS Trust",
+          "display": "NHS North West Genomics",
+          "reference": "urn:uuid:3e221516-d8e9-46c7-9756-d3f948dfe607",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "RR8"
+            "value": "699X0"
           },
           "type": "Organization"
         },
+        "performer": [
+          {
+            "type": "Device",
+            "identifier": {
+              "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+              "value": "DLIMS"
+            },
+            "display": "DLIMS"
+          }
+        ],
         "reasonCode": [
           {
             "coding": [
@@ -257,6 +273,26 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:f57f0f51-7184-5273-8abe-876460b7e195",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/hcpc-number",
+            "value": "CS90001"
+          },
+          "display": "FICTITIOUS, Morgan"
+        },
+        "organization": {
+          "reference": "urn:uuid:3e221516-d8e9-46c7-9756-d3f948dfe607",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          }
+        }
+      }
+    },
+    {
       "fullUrl": "urn:uuid:2327bef8-dff6-4511-970b-0230095a2fef",
       "resource": {
         "resourceType": "Observation",
@@ -266,6 +302,11 @@
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant"
           ]
         },
+        "identifier": [
+          {
+            "value": "ctdna9737383222-seqv1"
+          }
+        ],
         "status": "final",
         "category": [
           {
@@ -300,9 +341,18 @@
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:3e221516-d8e9-46c7-9756-d3f948dfe607"
+            "reference": "urn:uuid:f57f0f51-7184-5273-8abe-876460b7e195",
+            "type": "PractitionerRole"
           }
         ],
+        "device": {
+          "type": "Device",
+          "identifier": {
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+            "value": "OmicsDSS"
+          },
+          "display": "Omics DSS"
+        },
         "valueCodeableConcept": {
           "coding": [
             {
@@ -567,7 +617,9 @@
             },
             "valueRange": {
               "low": {
-                "value": 41276046
+                "value": 41276046,
+                "system": "http://unitsofmeasure.org",
+                "code": "{bp}"
               }
             }
           },
@@ -620,6 +672,11 @@
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant"
           ]
         },
+        "identifier": [
+          {
+            "value": "ctdna9737383222-icnv1"
+          }
+        ],
         "status": "final",
         "category": [
           {
@@ -654,9 +711,18 @@
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:3e221516-d8e9-46c7-9756-d3f948dfe607"
+            "reference": "urn:uuid:f57f0f51-7184-5273-8abe-876460b7e195",
+            "type": "PractitionerRole"
           }
         ],
+        "device": {
+          "type": "Device",
+          "identifier": {
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+            "value": "OmicsDSS"
+          },
+          "display": "Omics DSS"
+        },
         "valueCodeableConcept": {
           "coding": [
             {
@@ -902,10 +968,14 @@
             },
             "valueRange": {
               "low": {
-                "value": 48797221
+                "value": 48797221,
+                "system": "http://unitsofmeasure.org",
+                "code": "{bp}"
               },
               "high": {
-                "value": 48802366
+                "value": 48802366,
+                "system": "http://unitsofmeasure.org",
+                "code": "{bp}"
               }
             }
           },
@@ -954,6 +1024,11 @@
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant"
           ]
         },
+        "identifier": [
+          {
+            "value": "ctdna9737383222-mcnv1"
+          }
+        ],
         "status": "final",
         "category": [
           {
@@ -988,9 +1063,18 @@
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:3e221516-d8e9-46c7-9756-d3f948dfe607"
+            "reference": "urn:uuid:f57f0f51-7184-5273-8abe-876460b7e195",
+            "type": "PractitionerRole"
           }
         ],
+        "device": {
+          "type": "Device",
+          "identifier": {
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+            "value": "OmicsDSS"
+          },
+          "display": "Omics DSS"
+        },
         "valueCodeableConcept": {
           "coding": [
             {
@@ -1192,10 +1276,14 @@
             },
             "valueRange": {
               "low": {
-                "value": 100652796
+                "value": 100652796,
+                "system": "http://unitsofmeasure.org",
+                "code": "{bp}"
               },
               "high": {
-                "value": 153792676
+                "value": 153792676,
+                "system": "http://unitsofmeasure.org",
+                "code": "{bp}"
               }
             }
           },
@@ -1244,6 +1332,11 @@
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant"
           ]
         },
+        "identifier": [
+          {
+            "value": "ctdna9737383222-sv1"
+          }
+        ],
         "status": "final",
         "category": [
           {
@@ -1278,9 +1371,18 @@
         "effectiveDateTime": "2026-07-14T15:59:16+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:3e221516-d8e9-46c7-9756-d3f948dfe607"
+            "reference": "urn:uuid:f57f0f51-7184-5273-8abe-876460b7e195",
+            "type": "PractitionerRole"
           }
         ],
+        "device": {
+          "type": "Device",
+          "identifier": {
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+            "value": "OmicsDSS"
+          },
+          "display": "Omics DSS"
+        },
         "valueCodeableConcept": {
           "coding": [
             {
@@ -1428,10 +1530,14 @@
             },
             "valueRange": {
               "low": {
-                "value": 100652796
+                "value": 100652796,
+                "system": "http://unitsofmeasure.org",
+                "code": "{bp}"
               },
               "high": {
-                "value": 153792676
+                "value": 153792676,
+                "system": "http://unitsofmeasure.org",
+                "code": "{bp}"
               }
             }
           },
@@ -1460,11 +1566,11 @@
         "resourceType": "DiagnosticReport",
         "meta": {
           "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticReport",
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/TestResults",
             "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genomic-report"
           ]
         },
-        "status": "final",
+        "status": "preliminary",
         "category": [
           {
             "coding": [
@@ -1484,8 +1590,12 @@
             },
             {
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
-              "code": "M4.14",
-              "display": "PACKAGE: M4.14 - Non-Small Cell Lung Cancer, Multi-target ctDNA combined Multi-target NGS panel - small variant (EGFR, ALK, BRAF, KRAS, MET exon 14 skipping and copy number variations) and structural variant (ROS1, RET, ALK, NTRK1, NTRK2, NTRK3, MET exon"
+              "code": "M4.14"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
             },
             {
               "system": "http://loinc.org",
@@ -1533,7 +1643,7 @@
                 "value": "699X0"
               }
             },
-            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+            "system": "https://fhir.nwgenomics.nhs.uk/OmicsDSS/ResultIdentifier",
             "type": {
               "coding": [
                 {
@@ -1542,7 +1652,7 @@
                 }
               ]
             },
-            "value": "T26-59X2"
+            "value": "DSS-T26-59X2"
           }
         ],
         "basedOn": [
@@ -1553,9 +1663,10 @@
               "assigner": {
                 "identifier": {
                   "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                  "value": "RR8"
+                  "value": "699X0"
                 }
               },
+              "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
               "type": {
                 "coding": [
                   {
@@ -1564,7 +1675,7 @@
                   }
                 ]
               },
-              "value": "1234-RR8"
+              "value": "T26-59X2"
             }
           }
         ],
