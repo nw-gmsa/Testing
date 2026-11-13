@@ -72,7 +72,8 @@ sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
 isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
 (O21/R01, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
-group below). Extend TEST_GROUPS with further scenarios/files as they're added.
+group below), and the end-to-end UGR Full Pipeline and Whole Genome Sequencing scenarios
+(see Input/Scenarios/). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
     python3 IntegrationTest.py [--skip-send] [--strict-conformance] [--type O21] [--type R01] [--group shire]
@@ -581,6 +582,38 @@ TEST_GROUPS = {
         "skip_transform_to_v2": True,
         "cases": {
             "R32": [f"cepheid-{i}.txt" for i in range(1, 8)],
+        },
+    },
+    # End-to-end scenarios from the NW-GMSA IG's ExampleScenarios. Each step is a separate
+    # case, numbered in workflow order; see Input/Scenarios/<scenario>/README.md for the full
+    # test case list, including the steps that are FHIR searches or FHIR Documents and so
+    # aren't run here.
+    # UGR Full Pipeline - https://nw-gmsa.github.io/en/ExampleScenario-UGRFullPipeline.html
+    "ugr_full_pipeline": {
+        "input_dir": os.path.join("Input", "Scenarios", "UGRFullPipeline", "V2"),
+        "cases": {
+            "O21": ["UGR-01-LAB1-OML_O21-RHQ-to-iGene.txt", "UGR-02-LAB4-OML_O21-iGene-to-DLIMS.txt"],
+            "R01": ["UGR-04-LAB5-ORU_R01-DLIMS-to-iGene.txt", "UGR-05-LAB3-ORU_R01-iGene-to-RHQ.txt"],
+            "T02": ["UGR-06-MDM_T02-RIE-to-CentralRegistry.txt"],
+        },
+    },
+    "ugr_full_pipeline_fhir": {
+        "input_dir": os.path.join("Input", "Scenarios", "UGRFullPipeline", "FHIR"),
+        "input_format": "fhir",
+        "cases": {
+            "O21": ["UGR-01-LAB1-Bundle-GenomicsOrderMessage-ctDNA.json"],
+            "R01": ["UGR-04-LAB5-Bundle-TestResultsMessage-ctDNA-OmicsDSS.json",
+                    "UGR-05-LAB3-Bundle-ReportMessage-ctDNA-iGene-NarrativeReport.json"],
+        },
+    },
+    # Whole Genome Sequencing - https://nw-gmsa.github.io/en/ExampleScenario-WholeGenomeSequencing.html
+    # The LAB-35 sub-orders (WGS-02) are the existing "dwgs" group.
+    "wgs_full_pipeline": {
+        "input_dir": os.path.join("Input", "Scenarios", "WholeGenomeSequencing", "V2"),
+        "cases": {
+            "O21": ["WGS-01-LAB1-OML_O21-RNN-to-RGL.txt"],
+            "R01": ["WGS-06-LAB3-ORU_R01-RGL-to-RNN.txt"],
+            "T02": ["WGS-05-MDM_T02-IntegrationEngine-to-CentralRegistry.txt"],
         },
     },
 }

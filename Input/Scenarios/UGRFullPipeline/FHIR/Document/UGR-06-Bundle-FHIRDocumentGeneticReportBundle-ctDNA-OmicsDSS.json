@@ -1,0 +1,1066 @@
+{
+  "resourceType": "Bundle",
+  "id": "FHIRDocumentGeneticReportBundle-ctDNA-OmicsDSS",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleDocument"
+    ]
+  },
+  "type": "document",
+  "identifier": {
+    "system": "urn:oid:2.16.724.4.8.10.200.10",
+    "value": "a67b85b7-dea7-424b-9281-e002f78a5698"
+  },
+  "timestamp": "2026-07-08T09:45:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:b212d40d-70eb-4599-98a7-9a8533bc1271",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "Composition-GenomicsReport-ctDNA-OmicsDSS",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Composition-GenomicReport"
+          ]
+        },
+        "identifier": {
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            }
+          },
+          "value": "T26-59XG",
+          "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference",
+            "valueReference": {
+              "reference": "urn:uuid:0b817ddc-0f04-41dc-ae66-e2eebb24037a"
+            }
+          }
+        ],
+        "section": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "42349-1",
+                  "system": "http://loinc.org",
+                  "display": "Reason for referral (narrative)"
+                }
+              ]
+            },
+            "title": "Referral",
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>M4 Non-Small Cell Lung Cancer. M4.14 multi-target ctDNA panel.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:6e26d6b3-490e-4348-9d6c-37281567d6ec"
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "123038009",
+                  "system": "http://snomed.info/sct",
+                  "display": "Specimen"
+                }
+              ]
+            },
+            "title": "Specimen",
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Blood specimen for ctDNA. Collected 29-Jun-2026, received 30-Jun-2026.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5"
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "51968-6",
+                  "system": "http://loinc.org",
+                  "display": "Discrete variation analysis overall interpretation"
+                }
+              ]
+            },
+            "title": "Result summary",
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>TARGET DETECTED AT A LEVEL REQUIRING CLINICAL ACTION.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:0b817ddc-0f04-41dc-ae66-e2eebb24037a"
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "69548-6",
+                  "system": "http://loinc.org",
+                  "display": "Genetic variant assessment"
+                }
+              ]
+            },
+            "title": "Results",
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>One somatic sequence variant detected in circulating tumour DNA.</p></div>"
+            },
+            "section": [
+              {
+                "title": "Simple variants",
+                "code": {
+                  "coding": [
+                    {
+                      "code": "81250-3",
+                      "system": "http://loinc.org"
+                    }
+                  ]
+                },
+                "text": {
+                  "status": "generated",
+                  "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>EGFR NM_005228.5:c.2369C&gt;T p.(Thr790Met) detected in circulating tumour DNA (somatic), variant allele fraction 0.42%.</p></div>"
+                },
+                "entry": [
+                  {
+                    "reference": "urn:uuid:eb1f8ec5-f9ff-4472-97f9-77999460b8c8"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "other-laboratory-results",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "title": "Results from other laboratories",
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Test results DSS26-000873 from the sequencing laboratory, with variant calling by OmicsDSS.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:38be35e1-1df1-40fb-a055-c012dada778f"
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "interpretation",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "title": "Interpretation",
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>EGFR p.(Thr790Met) was detected in circulating tumour DNA at a level requiring clinical action.</p></div>"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "methodology",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "title": "Methodology and limitations",
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Targeted sequencing of circulating tumour DNA, with variant calling by OmicsDSS. A negative result only rules out variants in the regions tested.</p></div>"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "code": "M4.14",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            },
+            {
+              "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "date": "2026-07-08T09:30:00+00:00",
+        "author": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "North West Genomics"
+          }
+        ],
+        "attester": [
+          {
+            "mode": "legal",
+            "time": "2026-07-08T09:30:00+00:00",
+            "party": {
+              "reference": "urn:uuid:4446ab81-35ef-49cb-b2fe-1d6f1a0dcc02",
+              "display": "FICTITIOUS, Morgan"
+            }
+          }
+        ],
+        "title": "Composition Genomics Report ctDNA (OMICS DSS)",
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Sheffield",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "PI",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "336292"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "SHEFFIELD",
+            "given": [
+              "Theon"
+            ]
+          }
+        ],
+        "birthDate": "1986-09-12",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "SPITAL STREET"
+            ],
+            "city": "SHEFFIELD",
+            "postalCode": "S3 9LB"
+          }
+        ],
+        "gender": "male",
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "C88622"
+            },
+            "display": "Sheffield Medical Centre"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6e26d6b3-490e-4348-9d6c-37281567d6ec",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-ctDNA",
+        "meta": {
+          "versionId": "1.0",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RHQ"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:4446ab81-35ef-49cb-b2fe-1d6f1a0dcc02"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "value": "T26-59XG",
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+          }
+        ],
+        "requisition": {
+          "type": {
+            "coding": [
+              {
+                "code": "PGN",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+              }
+            ]
+          },
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            }
+          },
+          "value": "R26-15AY",
+          "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReferralIdentifier"
+        },
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "M4.14",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            }
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "M4",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4446ab81-35ef-49cb-b2fe-1d6f1a0dcc02",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "4446ab81-35ef-49cb-b2fe-1d6f1a0dcc02",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RHQ"
+          }
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C9999998"
+          },
+          "display": "Sheffield Lung Doctor"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                "code": "100"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-ctDNA",
+        "meta": {
+          "versionId": "1.0",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "S26-1K1Q",
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/SpecimenIdentifier",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          }
+        },
+        "collection": {
+          "collectedDateTime": "2026-06-29"
+        },
+        "receivedTime": "2026-06-30",
+        "type": {
+          "coding": [
+            {
+              "code": "119297000",
+              "display": "Blood specimen",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0b817ddc-0f04-41dc-ae66-e2eebb24037a",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-ctDNA-iGene-MergedReport",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "M4.14"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "value": "T26-59XG",
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "FILL",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "699X0"
+                }
+              },
+              "value": "T26-59XG",
+              "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+            },
+            "reference": "urn:uuid:6e26d6b3-490e-4348-9d6c-37281567d6ec"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                "code": "431",
+                "display": "TARGET DETECTED AT A LEVEL REQUIRING CLINICAL ACTION"
+              }
+            ]
+          }
+        ],
+        "status": "final",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>ctDNA genomic report for Theon SHEFFIELD. M4.14 Non-Small Cell Lung Cancer, multi-target ctDNA panel. EGFR NM_005228.5:c.2369C&gt;T p.(Thr790Met) detected in circulating tumour DNA (somatic). Outcome: TARGET DETECTED AT A LEVEL REQUIRING CLINICAL ACTION.</p></div>"
+        },
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          }
+        },
+        "effectiveDateTime": "2026-07-08T09:30:00+00:00",
+        "issued": "2026-07-08T09:30:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization",
+            "display": "NW GLH"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "display": "FICTITIOUS, Morgan"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5"
+          }
+        ],
+        "conclusion": "EGFR p.(Thr790Met) detected in circulating tumour DNA at a level requiring clinical action.",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.supportingInfo",
+            "extension": [
+              {
+                "url": "type",
+                "valueCodeableConcept": {
+                  "text": "Test results (LAB-5)"
+                }
+              },
+              {
+                "url": "reference",
+                "valueReference": {
+                  "type": "DiagnosticReport",
+                  "identifier": {
+                    "system": "https://fhir.nwgenomics.nhs.uk/OmicsDSS/ResultIdentifier",
+                    "value": "DSS26-000873"
+                  },
+                  "display": "OmicsDSS test results DSS26-000873",
+                  "reference": "urn:uuid:38be35e1-1df1-40fb-a055-c012dada778f"
+                }
+              }
+            ]
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:eb1f8ec5-f9ff-4472-97f9-77999460b8c8"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:38be35e1-1df1-40fb-a055-c012dada778f",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-ctDNA-OmicsDSS-TestResults",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/TestResults"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "M4.14"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "value": "DSS26-000873",
+            "system": "https://fhir.nwgenomics.nhs.uk/OmicsDSS/ResultIdentifier"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "699X0"
+                }
+              },
+              "value": "T26-59XG",
+              "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "status": "preliminary",
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          }
+        },
+        "effectiveDateTime": "2026-07-06T11:20:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization",
+            "display": "NW GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:eb1f8ec5-f9ff-4472-97f9-77999460b8c8"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb1f8ec5-f9ff-4472-97f9-77999460b8c8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "variant-egfr-omicsdss",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "69548-6",
+              "system": "http://loinc.org"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "value": "eb1f8ec5-f9ff-4472-97f9-77999460b8c8"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "value": "T26-59XG",
+              "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "699X0"
+                }
+              }
+            }
+          }
+        ],
+        "status": "preliminary",
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD"
+        },
+        "effectiveDateTime": "2026-07-06T11:20:00+00:00",
+        "performer": [
+          {
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
+          }
+        ],
+        "device": {
+          "type": "Device",
+          "identifier": {
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+            "value": "OmicsDSS"
+          },
+          "display": "Omics DSS"
+        },
+        "specimen": {
+          "reference": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "LA9633-4",
+              "system": "http://loinc.org",
+              "display": "Present"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "code": "LA26398-0",
+              "system": "http://loinc.org",
+              "display": "Sequencing"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "83005-9",
+                  "system": "http://loinc.org",
+                  "display": "Variant category"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "SEQV",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGeneVariantCategory",
+                  "display": "Sequence Variant"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48018-6",
+                  "system": "http://loinc.org",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "HGNC:3236",
+                  "system": "http://www.genenames.org",
+                  "display": "EGFR"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48002-0",
+                  "system": "http://loinc.org",
+                  "display": "Genomic source class [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA6684-0",
+                  "system": "http://loinc.org",
+                  "display": "Somatic"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "51958-7",
+                  "system": "http://loinc.org",
+                  "display": "Transcript reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "NM_005228.5",
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48004-6",
+                  "system": "http://loinc.org",
+                  "display": "DNA change (c.HGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "NM_005228.5:c.2369C>T",
+                  "system": "http://varnomen.hgvs.org"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48005-3",
+                  "system": "http://loinc.org",
+                  "display": "Amino acid change (pHGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "p.(Thr790Met)",
+                  "system": "http://varnomen.hgvs.org"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48019-4",
+                  "system": "http://loinc.org",
+                  "display": "DNA change type"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "SO:1000002",
+                  "system": "http://www.sequenceontology.org",
+                  "display": "substitution"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "81258-6",
+                  "system": "http://loinc.org",
+                  "display": "Sample variant allelic frequency [NFr]"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 0.0042,
+              "unit": "decimal",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "59577028-8fcc-4554-8b43-988561d41d9c",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "North West Genomics"
+        },
+        "practitioner": {
+          "display": "Result INTERPRETER"
+        }
+      }
+    }
+  ]
+}

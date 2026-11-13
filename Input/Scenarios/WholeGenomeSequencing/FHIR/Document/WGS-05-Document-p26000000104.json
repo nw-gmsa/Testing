@@ -1,0 +1,868 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleDocument"
+    ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:3aeb502a-e7dd-52f3-b086-c494af969158"
+  },
+  "type": "document",
+  "timestamp": "2026-09-30T10:05:00+01:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:af537075-c719-5f46-ac08-dac87631d214",
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Composition-GenomicReport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference",
+            "valueReference": {
+              "reference": "urn:uuid:d430bd71-9b3a-51a6-8d66-6f380fdaa51a"
+            }
+          }
+        ],
+        "identifier": {
+          "system": "https://fhir.nwgenomics.nhs.uk/Identifier/NGIS-ReferralIdentifier",
+          "value": "r26000000203-p26000000104",
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "8J834"
+            }
+          }
+        },
+        "status": "preliminary",
+        "type": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R27.3"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:73518551-6263-4a1d-a6ad-f0d30d441b04",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383362"
+          },
+          "display": "Gilly BROUGH"
+        },
+        "date": "2026-09-30T10:05:00+01:00",
+        "author": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "8J834"
+            },
+            "display": "Genomics England"
+          }
+        ],
+        "title": "Participant results p26000000104 (WGS, R27.3)",
+        "attester": [
+          {
+            "mode": "professional",
+            "time": "2026-09-30T10:05:00+01:00",
+            "party": {
+              "reference": "urn:uuid:f5736751-08c9-530a-aac7-0e9152710409",
+              "identifier": {
+                "system": "https://fhir.hl7.org.uk/Id/hcpc-number",
+                "value": "CS90003"
+              },
+              "display": "FICTITIOUS, Quentin"
+            }
+          }
+        ],
+        "section": [
+          {
+            "title": "Referral",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "42349-1",
+                  "display": "Reason for referral (narrative)"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R27.3 whole genome sequencing, Trio referral r26000000203. Proband.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:ff6c4d13-f95f-4f5a-82e9-8a9b132f6d85"
+              }
+            ]
+          },
+          {
+            "title": "Specimen",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "123038009",
+                  "display": "Specimen"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Whole blood (EDTA), DNA extracted.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:48cb88fb-cb6e-4af0-8a41-f5d1ef4e2ded"
+              }
+            ]
+          },
+          {
+            "title": "Result summary",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "51968-6",
+                  "display": "Discrete variation analysis overall interpretation"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Bioinformatics pipeline results for the proband. Not yet interpreted.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:d430bd71-9b3a-51a6-8d66-6f380fdaa51a"
+              }
+            ]
+          },
+          {
+            "title": "Results",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69548-6",
+                  "display": "Genetic variant assessment"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>One heterozygous sequence variant.</p></div>"
+            },
+            "section": [
+              {
+                "title": "Simple variants",
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://loinc.org",
+                      "code": "81250-3"
+                    }
+                  ]
+                },
+                "text": {
+                  "status": "generated",
+                  "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>SCN2A NM_021007.3:c.2558G&gt;A p.(Arg853Gln), heterozygous.</p></div>"
+                },
+                "entry": [
+                  {
+                    "reference": "urn:uuid:5e1921da-53eb-5a16-bbd3-b8e420c7e248"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Interpretation",
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection",
+                  "code": "interpretation"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Not yet interpreted. The family's results are interpreted in the RGL's Laboratory Report.</p></div>"
+            }
+          },
+          {
+            "title": "Methodology and limitations",
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection",
+                  "code": "methodology"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Whole genome sequencing, Genomics England bioinformatics pipeline. Fictitious example.</p></div>"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:73518551-6263-4a1d-a6ad-f0d30d441b04",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NH"
+                }
+              ]
+            },
+            "value": "9737383362"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "8J834"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PI"
+                }
+              ]
+            },
+            "value": "p26000000104"
+          }
+        ],
+        "name": [
+          {
+            "family": "BROUGH",
+            "given": [
+              "Gilly"
+            ]
+          }
+        ],
+        "birthDate": "1989-07-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ff6c4d13-f95f-4f5a-82e9-8a9b132f6d85",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "filler-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116148004"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R27.3"
+            }
+          ]
+        },
+        "requisition": {
+          "system": "https://fhir.nwgenomics.nhs.uk/Identifier/NGIS-ReferralIdentifier",
+          "value": "r26000000203",
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "8J834"
+            }
+          },
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code": "PGN"
+              }
+            ]
+          }
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "4000000004",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699N0"
+              }
+            }
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "urn:uuid:3765f978-eff3-4cc9-8c82-464c01524241",
+            "type": "ServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:73518551-6263-4a1d-a6ad-f0d30d441b04"
+        },
+        "requester": {
+          "reference": "urn:uuid:61ff17b0-a124-4904-a92e-1af786d01e6a",
+          "type": "PractitionerRole"
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:48cb88fb-cb6e-4af0-8a41-f5d1ef4e2ded",
+            "type": "Specimen"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:06a7248a-1e68-46b5-9504-1cb85171a532",
+            "type": "Observation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient has intellectual disability"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:48cb88fb-cb6e-4af0-8a41-f5d1ef4e2ded",
+      "resource": {
+        "resourceType": "Specimen",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "S26-1A04",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RNN"
+              }
+            }
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699N0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "STN"
+                }
+              ]
+            },
+            "value": "NEY GLH 2026-08-26"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699N0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "D26-1B04"
+          }
+        ],
+        "accessionIdentifier": {
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699N0"
+            }
+          },
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code": "ACSN"
+              }
+            ]
+          },
+          "value": "S26-1A04"
+        },
+        "type": {
+          "coding": [
+            {
+              "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/SampleSource",
+              "code": "BLOOD"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258580003",
+              "display": "Whole blood specimen (specimen)"
+            }
+          ],
+          "text": "blood_unsorted_edta"
+        },
+        "subject": {
+          "reference": "urn:uuid:73518551-6263-4a1d-a6ad-f0d30d441b04"
+        },
+        "collection": {
+          "quantity": {
+            "value": 150.0,
+            "unit": "uL",
+            "system": "http://unitsofmeasure.org",
+            "code": "uL"
+          },
+          "collectedDateTime": "2026-08-18T00:00:00+00:00",
+          "method": {
+            "coding": [
+              {
+                "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/Method",
+                "code": "UNSORTED"
+              }
+            ]
+          }
+        },
+        "receivedTime": "2026-08-20T00:00:00+00:00",
+        "processing": [
+          {
+            "description": "Storage medium",
+            "procedure": {
+              "coding": [
+                {
+                  "system": "https://gelreportmodels.genomicsengland.co.uk/CodeSystem/StorageMedium",
+                  "code": "EDTA"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d430bd71-9b3a-51a6-8d66-6f380fdaa51a",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/TestResults"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/Identifier/NGIS-ReferralIdentifier",
+            "value": "r26000000203",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "8J834"
+              }
+            }
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "urn:uuid:ff6c4d13-f95f-4f5a-82e9-8a9b132f6d85",
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "PLAC"
+                  }
+                ]
+              },
+              "value": "4000000004",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "699N0"
+                }
+              }
+            }
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R27.3"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:73518551-6263-4a1d-a6ad-f0d30d441b04",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383362"
+          }
+        },
+        "effectiveDateTime": "2026-09-30T10:00:00+01:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "8J834"
+            },
+            "display": "Genomics England"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:48cb88fb-cb6e-4af0-8a41-f5d1ef4e2ded"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:5e1921da-53eb-5a16-bbd3-b8e420c7e248"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5e1921da-53eb-5a16-bbd3-b8e420c7e248",
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant"
+          ]
+        },
+        "identifier": [
+          {
+            "value": "p26000000104-variant-1"
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:73518551-6263-4a1d-a6ad-f0d30d441b04",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383362"
+          }
+        },
+        "effectiveDateTime": "2026-09-30T10:00:00+01:00",
+        "performer": [
+          {
+            "reference": "urn:uuid:f5736751-08c9-530a-aac7-0e9152710409",
+            "type": "PractitionerRole"
+          }
+        ],
+        "device": {
+          "display": "Genomics England bioinformatics pipeline"
+        },
+        "specimen": {
+          "reference": "urn:uuid:48cb88fb-cb6e-4af0-8a41-f5d1ef4e2ded"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA9633-4",
+              "display": "Present"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LA26398-0",
+              "display": "Sequencing"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "83005-9",
+                  "display": "Variant category"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGeneVariantCategory",
+                  "code": "SEQV",
+                  "display": "Sequence Variant"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48018-6",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.genenames.org",
+                  "code": "HGNC:10588",
+                  "display": "SCN2A"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "51958-7",
+                  "display": "Transcript reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq",
+                  "code": "NM_021007.3"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48004-6",
+                  "display": "DNA change (c.HGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "NM_021007.3:c.2558G>A"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48005-3",
+                  "display": "Amino acid change (pHGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://varnomen.hgvs.org",
+                  "code": "p.(Arg853Gln)"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48019-4",
+                  "display": "DNA change type"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.sequenceontology.org",
+                  "code": "SO:1000002",
+                  "display": "substitution"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48002-0",
+                  "display": "Genomic source class [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA6683-2",
+                  "display": "Germline"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "53034-5",
+                  "display": "Allelic state"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "LA6706-1",
+                  "display": "heterozygous"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f5736751-08c9-530a-aac7-0e9152710409",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/hcpc-number",
+            "value": "CS90003"
+          },
+          "display": "FICTITIOUS, Quentin"
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699N0"
+          },
+          "display": "Northern Genetics Service, Newcastle (NE&Y Genomics)"
+        }
+      }
+    }
+  ]
+}

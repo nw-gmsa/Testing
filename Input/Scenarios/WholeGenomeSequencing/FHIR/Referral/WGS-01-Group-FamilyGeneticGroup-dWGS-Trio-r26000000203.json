@@ -1,0 +1,124 @@
+{
+  "resourceType": "Group",
+  "id": "FamilyGeneticGroup-dWGS-Trio-r26000000203",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyGeneticGroup"
+    ]
+  },
+  "type": "person",
+  "actual": true,
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "PGN",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      },
+      "system": "https://fhir.nwgenomics.nhs.uk/Identifier/NGIS-ReferralIdentifier",
+      "assigner": {
+        "identifier": {
+          "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value": "8J834"
+        }
+      },
+      "value": "r26000000203"
+    }
+  ],
+  "member": [
+    {
+      "extension": [
+        {
+          "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberRelationship",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "ONESELF",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "display": "self"
+              }
+            ]
+          }
+        }
+      ],
+      "entity": {
+        "identifier": {
+          "system": "https://fhir.nhs.uk/Id/nhs-number",
+          "value": "9737383362"
+        },
+        "display": "Gilly Brough (p26000000104)"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberRelationship",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "FAMMEMB",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "display": "family member"
+              }
+            ]
+          }
+        },
+        {
+          "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberHistoryReference",
+          "valueReference": {
+            "reference": "FamilyMemberHistory/FamilyMemberHistory-dWGS-Trio-r26000000203-p26000000105"
+          }
+        }
+      ],
+      "entity": {
+        "identifier": {
+          "system": "https://fhir.nhs.uk/Id/nhs-number",
+          "value": "9999999581"
+        },
+        "display": "Thirteen Editestpatient (p26000000105)"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberRelationship",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "FAMMEMB",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "display": "family member"
+              }
+            ]
+          }
+        },
+        {
+          "url": "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberHistoryReference",
+          "valueReference": {
+            "reference": "FamilyMemberHistory/FamilyMemberHistory-dWGS-Trio-r26000000203-p26000000106"
+          }
+        }
+      ],
+      "entity": {
+        "identifier": {
+          "system": "https://fhir.nhs.uk/Id/nhs-number",
+          "value": "9999999514"
+        },
+        "display": "Six Editestpatient (p26000000106)"
+      }
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "FamilyStructureTrio",
+        "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA",
+        "display": "Trio"
+      }
+    ]
+  },
+  "quantity": 3
+}
