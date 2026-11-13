@@ -1,0 +1,451 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:6f06e0a4-7ef5-53c0-bedd-a313c2b946fa",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "R0A200080",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "temp",
+            "family": "LONDON",
+            "given": [
+              "Fetus of Cersei"
+            ]
+          }
+        ],
+        "gender": "unknown",
+        "address": [
+          {
+            "postalCode": "SE1 2AA"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:71452289-f311-5535-83d9-4fe3c27d5e50",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383230"
+          }
+        ],
+        "patient": {
+          "reference": "urn:uuid:6f06e0a4-7ef5-53c0-bedd-a313c2b946fa",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "R0A200080",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "NMTHF",
+                "display": "natural mother of fetus"
+              }
+            ]
+          }
+        ],
+        "name": [
+          {
+            "family": "LONDON",
+            "given": [
+              "Cersei"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1973-10-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2b2df22f-45e4-5aec-a8e7-3431a6baad6e",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383214"
+          }
+        ],
+        "patient": {
+          "reference": "urn:uuid:6f06e0a4-7ef5-53c0-bedd-a313c2b946fa",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "R0A200080",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "NFTHF",
+                "display": "natural father of fetus"
+              }
+            ]
+          }
+        ],
+        "name": [
+          {
+            "family": "LANCASTER",
+            "given": [
+              "Jaime"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1970-07-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9bfd231f-2a86-51a8-8bd7-0d6af2259f8d",
+      "resource": {
+        "resourceType": "Specimen",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "S26-PX01",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258566005",
+              "display": "Deoxyribonucleic acid sample"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:6f06e0a4-7ef5-53c0-bedd-a313c2b946fa"
+        },
+        "receivedTime": "2026-09-02T10:00:00+01:00",
+        "note": [
+          {
+            "text": "Trio DNA: fetal (amniotic fluid), maternal and paternal."
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3bafbb6e-d7e9-51c3-bd98-dac99975761d",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "T26-PX02",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "PLAC"
+                  }
+                ]
+              },
+              "value": "R0A26-77001",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "R0A"
+                }
+              }
+            }
+          }
+        ],
+        "requisition": {
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code": "PGN"
+              }
+            ]
+          },
+          "value": "R26-PX01",
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            }
+          },
+          "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReferralIdentifier"
+        },
+        "status": "active",
+        "intent": "filler-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116148004",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R21",
+              "display": "Rapid prenatal exome sequencing"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:6f06e0a4-7ef5-53c0-bedd-a313c2b946fa",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "R0A200080",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        },
+        "authoredOn": "2026-09-05T10:00:00+01:00",
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NHS North West Genomics",
+          "type": "Organization"
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "NTGLH"
+            },
+            "display": "North Thames Genomic Laboratory Hub",
+            "type": "Organization"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "268805008",
+                "display": "Suspected fetal abnormality"
+              }
+            ]
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:9bfd231f-2a86-51a8-8bd7-0d6af2259f8d"
+          }
+        ],
+        "note": [
+          {
+            "text": "QF-PCR and microarray normal."
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b3e42ea9-7880-59c2-9657-64904ead73db",
+      "resource": {
+        "resourceType": "Task",
+        "status": "requested",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status",
+              "code": "requested"
+            }
+          ]
+        },
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "urn:uuid:3bafbb6e-d7e9-51c3-bd98-dac99975761d",
+          "type": "ServiceRequest",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "T26-PX02",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+          }
+        },
+        "for": {
+          "reference": "urn:uuid:6f06e0a4-7ef5-53c0-bedd-a313c2b946fa",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "R0A200080",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        },
+        "authoredOn": "2026-09-05T10:00:00+01:00",
+        "lastModified": "2026-09-05T10:00:00+01:00",
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NHS North West Genomics",
+          "type": "Organization"
+        },
+        "owner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "NTGLH"
+          },
+          "display": "North Thames Genomic Laboratory Hub",
+          "type": "Organization"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Task"
+      }
+    }
+  ]
+}

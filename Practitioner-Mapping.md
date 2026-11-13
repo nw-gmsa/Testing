@@ -64,6 +64,9 @@ Use these when a fixture's practitioner may be a real person (see the next secti
 | FICTITIOUS, Dana |  | Local (iGene user) | `ZZ_DAN` | `699X0` | Laboratory user, results interpreter |
 | FICTITIOUS, Eli |  | Local (iGene user) | `ZZ_ELI` | `699X0` | Laboratory user, ordering provider on internal orders |
 | FICTITIOUS, Nell |  | None | - | - | Name only, no code |
+| FICTITIOUS, Fiona | Dr | GMC | `C9000114` | `R0A` | Consultant in fetal medicine, ordering provider (Rapid Prenatal Exome Sequencing scenario) |
+| FICTITIOUS, Ottilie | Dr | GMC | `C9000113` | `RP4` | GOSH consultant, ordering provider (Specialist Test for Another GLH scenario) |
+| FICTITIOUS, Nathaniel |  | HCPC | `CS90005` | North Thames GLH | Clinical scientist, results interpreter (Rapid Prenatal Exome Sequencing scenario) |
 
 ## Replaced practitioners
 

@@ -1,0 +1,294 @@
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://goms.simulated.example.nhs.uk/FHIR/R4/Task?owner:identifier=https://fhir.nhs.uk/Id/ods-organization-code|699X0&status=requested&_include=Task:focus&_include:iterate=ServiceRequest:subject&_include:iterate=ServiceRequest:specimen"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/Task/spec-task",
+      "resource": {
+        "resourceType": "Task",
+        "id": "spec-task",
+        "status": "requested",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status",
+              "code": "requested"
+            }
+          ]
+        },
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/spec-sub-order",
+          "type": "ServiceRequest",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "NT26-000456",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "NTGLH"
+              }
+            }
+          }
+        },
+        "for": {
+          "reference": "Patient/spec-patient",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383257"
+          }
+        },
+        "authoredOn": "2026-10-02T10:00:00+01:00",
+        "lastModified": "2026-10-02T10:00:00+01:00",
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "NTGLH"
+          },
+          "display": "North Thames Genomic Laboratory Hub",
+          "type": "Organization"
+        },
+        "owner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NHS North West Genomics",
+          "type": "Organization"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/ServiceRequest/spec-sub-order",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "spec-sub-order",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "NT26-000456",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "NTGLH"
+              }
+            }
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "PLAC"
+                  }
+                ]
+              },
+              "value": "RP426-1815",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RP4"
+                }
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "filler-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116148004",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R67.1",
+              "display": "Monogenic hearing loss (WES or Large Panel)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/spec-patient",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383257"
+          }
+        },
+        "authoredOn": "2026-10-02T10:00:00+01:00",
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "NTGLH"
+          },
+          "display": "North Thames Genomic Laboratory Hub",
+          "type": "Organization"
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NHS North West Genomics",
+            "type": "Organization"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "code": "R67",
+                "display": "Monogenic hearing loss"
+              }
+            ]
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "Specimen/spec-specimen"
+          }
+        ],
+        "note": [
+          {
+            "text": "Ordered by Great Ormond Street Hospital for Children NHS Foundation Trust."
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/Patient/spec-patient",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "spec-patient",
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383257"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "RP43361027",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RP4"
+              }
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": "WREXHAM",
+            "given": [
+              "Myrcella"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1999-10-13"
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/Specimen/spec-specimen",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "spec-specimen",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "NT26-S0456",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "NTGLH"
+              }
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258580003",
+              "display": "Whole blood specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/spec-patient"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-01T09:00:00+01:00"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/Task/spec-task",
+      "resource": {
+        "resourceType": "Task",
+        "id": "spec-task",
+        "status": "rejected",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status",
+              "code": "declined"
+            }
+          ]
+        },
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/spec-sub-order",
+          "type": "ServiceRequest",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "NT26-000456",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "NTGLH"
+              }
+            }
+          }
+        },
+        "for": {
+          "reference": "Patient/spec-patient",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383257"
+          }
+        },
+        "authoredOn": "2026-10-02T10:00:00+01:00",
+        "lastModified": "2026-10-07T14:00:00+01:00",
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "NTGLH"
+          },
+          "display": "North Thames Genomic Laboratory Hub",
+          "type": "Organization"
+        },
+        "owner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NHS North West Genomics",
+          "type": "Organization"
+        },
+        "statusReason": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-status-reason",
+              "code": "sample-unsuitable"
+            }
+          ],
+          "text": "Insufficient DNA extracted from the sample. Please send a new blood sample with a new order."
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/spec-task"
+      }
+    }
+  ]
+}

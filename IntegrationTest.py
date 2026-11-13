@@ -72,8 +72,8 @@ sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
 isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
 (O21/R01, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
-group below), and the end-to-end UGR Full Pipeline and Whole Genome Sequencing scenarios
-(see Input/Scenarios/). Extend TEST_GROUPS with further scenarios/files as they're added.
+group below), and the end-to-end UGR Full Pipeline, Whole Genome Sequencing, Rapid Prenatal Exome
+Sequencing and Specialist Test for Another GLH scenarios (see Input/Scenarios/). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
     python3 IntegrationTest.py [--skip-send] [--strict-conformance] [--type O21] [--type R01] [--group shire]
@@ -614,6 +614,32 @@ TEST_GROUPS = {
             "O21": ["WGS-01-LAB1-OML_O21-RNN-to-RGL.txt"],
             "R01": ["WGS-06-LAB3-ORU_R01-RGL-to-RNN.txt"],
             "T02": ["WGS-05-MDM_T02-IntegrationEngine-to-CentralRegistry.txt"],
+        },
+    },
+    # GLH to GLH sub-orders through GOMS (simulated): the NW side of each exchange (Trust EPR
+    # and iGene to and from the RIE). The simulated GOMS payloads are under each scenario's
+    # GOMS/ folder - see Input/Scenarios/<scenario>/README.md. Regenerate the fixtures with
+    # Input/Scenarios/build_glh_sub_order_scenarios.py.
+    # Rapid Prenatal Exome Sequencing - https://nw-gmsa.github.io/en/ExampleScenario-RapidPrenatalExomeSequencing.html
+    "prenatal_exome": {
+        "input_dir": os.path.join("Input", "Scenarios", "RapidPrenatalExomeSequencing", "V2"),
+        "cases": {
+            "O21": ["PRE-01-LAB1-OML_O21-MFT-to-iGene.txt", "PRE-03-LAB35-OML_O21-iGene-to-RIE-sub-order.txt"],
+            "O51": ["PRE-04-OSU_O51-RIE-to-iGene-accepted.txt", "PRE-04a-OSU_O51-RIE-to-iGene-declined.txt"],
+            "R01": ["PRE-02a-LAB3-ORU_R01-iGene-to-MFT-first-line-result.txt", "PRE-05-LAB36-ORU_R01-RIE-to-iGene.txt",
+                    "PRE-06-LAB3-ORU_R01-iGene-to-MFT.txt"],
+            "T02": ["PRE-07-MDM_T02-RIE-to-UGR.txt"],
+        },
+    },
+    # Specialist Test for Another GLH - https://nw-gmsa.github.io/en/ExampleScenario-SpecialistTestForAnotherGLH.html
+    "specialist_test_other_glh": {
+        "input_dir": os.path.join("Input", "Scenarios", "SpecialistTestForAnotherGLH", "V2"),
+        "cases": {
+            "O21": ["SPEC-02-LAB35-OML_O21-RIE-to-iGene.txt"],
+            "O51": ["SPEC-03-OSU_O51-iGene-to-RIE-accepted.txt", "SPEC-03a-OSU_O51-iGene-to-RIE-declined.txt",
+                    "SPEC-03b-OSU_O51-iGene-to-RIE-declined-after-acceptance.txt"],
+            "R01": ["SPEC-04-LAB36-ORU_R01-iGene-to-RIE.txt"],
+            "T02": ["SPEC-06-MDM_T02-RIE-to-UGR.txt"],
         },
     },
 }

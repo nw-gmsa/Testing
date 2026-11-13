@@ -1,0 +1,110 @@
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://goms.simulated.example.nhs.uk/FHIR/R4/Task?requester:identifier=https://fhir.nhs.uk/Id/ods-organization-code|699X0&_lastUpdated=gt2026-09-05"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/Task/pre-task",
+      "resource": {
+        "resourceType": "Task",
+        "id": "pre-task",
+        "status": "rejected",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status",
+              "code": "declined"
+            }
+          ]
+        },
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/pre-sub-order",
+          "type": "ServiceRequest",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "T26-PX02",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+          }
+        },
+        "for": {
+          "reference": "Patient/pre-fetus",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "R0A200080",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        },
+        "authoredOn": "2026-09-05T10:00:00+01:00",
+        "lastModified": "2026-09-07T09:00:00+01:00",
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NHS North West Genomics",
+          "type": "Organization"
+        },
+        "owner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "NTGLH"
+          },
+          "display": "North Thames Genomic Laboratory Hub",
+          "type": "Organization"
+        },
+        "statusReason": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-status-reason",
+              "code": "not-eligible"
+            }
+          ],
+          "text": "Does not meet the R21 rapid prenatal exome sequencing eligibility criteria. Please contact the laboratory."
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}

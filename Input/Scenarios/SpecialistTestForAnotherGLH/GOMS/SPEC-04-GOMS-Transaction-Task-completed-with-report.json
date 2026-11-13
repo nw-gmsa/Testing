@@ -1,0 +1,216 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/DiagnosticReport/spec-report",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "id": "spec-report",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "FILL"
+                }
+              ]
+            },
+            "value": "T26-HL01",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/spec-sub-order",
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "PLAC"
+                  }
+                ]
+              },
+              "value": "NT26-000456",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "NTGLH"
+                }
+              }
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R67.1",
+              "display": "Monogenic hearing loss (WES or Large Panel)"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/spec-patient",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383257"
+          }
+        },
+        "effectiveDateTime": "2026-11-02T15:00:00+00:00",
+        "issued": "2026-11-02T15:00:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NHS North West Genomics",
+            "type": "Organization"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/hcpc-number",
+              "value": "CS90002"
+            },
+            "display": "FICTITIOUS, Priya"
+          }
+        ],
+        "conclusion": "Compound heterozygous pathogenic variants in GJB2 identified, consistent with the clinical presentation. Fictitious example.",
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                "code": "321",
+                "display": "VARIANT DETECTED"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/spec-report"
+      }
+    },
+    {
+      "fullUrl": "https://goms.simulated.example.nhs.uk/FHIR/R4/Task/spec-task",
+      "resource": {
+        "resourceType": "Task",
+        "id": "spec-task",
+        "status": "completed",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status",
+              "code": "completed"
+            }
+          ]
+        },
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/spec-sub-order",
+          "type": "ServiceRequest",
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "PLAC"
+                }
+              ]
+            },
+            "value": "NT26-000456",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "NTGLH"
+              }
+            }
+          }
+        },
+        "for": {
+          "reference": "Patient/spec-patient",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383257"
+          }
+        },
+        "authoredOn": "2026-10-02T10:00:00+01:00",
+        "lastModified": "2026-11-02T15:00:00+00:00",
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "NTGLH"
+          },
+          "display": "North Thames Genomic Laboratory Hub",
+          "type": "Organization"
+        },
+        "owner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NHS North West Genomics",
+          "type": "Organization"
+        },
+        "output": [
+          {
+            "type": {
+              "text": "Laboratory Report"
+            },
+            "valueReference": {
+              "reference": "DiagnosticReport/spec-report",
+              "type": "DiagnosticReport"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/spec-task"
+      }
+    }
+  ]
+}
