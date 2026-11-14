@@ -11,8 +11,8 @@
 ##INFO=<ID=GENE,Number=1,Type=String,Description="Gene studied [ID] (LOINC 48018-6)">
 ##INFO=<ID=CYTOBAND,Number=1,Type=String,Description="Cytogenetic (chromosome) location (LOINC 48001-2)">
 ##INFO=<ID=HGVSC,Number=1,Type=String,Description="Transcript reference sequence and DNA change, c.HGVS (LOINC 51958-7; 48004-6)">
-##INFO=<ID=HGVSP,Number=1,Type=String,Description="Amino acid change, p.HGVS (LOINC 48005-3)">
-##INFO=<ID=HGVSG,Number=1,Type=String,Description="Genomic DNA change, g.HGVS, exactly as given in the source Genomic_coordinates field (LOINC 81290-9)">
+##INFO=<ID=HGVSP,Number=1,Type=String,Description="Amino acid change, p.HGVS including the protein reference sequence (LOINC 48005-3)">
+##INFO=<ID=HGVSG,Number=1,Type=String,Description="Genomic DNA change, g.HGVS: the source Genomic_coordinates field prefixed with its GRCh37 genomic reference sequence (LOINC 81290-9)">
 ##INFO=<ID=CLASS,Number=1,Type=String,Description="Genetic variation clinical significance [Imp] (LOINC 53037-8)">
 ##INFO=<ID=CLASSEVIDENCE,Number=1,Type=String,Description="Free-text summary of evidence supporting the classification decision (spaces replaced with underscores)">
 ##INFO=<ID=INHERITANCE,Number=1,Type=String,Description="Inheritance of the variant: Maternal/Paternal/De_novo/Unknown">
@@ -30,7 +30,7 @@
 ##igene_Note_LossOfHeterozygosity=LOH1/LOH2 custom fields only carry Gene(s) and LOH State (Example: "Significant LOH"); no genomic coordinate Example is provided in the source workbook, so no LOH record could be placed in this VCF.
 ##igene_Note_TemplateSlots=Sequence Variant 1-10, Intragenic CNV 1-3, Multigenic CNV 1-3 and Structural Variant 1-3 are repeating template slots in the source sheet that all share one identical Example value per category; one representative record per category is emitted below rather than 10/3/3/3 duplicate rows.
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
-17	41276046	SEQV1	TCT	T	.	.	VARTYPE=Sequence_Variant;GENE=BRCA1;HGVSC=NM_007294.3(BRCA1):c.68_69del;HGVSP=p.(Glu23ValfsTer17);HGVSG=g.41276047_41276048del;CLASS=Pathogenic;INHERITANCE=Maternal	GT:VAF:ZYG	0/1:0.33:Heterozygous
-15	48797221	ICNV1	C	<DEL>	.	.	VARTYPE=Intragenic_Copy_Number_Variant;GENE=FBN1;HGVSC=NM_000138.4(FBN1):exon13_to_exon15del;HGVSG=g.48797222_48802366del;SVTYPE=DEL;END=48802366;SVLEN=-5145;IMPRECISE;CLASS=Pathogenic;INHERITANCE=Maternal	GT:VAF:ZYG	0/1:0.33:Single-copy_loss_(1_copy)
-X	100652796	MCNV1	T	<DEL>	.	.	VARTYPE=Multigenic_Copy_Number_Variant;CYTOBAND=Xq22.1-q28;HGVSG=g.100652797_153792676del;SVTYPE=DEL;END=153792676;SVLEN=-53139880;IMPRECISE;CLASS=Pathogenic;INHERITANCE=Maternal	GT:VAF:ZYG	0/1:0.33:Single-copy_loss_(1_copy)
-X	100652796	SV1	T	<DEL>	.	.	VARTYPE=Structural_Variant;HGVSG=g.100652797_153792676del;SVTYPE=DEL;END=153792676;SVLEN=-53139880;IMPRECISE;CLASS=Pathogenic	GT:VAF	.:0.33
+17	41276046	SEQV1	TCT	T	.	.	VARTYPE=Sequence_Variant;GENE=BRCA1;HGVSC=NM_007294.3(BRCA1):c.68_69del;HGVSP=NP_009225.1:p.(Glu23ValfsTer17);HGVSG=NC_000017.10:g.41276047_41276048del;CLASS=Pathogenic;INHERITANCE=Maternal	GT:VAF:ZYG	0/1:0.33:Heterozygous
+15	48797221	ICNV1	C	<DEL>	.	.	VARTYPE=Intragenic_Copy_Number_Variant;GENE=FBN1;HGVSC=NM_000138.4(FBN1):exon13_to_exon15del;HGVSG=NC_000015.9:g.48797222_48802366del;SVTYPE=DEL;END=48802366;SVLEN=-5145;IMPRECISE;CLASS=Pathogenic;INHERITANCE=Maternal	GT:VAF:ZYG	0/1:0.33:Single-copy_loss_(1_copy)
+X	100652796	MCNV1	T	<DEL>	.	.	VARTYPE=Multigenic_Copy_Number_Variant;CYTOBAND=Xq22.1-q28;HGVSG=NC_000023.10:g.100652797_153792676del;SVTYPE=DEL;END=153792676;SVLEN=-53139880;IMPRECISE;CLASS=Pathogenic;INHERITANCE=Maternal	GT:VAF:ZYG	0/1:0.33:Single-copy_loss_(1_copy)
+X	100652796	SV1	T	<DEL>	.	.	VARTYPE=Structural_Variant;HGVSG=NC_000023.10:g.100652797_153792676del;SVTYPE=DEL;END=153792676;SVLEN=-53139880;IMPRECISE;CLASS=Pathogenic	GT:VAF	.:0.33
