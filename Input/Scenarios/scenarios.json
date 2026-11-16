@@ -1,0 +1,177 @@
+{
+  "BiopsyProcedure": {
+    "title": "Collect Specimen - Biopsy Procedure for obtaining a specimen, part of a diagnostic pathway. Day case admission.",
+    "cases": {}
+  },
+  "BreastCancer": {
+    "title": "Inherited Breast Cancer (BRCA)",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-BreastCancer.json"
+      ],
+      "R01": [
+        "02-GenomicsReportMessage-BreastCancer.json"
+      ],
+      "T02": [
+        "03-DocumentMessage-BreastCancer.json"
+      ],
+      "O19": [
+        "05-GenomicsReferralMessage-BreastCancer.json"
+      ]
+    }
+  },
+  "ClinicalAndGenomicWorkflow": {
+    "title": "Suspected Lynch Syndrome - Clinical Workflow",
+    "cases": {
+      "O21": [
+        "02-GenomicsOrderMessage-LynchSyndrome.json"
+      ],
+      "R01": [
+        "03-GenomicsReportMessage-LynchSyndrome.json"
+      ],
+      "O19": [
+        "05-GenomicsReferralMessage-LynchSyndrome.json"
+      ]
+    }
+  },
+  "GenomicTestOrderProcess": {
+    "title": "Genomic Test Order Process including order entry and transmission of the order",
+    "cases": {
+      "O21": [
+        "GenomicsOrderMessageAttachment.json"
+      ]
+    }
+  },
+  "GenomicTestReportProcess": {
+    "title": "Genomic Test Report Process",
+    "cases": {
+      "R01": [
+        "GenomicsReportMessage.json"
+      ]
+    }
+  },
+  "HaematoOncologyDiagnostics": {
+    "title": "Suspected Blood Cancer - Haemato-Oncology Diagnostics",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-HaematoOncology.json",
+        "02-GenomicsSubOrderMessage-HaematoOncology-Cytogenetics.json",
+        "05-GenomicsSubOrderMessage-HaematoOncology-Molecular.json"
+      ],
+      "R01": [
+        "03-GenomicsSubOrderReportMessage-HaematoOncology-Cytogenetics.json",
+        "06-GenomicsSubOrderReportMessage-HaematoOncology-Molecular.json",
+        "08-GenomicsReportMessage-HaematoOncology.json"
+      ],
+      "T02": [
+        "04-DocumentMessage-HaematoOncology-Cytogenetics.json",
+        "07-DocumentMessage-HaematoOncology-Molecular.json"
+      ]
+    }
+  },
+  "LynchSyndrome": {
+    "title": "Lynch Syndrome",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-LynchSyndrome.json"
+      ],
+      "R01": [
+        "02-GenomicsReportMessage-LynchSyndrome.json"
+      ],
+      "T02": [
+        "03-DocumentMessage-LynchSyndrome.json"
+      ],
+      "O19": [
+        "05-GenomicsReferralMessage-LynchSyndrome.json"
+      ]
+    }
+  },
+  "Pharmacogenomics": {
+    "title": "Gene Test Before Starting a Medicine (Pharmacogenomics)",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-Pharmacogenomics.json"
+      ],
+      "R01": [
+        "02-GenomicsReportMessage-Pharmacogenomics.json"
+      ]
+    }
+  },
+  "RapidPrenatalExomeSequencing": {
+    "title": "Rapid Genetic Testing in Pregnancy (Rapid Prenatal Exome Sequencing)",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-RPX.json",
+        "04-GenomicsSubOrderMessage-RPX.json"
+      ],
+      "R01": [
+        "03-GenomicsReportMessage-RPX-FirstLine.json",
+        "11-GenomicsSubOrderReportMessage-RPX.json",
+        "13-GenomicsReportMessage-RPX.json"
+      ],
+      "O51": [
+        "06-GenomicOrderStatusMessage-RPX-Accepted.json",
+        "08-GenomicOrderStatusMessage-RPX-Declined.json",
+        "10-GenomicOrderStatusMessage-RPX-NotTested.json"
+      ],
+      "T02": [
+        "14-DocumentMessage-RPX.json"
+      ],
+      "O19": [
+        "15-GenomicsReferralMessage-RPX.json"
+      ]
+    }
+  },
+  "SpecialistTestForAnotherGLH": {
+    "title": "Hearing Loss Test for Another Region (Specialist Test for Another GLH)",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-SPT.json",
+        "02-GenomicsSubOrderMessage-SPT.json"
+      ],
+      "O51": [
+        "04-GenomicOrderStatusMessage-SPT-Accepted.json",
+        "06-GenomicOrderStatusMessage-SPT-Declined.json",
+        "07-GenomicOrderStatusMessage-SPT-LaterDeclined.json"
+      ],
+      "R01": [
+        "08-GenomicsSubOrderReportMessage-SPT.json",
+        "10-GenomicsReportMessage-SPT.json"
+      ],
+      "T02": [
+        "11-DocumentMessage-SPT.json"
+      ]
+    }
+  },
+  "WholeGenomeSequencing": {
+    "title": "Whole Genome Sequencing for a Rare Condition",
+    "cases": {
+      "O19": [
+        "01-GenomicsOrderMessage-WGS-Referral.json"
+      ],
+      "R01": [
+        "11-GenomicsReportMessage-WGS-Referral.json"
+      ],
+      "O21": [
+        "dWGS-Trio-r26000000203-p26000000104.json",
+        "dWGS-Trio-r26000000203-p26000000105.json",
+        "dWGS-Trio-r26000000203-p26000000106.json"
+      ]
+    }
+  },
+  "ctDNA": {
+    "title": "Lung Cancer - Liquid Biopsy (ctDNA)",
+    "cases": {
+      "T02": [
+        "15-DocumentMessage-ctDNA.json"
+      ],
+      "O21": [
+        "GenomicsOrderMessage-ctDNA.json"
+      ],
+      "R01": [
+        "TestResultsMessage-ctDNA-OmicsDSS.json",
+        "ReportMessage-ctDNA-iGene-NarrativeReport.json"
+      ]
+    }
+  }
+}

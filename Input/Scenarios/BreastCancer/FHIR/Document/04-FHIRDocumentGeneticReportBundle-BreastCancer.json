@@ -1,0 +1,1104 @@
+{
+  "resourceType": "Bundle",
+  "id": "FHIRDocumentGeneticReportBundle-BreastCancer",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleDocument"
+    ]
+  },
+  "type": "document",
+  "identifier": {
+    "system": "urn:oid:2.16.724.4.8.10.200.10",
+    "value": "bf096289-d7e1-4550-ab65-96f82c8bb4f6"
+  },
+  "timestamp": "2026-10-26T12:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8c2bb51e-a410-442b-90dc-4fe99e886fdc",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "Composition-GenomicsReport-BreastCancer",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Composition-GenomicReport"
+          ]
+        },
+        "identifier": {
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            }
+          },
+          "value": "G26-48213",
+          "system": "http://www.acme.org/diagnosticreport/identifiers"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference",
+            "valueReference": {
+              "reference": "urn:uuid:8c0097b8-cc07-4f84-b8f3-63ed163207ce"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "code": "R208.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            },
+            {
+              "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "date": "2026-10-26T12:00:00+00:00",
+        "author": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "attester": [
+          {
+            "mode": "legal",
+            "time": "2026-10-26T12:00:00+00:00",
+            "party": {
+              "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+              "identifier": {
+                "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+                "value": "C1234567"
+              },
+              "display": "FICTITIOUS, Ralph"
+            }
+          }
+        ],
+        "title": "Genomics Report - Inherited breast cancer and ovarian cancer",
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON"
+        },
+        "section": [
+          {
+            "title": "Referral",
+            "code": {
+              "coding": [
+                {
+                  "code": "42349-1",
+                  "system": "http://loinc.org",
+                  "display": "Reason for referral (narrative)"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R208 Inherited breast cancer and ovarian cancer. Triple-negative breast cancer diagnosed at 44; no known family history.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:5a09314c-e738-4fbc-87ac-d132fbdb2071"
+              }
+            ]
+          },
+          {
+            "title": "Specimen",
+            "code": {
+              "coding": [
+                {
+                  "code": "123038009",
+                  "system": "http://snomed.info/sct",
+                  "display": "Specimen"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Peripheral blood (EDTA). Received 06-Oct-2026.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:fbcaee67-e412-4d89-ae54-5f38cba8fe30"
+              }
+            ]
+          },
+          {
+            "title": "Result summary",
+            "code": {
+              "coding": [
+                {
+                  "code": "51968-6",
+                  "system": "http://loinc.org",
+                  "display": "Discrete variation analysis overall interpretation"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Pathogenic BRCA1 variant detected.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:8c0097b8-cc07-4f84-b8f3-63ed163207ce"
+              }
+            ]
+          },
+          {
+            "title": "Results",
+            "code": {
+              "coding": [
+                {
+                  "code": "69548-6",
+                  "system": "http://loinc.org",
+                  "display": "Genetic variant assessment"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>One sequence variant detected.</p></div>"
+            },
+            "section": [
+              {
+                "title": "Simple variants",
+                "code": {
+                  "coding": [
+                    {
+                      "code": "81250-3",
+                      "system": "http://loinc.org"
+                    }
+                  ]
+                },
+                "text": {
+                  "status": "generated",
+                  "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>BRCA1 NM_007294.3:c.68_69del, germline, heterozygous.</p></div>"
+                },
+                "entry": [
+                  {
+                    "reference": "urn:uuid:48d4cbac-aca4-4f75-921c-013da5174824"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Results from other laboratories",
+            "code": {
+              "coding": [
+                {
+                  "code": "other-laboratory-results",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Breast core biopsy (Histopathology, East Cheshire NHS Trust): invasive breast cancer, oestrogen receptor, progesterone receptor and HER2 negative (triple negative).</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:52d3d913-91ce-4bc0-94b3-150396bc42f0"
+              }
+            ]
+          },
+          {
+            "title": "Interpretation",
+            "code": {
+              "coding": [
+                {
+                  "code": "interpretation",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Pathogenic. Hereditary breast and ovarian cancer (BRCA1). Predictive testing is available for relatives; each child of someone with a BRCA1 variant has a 1 in 2 chance of inheriting it.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:3802e85c-cb2e-415c-9e25-1b694d98c663"
+              }
+            ]
+          },
+          {
+            "title": "Methodology and limitations",
+            "code": {
+              "coding": [
+                {
+                  "code": "methodology",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R208.1 Inherited breast cancer and ovarian cancer (small panel): sequencing and copy number analysis of the genes in the panel.</p></div>"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Congleton",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "M482113"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "CONGLETON",
+            "given": [
+              "Margaery"
+            ]
+          }
+        ],
+        "birthDate": "1982-02-11",
+        "gender": "female",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "Town Hall",
+              "7 High Street"
+            ],
+            "city": "CONGLETON",
+            "postalCode": "CW12 1BN"
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N81027"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5a09314c-e738-4fbc-87ac-d132fbdb2071",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-BreastCancer",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RJN"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:92b2469f-10c0-4638-84d5-9c04b53be163"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/RJN",
+            "value": "RJN-26-48213"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-10-05",
+        "code": {
+          "coding": [
+            {
+              "code": "R208.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:fbcaee67-e412-4d89-ae54-5f38cba8fe30"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R208",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Inherited breast cancer and ovarian cancer"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "706970001",
+                "system": "http://snomed.info/sct",
+                "display": "Triple-negative breast cancer"
+              }
+            ]
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:52d3d913-91ce-4bc0-94b3-150396bc42f0",
+            "type": "DocumentReference",
+            "display": "Cellular pathology report - breast core biopsy"
+          }
+        ],
+        "note": [
+          {
+            "text": "Triple-negative invasive breast cancer diagnosed at 44. No known family history. Genetic testing offered regardless of family history."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:92b2469f-10c0-4638-84d5-9c04b53be163",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Requester-Breast-RJN",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RJN"
+          },
+          "display": "EAST CHESHIRE NHS TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C4567891"
+          },
+          "display": "FICTITIOUS, Helen"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fbcaee67-e412-4d89-ae54-5f38cba8fe30",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-BreastCancer",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "26GEN-RJN-008734",
+            "system": "http://www.acme.org/specimen/RJN",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-05T10:00:00+00:00"
+        },
+        "receivedTime": "2026-10-06T09:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:52d3d913-91ce-4bc0-94b3-150396bc42f0",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "DocumentReference-BreastCancer-PathologyReport",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference"
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            },
+            "system": "http://www.acme.org/documentreference/identifier/RJN",
+            "value": "H26-30871"
+          }
+        ],
+        "status": "current",
+        "date": "2026-09-28T14:00:00+00:00",
+        "type": {
+          "coding": [
+            {
+              "code": "1054291000000102",
+              "system": "http://snomed.info/sct",
+              "display": "Cellular pathology report"
+            }
+          ]
+        },
+        "author": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "RJN"
+            },
+            "display": "Histopathology, EAST CHESHIRE NHS TRUST"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:db8d3ed1-449c-4cbd-b740-1d6469fea782",
+              "title": "Cellular pathology report - Margaery CONGLETON"
+            }
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:db8d3ed1-449c-4cbd-b740-1d6469fea782",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "Binary-Sample",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"
+          ]
+        },
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8c0097b8-cc07-4f84-b8f3-63ed163207ce",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-BreastCancer-Report",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R208.1"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "value": "G26-48213",
+            "system": "http://www.acme.org/diagnosticreport/identifiers"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RJN"
+                }
+              },
+              "system": "http://www.acme.org/servicerequest/RJN",
+              "value": "RJN-26-48213"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                "code": "321",
+                "display": "VARIANT DETECTED"
+              }
+            ]
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R208.1 Inherited breast cancer and ovarian cancer, for Margaery CONGLETON. Heterozygous pathogenic BRCA1 variant NM_007294.3:c.68_69del, consistent with hereditary breast and ovarian cancer.</p></div>"
+        },
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        },
+        "effectiveDateTime": "2026-10-05T10:00:00+00:00",
+        "issued": "2026-10-26T12:00:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization",
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C1234567"
+            },
+            "display": "FICTITIOUS, Ralph"
+          }
+        ],
+        "conclusion": "Heterozygous pathogenic BRCA1 variant detected, consistent with hereditary breast and ovarian cancer. Predictive testing is available for relatives.",
+        "result": [
+          {
+            "reference": "urn:uuid:48d4cbac-aca4-4f75-921c-013da5174824"
+          },
+          {
+            "reference": "urn:uuid:3802e85c-cb2e-415c-9e25-1b694d98c663"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "language": "en-GB",
+            "url": "urn:uuid:fc8c5611-f3bc-4d54-9645-c054fecede15",
+            "title": "R208.1 Laboratory Report - Margaery CONGLETON",
+            "creation": "2026-10-26"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fc8c5611-f3bc-4d54-9645-c054fecede15",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "Binary-Sample",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"
+          ]
+        },
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "59577028-8fcc-4554-8b43-988561d41d9c",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "North West Genomics"
+        },
+        "practitioner": {
+          "display": "Result INTERPRETER"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:48d4cbac-aca4-4f75-921c-013da5174824",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Variant-BreastCancer-BRCA1",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "48d4cbac-aca4-4f75-921c-013da5174824"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-10-26T12:00:00+00:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "LA9633-4",
+              "system": "http://loinc.org",
+              "display": "Present"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "code": "264896000",
+              "system": "http://snomed.info/sct",
+              "display": "Nucleic acid analysis"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "83005-9",
+                  "system": "http://loinc.org",
+                  "display": "Variant category"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "SEQV",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGeneVariantCategory",
+                  "display": "Sequence Variant"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48018-6",
+                  "system": "http://loinc.org",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "HGNC:1100",
+                  "system": "http://www.genenames.org",
+                  "display": "BRCA1"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "51958-7",
+                  "system": "http://loinc.org",
+                  "display": "Transcript reference sequence [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "NM_007294.3",
+                  "system": "http://www.ncbi.nlm.nih.gov/refseq"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48004-6",
+                  "system": "http://loinc.org",
+                  "display": "DNA change (c.HGVS)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "NM_007294.3:c.68_69del",
+                  "system": "http://varnomen.hgvs.org"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48002-0",
+                  "system": "http://loinc.org",
+                  "display": "Genomic source class [Type]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA6683-2",
+                  "system": "http://loinc.org",
+                  "display": "Germline"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "53034-5",
+                  "system": "http://loinc.org",
+                  "display": "Allelic state"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA6706-1",
+                  "system": "http://loinc.org",
+                  "display": "Heterozygous"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3802e85c-cb2e-415c-9e25-1b694d98c663",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "DiagnosticImplication-BreastCancer-BRCA1",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+              "code": "diagnostic-implication"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "53037-8"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA6668-3",
+                  "system": "http://loinc.org",
+                  "display": "Pathogenic"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81259-4"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "718220008",
+                  "system": "http://snomed.info/sct",
+                  "display": "Hereditary breast and ovarian cancer syndrome"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+                  "code": "conclusion-string"
+                }
+              ]
+            },
+            "valueString": "Heterozygous pathogenic BRCA1 variant, consistent with hereditary breast and ovarian cancer."
+          }
+        ],
+        "identifier": [
+          {
+            "value": "3802e85c-cb2e-415c-9e25-1b694d98c663"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-10-26T12:00:00+00:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        },
+        "derivedFrom": [
+          {
+            "reference": "urn:uuid:48d4cbac-aca4-4f75-921c-013da5174824"
+          }
+        ]
+      }
+    }
+  ]
+}

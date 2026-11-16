@@ -1,0 +1,51 @@
+{
+  "resourceType": "FamilyMemberHistory",
+  "id": "074ea905-8d91-452c-af3c-15b5b860fdb2",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/FamilyMemberHistory"
+    ]
+  },
+  "status": "completed",
+  "identifier": [
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "code": "NH",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      },
+      "system": "https://fhir.nhs.uk/Id/nhs-number",
+      "value": "9737383222"
+    }
+  ],
+  "patient": {
+    "reference": "Patient/Patient-Liverpool",
+    "display": "Ned LIVERPOOL"
+  },
+  "relationship": {
+    "coding": [
+      {
+        "code": "SON",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "display": "natural son"
+      }
+    ]
+  },
+  "reasonReference": [
+    {
+      "reference": "Observation/6beb613f-d303-42af-b025-86e8e0872061"
+    }
+  ],
+  "sex": {
+    "coding": [
+      {
+        "code": "male",
+        "system": "http://hl7.org/fhir/administrative-gender"
+      }
+    ]
+  }
+}

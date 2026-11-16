@@ -1,0 +1,384 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsSubOrderMessage-RPX",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:ffdea2ea-45f1-4204-96b4-03a6d74e3404"
+  },
+  "timestamp": "2026-09-11T09:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:556a15b5-8d1d-47b3-9963-da6addd974c3",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-RPX-SubOrder",
+        "meta": {
+          "lastUpdated": "2026-09-11T09:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NORTH WEST GLH"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "69A70"
+              },
+              "display": "NORTH THAMES GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GOMS"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE",
+          "software": "RIE"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:bc2ce852-cad4-4f35-aeac-c1c1021bf680",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e322141b-af07-451d-92ab-74d192151818",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Fetus-Wigan",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "R0A-F26-0042",
+            "system": "http://www.acme.org/mrn/R0A"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "temp",
+            "family": "WIGAN",
+            "given": [
+              "Baby"
+            ]
+          }
+        ],
+        "birthDate": "2027"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:956ca674-005e-4459-81d8-6bd888729244",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "RelatedPerson-Mother-Wigan",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/RelatedPerson"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383400"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "WIGAN",
+            "given": [
+              "Imogen"
+            ]
+          }
+        ],
+        "relationship": [
+          {
+            "coding": [
+              {
+                "code": "MTH",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "display": "mother"
+              }
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "urn:uuid:e322141b-af07-451d-92ab-74d192151818",
+          "display": "Baby WIGAN"
+        },
+        "birthDate": "1994-03-12",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc2ce852-cad4-4f35-aeac-c1c1021bf680",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-RPX-SubOrder",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization",
+          "display": "NORTH WEST GLH"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/OrderIdentifier",
+            "value": "G26-41180"
+          }
+        ],
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "69A70"
+            },
+            "display": "NORTH THAMES GLH"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+              "value": "1702114",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "R0A"
+                }
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "filler-order",
+        "priority": "urgent",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "R21.2",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "authoredOn": "2026-09-11",
+        "subject": {
+          "reference": "urn:uuid:e322141b-af07-451d-92ab-74d192151818",
+          "display": "Baby WIGAN"
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:5bcb951e-a64c-461f-9334-8b9f932b1cbc"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R21",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Fetal anomalies with a likely genetic cause"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Short, bowed long bones and multiple fractures on the 20-week anomaly scan. QF-PCR (R21.1) and microarray (R21.3) normal. Fetal DNA sent by sample transport."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5bcb951e-a64c-461f-9334-8b9f932b1cbc",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-RPX-Fetal-DNA",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "G26-41180-D1",
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/SpecimenIdentifier",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "code": "258566005",
+              "system": "http://snomed.info/sct",
+              "display": "Deoxyribonucleic acid sample"
+            }
+          ]
+        },
+        "parent": [
+          {
+            "reference": "urn:uuid:a633e6ef-1a20-488a-8c1f-8574343e4dce"
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2026-09-10T16:00:00+00:00"
+        },
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:e322141b-af07-451d-92ab-74d192151818",
+          "display": "Baby WIGAN"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a633e6ef-1a20-488a-8c1f-8574343e4dce",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-RPX-Fetal",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "R0A26-0090411",
+            "system": "http://www.acme.org/specimen/R0A",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:e322141b-af07-451d-92ab-74d192151818",
+          "display": "Baby WIGAN"
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "119373006",
+              "system": "http://snomed.info/sct",
+              "display": "Amniotic fluid specimen"
+            }
+          ]
+        },
+        "collection": {
+          "collectedDateTime": "2026-09-07T11:00:00+00:00"
+        },
+        "receivedTime": "2026-09-07T15:30:00+00:00"
+      }
+    }
+  ]
+}

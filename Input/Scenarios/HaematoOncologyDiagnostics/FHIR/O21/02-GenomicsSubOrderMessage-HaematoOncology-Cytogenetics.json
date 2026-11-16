@@ -1,0 +1,296 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsSubOrderMessage-HaematoOncology-Cytogenetics",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:195cb561-a4cb-41eb-b9b0-de09b7715ad3"
+  },
+  "timestamp": "2026-10-12T16:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:555b8c9f-381f-4dce-b54f-70df3becce5d",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-HaematoOncology-Cytogenetics",
+        "meta": {
+          "lastUpdated": "2026-10-12T16:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          },
+          "display": "HAEMATO-ONCOLOGY DIAGNOSTICS, MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              },
+              "display": "CYTOGENETICS LABORATORY, MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE",
+          "software": "RIE"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:048c1f89-7738-4416-810a-3d776899e95f",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4fa015ae-f0c2-48fe-a494-644c501f8251",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Tameside",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "active": true,
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383397"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "TAMESIDE",
+            "given": [
+              "Hodor"
+            ]
+          }
+        ],
+        "birthDate": "1960-07-27",
+        "gender": "male",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "Stockport Road"
+            ],
+            "city": "TAMESIDE",
+            "postalCode": "OL7 0NS"
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "P89020"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:048c1f89-7738-4416-810a-3d776899e95f",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-HaematoOncology-Cytogenetics",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          },
+          "type": "Organization",
+          "display": "HAEMATO-ONCOLOGY DIAGNOSTICS, MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/R0A-haemato-oncology",
+            "value": "HO26-11872-C"
+          }
+        ],
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "CYTOGENETICS LABORATORY - MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "http://www.acme.org/servicerequest/RMP",
+              "value": "RMP-26-30417",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RMP"
+                }
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "filler-order",
+        "priority": "urgent",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "M80.3",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:4fa015ae-f0c2-48fe-a494-644c501f8251",
+          "display": "Hodor TAMESIDE",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383397"
+          }
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:8e84acdf-b5be-4f3d-a32f-b9bb142eb0db"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "M80",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Acute Myeloid Leukaemia"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-10-12"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8e84acdf-b5be-4f3d-a32f-b9bb142eb0db",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-HaematoOncology",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "26RMP-BM-002871",
+            "system": "http://www.acme.org/specimen/RMP",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RMP"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:4fa015ae-f0c2-48fe-a494-644c501f8251",
+          "display": "Hodor TAMESIDE",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383397"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "119359002",
+              "system": "http://snomed.info/sct",
+              "display": "Bone marrow specimen"
+            }
+          ],
+          "text": "Bone marrow aspirate"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-12T10:00:00+00:00"
+        },
+        "receivedTime": "2026-10-12T15:00:00+00:00"
+      }
+    }
+  ]
+}

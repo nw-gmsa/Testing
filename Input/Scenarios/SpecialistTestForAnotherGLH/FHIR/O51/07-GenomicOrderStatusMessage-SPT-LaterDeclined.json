@@ -1,0 +1,160 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicOrderStatusMessage-SPT-LaterDeclined",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:8e7403a8-fdab-421a-9fcb-b5a41fee39c9"
+  },
+  "timestamp": "2026-09-21T11:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:5db9ee6d-b0e0-4e06-9302-046c179ba0d7",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-SPT-SubOrder-LaterDeclined",
+        "meta": {
+          "lastUpdated": "2026-09-21T11:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NORTH WEST GLH"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "69A70"
+              },
+              "display": "NORTH THAMES GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GOMS"
+          }
+        ],
+        "eventCoding": {
+          "code": "O51",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE",
+          "software": "RIE"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:5beaab2f-28c3-4300-bf01-c27a20536d62"
+          }
+        ],
+        "definition": "https://fhir.nwgenomics.nhs.uk/MessageDefinition/referral-order-status"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5beaab2f-28c3-4300-bf01-c27a20536d62",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-SPT-SubOrder-LaterDeclined",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Task"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "69A70"
+          },
+          "display": "NORTH THAMES GLH"
+        },
+        "owner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NORTH WEST GLH"
+        },
+        "for": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383427"
+          },
+          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
+          "display": "Oliver CAMDEN"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:99bb76ca-edcb-44f4-95ff-b9b1c7b95780",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "http://www.acme.org/servicerequest/NorthThamesGLH",
+              "value": "NT26-80455",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "69A70"
+                }
+              }
+            }
+          }
+        ],
+        "focus": {
+          "reference": "urn:uuid:99bb76ca-edcb-44f4-95ff-b9b1c7b95780"
+        },
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "code": "fulfill",
+              "system": "http://hl7.org/fhir/CodeSystem/task-code"
+            }
+          ]
+        },
+        "authoredOn": "2026-09-16",
+        "status": "rejected",
+        "businessStatus": {
+          "coding": [
+            {
+              "code": "declined",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-workflow-status"
+            }
+          ]
+        },
+        "statusReason": {
+          "coding": [
+            {
+              "code": "sample-unsuitable",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/referral-status-reason"
+            }
+          ],
+          "text": "DNA concentration too low for testing. Please send a new DNA sample with a new sub-order."
+        },
+        "lastModified": "2026-09-21T11:00:00+00:00"
+      }
+    }
+  ]
+}

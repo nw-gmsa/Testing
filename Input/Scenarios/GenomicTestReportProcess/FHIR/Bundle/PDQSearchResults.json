@@ -1,0 +1,122 @@
+{
+  "resourceType": "Bundle",
+  "id": "PDQSearchResults",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://example.nhs.uk/FHIR/R4/Patient?identifier=https://fhir.nhs.uk/Id/nhs-number|9449305552"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "http://example.org/fhir/Patient/Patient-OctaviaCHISLETT-9449305552",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-OctaviaCHISLETT-9449305552",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9449305552"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBS"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "A12356565",
+            "system": "http://www.acme.org/patient/identifier"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "633",
+            "system": "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "CHISLETT",
+            "given": [
+              "Octavia"
+            ]
+          }
+        ],
+        "birthDate": "2008-09-20",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "1 RAVENSFIELD GARDENS"
+            ],
+            "city": "EPSOM",
+            "district": "SURREY",
+            "postalCode": "KT19 0ST"
+          }
+        ],
+        "gender": "female",
+        "contact": [
+          {
+            "name": {
+              "use": "official",
+              "family": "DAWKINS",
+              "given": [
+                "Bob"
+              ]
+            },
+            "telecom": [
+              {
+                "use": "mobile",
+                "value": "077021231231",
+                "system": "phone"
+              }
+            ]
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}

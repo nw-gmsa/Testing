@@ -1,0 +1,413 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-BreastCancer",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:275b30d2-1af0-4b9a-9bb8-52caf89a7403"
+  },
+  "timestamp": "2026-10-05T10:30:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:1f3801a4-e3d6-4940-bba8-846cbb74a4b7",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-BreastCancer",
+        "meta": {
+          "lastUpdated": "2026-10-05T10:30:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RJN"
+          },
+          "display": "EAST CHESHIRE NHS TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RJN",
+          "software": "ECT EPR"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:5a09314c-e738-4fbc-87ac-d132fbdb2071",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Congleton",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "M482113"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "CONGLETON",
+            "given": [
+              "Margaery"
+            ]
+          }
+        ],
+        "birthDate": "1982-02-11",
+        "gender": "female",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "Town Hall",
+              "7 High Street"
+            ],
+            "city": "CONGLETON",
+            "postalCode": "CW12 1BN"
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N81027"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5a09314c-e738-4fbc-87ac-d132fbdb2071",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-BreastCancer",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RJN"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:92b2469f-10c0-4638-84d5-9c04b53be163"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/RJN",
+            "value": "RJN-26-48213"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-10-05",
+        "code": {
+          "coding": [
+            {
+              "code": "R208.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:fbcaee67-e412-4d89-ae54-5f38cba8fe30"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R208",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Inherited breast cancer and ovarian cancer"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "706970001",
+                "system": "http://snomed.info/sct",
+                "display": "Triple-negative breast cancer"
+              }
+            ]
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:52d3d913-91ce-4bc0-94b3-150396bc42f0",
+            "type": "DocumentReference",
+            "display": "Cellular pathology report - breast core biopsy"
+          }
+        ],
+        "note": [
+          {
+            "text": "Triple-negative invasive breast cancer diagnosed at 44. No known family history. Genetic testing offered regardless of family history."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:92b2469f-10c0-4638-84d5-9c04b53be163",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Requester-Breast-RJN",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RJN"
+          },
+          "display": "EAST CHESHIRE NHS TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C4567891"
+          },
+          "display": "FICTITIOUS, Helen"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fbcaee67-e412-4d89-ae54-5f38cba8fe30",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-BreastCancer",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "26GEN-RJN-008734",
+            "system": "http://www.acme.org/specimen/RJN",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-05T10:00:00+00:00"
+        },
+        "receivedTime": "2026-10-06T09:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:52d3d913-91ce-4bc0-94b3-150396bc42f0",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "DocumentReference-BreastCancer-PathologyReport",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference"
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RJN"
+              }
+            },
+            "system": "http://www.acme.org/documentreference/identifier/RJN",
+            "value": "H26-30871"
+          }
+        ],
+        "status": "current",
+        "date": "2026-09-28T14:00:00+00:00",
+        "type": {
+          "coding": [
+            {
+              "code": "1054291000000102",
+              "system": "http://snomed.info/sct",
+              "display": "Cellular pathology report"
+            }
+          ]
+        },
+        "author": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "RJN"
+            },
+            "display": "Histopathology, EAST CHESHIRE NHS TRUST"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:db8d3ed1-449c-4cbd-b740-1d6469fea782",
+              "title": "Cellular pathology report - Margaery CONGLETON"
+            }
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:cc329921-f9c6-45b4-8bbe-782834e293b3",
+          "display": "Margaery CONGLETON",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383281"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:db8d3ed1-449c-4cbd-b740-1d6469fea782",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "Binary-Sample",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"
+          ]
+        },
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsSubOrderMessage-SPT",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:67770cf6-9e01-4afa-a5b2-ae63217e7e4a"
+  },
+  "timestamp": "2026-09-16T09:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:aa6f9fb4-6c45-4330-8edf-ef499d43a1f6",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-SPT-SubOrder",
+        "meta": {
+          "lastUpdated": "2026-09-16T09:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "69A70"
+          },
+          "display": "NORTH THAMES GLH"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/GOMS",
+          "software": "GOMS"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:99bb76ca-edcb-44f4-95ff-b9b1c7b95780",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Camden",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "active": true,
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383427"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "CAMDEN",
+            "given": [
+              "Oliver"
+            ]
+          }
+        ],
+        "birthDate": "2025-02-14",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:99bb76ca-edcb-44f4-95ff-b9b1c7b95780",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-SPT-SubOrder",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "69A70"
+          },
+          "type": "Organization",
+          "display": "NORTH THAMES GLH"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "69A70"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/NorthThamesGLH",
+            "value": "NT26-80455"
+          }
+        ],
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "http://www.acme.org/servicerequest/RP4",
+              "value": "GOSH-5520917",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RP4"
+                }
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "filler-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "R67.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "authoredOn": "2026-09-16",
+        "subject": {
+          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
+          "display": "Oliver CAMDEN",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383427"
+          }
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:2b589e1b-b81f-48b5-b1a9-a4875b24c6b1"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R67",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Monogenic hearing loss"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Bilateral moderate to severe sensorineural hearing loss identified on newborn hearing screening. No syndromic features. CMV negative. DNA sent by sample transport."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2b589e1b-b81f-48b5-b1a9-a4875b24c6b1",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-SPT-DNA",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "NT26-80455-D1",
+            "system": "http://www.acme.org/specimen/NorthThamesGLH",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "69A70"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
+          "display": "Oliver CAMDEN",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383427"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258566005",
+              "system": "http://snomed.info/sct",
+              "display": "Deoxyribonucleic acid sample"
+            }
+          ]
+        },
+        "parent": [
+          {
+            "reference": "urn:uuid:0a869ae7-44ee-4657-8494-bfe7297971ba"
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2026-09-15T15:00:00+00:00"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0a869ae7-44ee-4657-8494-bfe7297971ba",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-SPT-Blood",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RP426-0310558",
+            "system": "http://www.acme.org/specimen/RP4",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RP4"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
+          "display": "Oliver CAMDEN",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383427"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "collection": {
+          "collectedDateTime": "2026-09-14T10:30:00+00:00"
+        },
+        "receivedTime": "2026-09-14T16:00:00+00:00"
+      }
+    }
+  ]
+}

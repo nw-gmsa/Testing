@@ -1,0 +1,304 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-HaematoOncology",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:8c88611b-8a59-4386-b5db-aaf28b5acc1c"
+  },
+  "timestamp": "2026-10-12T11:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:01172216-b5e2-4663-8b7d-4252ca811883",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-HaematoOncology",
+        "meta": {
+          "lastUpdated": "2026-10-12T11:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RMP"
+          },
+          "display": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              },
+              "display": "HAEMATO-ONCOLOGY DIAGNOSTICS, MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RMP",
+          "software": "TGICFT EPR"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:1808b469-5690-46cb-8915-8c283209a194",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4fa015ae-f0c2-48fe-a494-644c501f8251",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Tameside",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "active": true,
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383397"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "TAMESIDE",
+            "given": [
+              "Hodor"
+            ]
+          }
+        ],
+        "birthDate": "1960-07-27",
+        "gender": "male",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "Stockport Road"
+            ],
+            "city": "TAMESIDE",
+            "postalCode": "OL7 0NS"
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "P89020"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1808b469-5690-46cb-8915-8c283209a194",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-HaematoOncology",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RMP"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:d01f0024-4571-4b95-a60d-e1a3e1121e56"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RMP"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/RMP",
+            "value": "RMP-26-30417"
+          }
+        ],
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "HAEMATO-ONCOLOGY DIAGNOSTICS, MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "priority": "urgent",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-10-12",
+        "code": {
+          "coding": [
+            {
+              "code": "M80.3",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:4fa015ae-f0c2-48fe-a494-644c501f8251",
+          "display": "Hodor TAMESIDE",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383397"
+          }
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:8e84acdf-b5be-4f3d-a32f-b9bb142eb0db"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "M80",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Acute Myeloid Leukaemia"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Pancytopenia with circulating blasts. Suspected acute myeloid leukaemia. Bone marrow aspirate sent."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d01f0024-4571-4b95-a60d-e1a3e1121e56",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Requester-Haematology-RMP",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RMP"
+          },
+          "display": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C5432198"
+          },
+          "display": "FICTITIOUS, Anil"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8e84acdf-b5be-4f3d-a32f-b9bb142eb0db",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-HaematoOncology",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "26RMP-BM-002871",
+            "system": "http://www.acme.org/specimen/RMP",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RMP"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:4fa015ae-f0c2-48fe-a494-644c501f8251",
+          "display": "Hodor TAMESIDE",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383397"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "119359002",
+              "system": "http://snomed.info/sct",
+              "display": "Bone marrow specimen"
+            }
+          ],
+          "text": "Bone marrow aspirate"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-12T10:00:00+00:00"
+        },
+        "receivedTime": "2026-10-12T15:00:00+00:00"
+      }
+    }
+  ]
+}

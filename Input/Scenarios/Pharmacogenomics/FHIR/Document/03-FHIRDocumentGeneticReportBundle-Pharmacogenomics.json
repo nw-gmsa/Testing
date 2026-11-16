@@ -1,0 +1,1068 @@
+{
+  "resourceType": "Bundle",
+  "id": "FHIRDocumentGeneticReportBundle-Pharmacogenomics",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleDocument"
+    ]
+  },
+  "type": "document",
+  "identifier": {
+    "system": "urn:oid:2.16.724.4.8.10.200.10",
+    "value": "8c2d4f6a-1e3b-4a5c-9d7e-0f1a2b3c4d5e"
+  },
+  "timestamp": "2026-11-02T15:45:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:5e71bb01-36a9-44b6-bc00-c9403a2c432c",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "Composition-GenomicsReport-Pharmacogenomics",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Composition-GenomicReport"
+          ]
+        },
+        "identifier": {
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            }
+          },
+          "value": "e9a1b7c4-pgx-r454",
+          "system": "http://www.acme.org/diagnosticreport/identifiers"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.eu/fhir/extensions/StructureDefinition/composition-diagnosticReportReference",
+            "valueReference": {
+              "reference": "urn:uuid:7d97f7b6-1cd8-4563-94ff-efebd54590e2"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "code": "R454.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            },
+            {
+              "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "date": "2026-11-02T15:45:00+00:00",
+        "author": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NW GLH"
+          }
+        ],
+        "attester": [
+          {
+            "mode": "legal",
+            "time": "2026-11-02T15:45:00+00:00",
+            "party": {
+              "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+              "identifier": {
+                "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+                "value": "C1234567"
+              },
+              "display": "FICTITIOUS, Ralph"
+            }
+          }
+        ],
+        "title": "Composition Genomics Report Pharmacogenomics CYP2C19 Mavacamten",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH"
+        },
+        "section": [
+          {
+            "title": "Referral",
+            "code": {
+              "coding": [
+                {
+                  "code": "42349-1",
+                  "system": "http://loinc.org",
+                  "display": "Reason for referral (narrative)"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R454 Mavacamten for treating symptomatic obstructive hypertrophic cardiomyopathy. CYP2C19 genotyping before starting mavacamten.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:a3ef9f92-1896-4174-8523-659726543fb4"
+              }
+            ]
+          },
+          {
+            "title": "Specimen",
+            "code": {
+              "coding": [
+                {
+                  "code": "123038009",
+                  "system": "http://snomed.info/sct",
+                  "display": "Specimen"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Peripheral blood (EDTA). Collected 27-Oct-2026, received 28-Oct-2026.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4"
+              }
+            ]
+          },
+          {
+            "title": "Result summary",
+            "code": {
+              "coding": [
+                {
+                  "code": "51968-6",
+                  "system": "http://loinc.org",
+                  "display": "Discrete variation analysis overall interpretation"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>CYP2C19 *2/*2 - poor metaboliser.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:7d97f7b6-1cd8-4563-94ff-efebd54590e2"
+              }
+            ]
+          },
+          {
+            "title": "Results",
+            "code": {
+              "coding": [
+                {
+                  "code": "69548-6",
+                  "system": "http://loinc.org",
+                  "display": "Genetic variant assessment"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>CYP2C19 genotype and the haplotype that defines it.</p></div>"
+            },
+            "section": [
+              {
+                "title": "Pharmacogenomics",
+                "code": {
+                  "coding": [
+                    {
+                      "code": "82118-1",
+                      "system": "http://loinc.org"
+                    }
+                  ]
+                },
+                "text": {
+                  "status": "generated",
+                  "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>CYP2C19 genotype *2/*2.</p></div>"
+                },
+                "entry": [
+                  {
+                    "reference": "urn:uuid:ed3eaf0e-7075-4902-bb52-c2967317264b"
+                  }
+                ]
+              },
+              {
+                "title": "Haplotype definitions",
+                "code": {
+                  "coding": [
+                    {
+                      "code": "83011-7",
+                      "system": "http://loinc.org"
+                    }
+                  ]
+                },
+                "text": {
+                  "status": "generated",
+                  "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>CYP2C19*2 (rs4244285, c.681G&gt;A), homozygous.</p></div>"
+                },
+                "entry": [
+                  {
+                    "reference": "urn:uuid:d5636dc9-38ab-4700-9512-21fb7f024dff"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Interpretation",
+            "code": {
+              "coding": [
+                {
+                  "code": "interpretation",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This genotype predicts a CYP2C19 poor metaboliser. Mavacamten exposure is increased in CYP2C19 poor metabolisers.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:c645241f-8361-465c-83ab-f270a23fcfa1"
+              }
+            ]
+          },
+          {
+            "title": "Recommendations",
+            "code": {
+              "coding": [
+                {
+                  "code": "62385-0",
+                  "system": "http://loinc.org",
+                  "display": "Recommendation [Interpretation] Document"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Start and titrate mavacamten using the dosing recommended for CYP2C19 poor metabolisers in the Summary of Product Characteristics.</p></div>"
+            }
+          },
+          {
+            "title": "Methodology and limitations",
+            "code": {
+              "coding": [
+                {
+                  "code": "methodology",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicReportSection"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Targeted genotyping of CYP2C19 *2, *3 and *17. Other rare alleles are not tested; a sample without a tested allele is assigned *1.</p></div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:2c43b15a-0b31-4c49-b087-88292f80abd2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Northwich",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "active": true,
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Northwich",
+            "given": [
+              "Mace"
+            ]
+          }
+        ],
+        "birthDate": "1957-01-19",
+        "gender": "male",
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N81087"
+            },
+            "display": "Danebridge Medical Practice"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a3ef9f92-1896-4174-8523-659726543fb4",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-Pharmacogenomics",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RBQ"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:354876d4-435a-413f-817d-eb6440b0a4ef"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest",
+            "value": "71388"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-10-26",
+        "code": {
+          "coding": [
+            {
+              "code": "R454.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NW GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R454",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Mavacamten for treating symptomatic obstructive hypertrophic cardiomyopathy"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Symptomatic obstructive hypertrophic cardiomyopathy. CYP2C19 genotyping before starting mavacamten."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:354876d4-435a-413f-817d-eb6440b0a4ef",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Requester-Cardiology-RBQ",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RBQ"
+          },
+          "display": "LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C2345671"
+          },
+          "display": "FICTITIOUS, Hester"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                "code": "320"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-Pharmacogenomics",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RBQ26-004417",
+            "system": "http://www.acme.org/specimen/RBQ",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBQ"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-27T10:15:00+00:00"
+        },
+        "receivedTime": "2026-10-28T09:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7d97f7b6-1cd8-4563-94ff-efebd54590e2",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-GenomicsReport-Pharmacogenomics",
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R454.1"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "1054161000000101",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.composition",
+            "valueReference": {
+              "reference": "urn:uuid:5e71bb01-36a9-44b6-bc00-c9403a2c432c"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "value": "e9a1b7c4-pgx-r454",
+            "system": "http://www.acme.org/diagnosticreport/identifiers"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "699X0"
+                }
+              },
+              "system": "http://www.acme.org/servicerequest",
+              "value": "71388"
+            },
+            "reference": "urn:uuid:a3ef9f92-1896-4174-8523-659726543fb4"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                "code": "321",
+                "display": "VARIANT DETECTED"
+              }
+            ]
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4"
+          }
+        ],
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        },
+        "effectiveDateTime": "2026-10-27T10:15:00+00:00",
+        "issued": "2026-11-02T15:45:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization",
+            "display": "NW GLH"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C1234567"
+            },
+            "display": "FICTITIOUS, Ralph"
+          }
+        ],
+        "conclusion": "CYP2C19 *2/*2 - poor metaboliser.",
+        "result": [
+          {
+            "reference": "urn:uuid:ed3eaf0e-7075-4902-bb52-c2967317264b"
+          },
+          {
+            "reference": "urn:uuid:d5636dc9-38ab-4700-9512-21fb7f024dff"
+          },
+          {
+            "reference": "urn:uuid:c645241f-8361-465c-83ab-f270a23fcfa1"
+          },
+          {
+            "reference": "urn:uuid:2c43b15a-0b31-4c49-b087-88292f80abd2"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "59577028-8fcc-4554-8b43-988561d41d9c",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "North West Genomics"
+        },
+        "practitioner": {
+          "display": "Result INTERPRETER"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ed3eaf0e-7075-4902-bb52-c2967317264b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Genotype-Pharmacogenomics-CYP2C19",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "84413-4"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "ed3eaf0e-7075-4902-bb52-c2967317264b"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-11-02T15:45:00+00:00",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "urn:uuid:d5636dc9-38ab-4700-9512-21fb7f024dff"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "CYP2C19 *2/*2"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48018-6",
+                  "system": "http://loinc.org",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "HGNC:2621",
+                  "system": "http://www.genenames.org",
+                  "display": "CYP2C19"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d5636dc9-38ab-4700-9512-21fb7f024dff",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Haplotype-Pharmacogenomics-CYP2C19-2",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "84414-2"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "d5636dc9-38ab-4700-9512-21fb7f024dff"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-11-02T15:45:00+00:00",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "CYP2C19*2"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48018-6",
+                  "system": "http://loinc.org",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "HGNC:2621",
+                  "system": "http://www.genenames.org",
+                  "display": "CYP2C19"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "81255-2",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "rs4244285"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "53034-5",
+                  "system": "http://loinc.org",
+                  "display": "Allelic state"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "LA6705-3",
+                  "system": "http://loinc.org",
+                  "display": "Homozygous"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c645241f-8361-465c-83ab-f270a23fcfa1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TherapeuticImplication-Pharmacogenomics-Mavacamten",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
+              "code": "therapeutic-implication"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "c645241f-8361-465c-83ab-f270a23fcfa1"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-11-02T15:45:00+00:00",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "urn:uuid:ed3eaf0e-7075-4902-bb52-c2967317264b"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "51963-7",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Mavacamten"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "53040-2",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Poor metabolizer"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "conclusion-string",
+                  "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+                }
+              ]
+            },
+            "valueString": "CYP2C19 *2/*2 predicts a poor metaboliser. Start and titrate mavacamten using the dosing recommended for CYP2C19 poor metabolisers in the Summary of Product Characteristics."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2c43b15a-0b31-4c49-b087-88292f80abd2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "GenomicStudyPanel-Pharmacogenomics",
+        "code": {
+          "coding": [
+            {
+              "code": "81306-3",
+              "system": "http://loinc.org",
+              "display": "Variables that apply to the overall study"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "GE",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "2c43b15a-0b31-4c49-b087-88292f80abd2"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-11-02T15:45:00+00:00",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "51967-8",
+                  "system": "http://loinc.org",
+                  "display": "Genetic disease assessed [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "R454",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                  "display": "Mavacamten for treating symptomatic obstructive hypertrophic cardiomyopathy"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "51963-7",
+                  "system": "http://loinc.org"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Mavacamten"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "48018-6",
+                  "system": "http://loinc.org",
+                  "display": "Gene studied [ID]"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "HGNC:2621",
+                  "system": "http://www.genenames.org",
+                  "display": "CYP2C19"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

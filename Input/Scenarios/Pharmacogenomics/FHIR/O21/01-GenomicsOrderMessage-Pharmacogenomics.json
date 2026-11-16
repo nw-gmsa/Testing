@@ -1,0 +1,303 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-Pharmacogenomics",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:7308629e-36d9-4b16-87c8-a46625c1891e"
+  },
+  "timestamp": "2026-10-26T14:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:aa5c222d-4042-45cb-947c-5aabdb643fd4",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-Pharmacogenomics",
+        "meta": {
+          "lastUpdated": "2026-10-26T14:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RBQ"
+          },
+          "display": "LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RBQ",
+          "software": "LHCH EPR"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:a3ef9f92-1896-4174-8523-659726543fb4",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Northwich",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "active": true,
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Northwich",
+            "given": [
+              "Mace"
+            ]
+          }
+        ],
+        "birthDate": "1957-01-19",
+        "gender": "male",
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N81087"
+            },
+            "display": "Danebridge Medical Practice"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a3ef9f92-1896-4174-8523-659726543fb4",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-Pharmacogenomics",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RBQ"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:354876d4-435a-413f-817d-eb6440b0a4ef"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest",
+            "value": "71388"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-10-26",
+        "code": {
+          "coding": [
+            {
+              "code": "R454.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NW GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R454",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Mavacamten for treating symptomatic obstructive hypertrophic cardiomyopathy"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Symptomatic obstructive hypertrophic cardiomyopathy. CYP2C19 genotyping before starting mavacamten."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:354876d4-435a-413f-817d-eb6440b0a4ef",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Requester-Cardiology-RBQ",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RBQ"
+          },
+          "display": "LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C2345671"
+          },
+          "display": "FICTITIOUS, Hester"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                "code": "320"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-Pharmacogenomics",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RBQ26-004417",
+            "system": "http://www.acme.org/specimen/RBQ",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBQ"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-27T10:15:00+00:00"
+        },
+        "receivedTime": "2026-10-28T09:00:00+00:00"
+      }
+    }
+  ]
+}

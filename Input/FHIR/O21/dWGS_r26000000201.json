@@ -242,86 +242,6 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:65bc1e3d-3984-400d-b700-24bd6fd07802",
-      "resource": {
-        "resourceType": "ServiceRequest",
-        "status": "active",
-        "intent": "original-order",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "116148004"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
-              "code": "R14.1"
-            }
-          ]
-        },
-        "identifier": [
-          {
-            "system": "https://genomicsengland.co.uk/healthcare/referral-id",
-            "value": "r26000000201",
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "8J834"
-              }
-            },
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "FILL"
-                }
-              ]
-            }
-          }
-        ],
-        "subject": {
-          "type": "Group",
-          "identifier": {
-            "system": "https://genomicsengland.co.uk/healthcare/referral-id",
-            "value": "r26000000201",
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "8J834"
-              }
-            },
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PGN"
-                }
-              ]
-            }
-          }
-        },
-        "requester": {
-          "type": "Organization",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-            "value": "RR8"
-          }
-        },
-        "supportingInfo": [
-          {
-            "reference": "urn:uuid:38ee2741-4a42-4bab-901d-92d8b2971114",
-            "type": "Observation"
-          }
-        ]
-      }
-    },
-    {
       "fullUrl": "urn:uuid:38ee2741-4a42-4bab-901d-92d8b2971114",
       "resource": {
         "resourceType": "Observation",
@@ -483,8 +403,25 @@
         ],
         "basedOn": [
           {
-            "reference": "urn:uuid:65bc1e3d-3984-400d-b700-24bd6fd07802",
-            "type": "ServiceRequest"
+            "type": "ServiceRequest",
+            "identifier": {
+              "system": "https://genomicsengland.co.uk/healthcare/referral-id",
+              "value": "r26000000201",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "8J834"
+                }
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "FILL"
+                  }
+                ]
+              }
+            }
           }
         ],
         "subject": {
@@ -501,6 +438,10 @@
           }
         ],
         "supportingInfo": [
+          {
+            "reference": "urn:uuid:38ee2741-4a42-4bab-901d-92d8b2971114",
+            "type": "Observation"
+          },
           {
             "reference": "urn:uuid:c54ea40f-44cb-4352-a04f-d2f70fd8b568",
             "type": "Observation"

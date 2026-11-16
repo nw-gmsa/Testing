@@ -1,0 +1,65 @@
+{
+  "resourceType": "Condition",
+  "id": "c8f82825-e4cb-4e1f-b728-3fd2808e93db",
+  "meta": {
+    "versionId": "2",
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Condition"
+    ]
+  },
+  "identifier": [
+    {
+      "value": "c8f82825-e4cb-4e1f-b728-3fd2808e93db"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+      }
+    ]
+  },
+  "recordedDate": "2023-09-05T09:30:00+00:00",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "problem-list-item",
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "display": "Problem List Item"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "716318002",
+        "display": "Lynch syndrome",
+        "system": "http://snomed.info/sct"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+    "display": "Ned LIVERPOOL"
+  },
+  "evidence": [
+    {
+      "detail": [
+        {
+          "reference": "Observation/6beb613f-d303-42af-b025-86e8e0872061"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,823 @@
+{
+  "resourceType": "Bundle",
+  "id": "SDCSearchResults",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://example.nhs.uk/FHIR/R4/Questionnaire?id=GenomicTestOrder"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "http://example.org/fhir/Questionnaire/GenomicTestOrder",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "GenomicTestOrder",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/NWQuestionnaire"
+          ]
+        },
+        "url": "https://fhir.nwgenomics.nhs.uk/Questionnaire/GenomicTestOrder",
+        "title": "North West Genomics Test Order",
+        "description": "The aim of this is to support conversion of multiple Genomic Order Forms from several NHS Trusts to HL7 v2 and/or FHIR.\n\nThis is the **common core** order form: the Patient, Healthcare Professional, Test\nRequest and Specimen fields shared by every order, regardless of test type - these map\nonto the standardised [HL7 v2 OML_O21](hl7v2.html#oml_o21-laboratory-order) message and\nits FHIR equivalent, the [FHIR Message O21](MessageDefinition-laboratory-order.html).\nAsk At Order Entry questions, which vary by order/test type, are **not** part of this\ncore form - see [Order Entry Questions](StructureDefinition-GenomicTestOrder.html#order-entry-questions) for the\nseparate, order-type-specific Questionnaire to use alongside this one.",
+        "item": [
+          {
+            "item": [
+              {
+                "type": "string",
+                "linkId": "LN/45394-4",
+                "code": [
+                  {
+                    "code": "45394-4",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.name.family",
+                "required": true,
+                "text": "Patient surname"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/45392-8",
+                "code": [
+                  {
+                    "code": "45392-8",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "required": true,
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.name.given",
+                "text": "Patient first name"
+              },
+              {
+                "type": "date",
+                "linkId": "LN/21112-8",
+                "code": [
+                  {
+                    "code": "21112-8",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "required": true,
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.birthDate",
+                "text": "Date of birth"
+              },
+              {
+                "type": "date",
+                "linkId": "LN/81954-0",
+                "code": [
+                  {
+                    "code": "81954-0",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "required": false,
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.deceasedDateTime",
+                "text": "Date of death"
+              },
+              {
+                "type": "group",
+                "linkId": "LN/56799-0",
+                "code": [
+                  {
+                    "code": "56799-0",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.address",
+                "text": "Address",
+                "item": [
+                  {
+                    "type": "string",
+                    "linkId": "HL7/PID-11-1",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.address.line",
+                    "repeats": true,
+                    "text": "Address Line"
+                  },
+                  {
+                    "type": "string",
+                    "linkId": "HL7/PID-11-3",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.address.city",
+                    "text": "City"
+                  },
+                  {
+                    "type": "string",
+                    "linkId": "LN/45401-7",
+                    "code": [
+                      {
+                        "code": "45401-7",
+                        "system": "http://loinc.org"
+                      }
+                    ],
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.address.postalCode",
+                    "text": "Postcode"
+                  }
+                ]
+              },
+              {
+                "type": "choice",
+                "linkId": "LN/46098-0",
+                "code": [
+                  {
+                    "code": "46098-0",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.gender",
+                "text": "Sex registered at birth",
+                "answerValueSet": "http://hl7.org/fhir/ValueSet/administrative-gender"
+              },
+              {
+                "type": "choice",
+                "linkId": "LN/32624-9",
+                "code": [
+                  {
+                    "code": "32624-9",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "text": "Ethnic Category",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.extension:ethnicCategory",
+                "answerValueSet": "https://fhir.nwgenomics.nhs.uk/ValueSet/ethnicity"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/89061-6",
+                "code": [
+                  {
+                    "code": "89061-6",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.identifier:nhsNumber",
+                "text": "NHS Number"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/76435-7",
+                "code": [
+                  {
+                    "code": "76435-7",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "text": "Hospital Number (Medical Record Number)",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.identifier:MedicalRecordNumber",
+                "required": true
+              },
+              {
+                "item": [
+                  {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                        "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "code": "help",
+                              "system": "http://hl7.org/fhir/questionnaire-item-control"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "linkId": "LN/56797-4-designNote",
+                    "type": "display",
+                    "text": "PV1-19 (also known as stay number)"
+                  }
+                ],
+                "type": "string",
+                "linkId": "LN/56797-4",
+                "code": [
+                  {
+                    "code": "56797-4",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "text": "Account Number (Episode or Stay Number)",
+                "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.encounter.identifier.value",
+                "required": false
+              },
+              {
+                "type": "decimal",
+                "linkId": "ageAtCollection",
+                "text": "Age at collection (ignore for FHIR)"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/89009-5",
+                "text": "Location",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Encounter#Encounter.location"
+              },
+              {
+                "type": "choice",
+                "linkId": "HL7/PD1-3",
+                "text": "GP Surgery (ODS Code)",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient.generalPractitioner"
+              }
+            ],
+            "linkId": "Patient",
+            "text": "Patient",
+            "type": "group",
+            "definition": "http://hl7.org/fhir/StructureDefinition/Patient#Patient"
+          },
+          {
+            "type": "group",
+            "linkId": "HealthcareProfessional",
+            "definition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole#PractitionerRole",
+            "text": "Healthcare Professional",
+            "item": [
+              {
+                "type": "string",
+                "linkId": "LN/18705-4",
+                "code": [
+                  {
+                    "code": "18705-4",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "required": true,
+                "definition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole#PractitionerRole.practitioner.display",
+                "text": "Referring Clinician Name"
+              },
+              {
+                "type": "choice",
+                "linkId": "LN/18707-0",
+                "code": [
+                  {
+                    "code": "18707-0",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole#PractitionerRole.specialty.coding.code",
+                "text": "Referring Clinician Current Speciality",
+                "required": true,
+                "answerValueSet": "https://fhir.hl7.org.uk/ValueSet/UKCore-PracticeSettingCode"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/46608-6",
+                "code": [
+                  {
+                    "code": "46608-6",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole#PractitionerRole.practitioner.identifier.value",
+                "text": "Referring Clinician Professional Identifier",
+                "required": true
+              },
+              {
+                "type": "string",
+                "linkId": "LN/89058-2",
+                "code": [
+                  {
+                    "code": "89058-2",
+                    "system": "http://loinc.org",
+                    "display": "Contact email address"
+                  }
+                ],
+                "repeats": true,
+                "definition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole#PractitionerRole.telecom.value",
+                "text": "Email"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/81230-5",
+                "code": [
+                  {
+                    "code": "81230-5",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole#PractitionerRole.telecom.value",
+                "text": "Phone"
+              },
+              {
+                "type": "string",
+                "linkId": "HL7/ORC-21",
+                "definition": "http://hl7.org/fhir/StructureDefinition/PractitionerRole#PractitionerRole.organization.identifier.value",
+                "text": "Referring Organisation ODS Code / Ordering Facility"
+              }
+            ]
+          },
+          {
+            "type": "group",
+            "linkId": "TestRequest",
+            "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest",
+            "text": "Test Request",
+            "item": [
+              {
+                "type": "choice",
+                "linkId": "SNM/15220000",
+                "code": [
+                  {
+                    "code": "15220000",
+                    "system": "http://snomed.info/sct",
+                    "display": "Laboratory test"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.category",
+                "text": "Test Category",
+                "answerValueSet": "https://fhir.nwgenomics.nhs.uk/ValueSet/order-category"
+              },
+              {
+                "type": "choice",
+                "linkId": "HL7/OBR-4-r",
+                "code": [
+                  {
+                    "code": "29300-1",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "enableWhen": [
+                  {
+                    "question": "SNM/15220000",
+                    "operator": "=",
+                    "answerCoding": {
+                      "code": "RareAndInheritedDiseasesGeneticTesting",
+                      "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                    }
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.code",
+                "text": "Test Code (Rare and inherited diseases)",
+                "required": true,
+                "repeats": true,
+                "answerValueSet": "https://fhir.nwgenomics.nhs.uk/ValueSet/RareAndInheritedDiseaseTestCodes"
+              },
+              {
+                "type": "choice",
+                "linkId": "HL7/OBR-4-h",
+                "code": [
+                  {
+                    "code": "29300-1",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "enableWhen": [
+                  {
+                    "question": "SNM/15220000",
+                    "operator": "=",
+                    "answerCoding": {
+                      "code": "HaemoglobinopathyGeneticTesting",
+                      "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                    }
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.code",
+                "text": "Test Code (Haemoglobinopathy)",
+                "required": true,
+                "repeats": true,
+                "answerOption": [
+                  {
+                    "valueCoding": {
+                      "code": "R361.1",
+                      "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "R361.2",
+                      "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "R372.1",
+                      "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "R93.1",
+                      "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "R93.2",
+                      "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "choice",
+                "linkId": "HL7/OBR-4-c",
+                "code": [
+                  {
+                    "code": "29300-1",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "enableWhen": [
+                  {
+                    "question": "SNM/15220000",
+                    "operator": "=",
+                    "answerCoding": {
+                      "code": "CancerGeneticTesting",
+                      "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                    }
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.code",
+                "text": "Test Code (Cancer)",
+                "required": true,
+                "repeats": true,
+                "answerValueSet": "https://fhir.nwgenomics.nhs.uk/ValueSet/CancerTestCode"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/106194-4",
+                "code": [
+                  {
+                    "code": "106194-4",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "text": "Test request ID/Order ID",
+                "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.identifier:OrderPlacerNumber",
+                "required": false
+              },
+              {
+                "type": "choice",
+                "linkId": "LN/82768-3",
+                "code": [
+                  {
+                    "code": "82768-3",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "text": "Priority",
+                "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.priority",
+                "required": false,
+                "answerValueSet": "https://fhir.nwgenomics.nhs.uk/ValueSet/RequestPriority"
+              },
+              {
+                "linkId": "NOS/GeneticistEmail",
+                "code": [
+                  {
+                    "code": "GeneticistEmail",
+                    "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                  }
+                ],
+                "text": "Clinical Geneticist email",
+                "type": "string",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Observation#Observation.valueString"
+              },
+              {
+                "linkId": "NOS/GeneticistDepartmentEmail",
+                "code": [
+                  {
+                    "code": "GeneticistDepartmentEmail",
+                    "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                  }
+                ],
+                "text": "Clinical Geneticist department email",
+                "type": "string",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Observation#Observation.valueString"
+              },
+              {
+                "type": "group",
+                "linkId": "PatientClinicalInformation",
+                "text": "Patient Clinical Information",
+                "item": [
+                  {
+                    "type": "choice",
+                    "linkId": "LN/51967-8",
+                    "code": [
+                      {
+                        "code": "51967-8",
+                        "system": "http://loinc.org"
+                      },
+                      {
+                        "code": "782964007",
+                        "system": "http://snomed.info/sct",
+                        "display": "Genetic disease"
+                      }
+                    ],
+                    "repeats": true,
+                    "text": "CITT code (Specific disease suspected/reason for testing)",
+                    "answerValueSet": "https://fhir.nwgenomics.nhs.uk/ValueSet/GenomicClinicalIndicationCodes",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.reasonCode"
+                  },
+                  {
+                    "type": "string",
+                    "linkId": "HL7/NTE-1",
+                    "text": "Relevant clinical information and family history",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest#ServiceRequest.note"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "item": [
+              {
+                "type": "choice",
+                "linkId": "HL7/SPM",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.status",
+                "text": "Sample collection status",
+                "answerValueSet": "http://hl7.org/fhir/ValueSet/specimen-status"
+              },
+              {
+                "item": [
+                  {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                        "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "code": "help",
+                              "system": "http://hl7.org/fhir/questionnaire-item-control"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "linkId": "LN/80398-1-designNote",
+                    "type": "display",
+                    "text": "ORM v2.4 - OBX-3 = LOINC 80398-1 and OBX-2 = CE. OML v2.5.1 SPM-2"
+                  }
+                ],
+                "type": "string",
+                "code": [
+                  {
+                    "code": "80398-1",
+                    "system": "http://loinc.org",
+                    "display": "Unique identifier for Current sample"
+                  }
+                ],
+                "linkId": "LN/80398-1",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.identifier",
+                "text": "Specimen ID Number"
+              },
+              {
+                "type": "string",
+                "code": [
+                  {
+                    "code": "80398-1",
+                    "system": "http://loinc.org",
+                    "display": "Unique identifier for Current sample"
+                  }
+                ],
+                "linkId": "Specimen/accessionIdentifier",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.accessionIdentifier",
+                "text": "Lab DNA Number (If Known)"
+              },
+              {
+                "type": "string",
+                "linkId": "LN/80398-1-ODS",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.accessionIdentifier.assigner.identifier.value",
+                "text": "Pathology Laboratory Hospital/Trust ID (for Path Lab Sample/Stored DNA)"
+              },
+              {
+                "item": [
+                  {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                        "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "code": "help",
+                              "system": "http://hl7.org/fhir/questionnaire-item-control"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "linkId": "LN/33882-2-designNote",
+                    "type": "display",
+                    "text": "ORM v2.4 - OBX-3 = LOINC 33882-2 and OBX-2 = TS .\nOML v2.5.1 SPM-17"
+                  }
+                ],
+                "type": "dateTime",
+                "linkId": "LN/33882-2",
+                "code": [
+                  {
+                    "code": "33882-2",
+                    "system": "http://loinc.org",
+                    "display": "Collection date of Specimen"
+                  },
+                  {
+                    "code": "68963-8",
+                    "system": "http://loinc.org",
+                    "display": "Collection date and time of Specimen"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.collection.collectedDateTime",
+                "text": "Specimen Collection Date"
+              },
+              {
+                "item": [
+                  {
+                    "extension": [
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                        "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "code": "help",
+                              "system": "http://hl7.org/fhir/questionnaire-item-control"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "linkId": "LN/66746-9-designNote",
+                    "type": "display",
+                    "text": "ORM v2.4 - OBX-3 = LOINC 66746-9 and OBX-2 = CE.\nOML v2.5.1 SPM-4"
+                  }
+                ],
+                "type": "choice",
+                "linkId": "LN/66746-9",
+                "code": [
+                  {
+                    "code": "66746-9",
+                    "system": "http://loinc.org",
+                    "display": "Specimen Type"
+                  },
+                  {
+                    "code": "123038009",
+                    "system": "http://snomed.info/sct",
+                    "display": "Specimen"
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.type.coding.code",
+                "answerValueSet": "https://fhir.nwgenomics.nhs.uk/ValueSet/specimen-type",
+                "text": "Specimen Type"
+              },
+              {
+                "linkId": "LN/74384-9",
+                "code": [
+                  {
+                    "code": "434711009",
+                    "system": "http://snomed.info/sct",
+                    "display": "Specimen container"
+                  },
+                  {
+                    "code": "74384-9",
+                    "system": "http://loinc.org"
+                  }
+                ],
+                "text": "Anticoagulant/preservative?",
+                "type": "choice",
+                "required": false,
+                "repeats": false,
+                "answerOption": [
+                  {
+                    "valueCoding": {
+                      "code": "LA33-6",
+                      "system": "http://loinc.org",
+                      "display": "Yes"
+                    }
+                  },
+                  {
+                    "valueCoding": {
+                      "code": "LA32-8",
+                      "system": "http://loinc.org",
+                      "display": "No"
+                    }
+                  }
+                ],
+                "definition": "http://hl7.org/fhir/StructureDefinition/Observation#Observation.valueCodeableConcept"
+              },
+              {
+                "linkId": "LN/39111-0",
+                "code": [
+                  {
+                    "code": "39111-0",
+                    "system": "http://loinc.org"
+                  },
+                  {
+                    "code": "31208-2",
+                    "system": "http://loinc.org",
+                    "display": "Specimen source identified"
+                  }
+                ],
+                "text": "Tissue source/organ of origin",
+                "type": "choice",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.collection.bodySite"
+              },
+              {
+                "linkId": "LN/3169-0",
+                "code": [
+                  {
+                    "code": "3169-0",
+                    "system": "http://loinc.org",
+                    "display": "Volume of Specimen"
+                  },
+                  {
+                    "code": "42185-9",
+                    "system": "http://loinc.org",
+                    "display": "Number of specimens obtained"
+                  }
+                ],
+                "text": "Specimen Volume/number of slides or scrolls",
+                "type": "string",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.collection.quantity"
+              },
+              {
+                "linkId": "OrderTracking",
+                "text": "Audit (Specimen Tracking)",
+                "type": "group",
+                "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.collection",
+                "item": [
+                  {
+                    "linkId": "NOS/SampleReceived",
+                    "text": "Date and time sample received in lab",
+                    "type": "date",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.receivedTime"
+                  },
+                  {
+                    "linkId": "NOS/SampleSent",
+                    "code": [
+                      {
+                        "code": "SampleSent",
+                        "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                      }
+                    ],
+                    "text": "Date and time sample sent",
+                    "type": "date",
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Observation#Observation.valueDateTime"
+                  },
+                  {
+                    "linkId": "NOS/TransportUsed",
+                    "code": [
+                      {
+                        "code": "TransportUsed",
+                        "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                      }
+                    ],
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Observation#Observation.valueString",
+                    "text": "Transport used",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "LN/97209-1",
+                    "code": [
+                      {
+                        "code": "97209-1",
+                        "system": "http://loinc.org"
+                      }
+                    ],
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen.identifier[ShipmentTrackingNumber]",
+                    "text": "Tracking number",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "NOS/SampleSentTo",
+                    "code": [
+                      {
+                        "code": "SampleSentTo",
+                        "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                      }
+                    ],
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Observation#Observation.valueString",
+                    "text": "Sample sent to",
+                    "type": "string"
+                  },
+                  {
+                    "linkId": "NOS/SampleSentToName",
+                    "code": [
+                      {
+                        "code": "SampleSentToName",
+                        "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+                      }
+                    ],
+                    "definition": "http://hl7.org/fhir/StructureDefinition/Observation#Observation.valueString",
+                    "text": "Name of person who sent sample",
+                    "type": "string"
+                  }
+                ]
+              }
+            ],
+            "type": "group",
+            "linkId": "Specimen",
+            "definition": "http://hl7.org/fhir/StructureDefinition/Specimen#Specimen",
+            "text": "Specimen/Biopsy"
+          }
+        ],
+        "status": "active",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm",
+            "valueCoding": {
+              "code": "semver",
+              "system": "http://hl7.org/fhir/version-algorithm"
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}

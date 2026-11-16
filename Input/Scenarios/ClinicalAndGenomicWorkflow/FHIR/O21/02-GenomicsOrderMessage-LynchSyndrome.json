@@ -1,0 +1,437 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-LynchSyndrome",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:f15a8a15-83ce-4dcb-ba70-76360e6ba62a"
+  },
+  "timestamp": "2023-09-05T10:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:1b13c2ee-b8af-4bbd-81ed-2bd69cff0f0d",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-LynchSyndrome",
+        "meta": {
+          "lastUpdated": "2023-09-05T10:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          },
+          "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC",
+          "software": "MFT Epic"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:c0627dab-6f98-4846-beba-d9412ed3a60e",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Liverpool",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBS"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "A765432"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "LIVERPOOL",
+            "given": [
+              "Ned"
+            ]
+          }
+        ],
+        "birthDate": "1942-06-18",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "20 Forthlin Road"
+            ],
+            "city": "LIVERPOOL",
+            "postalCode": "L18 9TN"
+          }
+        ],
+        "gender": "male",
+        "contact": [
+          {
+            "name": {
+              "use": "official",
+              "family": "LIVERPOOL",
+              "given": [
+                "Ringo"
+              ]
+            },
+            "telecom": [
+              {
+                "use": "mobile",
+                "value": "077021231231",
+                "system": "phone"
+              }
+            ]
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N82035"
+            },
+            "display": "MATHER AVENUE SURGERY"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c0627dab-6f98-4846-beba-d9412ed3a60e",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-LynchSyndrome",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest",
+            "value": "66717"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2023-09-05",
+        "code": {
+          "coding": [
+            {
+              "code": "R210.2",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NW GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:635eaecb-a9c9-488e-978b-f63b12ce52b1"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R210",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Inherited MMR deficiency (Lynch syndrome)"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "363406005",
+                "system": "http://snomed.info/sct",
+                "display": "Malignant neoplasm of colon"
+              }
+            ]
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:5bbcf981-f3bc-4f17-ad6b-330ce6aedbf0",
+            "type": "DocumentReference",
+            "display": "Cellular pathology report - tumour MMR immunohistochemistry"
+          }
+        ],
+        "note": [
+          {
+            "text": "Bowel (colon) cancer. Tumour MMR immunohistochemistry: loss of MLH1 and PMS2, no MLH1 promoter hypermethylation."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          }
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C3456789"
+          },
+          "display": "Dr Samuel Darwin"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                "code": "100"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:635eaecb-a9c9-488e-978b-f63b12ce52b1",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-LynchSyndrome",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "23GEN-029GN00417",
+            "system": "http://www.acme.org/specimen/R0A",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "receivedTime": "2023-09-08T09:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5bbcf981-f3bc-4f17-ad6b-330ce6aedbf0",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "DocumentReference-LynchSyndrome-PathologyReport",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference"
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "system": "http://www.acme.org/documentreference/identifier/R0A",
+            "value": "H23-41022"
+          }
+        ],
+        "status": "current",
+        "date": "2023-08-21T09:00:00+00:00",
+        "type": {
+          "coding": [
+            {
+              "code": "1054291000000102",
+              "system": "http://snomed.info/sct",
+              "display": "Cellular pathology report"
+            }
+          ]
+        },
+        "author": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "Histopathology, MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:7ef49da9-f398-496a-befe-37ec391d9bf7",
+              "title": "Cellular pathology report - Ned LIVERPOOL"
+            }
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7ef49da9-f398-496a-befe-37ec391d9bf7",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "Binary-Sample",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"
+          ]
+        },
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    }
+  ]
+}
