@@ -239,6 +239,119 @@
       }
     },
     {
+      "fullUrl": "urn:uuid:2b589e1b-b81f-48b5-b1a9-a4875b24c6b1",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-SPT-DNA",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "NT26-80455-D1",
+            "system": "http://www.acme.org/specimen/NorthThamesGLH",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "69A70"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
+          "display": "Oliver CAMDEN",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383427"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258566005",
+              "system": "http://snomed.info/sct",
+              "display": "Deoxyribonucleic acid sample"
+            }
+          ]
+        },
+        "parent": [
+          {
+            "reference": "urn:uuid:0a869ae7-44ee-4657-8494-bfe7297971ba"
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2026-09-15T15:00:00+00:00"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0a869ae7-44ee-4657-8494-bfe7297971ba",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-SPT-Blood",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RP426-0310558",
+            "system": "http://www.acme.org/specimen/RP4",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RP4"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
+          "display": "Oliver CAMDEN",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383427"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "collection": {
+          "collectedDateTime": "2026-09-14T10:30:00+00:00"
+        },
+        "receivedTime": "2026-09-14T16:00:00+00:00"
+      }
+    },
+    {
       "fullUrl": "urn:uuid:a542b8fd-caaa-4cb4-be09-5a26a8f7af9c",
       "resource": {
         "resourceType": "Observation",

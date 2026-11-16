@@ -96,12 +96,10 @@
             "system": "https://fhir.nhs.uk/Id/nhs-number",
             "value": "9737383427"
           },
-          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
           "display": "Oliver CAMDEN"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:99bb76ca-edcb-44f4-95ff-b9b1c7b95780",
             "identifier": {
               "type": {
                 "coding": [
@@ -123,7 +121,24 @@
           }
         ],
         "focus": {
-          "reference": "urn:uuid:99bb76ca-edcb-44f4-95ff-b9b1c7b95780"
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/servicerequest/NorthThamesGLH",
+            "value": "NT26-80455",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "69A70"
+              }
+            }
+          }
         },
         "intent": "order",
         "code": {

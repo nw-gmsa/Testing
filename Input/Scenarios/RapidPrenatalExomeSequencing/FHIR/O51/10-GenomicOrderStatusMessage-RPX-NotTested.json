@@ -85,7 +85,6 @@
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:c8d8cbf0-8e46-429d-b100-44450cbef105",
             "identifier": {
               "type": {
                 "coding": [
@@ -107,10 +106,26 @@
           }
         ],
         "focus": {
-          "reference": "urn:uuid:c8d8cbf0-8e46-429d-b100-44450cbef105"
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "value": "1702114",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
         },
         "for": {
-          "reference": "urn:uuid:e322141b-af07-451d-92ab-74d192151818",
           "display": "Baby WIGAN"
         },
         "intent": "order",
