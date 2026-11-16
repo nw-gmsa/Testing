@@ -38,7 +38,7 @@
     "title": "Genomic Test Order Process including order entry and transmission of the order",
     "cases": {
       "O21": [
-        "GenomicsOrderMessageAttachment.json"
+        "06-GenomicsOrderMessageAttachment.json"
       ]
     }
   },
@@ -46,7 +46,7 @@
     "title": "Genomic Test Report Process",
     "cases": {
       "R01": [
-        "GenomicsReportMessage.json"
+        "06-GenomicsReportMessage.json"
       ]
     }
   },
@@ -149,28 +149,28 @@
       "O19": [
         "01-GenomicsOrderMessage-WGS-Referral.json"
       ],
+      "O21": [
+        "03-dWGS-Trio-r26000000203-p26000000104.json",
+        "04-dWGS-Trio-r26000000203-p26000000105.json",
+        "05-dWGS-Trio-r26000000203-p26000000106.json"
+      ],
       "R01": [
         "11-GenomicsReportMessage-WGS-Referral.json"
-      ],
-      "O21": [
-        "dWGS-Trio-r26000000203-p26000000104.json",
-        "dWGS-Trio-r26000000203-p26000000105.json",
-        "dWGS-Trio-r26000000203-p26000000106.json"
       ]
     }
   },
   "ctDNA": {
     "title": "Lung Cancer - Liquid Biopsy (ctDNA)",
     "cases": {
-      "T02": [
-        "15-DocumentMessage-ctDNA.json"
-      ],
       "O21": [
-        "GenomicsOrderMessage-ctDNA.json"
+        "01-GenomicsOrderMessage-ctDNA.json"
       ],
       "R01": [
-        "TestResultsMessage-ctDNA-OmicsDSS.json",
-        "ReportMessage-ctDNA-iGene-NarrativeReport.json"
+        "09-TestResultsMessage-ctDNA-OmicsDSS.json",
+        "12-ReportMessage-ctDNA-iGene-NarrativeReport.json"
+      ],
+      "T02": [
+        "15-DocumentMessage-ctDNA.json"
       ]
     }
   }

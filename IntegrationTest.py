@@ -590,15 +590,23 @@ TEST_GROUPS = {
 # scenario ("scenario_<id>"), with each step a separate case numbered in workflow order. The fixtures
 # and Input/Scenarios/scenarios.json are exported from the IG by Input/Scenarios/export_ig_scenarios.py;
 # see Input/Scenarios/<id>/README.md for each scenario's steps, including FHIR Documents not run here.
+# O19 (referral to Genomics England) and T02 (report PDF to shared care records) are transform-only -
+# there's no test system to send them to. O19 isn't on the NW-GMSA v2 page, so V2_EXPECTED_STRUCTURE
+# checks its transformToV2 output instead.
 _SCENARIOS_MANIFEST = os.path.join("Input", "Scenarios", "scenarios.json")
 if os.path.exists(_SCENARIOS_MANIFEST):
     with open(_SCENARIOS_MANIFEST) as _f:
         for _sid, _scenario in json.load(_f).items():
-            if _scenario["cases"]:
+            _cases = _scenario["cases"]
+            if _cases:
                 TEST_GROUPS[f"scenario_{_sid}"] = {
                     "input_dir": os.path.join("Input", "Scenarios", _sid, "FHIR"),
                     "input_format": "fhir",
-                    "cases": _scenario["cases"],
+                    "cases": _cases,
+                    "transform_only_types": ("O19", "T02"),
+                    # later steps build on earlier ones (sub-orders on the order, the report on
+                    # both), so run by the NN- step prefix rather than grouped by event code
+                    "step_order": True,
                 }
 
 
@@ -2539,6 +2547,33 @@ def check_fhir_conformance(bundle):
     return event, results
 
 
+# Message types the NW-GMSA v2 page doesn't define, so check_v2_conformance skips them: the MSH-9
+# transformToV2 must produce and the segments it must contain. One patient per message, so one PID.
+V2_EXPECTED_STRUCTURE = {
+    "O19": ("OMG^O19^OMG_O19", ("ORC", "OBR")),
+}
+
+
+def check_v2_structure(msg_type, v2_text):
+    """Returns (applicable, problems) for msg_type's entry in V2_EXPECTED_STRUCTURE."""
+    if msg_type not in V2_EXPECTED_STRUCTURE:
+        return False, []
+    expected_msh9, required = V2_EXPECTED_STRUCTURE[msg_type]
+    segments = _v2_segment_fields(v2_text)
+    problems = []
+    msh9 = _v2_msh_field(segments[0], 9) if segments and segments[0][0] == "MSH" else ""
+    if msh9 != expected_msh9:
+        problems.append(f"MSH-9 is '{msh9}', expected '{expected_msh9}'")
+    pids = sum(1 for fields in segments if fields[0] == "PID")
+    if pids != 1:
+        problems.append(f"{pids} PID segments, expected 1")
+    names = {fields[0] for fields in segments}
+    missing = [name for name in required if name not in names]
+    if missing:
+        problems.append(f"no {'/'.join(missing)} segment")
+    return True, problems
+
+
 def record_conformance(result, stage, event, results):
     """Records one side's conformance (stage 'v2Conformance' or 'fhirConformance') -
     advisory WARN unless STRICT_CONFORMANCE."""
@@ -2893,7 +2928,8 @@ def record_ack(result, ack_text):
 
 
 def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_send=False,
-                          save_output=True, known_dangling_refs=(), known_date_issues=()):
+                          save_output=True, known_dangling_refs=(), known_date_issues=(),
+                          skip_send_reason="--skip-send"):
     """Like run_case, but for a group whose fixtures are already a FHIR Bundle
     (Input/FHIR/<type>/<filename>.json) rather than raw v2 - the "dwgs" group. Runs
     transformToV2 (there's no v2 original to run transformToFHIR on first), then
@@ -2912,6 +2948,8 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     known_date_issues: the same idea for v2RoundTripDates - exact '<field> <name> = <value>'
     problem prefixes accepted as WARN for this fixture (see nhsd_examples).
+
+    skip_send_reason: why sendToServer is skipped, for the stage detail when skip_send is set.
     """
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
@@ -2981,6 +3019,9 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     # --- NW-GMSA conformance of the transformToV2 output, and where it differs from the FHIR ---
     record_conformance(result, "v2Conformance", *check_v2_conformance(v2_roundtrip))
+    applicable, structure_problems = check_v2_structure(msg_type, v2_roundtrip)
+    if applicable:
+        result.record("v2Structure", not structure_problems, "; ".join(structure_problems) or "as expected")
     record_conformance_parity(result, source_format="FHIR")
     record_date_check(result, "v2RoundTripDates", check_v2_dates(v2_roundtrip), advisory=False,
                       known_issues=known_date_issues)
@@ -3012,8 +3053,8 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     # --- Stage 3: POST the FHIR Bundle to FHIR_SERVER's $process-message ---
     if skip_send:
-        result.record("sendToServer", True, "skipped (--skip-send)")
-        log("sendToServer skipped (--skip-send)")
+        result.record("sendToServer", True, f"skipped ({skip_send_reason})")
+        log(f"sendToServer skipped ({skip_send_reason})")
         return result
 
     if not (FHIR_SERVER and OAUTH2_TOKEN_URL and CLIENT_ID and CLIENT_SECRET):
@@ -3278,27 +3319,32 @@ def main():
     case_num = 0
     for group_name in groups:
         group = TEST_GROUPS[group_name]
-        for msg_type in types:
-            for filename in group["cases"].get(msg_type, []):
-                case_num += 1
-                log(f"--- case {case_num}/{total_cases} ---")
-                if group.get("input_format") == "fhir":
-                    results.append(run_fhir_source_case(
-                        session, group_name, msg_type, filename,
-                        input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
-                        skip_send=args.skip_send,
-                        known_dangling_refs=group.get("known_dangling_refs", {}).get(filename, ()),
-                        known_date_issues=group.get("known_date_issues", {}).get(filename, ()),
-                    ))
-                else:
-                    results.append(run_case(
-                        session, group_name, msg_type, filename, args.skip_send,
-                        input_dir=group.get("input_dir"),
-                        skip_transform_to_v2=group.get("skip_transform_to_v2", False),
-                        input_flat=group.get("input_flat", False),
-                        mllp_port=group.get("v2_mllp_port"),
-                        expect_no_nhs_number=filename in group.get("expect_no_nhs_number", ()),
-                    ))
+        group_cases = [(t, f) for t in types for f in group["cases"].get(t, [])]
+        if group.get("step_order"):
+            # unnumbered files (no NN- prefix) sort after the numbered steps
+            group_cases.sort(key=lambda c: (not c[1][:2].isdigit(), c[1]))
+        for msg_type, filename in group_cases:
+            case_num += 1
+            log(f"--- case {case_num}/{total_cases} ---")
+            if group.get("input_format") == "fhir":
+                transform_only = msg_type in group.get("transform_only_types", ())
+                results.append(run_fhir_source_case(
+                    session, group_name, msg_type, filename,
+                    input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
+                    skip_send=args.skip_send or transform_only,
+                    skip_send_reason="--skip-send" if args.skip_send else f"{msg_type} is transform-only",
+                    known_dangling_refs=group.get("known_dangling_refs", {}).get(filename, ()),
+                    known_date_issues=group.get("known_date_issues", {}).get(filename, ()),
+                ))
+            else:
+                results.append(run_case(
+                    session, group_name, msg_type, filename, args.skip_send,
+                    input_dir=group.get("input_dir"),
+                    skip_transform_to_v2=group.get("skip_transform_to_v2", False),
+                    input_flat=group.get("input_flat", False),
+                    mllp_port=group.get("v2_mllp_port"),
+                    expect_no_nhs_number=filename in group.get("expect_no_nhs_number", ()),
+                ))
 
     if args.skip_cdr_check:
         log("cdr/omicsDss skipped (--skip-cdr-check)")

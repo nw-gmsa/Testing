@@ -16,9 +16,9 @@ All the steps are FHIR. FHIR Messages are under `FHIR/<event>/` and are run by `
 |---|---|---|---|---|---|
 | 1 | 1. Laboratory Order (LAB-1, O19) | Submit referral | Order Placer - NHS Trust → Genomics England | FHIR Message O19 | `FHIR/O19/01-GenomicsOrderMessage-WGS-Referral.json` |
 | 2 | 1. Laboratory Order (LAB-1, O19) | Route Laboratory Order | Genomics England → Requesting Genomic Laboratory - RGL | FHIR Message O19 | `FHIR/O19/01-GenomicsOrderMessage-WGS-Referral.json` |
-| 3 | 2. Sub-orders (LAB-35) | Send sub-order - Proband | Requesting Genomic Laboratory - RGL → Sequencing Genomic Laboratory - SGL | Not covered | - |
-| 4 | 2. Sub-orders (LAB-35) | Send sub-order - Family Member | Requesting Genomic Laboratory - RGL → Sequencing Genomic Laboratory - SGL | Not covered | - |
-| 5 | 2. Sub-orders (LAB-35) | Send sub-order - Family Member | Requesting Genomic Laboratory - RGL → Sequencing Genomic Laboratory - SGL | Not covered | - |
+| 3 | 2. Sub-orders (LAB-35) | Send sub-order - Proband | Requesting Genomic Laboratory - RGL → Sequencing Genomic Laboratory - SGL | FHIR Message O21 | `FHIR/O21/03-dWGS-Trio-r26000000203-p26000000104.json` |
+| 4 | 2. Sub-orders (LAB-35) | Send sub-order - Family Member | Requesting Genomic Laboratory - RGL → Sequencing Genomic Laboratory - SGL | FHIR Message O21 | `FHIR/O21/04-dWGS-Trio-r26000000203-p26000000105.json` |
+| 5 | 2. Sub-orders (LAB-35) | Send sub-order - Family Member | Requesting Genomic Laboratory - RGL → Sequencing Genomic Laboratory - SGL | FHIR Message O21 | `FHIR/O21/05-dWGS-Trio-r26000000203-p26000000106.json` |
 | 6 | 3. Sequencing (LAB-4 and LAB-5) | Send Work Order | Sequencing Genomic Laboratory - SGL → Sequencer | Not covered | - |
 | 7 | 3. Sequencing (LAB-4 and LAB-5) | Upload sequence data | Sequencing Genomic Laboratory - SGL → Genomics England | Not covered | - |
 | 8 | 4. Sub-order Results (LAB-36) | Make results available | Genomics England → Requesting Genomic Laboratory - RGL | Not covered | - |
@@ -29,6 +29,3 @@ All the steps are FHIR. FHIR Messages are under `FHIR/<event>/` and are run by `
 Other example resources in this scenario:
 
 - `FHIR/Group/FamilyGeneticGroup-dWGS-Trio-r26000000203.json`
-- `FHIR/O21/dWGS-Trio-r26000000203-p26000000104.json`
-- `FHIR/O21/dWGS-Trio-r26000000203-p26000000105.json`
-- `FHIR/O21/dWGS-Trio-r26000000203-p26000000106.json`

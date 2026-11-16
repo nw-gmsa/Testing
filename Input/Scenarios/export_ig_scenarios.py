@@ -93,6 +93,9 @@ def export(resources_dir):
                     versions[(inst["resourceId"], ver["versionId"])] = (
                         ext.get(TITLE_EXT, {}).get("valueString", ""),
                         ext[CONTENT_EXT]["valueReference"]["reference"])
+            # a step that leaves versionId blank means the instance's only version
+            if len(inst.get("version", [])) == 1 and (inst["resourceId"], inst["version"][0]["versionId"]) in versions:
+                versions[(inst["resourceId"], "")] = versions[(inst["resourceId"], inst["version"][0]["versionId"])]
         if not versions:
             continue  # background scenarios with no example content
 

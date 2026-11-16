@@ -17,9 +17,8 @@ All the steps are FHIR. FHIR Messages are under `FHIR/<event>/` and are run by `
 | 7 | Send Report to Order Placer | Send Laboratory Report ORU_R01 v2 | Trust Integration Engine → Order Placer/Electronic Patient Record | Not covered | - |
 | 4 | Send Report to ICS | Patient Demographics Query | Regional Orchestration Engine → Regional - Genomic Data Platform | Not covered | - |
 | 5 | Send Report to ICS | Send Laboratory Report MDM_T02 v2 | Regional Orchestration Engine → ICS - Health Information Exchange | Not covered | - |
-| 6 | Send Report to Regional Genomic CDR | Send Laboratory Report R01 FHIR | Regional Orchestration Engine → Regional - Genomic Data Platform | Not covered | - |
+| 6 | Send Report to Regional Genomic CDR | Send Laboratory Report R01 FHIR | Regional Orchestration Engine → Regional - Genomic Data Platform | FHIR Message R01 | `FHIR/R01/06-GenomicsReportMessage.json` |
 
 Other example resources in this scenario:
 
 - `FHIR/Bundle/PDQSearchResults.json`
-- `FHIR/R01/GenomicsReportMessage.json`

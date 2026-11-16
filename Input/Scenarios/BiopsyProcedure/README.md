@@ -12,12 +12,8 @@ All the steps are FHIR. FHIR Messages are under `FHIR/<event>/` and are run by `
 | 2 | Admission | Pre-populate Admission Form | Form Manager → Electronic Patient Record | Not covered | - |
 | 3 | Admission | Complete Admission Form. | Nurse → Patient/relative/carer | Not covered | - |
 | 4 | Admission | Complete Admission Form. | Nurse → Form Manager | Not covered | - |
-| 5 | Perform Biopsy | Document Procedure - Record procedure details | Consultant → Electronic Patient Record | Not covered | - |
+| 5 | Perform Biopsy | Document Procedure - Record procedure details | Consultant → Electronic Patient Record | FHIR Procedure | `FHIR/Procedure/05-13240a3b-d1db-4f1a-ad7d-b19f23967060.json` |
 | 6 | Perform Biopsy | Document Procedure - Update specimen details | Nurse → Electronic Patient Record | Not covered | - |
 | 7 | Perform Biopsy | Send specimen | Nurse → Diagnostic Testing | Not covered | - |
 | 8 | Monitor and Discharge Patient | Monitor Patient - Update specimen details | Nurse → Electronic Patient Record | Not covered | - |
 | 9 | Monitor and Discharge Patient | Discharge Patient | Nurse → Electronic Patient Record | Not covered | - |
-
-Other example resources in this scenario:
-
-- `FHIR/Procedure/13240a3b-d1db-4f1a-ad7d-b19f23967060.json`
