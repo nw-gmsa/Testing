@@ -2239,6 +2239,8 @@ def check_v2_conformance(v2_text):
 
     # --- PV1 ---
     for pv1 in by_type.get("PV1", []):
+        if _v2_field(pv1, 2) == "U" and not any(f.strip("^~&") for f in pv1[3:]):
+            continue  # PV1|1|U - no encounter, for a message that requires PV1 (MDM_T02)
         location = _v2_field(pv1, 3)
         if not location:
             check("encounter-location", "PV1-3 Assigned Patient Location is empty")
