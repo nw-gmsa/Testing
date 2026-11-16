@@ -590,9 +590,9 @@ TEST_GROUPS = {
 # scenario ("scenario_<id>"), with each step a separate case numbered in workflow order. The fixtures
 # and Input/Scenarios/scenarios.json are exported from the IG by Input/Scenarios/export_ig_scenarios.py;
 # see Input/Scenarios/<id>/README.md for each scenario's steps, including FHIR Documents not run here.
-# O19 (referral to Genomics England) and T02 (report PDF to shared care records) are transform-only -
-# there's no test system to send them to. O19 isn't on the NW-GMSA v2 page, so V2_EXPECTED_STRUCTURE
-# checks its transformToV2 output instead.
+# O19 (referral to Genomics England) and T02 (report PDF to shared care records) are FHIR-only at the
+# RIE - it accepts them on $process-message but doesn't pass them on as v2 - so their transformToV2
+# output is only checked here. O19 isn't on the NW-GMSA v2 page, so V2_EXPECTED_STRUCTURE checks it.
 _SCENARIOS_MANIFEST = os.path.join("Input", "Scenarios", "scenarios.json")
 if os.path.exists(_SCENARIOS_MANIFEST):
     with open(_SCENARIOS_MANIFEST) as _f:
@@ -603,7 +603,6 @@ if os.path.exists(_SCENARIOS_MANIFEST):
                     "input_dir": os.path.join("Input", "Scenarios", _sid, "FHIR"),
                     "input_format": "fhir",
                     "cases": _cases,
-                    "transform_only_types": ("O19", "T02"),
                     # later steps build on earlier ones (sub-orders on the order, the report on
                     # both), so run by the NN- step prefix rather than grouped by event code
                     "step_order": True,
@@ -2928,8 +2927,7 @@ def record_ack(result, ack_text):
 
 
 def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_send=False,
-                          save_output=True, known_dangling_refs=(), known_date_issues=(),
-                          skip_send_reason="--skip-send"):
+                          save_output=True, known_dangling_refs=(), known_date_issues=()):
     """Like run_case, but for a group whose fixtures are already a FHIR Bundle
     (Input/FHIR/<type>/<filename>.json) rather than raw v2 - the "dwgs" group. Runs
     transformToV2 (there's no v2 original to run transformToFHIR on first), then
@@ -2948,8 +2946,6 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     known_date_issues: the same idea for v2RoundTripDates - exact '<field> <name> = <value>'
     problem prefixes accepted as WARN for this fixture (see nhsd_examples).
-
-    skip_send_reason: why sendToServer is skipped, for the stage detail when skip_send is set.
     """
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
@@ -3053,8 +3049,8 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
 
     # --- Stage 3: POST the FHIR Bundle to FHIR_SERVER's $process-message ---
     if skip_send:
-        result.record("sendToServer", True, f"skipped ({skip_send_reason})")
-        log(f"sendToServer skipped ({skip_send_reason})")
+        result.record("sendToServer", True, "skipped (--skip-send)")
+        log("sendToServer skipped (--skip-send)")
         return result
 
     if not (FHIR_SERVER and OAUTH2_TOKEN_URL and CLIENT_ID and CLIENT_SECRET):
@@ -3327,12 +3323,10 @@ def main():
             case_num += 1
             log(f"--- case {case_num}/{total_cases} ---")
             if group.get("input_format") == "fhir":
-                transform_only = msg_type in group.get("transform_only_types", ())
                 results.append(run_fhir_source_case(
                     session, group_name, msg_type, filename,
                     input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
-                    skip_send=args.skip_send or transform_only,
-                    skip_send_reason="--skip-send" if args.skip_send else f"{msg_type} is transform-only",
+                    skip_send=args.skip_send,
                     known_dangling_refs=group.get("known_dangling_refs", {}).get(filename, ()),
                     known_date_issues=group.get("known_date_issues", {}).get(filename, ()),
                 ))
