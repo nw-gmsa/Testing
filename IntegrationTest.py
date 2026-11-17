@@ -1587,6 +1587,79 @@ def check_document_reference_code(v2_text, bundle):
     return applicable, list(dict.fromkeys(problems))
 
 
+# Coding systems check_coded_fields knows the FHIR system URI for: V2_CODE_SYSTEM_TO_FHIR plus
+# the Genomic Test Directory and the local Cepheid CodeSystem (the IG's BCR-ABL examples).
+CODED_FIELD_SYSTEMS = {
+    **V2_CODE_SYSTEM_TO_FHIR,
+    "ENGLAND-GENOMICTESTDIRECTORY": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+    "CEPHEID": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid",
+}
+
+
+def check_coded_fields(v2_text, bundle):
+    """OBR-4 and OBX-3 codes must reach FHIR under the coding system the v2 named.
+
+    For each OBR-4 (-> DiagnosticReport.code / ServiceRequest.code) and OBX-3 (-> wherever
+    the transform maps an OBX: Observation.code or .component.code, DocumentReference.type
+    for a report document, DiagnosticReport.conclusionCode for an overall interpretation),
+    both the primary (components 1-3) and alternate (components 4-6)
+    code are checked when their coding system is in CODED_FIELD_SYSTEMS: that system+code
+    must be among the target resources' codings, and the same code must not also appear
+    under a different system - e.g. the Cepheid R32s' OBX-3
+    "69380-4^^LN^BCR^BCR-ABL^Cepheid" must give loinc#69380-4 and Cepheid#BCR, not
+    Cepheid#69380-4. Codes in other (local) systems aren't checked.
+
+    Returns (applicable, problems): applicable is False when no OBR-4/OBX-3 code has a
+    known coding system.
+    """
+    if not isinstance(bundle, dict):
+        return False, []
+
+    def concepts(resource_type, *paths):
+        for resource in _fhir_resources(bundle, resource_type):
+            for path in paths:
+                if path == "component.code":
+                    yield from (c.get("code") for c in resource.get("component", []))
+                elif path == "conclusionCode":
+                    yield from resource.get("conclusionCode", [])
+                else:
+                    yield resource.get(path)
+
+    target_concepts = {
+        "OBR": (4, "DiagnosticReport/ServiceRequest.code",
+                lambda: [*concepts("DiagnosticReport", "code"), *concepts("ServiceRequest", "code")]),
+        "OBX": (3, "Observation.code/component.code, DocumentReference.type or "
+                   "DiagnosticReport.conclusionCode",
+                lambda: [*concepts("Observation", "code", "component.code"),
+                         *concepts("DocumentReference", "type"),
+                         *concepts("DiagnosticReport", "conclusionCode")]),
+    }
+    targets = {segment: (field_no, label, [c for concept in get() for c in (concept or {}).get("coding", [])])
+               for segment, (field_no, label, get) in target_concepts.items()}
+    applicable = False
+    problems = []
+    for fields in _v2_segment_fields(v2_text):
+        if fields[0] not in targets:
+            continue
+        field_no, target_label, codings = targets[fields[0]]
+        value = _v2_field(fields, field_no)
+        for first in (1, 4):
+            code = _v2_component(value, first)
+            system_raw = _v2_component(value, first + 2)
+            system = CODED_FIELD_SYSTEMS.get(system_raw.upper())
+            if not code or not system:
+                continue
+            applicable = True
+            label = f"{fields[0]}-{field_no} {code!r} ({system_raw})"
+            if not any(c.get("code") == code and c.get("system") == system for c in codings):
+                problems.append(f"{label} not on {target_label}")
+            wrong = sorted({c.get("system") for c in codings
+                            if c.get("code") == code and c.get("system") != system})
+            if wrong:
+                problems.append(f"{label} also coded under {', '.join(map(str, wrong))}")
+    return applicable, list(dict.fromkeys(problems))
+
+
 def is_valid_nhs_number(value):
     """10 digits (spaces ignored) with a correct modulus 11 check digit."""
     digits = str(value).replace(" ", "")
@@ -2803,6 +2876,19 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
                 "documentReferenceCode", True,
                 "DocumentReference.type carries the expected SNOMED/LOINC coding",
             )
+
+    # --- OBR-4/OBX-3 codes carried into FHIR under the coding system the v2 named (see
+    # check_coded_fields). Advisory (WARN) for now, and never a transform_error: transformToFHIR
+    # currently reads OBR-4.1/OBX-3.1 as a local code whatever the coding system, drops the
+    # alternate code, and loses some OBX (e.g. LRI 83005-9 Variant Category) - transform issues,
+    # not fixture ones. Make it a failure once the transform is fixed. ---
+    coded_applicable, coded_problems = check_coded_fields(v2_bytes.decode("utf-8"), fhir_json)
+    if coded_applicable:
+        if coded_problems:
+            result.warn("codedFields", f"{len(coded_problems)} OBR-4/OBX-3 coding problem(s)"
+                        + "".join(f"\n        - {p}" for p in coded_problems))
+        else:
+            result.record("codedFields", True, "OBR-4/OBX-3 codes carried through under their coding systems")
 
     # --- Patient nhs-number identifiers hold a real NHS number (not e.g. 'n/a'). Recorded as
     # a failure but deliberately not a transform_error: the send still runs, so the case
