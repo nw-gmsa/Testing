@@ -324,8 +324,9 @@ TEST_GROUPS = {
     # seconds (202610061106+0000) - the shape that transformToFHIR once mangled into
     # '2026-10-06T11:06:+0+00:00' (caught by fhirDates). LUFT_ORU_For_Clatterbridge is the
     # Liverpool (RQ6 iLab) ORU^R01 STR chimerism result back to Clatterbridge, with the
-    # analysis OBR-4 LOINC coded 112460-1 and its OBX results LOINC coded where a code
-    # exists (local IMM codes kept as the alternate coding; range, CV and % purity have
+    # analysis OBR-4 coded GT1368 (matching the CCC orders) with LOINC 112460-1 as the
+    # alternate, and its OBX results LOINC coded where a code exists (local IMM codes
+    # kept as the alternate coding; range, CV and % purity have
     # no LOINC equivalent so stay local-only). The lab reports % donor chimaerism, but
     # LOINC only has recipient-derived (103160-8), so OBX 1's 100% donor became 0.
     # Read flat from Input/Chimerism/
