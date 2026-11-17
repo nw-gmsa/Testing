@@ -317,22 +317,28 @@ TEST_GROUPS = {
             ],
         },
     },
+    # Clatterbridge <-> Histotrac chimerism messages. Every file is MEDITECH|REN <->
+    # Histotrac|R0A in MSH-3..6: Histotrac (MFT's LIMS, R0A) replaces Liverpool's iLABTP
+    # (RQ6) and the NW GLH's 699X0, so filler/specimen namespaces are R0A too.
     # Clatterbridge (Meditech) chimerism orders as OML^O21^OML_O21 at 2.5.1 - bone marrow
     # (CCC-Example1) and peripheral blood (CCC-Example2) - with OBR-4 the Genomic Test Directory code
     # GT1368 and an SPM carrying the SNOMED specimen type. CCC-Example3 is a peripheral blood
-    # order sent to Histotrac with no NHS number in PID-3, and an SPM-17 with minutes but no
+    # order with no NHS number in PID-3, and an SPM-17 with minutes but no
     # seconds (202610061106+0000) - the shape that transformToFHIR once mangled into
     # '2026-10-06T11:06:+0+00:00' (caught by fhirDates). CCC_OML_For_Histotrac and
     # Histotrac_ORU_For_Clatterbridge are a matching order/result pair (placer order number
     # REN13796^REN in both): Clatterbridge's peripheral blood chimerism order to Histotrac
-    # (MFT, R0A - replacing Liverpool's iLABTP at RQ6), and Histotrac's ORU^R01 STR
+    # (MFT, R0A), and Histotrac's ORU^R01 STR
     # chimerism result back. The result's analysis OBR-4 is coded GT1368 (matching the
     # CCC orders) with LOINC 112460-1 as the alternate, and its OBX results LOINC coded
     # where a code exists (local IMM codes kept as the alternate coding; range, CV and
     # % purity have no LOINC equivalent so stay local-only). The lab reports % donor
     # chimaerism, but LOINC only has recipient-derived (103160-8), so OBX 1's 100% donor
-    # became 0. Clatterbridge-REN-ORU_R01 is the STR chimerism report back to Clatterbridge
-    # with an embedded PDF (moved here from clatterbridge_histotrac). Read flat from
+    # became 0. Clatterbridge-REN-OML_O21 and Clatterbridge-REN-ORU_R01 are a second
+    # order/result pair (placer order number CB-260817-01^REN): an unselected peripheral
+    # blood chimerism order, and the STR report back with an embedded PDF (moved here from
+    # clatterbridge_histotrac), coded like the first pair but with the without-cell-
+    # selection LOINC codes (112449-4 panel, 104479-1 recipient %). Read flat from
     # Input/Chimerism/
     # (no <type> subfolder). Sent by HTTP POST to V2_SERVER like the other groups - the
     # RIE's MLLP listener on port 30015 (set "v2_mllp_port": 30015 to use it) isn't
@@ -346,6 +352,7 @@ TEST_GROUPS = {
                 "CCC-Example2.txt",
                 "CCC-Example3.txt",
                 "CCC_OML_For_Histotrac.txt",
+                "Clatterbridge-REN-OML_O21.txt",
             ],
             "R01": ["Histotrac_ORU_For_Clatterbridge.txt", "Clatterbridge-REN-ORU_R01.txt"],
         },

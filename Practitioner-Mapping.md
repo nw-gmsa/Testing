@@ -81,7 +81,7 @@ These fictitious practitioners replaced practitioners in the fixtures who may ha
 | Dr Pia FICTITIOUS | Local (iGene user) | `ZZ_PIA` | `Input/EDITestPatientsctDNA.csv` |
 | Dr Dov FICTITIOUS | Local (iGene user) | `ZZ_DOV` | `Input/EDITestPatientsctDNA.csv` |
 | Dr Mira FICTITIOUS | Local (iGene user) | `ZZ_MIR` | `Input/EDITestPatientsctDNA.csv` |
-| Dr Bernard FICTITIOUS | GMC | `C9000102` | `Input/Chimerism/Clatterbridge-REN-ORU_R01.txt`, `Input/Chimerism/Histotrac_ORU_For_Clatterbridge.txt` (PV1-7, PV1-8, ORC-12, OBR-16, OBR-32), `Input/Chimerism/CCC_OML_For_Histotrac.txt` (PV1-7, ORC-12, OBR-16); `Input/OmicsDSSOrderDataExport.csv`; notebook 01 |
+| Dr Bernard FICTITIOUS | GMC | `C9000102` | `Input/Chimerism/Clatterbridge-REN-ORU_R01.txt`, `Input/Chimerism/Clatterbridge-REN-OML_O21.txt`, `Input/Chimerism/Histotrac_ORU_For_Clatterbridge.txt` (PV1-7, PV1-8, ORC-12, OBR-16, OBR-32), `Input/Chimerism/CCC_OML_For_Histotrac.txt` (PV1-7, ORC-12, OBR-16); `Input/OmicsDSSOrderDataExport.csv`; notebook 01 |
 | Dr Alice FICTITIOUS | GMC | `C9000101` | `Input/V2/O01/histotrac-MFT-chimerism.txt` (PV1-7, ORC-12, OBR-16) |
 | Dr Wilfred FICTITIOUS | GMC | `C9000107` | `Input/V2/O01/Clatterbridge-Order.txt` and the CCC examples (PV1-7, ORC-12, OBR-16) |
 | Dr Tobias FICTITIOUS | GMC | `C9000108` | `Input/V2/O21/OML_O21_REN_Chimerism.txt` (PV1-7) |
