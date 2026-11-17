@@ -322,7 +322,13 @@ TEST_GROUPS = {
     # GT1368 and an SPM carrying the SNOMED specimen type. CCC-Example3 is a peripheral blood
     # order sent to Histotrac with no NHS number in PID-3, and an SPM-17 with minutes but no
     # seconds (202610061106+0000) - the shape that transformToFHIR once mangled into
-    # '2026-10-06T11:06:+0+00:00' (caught by fhirDates). Read flat from Input/Chimerism/
+    # '2026-10-06T11:06:+0+00:00' (caught by fhirDates). LUFT_ORU_For_Clatterbridge is the
+    # Liverpool (RQ6 iLab) ORU^R01 STR chimerism result back to Clatterbridge, with the
+    # analysis OBR-4 LOINC coded 112460-1 and its OBX results LOINC coded where a code
+    # exists (local IMM codes kept as the alternate coding; range, CV and % purity have
+    # no LOINC equivalent so stay local-only). The lab reports % donor chimaerism, but
+    # LOINC only has recipient-derived (103160-8), so OBX 1's 100% donor became 0.
+    # Read flat from Input/Chimerism/
     # (no <type> subfolder). Sent by HTTP POST to V2_SERVER like the other groups - the
     # RIE's MLLP listener on port 30015 (set "v2_mllp_port": 30015 to use it) isn't
     # reachable from the test machine yet.
@@ -331,6 +337,7 @@ TEST_GROUPS = {
         "input_flat": True,
         "cases": {
             "O21": ["CCC-Example1.txt", "CCC-Example2.txt", "CCC-Example3.txt"],
+            "R01": ["LUFT_ORU_For_Clatterbridge.txt"],
         },
     },
     # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
