@@ -293,7 +293,7 @@ TEST_GROUPS = {
             # standard's OML^O21^OML_O21 at 2.5.1 (the shape H&I is heading towards - see
             # notebook 10), rather than the ORM^O01 shape the O01 file above uses.
             "O21": ["OML_O21_REN_Chimerism.txt"],
-            "R01": ["Clatterbridge-REN-ORU_R01.txt"],
+            # Clatterbridge-REN-ORU_R01.txt (R01) now lives in the chimerism group.
         },
     },
     # ctDNA orders/reports between NW Genomics (iGene) and NEY Genomics.
@@ -331,7 +331,9 @@ TEST_GROUPS = {
     # where a code exists (local IMM codes kept as the alternate coding; range, CV and
     # % purity have no LOINC equivalent so stay local-only). The lab reports % donor
     # chimaerism, but LOINC only has recipient-derived (103160-8), so OBX 1's 100% donor
-    # became 0. Read flat from Input/Chimerism/
+    # became 0. Clatterbridge-REN-ORU_R01 is the STR chimerism report back to Clatterbridge
+    # with an embedded PDF (moved here from clatterbridge_histotrac). Read flat from
+    # Input/Chimerism/
     # (no <type> subfolder). Sent by HTTP POST to V2_SERVER like the other groups - the
     # RIE's MLLP listener on port 30015 (set "v2_mllp_port": 30015 to use it) isn't
     # reachable from the test machine yet.
@@ -345,7 +347,7 @@ TEST_GROUPS = {
                 "CCC-Example3.txt",
                 "CCC_OML_For_Histotrac.txt",
             ],
-            "R01": ["Histotrac_ORU_For_Clatterbridge.txt"],
+            "R01": ["Histotrac_ORU_For_Clatterbridge.txt", "Clatterbridge-REN-ORU_R01.txt"],
         },
     },
     # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
