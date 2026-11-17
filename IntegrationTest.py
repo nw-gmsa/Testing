@@ -21,6 +21,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      DocumentReference.type ends up with the expected SNOMED/LOINC coding - preserved as-is
      for the 'ED' case, substituted in if missing for the 'CE'+PDF case - see
      check_document_reference_code.
+     For a Cepheid GeneXpert result (MSH-3 GeneXpert), every Observation's device must be the
+     Cepheid Device, by identifier laboratory-information-system|Cepheid (cepheidDevice - see
+     check_cepheid_device).
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back.
      Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
      corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
@@ -56,8 +59,13 @@ accepted, with a warning, until the RIE switches. Every such ServiceRequest whos
 is a Device must identify the DLIMS Device, by its identifier (the IG's primary reference)
 and/or a reference to it, and must link at least one Specimen that resolves. The Omics DSS
 query (ServiceRequest?intent=instance-order,filler-order&performer:identifier=<DLIMS> with
-_include for the Specimen) must return exactly those orders with no OperationOutcome error. This is reported as its own case, cdr/omicsDss, and is
-skipped when FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD aren't set or with --skip-cdr-check.
+_include for the Specimen) must return exactly those orders with no OperationOutcome error. This is reported as its own case, cdr/omicsDss.
+Cepheid results are checked the same way (cdr/cepheidDevice - see
+check_cepheid_device_observations): exactly one Device carries the Cepheid identifier
+(laboratory-information-system|Cepheid), every Observation coded LOINC 69380-4 must identify
+it as its device, and Observation?device=<that Device> must return exactly those
+Observations. Both are skipped when FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD aren't set or
+with --skip-cdr-check.
 
 Stage 1/2 outputs are saved under TestingOutput/FHIR/<messageType>/ and TestingOutput/V2/<messageType>/
 - the same layout Testing.ipynb uses under Output/, but in its own top-level directory so a script
@@ -1663,6 +1671,56 @@ def check_coded_fields(v2_text, bundle):
     return applicable, list(dict.fromkeys(problems))
 
 
+# Cepheid GeneXpert observations are made by the Cepheid Device, identified the same way as the
+# DLIMS Device that performs Omics DSS orders.
+CEPHEID_DEVICE_IDENTIFIER = ("https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system", "Cepheid")
+
+
+def _is_cepheid_device(device, device_ref=None):
+    """True when Observation.device identifies the Cepheid Device, by its identifier and/or
+    (when device_ref is given) a reference to it."""
+    device = device or {}
+    ident = device.get("identifier", {})
+    by_identifier = (ident.get("system"), ident.get("value")) == CEPHEID_DEVICE_IDENTIFIER
+    if device_ref is not None and device.get("reference"):
+        # a reference, when there is one, must be to the Cepheid Device
+        return device.get("reference") == device_ref
+    return by_identifier
+
+
+def check_cepheid_device(v2_text, bundle):
+    """For a Cepheid GeneXpert result (MSH-3 GeneXpert), every Observation in the
+    transformToFHIR Bundle must have Observation.device identifying the Cepheid Device
+    (type Device, identifier laboratory-information-system|Cepheid), not the OBX-18
+    instrument string.
+
+    Returns (applicable, problems): applicable is False for non-GeneXpert messages.
+    """
+    if not isinstance(bundle, dict):
+        return False, []
+    msh = next((f for f in _v2_segment_fields(v2_text) if f[0] == "MSH"), None)
+    if not msh or "GeneXpert" not in _v2_msh_field(msh, 3):
+        return False, []
+    observations = _fhir_resources(bundle, "Observation")
+    if not observations:
+        return True, ["no Observation in the Bundle"]
+    system, value = CEPHEID_DEVICE_IDENTIFIER
+    problems = []
+    for obs in observations:
+        device = obs.get("device")
+        codes = ", ".join(f"{c.get('system')}|{c.get('code')}"
+                          for c in (obs.get("code") or {}).get("coding", [])) or "(no code)"
+        if not device:
+            problems.append(f"Observation {codes} has no device")
+        elif not _is_cepheid_device(device):
+            ident = device.get("identifier", {})
+            shown = "|".join(filter(None, (ident.get("system"), ident.get("value")))) or "(no identifier)"
+            problems.append(f"Observation {codes} device identifier is {shown}, expected {system}|{value}")
+        elif device.get("type") not in (None, "Device"):
+            problems.append(f"Observation {codes} device type is {device.get('type')}, expected Device")
+    return True, problems
+
+
 def is_valid_nhs_number(value):
     """10 digits (spaces ignored) with a correct modulus 11 check digit."""
     digits = str(value).replace(" ", "")
@@ -2893,6 +2951,15 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         else:
             result.record("codedFields", True, "OBR-4/OBX-3 codes carried through under their coding systems")
 
+    # --- Cepheid GeneXpert Observations made by the Cepheid Device (see check_cepheid_device) ---
+    device_applicable, device_problems = check_cepheid_device(v2_bytes.decode("utf-8"), fhir_json)
+    if device_applicable:
+        if device_problems:
+            result.record("cepheidDevice", False, "; ".join(device_problems))
+        else:
+            result.record("cepheidDevice", True,
+                          "Observation.device is the Cepheid Device (%s|%s)" % CEPHEID_DEVICE_IDENTIFIER)
+
     # --- Patient nhs-number identifiers hold a real NHS number (not e.g. 'n/a'). Recorded as
     # a failure but deliberately not a transform_error: the send still runs, so the case
     # also shows how the RIE handles the bad identifier, as happened live. ---
@@ -3402,6 +3469,79 @@ def check_omics_dss_orders(session):
     return result
 
 
+# The Cepheid BCR-ABL1 %IS result, which every Cepheid Observation is coded with.
+CEPHEID_OBSERVATION_CODE = "http://loinc.org|69380-4"
+
+
+def check_cepheid_device_observations(session):
+    """Checks the FHIR repository holds Cepheid results as Observations made by the Cepheid
+    Device. Cepheid Observations are recognised by their code (LOINC 69380-4, BCR-ABL1 %IS).
+
+    Returns a CaseResult with stages:
+      cepheidDevice       - exactly one Device on the server carries the Cepheid identifier
+      cepheidObservation  - every Cepheid Observation's device is the Cepheid Device, by identifier and/or reference
+      cepheidQuery        - Observation?device=<Cepheid Device> returns exactly those Observations, error-free
+    """
+    result = CaseResult("cdr/cepheidDevice")
+    log("=== starting cdr/cepheidDevice (FHIR repository check) ===")
+    system, value = CEPHEID_DEVICE_IDENTIFIER
+    try:
+        devices, _ = cdr_search(session, f"Device?identifier={system}|{value}")
+        observations, _ = cdr_search(session, f"Observation?code={CEPHEID_OBSERVATION_CODE}&_count=200")
+    except (requests.RequestException, ValueError) as e:
+        result.record("cepheidDevice", False, f"FHIR repository search failed: {e}")
+        log(f"FAILED cepheidDevice: FHIR repository search failed: {e}")
+        return result
+
+    if len(devices) != 1:
+        result.record("cepheidDevice", False,
+                      f"{len(devices)} Device(s) with identifier {system}|{value}, expected 1")
+        log(f"FAILED cepheidDevice: {len(devices)} Cepheid Device(s)")
+        return result
+    device_ref = f"Device/{next(iter(devices))[1]}"
+    result.record("cepheidDevice", True, device_ref)
+
+    cepheid = {obs_id: obs for (rtype, obs_id), obs in observations.items() if rtype == "Observation"}
+    if not cepheid:
+        result.warn("cepheidObservation", f"no Observation with code {CEPHEID_OBSERVATION_CODE} on the server")
+        return result
+
+    problems = []
+    for obs_id, obs in sorted(cepheid.items()):
+        device = obs.get("device")
+        if not _is_cepheid_device(device, device_ref):
+            shown = ((device or {}).get("reference")
+                     or "|".join(filter(None, ((device or {}).get("identifier", {}).get("system"),
+                                               (device or {}).get("identifier", {}).get("value"))))
+                     or "(no device)")
+            problems.append(f"Observation/{obs_id} device is {shown}, expected the Cepheid Device "
+                            f"({system}|{value} and/or {device_ref})")
+    if problems:
+        result.record("cepheidObservation", False, "; ".join(problems))
+        log(f"FAILED cepheidObservation: {'; '.join(problems)}")
+    else:
+        result.record("cepheidObservation", True, f"{len(cepheid)} Observation(s) made by the Cepheid Device")
+
+    query = f"Observation?device={device_ref}&_count=200"
+    try:
+        found, errors = cdr_search(session, query)
+    except (requests.RequestException, ValueError) as e:
+        result.record("cepheidQuery", False, f"{query} failed: {e}")
+        log(f"FAILED cepheidQuery: {e}")
+        return result
+    found_ids = {i for t, i in found if t == "Observation"}
+    problems = [f"OperationOutcome: {e}" for e in errors]
+    problems += [f"Observation/{i} not returned" for i in sorted(set(cepheid) - found_ids)]
+    problems += [f"Observation/{i} returned but isn't coded {CEPHEID_OBSERVATION_CODE}"
+                 for i in sorted(found_ids - set(cepheid))]
+    if problems:
+        result.record("cepheidQuery", False, "; ".join(problems))
+        log(f"FAILED cepheidQuery: {'; '.join(problems)}")
+    else:
+        result.record("cepheidQuery", True, f"{len(found_ids)} Observation(s) returned")
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -3423,7 +3563,8 @@ def main():
     )
     parser.add_argument(
         "--skip-cdr-check", action="store_true",
-        help="Skip the read-only FHIR repository check of Omics DSS work orders (cdr/omicsDss).",
+        help="Skip the read-only FHIR repository checks of Omics DSS work orders (cdr/omicsDss) "
+             "and Cepheid Observations (cdr/cepheidDevice).",
     )
     args = parser.parse_args()
 
@@ -3475,11 +3616,12 @@ def main():
                 ))
 
     if args.skip_cdr_check:
-        log("cdr/omicsDss skipped (--skip-cdr-check)")
+        log("cdr/omicsDss and cdr/cepheidDevice skipped (--skip-cdr-check)")
     elif not (FHIR_BASE_URL and FHIR_USER and FHIR_PASSWORD):
-        log("cdr/omicsDss skipped - FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD not set in .env")
+        log("cdr/omicsDss and cdr/cepheidDevice skipped - FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD not set in .env")
     else:
         results.append(check_omics_dss_orders(session))
+        results.append(check_cepheid_device_observations(session))
 
     log("all cases complete, printing summary")
     failures = 0
