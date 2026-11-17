@@ -54,12 +54,12 @@ v2 field, FHIR element and how the two differ. Advisory (WARN) by default;
 
 After every case has run, the FHIR repository itself ({FHIR_BASE_URL}, read-only) is
 checked for the shape Omics DSS orders are now stored in - see check_omics_dss_orders.
-Omics DSS orders are LAB-4 work orders (intent=instance-order); intent=filler-order is still
-accepted, with a warning, until the RIE switches. Every such ServiceRequest whose performer
-is a Device must identify the DLIMS Device, by its identifier (the IG's primary reference)
-and/or a reference to it, and must link at least one Specimen that resolves. The Omics DSS
-query (ServiceRequest?intent=instance-order,filler-order&performer:identifier=<DLIMS> with
-_include for the Specimen) must return exactly those orders with no OperationOutcome error. This is reported as its own case, cdr/omicsDss.
+Omics DSS orders are filler orders to DLIMS (intent=filler-order) - there's no inferred
+instance-order to Omics, so a DLIMS-performed instance-order fails. Every such ServiceRequest
+whose performer is a Device must identify the DLIMS Device, by its identifier (the IG's
+primary reference) and/or a reference to it, and must link at least one Specimen that
+resolves. The Omics DSS query (ServiceRequest?intent=filler-order&performer:identifier=<DLIMS>
+with _include for the Specimen) must return exactly those orders with no OperationOutcome error. This is reported as its own case, cdr/omicsDss.
 Cepheid results are checked the same way (cdr/cepheidDevice - see
 check_cepheid_device_observations): exactly one Device carries the Cepheid identifier
 (laboratory-information-system|Cepheid), every Observation coded LOINC 69380-4 must identify
@@ -3328,9 +3328,9 @@ ALL_MSG_TYPES = sorted({
 # server identifies by this identifier.
 DLIMS_DEVICE_IDENTIFIER = ("https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system", "DLIMS")
 
-# Omics DSS orders are LAB-4 work orders, so the IG uses intent=instance-order.
-# filler-order is the RIE's current value and is accepted, with a warning, until it switches.
-OMICS_DSS_INTENTS = ("instance-order", "filler-order")
+# Omics DSS orders are filler orders to DLIMS. There's no inferred instance-order to Omics,
+# so an instance-order performed by DLIMS is a fault, not a newer shape of the same order.
+OMICS_DSS_INTENTS = ("filler-order",)
 
 
 def cdr_search(session, query):
@@ -3378,13 +3378,13 @@ def _is_dlims_performer(performer, device_ref):
 
 def check_omics_dss_orders(session):
     """Checks the FHIR repository holds Omics DSS orders in their current shape: a work
-    order (intent=instance-order; filler-order still accepted) whose performer is the DLIMS
+    order to DLIMS (intent=filler-order) whose performer is the DLIMS
     Device. Omics DSS orders are recognised by a Device performer (type, reference or the
     DLIMS identifier system).
 
     Returns a CaseResult with stages:
       omicsDssDevice     - exactly one Device on the server carries the DLIMS identifier
-      omicsDssIntent     - WARN for orders still using intent=filler-order
+      omicsDssIntent     - no instance-order is performed by the DLIMS Device
       omicsDssPerformer  - every Omics DSS order's performer is the DLIMS Device, by identifier and/or reference
       omicsDssSpecimen   - every Omics DSS order links a Specimen that resolves
       omicsDssQuery      - the Omics DSS query returns exactly those orders, error-free
@@ -3396,6 +3396,8 @@ def check_omics_dss_orders(session):
         devices, _ = cdr_search(session, f"Device?identifier={system}|{value}")
         orders, errors = cdr_search(
             session, f"ServiceRequest?intent={','.join(OMICS_DSS_INTENTS)}&_include=ServiceRequest:specimen&_count=200")
+        instance_orders, _ = cdr_search(
+            session, f"ServiceRequest?intent=instance-order&performer:identifier={system}|{value}&_count=200")
     except (requests.RequestException, ValueError) as e:
         result.record("omicsDssDevice", False, f"FHIR repository search failed: {e}")
         log(f"FAILED omicsDss: FHIR repository search failed: {e}")
@@ -3423,13 +3425,14 @@ def check_omics_dss_orders(session):
         ids = [i.get("value") for i in omics[sr_id].get("identifier", []) if i.get("value")]
         return f"ServiceRequest/{sr_id}" + (f" ({', '.join(ids)})" if ids else "")
 
-    legacy = [label(i) for i, sr in sorted(omics.items()) if sr.get("intent") == "filler-order"]
-    if legacy:
-        result.warn("omicsDssIntent",
-                    f"{len(legacy)} order(s) still intent=filler-order, expected instance-order (LAB-4): "
-                    + "; ".join(legacy))
+    unexpected = sorted(f"ServiceRequest/{i}" for t, i in instance_orders if t == "ServiceRequest")
+    if unexpected:
+        result.record("omicsDssIntent", False,
+                      f"{len(unexpected)} instance-order(s) performed by the DLIMS Device, expected filler-order: "
+                      + "; ".join(unexpected))
+        log(f"FAILED omicsDssIntent: {len(unexpected)} DLIMS instance-order(s)")
     else:
-        result.record("omicsDssIntent", True, f"{len(omics)} order(s) with intent=instance-order")
+        result.record("omicsDssIntent", True, f"{len(omics)} order(s) with intent=filler-order")
 
     performer_problems, specimen_problems = [], []
     for sr_id, sr in sorted(omics.items()):
