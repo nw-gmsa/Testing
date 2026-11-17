@@ -604,8 +604,10 @@ TEST_GROUPS = {
     # Every R32 here is the NW Standard shape: OBR-4 the Genomic Test Directory's M84.2 (CML,
     # MRD BCR-ABL1 RT-qPCR) with Cepheid's BCRABL as the alternate, and OBX-3 LOINC 69380-4
     # (BCR-ABL1 %IS, no LOINC text) with Cepheid's BCR as the alternate, OBX-4 Sub-ID still
-    # the local component code -
-    # matching what the RIE's ASTM -> R32 conversion is changing to produce (see the
+    # the local component code. ORC-3/OBR-3 are the filler order number (the ASTM O-3 sample
+    # ID after the "_"), and SPM-2 is the S number (placer) ^ Cepheid's full sample ID
+    # (filler), which becomes the Specimen identifier the iGene CSV's CepheidSampleID comes
+    # from - matching what the RIE's ASTM -> R32 conversion produces (see the
     # BCR-ABL Monitoring use case's Terminology section). The local-code-only originals are
     # kept in Input/Cepheid/R32/Backup/, and Input/Cepheid/ASTM/<name>.astm is the ASTM
     # result each R32 corresponds to (one R record per OBX), for testing that conversion.
@@ -616,9 +618,10 @@ TEST_GROUPS = {
             "R32": [f"cepheid-{i}.txt" for i in range(1, 8)] + [
                 # One message per result-handling scenario in the iGene-Cepheid spec
                 # (s3.4), for checking the RIE's iGene CSVs: positive, positive above upper
-                # LoQ, negative with NA level, below LoD and a failed (NO RESULT) run. SPM-2
-                # carries a made-up ASTM-style <iGeneSampleNo>_<iGeneTestNo>
-                # (S26-ZZ0n_T26-ZZ0n), so iGene's importer will log these as unmatched.
+                # LoQ, negative with NA level, below LoD and a failed (NO RESULT) run. The
+                # ASTM sample ID is a made-up <iGeneSampleNo>_<iGeneTestNo> (S26-ZZ0n_T26-ZZ0n),
+                # giving SPM-2 S26-ZZ0n^S26-ZZ0n_T26-ZZ0n and ORC-3/OBR-3 T26-ZZ0n, so iGene's
+                # importer will log these as unmatched.
                 "csv-1-positive.txt",
                 "csv-2-above-upper-loq.txt",
                 "csv-3-negative-na-level.txt",
