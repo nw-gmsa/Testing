@@ -21,9 +21,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      DocumentReference.type ends up with the expected SNOMED/LOINC coding - preserved as-is
      for the 'ED' case, substituted in if missing for the 'CE'+PDF case - see
      check_document_reference_code.
-     For a Cepheid GeneXpert result (MSH-3 GeneXpert), every Observation's device must be the
-     Cepheid Device, by identifier laboratory-information-system|Cepheid (cepheidDevice - see
-     check_cepheid_device).
+     For a Cepheid GeneXpert result (MSH-3 GeneXpert), the Bundle must carry the Cepheid Device
+     resource and every Observation's device must be it, by identifier
+     laboratory-information-system|Cepheid (cepheidDevice - see check_cepheid_device).
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back.
      Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
      corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
@@ -64,7 +64,8 @@ Cepheid results are checked the same way (cdr/cepheidDevice - see
 check_cepheid_device_observations): exactly one Device carries the Cepheid identifier
 (laboratory-information-system|Cepheid), every Observation coded LOINC 69380-4 must identify
 it as its device, and Observation?device=<that Device> must return exactly those
-Observations. Both are skipped when FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD aren't set or
+Observations. Observations stored before the change, which identify the device by the OBX-18
+instrument string, are a warning (cepheidLegacy), not a failure, until they're reloaded. Both are skipped when FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD aren't set or
 with --skip-cdr-check.
 
 Stage 1/2 outputs are saved under TestingOutput/FHIR/<messageType>/ and TestingOutput/V2/<messageType>/
@@ -1689,10 +1690,10 @@ def _is_cepheid_device(device, device_ref=None):
 
 
 def check_cepheid_device(v2_text, bundle):
-    """For a Cepheid GeneXpert result (MSH-3 GeneXpert), every Observation in the
-    transformToFHIR Bundle must have Observation.device identifying the Cepheid Device
-    (type Device, identifier laboratory-information-system|Cepheid), not the OBX-18
-    instrument string.
+    """For a Cepheid GeneXpert result (MSH-3 GeneXpert), the transformToFHIR Bundle must
+    carry the Cepheid Device as a resource (identifier laboratory-information-system|Cepheid),
+    and every Observation's device must identify it by that identifier, not the OBX-18
+    instrument string, and reference that Device entry when it has a reference.
 
     Returns (applicable, problems): applicable is False for non-GeneXpert messages.
     """
@@ -1706,6 +1707,12 @@ def check_cepheid_device(v2_text, bundle):
         return True, ["no Observation in the Bundle"]
     system, value = CEPHEID_DEVICE_IDENTIFIER
     problems = []
+    device_urls = [e.get("fullUrl") for e in bundle.get("entry", [])
+                   if e.get("resource", {}).get("resourceType") == "Device"
+                   and any((i.get("system"), i.get("value")) == CEPHEID_DEVICE_IDENTIFIER
+                           for i in e["resource"].get("identifier", []))]
+    if len(device_urls) != 1:
+        problems.append(f"{len(device_urls)} Device resource(s) with identifier {system}|{value} in the Bundle, expected 1")
     for obs in observations:
         device = obs.get("device")
         codes = ", ".join(f"{c.get('system')}|{c.get('code')}"
@@ -1718,6 +1725,8 @@ def check_cepheid_device(v2_text, bundle):
             problems.append(f"Observation {codes} device identifier is {shown}, expected {system}|{value}")
         elif device.get("type") not in (None, "Device"):
             problems.append(f"Observation {codes} device type is {device.get('type')}, expected Device")
+        elif device.get("reference") and device["reference"] not in device_urls:
+            problems.append(f"Observation {codes} device reference {device['reference']} isn't the Cepheid Device entry")
     return True, problems
 
 
@@ -3472,14 +3481,27 @@ def check_omics_dss_orders(session):
 # The Cepheid BCR-ABL1 %IS result, which every Cepheid Observation is coded with.
 CEPHEID_OBSERVATION_CODE = "http://loinc.org|69380-4"
 
+# Before the RIE moved Cepheid Observations to the Cepheid Device, Observation.device carried the
+# OBX-18 instrument string under this system, e.g. DESKTOP-4A7A8NJ^700039^613556^114262193^08699^20901224.
+# Results already stored that way are accepted, with a warning, until they're reloaded.
+CEPHEID_LEGACY_DEVICE_SYSTEM = "https://fhir.nwgenomics.nhs.uk/Identifier/Cepheid"
+
+
+def _is_legacy_cepheid_device(device):
+    return (device or {}).get("identifier", {}).get("system") == CEPHEID_LEGACY_DEVICE_SYSTEM
+
 
 def check_cepheid_device_observations(session):
     """Checks the FHIR repository holds Cepheid results as Observations made by the Cepheid
     Device. Cepheid Observations are recognised by their code (LOINC 69380-4, BCR-ABL1 %IS).
+    Observations still identifying the device by the old OBX-18 instrument string
+    (CEPHEID_LEGACY_DEVICE_SYSTEM) are accepted, with a warning, and left out of cepheidQuery.
 
     Returns a CaseResult with stages:
       cepheidDevice       - exactly one Device on the server carries the Cepheid identifier
-      cepheidObservation  - every Cepheid Observation's device is the Cepheid Device, by identifier and/or reference
+                            (WARN when there's none yet and every Observation is legacy)
+      cepheidLegacy       - WARN for Observations still using the instrument string
+      cepheidObservation  - every other Cepheid Observation's device is the Cepheid Device, by identifier and/or reference
       cepheidQuery        - Observation?device=<Cepheid Device> returns exactly those Observations, error-free
     """
     result = CaseResult("cdr/cepheidDevice")
@@ -3493,6 +3515,18 @@ def check_cepheid_device_observations(session):
         log(f"FAILED cepheidDevice: FHIR repository search failed: {e}")
         return result
 
+    cepheid = {obs_id: obs for (rtype, obs_id), obs in observations.items() if rtype == "Observation"}
+    legacy = {i: o for i, o in cepheid.items() if _is_legacy_cepheid_device(o.get("device"))}
+    current = {i: o for i, o in cepheid.items() if i not in legacy}
+    if legacy:
+        result.warn("cepheidLegacy",
+                    f"{len(legacy)} Observation(s) still identify the device by the OBX-18 instrument string "
+                    f"({CEPHEID_LEGACY_DEVICE_SYSTEM}), expected {system}|{value} - reload them to clear this")
+
+    if not devices and not current:
+        result.warn("cepheidDevice", f"no Device with identifier {system}|{value} yet"
+                    + (" - every Cepheid Observation on the server is legacy" if legacy else ""))
+        return result
     if len(devices) != 1:
         result.record("cepheidDevice", False,
                       f"{len(devices)} Device(s) with identifier {system}|{value}, expected 1")
@@ -3501,13 +3535,13 @@ def check_cepheid_device_observations(session):
     device_ref = f"Device/{next(iter(devices))[1]}"
     result.record("cepheidDevice", True, device_ref)
 
-    cepheid = {obs_id: obs for (rtype, obs_id), obs in observations.items() if rtype == "Observation"}
-    if not cepheid:
-        result.warn("cepheidObservation", f"no Observation with code {CEPHEID_OBSERVATION_CODE} on the server")
+    if not current:
+        result.warn("cepheidObservation", f"no Observation with code {CEPHEID_OBSERVATION_CODE} made by the "
+                    "Cepheid Device on the server" + (f" ({len(legacy)} legacy)" if legacy else ""))
         return result
 
     problems = []
-    for obs_id, obs in sorted(cepheid.items()):
+    for obs_id, obs in sorted(current.items()):
         device = obs.get("device")
         if not _is_cepheid_device(device, device_ref):
             shown = ((device or {}).get("reference")
@@ -3520,7 +3554,7 @@ def check_cepheid_device_observations(session):
         result.record("cepheidObservation", False, "; ".join(problems))
         log(f"FAILED cepheidObservation: {'; '.join(problems)}")
     else:
-        result.record("cepheidObservation", True, f"{len(cepheid)} Observation(s) made by the Cepheid Device")
+        result.record("cepheidObservation", True, f"{len(current)} Observation(s) made by the Cepheid Device")
 
     query = f"Observation?device={device_ref}&_count=200"
     try:
@@ -3530,8 +3564,9 @@ def check_cepheid_device_observations(session):
         log(f"FAILED cepheidQuery: {e}")
         return result
     found_ids = {i for t, i in found if t == "Observation"}
+    expected = {i for i, o in current.items() if _is_cepheid_device(o.get("device"), device_ref)}
     problems = [f"OperationOutcome: {e}" for e in errors]
-    problems += [f"Observation/{i} not returned" for i in sorted(set(cepheid) - found_ids)]
+    problems += [f"Observation/{i} not returned" for i in sorted(expected - found_ids)]
     problems += [f"Observation/{i} returned but isn't coded {CEPHEID_OBSERVATION_CODE}"
                  for i in sorted(found_ids - set(cepheid))]
     if problems:
