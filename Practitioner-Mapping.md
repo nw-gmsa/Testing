@@ -95,7 +95,7 @@ These fictitious practitioners replaced practitioners in the fixtures who may ha
 | Jude FICTITIOUS | Local (iGene user) | `Jude.FICTITIOUS` | `Input/V2/O51iGene/igene-o51-2.txt` (OBR-32) |
 | Dr C A FICTITIOUS | None | - | `Input/V2/R01/WALES_ORU_R01_TX.txt` (OBR-16) |
 | Dr Nadia FICTITIOUS | Local | `GE.FICNAD` | `Input/FHIR/**/LiverpoolWomens-1.json`, `Input/FHIR/O21/Liverpool_O21_Apr26.json`; email `nadia.fictitious@example.nhs.uk` |
-| kira fictitious | None | - | `Input/ASTM/R32/cepheid-*.txt` (Cepheid BCR-ABL results) and the implementation guide's `Observation-BCRABL-*.json` (`performer.display`) |
+| kira fictitious | None | - | `Input/Cepheid/R32/*.txt` and `Input/Cepheid/ASTM/*.astm` (Cepheid BCR-ABL results) and the implementation guide's `Observation-BCRABL-*.json` (`performer.display`) |
 | Peregrine FICTITIOUS | None (email only) | `peregrine.fictitious@example.nhs.uk` | Report-recipient email answers in `Input/V2/O01/EPICJune9.txt`, `Input/V2/O01/ORM_O01_R0A.txt` and `Input/FHIR/**/Bundle-748683741.json` |
 | Rafe FICTITIOUS | None (email only) | `Rafe.Fictitious@example.nhs.uk` | `Input/FHIR/O21/LiverpoolWomens-1.json` (`telecom`) |
 | Rhoda FICTITIOUS | None (email only) | `rhoda.fictitious@example.nhs.uk` | Referring clinician email answers in `Input/FHIR/O21/Liverpool_O21_Apr26.json` |

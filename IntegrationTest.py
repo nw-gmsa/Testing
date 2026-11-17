@@ -68,7 +68,7 @@ NHS Trust <-> iGene order/report exchange (O01/O21/R01), the mother/baby-fetus P
 split cases (O21/R01), Shire <-> HODS reports (R01), Clatterbridge/Histotrac orders and
 reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01),
 international patients with an 'n/a' NHS number (R01), and Cepheid results (R32,
-sourced from Input/ASTM/R32 - see Testing-Cephied.ipynb; the
+sourced from Input/Cepheid/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
 isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
 (O21/R01, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
@@ -554,7 +554,7 @@ TEST_GROUPS = {
             },
         },
     },
-    # Cepheid GeneXpert results (message type R32). Sourced from Input/ASTM/R32 - see
+    # Cepheid GeneXpert results (message type R32). Sourced from Input/Cepheid/R32 - see
     # Testing-Cephied.ipynb, which flags the old Input/V2/R32 source as superseded by
     # these files and skips the transformToV2 round-trip stage, so we do too.
     # Deviation note: R32 isn't defined anywhere in the NW-GMSA IG (only OML_O21, ORU_R01,
@@ -601,11 +601,30 @@ TEST_GROUPS = {
             "R01": ["igene-o51-1.txt", "igene-o51-2.txt"],
         },
     },
+    # Every R32 here is the NW Standard shape: OBR-4 the Genomic Test Directory's M84.2 (CML,
+    # MRD BCR-ABL1 RT-qPCR) with Cepheid's BCRABL as the alternate, and OBX-3 LOINC 69380-4
+    # (BCR-ABL1 %IS, no LOINC text) with Cepheid's BCR as the alternate, OBX-4 Sub-ID still
+    # the local component code -
+    # matching what the RIE's ASTM -> R32 conversion is changing to produce (see the
+    # BCR-ABL Monitoring use case's Terminology section). The local-code-only originals are
+    # kept in Input/Cepheid/R32/Backup/, and Input/Cepheid/ASTM/<name>.astm is the ASTM
+    # result each R32 corresponds to (one R record per OBX), for testing that conversion.
     "cepheid": {
-        "input_dir": os.path.join("Input", "ASTM"),
+        "input_dir": os.path.join("Input", "Cepheid"),
         "skip_transform_to_v2": True,
         "cases": {
-            "R32": [f"cepheid-{i}.txt" for i in range(1, 8)],
+            "R32": [f"cepheid-{i}.txt" for i in range(1, 8)] + [
+                # One message per result-handling scenario in the iGene-Cepheid spec
+                # (s3.4), for checking the RIE's iGene CSVs: positive, positive above upper
+                # LoQ, negative with NA level, below LoD and a failed (NO RESULT) run. SPM-2
+                # carries a made-up ASTM-style <iGeneSampleNo>_<iGeneTestNo>
+                # (S26-ZZ0n_T26-ZZ0n), so iGene's importer will log these as unmatched.
+                "csv-1-positive.txt",
+                "csv-2-above-upper-loq.txt",
+                "csv-3-negative-na-level.txt",
+                "csv-4-below-lod.txt",
+                "csv-5-failed-run.txt",
+            ],
         },
     },
 }

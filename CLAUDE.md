@@ -100,8 +100,11 @@ results in `Results/FHIR/GenomicsReporting/`.
   accepts the latter — see `NHSDigital-Examples-conversion-notes.md` alongside them for
   exactly what the conversion does and doesn't change. Used by `IntegrationTest.py`'s
   `nhsd_examples` group.
-- `Input/PDS/`, `Input/ctDNA/`, `Input/ASTM/` — reference patient data (PDS extracts) and
-  other source formats (ASTM instrument output).
+- `Input/PDS/`, `Input/ctDNA/`, `Input/Cepheid/` — reference patient data (PDS extracts) and
+  other source formats (Cepheid GeneXpert ASTM instrument output - the `.astm` files at the
+  top level are real exports; `R32/` holds the LOINC-coded NW Standard `R32` results used by
+  `IntegrationTest.py`'s `cepheid` group, with their local-code originals in `R32/Backup/`;
+  `ASTM/` holds the matching ASTM version of each `R32/` message).
 - `Input/VCF/` — source VCF files for the standalone `miscellaneous-notebooks/VCFToFHIRVariant.ipynb` demo (HL7
   genomics-reporting IG `variant` profile, not the NW-GMSA pipeline).
 - `Output/{FHIR,V2,PDF,Markdown}/<type>/` — generated artifacts from the transform/render
