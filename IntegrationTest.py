@@ -1675,6 +1675,67 @@ def check_coded_fields(v2_text, bundle):
     return applicable, list(dict.fromkeys(problems))
 
 
+def check_coded_fields_to_v2(bundle, v2_text):
+    """The reverse of check_coded_fields, for an R32 (Cepheid result): every
+    DiagnosticReport.code coding must come back in the transformToV2 output's OBR-4, and
+    every Observation.code coding in OBX-3, as the primary (components 1-3) or alternate
+    (4-6) code under the same coding system, with its display (component 2/5) when the
+    coding has one - e.g. OBR-4 "M84.2^Chronic Myeloid Leukaemia, MRD BCR-ABL1
+    RT-qPCR^England-GenomicTestDirectory^BCRABL^Xpert BCR-ABL Ultra G2^Cepheid", not just
+    the Test Directory code. Codings in other (local) systems aren't checked.
+
+    R32 only: an R01's OBR-4 deliberately keeps just the Test Directory code.
+
+    Returns (applicable, problems).
+    """
+    if not isinstance(bundle, dict):
+        return False, []
+    headers = _fhir_resources(bundle, "MessageHeader")
+    if not headers or headers[0].get("eventCoding", {}).get("code") != "R32":
+        return False, []
+
+    v2_values = {"OBR": [], "OBX": []}
+    for fields in _v2_segment_fields(v2_text):
+        if fields[0] == "OBR":
+            v2_values["OBR"].append(_v2_field(fields, 4))
+        elif fields[0] == "OBX":
+            v2_values["OBX"].append(_v2_field(fields, 3))
+
+    def carried(value, coding):
+        for first in (1, 4):
+            if (_v2_component(value, first) == coding.get("code")
+                    and CODED_FIELD_SYSTEMS.get(_v2_component(value, first + 2).upper()) == coding.get("system")):
+                return not coding.get("display") or _v2_component(value, first + 1) == coding["display"]
+        return False
+
+    applicable = False
+    problems = []
+    for resource_type, segment, field_no in (("DiagnosticReport", "OBR", 4), ("Observation", "OBX", 3)):
+        for resource in _fhir_resources(bundle, resource_type):
+            for coding in (resource.get("code") or {}).get("coding", []):
+                if coding.get("system") not in CODED_FIELD_SYSTEMS.values() or not coding.get("code"):
+                    continue
+                applicable = True
+                if not any(carried(value, coding) for value in v2_values[segment]):
+                    display = f" {coding['display']!r}" if coding.get("display") else ""
+                    problems.append(
+                        f"{resource_type}.code {coding['system']}#{coding['code']}{display} "
+                        f"not in {segment}-{field_no} (got {sorted(set(v2_values[segment]))})"
+                    )
+    return applicable, list(dict.fromkeys(problems))
+
+
+def record_coded_fields_to_v2_check(result, bundle, v2_text):
+    applicable, problems = check_coded_fields_to_v2(bundle, v2_text)
+    if not applicable:
+        return
+    if problems:
+        result.record("codedFieldsToV2", False, "; ".join(problems))
+        log(f"FAILED codedFieldsToV2: {'; '.join(problems)}")
+    else:
+        result.record("codedFieldsToV2", True, "OBR-4/OBX-3 carry every coded code and display")
+
+
 # Cepheid GeneXpert observations are made by the Cepheid Device, identified the same way as the
 # DLIMS Device that performs Omics DSS orders.
 CEPHEID_DEVICE_IDENTIFIER = ("https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system", "Cepheid")
@@ -3058,6 +3119,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             else:
                 result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
         record_order_status_check(result, fhir_json, v2_roundtrip)
+        record_coded_fields_to_v2_check(result, fhir_json, v2_roundtrip)
         record_filler_numbers_check(result, v2_bytes.decode("utf-8", errors="replace"), v2_roundtrip)
         record_ordering_providers_check(result, v2_bytes.decode("utf-8", errors="replace"), v2_roundtrip)
 
@@ -3252,6 +3314,7 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
         else:
             result.record("expectedSegments", True, "PV1/PID/SPM present as expected")
     record_order_status_check(result, fhir_json, v2_roundtrip)
+    record_coded_fields_to_v2_check(result, fhir_json, v2_roundtrip)
 
     if save_output:
         out_dir = os.path.join(OUTPUT_ROOT, "V2", msg_type)
