@@ -1,0 +1,140 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "ServiceRequest-BCRABL-Cepheid-WorkOrder",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+    ]
+  },
+  "requester": {
+    "identifier": {
+      "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+      "value": "699X0"
+    },
+    "type": "Organization",
+    "display": "NW GLH"
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "PLAC",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      },
+      "assigner": {
+        "identifier": {
+          "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value": "699X0"
+        }
+      },
+      "value": "T26-61BC",
+      "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+    }
+  ],
+  "requisition": {
+    "type": {
+      "coding": [
+        {
+          "code": "PGN",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+        }
+      ]
+    },
+    "assigner": {
+      "identifier": {
+        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value": "699X0"
+      }
+    },
+    "value": "R26-16CK",
+    "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReferralIdentifier"
+  },
+  "performer": [
+    {
+      "type": "Organization",
+      "identifier": {
+        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value": "699X0"
+      },
+      "display": "NW GLH"
+    },
+    {
+      "type": "Device",
+      "identifier": {
+        "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+        "value": "Cepheid"
+      },
+      "display": "Cepheid GeneXpert"
+    }
+  ],
+  "basedOn": [
+    {
+      "type": "ServiceRequest",
+      "identifier": {
+        "type": {
+          "coding": [
+            {
+              "code": "PLAC",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+            }
+          ]
+        },
+        "system": "http://www.acme.org/servicerequest/RR8",
+        "value": "RR8-26-08812",
+        "assigner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RR8"
+          }
+        }
+      }
+    }
+  ],
+  "status": "active",
+  "intent": "instance-order",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "116148004",
+          "system": "http://snomed.info/sct",
+          "display": "Molecular genetics procedure"
+        }
+      ]
+    }
+  ],
+  "authoredOn": "2026-07-12",
+  "code": {
+    "coding": [
+      {
+        "code": "M84.2",
+        "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+      },
+      {
+        "code": "BCRABL",
+        "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "urn:uuid:4a0d3d55-6a1b-4f8e-9c55-3f1f2b6c0a71",
+    "display": "Rob LEEDS",
+    "identifier": {
+      "system": "https://fhir.nhs.uk/Id/nhs-number",
+      "value": "9737383222"
+    }
+  },
+  "specimen": [
+    {
+      "reference": "urn:uuid:0b6f3c7e-2d4a-4a63-9a8e-6c0f7d1e5b22"
+    }
+  ],
+  "reasonCode": [
+    {
+      "text": "Chronic myeloid leukaemia - monitoring of response to tyrosine kinase inhibitor"
+    }
+  ]
+}

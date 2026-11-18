@@ -134,8 +134,8 @@
               "code": "M80.3"
             },
             {
-              "system": "http://snomed.info/sct",
               "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
               "display": "Genetic report"
             }
           ]
@@ -218,11 +218,6 @@
           }
         ],
         "conclusion": "Abnormal karyotype with trisomy 8 and deletion of 7q, recognised findings in myeloid neoplasms.",
-        "result": [
-          {
-            "reference": "urn:uuid:259bd44f-c536-40a0-a305-fe41b2020a9b"
-          }
-        ],
         "text": {
           "status": "generated",
           "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>M80.3 AML karyotype for Hodor TAMESIDE: 47,XY,+8,del(7)(q22q36)[18]/46,XY[2]. Abnormal karyotype with trisomy 8 and deletion of 7q, recognised findings in myeloid neoplasms.</p></div>"
@@ -234,77 +229,6 @@
             "url": "urn:uuid:3f09fddb-1350-454f-9a36-c1883f631104",
             "title": "Cytogenetic report - Hodor TAMESIDE",
             "creation": "2026-10-16"
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:259bd44f-c536-40a0-a305-fe41b2020a9b",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "Observation-HaematoOncology-Karyotype",
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation"
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "laboratory"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "code": "GE",
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
-                "display": "Genetics"
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "value": "259bd44f-c536-40a0-a305-fe41b2020a9b"
-          }
-        ],
-        "status": "final",
-        "code": {
-          "coding": [
-            {
-              "code": "62356-1",
-              "system": "http://loinc.org",
-              "display": "Chromosome analysis result in ISCN expression"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "urn:uuid:4fa015ae-f0c2-48fe-a494-644c501f8251",
-          "display": "Hodor TAMESIDE",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9737383397"
-          }
-        },
-        "effectiveDateTime": "2026-10-12T10:00:00+00:00",
-        "performer": [
-          {
-            "type": "Organization",
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "R0A"
-            },
-            "display": "CYTOGENETICS LABORATORY, MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
-          }
-        ],
-        "valueString": "47,XY,+8,del(7)(q22q36)[18]/46,XY[2]",
-        "note": [
-          {
-            "text": "Abnormal male karyotype with trisomy 8 and an interstitial deletion of the long arm of chromosome 7, in 18 of 20 cells."
           }
         ]
       }

@@ -20,6 +20,17 @@
       ]
     }
   },
+  "ChimerismMonitoring": {
+    "title": "Chimerism Monitoring After a Stem Cell Transplant",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-Chimerism.json"
+      ],
+      "R01": [
+        "02-GenomicsReportMessage-Chimerism.json"
+      ]
+    }
+  },
   "ClinicalAndGenomicWorkflow": {
     "title": "Suspected Lynch Syndrome - Clinical Workflow",
     "cases": {
@@ -86,14 +97,32 @@
       ]
     }
   },
+  "MRDMonitoring": {
+    "title": "Measurable Residual Disease (MRD) Monitoring - BCR-ABL1",
+    "cases": {
+      "O21": [
+        "01-GenomicsOrderMessage-BCRABL.json"
+      ],
+      "R32": [
+        "04-TestResultsMessage-BCRABL-Cepheid.json"
+      ],
+      "R01": [
+        "07-GenomicsReportMessage-BCRABL.json",
+        "09-GenomicsReportMessage-BCRABL-Enhanced.json"
+      ]
+    }
+  },
   "Pharmacogenomics": {
     "title": "Gene Test Before Starting a Medicine (Pharmacogenomics)",
     "cases": {
       "O21": [
-        "01-GenomicsOrderMessage-Pharmacogenomics.json"
+        "01-GenomicsOrderMessage-Pharmacogenomics.json",
+        "02-GenomicsSubOrderMessage-Pharmacogenomics.json"
       ],
       "R01": [
-        "02-GenomicsReportMessage-Pharmacogenomics.json"
+        "05-GenomicsSubOrderReportMessage-Pharmacogenomics.json",
+        "06-GenomicsReportMessage-Pharmacogenomics.json",
+        "09-GenomicsReportMessage-Pharmacogenomics-Enhanced.json"
       ]
     }
   },
@@ -155,7 +184,8 @@
         "05-dWGS-Trio-r26000000203-p26000000106.json"
       ],
       "R01": [
-        "11-GenomicsReportMessage-WGS-Referral.json"
+        "09-GenomicsReportMessage-WGS-Referral.json",
+        "12-GenomicsReportMessage-WGS-Referral-Enhanced.json"
       ]
     }
   },
@@ -163,14 +193,17 @@
     "title": "Lung Cancer - Liquid Biopsy (ctDNA)",
     "cases": {
       "O21": [
-        "01-GenomicsOrderMessage-ctDNA.json"
+        "01-GenomicsOrderMessage-ctDNA-OrderPlacer.json",
+        "04-GenomicsOrderMessage-ctDNA.json"
       ],
       "R01": [
-        "09-TestResultsMessage-ctDNA-OmicsDSS.json",
-        "12-ReportMessage-ctDNA-iGene-NarrativeReport.json"
+        "11-TestResultsMessage-ctDNA-OmicsDSS.json",
+        "14-ReportMessage-ctDNA-iGene-NarrativeReport.json",
+        "16-ReportMessage-ctDNA-iGene-OrderPlacerManager.json",
+        "21-ReportMessage-ctDNA-iGene-Enhanced.json"
       ],
       "T02": [
-        "15-DocumentMessage-ctDNA.json"
+        "18-DocumentMessage-ctDNA.json"
       ]
     }
   }

@@ -1,6 +1,6 @@
 {
   "resourceType": "Bundle",
-  "id": "TestResultsMessage-ctDNA-OmicsDSS",
+  "id": "TestResultsMessage-BCRABL-Cepheid",
   "meta": {
     "profile": [
       "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
@@ -9,17 +9,17 @@
   "type": "message",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:a064cfd3-9c89-4213-861b-3966cb2dc77a"
+    "value": "urn:uuid:9c3e7a41-2b6d-4f85-a1c9-7e5d0b8f2c63"
   },
-  "timestamp": "2026-07-06T11:21:00+00:00",
+  "timestamp": "2026-07-13T10:38:00+00:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:06843352-994e-4cc0-91f7-4fcf550c37f5",
+      "fullUrl": "urn:uuid:3e8f1a2c-7b4d-4c96-8e5a-1d2f3b4c5d6e",
       "resource": {
         "resourceType": "MessageHeader",
-        "id": "MessageHeaderR01ctDNAOmicsDSS",
+        "id": "MessageHeader-R32-BCRABL",
         "meta": {
-          "lastUpdated": "2026-07-06T11:21:00+00:00",
+          "lastUpdated": "2026-07-13T10:38:00+00:00",
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
           ]
@@ -44,27 +44,28 @@
           }
         ],
         "eventCoding": {
-          "code": "R01",
+          "code": "R32",
           "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
         },
         "source": {
-          "name": "DLIMS",
-          "software": "DLIMS",
-          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/DLIMS"
+          "name": "GeneXpert PC",
+          "software": "GeneXpert",
+          "version": "6.5a.8",
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/Cepheid"
         },
         "focus": [
           {
-            "reference": "urn:uuid:38be35e1-1df1-40fb-a055-c012dada778f",
+            "reference": "urn:uuid:5d1c9b4e-8f2a-4e37-b0a6-2c7e9d3f4a18",
             "type": "DiagnosticReport"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+      "fullUrl": "urn:uuid:4a0d3d55-6a1b-4f8e-9c55-3f1f2b6c0a71",
       "resource": {
         "resourceType": "Patient",
-        "id": "Patient-Sheffield",
+        "id": "Patient-Leeds",
         "meta": {
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
@@ -82,65 +83,83 @@
               ]
             },
             "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9737873858"
+            "value": "9737383222"
           },
           {
             "assigner": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "699X0"
+                "value": "RR8"
               }
             },
             "type": {
               "coding": [
                 {
-                  "code": "PI",
+                  "code": "MR",
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
                 }
               ]
             },
-            "value": "336292"
+            "value": "L765432"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "SHEFFIELD",
+            "family": "LEEDS",
             "given": [
-              "Theon"
+              "Rob"
             ]
           }
         ],
-        "birthDate": "1986-09-12",
+        "birthDate": "1978-01-17",
         "address": [
           {
             "use": "home",
             "type": "both",
             "line": [
-              "SPITAL STREET"
+              "Maison Lane"
             ],
-            "city": "SHEFFIELD",
-            "postalCode": "S3 9LB"
+            "city": "LEEDS",
+            "postalCode": "LS8 2HH"
           }
         ],
         "gender": "male",
+        "contact": [
+          {
+            "name": {
+              "use": "official",
+              "family": "LEEDS",
+              "given": [
+                "Andrew"
+              ]
+            },
+            "telecom": [
+              {
+                "use": "mobile",
+                "value": "077021231231",
+                "system": "phone"
+              }
+            ]
+          }
+        ],
         "generalPractitioner": [
           {
             "identifier": {
               "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "C88622"
+              "value": "B86016"
             },
-            "display": "Sheffield Medical Centre"
+            "display": "Shaftesbury Medical Centre & Church View Surgery"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:38be35e1-1df1-40fb-a055-c012dada778f",
+      "fullUrl": "urn:uuid:5d1c9b4e-8f2a-4e37-b0a6-2c7e9d3f4a18",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "DiagnosticReport-ctDNA-OmicsDSS-TestResults",
+        "id": "DiagnosticReport-BCRABL-Cepheid-TestResults",
         "meta": {
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/TestResults"
@@ -150,12 +169,11 @@
           "coding": [
             {
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
-              "code": "M4.14"
+              "code": "M84.2"
             },
             {
-              "system": "http://snomed.info/sct",
-              "code": "1054161000000101",
-              "display": "Genetic report"
+              "code": "BCRABL",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
             }
           ]
         },
@@ -167,8 +185,8 @@
                 "value": "699X0"
               }
             },
-            "value": "DSS26-000873",
-            "system": "https://fhir.nwgenomics.nhs.uk/OmicsDSS/ResultIdentifier"
+            "value": "GXM-31622127072",
+            "system": "https://fhir.nwgenomics.nhs.uk/Cepheid/ResultIdentifier"
           }
         ],
         "basedOn": [
@@ -189,7 +207,7 @@
                   "value": "699X0"
                 }
               },
-              "value": "T26-59XG",
+              "value": "T26-61BC",
               "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
             }
           }
@@ -207,68 +225,56 @@
         ],
         "status": "preliminary",
         "subject": {
-          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
-          "display": "Theon SHEFFIELD",
+          "reference": "urn:uuid:4a0d3d55-6a1b-4f8e-9c55-3f1f2b6c0a71",
+          "display": "Rob LEEDS",
           "identifier": {
             "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9737873858"
+            "value": "9737383222"
           }
         },
-        "effectiveDateTime": "2026-07-06T11:20:00+00:00",
+        "effectivePeriod": {
+          "start": "2026-07-13T10:17:08+00:00",
+          "end": "2026-07-13T10:37:26+00:00"
+        },
         "performer": [
           {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:3c63bbde-8b3b-4867-ab6e-02d281c4f22d",
             "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
+              "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+              "value": "Cepheid"
             },
-            "type": "Organization",
-            "display": "NW GLH"
+            "display": "Cepheid GeneXpert"
           }
         ],
         "specimen": [
           {
-            "reference": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5"
+            "reference": "urn:uuid:0b6f3c7e-2d4a-4a63-9a8e-6c0f7d1e5b22"
           }
         ],
         "result": [
           {
-            "reference": "urn:uuid:eb1f8ec5-f9ff-4472-97f9-77999460b8c8"
+            "reference": "urn:uuid:679dd305-7ea2-481d-af8b-68957eac427c"
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:eb1f8ec5-f9ff-4472-97f9-77999460b8c8",
+      "fullUrl": "urn:uuid:679dd305-7ea2-481d-af8b-68957eac427c",
       "resource": {
         "resourceType": "Observation",
-        "id": "variant-egfr-omicsdss",
+        "id": "BCRABL",
         "meta": {
           "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant"
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "69548-6"
-            }
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
           ]
         },
         "category": [
           {
             "coding": [
               {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "laboratory"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
                 "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
                 "display": "Genetics"
               }
             ]
@@ -276,7 +282,7 @@
         ],
         "identifier": [
           {
-            "value": "eb1f8ec5-f9ff-4472-97f9-77999460b8c8"
+            "value": "679dd305-7ea2-481d-af8b-68957eac427c"
           }
         ],
         "basedOn": [
@@ -291,7 +297,7 @@
                   }
                 ]
               },
-              "value": "T26-59XG",
+              "value": "T26-61BC",
               "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier",
               "assigner": {
                 "identifier": {
@@ -303,209 +309,158 @@
           }
         ],
         "status": "preliminary",
-        "subject": {
-          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
-          "display": "Theon SHEFFIELD"
-        },
-        "effectiveDateTime": "2026-07-06T11:20:00+00:00",
         "performer": [
           {
-            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:3c63bbde-8b3b-4867-ab6e-02d281c4f22d",
+            "identifier": {
+              "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+              "value": "Cepheid"
+            },
+            "display": "Cepheid GeneXpert"
           }
         ],
+        "subject": {
+          "reference": "urn:uuid:4a0d3d55-6a1b-4f8e-9c55-3f1f2b6c0a71",
+          "display": "Rob LEEDS",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383222"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:0b6f3c7e-2d4a-4a63-9a8e-6c0f7d1e5b22"
+        },
+        "effectiveDateTime": "2026-07-13T10:37:26+00:00",
+        "code": {
+          "coding": [
+            {
+              "code": "69380-4",
+              "system": "http://loinc.org",
+              "display": "t(9;22)(q34.1;q11)(ABL1,BCR) b2a2+b3a2 fusion transcript/control transcript (International Scale) [# Ratio] in Blood or Tissue by Molecular genetics method"
+            },
+            {
+              "code": "BCR",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+            }
+          ]
+        },
         "device": {
           "type": "Device",
           "identifier": {
             "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
-            "value": "OmicsDSS"
+            "value": "Cepheid"
           },
-          "display": "Omics DSS"
+          "display": "Cepheid GeneXpert"
         },
-        "specimen": {
-          "reference": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5"
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA9633-4",
-              "system": "http://loinc.org",
-              "display": "Present"
-            }
-          ]
-        },
-        "method": {
-          "coding": [
-            {
-              "code": "LA26398-0",
-              "system": "http://loinc.org",
-              "display": "Sequencing"
-            }
-          ]
-        },
+        "valueString": "POSITIVE [Above upper LoQ]",
+        "referenceRange": [
+          {
+            "text": "0.0030 to 55.00"
+          }
+        ],
         "component": [
           {
             "code": {
               "coding": [
                 {
-                  "code": "83005-9",
+                  "code": "BCR-ABL&",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+                },
+                {
+                  "code": "42714-6",
                   "system": "http://loinc.org",
-                  "display": "Variant category"
+                  "display": "t(9;22)(q34.1;q11)(ABL1,BCR) b2a2+b3a2 fusion transcript [Presence] in Blood or Tissue by Molecular genetics method"
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "SEQV",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGeneVariantCategory",
-                  "display": "Sequence Variant"
-                }
-              ]
-            }
+            "valueString": "POS"
           },
           {
             "code": {
               "coding": [
                 {
-                  "code": "48018-6",
-                  "system": "http://loinc.org",
-                  "display": "Gene studied [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "HGNC:3236",
-                  "system": "http://www.genenames.org",
-                  "display": "EGFR"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48002-0",
-                  "system": "http://loinc.org",
-                  "display": "Genomic source class [Type]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6684-0",
-                  "system": "http://loinc.org",
-                  "display": "Somatic"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "51958-7",
-                  "system": "http://loinc.org",
-                  "display": "Transcript reference sequence [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "NM_005228.5",
-                  "system": "http://www.ncbi.nlm.nih.gov/refseq"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48004-6",
-                  "system": "http://loinc.org",
-                  "display": "DNA change (c.HGVS)"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "NM_005228.5:c.2369C>T",
-                  "system": "http://varnomen.hgvs.org"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48005-3",
-                  "system": "http://loinc.org",
-                  "display": "Amino acid change (pHGVS)"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "NP_005219.2:p.(Thr790Met)",
-                  "system": "http://varnomen.hgvs.org"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48019-4",
-                  "system": "http://loinc.org",
-                  "display": "DNA change type"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "SO:1000002",
-                  "system": "http://www.sequenceontology.org",
-                  "display": "substitution"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "81258-6",
-                  "system": "http://loinc.org",
-                  "display": "Sample variant allelic frequency [NFr]"
+                  "code": "BCR-ABL&Ct",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
                 }
               ]
             },
             "valueQuantity": {
-              "value": 0.0042,
-              "unit": "decimal",
-              "system": "http://unitsofmeasure.org"
+              "value": 9.8
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "BCR-ABL&EndPt",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 718
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "BCR-ABL&Delta Ct",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": -0.7
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "ABL&",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+                }
+              ]
+            },
+            "valueString": "PASS"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "ABL&Ct",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 9.2
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "code": "ABL&EndPt",
+                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Cepheid"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 411
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:b930b4c4-327a-4728-8bb9-f90061914cc5",
+      "fullUrl": "urn:uuid:0b6f3c7e-2d4a-4a63-9a8e-6c0f7d1e5b22",
       "resource": {
         "resourceType": "Specimen",
-        "id": "Specimen-ctDNA",
+        "id": "Specimen-BCRABL",
         "meta": {
-          "versionId": "1.0",
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
           ]
@@ -515,12 +470,12 @@
             "type": {
               "coding": [
                 {
-                  "code": "FILL",
+                  "code": "FGN",
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
                 }
               ]
             },
-            "value": "S26-1K1Q",
+            "value": "S26-1KD4",
             "system": "https://fhir.nwgenomics.nhs.uk/iGene/SpecimenIdentifier",
             "assigner": {
               "identifier": {
@@ -531,34 +486,62 @@
           }
         ],
         "status": "available",
-        "subject": {
-          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
-          "display": "Theon SHEFFIELD",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9737873858"
-          }
-        },
-        "collection": {
-          "collectedDateTime": "2026-06-29"
-        },
-        "receivedTime": "2026-06-30",
         "type": {
           "coding": [
             {
               "code": "119297000",
-              "display": "Blood specimen",
-              "system": "http://snomed.info/sct"
+              "system": "http://snomed.info/sct",
+              "display": "Blood specimen"
             }
           ]
+        },
+        "subject": {
+          "reference": "urn:uuid:4a0d3d55-6a1b-4f8e-9c55-3f1f2b6c0a71",
+          "display": "Rob LEEDS"
+        },
+        "collection": {
+          "collectedDateTime": "2026-07-10T09:30:00+01:00"
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+      "fullUrl": "urn:uuid:7a2b4c6d-8e0f-4a1b-9c3d-5e7f9a1b3c5d",
+      "resource": {
+        "resourceType": "Device",
+        "id": "Cepheid",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryInformationSystem"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+            "value": "Cepheid"
+          }
+        ],
+        "deviceName": [
+          {
+            "type": "user-friendly-name",
+            "name": "Cepheid GeneXpert"
+          }
+        ],
+        "owner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NW GLH"
+        },
+        "status": "active",
+        "manufacturer": "Cepheid"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3c63bbde-8b3b-4867-ab6e-02d281c4f22d",
       "resource": {
         "resourceType": "PractitionerRole",
-        "id": "59577028-8fcc-4554-8b43-988561d41d9c",
+        "id": "PractitionerRole-Cepheid",
         "meta": {
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
@@ -569,11 +552,14 @@
             "system": "https://fhir.nhs.uk/Id/ods-organization-code",
             "value": "699X0"
           },
-          "display": "North West Genomics"
+          "display": "NW GLH"
         },
-        "practitioner": {
-          "display": "Result INTERPRETER"
-        }
+        "identifier": [
+          {
+            "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+            "value": "Cepheid"
+          }
+        ]
       }
     }
   ]

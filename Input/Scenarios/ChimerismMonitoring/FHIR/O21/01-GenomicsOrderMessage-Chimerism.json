@@ -1,0 +1,329 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-Chimerism",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:cdbef8e9-1ffa-470c-aa9e-22b335af3d5a"
+  },
+  "timestamp": "2026-08-10T09:00:00+01:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8cca19a8-57ea-40d8-9355-05dae22576a6",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-Chimerism",
+        "meta": {
+          "lastUpdated": "2026-08-10T09:00:00+01:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "REN"
+          },
+          "display": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              },
+              "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/REN",
+          "software": "MEDITECH"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:fae1337c-11bd-471d-9cf8-0ad85d257d7b",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Liverpool",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBS"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "A765432"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CB07442115"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "LIVERPOOL",
+            "given": [
+              "Ned"
+            ]
+          }
+        ],
+        "birthDate": "1942-06-18",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "20 Forthlin Road"
+            ],
+            "city": "LIVERPOOL",
+            "postalCode": "L18 9TN"
+          }
+        ],
+        "gender": "male",
+        "contact": [
+          {
+            "name": {
+              "use": "official",
+              "family": "LIVERPOOL",
+              "given": [
+                "Ringo"
+              ]
+            },
+            "telecom": [
+              {
+                "use": "mobile",
+                "value": "077021231231",
+                "system": "phone"
+              }
+            ]
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N82035"
+            },
+            "display": "MATHER AVENUE SURGERY"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fae1337c-11bd-471d-9cf8-0ad85d257d7b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-Chimerism",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "REN"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:7dfc232c-0b01-46e6-834a-95a85b9090c9"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/REN",
+            "value": "CB-260817-01"
+          }
+        ],
+        "requisition": {
+          "assigner": {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "REN"
+            }
+          },
+          "system": "http://www.acme.org/requisition/REN",
+          "value": "100826:GM1"
+        },
+        "status": "active",
+        "intent": "order",
+        "priority": "routine",
+        "authoredOn": "2026-08-10T09:00:00+01:00",
+        "code": {
+          "coding": [
+            {
+              "code": "GT1368",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+              "display": "Chimerism by STR Testing - Post Stem Cell Transplant"
+            },
+            {
+              "code": "112449-4",
+              "system": "http://loinc.org",
+              "display": "Chimerism post transplant panel without cell selection - Specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:d327a578-2a4f-44ed-9ed4-39b479cb444e"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post allogeneic stem cell transplant chimerism monitoring"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7dfc232c-0b01-46e6-834a-95a85b9090c9",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Requester-Haematology-REN",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "REN"
+          },
+          "display": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C9000102"
+          },
+          "display": "FICTITIOUS, Bernard"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d327a578-2a4f-44ed-9ed4-39b479cb444e",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-Chimerism-Order",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "119297000",
+              "system": "http://snomed.info/sct",
+              "display": "Blood specimen"
+            }
+          ]
+        },
+        "collection": {
+          "collectedDateTime": "2026-08-10T09:15:00+01:00"
+        }
+      }
+    }
+  ]
+}

@@ -115,8 +115,8 @@
               "code": "R67.1"
             },
             {
-              "system": "http://snomed.info/sct",
               "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
               "display": "Genetic report"
             }
           ]
@@ -221,14 +221,6 @@
           "status": "generated",
           "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R67.1 Monogenic hearing loss (North West GLH) for Oliver CAMDEN. Homozygous pathogenic GJB2 variant NM_004004.6:c.35del, consistent with autosomal recessive non-syndromic hearing loss (DFNB1).</p></div>"
         },
-        "result": [
-          {
-            "reference": "urn:uuid:a542b8fd-caaa-4cb4-be09-5a26a8f7af9c"
-          },
-          {
-            "reference": "urn:uuid:3abfc150-cd90-4164-b2e7-ed45d9e7d986"
-          }
-        ],
         "presentedForm": [
           {
             "contentType": "application/pdf",
@@ -236,323 +228,6 @@
             "url": "urn:uuid:292b12e2-63bd-4868-9789-5fea45e101f6",
             "title": "R67.1 sub-order report - Oliver CAMDEN",
             "creation": "2026-10-19"
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:a542b8fd-caaa-4cb4-be09-5a26a8f7af9c",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "Variant-SPT-GJB2",
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant"
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "69548-6",
-              "display": "Genetic variant assessment"
-            }
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "laboratory"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
-                "code": "GE",
-                "display": "Genetics"
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "value": "a542b8fd-caaa-4cb4-be09-5a26a8f7af9c"
-          }
-        ],
-        "status": "final",
-        "effectiveDateTime": "2026-10-19T14:00:00+00:00",
-        "performer": [
-          {
-            "type": "Organization",
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "display": "NORTH WEST GLH"
-          }
-        ],
-        "subject": {
-          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
-          "display": "Oliver CAMDEN",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9737383427"
-          }
-        },
-        "valueCodeableConcept": {
-          "coding": [
-            {
-              "code": "LA9633-4",
-              "system": "http://loinc.org",
-              "display": "Present"
-            }
-          ]
-        },
-        "method": {
-          "coding": [
-            {
-              "code": "264896000",
-              "system": "http://snomed.info/sct",
-              "display": "Nucleic acid analysis"
-            }
-          ]
-        },
-        "component": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "83005-9",
-                  "system": "http://loinc.org",
-                  "display": "Variant category"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "SEQV",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGeneVariantCategory",
-                  "display": "Sequence Variant"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48018-6",
-                  "system": "http://loinc.org",
-                  "display": "Gene studied [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "HGNC:4284",
-                  "system": "http://www.genenames.org",
-                  "display": "GJB2"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "51958-7",
-                  "system": "http://loinc.org",
-                  "display": "Transcript reference sequence [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "NM_004004.6",
-                  "system": "http://www.ncbi.nlm.nih.gov/refseq"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48004-6",
-                  "system": "http://loinc.org",
-                  "display": "DNA change (c.HGVS)"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "NM_004004.6:c.35del",
-                  "system": "http://varnomen.hgvs.org"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48002-0",
-                  "system": "http://loinc.org",
-                  "display": "Genomic source class [Type]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6683-2",
-                  "system": "http://loinc.org",
-                  "display": "Germline"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "53034-5",
-                  "system": "http://loinc.org",
-                  "display": "Allelic state"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6705-3",
-                  "system": "http://loinc.org",
-                  "display": "Homozygous"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:3abfc150-cd90-4164-b2e7-ed45d9e7d986",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "DiagnosticImplication-SPT-GJB2",
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication"
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
-              "code": "diagnostic-implication"
-            }
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "laboratory"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
-                "code": "GE",
-                "display": "Genetics"
-              }
-            ]
-          }
-        ],
-        "component": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "system": "http://loinc.org",
-                  "code": "53037-8"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6668-3",
-                  "system": "http://loinc.org",
-                  "display": "Pathogenic"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "system": "http://loinc.org",
-                  "code": "81259-4"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "text": "Autosomal recessive non-syndromic hearing loss (DFNB1)"
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
-                  "code": "conclusion-string"
-                }
-              ]
-            },
-            "valueString": "Homozygous pathogenic GJB2 variant, consistent with autosomal recessive non-syndromic hearing loss (DFNB1)."
-          }
-        ],
-        "identifier": [
-          {
-            "value": "3abfc150-cd90-4164-b2e7-ed45d9e7d986"
-          }
-        ],
-        "status": "final",
-        "effectiveDateTime": "2026-10-19T14:00:00+00:00",
-        "performer": [
-          {
-            "type": "Organization",
-            "identifier": {
-              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-              "value": "699X0"
-            },
-            "display": "NORTH WEST GLH"
-          }
-        ],
-        "subject": {
-          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
-          "display": "Oliver CAMDEN",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9737383427"
-          }
-        },
-        "derivedFrom": [
-          {
-            "reference": "urn:uuid:a542b8fd-caaa-4cb4-be09-5a26a8f7af9c"
           }
         ]
       }
@@ -852,67 +527,30 @@
         },
         "parent": [
           {
-            "reference": "urn:uuid:0a869ae7-44ee-4657-8494-bfe7297971ba"
+            "type": "Specimen",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "http://www.acme.org/specimen/RP4",
+              "value": "RP426-0310558",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RP4"
+                }
+              }
+            }
           }
         ],
         "collection": {
           "collectedDateTime": "2026-09-15T15:00:00+00:00"
         }
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:0a869ae7-44ee-4657-8494-bfe7297971ba",
-      "resource": {
-        "resourceType": "Specimen",
-        "id": "Specimen-SPT-Blood",
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
-          ]
-        },
-        "identifier": [
-          {
-            "type": {
-              "coding": [
-                {
-                  "code": "PLAC",
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
-                }
-              ]
-            },
-            "value": "RP426-0310558",
-            "system": "http://www.acme.org/specimen/RP4",
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "RP4"
-              }
-            }
-          }
-        ],
-        "status": "available",
-        "subject": {
-          "reference": "urn:uuid:74fe4bf0-26d8-4b8c-90eb-b6ef80d887e0",
-          "display": "Oliver CAMDEN",
-          "identifier": {
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9737383427"
-          }
-        },
-        "type": {
-          "coding": [
-            {
-              "code": "258580003",
-              "system": "http://snomed.info/sct",
-              "display": "Whole blood specimen"
-            }
-          ],
-          "text": "Peripheral blood (EDTA)"
-        },
-        "collection": {
-          "collectedDateTime": "2026-09-14T10:30:00+00:00"
-        },
-        "receivedTime": "2026-09-14T16:00:00+00:00"
       }
     },
     {

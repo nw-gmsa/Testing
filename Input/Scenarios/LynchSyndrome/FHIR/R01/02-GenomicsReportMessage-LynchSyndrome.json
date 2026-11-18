@@ -99,6 +99,23 @@
               ]
             },
             "value": "A765432"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CB07442115"
           }
         ],
         "active": true,
@@ -170,8 +187,8 @@
               "code": "R210.2"
             },
             {
-              "system": "http://snomed.info/sct",
               "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
               "display": "Genetic report"
             }
           ]
@@ -282,17 +299,6 @@
           }
         ],
         "conclusion": "Heterozygous pathogenic germline variant detected, consistent with inherited MMR deficiency (Lynch syndrome).",
-        "result": [
-          {
-            "reference": "urn:uuid:6beb613f-d303-42af-b025-86e8e0872061"
-          },
-          {
-            "reference": "urn:uuid:0878c5de-c22f-4e31-841a-a82ad31c93aa"
-          },
-          {
-            "reference": "urn:uuid:8385c2fd-313d-4fd5-b98e-d5ea4bae6f99"
-          }
-        ],
         "presentedForm": [
           {
             "contentType": "application/pdf",
@@ -300,409 +306,6 @@
             "url": "urn:uuid:1d9c307b-47f0-4e59-93a8-9d849086cdad",
             "title": "R210.2 Laboratory Report - Ned LIVERPOOL",
             "creation": "2023-09-12"
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:6beb613f-d303-42af-b025-86e8e0872061",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "6beb613f-d303-42af-b025-86e8e0872061",
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DiagnosticImplication"
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs",
-              "code": "diagnostic-implication",
-              "display": "Diagnostic Implication"
-            }
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "laboratory"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
-                "code": "GE",
-                "display": "Genetics"
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "value": "6beb613f-d303-42af-b025-86e8e0872061"
-          }
-        ],
-        "status": "final",
-        "effectiveDateTime": "2025-10-23T10:37:26+00:00",
-        "performer": [
-          {
-            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
-          }
-        ],
-        "derivedFrom": [
-          {
-            "reference": "urn:uuid:8385c2fd-313d-4fd5-b98e-d5ea4bae6f99"
-          }
-        ],
-        "subject": {
-          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
-          "display": "Ned LIVERPOOL"
-        },
-        "component": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "53037-8",
-                  "system": "http://loinc.org",
-                  "display": "Genetic variation clinical significance [Imp]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6668-3",
-                  "system": "http://loinc.org",
-                  "display": "Pathogenic"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "81259-4",
-                  "system": "http://loinc.org"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "R210",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
-                  "display": "Inherited MMR deficiency (Lynch syndrome)"
-                },
-                {
-                  "code": "716318002",
-                  "system": "http://snomed.info/sct",
-                  "display": "Lynch syndrome"
-                }
-              ],
-              "text": "Inherited MMR deficiency (Lynch syndrome)"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:0878c5de-c22f-4e31-841a-a82ad31c93aa",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "0878c5de-c22f-4e31-841a-a82ad31c93aa",
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/GenomicStudyPanel"
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "code": "81306-3",
-              "system": "http://loinc.org",
-              "display": "Variables that apply to the overall study"
-            }
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "laboratory"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
-                "code": "GE",
-                "display": "Genetics"
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "value": "0878c5de-c22f-4e31-841a-a82ad31c93aa"
-          }
-        ],
-        "status": "final",
-        "effectiveDateTime": "2025-10-23T10:37:26+00:00",
-        "performer": [
-          {
-            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
-          }
-        ],
-        "subject": {
-          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
-          "display": "Ned LIVERPOOL"
-        },
-        "component": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "51967-8",
-                  "system": "http://loinc.org",
-                  "display": "Genetic disease assessed [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "R210",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
-                  "display": "Inherited MMR deficiency (Lynch syndrome)"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:8385c2fd-313d-4fd5-b98e-d5ea4bae6f99",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "8385c2fd-313d-4fd5-b98e-d5ea4bae6f99",
-        "meta": {
-          "profile": [
-            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Variant"
-          ]
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "69548-6",
-              "display": "Genetic variant assessment"
-            }
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                "code": "laboratory"
-              }
-            ]
-          },
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
-                "code": "GE",
-                "display": "Genetics"
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "value": "8385c2fd-313d-4fd5-b98e-d5ea4bae6f99"
-          }
-        ],
-        "status": "final",
-        "effectiveDateTime": "2025-10-23T10:37:26+00:00",
-        "performer": [
-          {
-            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c"
-          }
-        ],
-        "subject": {
-          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
-          "display": "Ned LIVERPOOL"
-        },
-        "method": {
-          "coding": [
-            {
-              "code": "264896000",
-              "system": "http://snomed.info/sct",
-              "display": "Nucleic acid analysis"
-            }
-          ]
-        },
-        "component": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "83005-9",
-                  "system": "http://loinc.org",
-                  "display": "Variant category"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "SEQV",
-                  "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/IGeneVariantCategory",
-                  "display": "Sequence Variant"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48018-6",
-                  "system": "http://loinc.org",
-                  "display": "Gene studied [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "HGNC:7127",
-                  "system": "http://www.genenames.org",
-                  "display": "MLH1"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "51958-7",
-                  "system": "http://loinc.org",
-                  "display": "Transcript reference sequence [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "NM_000249",
-                  "system": "http://www.ncbi.nlm.nih.gov/refseq"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48013-7",
-                  "system": "http://loinc.org",
-                  "display": "Genomic reference sequence [ID]"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "NG_007109.2:g.40514dupC",
-                  "system": "http://www.ncbi.nlm.nih.gov/refseq"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48019-4",
-                  "system": "http://loinc.org",
-                  "display": "DNA change type"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6686-5",
-                  "system": "http://loinc.org",
-                  "display": "Duplication"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "48002-0",
-                  "system": "http://loinc.org",
-                  "display": "Genomic source class"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6683-2",
-                  "system": "http://loinc.org",
-                  "display": "Germline"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "53034-5",
-                  "system": "http://loinc.org",
-                  "display": "Allelic state"
-                }
-              ]
-            },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "code": "LA6706-1",
-                  "system": "http://loinc.org",
-                  "display": "Heterozygous"
-                }
-              ]
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "code": "69547-8",
-                  "system": "http://loinc.org",
-                  "display": "Genomic ref allele [ID]"
-                }
-              ]
-            },
-            "valueString": "C"
           }
         ]
       }

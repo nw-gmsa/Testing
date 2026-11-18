@@ -1,0 +1,978 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsReportMessage-Chimerism",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:e540dbc7-9693-4143-9049-d747ca78ca60"
+  },
+  "timestamp": "2026-08-17T10:33:23+01:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:7a20614c-05d3-4879-836d-e669b772e515",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-R01-Chimerism",
+        "meta": {
+          "lastUpdated": "2026-08-17T10:33:23+01:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          },
+          "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              },
+              "display": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/REN"
+          }
+        ],
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE",
+          "software": "Histotrac"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:fd62bc04-10f6-4f00-a3d2-204547d9f54d",
+            "type": "DiagnosticReport"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Liverpool",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBS"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "A765432"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CB07442115"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "LIVERPOOL",
+            "given": [
+              "Ned"
+            ]
+          }
+        ],
+        "birthDate": "1942-06-18",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "20 Forthlin Road"
+            ],
+            "city": "LIVERPOOL",
+            "postalCode": "L18 9TN"
+          }
+        ],
+        "gender": "male",
+        "contact": [
+          {
+            "name": {
+              "use": "official",
+              "family": "LIVERPOOL",
+              "given": [
+                "Ringo"
+              ]
+            },
+            "telecom": [
+              {
+                "use": "mobile",
+                "value": "077021231231",
+                "system": "phone"
+              }
+            ]
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N82035"
+            },
+            "display": "MATHER AVENUE SURGERY"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fd62bc04-10f6-4f00-a3d2-204547d9f54d",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-Chimerism-Report",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "4241000179101",
+              "display": "Laboratory report"
+            },
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+              "code": "GT1368",
+              "display": "Chimerism by STR Testing - Post Stem Cell Transplant"
+            },
+            {
+              "code": "112449-4",
+              "system": "http://loinc.org",
+              "display": "Chimerism post transplant panel without cell selection - Specimen"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "value": "C,26.6512478.P",
+            "system": "http://www.acme.org/diagnosticreport/identifiers/R0A"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "REN"
+                }
+              },
+              "system": "http://www.acme.org/servicerequest/REN",
+              "value": "CB-260817-01"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>GT1368 Chimerism by STR Testing - Post Stem Cell Transplant, for Ned LIVERPOOL. Recipient-derived cells 0% in peripheral blood, 31 months after transplant.</p></div>"
+        },
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "effectiveDateTime": "2026-08-10T09:15:00+01:00",
+        "issued": "2026-08-17T10:32:00+01:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "type": "Organization",
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:1aaad2ec-1779-453e-bfae-c0e6ea88fac4",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/hcpc-number",
+              "value": "CS90006"
+            },
+            "display": "FICTITIOUS, Iris"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:f347bd24-5317-426d-a7df-2745213ba695"
+          },
+          {
+            "reference": "urn:uuid:72098b78-c517-459d-8282-415de55f5c4f"
+          },
+          {
+            "reference": "urn:uuid:4b08bdbe-fccc-4014-ab3c-47d1dc9ecf8e"
+          },
+          {
+            "reference": "urn:uuid:e8b9d493-059f-455e-9fcd-64f2d56dcd37"
+          },
+          {
+            "reference": "urn:uuid:58e8efd4-49c3-4eba-a55b-381f98dbd5a3"
+          },
+          {
+            "reference": "urn:uuid:0e897244-1636-4eb5-b94a-0f19042499bf"
+          }
+        ],
+        "conclusion": "Recipient-derived cells 0% (full donor chimerism).",
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "language": "en-GB",
+            "url": "urn:uuid:490dd702-7121-482d-ba0a-d5af6382f65a",
+            "title": "GT1368 Chimerism Report - Ned LIVERPOOL",
+            "creation": "2026-08-17"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f347bd24-5317-426d-a7df-2745213ba695",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-Chimerism-Recipient",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "f347bd24-5317-426d-a7df-2745213ba695"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-08-17T10:32:00+01:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "104479-1",
+              "system": "http://loinc.org",
+              "display": "Cells.recipient derived/Cells in Blood or Tissue by Molecular genetics method --post stem cell transplant"
+            },
+            {
+              "code": "STR",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Chimerism"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362"
+        },
+        "valueQuantity": {
+          "value": 0,
+          "code": "%",
+          "system": "http://unitsofmeasure.org",
+          "unit": "percent"
+        },
+        "method": {
+          "text": "Chimerism analysis by STR technique."
+        },
+        "device": {
+          "display": "Promega GenePrint 24 kit"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:72098b78-c517-459d-8282-415de55f5c4f",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-Chimerism-InformativeMarkers",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "72098b78-c517-459d-8282-415de55f5c4f"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-08-17T10:32:00+01:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "53035-2",
+              "system": "http://loinc.org",
+              "display": "DNA marker assessed [Identifier]"
+            },
+            {
+              "code": "IM",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Chimerism"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362"
+        },
+        "valueString": "D13S317, PENTA E, CSF1PO, PENTA D, D21S11, D8S1179, D12S391"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4b08bdbe-fccc-4014-ab3c-47d1dc9ecf8e",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-Chimerism-CellType",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "4b08bdbe-fccc-4014-ab3c-47d1dc9ecf8e"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-08-17T10:32:00+01:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "32760-1",
+              "system": "http://loinc.org",
+              "display": "Cell type in Specimen"
+            },
+            {
+              "code": "EXT",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Chimerism"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362"
+        },
+        "valueString": "Peripheral blood leukocytes"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e8b9d493-059f-455e-9fcd-64f2d56dcd37",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-Chimerism-TimePostTransplant",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "e8b9d493-059f-455e-9fcd-64f2d56dcd37"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-08-17T10:32:00+01:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "99782-5",
+              "system": "http://loinc.org",
+              "display": "Months [Time] --post transplant"
+            },
+            {
+              "code": "POST",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Chimerism"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362"
+        },
+        "valueQuantity": {
+          "value": 31,
+          "code": "mo",
+          "system": "http://unitsofmeasure.org",
+          "unit": "month"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:58e8efd4-49c3-4eba-a55b-381f98dbd5a3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-Chimerism-TransplantDate",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "58e8efd4-49c3-4eba-a55b-381f98dbd5a3"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-08-17T10:32:00+01:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "68445-6",
+              "system": "http://loinc.org",
+              "display": "Date transplant"
+            },
+            {
+              "code": "DTP",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Chimerism"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362"
+        },
+        "valueDateTime": "2024-01-10"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0e897244-1636-4eb5-b94a-0f19042499bf",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-Chimerism-DonorID",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "0e897244-1636-4eb5-b94a-0f19042499bf"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2026-08-17T10:32:00+01:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "R0A"
+            },
+            "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "112446-0",
+              "system": "http://loinc.org",
+              "display": "Donor [Identifier] in Specimen from Donor"
+            },
+            {
+              "code": "DID",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/Chimerism"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362"
+        },
+        "valueString": "6939 DKM0 0096 2141 100"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9e62aa72-44d2-4f12-9520-675786ddd362",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-Chimerism",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "SP-260810-01",
+            "system": "http://www.acme.org/specimen/R0A",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "119297000",
+              "system": "http://snomed.info/sct",
+              "display": "Blood specimen"
+            }
+          ]
+        },
+        "collection": {
+          "collectedDateTime": "2026-08-10T09:15:00+01:00"
+        },
+        "receivedTime": "2026-08-10T11:00:00+01:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1aaad2ec-1779-453e-bfae-c0e6ea88fac4",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Interpreter-HI-R0A",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          },
+          "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/hcpc-number",
+            "value": "CS90006"
+          },
+          "display": "FICTITIOUS, Iris"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:08b5e6e6-4edd-4443-8cdc-684bb2b12189",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "DocumentReference-Chimerism-Report",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference"
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "value": "08b5e6e6-4edd-4443-8cdc-684bb2b12189",
+            "system": "http://www.example.org/documentreference/identifier"
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "type": "DiagnosticReport",
+              "identifier": {
+                "type": {
+                  "coding": [
+                    {
+                      "code": "FILL",
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                    }
+                  ]
+                },
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "R0A"
+                  }
+                },
+                "system": "http://www.acme.org/diagnosticreport/identifiers/R0A",
+                "value": "C,26.6512478.P"
+              }
+            },
+            {
+              "type": "ServiceRequest",
+              "identifier": {
+                "type": {
+                  "coding": [
+                    {
+                      "code": "PLAC",
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                    }
+                  ]
+                },
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "REN"
+                  }
+                },
+                "system": "http://www.acme.org/servicerequest/REN",
+                "value": "CB-260817-01"
+              }
+            }
+          ],
+          "event": [
+            {
+              "coding": [
+                {
+                  "code": "GT1368",
+                  "system": "https://fhir.nhs.uk/CodeSystem/England-DigitalGenomicTestServices",
+                  "display": "Chimerism by STR Testing - Post Stem Cell Transplant"
+                }
+              ]
+            }
+          ]
+        },
+        "status": "current",
+        "date": "2026-08-17T10:32:00+01:00",
+        "type": {
+          "coding": [
+            {
+              "code": "909871000000100",
+              "system": "http://snomed.info/sct",
+              "display": "Histocompatibility and immunogenetics"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "urn:uuid:490dd702-7121-482d-ba0a-d5af6382f65a"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:490dd702-7121-482d-ba0a-d5af6382f65a",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "Binary-Sample",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"
+          ]
+        },
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    }
+  ]
+}

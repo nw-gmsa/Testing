@@ -609,7 +609,7 @@
       "fullUrl": "urn:uuid:8c0097b8-cc07-4f84-b8f3-63ed163207ce",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "DiagnosticReport-BreastCancer-Report",
+        "id": "DiagnosticReport-BreastCancer-Report-Document",
         "meta": {
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
@@ -622,8 +622,8 @@
               "code": "R208.1"
             },
             {
-              "system": "http://snomed.info/sct",
               "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
               "display": "Genetic report"
             }
           ]
@@ -722,14 +722,6 @@
           }
         ],
         "conclusion": "Heterozygous pathogenic BRCA1 variant detected, consistent with hereditary breast and ovarian cancer. Predictive testing is available for relatives.",
-        "result": [
-          {
-            "reference": "urn:uuid:48d4cbac-aca4-4f75-921c-013da5174824"
-          },
-          {
-            "reference": "urn:uuid:3802e85c-cb2e-415c-9e25-1b694d98c663"
-          }
-        ],
         "presentedForm": [
           {
             "contentType": "application/pdf",
@@ -737,6 +729,14 @@
             "url": "urn:uuid:fc8c5611-f3bc-4d54-9645-c054fecede15",
             "title": "R208.1 Laboratory Report - Margaery CONGLETON",
             "creation": "2026-10-26"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:48d4cbac-aca4-4f75-921c-013da5174824"
+          },
+          {
+            "reference": "urn:uuid:3802e85c-cb2e-415c-9e25-1b694d98c663"
           }
         ]
       }

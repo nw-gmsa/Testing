@@ -648,6 +648,9 @@ TEST_GROUPS = {
 # O19 (referral to Genomics England) and T02 (report PDF to shared care records) are FHIR-only at the
 # RIE - it accepts them on $process-message but doesn't pass them on as v2 - so their transformToV2
 # output is only checked here. O19 isn't on the NW-GMSA v2 page, so V2_EXPECTED_STRUCTURE checks it.
+# R32 (the MRD Monitoring scenario's Cepheid test results) comes back from transformToV2 as
+# ORU^R32^ORU_R30 in the ASTM -> R32 conversion's shape: PID, ORC, OBR, TQ1, one OBX for the result
+# and one per component (Cepheid code in OBX-4, numbers in OBX-5.2), then SPM.
 _SCENARIOS_MANIFEST = os.path.join("Input", "Scenarios", "scenarios.json")
 if os.path.exists(_SCENARIOS_MANIFEST):
     with open(_SCENARIOS_MANIFEST) as _f:

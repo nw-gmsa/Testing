@@ -1,0 +1,338 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-ctDNA-OrderPlacer",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:5550b30d-9ba1-43f9-9b6d-b4a30722098a"
+  },
+  "timestamp": "2026-06-29T11:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:407be576-82d1-41de-84a1-54f3452731e7",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-ctDNA-OrderPlacer",
+        "meta": {
+          "lastUpdated": "2026-06-29T11:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RHQ"
+          },
+          "display": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RHQ"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:f0560553-0da3-41dd-84da-6eb4e00b0597",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Sheffield",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RHQ"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RXR3302855"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "PI",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/PatientIdentifier",
+            "value": "336292"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "SHEFFIELD",
+            "given": [
+              "Theon"
+            ]
+          }
+        ],
+        "birthDate": "1986-09-12",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "SPITAL STREET"
+            ],
+            "city": "SHEFFIELD",
+            "postalCode": "S3 9LB"
+          }
+        ],
+        "gender": "male",
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "C88622"
+            },
+            "display": "Sheffield Medical Centre"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f0560553-0da3-41dd-84da-6eb4e00b0597",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-ctDNA-OrderPlacer",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RHQ"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:4446ab81-35ef-49cb-b2fe-1d6f1a0dcc02"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RHQ"
+              }
+            },
+            "value": "RHQ-26-07731",
+            "system": "http://www.acme.org/servicerequest/RHQ"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-06-29",
+        "code": {
+          "coding": [
+            {
+              "code": "M4.14",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            }
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:591e5da3-ad39-455a-a1f0-c4f2570af308"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "M4",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4446ab81-35ef-49cb-b2fe-1d6f1a0dcc02",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "4446ab81-35ef-49cb-b2fe-1d6f1a0dcc02",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RHQ"
+          }
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C9999998"
+          },
+          "display": "Sheffield Lung Doctor"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                "code": "100"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:591e5da3-ad39-455a-a1f0-c4f2570af308",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-ctDNA-Order",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RHQ26-018842",
+            "system": "http://www.acme.org/specimen/RHQ",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RHQ"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:2160525b-0168-4f40-8ebf-9b053052a62c",
+          "display": "Theon SHEFFIELD",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737873858"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "119297000",
+              "system": "http://snomed.info/sct",
+              "display": "Blood specimen"
+            }
+          ]
+        },
+        "collection": {
+          "collectedDateTime": "2026-06-29"
+        }
+      }
+    }
+  ]
+}

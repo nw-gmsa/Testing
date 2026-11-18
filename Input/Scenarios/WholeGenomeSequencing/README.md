@@ -22,9 +22,11 @@ All the steps are FHIR. FHIR Messages are under `FHIR/<event>/` and are run by `
 | 6 | 3. Sequencing (LAB-4 and LAB-5) | Send Work Order | Sequencing Genomic Laboratory - SGL → Sequencer | Not covered | - |
 | 7 | 3. Sequencing (LAB-4 and LAB-5) | Upload sequence data | Sequencing Genomic Laboratory - SGL → Genomics England | Not covered | - |
 | 8 | 4. Sub-order Results (LAB-36) | Make results available | Genomics England → Requesting Genomic Laboratory - RGL | Not covered | - |
-| 9 | 5. Participant Results to Central Registry | Retrieve participant results | Integration Engine → Genomics England | Not covered | - |
-| 10 | 5. Participant Results to Central Registry | Send FHIR Document | Integration Engine → Central Registry | Not covered | - |
-| 11 | 6. Laboratory Report (LAB-3) | Send Laboratory Report | Requesting Genomic Laboratory - RGL → Order Placer - NHS Trust | FHIR Message R01 | `FHIR/R01/11-GenomicsReportMessage-WGS-Referral.json` |
+| 9 | 5. Laboratory Report (LAB-3) | Send Laboratory Report | Requesting Genomic Laboratory - RGL → Integration Engine | FHIR Message R01 | `FHIR/R01/09-GenomicsReportMessage-WGS-Referral.json` |
+| 10 | 5. Laboratory Report (LAB-3) | Send Laboratory Report | Integration Engine → Order Placer - NHS Trust | FHIR Message R01 | `FHIR/R01/09-GenomicsReportMessage-WGS-Referral.json` |
+| 11 | 6. Enhanced Laboratory Report and Participant Results to Central Registry | Retrieve participant results | Integration Engine → Genomics England | Not covered | - |
+| 12 | 6. Enhanced Laboratory Report and Participant Results to Central Registry | Create enhanced Laboratory Report R01 | Integration Engine → Integration Engine | FHIR Message R01 | `FHIR/R01/12-GenomicsReportMessage-WGS-Referral-Enhanced.json` |
+| 13 | 6. Enhanced Laboratory Report and Participant Results to Central Registry | Send FHIR Document | Integration Engine → Central Registry | Not covered | - |
 
 Other example resources in this scenario:
 

@@ -1,0 +1,286 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsSubOrderMessage-Pharmacogenomics",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:a64ed019-caef-4bf7-8a0c-3f0e81bb4ea6"
+  },
+  "timestamp": "2026-10-28T11:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:7f20a21c-c6bd-4e5b-9003-a7eacd798030",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-Pharmacogenomics-SubOrder",
+        "meta": {
+          "lastUpdated": "2026-10-28T11:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "NW GLH"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NW GLH"
+            },
+            "name": "StarLIMS",
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/StarLIMS"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "name": "iGene",
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/iGene"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:2095d69a-a20b-4031-a4d3-3e814d5a9f6c",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Northwich",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "active": true,
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Northwich",
+            "given": [
+              "Mace"
+            ]
+          }
+        ],
+        "birthDate": "1957-01-19",
+        "gender": "male",
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N81087"
+            },
+            "display": "Danebridge Medical Practice"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2095d69a-a20b-4031-a4d3-3e814d5a9f6c",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-Pharmacogenomics-StarLIMS-SubOrder",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "type": "Organization",
+          "display": "NW GLH"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "value": "T26-62PX",
+            "system": "https://fhir.nwgenomics.nhs.uk/iGene/ReportIdentifier"
+          }
+        ],
+        "performer": [
+          {
+            "type": "Device",
+            "identifier": {
+              "system": "https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system",
+              "value": "StarLIMS"
+            },
+            "display": "StarLIMS"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "http://www.acme.org/servicerequest",
+              "value": "71388",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "699X0"
+                }
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "filler-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-10-28",
+        "code": {
+          "coding": [
+            {
+              "code": "R454.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "R454",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Mavacamten for treating symptomatic obstructive hypertrophic cardiomyopathy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5cd4af98-b7b4-410e-8f71-0dbc2a3e1af4",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-Pharmacogenomics",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RBQ26-004417",
+            "system": "http://www.acme.org/specimen/RBQ",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBQ"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:50d6aefa-e2d2-439a-820f-cb495c72ae6a",
+          "display": "Mace NORTHWICH",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383311"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "258580003",
+              "system": "http://snomed.info/sct",
+              "display": "Whole blood specimen"
+            }
+          ],
+          "text": "Peripheral blood (EDTA)"
+        },
+        "collection": {
+          "collectedDateTime": "2026-10-27T10:15:00+00:00"
+        },
+        "receivedTime": "2026-10-28T09:00:00+00:00"
+      }
+    }
+  ]
+}
