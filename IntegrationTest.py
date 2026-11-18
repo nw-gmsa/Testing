@@ -3367,6 +3367,15 @@ def _is_device_performer(performer):
             or performer.get("identifier", {}).get("system") == DLIMS_DEVICE_IDENTIFIER[0])
 
 
+def _is_other_lis_performer(performer):
+    """True when the performer is identified as a laboratory information system other than
+    DLIMS - e.g. the Pharmacogenomics scenario's filler-order sub-order to StarLIMS - so the
+    order isn't an Omics DSS order."""
+    ident = performer.get("identifier", {})
+    return (ident.get("system") == DLIMS_DEVICE_IDENTIFIER[0]
+            and ident.get("value") != DLIMS_DEVICE_IDENTIFIER[1])
+
+
 def _is_dlims_performer(performer, device_ref):
     """True when the performer identifies the DLIMS Device, by its identifier (the IG's
     primary reference) and/or a reference to it."""
@@ -3380,7 +3389,7 @@ def check_omics_dss_orders(session):
     """Checks the FHIR repository holds Omics DSS orders in their current shape: a work
     order to DLIMS (intent=filler-order) whose performer is the DLIMS
     Device. Omics DSS orders are recognised by a Device performer (type, reference or the
-    DLIMS identifier system).
+    DLIMS identifier system) that isn't identified as another laboratory information system.
 
     Returns a CaseResult with stages:
       omicsDssDevice     - exactly one Device on the server carries the DLIMS identifier
@@ -3415,6 +3424,7 @@ def check_omics_dss_orders(session):
         sr_id: sr for (rtype, sr_id), sr in orders.items()
         if rtype == "ServiceRequest" and sr.get("intent") in OMICS_DSS_INTENTS
         and any(_is_device_performer(p) for p in sr.get("performer", []))
+        and not any(_is_other_lis_performer(p) for p in sr.get("performer", []))
     }
     if not omics:
         result.warn("omicsDssPerformer",
