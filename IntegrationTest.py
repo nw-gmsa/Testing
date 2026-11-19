@@ -1978,6 +1978,11 @@ def patient_nhs_numbers(bundle):
     return found
 
 
+# Segments check_expected_segments_present expects for a Bundle resource that the message
+# structure of the transformToV2 output doesn't have, by trigger event (MSH-9.2).
+SEGMENTS_NOT_IN_STRUCTURE = {"O51": {"PV1", "SPM"}}
+
+
 def check_expected_segments_present(bundle, v2_text):
     """Checks that certain FHIR resource types present in `bundle` produce their
     corresponding HL7 v2 segment somewhere in `v2_text` (a transformToV2 output):
@@ -1989,7 +1994,9 @@ def check_expected_segments_present(bundle, v2_text):
     This is a coarse presence check only (the segment exists somewhere in the
     message) - it does not check field-level content; see
     check_patient_demographics_preserved for a content-level PID check tied to the
-    Bundle's primary subject.
+    Bundle's primary subject. A segment the output's message structure doesn't have
+    isn't expected: OSU^O51 is only MSH, PID and ORC (https://nw-gmsa.github.io/en/hl7v2.html),
+    so an Encounter or Specimen in the Bundle has nowhere to go.
 
     Returns (applicable, problems): applicable is False (and problems is []) when the
     bundle has none of Encounter/Patient/Specimen.
@@ -2000,11 +2007,14 @@ def check_expected_segments_present(bundle, v2_text):
     segments_present = {
         s.split("|", 1)[0] for s in v2_text.replace("\r\n", "\r").split("\r") if s
     }
+    msh = next((f for f in _v2_segment_fields(v2_text) if f[0] == "MSH"), None)
+    trigger = _v2_component(_v2_msh_field(msh, 9), 2) if msh else ""
+    not_in_structure = SEGMENTS_NOT_IN_STRUCTURE.get(trigger, set())
 
     applicable = False
     problems = []
     for resource_type, segment in (("Encounter", "PV1"), ("Patient", "PID"), ("Specimen", "SPM")):
-        if resource_type in resource_types:
+        if resource_type in resource_types and segment not in not_in_structure:
             applicable = True
             if segment not in segments_present:
                 problems.append(
