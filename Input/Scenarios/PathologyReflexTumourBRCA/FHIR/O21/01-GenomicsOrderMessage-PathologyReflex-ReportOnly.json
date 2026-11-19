@@ -1,0 +1,589 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-PathologyReflex-ReportOnly",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:b71e4d09-2c6a-4f83-9e15-6a0d3c8f2e71"
+  },
+  "timestamp": "2026-11-03T14:30:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:4acd105c-41ba-429a-bfe1-d0174b978b86",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-PathologyReflex-ReportOnly",
+        "meta": {
+          "lastUpdated": "2026-11-03T14:30:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "690D0"
+          },
+          "display": "ROYAL BLACKBURN HOSPITAL LABORATORY"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/690D0",
+          "software": "LIMS"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:5f414f62-234a-4430-a911-27cbe775a121",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f8622205-705b-47f6-92ae-c2609a4b4ce3",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Burnley",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383389"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690D0"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "690D07418265"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RXN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "RXN7316420"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "BURNLEY",
+            "given": [
+              "Selyse"
+            ]
+          }
+        ],
+        "birthDate": "1967-09-18",
+        "gender": "female",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "Manchester Road"
+            ],
+            "city": "Burnley",
+            "district": "Lancashire",
+            "postalCode": "BB11 9SA"
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "Y00206"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5f414f62-234a-4430-a911-27cbe775a121",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-PathologyReflex-ReportOnly",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "690D0"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:8a25c8e6-9187-46bc-a000-275d58fafa99"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690D0"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/690D0",
+            "value": "G26-04417-1"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "http://www.acme.org/servicerequest/RXN",
+              "value": "EPR-552871",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RXN"
+                }
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "reflex-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2026-11-03T14:30:00+00:00",
+        "code": {
+          "coding": [
+            {
+              "code": "M2.1",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "display": "Ovarian Carcinoma, Multi-target NGS panel - small variant (BRCA1, BRCA2, SMARCA4)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:f8622205-705b-47f6-92ae-c2609a4b4ce3",
+          "display": "Selyse BURNLEY",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383389"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:664ff878-e6b4-4356-a14f-1f1cb054005d"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "M2",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Ovarian Carcinoma"
+              }
+            ]
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:19a32dd4-e8c2-4a9c-887a-180aeb7cd80e",
+            "type": "Observation"
+          },
+          {
+            "reference": "urn:uuid:51c45c3b-8de0-4ae8-9d35-f6ecf94ad4da",
+            "type": "DiagnosticReport",
+            "display": "Histopathology - ovarian cancer resection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Relapsed high-grade serous ovarian carcinoma, second line. Tumour BRCA for PARP inhibitor eligibility."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8a25c8e6-9187-46bc-a000-275d58fafa99",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Pathologist-690D0",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "690D0"
+          },
+          "display": "ROYAL BLACKBURN HOSPITAL LABORATORY"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C7890123"
+          },
+          "display": "FICTITIOUS, Morgan"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:19a32dd4-e8c2-4a9c-887a-180aeb7cd80e",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-PathologyReflex-RelapsedDisease",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ObservationOrder"
+          ]
+        },
+        "identifier": [
+          {
+            "value": "19a32dd4-e8c2-4a9c-887a-180aeb7cd80e"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "RelapsedDiseaseConfirmation",
+              "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/NWGMSA"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:f8622205-705b-47f6-92ae-c2609a4b4ce3",
+          "display": "Selyse BURNLEY",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383389"
+          }
+        },
+        "effectiveDateTime": "2026-11-03T14:30:00+00:00",
+        "valueBoolean": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:664ff878-e6b4-4356-a14f-1f1cb054005d",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-PathologyReflex-BlockA3",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "H25-11823-A3",
+            "system": "http://www.acme.org/specimen/690D0",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690D0"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:f8622205-705b-47f6-92ae-c2609a4b4ce3",
+          "display": "Selyse BURNLEY",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383389"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "441652008",
+              "system": "http://snomed.info/sct",
+              "display": "Formalin-fixed paraffin-embedded tissue specimen"
+            }
+          ]
+        },
+        "collection": {
+          "collectedDateTime": "2025-03-14T10:00:00+00:00",
+          "method": {
+            "coding": [
+              {
+                "code": "65801008",
+                "system": "http://snomed.info/sct",
+                "display": "Excision"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "code": "15497006",
+                "system": "http://snomed.info/sct",
+                "display": "Ovarian structure"
+              }
+            ]
+          }
+        },
+        "receivedTime": "2025-03-14T15:00:00+00:00",
+        "note": [
+          {
+            "text": "10 x 5 um sections and marked H&E guide slide from block A3."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:51c45c3b-8de0-4ae8-9d35-f6ecf94ad4da",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-PathologyReflex-Histopathology-ReportOnly",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.acme.org/CodeSystem/690D0",
+              "code": "HISTO",
+              "display": "Histopathology"
+            },
+            {
+              "code": "1054291000000102",
+              "system": "http://snomed.info/sct",
+              "display": "Cellular pathology report"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690D0"
+              }
+            },
+            "value": "H25-11823",
+            "system": "http://www.acme.org/diagnosticreport/identifiers/690D0"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RXN"
+                }
+              },
+              "system": "http://www.acme.org/servicerequest/RXN",
+              "value": "EPR-552871"
+            }
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Histopathology, ovarian cancer resection, for Selyse BURNLEY. High grade serous carcinoma of the ovary.</p></div>"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "SP",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Surgical Pathology"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:f8622205-705b-47f6-92ae-c2609a4b4ce3",
+          "display": "Selyse BURNLEY",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383389"
+          }
+        },
+        "effectiveDateTime": "2025-03-14T10:00:00+00:00",
+        "issued": "2025-03-21T16:00:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "690D0"
+            },
+            "type": "Organization",
+            "display": "ROYAL BLACKBURN HOSPITAL LABORATORY"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:8a25c8e6-9187-46bc-a000-275d58fafa99",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C7890123"
+            },
+            "display": "FICTITIOUS, Morgan"
+          }
+        ],
+        "conclusion": "High grade serous carcinoma of the ovary.",
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "language": "en-GB",
+            "url": "urn:uuid:052c40aa-02bc-4db7-a44d-524cb2757922",
+            "title": "Cellular pathology report - Selyse BURNLEY",
+            "creation": "2025-03-21"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fa4d22b6-556d-40a8-9355-013d373bbabd",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Requester-GynaeOncology-RXN",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RXN"
+          },
+          "display": "LANCASHIRE TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C5678901"
+          },
+          "display": "FICTITIOUS, Priya"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:052c40aa-02bc-4db7-a44d-524cb2757922",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "Binary-Sample",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"
+          ]
+        },
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    }
+  ]
+}
