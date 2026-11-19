@@ -24,6 +24,14 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      For a Cepheid GeneXpert result (MSH-3 GeneXpert), the Bundle must carry the Cepheid Device
      resource and every Observation's device must be it, by identifier
      laboratory-information-system|Cepheid (cepheidDevice - see check_cepheid_device).
+     For an order carrying prior results (e.g. a pathology reflex order based on the original
+     histopathology order), MessageHeader.focus must hold only the order being asked for -
+     the prior order it's basedOn stays in the Bundle but out of focus (messageFocus - see
+     check_message_focus).
+     A PV1 with a Visit Number (PV1-19) but no Discharge Date/Time (PV1-45) is an open spell -
+     e.g. diagnostic testing within it - so its Encounter must be in-progress, not finished;
+     with PV1-45 it must be finished with that period.end (encounterStatus - see
+     check_encounter_status).
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back.
      Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
      corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
@@ -1804,6 +1812,88 @@ def check_cepheid_device(v2_text, bundle):
     return True, problems
 
 
+def check_message_focus(bundle):
+    """For a Bundle carrying a prior order - a ServiceRequest another ServiceRequest in the
+    Bundle is basedOn, such as the original histopathology order (filler-order) behind a
+    pathology reflex order - MessageHeader.focus must hold only the order being asked for:
+    every ServiceRequest based on a prior order is in focus, and no prior order is.
+    basedOn is matched by reference (fullUrl) or by identifier value.
+
+    Returns (applicable, problems): applicable is False when no ServiceRequest is basedOn
+    another in the Bundle.
+    """
+    if not isinstance(bundle, dict):
+        return False, []
+    requests_by_url = {e.get("fullUrl"): e["resource"] for e in bundle.get("entry", [])
+                       if e.get("resource", {}).get("resourceType") == "ServiceRequest"}
+
+    def label(url):
+        sr = requests_by_url[url]
+        ids = [i.get("value") for i in sr.get("identifier", []) if i.get("value")]
+        return f"ServiceRequest {', '.join(ids) or url} (intent={sr.get('intent')})"
+
+    def based_on_targets(sr):
+        targets = set()
+        for ref in sr.get("basedOn", []):
+            value = (ref.get("identifier") or {}).get("value")
+            targets |= {url for url, other in requests_by_url.items()
+                        if ref.get("reference") == url
+                        or (value and any(i.get("value") == value for i in other.get("identifier", [])))}
+        return targets
+
+    prior, ordered = set(), set()
+    for url, sr in requests_by_url.items():
+        targets = based_on_targets(sr) - {url}
+        if targets:
+            prior |= targets
+            ordered.add(url)
+    if not prior:
+        return False, []
+
+    header = next(iter(_fhir_resources(bundle, "MessageHeader")), {})
+    focus = {f.get("reference") for f in header.get("focus", [])}
+    problems = [f"{label(url)} is a prior order but is in MessageHeader.focus"
+                for url in sorted(prior & focus)]
+    problems += [f"{label(url)} is the order being asked for but isn't in MessageHeader.focus"
+                 for url in sorted(ordered - prior - focus)]
+    return True, problems
+
+
+def check_encounter_status(v2_text, bundle):
+    """Each PV1 with a Visit Number (PV1-19) maps to the Encounter carrying that identifier
+    value. With no Discharge Date/Time (PV1-45) the spell is still open, so the Encounter's
+    status must be in-progress (not finished) and period.end must be absent; with PV1-45 it
+    must be finished, with a period.end.
+
+    Returns (applicable, problems): applicable is False when no PV1 has a PV1-19.
+    """
+    if not isinstance(bundle, dict):
+        return False, []
+    spells = {}
+    for fields in _v2_segment_fields(v2_text):
+        visit = _v2_component(_v2_field(fields, 19), 1) if fields[0] == "PV1" else ""
+        if visit:
+            spells[visit] = spells.get(visit) or _v2_field(fields, 45)
+    if not spells:
+        return False, []
+    problems = []
+    for visit, discharged in sorted(spells.items()):
+        encounters = [r for r in _fhir_resources(bundle, "Encounter")
+                      if any(i.get("value") == visit for i in r.get("identifier", []))]
+        if not encounters:
+            problems.append(f"no Encounter with identifier {visit} (PV1-19)")
+        for enc in encounters:
+            status, end = enc.get("status"), (enc.get("period") or {}).get("end")
+            if discharged and (status != "finished" or not end):
+                problems.append(f"Encounter {visit} is status={status}, period.end={end or '(none)'} - "
+                                f"PV1-45 {discharged} says the spell has finished")
+            elif not discharged and (status != "in-progress" or end):
+                problems.append(f"Encounter {visit} is status={status}"
+                                + (f", period.end={end}" if end else "")
+                                + " - no PV1-45, so the spell is still open (expected in-progress)")
+    return True, problems
+
+
 def is_valid_nhs_number(value):
     """10 digits (spaces ignored) with a correct modulus 11 check digit."""
     digits = str(value).replace(" ", "")
@@ -3042,6 +3132,24 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         else:
             result.record("cepheidDevice", True,
                           "Observation.device is the Cepheid Device (%s|%s)" % CEPHEID_DEVICE_IDENTIFIER)
+
+    # --- MessageHeader.focus holds only the order being asked for, not a prior order it's
+    # basedOn (only applies when the Bundle carries one - see check_message_focus) ---
+    focus_applicable, focus_problems = check_message_focus(fhir_json)
+    if focus_applicable:
+        if focus_problems:
+            result.record("messageFocus", False, "; ".join(focus_problems))
+        else:
+            result.record("messageFocus", True, "MessageHeader.focus holds only the order being asked for")
+
+    # --- Encounter.status follows PV1-45: open spell -> in-progress, discharged -> finished
+    # (only applies when a PV1 has a PV1-19 - see check_encounter_status) ---
+    enc_applicable, enc_problems = check_encounter_status(v2_bytes.decode("utf-8", errors="replace"), fhir_json)
+    if enc_applicable:
+        if enc_problems:
+            result.record("encounterStatus", False, "; ".join(enc_problems))
+        else:
+            result.record("encounterStatus", True, "Encounter.status matches PV1-45 (open spell or discharged)")
 
     # --- Patient nhs-number identifiers hold a real NHS number (not e.g. 'n/a'). Recorded as
     # a failure but deliberately not a transform_error: the send still runs, so the case
