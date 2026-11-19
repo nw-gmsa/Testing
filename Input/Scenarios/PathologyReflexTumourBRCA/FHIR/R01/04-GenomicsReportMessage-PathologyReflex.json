@@ -221,6 +221,28 @@
             ]
           }
         ],
+        "encounter": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RXN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/encounter/identifiers/RXN",
+            "value": "SP2503130417"
+          },
+          "reference": "urn:uuid:e73bc140-479e-46f9-afe8-8d8230fd7cc5",
+          "type": "Encounter"
+        },
         "conclusionCode": [
           {
             "coding": [
@@ -498,6 +520,101 @@
         },
         "contentType": "application/pdf",
         "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e73bc140-479e-46f9-afe8-8d8230fd7cc5",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-PathologyReflex-Spell",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/HospitalSpell"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RXN"
+              }
+            },
+            "system": "http://www.acme.org/encounter/identifiers/RXN",
+            "value": "SP2503130417"
+          }
+        ],
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "code": "ATND",
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "identifier": {
+                "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+                "value": "C5678901"
+              },
+              "display": "FICTITIOUS, Priya"
+            }
+          }
+        ],
+        "status": "in-progress",
+        "class": {
+          "code": "IMP",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "display": "inpatient encounter"
+        },
+        "serviceType": {
+          "coding": [
+            {
+              "code": "503",
+              "system": "urn:oid:2.16.840.1.113883.2.1.6.8",
+              "display": "Gynaecological Oncology"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:f8622205-705b-47f6-92ae-c2609a4b4ce3",
+          "display": "Selyse BURNLEY",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383389"
+          }
+        },
+        "period": {
+          "start": "2025-03-13T09:00:00+00:00"
+        },
+        "location": [
+          {
+            "location": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-site-code",
+                "value": "RXN02",
+                "assigner": {
+                  "identifier": {
+                    "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value": "RXN"
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     }
   ]
