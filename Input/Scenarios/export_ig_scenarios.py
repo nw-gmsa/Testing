@@ -9,7 +9,11 @@ example content, writes Input/Scenarios/<ScenarioId>/:
 - FHIR/<ResourceType>/NN-<id>.json - any other example resources the scenario names
 - README.md - the scenario's steps, with the file for each step
 
-NN is the number of the first step that uses the file. It also writes Input/Scenarios/scenarios.json,
+NN is the number of the first step that uses the file.
+
+A scenario can also keep its original HL7 v2 messages in Input/Scenarios/<ScenarioId>/V2/<event>/NN-<name>.txt
+(hand-authored, so kept when the scenario is re-exported). When it does, IntegrationTest.py runs the scenario
+from the v2 messages - the FHIR is the RIE's conversion of them - and the IG's FHIR Messages are for reference. It also writes Input/Scenarios/scenarios.json,
 the manifest IntegrationTest.py reads to build one FHIR test group per scenario.
 
 The IG is the source of truth for these scenarios: re-run this after changing the IG's examples.
@@ -118,8 +122,17 @@ def export(resources_dir):
             step_of.setdefault(ref, "")
 
         out = os.path.join(OUT_DIR, sid)
+        v2_dir = os.path.join(out, "V2")
+        v2_files = {}  # event -> sorted filenames, kept across the re-export
+        if os.path.isdir(v2_dir):
+            for event in sorted(os.listdir(v2_dir)):
+                if os.path.isdir(os.path.join(v2_dir, event)):
+                    v2_files[event] = sorted(f for f in os.listdir(os.path.join(v2_dir, event)) if f.endswith(".txt"))
         if os.path.isdir(out):
-            shutil.rmtree(out)
+            for entry in os.listdir(out):
+                if entry != "V2":
+                    path = os.path.join(out, entry)
+                    shutil.rmtree(path) if os.path.isdir(path) else os.remove(path)
         cases = {}
         for ref, number in step_of.items():
             with open(resource_file(resources_dir, ref)) as f:
@@ -140,13 +153,22 @@ def export(resources_dir):
                  f"Test cases for the NW-GMSA IG scenario [{title}]({IG_BASE}ExampleScenario-{sid}.html), "
                  "exported from the IG's examples by `../export_ig_scenarios.py`. Don't edit these files by hand: "
                  "change the IG and re-export.", "",
+                 ] + ([
+                 "The steps are run from the original HL7 v2 messages under `V2/<event>/` by `IntegrationTest.py` "
+                 f"(group `scenario_{sid}`), so the FHIR is the RIE's conversion of them. The v2 messages are "
+                 "hand-authored and kept when the scenario is re-exported. The IG's FHIR Messages under "
+                 "`FHIR/<event>/` are for reference.", ""] if v2_files else [
                  "All the steps are FHIR. FHIR Messages are under `FHIR/<event>/` and are run by `IntegrationTest.py` "
-                 f"(group `scenario_{sid}`); FHIR Documents and other resources are for reference.", ""]
+                 f"(group `scenario_{sid}`); FHIR Documents and other resources are for reference.", ""])
         people = sorted({p for _, _, r in files.values() for p in patients(r)})
         if people:
             lines += ["## Patients", ""] + [f"- {p}" for p in people] + [""]
-        lines += ["## Test cases", "", "| Step | Stage | Interaction | From → To | Format | File |",
-                  "|---|---|---|---|---|---|"]
+        v2_by_step = {f[:2]: f"`V2/{event}/{f}`" for event, names in v2_files.items() for f in names if f[:2].isdigit()}
+        lines += ["## Test cases", ""]
+        if v2_files:
+            lines += ["| Step | Stage | Interaction | From → To | HL7 v2 | FHIR (IG) |", "|---|---|---|---|---|---|"]
+        else:
+            lines += ["| Step | Stage | Interaction | From → To | Format | File |", "|---|---|---|---|---|---|"]
         for number, stage, name, initiator, receiver, ref in steps:
             if ref in files:
                 kind, fname, resource = files[ref]
@@ -155,7 +177,11 @@ def export(resources_dir):
                 cell = f"`FHIR/{kind}/{fname}`"
             else:
                 fmt, cell = "Not covered", "-"
-            lines.append(f"| {number} | {stage} | {name} | {initiator} → {receiver} | {fmt} | {cell} |")
+            if v2_files:
+                v2_cell = v2_by_step.get(f"{int(number):02d}" if number.isdigit() else "", "-")
+                lines.append(f"| {number} | {stage} | {name} | {initiator} → {receiver} | {v2_cell} | {cell} |")
+            else:
+                lines.append(f"| {number} | {stage} | {name} | {initiator} → {receiver} | {fmt} | {cell} |")
         unused = [r for r in files if r not in {s[5] for s in steps}]
         if unused:
             lines += ["", "Other example resources in this scenario:", ""]
@@ -163,6 +189,8 @@ def export(resources_dir):
         with open(os.path.join(out, "README.md"), "w") as f:
             f.write("\n".join(lines) + "\n")
         manifest[sid] = {"title": title, "cases": cases}
+        if v2_files:
+            manifest[sid]["v2_cases"] = v2_files
         print(f"{sid}: {len(files)} files, {sum(len(v) for v in cases.values())} messages")
 
     with open(os.path.join(OUT_DIR, "scenarios.json"), "w") as f:

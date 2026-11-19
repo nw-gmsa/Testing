@@ -75,7 +75,7 @@ run doesn't clobber a notebook run's output (or vice versa).
 TEST_GROUPS covers several exchange scenarios extracted from Testing.ipynb - general
 NHS Trust <-> iGene order/report exchange (O01/O21/R01), the mother/baby-fetus PID+NK1
 split cases (O21/R01), Shire <-> HODS reports (R01), Clatterbridge/Histotrac orders and
-reports (O01/R01), pathology to genomics reflex orders and reports (O21/R01), ctDNA orders and reports between NW and NEY Genomics (R01),
+reports (O01/R01), ctDNA orders and reports between NW and NEY Genomics (R01),
 international patients with an 'n/a' NHS number (R01), and Cepheid results (R32,
 sourced from Input/Cepheid/R32 - see Testing-Cephied.ipynb; the
 transformToV2 round-trip stage is skipped for these, matching that notebook, since it
@@ -366,25 +366,6 @@ TEST_GROUPS = {
             "R01": ["Histotrac_ORU_For_Clatterbridge.txt", "Clatterbridge-REN-ORU_R01.txt"],
         },
     },
-    # Pathology to genomics reflex order (IHE ILW LAB-35/LAB-36): the Royal Blackburn Hospital
-    # laboratory (690D0) orders an M2.1 ovarian cancer tumour BRCA test from the North West GLH
-    # (699X0) on FFPE block A3, and the GLH reports back. From the worked example in
-    # https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PathologyToGenomicsReflex.md - the IG's
-    # Pathology to Genomics Reflex - Ovarian Cancer Tumour BRCA ExampleScenario is converted from these.
-    # The pathology results travel in the OML^O21 PRIOR_RESULT group (prior ORC/OBR/OBX after SPM),
-    # which keeps the original pathology order (placer EPR-552871^RXN, filler H25-11823^690D0) and
-    # its requesting clinician (ORC-12) and Trust (ORC-21). Two orders: the pathology report (ED)
-    # only, and with the discrete results (LOINC 21855-2 primary site, 77753-2 Tumor morphology
-    # panel, and the laboratory's local tumour cell content code). Two reports: PDF only (the
-    # current capability) and enhanced with the BRCA1 variant. Selyse BURNLEY (9737383389).
-    "pathology_reflex": {
-        "input_dir": os.path.join("Input", "PathologyReflex"),
-        "input_flat": True,
-        "cases": {
-            "O21": ["690D0-OML_O21-ReportOnly.txt", "690D0-OML_O21.txt"],
-            "R01": ["699X0-ORU_R01-PDF.txt", "699X0-ORU_R01-Enhanced.txt"],
-        },
-    },
     # dWGS sub-contracted orders (NEY GMS -> NW GMS, RGL to SGL). Unlike every other
     # group, the source fixture *is* the FHIR Bundle (Input/FHIR/O21, not Input/V2) -
     # "input_format": "fhir" runs the FHIR-sourced case (transformToV2, then the Bundle
@@ -664,6 +645,8 @@ TEST_GROUPS = {
 # scenario ("scenario_<id>"), with each step a separate case numbered in workflow order. The fixtures
 # and Input/Scenarios/scenarios.json are exported from the IG by Input/Scenarios/export_ig_scenarios.py;
 # see Input/Scenarios/<id>/README.md for each scenario's steps, including FHIR Documents not run here.
+# A scenario that keeps its original HL7 v2 messages (Input/Scenarios/<id>/V2/<event>/, listed as
+# "v2_cases" in scenarios.json) is run from those instead, like the v2 groups above.
 # O19 (referral to Genomics England) and T02 (report PDF to shared care records) are FHIR-only at the
 # RIE - it accepts them on $process-message but doesn't pass them on as v2 - so their transformToV2
 # output is only checked here. O19 isn't on the NW-GMSA v2 page, so V2_EXPECTED_STRUCTURE checks it.
@@ -675,7 +658,15 @@ if os.path.exists(_SCENARIOS_MANIFEST):
     with open(_SCENARIOS_MANIFEST) as _f:
         for _sid, _scenario in json.load(_f).items():
             _cases = _scenario["cases"]
-            if _cases:
+            if _scenario.get("v2_cases"):
+                # the scenario keeps its original HL7 v2 messages (Input/Scenarios/<id>/V2/<event>/),
+                # so run those - the FHIR is the RIE's conversion - rather than the IG's FHIR Messages
+                TEST_GROUPS[f"scenario_{_sid}"] = {
+                    "input_dir": os.path.join("Input", "Scenarios", _sid, "V2"),
+                    "cases": _scenario["v2_cases"],
+                    "step_order": True,
+                }
+            elif _cases:
                 TEST_GROUPS[f"scenario_{_sid}"] = {
                     "input_dir": os.path.join("Input", "Scenarios", _sid, "FHIR"),
                     "input_format": "fhir",
