@@ -1,0 +1,1605 @@
+{
+  "resourceType": "Bundle",
+  "id": "GenomicsOrderMessage-LynchReflex",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
+    ]
+  },
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:952c8215-d682-4b79-a652-5e73ba1a7584"
+  },
+  "timestamp": "2023-08-21T14:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:7ab46368-bc0f-480e-92c4-1593c8ec9e4a",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "MessageHeader-O21-LynchReflex",
+        "meta": {
+          "lastUpdated": "2023-08-21T14:00:00+00:00",
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
+          ]
+        },
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "690S0"
+          },
+          "display": "MANCHESTER ROYAL INFIRMARY LABORATORY"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              },
+              "display": "NORTH WEST GLH"
+            },
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE"
+          }
+        ],
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "source": {
+          "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/690S0",
+          "software": "LIMS"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:105f2311-c45a-4317-bef6-1ff0b332dcb9",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-Liverpool",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "code": "NH",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBS"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "A765432"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "REN"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "CB07442115"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7742315"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "LIVERPOOL",
+            "given": [
+              "Ned"
+            ]
+          }
+        ],
+        "birthDate": "1942-06-18",
+        "address": [
+          {
+            "use": "home",
+            "type": "both",
+            "line": [
+              "20 Forthlin Road"
+            ],
+            "city": "LIVERPOOL",
+            "postalCode": "L18 9TN"
+          }
+        ],
+        "gender": "male",
+        "contact": [
+          {
+            "name": {
+              "use": "official",
+              "family": "LIVERPOOL",
+              "given": [
+                "Ringo"
+              ]
+            },
+            "telecom": [
+              {
+                "use": "mobile",
+                "value": "077021231231",
+                "system": "phone"
+              }
+            ]
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "N82035"
+            },
+            "display": "MATHER AVENUE SURGERY"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:105f2311-c45a-4317-bef6-1ff0b332dcb9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-LynchReflex",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/ServiceRequest"
+          ]
+        },
+        "requester": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "690S0"
+          },
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690S0"
+              }
+            },
+            "system": "http://www.acme.org/servicerequest/690S0",
+            "value": "G23-08317-1"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "urn:uuid:a65a592a-2096-46a5-921d-5051b73aac06",
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "system": "http://www.acme.org/servicerequest/R0A",
+              "value": "1583320",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "R0A"
+                }
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "reflex-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "116148004",
+                "system": "http://snomed.info/sct",
+                "display": "Molecular genetics procedure"
+              }
+            ]
+          }
+        ],
+        "authoredOn": "2023-08-21T14:00:00+00:00",
+        "code": {
+          "coding": [
+            {
+              "code": "M1.5",
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "display": "Colorectal Carcinoma, MLH1 promoter hypermethylation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "M1",
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicClinicalIndication",
+                "display": "Colorectal Carcinoma"
+              }
+            ]
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "urn:uuid:fefbba27-ceb8-489a-9711-19b4c631a63f",
+            "type": "DiagnosticReport",
+            "display": "Histopathology - colonoscopy biopsy"
+          },
+          {
+            "reference": "urn:uuid:65258e46-4688-47b3-990b-9a62a577cf3c",
+            "type": "DiagnosticReport",
+            "display": "Tumour assessment for molecular testing - block A1"
+          }
+        ],
+        "note": [
+          {
+            "text": "Caecal adenocarcinoma. Loss of MLH1 and PMS2 on MMR immunohistochemistry. MLH1 promoter hypermethylation for Lynch syndrome triage."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "PractitionerRole-Pathologist-690S0",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "690S0"
+          },
+          "display": "MANCHESTER ROYAL INFIRMARY LABORATORY"
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C2468013"
+          },
+          "display": "FICTITIOUS, Anika"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-LynchReflex-BlockA1",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "H23-41022-A1-S1",
+            "system": "http://www.acme.org/specimen/690S0",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690S0"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "441652008",
+              "system": "http://snomed.info/sct",
+              "display": "Formalin-fixed paraffin-embedded tissue specimen"
+            }
+          ]
+        },
+        "parent": [
+          {
+            "identifier": {
+              "value": "H23-41022-A1",
+              "system": "http://www.acme.org/specimen/690S0",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "690S0"
+                }
+              }
+            }
+          }
+        ],
+        "collection": {
+          "collector": {
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "R0A"
+                }
+              }
+            },
+            "display": "Manchester University NHS Foundation Trust"
+          },
+          "collectedDateTime": "2023-08-14T10:00:00+00:00",
+          "method": {
+            "coding": [
+              {
+                "code": "86273004",
+                "system": "http://snomed.info/sct",
+                "display": "Biopsy"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "code": "32713005",
+                "system": "http://snomed.info/sct",
+                "display": "Caecum structure"
+              }
+            ]
+          }
+        },
+        "contained": [
+          {
+            "resourceType": "Substance",
+            "id": "Substance-LynchReflex-Formalin",
+            "code": {
+              "coding": [
+                {
+                  "code": "BF10",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0371",
+                  "display": "Buffered 10% formalin"
+                }
+              ]
+            }
+          }
+        ],
+        "processing": [
+          {
+            "additive": [
+              {
+                "reference": "#Substance-LynchReflex-Formalin"
+              }
+            ]
+          }
+        ],
+        "receivedTime": "2023-08-14T15:00:00+00:00",
+        "note": [
+          {
+            "text": "10 x 5 um sections and marked H&E guide slide from block A1."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fefbba27-ceb8-489a-9711-19b4c631a63f",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-LynchReflex-Histopathology",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.acme.org/CodeSystem/690S0",
+              "code": "HISTO",
+              "display": "Histopathology"
+            },
+            {
+              "code": "1054291000000102",
+              "system": "http://snomed.info/sct",
+              "display": "Cellular pathology report"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690S0"
+              }
+            },
+            "value": "H23-41022",
+            "system": "http://www.acme.org/diagnosticreport/identifiers/690S0"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "R0A"
+                }
+              },
+              "system": "http://www.acme.org/servicerequest/R0A",
+              "value": "1583320"
+            },
+            "reference": "urn:uuid:a65a592a-2096-46a5-921d-5051b73aac06"
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Histopathology, colonoscopy biopsy of the caecum, for Ned LIVERPOOL. Adenocarcinoma. Loss of nuclear expression of MLH1 and PMS2; MSH2 and MSH6 retained.</p></div>"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "SP",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Surgical Pathology"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "effectiveDateTime": "2023-08-14T10:00:00+00:00",
+        "issued": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "690S0"
+            },
+            "type": "Organization",
+            "display": "MANCHESTER ROYAL INFIRMARY LABORATORY"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:2fa5cc1a-7a1e-4c99-ad10-50845819be31"
+          },
+          {
+            "reference": "urn:uuid:6572babb-2723-46d3-a65b-eaf63efcb04d"
+          },
+          {
+            "reference": "urn:uuid:e4421bf6-020a-4700-80ab-a961e97d5ef0"
+          }
+        ],
+        "conclusion": "Caecum, biopsy: adenocarcinoma. Mismatch repair deficient - loss of MLH1 and PMS2.",
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "language": "en-GB",
+            "url": "urn:uuid:56b5f338-78a0-41cc-9e44-8272b7450c4a",
+            "title": "Cellular pathology report - Ned LIVERPOOL",
+            "creation": "2023-08-21"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          }
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C3456789"
+          },
+          "display": "Dr Samuel Darwin"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-PracticeSettingCode",
+                "code": "100"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56b5f338-78a0-41cc-9e44-8272b7450c4a",
+      "resource": {
+        "resourceType": "Binary",
+        "id": "Binary-Sample",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Binary"
+          ]
+        },
+        "contentType": "application/pdf",
+        "data": "JVBERi0xLjQKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nCi9QYWdlcyAyIDAgUgo+PgplbmRvYmoK MiAwIG9iago8PC9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8L1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUgODQy XQovQ29udGVudHMgNSAwIFIKL1Jlc291cmNlcyA8PC9Qcm9jU2V0IFsvUERGIC9UZXh0XQovRm9udCA8PC9GMSA0IDAgUj4+Cj4+Cj4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQKL1N1YnR5 cGUgL1R5cGUxCi9OYW1lIC9GMQovQmFzZUZvbnQgL0hlbHZldGljYQovRW5jb2RpbmcgL01hY1JvbWFuRW5jb2RpbmcKPj4KZW5kb2JqCjUgMCBvYmoKPDwvTGVuZ3RoIDUzCj4+CnN0cmVhbQpCVAov RjEgMjAgVGYKMjIwIDQwMCBUZAooRHVtbXkgUERGKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDA5IDAwMDAwIG4KMDAwMDAwMDA2MyAw MDAwMCBuCjAwMDAwMDAxMjQgMDAwMDAgbgowMDAwMDAwMjc3IDAwMDAwIG4KMDAwMDAwMDM5MiAwMDAwMCBuCnRyYWlsZXIKPDwvU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgo0OTUKJSVFT0YK"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2fa5cc1a-7a1e-4c99-ad10-50845819be31",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-PrimarySite",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "2fa5cc1a-7a1e-4c99-ad10-50845819be31"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "21855-2",
+              "system": "http://loinc.org",
+              "display": "Primary site Cancer"
+            },
+            {
+              "code": "pCR6410",
+              "system": "http://www.acme.org/CodeSystem/COSD",
+              "display": "Topography (SNOMED)"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "C18.0",
+              "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+              "display": "Cecum"
+            },
+            {
+              "code": "32713005",
+              "system": "http://snomed.info/sct",
+              "display": "Caecum structure"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6572babb-2723-46d3-a65b-eaf63efcb04d",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-TumorMorphologyPanel",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation-Panel"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "6572babb-2723-46d3-a65b-eaf63efcb04d"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "77753-2",
+              "system": "http://loinc.org",
+              "display": "Tumor morphology panel Cancer"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "hasMember": [
+          {
+            "reference": "urn:uuid:8bacec0e-56e8-4e2e-a4cb-5218728c939e"
+          },
+          {
+            "reference": "urn:uuid:20664699-059a-4a44-b1b1-2cdc90e48f0d"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8bacec0e-56e8-4e2e-a4cb-5218728c939e",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-Histology",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "8bacec0e-56e8-4e2e-a4cb-5218728c939e"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "31205-8",
+              "system": "http://loinc.org",
+              "display": "Histology ICD-O-3 Cancer"
+            },
+            {
+              "code": "pCR6420",
+              "system": "http://www.acme.org/CodeSystem/COSD",
+              "display": "Morphology (SNOMED)"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "8140",
+              "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+              "display": "Adenocarcinoma, NOS"
+            },
+            {
+              "code": "35917007",
+              "system": "http://snomed.info/sct",
+              "display": "Adenocarcinoma"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:20664699-059a-4a44-b1b1-2cdc90e48f0d",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-Behavior",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "20664699-059a-4a44-b1b1-2cdc90e48f0d"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "31206-6",
+              "system": "http://loinc.org",
+              "display": "Behavior ICD-O-3 Cancer"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "3",
+              "system": "http://terminology.hl7.org/CodeSystem/icd-o-3",
+              "display": "Malignant, primary site"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e4421bf6-020a-4700-80ab-a961e97d5ef0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-MMRPanel",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Observation-Panel"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "e4421bf6-020a-4700-80ab-a961e97d5ef0"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "MMR",
+              "system": "http://www.acme.org/CodeSystem/690S0",
+              "display": "Mismatch repair immunohistochemistry"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "hasMember": [
+          {
+            "reference": "urn:uuid:34247921-30db-49a0-bba1-088a54615ecb"
+          },
+          {
+            "reference": "urn:uuid:17f273be-06e4-4797-9494-3be3c4f4a476"
+          },
+          {
+            "reference": "urn:uuid:ac84da3f-eabe-45a9-bbc5-8744b0b976af"
+          },
+          {
+            "reference": "urn:uuid:a037aa24-4999-4457-8438-1dc56487a3ed"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:34247921-30db-49a0-bba1-088a54615ecb",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-MLH1",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "34247921-30db-49a0-bba1-088a54615ecb"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "81691-8",
+              "system": "http://loinc.org",
+              "display": "MLH-1 Ag [Presence] in Cancer specimen by Immune stain"
+            },
+            {
+              "code": "pCR7020",
+              "system": "http://www.acme.org/CodeSystem/COSD",
+              "display": "MLH1 Nuclear Expression Intact"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "LA9634-2",
+              "system": "http://loinc.org",
+              "display": "Absent"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:17f273be-06e4-4797-9494-3be3c4f4a476",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-PMS2",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "17f273be-06e4-4797-9494-3be3c4f4a476"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "81694-2",
+              "system": "http://loinc.org",
+              "display": "PMS2 Ag [Presence] in Cancer specimen by Immune stain"
+            },
+            {
+              "code": "pCR7030",
+              "system": "http://www.acme.org/CodeSystem/COSD",
+              "display": "PMS2 Nuclear Expression Intact"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "LA9634-2",
+              "system": "http://loinc.org",
+              "display": "Absent"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ac84da3f-eabe-45a9-bbc5-8744b0b976af",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-MSH2",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "ac84da3f-eabe-45a9-bbc5-8744b0b976af"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "81692-6",
+              "system": "http://loinc.org",
+              "display": "MSH-2 Ag [Presence] in Cancer specimen by Immune stain"
+            },
+            {
+              "code": "pCR7040",
+              "system": "http://www.acme.org/CodeSystem/COSD",
+              "display": "MSH2 Nuclear Expression Intact"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "LA9633-4",
+              "system": "http://loinc.org",
+              "display": "Present"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a037aa24-4999-4457-8438-1dc56487a3ed",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-MSH6",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "a037aa24-4999-4457-8438-1dc56487a3ed"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T09:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "81693-4",
+              "system": "http://loinc.org",
+              "display": "MSH-6 Ag [Presence] in Cancer specimen by Immune stain"
+            },
+            {
+              "code": "pCR7050",
+              "system": "http://www.acme.org/CodeSystem/COSD",
+              "display": "MSH6 Nuclear Expression Intact"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "LA9633-4",
+              "system": "http://loinc.org",
+              "display": "Present"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:65258e46-4688-47b3-990b-9a62a577cf3c",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-LynchReflex-TumourAssessment",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct"
+            },
+            {
+              "code": "TMA",
+              "system": "http://www.acme.org/CodeSystem/690S0",
+              "display": "Tumour assessment for molecular testing"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690S0"
+              }
+            },
+            "value": "H23-41022-TMA",
+            "system": "http://www.acme.org/diagnosticreport/identifiers/690S0"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "R0A"
+                }
+              },
+              "system": "http://www.acme.org/servicerequest/R0A",
+              "value": "1583320"
+            },
+            "reference": "urn:uuid:a65a592a-2096-46a5-921d-5051b73aac06"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "SP",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Surgical Pathology"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "effectiveDateTime": "2023-08-14T10:00:00+00:00",
+        "issued": "2023-08-21T11:00:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "690S0"
+            },
+            "type": "Organization",
+            "display": "MANCHESTER ROYAL INFIRMARY LABORATORY"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:bf5ddd8f-6f3c-4fd9-bcf2-3c6dc8efb169"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bf5ddd8f-6f3c-4fd9-bcf2-3c6dc8efb169",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-TumourCellContent",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "bf5ddd8f-6f3c-4fd9-bcf2-3c6dc8efb169"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-08-21T11:00:00+00:00",
+        "performer": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C2468013"
+            },
+            "display": "FICTITIOUS, Anika"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "specimen": {
+          "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "TCC",
+              "system": "http://www.acme.org/CodeSystem/690S0",
+              "display": "Tumour cell content"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 40,
+          "code": "%",
+          "system": "http://unitsofmeasure.org",
+          "unit": "percent"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a65a592a-2096-46a5-921d-5051b73aac06",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "ServiceRequest-LynchReflex-OriginalOrder",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/ServiceRequest-eu-lab"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/servicerequest/R0A",
+            "value": "1583320",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/servicerequest/690S0",
+            "value": "H23-41022",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690S0"
+              }
+            }
+          }
+        ],
+        "status": "completed",
+        "intent": "filler-order",
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "108252007",
+                "system": "http://snomed.info/sct",
+                "display": "Laboratory procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "code": "HISTO",
+              "system": "http://www.acme.org/CodeSystem/690S0",
+              "display": "Histopathology"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "requester": {
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:ee9b8fcc-c233-43e1-b7fb-b58ce4cf1db8",
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C3456789"
+          },
+          "display": "Dr Samuel Darwin"
+        },
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "690S0"
+            },
+            "display": "MANCHESTER ROYAL INFIRMARY LABORATORY"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+          }
+        ]
+      }
+    }
+  ]
+}

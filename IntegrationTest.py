@@ -654,7 +654,9 @@ TEST_GROUPS = {
 # and Input/Scenarios/scenarios.json are exported from the IG by Input/Scenarios/export_ig_scenarios.py;
 # see Input/Scenarios/<id>/README.md for each scenario's steps, including FHIR Documents not run here.
 # A scenario that keeps its original HL7 v2 messages (Input/Scenarios/<id>/V2/<event>/, listed as
-# "v2_cases" in scenarios.json) is run from those instead, like the v2 groups above.
+# "v2_cases" in scenarios.json) is run from those instead, like the v2 groups above. Where only some of
+# its steps have v2 messages (e.g. the Lynch Syndrome pathology reflex), the FHIR Messages of the other
+# steps are still run, as a second group "scenario_<id>_fhir".
 # O19 (referral to Genomics England) and T02 (report PDF to shared care records) are FHIR-only at the
 # RIE - it accepts them on $process-message but doesn't pass them on as v2 - so their transformToV2
 # output is only checked here. O19 isn't on the NW-GMSA v2 page, so V2_EXPECTED_STRUCTURE checks it.
@@ -674,6 +676,18 @@ if os.path.exists(_SCENARIOS_MANIFEST):
                     "cases": _scenario["v2_cases"],
                     "step_order": True,
                 }
+                # FHIR Messages for steps with no v2 message (matched by the NN- step prefix)
+                _v2_steps = {f[:2] for _names in _scenario["v2_cases"].values() for f in _names}
+                _fhir_only = {_event: [f for f in _names if f[:2] not in _v2_steps]
+                              for _event, _names in _cases.items()}
+                _fhir_only = {_event: _names for _event, _names in _fhir_only.items() if _names}
+                if _fhir_only:
+                    TEST_GROUPS[f"scenario_{_sid}_fhir"] = {
+                        "input_dir": os.path.join("Input", "Scenarios", _sid, "FHIR"),
+                        "input_format": "fhir",
+                        "cases": _fhir_only,
+                        "step_order": True,
+                    }
             elif _cases:
                 TEST_GROUPS[f"scenario_{_sid}"] = {
                     "input_dir": os.path.join("Input", "Scenarios", _sid, "FHIR"),

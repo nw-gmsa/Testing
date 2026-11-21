@@ -154,10 +154,11 @@ def export(resources_dir):
                  "exported from the IG's examples by `../export_ig_scenarios.py`. Don't edit these files by hand: "
                  "change the IG and re-export.", "",
                  ] + ([
-                 "The steps are run from the original HL7 v2 messages under `V2/<event>/` by `IntegrationTest.py` "
-                 f"(group `scenario_{sid}`), so the FHIR is the RIE's conversion of them. The v2 messages are "
-                 "hand-authored and kept when the scenario is re-exported. The IG's FHIR Messages under "
-                 "`FHIR/<event>/` are for reference.", ""] if v2_files else [
+                 "The steps with an HL7 v2 message are run from the original v2 messages under `V2/<event>/` by "
+                 f"`IntegrationTest.py` (group `scenario_{sid}`), so the FHIR is the RIE's conversion of them. The v2 "
+                 "messages are hand-authored and kept when the scenario is re-exported, and the IG's FHIR Messages for "
+                 "those steps are for reference. FHIR Messages for any other steps are run as FHIR (group "
+                 f"`scenario_{sid}_fhir`).", ""] if v2_files else [
                  "All the steps are FHIR. FHIR Messages are under `FHIR/<event>/` and are run by `IntegrationTest.py` "
                  f"(group `scenario_{sid}`); FHIR Documents and other resources are for reference.", ""])
         people = sorted({p for _, _, r in files.values() for p in patients(r)})

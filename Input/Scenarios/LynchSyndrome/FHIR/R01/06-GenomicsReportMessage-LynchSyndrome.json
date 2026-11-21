@@ -1,6 +1,6 @@
 {
   "resourceType": "Bundle",
-  "id": "DocumentMessage-LynchSyndrome",
+  "id": "GenomicsReportMessage-LynchSyndrome",
   "meta": {
     "profile": [
       "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
@@ -9,17 +9,17 @@
   "type": "message",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:34995706-191c-4c35-a0d1-f8b482d37e21"
+    "value": "urn:uuid:7eb71d05-7be1-437f-8560-0a2246dc987e"
   },
-  "timestamp": "2023-09-12T10:05:00+00:00",
+  "timestamp": "2023-09-12T10:00:00+00:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:47b4ba02-932f-4fcf-8445-9866288bd57d",
+      "fullUrl": "urn:uuid:5e9d9b1a-f90a-4b17-abe8-a23be56201de",
       "resource": {
         "resourceType": "MessageHeader",
-        "id": "MessageHeader-T02-LynchSyndrome",
+        "id": "MessageHeader-R01-LynchSyndrome",
         "meta": {
-          "lastUpdated": "2023-09-12T10:05:00+00:00",
+          "lastUpdated": "2023-09-12T10:00:00+00:00",
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
           ]
@@ -36,15 +36,15 @@
             "receiver": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "QYG"
+                "value": "R0A"
               },
-              "display": "NHS CHESHIRE AND MERSEYSIDE INTEGRATED CARE BOARD"
+              "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
             },
-            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/QYG"
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC"
           }
         ],
         "eventCoding": {
-          "code": "T02",
+          "code": "R01",
           "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
         },
         "source": {
@@ -53,15 +53,10 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:2c63c3b1-caae-4b8d-835e-f75ccc46ad12",
-            "type": "DocumentReference"
-          },
-          {
-            "reference": "urn:uuid:1d9c307b-47f0-4e59-93a8-9d849086cdad",
-            "type": "Binary"
+            "reference": "urn:uuid:72f52594-d87e-4631-a208-838e720611a4",
+            "type": "DiagnosticReport"
           }
-        ],
-        "definition": "https://fhir.nwgenomics.nhs.uk/MessageDefinition/original-document"
+        ]
       }
     },
     {
@@ -121,6 +116,23 @@
               ]
             },
             "value": "CB07442115"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7742315"
           }
         ],
         "active": true,
@@ -173,6 +185,168 @@
             "display": "MATHER AVENUE SURGERY"
           }
         ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:72f52594-d87e-4631-a208-838e720611a4",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-LynchSyndrome-Report",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
+              "code": "R210.2"
+            },
+            {
+              "code": "1054161000000101",
+              "system": "http://snomed.info/sct",
+              "display": "Genetic report"
+            }
+          ]
+        },
+        "identifier": [
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "699X0"
+              }
+            },
+            "value": "98763a9b-98d4-4cfc-b760-1db086ec52a1",
+            "system": "http://www.acme.org/diagnosticreport/identifiers"
+          }
+        ],
+        "basedOn": [
+          {
+            "type": "ServiceRequest",
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "PLAC",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                  }
+                ]
+              },
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "699X0"
+                }
+              },
+              "system": "http://www.acme.org/servicerequest",
+              "value": "66717"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "GE",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "display": "Genetics"
+              }
+            ]
+          }
+        ],
+        "encounter": {
+          "identifier": {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBS"
+              }
+            },
+            "value": "66717",
+            "system": "http://www.acme.org/encounter/identifiers/RBS"
+          }
+        },
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
+                "code": "321",
+                "display": "VARIANT DETECTED"
+              }
+            ]
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R210.2 Inherited MMR deficiency (Lynch syndrome), for Ned LIVERPOOL. Heterozygous pathogenic germline variant detected, consistent with inherited MMR deficiency (Lynch syndrome).</p></div>"
+        },
+        "status": "final",
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "effectiveDateTime": "2023-09-07T11:45:41+00:00",
+        "issued": "2023-09-12T10:00:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "type": "Organization",
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "type": "PractitionerRole",
+            "reference": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+            "identifier": {
+              "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+              "value": "C1234567"
+            },
+            "display": "FICTITIOUS, Ralph"
+          }
+        ],
+        "conclusion": "Heterozygous pathogenic germline variant detected, consistent with inherited MMR deficiency (Lynch syndrome).",
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "language": "en-GB",
+            "url": "urn:uuid:1d9c307b-47f0-4e59-93a8-9d849086cdad",
+            "title": "R210.2 Laboratory Report - Ned LIVERPOOL",
+            "creation": "2023-09-12"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59577028-8fcc-4554-8b43-988561d41d9c",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "59577028-8fcc-4554-8b43-988561d41d9c",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/PractitionerRole"
+          ]
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "699X0"
+          },
+          "display": "North West Genomics"
+        },
+        "practitioner": {
+          "display": "Result INTERPRETER"
+        }
       }
     },
     {

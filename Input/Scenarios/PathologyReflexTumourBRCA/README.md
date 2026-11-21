@@ -2,7 +2,7 @@
 
 Test cases for the NW-GMSA IG scenario [Pathology to Genomics Reflex - Ovarian Cancer Tumour BRCA](https://nw-gmsa.github.io/en/ExampleScenario-PathologyReflexTumourBRCA.html), exported from the IG's examples by `../export_ig_scenarios.py`. Don't edit these files by hand: change the IG and re-export.
 
-The steps are run from the original HL7 v2 messages under `V2/<event>/` by `IntegrationTest.py` (group `scenario_PathologyReflexTumourBRCA`), so the FHIR is the RIE's conversion of them. The v2 messages are hand-authored and kept when the scenario is re-exported. The IG's FHIR Messages under `FHIR/<event>/` are for reference.
+The steps with an HL7 v2 message are run from the original v2 messages under `V2/<event>/` by `IntegrationTest.py` (group `scenario_PathologyReflexTumourBRCA`), so the FHIR is the RIE's conversion of them. The v2 messages are hand-authored and kept when the scenario is re-exported, and the IG's FHIR Messages for those steps are for reference. FHIR Messages for any other steps are run as FHIR (group `scenario_PathologyReflexTumourBRCA_fhir`).
 
 ## Patients
 

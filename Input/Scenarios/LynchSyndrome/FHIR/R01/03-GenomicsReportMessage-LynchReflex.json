@@ -1,6 +1,6 @@
 {
   "resourceType": "Bundle",
-  "id": "GenomicsReportMessage-LynchSyndrome",
+  "id": "GenomicsReportMessage-LynchReflex",
   "meta": {
     "profile": [
       "https://fhir.nwgenomics.nhs.uk/StructureDefinition/BundleMessage"
@@ -9,17 +9,17 @@
   "type": "message",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:7eb71d05-7be1-437f-8560-0a2246dc987e"
+    "value": "urn:uuid:1a3c8591-1c1e-4723-a88d-47473ca67ecd"
   },
-  "timestamp": "2023-09-12T10:00:00+00:00",
+  "timestamp": "2023-09-01T12:00:00+00:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:5e9d9b1a-f90a-4b17-abe8-a23be56201de",
+      "fullUrl": "urn:uuid:3a419d41-c35b-4f8b-a50c-31c98e38dfc4",
       "resource": {
         "resourceType": "MessageHeader",
-        "id": "MessageHeader-R01-LynchSyndrome",
+        "id": "MessageHeader-R01-LynchReflex",
         "meta": {
-          "lastUpdated": "2023-09-12T10:00:00+00:00",
+          "lastUpdated": "2023-09-01T12:00:00+00:00",
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/MessageHeader"
           ]
@@ -36,11 +36,11 @@
             "receiver": {
               "identifier": {
                 "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "R0A"
+                "value": "690S0"
               },
-              "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+              "display": "MANCHESTER ROYAL INFIRMARY LABORATORY"
             },
-            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/EPIC"
+            "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/690S0"
           }
         ],
         "eventCoding": {
@@ -49,11 +49,11 @@
         },
         "source": {
           "endpoint": "https://fhir.nwgenomics.nhs.uk/Endpoint/RIE",
-          "software": "RIE"
+          "software": "iGene"
         },
         "focus": [
           {
-            "reference": "urn:uuid:72f52594-d87e-4631-a208-838e720611a4",
+            "reference": "urn:uuid:b02025df-4e49-41ef-8c7c-4432f12cb090",
             "type": "DiagnosticReport"
           }
         ]
@@ -116,6 +116,23 @@
               ]
             },
             "value": "CB07442115"
+          },
+          {
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            },
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "7742315"
           }
         ],
         "active": true,
@@ -171,10 +188,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:72f52594-d87e-4631-a208-838e720611a4",
+      "fullUrl": "urn:uuid:b02025df-4e49-41ef-8c7c-4432f12cb090",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "DiagnosticReport-LynchSyndrome-Report",
+        "id": "DiagnosticReport-LynchReflex-Report",
         "meta": {
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
@@ -184,7 +201,7 @@
           "coding": [
             {
               "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory",
-              "code": "R210.2"
+              "code": "M1.5"
             },
             {
               "code": "1054161000000101",
@@ -201,7 +218,7 @@
                 "value": "699X0"
               }
             },
-            "value": "98763a9b-98d4-4cfc-b760-1db086ec52a1",
+            "value": "T23-55120",
             "system": "http://www.acme.org/diagnosticreport/identifiers"
           }
         ],
@@ -220,11 +237,11 @@
               "assigner": {
                 "identifier": {
                   "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                  "value": "699X0"
+                  "value": "690S0"
                 }
               },
-              "system": "http://www.acme.org/servicerequest",
-              "value": "66717"
+              "system": "http://www.acme.org/servicerequest/690S0",
+              "value": "G23-08317-1"
             }
           }
         ],
@@ -239,32 +256,20 @@
             ]
           }
         ],
-        "encounter": {
-          "identifier": {
-            "assigner": {
-              "identifier": {
-                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                "value": "RBS"
-              }
-            },
-            "value": "66717",
-            "system": "http://www.acme.org/encounter/identifiers/RBS"
-          }
-        },
         "conclusionCode": [
           {
             "coding": [
               {
                 "system": "https://fhir.nwgenomics.nhs.uk/CodeSystem/GenomicTestOutcomeCode",
-                "code": "321",
-                "display": "VARIANT DETECTED"
+                "code": "432",
+                "display": "NO TARGET DETECTED OR TARGET DETECTED BELOW A LEVEL REQUIRING CLINICAL ACTION"
               }
             ]
           }
         ],
         "text": {
           "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>R210.2 Inherited MMR deficiency (Lynch syndrome), for Ned LIVERPOOL. Heterozygous pathogenic germline variant detected, consistent with inherited MMR deficiency (Lynch syndrome).</p></div>"
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>M1.5 Colorectal Carcinoma, MLH1 promoter hypermethylation, for Ned LIVERPOOL. MLH1 promoter hypermethylation not detected. Germline testing for Lynch syndrome (R210) is recommended.</p></div>"
         },
         "status": "final",
         "subject": {
@@ -275,8 +280,8 @@
             "value": "9737383206"
           }
         },
-        "effectiveDateTime": "2023-09-07T11:45:41+00:00",
-        "issued": "2023-09-12T10:00:00+00:00",
+        "effectiveDateTime": "2023-08-14T10:00:00+00:00",
+        "issued": "2023-09-01T12:00:00+00:00",
         "performer": [
           {
             "identifier": {
@@ -298,14 +303,24 @@
             "display": "FICTITIOUS, Ralph"
           }
         ],
-        "conclusion": "Heterozygous pathogenic germline variant detected, consistent with inherited MMR deficiency (Lynch syndrome).",
+        "specimen": [
+          {
+            "reference": "urn:uuid:5fcc10f6-959c-41ba-a415-7d203873b220"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:b190a6a4-54b0-4214-8567-650b633ddd50"
+          }
+        ],
+        "conclusion": "MLH1 promoter hypermethylation not detected. The loss of MLH1 and PMS2 may be due to Lynch syndrome; germline testing (R210) is recommended.",
         "presentedForm": [
           {
             "contentType": "application/pdf",
             "language": "en-GB",
-            "url": "urn:uuid:1d9c307b-47f0-4e59-93a8-9d849086cdad",
-            "title": "R210.2 Laboratory Report - Ned LIVERPOOL",
-            "creation": "2023-09-12"
+            "url": "urn:uuid:a7b81627-49c6-4675-b0d0-dbcf34f3b37a",
+            "title": "M1.5 Genomic Report - Ned LIVERPOOL",
+            "creation": "2023-09-01"
           }
         ]
       }
@@ -333,10 +348,199 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2c63c3b1-caae-4b8d-835e-f75ccc46ad12",
+      "fullUrl": "urn:uuid:5fcc10f6-959c-41ba-a415-7d203873b220",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "Specimen-LynchReflex-Sections",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/Specimen"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "value": "H23-41022-A1-S1",
+            "system": "http://www.acme.org/specimen/690S0",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690S0"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "type": {
+          "coding": [
+            {
+              "code": "441652008",
+              "system": "http://snomed.info/sct",
+              "display": "Formalin-fixed paraffin-embedded tissue specimen"
+            }
+          ]
+        },
+        "parent": [
+          {
+            "identifier": {
+              "value": "H23-41022-A1",
+              "system": "http://www.acme.org/specimen/690S0",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "690S0"
+                }
+              }
+            }
+          }
+        ],
+        "collection": {
+          "collector": {
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "R0A"
+                }
+              }
+            },
+            "display": "Manchester University NHS Foundation Trust"
+          },
+          "collectedDateTime": "2023-08-14T10:00:00+00:00",
+          "method": {
+            "coding": [
+              {
+                "code": "86273004",
+                "system": "http://snomed.info/sct",
+                "display": "Biopsy"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "code": "32713005",
+                "system": "http://snomed.info/sct",
+                "display": "Caecum structure"
+              }
+            ]
+          }
+        },
+        "contained": [
+          {
+            "resourceType": "Substance",
+            "id": "Substance-LynchReflex-Formalin",
+            "code": {
+              "coding": [
+                {
+                  "code": "BF10",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0371",
+                  "display": "Buffered 10% formalin"
+                }
+              ]
+            }
+          }
+        ],
+        "processing": [
+          {
+            "additive": [
+              {
+                "reference": "#Substance-LynchReflex-Formalin"
+              }
+            ]
+          }
+        ],
+        "receivedTime": "2023-08-23T09:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b190a6a4-54b0-4214-8567-650b633ddd50",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-LynchReflex-MLH1Methylation",
+        "meta": {
+          "profile": [
+            "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryAnalyteResult"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "code": "laboratory",
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "value": "b190a6a4-54b0-4214-8567-650b633ddd50"
+          }
+        ],
+        "status": "final",
+        "effectiveDateTime": "2023-09-01T12:00:00+00:00",
+        "performer": [
+          {
+            "type": "Organization",
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "699X0"
+            },
+            "display": "NORTH WEST GLH"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+          "display": "Ned LIVERPOOL",
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          }
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "58416-9",
+              "system": "http://loinc.org",
+              "display": "MLH1 gene methylation [Presence] in Blood or Tissue by Molecular genetics method"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "LA11883-8",
+              "system": "http://loinc.org",
+              "display": "Not detected"
+            }
+          ]
+        },
+        "specimen": {
+          "reference": "urn:uuid:5fcc10f6-959c-41ba-a415-7d203873b220"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:00ae12e6-6e5a-4fb1-af19-aec069eadc40",
       "resource": {
         "resourceType": "DocumentReference",
-        "id": "DocumentReference-LynchSyndrome-Report",
+        "id": "DocumentReference-LynchReflex-Report",
         "meta": {
           "profile": [
             "https://fhir.nwgenomics.nhs.uk/StructureDefinition/DocumentReference"
@@ -350,7 +554,7 @@
                 "value": "699X0"
               }
             },
-            "value": "2c63c3b1-caae-4b8d-835e-f75ccc46ad12",
+            "value": "00ae12e6-6e5a-4fb1-af19-aec069eadc40",
             "system": "http://www.example.org/documentreference/identifier"
           }
         ],
@@ -374,7 +578,7 @@
                   }
                 },
                 "system": "http://www.acme.org/diagnosticreport/identifiers",
-                "value": "98763a9b-98d4-4cfc-b760-1db086ec52a1"
+                "value": "T23-55120"
               }
             },
             {
@@ -391,11 +595,11 @@
                 "assigner": {
                   "identifier": {
                     "system": "https://fhir.nhs.uk/Id/ods-organization-code",
-                    "value": "699X0"
+                    "value": "690S0"
                   }
                 },
-                "system": "http://www.acme.org/servicerequest",
-                "value": "66717"
+                "system": "http://www.acme.org/servicerequest/690S0",
+                "value": "G23-08317-1"
               }
             }
           ],
@@ -403,7 +607,7 @@
             {
               "coding": [
                 {
-                  "code": "R210.2",
+                  "code": "M1.5",
                   "system": "https://fhir.nhs.uk/CodeSystem/England-GenomicTestDirectory"
                 }
               ]
@@ -411,7 +615,7 @@
           ]
         },
         "status": "current",
-        "date": "2023-09-12T10:00:00+00:00",
+        "date": "2023-09-01T12:00:00+00:00",
         "type": {
           "coding": [
             {
@@ -425,7 +629,7 @@
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "urn:uuid:1d9c307b-47f0-4e59-93a8-9d849086cdad"
+              "url": "urn:uuid:a7b81627-49c6-4675-b0d0-dbcf34f3b37a"
             }
           }
         ],
@@ -440,7 +644,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1d9c307b-47f0-4e59-93a8-9d849086cdad",
+      "fullUrl": "urn:uuid:a7b81627-49c6-4675-b0d0-dbcf34f3b37a",
       "resource": {
         "resourceType": "Binary",
         "id": "Binary-Sample",
