@@ -1,0 +1,135 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "DiagnosticReport-LynchReflex-Histopathology-Supplementary",
+  "meta": {
+    "profile": [
+      "https://fhir.nwgenomics.nhs.uk/StructureDefinition/LaboratoryReport"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.acme.org/CodeSystem/690S0",
+        "code": "HISTO",
+        "display": "Histopathology"
+      },
+      {
+        "code": "1054291000000102",
+        "system": "http://snomed.info/sct",
+        "display": "Cellular pathology report"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "assigner": {
+        "identifier": {
+          "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+          "value": "690S0"
+        }
+      },
+      "value": "H23-41022",
+      "system": "http://www.acme.org/diagnosticreport/identifiers/690S0"
+    }
+  ],
+  "basedOn": [
+    {
+      "type": "ServiceRequest",
+      "identifier": {
+        "type": {
+          "coding": [
+            {
+              "code": "PLAC",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+            }
+          ]
+        },
+        "assigner": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          }
+        },
+        "system": "http://www.acme.org/servicerequest/R0A",
+        "value": "1583320"
+      },
+      "reference": "urn:uuid:a65a592a-2096-46a5-921d-5051b73aac06"
+    }
+  ],
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Histopathology, colonoscopy biopsy of the caecum, for Ned LIVERPOOL. Adenocarcinoma. Loss of nuclear expression of MLH1 and PMS2; MSH2 and MSH6 retained.</p><p>Supplementary report: MLH1 promoter hypermethylation not detected (North West GLH, T23-55120). The loss of MLH1 and PMS2 may be due to Lynch syndrome; referral for germline testing (R210) is recommended.</p></div>"
+  },
+  "status": "appended",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "SP",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "display": "Surgical Pathology"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "urn:uuid:d6faafcf-db64-4c11-9da8-25f36774c1bd",
+    "display": "Ned LIVERPOOL",
+    "identifier": {
+      "system": "https://fhir.nhs.uk/Id/nhs-number",
+      "value": "9737383206"
+    }
+  },
+  "effectiveDateTime": "2023-08-14T10:00:00+00:00",
+  "issued": "2023-09-04T10:00:00+00:00",
+  "performer": [
+    {
+      "identifier": {
+        "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+        "value": "690S0"
+      },
+      "type": "Organization",
+      "display": "MANCHESTER ROYAL INFIRMARY LABORATORY"
+    }
+  ],
+  "resultsInterpreter": [
+    {
+      "type": "PractitionerRole",
+      "reference": "urn:uuid:e84c7e76-b0a0-4c66-971b-4ae2d03ecd5e",
+      "identifier": {
+        "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+        "value": "C2468013"
+      },
+      "display": "FICTITIOUS, Anika"
+    }
+  ],
+  "specimen": [
+    {
+      "reference": "urn:uuid:44b9319c-0a3a-4782-8a55-013968cfad1f"
+    }
+  ],
+  "result": [
+    {
+      "reference": "urn:uuid:2fa5cc1a-7a1e-4c99-ad10-50845819be31"
+    },
+    {
+      "reference": "urn:uuid:6572babb-2723-46d3-a65b-eaf63efcb04d"
+    },
+    {
+      "reference": "urn:uuid:e4421bf6-020a-4700-80ab-a961e97d5ef0"
+    },
+    {
+      "reference": "urn:uuid:b190a6a4-54b0-4214-8567-650b633ddd50"
+    }
+  ],
+  "conclusion": "Caecum, biopsy: adenocarcinoma. Mismatch repair deficient - loss of MLH1 and PMS2. MLH1 promoter hypermethylation not detected (North West GLH): Lynch syndrome is possible, and referral for germline testing (R210) is recommended.",
+  "presentedForm": [
+    {
+      "contentType": "application/pdf",
+      "language": "en-GB",
+      "url": "urn:uuid:9972805f-fc50-4bcc-bbb7-9cff736eb295",
+      "title": "Supplementary cellular pathology report - Ned LIVERPOOL",
+      "creation": "2023-09-04"
+    }
+  ]
+}
