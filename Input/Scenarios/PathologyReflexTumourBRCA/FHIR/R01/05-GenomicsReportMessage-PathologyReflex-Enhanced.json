@@ -357,7 +357,7 @@
                 }
               ]
             },
-            "value": "H25-11823-A3",
+            "value": "H25-11823-A3-S1",
             "system": "http://www.acme.org/specimen/690D0",
             "assigner": {
               "identifier": {
@@ -385,7 +385,32 @@
             }
           ]
         },
+        "parent": [
+          {
+            "identifier": {
+              "value": "H25-11823-A3",
+              "system": "http://www.acme.org/specimen/690D0",
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "690D0"
+                }
+              }
+            }
+          }
+        ],
         "collection": {
+          "collector": {
+            "identifier": {
+              "assigner": {
+                "identifier": {
+                  "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                  "value": "RXN"
+                }
+              }
+            },
+            "display": "Lancashire Teaching Hospitals NHS Foundation Trust"
+          },
           "collectedDateTime": "2025-03-14T10:00:00+00:00",
           "method": {
             "coding": [
@@ -406,6 +431,30 @@
             ]
           }
         },
+        "contained": [
+          {
+            "resourceType": "Substance",
+            "id": "Substance-PathologyReflex-Formalin",
+            "code": {
+              "coding": [
+                {
+                  "code": "BF10",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0371",
+                  "display": "Buffered 10% formalin"
+                }
+              ]
+            }
+          }
+        ],
+        "processing": [
+          {
+            "additive": [
+              {
+                "reference": "#Substance-PathologyReflex-Formalin"
+              }
+            ]
+          }
+        ],
         "receivedTime": "2026-11-05T09:00:00+00:00"
       }
     },
