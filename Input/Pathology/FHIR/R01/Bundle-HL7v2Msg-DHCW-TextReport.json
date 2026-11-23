@@ -1,0 +1,373 @@
+{
+  "resourceType": "Bundle",
+  "id": "HL7v2Msg-DHCW-TextReport",
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:82cfc985-0e53-5b98-9911-0caf3359c78e"
+  },
+  "timestamp": "2018-05-24T12:00:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:85043028-cdac-57f6-9d04-0d62bee73bda",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "HL7v2Msg-DHCW-TextReport-MessageHeader",
+        "eventCoding": {
+          "code": "R01",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A1"
+              }
+            },
+            "endpoint": "http://www.acme.org/Endpoint/7A1"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "RBT"
+          }
+        },
+        "source": {
+          "endpoint": "http://www.acme.org/Endpoint/RBT"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:fd948bb2-e7d2-5ea2-b6ec-cb4b5791eed2",
+            "type": "DiagnosticReport"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "HL7v2Msg-DHCW-TextReport-Patient",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/base/StructureDefinition/patient-eu-core"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9999999506"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/patient/RBT",
+            "value": "RBT4948902",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBT"
+              }
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": "EDITESTPATIENT",
+            "given": [
+              "FIVE"
+            ]
+          }
+        ],
+        "birthDate": "1990-10-19",
+        "gender": "male",
+        "address": [
+          {
+            "postalCode": "ZZ99 3VZ"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:107364a0-53c4-5184-9463-05a765f85eb2",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "HL7v2Msg-DHCW-TextReport-Specimen-1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/specimen/RBT",
+            "value": "8005372251",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBT"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "code": "258574006",
+              "system": "http://snomed.info/sct",
+              "display": "Mid-stream urine specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4"
+        },
+        "collection": {
+          "collectedDateTime": "2018-05-24T00:00:00+00:00"
+        },
+        "receivedTime": "2018-05-24T00:00:00+00:00"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a268a2d3-bcd0-5dbc-acfe-12ff4df4b9cb",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "HL7v2Msg-DHCW-TextReport-ServiceRequest-1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/ServiceRequest-eu-lab"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/servicerequest/7A1",
+            "value": "880413",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "7A1"
+              }
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/servicerequest/RBT",
+            "value": "8005372251-1-M0007",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBT"
+              }
+            }
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "code": "M0007",
+              "system": "http://www.acme.org/CodeSystem/RBT",
+              "display": "Urine MC&S"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4"
+        },
+        "occurrenceDateTime": "2018-05-24T00:00:00+00:00",
+        "requester": {
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:e1edcc39-9592-5ee2-83a5-d0a3bd859ede",
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C9000116"
+          },
+          "display": "Dr Jane FICTITIOUS"
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:107364a0-53c4-5184-9463-05a765f85eb2"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e1edcc39-9592-5ee2-83a5-d0a3bd859ede",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "HL7v2-PractitionerRole-C9000116-7A1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/base/StructureDefinition/practitionerRole-eu-core"
+          ]
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C9000116"
+          },
+          "display": "Dr Jane FICTITIOUS"
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "7A1"
+          },
+          "display": "BETSI CADWALADR UNIVERSITY LOCAL HEALTH BOARD"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c5d5e1fd-b7b4-51b0-9a7f-cbd1eecf8b6e",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "HL7v2Msg-DHCW-TextReport-Observation-1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/Observation-resultslab-eu-lab"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "RPT",
+              "system": "http://www.acme.org/CodeSystem/RBT",
+              "display": "Report line"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4"
+        },
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "RBT"
+            },
+            "type": "Organization"
+          }
+        ],
+        "effectiveDateTime": "2018-05-24T00:00:00+00:00",
+        "valueString": "Specimen received: Mid Stream Urine\n\nAccession Number(s) U18S999001A\nWhite Blood Cell Count 10-99 x10^6/L\nRed Blood Cell Count >=100 x10^6/L\n\n>= 10^8 cfu/L Escherichia coli (ECOL)\n\n Antibiotic/Culture: ECOL\n ------------------- ------\n Nitrofurantoin      S\n Trimethoprim        S\n Amoxicillin         R",
+        "specimen": {
+          "reference": "urn:uuid:107364a0-53c4-5184-9463-05a765f85eb2"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fd948bb2-e7d2-5ea2-b6ec-cb4b5791eed2",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "HL7v2Msg-DHCW-TextReport-DiagnosticReport-1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/base/StructureDefinition/diagnosticReport-eu-core"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "FILL",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/diagnosticreport/identifiers/RBT",
+            "value": "8005372251-1-M0007",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "RBT"
+              }
+            }
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "urn:uuid:a268a2d3-bcd0-5dbc-acfe-12ff4df4b9cb"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "code": "M0007",
+              "system": "http://www.acme.org/CodeSystem/RBT",
+              "display": "Urine MC&S"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4"
+        },
+        "effectiveDateTime": "2018-05-24T00:00:00+00:00",
+        "issued": "2018-05-24T00:00:00+00:00",
+        "performer": [
+          {
+            "identifier": {
+              "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+              "value": "RBT"
+            }
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "urn:uuid:107364a0-53c4-5184-9463-05a765f85eb2"
+          }
+        ],
+        "result": [
+          {
+            "reference": "urn:uuid:c5d5e1fd-b7b4-51b0-9a7f-cbd1eecf8b6e"
+          }
+        ]
+      }
+    }
+  ]
+}

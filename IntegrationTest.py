@@ -76,6 +76,17 @@ Observations. Observations stored before the change, which identify the device b
 instrument string, are a warning (cepheidLegacy), not a failure, until they're reloaded. Both are skipped when FHIR_BASE_URL/FHIR_USER/FHIR_PASSWORD aren't set or
 with --skip-cdr-check.
 
+For groups with "cdr_check" (the pathology groups), each successful send is followed by a
+check that it populated the FHIR repository ({FHIR_BASE_URL}, read-only): a DiagnosticReport
+(R01, by filler order number) or ServiceRequest (O21, by placer order number) created or
+updated by this send, whose subject is a Patient with the NHS number sent, carrying an
+NHSNumberVerificationStatus (the RIE now traces against PDS and sets the status, rather than
+enriching demographics by default), and - if that NHS number was already on a Patient - matched
+to it rather than duplicated (a new Patient is accepted only when flagged 05, the RIE's handling
+of a demographic conflict). The stored name/birth date/postcode are compared with the
+message's as an advisory WARN. See check_cdr_populated. Skipped with --skip-send or
+--skip-cdr-check.
+
 Stage 1/2 outputs are saved under TestingOutput/FHIR/<messageType>/ and TestingOutput/V2/<messageType>/
 - the same layout Testing.ipynb uses under Output/, but in its own top-level directory so a script
 run doesn't clobber a notebook run's output (or vice versa).
@@ -90,7 +101,9 @@ transformToV2 round-trip stage is skipped for these, matching that notebook, sin
 isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage examples
 (O21/R01, sourced from https://nw-gmsa.github.io/en/ - see the "nwgmsa_examples"
 group below), and the end-to-end scenarios exported as FHIR Messages from the IG's ExampleScenarios
-(see Input/Scenarios/). Extend TEST_GROUPS with further scenarios/files as they're added.
+(see Input/Scenarios/), and non-genomic pathology orders/reports from the CancerPathologyReport
+IG's HL7 v2 page, as v2 and as its FHIR Messages ("pathology", "pathology_fhir" - see
+Input/Pathology/). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
     python3 IntegrationTest.py [--skip-send] [--strict-conformance] [--type O21] [--type R01] [--group shire]
@@ -616,6 +629,82 @@ TEST_GROUPS = {
         "input_flat": True,
         "cases": {
             "R01": ["igene-o51-1.txt", "igene-o51-2.txt"],
+        },
+    },
+    # Non-genomic pathology orders and reports - checks the RIE still handles pathology, not
+    # just genomics. The v2 messages are taken verbatim from the CancerPathologyReport IG's
+    # HL7 v2 page (input/pagecontent/HL7v2.md in that repo), one file per example, with CR
+    # segment terminators: the LAB-1 histopathology order (O21), and reports (R01) for the
+    # matching histopathology result, a full blood count with a result copy (OBR-28), the two
+    # DHCW examples adapted to a Cheshire/Merseyside lab reporting to Betsi Cadwaladr (7A1) -
+    # the NW GMSA versions of WALES_ORU_R01_{FULL,TX}.txt - the nine NHS England Pathology FHIR
+    # IG examples (SNOMED-coded tests, EDITESTPATIENT NHS numbers but the NHS England
+    # examples' own names and addresses), and a bowel cancer screening FIT result.
+    # Known source quirks: the histopathology report's PDF is cut short in the IG
+    # ('JVBERi0x...'), so its OBX-5 isn't valid Base64; POS01/POL01/PTC01 and HUB01 are
+    # placeholders, not ODS codes; the FBC's result copy (OBR-28) uses GMC C1234567, which
+    # Practitioner-Mapping.md already gives to FICTITIOUS, Ralph (699X0).
+    # The nine NHS England messages reuse NHS numbers already held in the CDR by other
+    # fixtures' patients with different demographics - 9999999468 by BIRKENHEAD, Catelyn (the
+    # BabyOfCatelyn mother) and 9999999549 by EYES, Misty. On 2026-11-23, sent before any
+    # Patient with their Y8J7D MRN existed, all nine got ACK AR 'ERROR #5035 ... Processing
+    # Exception 502' - the RIE matching on the NHS number into a demographic conflict (MSH-11
+    # 'P'/'T' made no difference). Since the RIE's redeploy at 09:52 UTC it accepts them and
+    # creates a separate Patient flagged 05, leaving the existing record untouched -
+    # cdrPatientMatch accepts that.
+    # The NHS England examples suit the PDS change, where the RIE no longer enriches from PDS by
+    # default and only sets the trace status: PDS returns EDITESTPATIENT demographics for those
+    # NHS numbers, not the names in the message.
+    "pathology": {
+        "input_dir": os.path.join("Input", "Pathology", "V2"),
+        "cdr_check": True,
+        "cases": {
+            "O21": ["HL7v2Msg-LAB1-Histopathology.txt"],
+            "R01": [
+                "HL7v2Msg-LAB3-Histopathology.txt",
+                "HL7v2Msg-LAB3-FBC-ResultCopy.txt",
+                "HL7v2Msg-DHCW-PathologyResult.txt",
+                "HL7v2Msg-DHCW-TextReport.txt",
+                "HL7v2Msg-NHSE-HbA1c.txt",
+                "HL7v2Msg-NHSE-CRP.txt",
+                "HL7v2Msg-NHSE-LFT-UandE.txt",
+                "HL7v2Msg-NHSE-Lipids-HbA1c.txt",
+                "HL7v2Msg-NHSE-FBC.txt",
+                "HL7v2Msg-NHSE-HBsAg.txt",
+                "HL7v2Msg-NHSE-HPV.txt",
+                "HL7v2Msg-NHSE-GTT.txt",
+                "HL7v2Msg-NHSE-UrineMCS.txt",
+                "HL7v2Msg-FIT.txt",
+            ],
+        },
+    },
+    # The same examples as FHIR Messages, the IG's Bundle-HL7v2Msg-*.json (from that repo's
+    # fsh-generated/resources). Claude converted these by hand from the v2 messages, not the
+    # RIE's converter, so they're an independent reference: the v2 group's transformToFHIR
+    # output is compared against them (referenceComparison), and here they're run from FHIR
+    # (transformToV2, then $process-message). Copied verbatim, filenames unchanged.
+    "pathology_fhir": {
+        "input_dir": os.path.join("Input", "Pathology", "FHIR"),
+        "input_format": "fhir",
+        "cdr_check": True,
+        "cases": {
+            "O21": ["Bundle-HL7v2Msg-LAB1-Histopathology.json"],
+            "R01": [
+                "Bundle-HL7v2Msg-LAB3-Histopathology.json",
+                "Bundle-HL7v2Msg-LAB3-FBC-ResultCopy.json",
+                "Bundle-HL7v2Msg-DHCW-PathologyResult.json",
+                "Bundle-HL7v2Msg-DHCW-TextReport.json",
+                "Bundle-HL7v2Msg-NHSE-HbA1c.json",
+                "Bundle-HL7v2Msg-NHSE-CRP.json",
+                "Bundle-HL7v2Msg-NHSE-LFT-UandE.json",
+                "Bundle-HL7v2Msg-NHSE-Lipids-HbA1c.json",
+                "Bundle-HL7v2Msg-NHSE-FBC.json",
+                "Bundle-HL7v2Msg-NHSE-HBsAg.json",
+                "Bundle-HL7v2Msg-NHSE-HPV.json",
+                "Bundle-HL7v2Msg-NHSE-GTT.json",
+                "Bundle-HL7v2Msg-NHSE-UrineMCS.json",
+                "Bundle-HL7v2Msg-FIT.json",
+            ],
         },
     },
     # Every R32 here is the NW Standard shape: OBR-4 the Genomic Test Directory's M84.2 (CML,
@@ -3532,6 +3621,168 @@ ALL_MSG_TYPES = sorted({
 })
 
 
+# --- FHIR repository population (groups with "cdr_check": True) ---
+# The RIE writes to the FHIR repository after it ACKs, so poll for the result rather than
+# reading once.
+CDR_POLL_TIMEOUT = 90   # seconds
+CDR_POLL_INTERVAL = 5
+NHS_VERIFICATION_URL = "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus"
+
+
+def cdr_expectations(msg_type, path, input_format):
+    """What a case should leave in the FHIR repository, read from its source message: the
+    resource to look for (DiagnosticReport by filler order number for a report, ServiceRequest
+    by placer order number for an order), and the patient's NHS number and demographics as
+    sent. Returns None if the message has no order number or NHS number to look for."""
+    resource = "ServiceRequest" if msg_type == "O21" else "DiagnosticReport"
+    exp = {"resource": resource}
+    if input_format == "fhir":
+        with open(path, encoding="utf-8") as f:
+            bundle = json.load(f)
+        res = [e.get("resource", {}) for e in bundle.get("entry", [])]
+        target = next((r for r in res if r.get("resourceType") == resource), {})
+        idents = target.get("identifier", [])
+        if resource == "ServiceRequest":
+            idents = [i for i in idents if "PLAC" in json.dumps(i.get("type", {}))] or idents
+        exp["identifier"] = next((i.get("value") for i in idents if i.get("value")), None)
+        patient = next((r for r in res if r.get("resourceType") == "Patient"), {})
+        exp["nhs"] = next((i.get("value") for i in patient.get("identifier", [])
+                           if i.get("system") == "https://fhir.nhs.uk/Id/nhs-number"), None)
+        name = (patient.get("name") or [{}])[0]
+        exp["family"] = name.get("family")
+        exp["given"] = (name.get("given") or [None])[0]
+        exp["birthDate"] = patient.get("birthDate")
+        exp["postalCode"] = next((a.get("postalCode") for a in patient.get("address", [])), None)
+    else:
+        with open(path, encoding="utf-8", errors="replace", newline="") as f:
+            segs = [s.split("|") for s in re.split(r"\r\n|\r|\n", f.read()) if s]
+        obr = next((s for s in segs if s[0] == "OBR"), [])
+        pid = next((s for s in segs if s[0] == "PID"), [])
+        field = lambda seg, n: seg[n] if len(seg) > n else ""
+        number = field(obr, 2 if resource == "ServiceRequest" else 3)
+        exp["identifier"] = number.split("^")[0] or None
+        exp["nhs"] = next((c.split("^")[0] for c in field(pid, 3).split("~")
+                           if len(c.split("^")) > 4 and c.split("^")[4] == "NH"), None)
+        xpn = field(pid, 5).split("^")
+        exp["family"], exp["given"] = xpn[0] or None, (xpn[1] if len(xpn) > 1 else None) or None
+        dob = field(pid, 7)[:8]
+        exp["birthDate"] = f"{dob[:4]}-{dob[4:6]}-{dob[6:8]}" if len(dob) == 8 else None
+        xad = field(pid, 11).split("~")[0].split("^")
+        exp["postalCode"] = (xad[4] if len(xad) > 4 else None) or None
+    return exp if exp["identifier"] and exp["nhs"] else None
+
+
+def cdr_versions(session, exp):
+    """{id: (versionId, lastUpdated)} for the FHIR repository's resources matching the case."""
+    found, _ = cdr_search(session, f"{exp['resource']}?identifier={exp['identifier']}")
+    return {i: (r.get("meta", {}).get("versionId"), r.get("meta", {}).get("lastUpdated"))
+            for (t, i), r in found.items() if t == exp["resource"]}, found
+
+
+def _norm(value):
+    return re.sub(r"\s+", "", (value or "")).upper()
+
+
+def check_cdr_populated(session, result, exp, before):
+    """After a successful send, checks the FHIR repository was populated by it:
+      cdrPopulated   - a DiagnosticReport/ServiceRequest with the order number was created or
+                       updated (new id, or a new versionId) within CDR_POLL_TIMEOUT
+      cdrPatient     - its subject is a Patient with the NHS number sent
+      cdrPatientMatch - if a Patient with that NHS number was already there, the subject is one of
+                       them, or a new Patient whose NHS number is flagged 05 (trace needs to be
+                       resolved) - how the RIE keeps a demographic conflict separate. A new Patient
+                       without 05 is a duplicate (FHIR $process-message matched on the MRN only)
+      cdrTraceStatus - that NHS number carries an NHSNumberVerificationStatus (the RIE now only
+                       traces against PDS by default, setting the status, rather than enriching)
+      cdrDemographics (advisory) - the Patient's name, birth date and postcode against the
+                       message's; a difference is reported, not failed, as it can come from an
+                       existing record or PDS rather than this message"""
+    label = f"{exp['resource']}?identifier={exp['identifier']}"
+    deadline = time.time() + CDR_POLL_TIMEOUT
+    changed, found = [], {}
+    while True:
+        try:
+            after, found = cdr_versions(session, exp)
+        except (requests.RequestException, ValueError) as e:
+            result.record("cdrPopulated", False, f"FHIR repository search failed: {e}")
+            return
+        changed = sorted(i for i, v in after.items() if before.get(i) != v)
+        if changed or time.time() >= deadline:
+            break
+        time.sleep(CDR_POLL_INTERVAL)
+    if not changed:
+        result.record("cdrPopulated", False,
+                      f"no {label} created or updated within {CDR_POLL_TIMEOUT}s "
+                      f"({len(before)} already there, unchanged)")
+        log(f"FAILED cdrPopulated: nothing new for {label}")
+        return
+    result.record("cdrPopulated", True, "; ".join(
+        f"{exp['resource']}/{i} {'created' if i not in before else 'updated'} "
+        f"(version {found[(exp['resource'], i)].get('meta', {}).get('versionId')})" for i in changed))
+
+    subjects = sorted({found[(exp["resource"], i)].get("subject", {}).get("reference", "") for i in changed})
+    patient_ids = [s.partition("/")[2] for s in subjects if s.startswith("Patient/")]
+    if not patient_ids:
+        result.record("cdrPatient", False, f"subject is {subjects or 'missing'}, expected a Patient reference")
+        return
+    try:
+        patients, _ = cdr_search(session, f"Patient?_id={','.join(patient_ids)}")
+    except (requests.RequestException, ValueError) as e:
+        result.record("cdrPatient", False, f"Patient read failed: {e}")
+        return
+
+    for pid in patient_ids:
+        patient = patients.get(("Patient", pid))
+        if not patient:
+            result.record("cdrPatient", False, f"Patient/{pid} doesn't resolve")
+            continue
+        nhs_ids = [i for i in patient.get("identifier", []) if i.get("system") == "https://fhir.nhs.uk/Id/nhs-number"]
+        values = [i.get("value") for i in nhs_ids]
+        if values == [exp["nhs"]]:
+            result.record("cdrPatient", True, f"Patient/{pid} has NHS number {exp['nhs']}")
+        else:
+            result.record("cdrPatient", False,
+                          f"Patient/{pid} NHS number(s) {values or 'none'}, expected only {exp['nhs']}")
+        statuses = [c for i in nhs_ids if i.get("value") == exp["nhs"]
+                    for x in i.get("extension", []) if x.get("url") == NHS_VERIFICATION_URL
+                    for c in x.get("valueCodeableConcept", {}).get("coding", [])]
+        existing = exp.get("patients_before", set())
+        others = ", ".join(f"Patient/{i}" for i in sorted(existing))
+        if existing and pid not in existing:
+            if any(c.get("code") == "05" for c in statuses):
+                # the RIE's handling of a demographic conflict with the existing record: keep the
+                # message's patient separate, flagged as an unresolved trace, rather than merge or reject
+                result.record("cdrPatientMatch", True,
+                              f"new Patient/{pid} flagged 05 (trace needs to be resolved) - NHS number "
+                              f"{exp['nhs']} is also on {others}, kept separate as a conflict")
+            else:
+                result.record("cdrPatientMatch", False,
+                              f"new Patient/{pid} created, but NHS number {exp['nhs']} was already on "
+                              f"{others} - not matched by NHS number, and not flagged 05 as a conflict")
+        elif existing:
+            result.record("cdrPatientMatch", True, f"matched existing Patient/{pid}")
+        if statuses:
+            result.record("cdrTraceStatus", True, ", ".join(
+                f"{c.get('code')} {c.get('display') or ''}".strip() for c in statuses))
+        else:
+            result.record("cdrTraceStatus", False, f"Patient/{pid} NHS number has no NHSNumberVerificationStatus")
+
+        name = (patient.get("name") or [{}])[0]
+        stored = {
+            "family": name.get("family"),
+            "given": (name.get("given") or [None])[0],
+            "birthDate": patient.get("birthDate"),
+            "postalCode": next((a.get("postalCode") for a in patient.get("address", [])), None),
+        }
+        diffs = [f"{k} sent {exp[k]!r}, stored {stored[k]!r}" for k in stored
+                 if exp.get(k) and _norm(exp[k]) != _norm(stored[k])]
+        if diffs:
+            result.warn("cdrDemographics", f"Patient/{pid} (last updated "
+                        f"{patient.get('meta', {}).get('lastUpdated')}): " + "; ".join(diffs))
+        else:
+            result.record("cdrDemographics", True, f"Patient/{pid} name, birth date and postcode as sent")
+
+
 # Omics DSS orders are stored as work orders performed by the D-LIMS Device, which the
 # server identifies by this identifier.
 DLIMS_DEVICE_IDENTIFIER = ("https://fhir.nwgenomics.nhs.uk/Id/laboratory-information-system", "DLIMS")
@@ -3853,6 +4104,25 @@ def main():
         for msg_type, filename in group_cases:
             case_num += 1
             log(f"--- case {case_num}/{total_cases} ---")
+            # FHIR repository population: note what's there before sending, so afterwards
+            # only resources this send created or updated count (see check_cdr_populated)
+            cdr_exp = cdr_before = None
+            if (group.get("cdr_check") and not args.skip_send and not args.skip_cdr_check
+                    and FHIR_BASE_URL and FHIR_USER and FHIR_PASSWORD):
+                in_dir = group.get("input_dir") or os.path.join(
+                    "Input", "FHIR" if group.get("input_format") == "fhir" else "V2")
+                in_path = (os.path.join(in_dir, filename) if group.get("input_flat")
+                           else os.path.join(in_dir, msg_type, filename))
+                try:
+                    cdr_exp = cdr_expectations(msg_type, in_path, group.get("input_format"))
+                    if cdr_exp:
+                        cdr_before, _ = cdr_versions(session, cdr_exp)
+                        pats, _ = cdr_search(
+                            session, f"Patient?identifier=https://fhir.nhs.uk/Id/nhs-number|{cdr_exp['nhs']}")
+                        cdr_exp["patients_before"] = {i for t, i in pats if t == "Patient"}
+                except (OSError, ValueError, requests.RequestException) as e:
+                    log(f"cdr pre-check failed for {filename}: {e}")
+                    cdr_exp = None
             if group.get("input_format") == "fhir":
                 results.append(run_fhir_source_case(
                     session, group_name, msg_type, filename,
@@ -3870,6 +4140,10 @@ def main():
                     mllp_port=group.get("v2_mllp_port"),
                     expect_no_nhs_number=filename in group.get("expect_no_nhs_number", ()),
                 ))
+            if cdr_exp is not None:
+                sent = [p for s, p, d in results[-1].stages if s == "sendToServer"]
+                if sent and sent[-1]:
+                    check_cdr_populated(session, results[-1], cdr_exp, cdr_before)
 
     if args.skip_cdr_check:
         log("cdr/omicsDss and cdr/cepheidDevice skipped (--skip-cdr-check)")

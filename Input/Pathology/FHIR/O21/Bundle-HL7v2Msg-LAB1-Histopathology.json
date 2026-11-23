@@ -1,0 +1,305 @@
+{
+  "resourceType": "Bundle",
+  "id": "HL7v2Msg-LAB1-Histopathology",
+  "type": "message",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:7008d442-8311-523e-ad2a-1c2197c099f3"
+  },
+  "timestamp": "2023-08-14T10:15:00+00:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:3984d511-3366-50a5-a664-268aa83b652b",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "HL7v2Msg-LAB1-Histopathology-MessageHeader",
+        "eventCoding": {
+          "code": "O21",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0003"
+        },
+        "destination": [
+          {
+            "receiver": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "690S0"
+              }
+            },
+            "endpoint": "http://www.acme.org/Endpoint/690S0"
+          }
+        ],
+        "sender": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          }
+        },
+        "source": {
+          "endpoint": "http://www.acme.org/Endpoint/R0A"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:9f7f2dc8-92e5-5603-a8bf-1ff6c104a3ce",
+            "type": "ServiceRequest"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9cd7128b-ad0c-5a39-aea1-3cb09521960c",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "HL7v2Msg-LAB1-Histopathology-Patient",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/base/StructureDefinition/patient-eu-core"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9737383206"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/patient/R0A",
+            "value": "7742315",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": "LIVERPOOL",
+            "given": [
+              "Ned"
+            ]
+          }
+        ],
+        "birthDate": "1942-06-18",
+        "gender": "male",
+        "address": [
+          {
+            "line": [
+              "20 Forthlin Road"
+            ],
+            "city": "LIVERPOOL",
+            "postalCode": "L18 9TN"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:166f1161-b412-51e2-9ef8-7348c79c0e67",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "HL7v2Msg-LAB1-Histopathology-Encounter",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "AN",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/encounter/identifiers/R0A",
+            "value": "SP2308140915",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "status": "in-progress",
+        "class": {
+          "code": "AMB",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+        },
+        "subject": {
+          "reference": "urn:uuid:9cd7128b-ad0c-5a39-aea1-3cb09521960c"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:01b3a0f8-7f74-5fb0-9f7d-e58fd46067ff",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "HL7v2Msg-LAB1-Histopathology-Specimen-1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/specimen/R0A",
+            "value": "1583320-A",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "code": "258415003",
+              "system": "http://snomed.info/sct",
+              "display": "Biopsy specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:9cd7128b-ad0c-5a39-aea1-3cb09521960c"
+        },
+        "collection": {
+          "method": {
+            "coding": [
+              {
+                "code": "86273004",
+                "system": "http://snomed.info/sct",
+                "display": "Biopsy"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "code": "32713005",
+                "system": "http://snomed.info/sct",
+                "display": "Caecum structure"
+              }
+            ]
+          },
+          "collectedDateTime": "2023-08-14T10:00:00+00:00"
+        },
+        "note": [
+          {
+            "text": "A: Caecal mass, colonoscopic biopsies"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9f7f2dc8-92e5-5603-a8bf-1ff6c104a3ce",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "HL7v2Msg-LAB1-Histopathology-ServiceRequest-1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/laboratory/StructureDefinition/ServiceRequest-eu-lab"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "PLAC",
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ]
+            },
+            "system": "http://www.acme.org/servicerequest/R0A",
+            "value": "1583320",
+            "assigner": {
+              "identifier": {
+                "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+                "value": "R0A"
+              }
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "code": "HISTO",
+              "system": "http://www.acme.org/CodeSystem/690S0",
+              "display": "Histopathology"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:9cd7128b-ad0c-5a39-aea1-3cb09521960c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:166f1161-b412-51e2-9ef8-7348c79c0e67"
+        },
+        "occurrenceDateTime": "2023-08-14T10:00:00+00:00",
+        "requester": {
+          "type": "PractitionerRole",
+          "reference": "urn:uuid:a5971f10-38af-5605-b979-36174612eab2",
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C3456789"
+          },
+          "display": "Dr Samuel Darwin"
+        },
+        "specimen": [
+          {
+            "reference": "urn:uuid:01b3a0f8-7f74-5fb0-9f7d-e58fd46067ff"
+          }
+        ],
+        "note": [
+          {
+            "text": "Change in bowel habit. Colonoscopy: ulcerated mass in the caecum."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a5971f10-38af-5605-b979-36174612eab2",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "HL7v2-PractitionerRole-C3456789-R0A",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/base/StructureDefinition/practitionerRole-eu-core"
+          ]
+        },
+        "practitioner": {
+          "identifier": {
+            "system": "https://fhir.hl7.org.uk/Id/gmc-number",
+            "value": "C3456789"
+          },
+          "display": "Dr Samuel Darwin"
+        },
+        "organization": {
+          "identifier": {
+            "system": "https://fhir.nhs.uk/Id/ods-organization-code",
+            "value": "R0A"
+          },
+          "display": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        }
+      }
+    }
+  ]
+}

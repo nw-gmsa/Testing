@@ -105,6 +105,14 @@ results in `Results/FHIR/GenomicsReporting/`.
   top level are real exports; `R32/` holds the LOINC-coded NW Standard `R32` results used by
   `IntegrationTest.py`'s `cepheid` group, with their local-code originals in `R32/Backup/`;
   `ASTM/` holds the matching ASTM version of each `R32/` message).
+- `Input/Pathology/{V2,FHIR}/{O21,R01}` — non-genomic pathology order/report examples
+  from the CancerPathologyReport IG (sibling repo `../CancerPathologyReport`): the v2
+  messages from its `input/pagecontent/HL7v2.md`, and the matching FHIR Messages
+  (`fsh-generated/resources/Bundle-HL7v2Msg-*.json`) - hand-converted by Claude, not by
+  the RIE's converter, so an independent reference. Used by `IntegrationTest.py`'s
+  `pathology`/`pathology_fhir` groups, which also check the sends populated the FHIR
+  repository (`cdr_check`). Resync from that repo when its examples change. The NHS England
+  examples share NHS numbers with other fixtures' patients - see the group comment.
 - `Input/VCF/` — source VCF files for the standalone `miscellaneous-notebooks/VCFToFHIRVariant.ipynb` demo (HL7
   genomics-reporting IG `variant` profile, not the NW-GMSA pipeline).
 - `Output/{FHIR,V2,PDF,Markdown}/<type>/` — generated artifacts from the transform/render

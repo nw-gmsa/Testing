@@ -66,6 +66,10 @@ Use these when a fixture's practitioner may be a real person (see the next secti
 | FICTITIOUS, Nell |  | None | - | - | Name only, no code |
 | FICTITIOUS, Fiona | Dr | GMC | `C9000114` | `R0A` | Consultant in fetal medicine, ordering provider (Rapid Prenatal Exome Sequencing scenario) |
 | FICTITIOUS, Ottilie | Dr | GMC | `C9000113` | `RP4` | GOSH consultant, ordering provider (Specialist Test for Another GLH scenario) |
+| FICTITIOUS, Andar | Dr | GMC | `C9000115` | `7A1` | Betsi Cadwaladr clinician, ordering provider (CancerPathologyReport IG's DHCW pathology result, `Input/Pathology/**/*DHCW-PathologyResult*`) |
+| FICTITIOUS, Jane | Dr | GMC | `C9000116` | `7A1` | Betsi Cadwaladr clinician, ordering provider (CancerPathologyReport IG's DHCW text report, `Input/Pathology/**/*DHCW-TextReport*`) |
+| FICTITIOUS, Alex | Dr | GMC | `C7654321` | `POS01` (placeholder) | Shared care unit clinician, ordering provider (CancerPathologyReport IG's FBC with result copy, `Input/Pathology/**/*LAB3-FBC-ResultCopy*`) |
+| GASKELL, Gale | Dr | GMC | `C1008215` | `B82033` | GP, ordering provider - from NHS England's published Pathology FHIR IG examples, kept as published (`Input/Pathology/**/*NHSE-*`) |
 | FICTITIOUS, Nathaniel |  | HCPC | `CS90005` | North Thames GLH | Clinical scientist, results interpreter (Rapid Prenatal Exome Sequencing scenario) |
 | FICTITIOUS, Iris |  | HCPC | `CS90006` | `R0A` | Clinical scientist (Histotrac H&I lab), chimerism results interpreter (`Input/Chimerism/Clatterbridge-REN-ORU_R01.txt`, `Input/Chimerism/Histotrac_ORU_For_Clatterbridge.txt` OBR-32) |
 
