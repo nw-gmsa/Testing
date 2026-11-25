@@ -103,7 +103,8 @@ isn't yet verified for R32), and the NW-GMSA IG's own published BundleMessage ex
 group below), and the end-to-end scenarios exported as FHIR Messages from the IG's ExampleScenarios
 (see Input/Scenarios/), and non-genomic pathology orders/reports from the CancerPathologyReport
 IG's HL7 v2 page, as v2 and as its FHIR Messages ("pathology", "pathology_fhir" - see
-Input/Pathology/). Extend TEST_GROUPS with further scenarios/files as they're added.
+Input/Pathology/), and an ADT test pack of the HSCIC ITK ADT examples from the IHE UK PAM IG ("adt" -
+see Input/V2/ADT/). Extend TEST_GROUPS with further scenarios/files as they're added.
 
 Usage:
     python3 IntegrationTest.py [--skip-send] [--strict-conformance] [--type O21] [--type R01] [--group shire]
@@ -734,6 +735,52 @@ TEST_GROUPS = {
                 "csv-4-below-lod.txt",
                 "csv-5-failed-run.txt",
             ],
+        },
+    },
+    # ADT test pack: the 30 ADT examples from the HSCIC ITK HL7 v2 message set (v2.5.1), taken
+    # verbatim from the IHE UK PAM (unofficial) IG's example page
+    # (https://nw-gmsa.github.io/IHEUK-PAM-Unofficial/en/hscic-examples.html) with CR segment
+    # terminators - one file per example, numbered in the page's order: Patient Identity
+    # Management [ITI-30] (A28, A31, A40), Basic/Inpatient-Outpatient/Pending/Advanced Encounter
+    # Management [ITI-31], and the "Update Master" variants sent *to* the PAS by departmental
+    # systems (KIOSK, MATSYSTEM, ELECWHITEBOARD, SURGDASHBOARD). The page's PDQ queries
+    # (QBP/RSP/QCN) are out of scope and not included. Run in step order - the identity create
+    # comes before updates and the merge, and each encounter event follows the one it amends or
+    # cancels. Every message is NHS England EDI test patient EDITESTPATIENT, TEN (9999999557,
+    # RCB York) - NHS number only in PID-3, no trust MRN, so nothing to add to MRN-Mapping.md.
+    # Known source quirks, kept verbatim: the A28 and first A31 have PID-7 198013011515 (month
+    # 13; the other messages have 198001011515), reported by v2Dates as advisory WARN, and the
+    # A12s' DG1-5 is 201030081030 (month 30, a field v2Dates doesn't check). The
+    # messages carry the ITK Z-segments (ZU1/ZU3/ZU4/ZU6/ZU8). ADT isn't on the NW-GMSA v2 page,
+    # so v2/FHIR conformance is reported as not applicable.
+    "adt": {
+        "input_dir": os.path.join("Input", "V2", "ADT"),
+        "input_flat": True,
+        "step_order": True,
+        "cases": {
+            "A28": ["01-ADT_A28_CreatePatient.txt"],
+            "A31": ["02-ADT_A31_UpdatePatient.txt", "04-ADT_A31_UpdatePatientUpdateMaster.txt"],
+            "A40": ["03-ADT_A40_MergeTwoPatient.txt"],
+            "A01": ["05-ADT_A01_InpatientAdmission.txt"],
+            "A03": ["06-ADT_A03_DischargePatient.txt", "26-ADT_A03_DischargeMaster.txt"],
+            "A04": ["07-ADT_A04_RegisterOutpatient.txt", "27-ADT_A04_RegisterOutpatientUpdateMaster.txt"],
+            "A05": ["08-ADT_A05_PreadmitPatient.txt", "13-ADT_A05_PreAdmitPatient.txt"],
+            "A08": ["09-ADT_A08_UpdateEncounter.txt"],
+            "A11": ["10-ADT_A11_CancelInpatient.txt"],
+            "A13": ["11-ADT_A13_CancelDischarge.txt", "28-ADT_A13_CancelDischargeMaster.txt"],
+            "A02": ["12-ADT_A02_TransferPatient.txt", "29-ADT_A02_TransferPatientUpdateMaster.txt"],
+            "A12": ["14-ADT_A12_CancelTransferPatient.txt", "30-ADT_A12_CancelTransferPatientUpdateMaster.txt"],
+            "A38": ["15-ADT_A38_CancelPreAdmitPatient.txt"],
+            "A14": ["16-ADT_A14_PendingAdmit.txt"],
+            "A15": ["17-ADT_A15_PendingTransfer.txt"],
+            "A16": ["18-ADT_A16_PendingDischarge.txt"],
+            "A25": ["19-ADT_A25_CancelPendingDischarge.txt"],
+            "A26": ["20-ADT_A26_CancelPendingTransfer.txt"],
+            "A27": ["21-ADT_A27_CancelPendingAdmit.txt"],
+            "A21": ["22-ADT_A21_LeaveOfAbsence.txt"],
+            "A22": ["23-ADT_A22_ReturnFromLeaveOfAbsence.txt"],
+            "A52": ["24-ADT_A52_CancelLeaveOfAbsence.txt"],
+            "A53": ["25-ADT_A53_CancelReturnFromLeaveOfAbsence.txt"],
         },
     },
 }

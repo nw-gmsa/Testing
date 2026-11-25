@@ -87,6 +87,12 @@ results in `Results/FHIR/GenomicsReporting/`.
 
 - `Input/V2/{O01,O21,R01}` — hand-crafted/generated source HL7 v2 test messages, keyed
   by trigger event.
+- `Input/V2/ADT/` — ADT test pack: the 30 HSCIC ITK v2.5.1 ADT examples (A01-A53, ITI-30/31,
+  including the "Update Master" variants) taken verbatim from the IHE UK PAM (unofficial) IG
+  (https://nw-gmsa.github.io/IHEUK-PAM-Unofficial/en/hscic-examples.html), one file per
+  example, `NN-` numbered in the page's order, CR-terminated. Used by `IntegrationTest.py`'s
+  `adt` group (run in step order). The page's PDQ queries (QBP/RSP/QCN) are not included.
+  Resync from that page if it changes.
 - `Input/FHIR/` — source FHIR examples used for `transformToV2`.
   `Input/FHIR/NWGMSA-Examples/{O21,R01,O51,A31}` holds the NW-GMSA IG's own published
   `BundleMessage` examples verbatim (fetched from
