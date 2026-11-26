@@ -106,14 +106,19 @@ IG's HL7 v2 page, as v2 and as its FHIR Messages ("pathology", "pathology_fhir" 
 Input/Pathology/), and an ADT test pack of the HSCIC ITK ADT examples from the IHE UK PAM IG ("adt" -
 see Input/V2/ADT/). Extend TEST_GROUPS with further scenarios/files as they're added.
 
+The "validate" group instead POSTs a sample of v2 and FHIR fixtures to the ESB's $validate
+(FHIR_SERVER + "$validate" - v2 in a Binary, which the ESB converts to a FHIR Message first) and
+fails a case on any error/fatal issue - see run_validate_case. --skip-validate leaves it out.
+
 Usage:
-    python3 IntegrationTest.py [--skip-send] [--strict-conformance] [--type O21] [--type R01] [--group shire]
+    python3 IntegrationTest.py [--skip-send] [--skip-validate] [--strict-conformance] [--type O21] [--type R01] [--group shire]
 
 Exit code is 0 if every stage of every case passed (conformance WARNs don't count unless
 --strict-conformance), 1 otherwise.
 """
 
 import argparse
+import base64
 import datetime
 import json
 import os
@@ -781,6 +786,40 @@ TEST_GROUPS = {
             "A22": ["23-ADT_A22_ReturnFromLeaveOfAbsence.txt"],
             "A52": ["24-ADT_A52_CancelLeaveOfAbsence.txt"],
             "A53": ["25-ADT_A53_CancelReturnFromLeaveOfAbsence.txt"],
+        },
+    },
+    # The ESB's $validate (FHIR_SERVER + "$validate", RIE.FHIR.Validate - the HL7 FHIR Validator
+    # on the ESB servers, against the NW-GMSA IG) - see run_validate_case. Each validation takes
+    # ~25s, so this is a sample, not every fixture: O21 and R01 only for now (the ESB also takes
+    # O51/R32 but those aren't a priority; it rejects anything else, e.g. ADT, with "Only R01,
+    # R32, O21 and O51 events are supported"), from each source - the repo's own v2, the
+    # pathology IG, and the NW-GMSA and NHS Digital IGs' own examples. Intended to grow into
+    # IG conformance testing for IHE LTW, HL7 Genomics Reporting, NHS England Genomics and the
+    # EU Laboratory Report. Intermittent HTTP 500s at ~30s are the ESB's web tier timing out
+    # (validations take 24-41s), not the message. v2 goes in a Binary
+    # (x-application/hl7-v2+er7); the ESB converts it with the same transform as its v2 feeds and
+    # validates the resulting FHIR Message (as nw-gmsa/julius's fhir_validator.py does). Paths are
+    # relative to Input/; the extension says which format a case is. A case fails on any
+    # error/fatal issue, or when the ESB can't validate it at all. Nothing is stored, so
+    # --skip-send doesn't apply; --skip-validate leaves the group out.
+    "validate": {
+        "esb_validate": True,
+        "input_dir": "Input",
+        "input_flat": True,
+        "cases": {
+            "O21": [
+                "V2/O21/OML_O21_RPY.txt",
+                "FHIR/NWGMSA-Examples/O21/Bundle-GenomicsOrderMessage-ctDNA.json",
+                "FHIR/NHSDigital-Examples/O21/Bundle-WGSTestOrderForm-Example.json",
+            ],
+            "R01": [
+                "V2/R01/ORU_R01_DLIMS.txt",
+                "V2/R01/ctdna9737873858.txt",
+                "Pathology/V2/R01/HL7v2Msg-LAB3-Histopathology.txt",
+                "FHIR/NWGMSA-Examples/R01/Bundle-GenomicsReportMessage.json",
+                "FHIR/NHSDigital-Examples/R01/Bundle-GenomicReportVisibility-JamesWilson-Example.json",
+                "Pathology/FHIR/R01/Bundle-HL7v2Msg-LAB3-Histopathology.json",
+            ],
         },
     },
 }
@@ -3663,6 +3702,117 @@ def run_fhir_source_case(session, group, msg_type, filename, input_dir, skip_sen
     return result
 
 
+# --- The ESB's $validate (groups with "esb_validate": True) ---
+ESB_VALIDATE_TIMEOUT = 600  # seconds - one validation is ~25s, but the ESB queues them
+HL7V2_BINARY_CONTENT_TYPE = "x-application/hl7-v2+er7"
+
+
+def run_validate_case(session, group, msg_type, filename, input_dir):
+    """POST one fixture to FHIR_SERVER's $validate and fail on any error/fatal issue.
+
+    A FHIR Message is sent as-is. A v2 message (.txt) is sent in a Binary; the ESB converts
+    it to a FHIR Message and replies with a Parameters holding "return" (the OperationOutcome)
+    and "message" (the converted Bundle) - no "message" means the conversion failed. The
+    ESB doesn't need a token for $validate. The OperationOutcome (and, for v2, the converted
+    Bundle) are saved under TestingOutput/Validate/<type>/.
+    """
+    is_v2 = filename.endswith(".txt")
+    base = os.path.basename(filename)
+    result = CaseResult(f"{group}/{msg_type}/{base} ({'v2' if is_v2 else 'FHIR'})")
+    path = os.path.join(input_dir, filename)
+    try:
+        with open(path, "rb") as f:
+            raw = f.read()
+    except OSError as e:
+        result.record("load", False, str(e))
+        return result
+    result.record("load", True, f"{len(raw)} bytes")
+
+    if is_v2:
+        segments = [s for s in re.split(rb"\r\n|\n|\r", raw.strip()) if s.strip()]
+        body = json.dumps({
+            "resourceType": "Binary",
+            "contentType": HL7V2_BINARY_CONTENT_TYPE,
+            "data": base64.b64encode(b"\r".join(segments) + b"\r").decode("ascii"),
+        }).encode("utf-8")
+    else:
+        body = raw
+
+    url = f"{FHIR_SERVER}$validate"
+    log(f"POST {url} ({'v2 in a Binary' if is_v2 else 'FHIR'}: {filename})")
+    started = time.time()
+    try:
+        r = post_with_retry(
+            session, url, data=body,
+            headers={"Content-Type": "application/fhir+json", "Accept": "application/fhir+json"},
+            verify=False, timeout=ESB_VALIDATE_TIMEOUT,
+        )
+    except requests.Timeout:
+        result.record("esbValidate", False, f"TIMEOUT after {ESB_VALIDATE_TIMEOUT}s")
+        return result
+    except requests.RequestException as e:
+        result.record("esbValidate", False, f"request error: {e}")
+        return result
+    elapsed = time.time() - started
+    try:
+        reply = r.json()
+    except ValueError:
+        reply = None
+    if not isinstance(reply, dict) or reply.get("resourceType") not in ("OperationOutcome", "Parameters"):
+        title = re.search(r"<title>(.*?)</title>", r.text, re.S | re.I)
+        detail = title.group(1).strip() if title else r.text[:200]
+        result.record("esbValidate", False, f"HTTP {r.status_code}, no OperationOutcome: {detail}")
+        return result
+
+    outcome, converted = reply, None
+    if reply["resourceType"] == "Parameters":
+        params = {p.get("name"): p.get("resource") for p in reply.get("parameter", [])}
+        outcome = params.get("return") or {"resourceType": "OperationOutcome", "issue": []}
+        converted = params.get("message")
+
+    out_dir = os.path.join(OUTPUT_ROOT, "Validate", msg_type)
+    os.makedirs(out_dir, exist_ok=True)
+    stem = os.path.splitext(base)[0]
+    with open(os.path.join(out_dir, f"{stem}.OperationOutcome.json"), "w", encoding="utf-8") as f:
+        json.dump(outcome, f, indent=2)
+    if converted:
+        with open(os.path.join(out_dir, f"{stem}.Bundle.json"), "w", encoding="utf-8") as f:
+            json.dump(converted, f, indent=2)
+
+    issues = outcome.get("issue", [])
+    counts = {}
+    for issue in issues:
+        sev = issue.get("severity", "unknown")
+        counts[sev] = counts.get(sev, 0) + 1
+    summary = ", ".join(f"{n} {s}" for s, n in sorted(counts.items())) or "no issues"
+
+    if (len(issues) == 1 and issues[0].get("severity") == "information"
+            and "validation disabled" in (issues[0].get("diagnostics") or "").lower()):
+        result.record("esbValidate", False, "FHIR validation is disabled on the ESB (FHIRValidatorEnabled)")
+        return result
+    if is_v2:
+        result.record("esbConversion", converted is not None,
+                      "converted to a FHIR Message" if converted else
+                      "no converted FHIR Message returned - the ESB's v2 conversion failed")
+
+    def text(issue):
+        where = (issue.get("expression") or issue.get("location") or [""])[0]
+        msg = issue.get("diagnostics") or issue.get("details", {}).get("text", "")
+        return f"{msg[:300]}" + (f" @ {where}" if where else "")
+
+    errors = [i for i in issues if i.get("severity") in ("error", "fatal")]
+    warnings = [i for i in issues if i.get("severity") == "warning"]
+    if errors:
+        result.record("esbValidate", False, f"{summary} ({elapsed:.0f}s)\n"
+                      + "\n".join(f"        - {text(i)}" for i in errors))
+    else:
+        result.record("esbValidate", True, f"{summary} ({elapsed:.0f}s)")
+    if warnings:
+        result.warn("esbValidateWarnings", f"{len(warnings)} warning(s), e.g. {text(warnings[0])}")
+    log(f"esbValidate: {summary} in {elapsed:.0f}s")
+    return result
+
+
 ALL_MSG_TYPES = sorted({
     msg_type for group in TEST_GROUPS.values() for msg_type in group["cases"]
 })
@@ -4120,6 +4270,10 @@ def main():
         help="Skip the read-only FHIR repository checks of Omics DSS work orders (cdr/omicsDss) "
              "and Cepheid Observations (cdr/cepheidDevice).",
     )
+    parser.add_argument(
+        "--skip-validate", action="store_true",
+        help="Leave out the groups that run the ESB's $validate (the 'validate' group - ~25s a case).",
+    )
     args = parser.parse_args()
 
     global STRICT_CONFORMANCE
@@ -4130,6 +4284,8 @@ def main():
         sys.exit(2)
 
     groups = args.groups or list(TEST_GROUPS)
+    if args.skip_validate:
+        groups = [g for g in groups if not TEST_GROUPS[g].get("esb_validate")]
     types = args.types or ALL_MSG_TYPES
 
     total_cases = sum(
@@ -4170,7 +4326,10 @@ def main():
                 except (OSError, ValueError, requests.RequestException) as e:
                     log(f"cdr pre-check failed for {filename}: {e}")
                     cdr_exp = None
-            if group.get("input_format") == "fhir":
+            if group.get("esb_validate"):
+                results.append(run_validate_case(
+                    session, group_name, msg_type, filename, group.get("input_dir") or "Input"))
+            elif group.get("input_format") == "fhir":
                 results.append(run_fhir_source_case(
                     session, group_name, msg_type, filename,
                     input_dir=group.get("input_dir") or os.path.join("Input", "FHIR"),
