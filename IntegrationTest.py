@@ -104,7 +104,12 @@ group below), and the end-to-end scenarios exported as FHIR Messages from the IG
 (see Input/Scenarios/), and non-genomic pathology orders/reports from the CancerPathologyReport
 IG's HL7 v2 page, as v2 and as its FHIR Messages ("pathology", "pathology_fhir" - see
 Input/Pathology/), and an ADT test pack of the HSCIC ITK ADT examples from the IHE UK PAM IG ("adt" -
-see Input/V2/ADT/). Extend TEST_GROUPS with further scenarios/files as they're added.
+see Input/V2/ADT/), organisation-code normalisation and ISO 3166 for referrers outside the UK
+("ods_codes"), and the authenticated HL7 v2 HTTP service on port 9982 ("http_auth" - see
+run_http_auth_case). Every v2 case is also checked for uncorrected organisation codes (odsCodes -
+see check_ods_codes) and for iGene's NTE test description kept as code.text rather than a Genomic
+Test Directory display, with the study Observation's performer (gtdDisplay - see check_gtd_display).
+Extend TEST_GROUPS with further scenarios/files as they're added.
 
 The "validate" group instead POSTs a sample of v2 and FHIR fixtures to the ESB's $validate
 (FHIR_SERVER + "$validate" - v2 in a Binary, which the ESB converts to a FHIR Message first) and
@@ -786,6 +791,73 @@ TEST_GROUPS = {
             "A22": ["23-ADT_A22_ReturnFromLeaveOfAbsence.txt"],
             "A52": ["24-ADT_A52_CancelLeaveOfAbsence.txt"],
             "A53": ["25-ADT_A53_CancelReturnFromLeaveOfAbsence.txt"],
+        },
+    },
+    # Organisation codes as the RIE now writes them (RIE-SourceCode 373f22a): Library.NormaliseODSCode
+    # corrects known sender errors/local codes (ROA, letter O -> R0A; SH_OLDHAM, Royal Oldham -> RM3),
+    # and Library.OrganisationCodeSystem gives an ISO 3166-1 alpha-3 country code (a referrer outside
+    # the UK, e.g. IRL, BEL) the system urn:iso:std:iso:3166 instead of the ODS one - on
+    # ServiceRequest.requester, PractitionerRole.organization and placer/MRN assigners. MFT EPIC
+    # 10-digit placer numbers are now assigned by R0A, not ROA. Every v2 case is checked for
+    # uncorrected codes (odsCodes - see check_ods_codes); "expect_org_codes" additionally lists the
+    # codes each file's FHIR must carry, and with which system. The *_SH_OLDHAM/_ROA/_IRL files are
+    # built for this; R0A-Belgium.txt (BEL in XON-6 rather than XON-3) and the ZT001/SG9 reports
+    # (Northern Ireland/Scotland have ODS-style codes, so stay ODS) are regression cases. The IRL
+    # patient is the international test patient DLIMStest/Hera (no NHS number) of R0A-Belgium.txt.
+    # Known gaps at 373f22a (these cases fail until the RIE covers them): normalisation and ISO 3166
+    # are applied only to ORC-21-derived codes, not to MSH-4 (MessageHeader.sender), PID-3's
+    # assigning authority (Patient MRN assigner, DocumentReference.context.sourcePatientInfo) or
+    # SPM-2 (Specimen identifier assigner) - OML_O21_ROA_MSH_PID_SPM_R125.txt carries ROA in each of
+    # those, and the IRL files carry IRL in them.
+    # The SH_OLDHAM R01 also carries a truncated iGene NTE test description, for gtdDisplay
+    # (47cf363 - see check_gtd_display, which runs on every v2 case).
+    "ods_codes": {
+        "cases": {
+            "O21": [
+                "OML_O21_RM3_SH_OLDHAM_R125.txt",
+                "OML_O21_ROA_R125.txt",
+                "OML_O21_ROA_MSH_PID_SPM_R125.txt",
+                "OML_O21_IRL_R125.txt",
+            ],
+            "R01": [
+                "ORU_R01_R125.1_SH_OLDHAM.txt",
+                "ORU_R01_R125.1_ROA.txt",
+                "ORU_R01_R125.1_IRL.txt",
+                "R0A-Belgium.txt",
+                "ORU_R01_R125.1_ZT001.txt",
+                "ORU_R01_R125.1_SG9.txt",
+            ],
+        },
+        "expect_no_nhs_number": ["OML_O21_IRL_R125.txt", "ORU_R01_R125.1_IRL.txt", "R0A-Belgium.txt"],
+        "expect_org_codes": {
+            "OML_O21_RM3_SH_OLDHAM_R125.txt": {"RM3": "ods"},
+            "OML_O21_ROA_R125.txt": {"R0A": "ods"},
+            "OML_O21_ROA_MSH_PID_SPM_R125.txt": {"R0A": "ods"},
+            "OML_O21_IRL_R125.txt": {"IRL": "iso3166"},
+            "ORU_R01_R125.1_SH_OLDHAM.txt": {"RM3": "ods"},
+            "ORU_R01_R125.1_ROA.txt": {"R0A": "ods"},
+            "ORU_R01_R125.1_IRL.txt": {"IRL": "iso3166"},
+            "R0A-Belgium.txt": {"BEL": "iso3166"},
+            "ORU_R01_R125.1_ZT001.txt": {"ZT001": "ods"},
+            "ORU_R01_R125.1_SG9.txt": {"SG9": "ods"},
+        },
+        # 10-digit MFT EPIC placer numbers: assigned by R0A (not ROA), EPIC placer system
+        "expect_epic_placer": ["OML_O21_ROA_R125.txt", "OML_O21_ROA_MSH_PID_SPM_R125.txt",
+                               "ORU_R01_R125.1_ROA.txt"],
+    },
+    # The authenticated HL7 v2 HTTP service (RIE-SourceCode 9688a55/243e3b0:
+    # OrderFillerHL7v2HttpsService, RIE.Service.HL7v2HTTPService on port 9982 of V2_SERVER's host,
+    # BasicAuthEnabled and OAuth2Enabled). One message is sent with each kind of credentials: none,
+    # a wrong Basic password and a made-up bearer token must get HTTP 401 with a WWW-Authenticate
+    # challenge and no ACK (the message isn't processed); the OAuth2 client-credentials token
+    # (OAUTH2_TOKEN/CLIENT_ID/CLIENT_SECRET, as for FHIR_SERVER) must get ACK AA - which also
+    # exercises 0b5cdf6 (an enriched-message reply is ACKed AA, not a <PROPERTY DOES NOT EXIST>).
+    # Basic with an IRIS user is tried only when V2_AUTH_USER/V2_AUTH_PASSWORD are set in .env.
+    # See run_http_auth_case. --skip-send leaves it out.
+    "http_auth": {
+        "http_auth_port": 9982,
+        "cases": {
+            "R01": ["ORU_R01_R125.1_ROA.txt"],
         },
     },
     # The ESB's $validate (FHIR_SERVER + "$validate", RIE.FHIR.Validate - the HL7 FHIR Validator
@@ -2083,6 +2155,121 @@ def check_encounter_status(v2_text, bundle):
     return True, problems
 
 
+ISO3166_SYSTEM = "urn:iso:std:iso:3166"
+# RIE.FHIR.Library.NormaliseODSCode's built-in corrections (RIE-SourceCode 373f22a); the RIE's
+# ODSCodeCorrections lookup table can add more, which this doesn't know about.
+ODS_CORRECTIONS = {"ROA": "R0A", "SH_OLDHAM": "RM3"}
+# RIE.FHIR.Library.IsISO3166Alpha3's built-in list (extendable on the RIE by its ISO3166Countries table)
+ISO3166_ALPHA3 = set(
+    "ARE,AUS,AUT,BEL,BGR,CAN,CHE,CYP,CZE,DEU,DNK,ESP,EST,FIN,FRA,GRC,HRV,HUN,IRL,ISL,ISR,ITA,LTU,LUX,"
+    "LVA,MLT,NLD,NOR,NZL,POL,PRT,ROU,SAU,SVK,SVN,SWE,TUR,USA".split(","))
+EPIC_PLACER_SYSTEM = "urn:oid:1.2.840.114350.1.13.861.1.7.2.798268"
+
+
+def _organisation_identifiers(node, path=""):
+    """Every Identifier in the Bundle whose system is the ODS organisation code or ISO 3166 -
+    ServiceRequest.requester, PractitionerRole.organization, identifier/performer assigners and
+    so on - as (path, system, value)."""
+    if isinstance(node, dict):
+        if node.get("system") in (ODS_ORG_SYSTEM, ISO3166_SYSTEM) and "value" in node:
+            yield path, node["system"], node["value"]
+        for k, v in node.items():
+            yield from _organisation_identifiers(v, f"{path}.{k}" if path else k)
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            yield from _organisation_identifiers(v, f"{path}[{i}]")
+
+
+def check_ods_codes(bundle, expected=None):
+    """Organisation codes as RIE-SourceCode 373f22a writes them: no code NormaliseODSCode corrects
+    (ROA, SH_OLDHAM) left uncorrected, an ISO 3166-1 alpha-3 country code under urn:iso:std:iso:3166
+    rather than the ODS system, and nothing but a country code under ISO 3166. expected
+    ({code: 'ods'|'iso3166'}, the group's "expect_org_codes") are codes that must appear, under that
+    system. Returns (applicable, problems)."""
+    found = list(_organisation_identifiers(bundle))
+    if not found and not expected:
+        return False, []
+    problems = []
+    for path, system, value in found:
+        where = re.sub(r"^entry\[(\d+)\]\.resource", r"entry[\1]", path)
+        if value in ODS_CORRECTIONS:
+            problems.append(f"{where} is {value!r}, which the RIE corrects to {ODS_CORRECTIONS[value]!r}")
+        elif system == ODS_ORG_SYSTEM and value in ISO3166_ALPHA3:
+            problems.append(f"{where} {value!r} is an ISO 3166 country code under the ODS system")
+        elif system == ISO3166_SYSTEM and value not in ISO3166_ALPHA3:
+            problems.append(f"{where} {value!r} is under ISO 3166 but isn't a country code the RIE knows")
+    systems = {"ods": ODS_ORG_SYSTEM, "iso3166": ISO3166_SYSTEM}
+    for code, kind in (expected or {}).items():
+        if not any(v == code and s == systems[kind] for _, s, v in found):
+            got = sorted({s for _, s, v in found if v == code})
+            problems.append(f"expected {code!r} under {systems[kind]}"
+                            + (f", found it under {', '.join(got)}" if got else ", not found"))
+    return True, problems
+
+
+def check_epic_placer(bundle):
+    """A 10-digit MFT EPIC placer number (ServiceRequest PLAC identifier) is assigned by R0A, under
+    the EPIC placer system (373f22a - it used to be ROA). Returns problems."""
+    problems, seen = [], False
+    for sr in _fhir_resources(bundle, "ServiceRequest"):
+        for ident in sr.get("identifier", []):
+            if _fhir_identifier_type(ident) != "PLAC" or len(str(ident.get("value", ""))) != 10:
+                continue
+            seen = True
+            assigner = ((ident.get("assigner") or {}).get("identifier") or {}).get("value")
+            if assigner != "R0A":
+                problems.append(f"placer {ident.get('value')} assigner is {assigner!r}, expected 'R0A'")
+            if ident.get("system") != EPIC_PLACER_SYSTEM:
+                problems.append(f"placer {ident.get('value')} system is {ident.get('system')!r}, "
+                                f"expected {EPIC_PLACER_SYSTEM}")
+    if not seen:
+        problems.append("no 10-digit placer number on a ServiceRequest")
+    return problems
+
+
+_GTD_NTE = re.compile(r"^([RM]\d+(?:\.\d+)?)=(.*)$")
+
+
+def check_gtd_display(v2_text, bundle):
+    """iGene's NTE|n|L|<GTD code>=PACKAGE: <code> - <description> (RIE-SourceCode 47cf363): the
+    description is often truncated, so it must be the ServiceRequest/DiagnosticReport code.text,
+    never a Genomic Test Directory coding's display (a wrong display is a validation error). A
+    code with a '.' (a test, not a clinical indication) makes a study Observation (LOINC 81306-3),
+    whose performer (1..1 in the NW Observation profile) must be the laboratory. Applies to any
+    message with such an NTE. Returns (applicable, problems)."""
+    nte = {}
+    for seg in v2_text.replace("\n", "\r").split("\r"):
+        f = seg.split("|")
+        if f[0] == "NTE" and len(f) > 3 and f[2] == "L":
+            m = _GTD_NTE.match(f[3].strip())
+            if m:
+                text = m.group(2).split("-", 1)[1].strip() if "-" in m.group(2) else ""
+                nte[m.group(1)] = text
+    if not nte:
+        return False, []
+    problems = []
+    for rtype in ("ServiceRequest", "DiagnosticReport"):
+        for res in _fhir_resources(bundle, rtype):
+            code = res.get("code") or {}
+            gtd = [c for c in code.get("coding", []) if c.get("system") == GENOMIC_TEST_DIRECTORY_SYSTEM]
+            for c in gtd:
+                text = nte.get(c.get("code"))
+                if text and c.get("display") and text.startswith(c["display"].strip()):
+                    problems.append(f"{rtype} GTD {c['code']} display {c['display']!r} is iGene's NTE text")
+            if any(c.get("code") in nte for c in gtd) and not (code.get("text") or "").strip():
+                problems.append(f"{rtype}.code.text is empty (expected the NTE test description)")
+    studies = [o for o in _fhir_resources(bundle, "Observation")
+               if any(c.get("code") == "81306-3" for c in (o.get("code") or {}).get("coding", []))]
+    if any("." in c for c in nte) and not studies:
+        problems.append("no study Observation (LOINC 81306-3) for the NTE test code")
+    for o in studies:
+        perf = [p for p in o.get("performer", [])
+                if (p.get("identifier") or {}).get("value") or p.get("reference")]
+        if len(perf) != 1:
+            problems.append(f"study Observation (81306-3) has {len(perf)} performer(s), expected 1 (the laboratory)")
+    return True, problems
+
+
 def is_valid_nhs_number(value):
     """10 digits (spaces ignored) with a correct modulus 11 check digit."""
     digits = str(value).replace(" ", "")
@@ -3220,7 +3407,8 @@ class CaseResult:
 
 def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
              skip_transform_to_v2=False, save_output=True, input_flat=False,
-             mllp_port=None, expect_no_nhs_number=False):
+             mllp_port=None, expect_no_nhs_number=False, expect_org_codes=None,
+             expect_epic_placer=False):
     case_name = f"{group}/{msg_type}/{filename}"
     log(f"=== starting {case_name} ===")
     result = CaseResult(case_name)
@@ -3349,6 +3537,27 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
             result.record("encounterStatus", False, "; ".join(enc_problems))
         else:
             result.record("encounterStatus", True, "Encounter.status matches PV1-45 (open spell or discharged)")
+
+    # --- Organisation codes normalised (ROA -> R0A, SH_OLDHAM -> RM3) and ISO 3166 for countries
+    # outside the UK (see check_ods_codes); "expect_org_codes"/"expect_epic_placer" per file.
+    # A failure, but not a transform_error - the send still shows what the RIE does with it. ---
+    ods_applicable, ods_problems = check_ods_codes(fhir_json, expect_org_codes)
+    if expect_epic_placer:
+        ods_applicable, ods_problems = True, ods_problems + check_epic_placer(fhir_json)
+    if ods_applicable:
+        if ods_problems:
+            result.record("odsCodes", False, "; ".join(ods_problems))
+        else:
+            result.record("odsCodes", True, "organisation codes normalised, under ODS or ISO 3166 as expected")
+
+    # --- iGene NTE test description as code.text, not a GTD display; study Observation performer
+    # (see check_gtd_display). Same non-blocking treatment as odsCodes. ---
+    gtd_applicable, gtd_problems = check_gtd_display(v2_bytes.decode("utf-8", errors="replace"), fhir_json)
+    if gtd_applicable:
+        if gtd_problems:
+            result.record("gtdDisplay", False, "; ".join(gtd_problems))
+        else:
+            result.record("gtdDisplay", True, "NTE test description in code.text, study Observation has a performer")
 
     # --- Patient nhs-number identifiers hold a real NHS number (not e.g. 'n/a'). Recorded as
     # a failure but deliberately not a transform_error: the send still runs, so the case
@@ -3504,6 +3713,69 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         return result
 
     return record_ack(result, r3.text)
+
+
+def run_http_auth_case(session, group, msg_type, filename, port, input_dir, skip_send):
+    """POST one v2 message to the authenticated HL7 v2 HTTP service (port on V2_SERVER's host -
+    RIE.Service.HL7v2HTTPService, see the "http_auth" group) with each kind of credentials, as one
+    stage each: rejected ones must get HTTP 401 + WWW-Authenticate and no ACK, accepted ones ACK AA."""
+    case_name = f"{group}/{msg_type}/{filename}"
+    log(f"=== starting {case_name} ===")
+    result = CaseResult(case_name)
+    in_path = os.path.join(input_dir, msg_type, filename)
+    if not os.path.exists(in_path):
+        result.record("load", False, f"file not found: {in_path}")
+        return result
+    with open(in_path, "rb") as f:
+        v2_bytes = f.read()
+    result.record("load", True, f"{len(v2_bytes)} bytes")
+    if skip_send:
+        result.record("httpAuth", True, "skipped (--skip-send)")
+        return result
+    parts = urlsplit(V2_SERVER)
+    url = f"{parts.scheme}://{parts.hostname}:{port}/"
+
+    def basic(user, password):
+        return "Basic " + base64.b64encode(f"{user}:{password}".encode()).decode()
+
+    attempts = [
+        ("auth:none", None, False),
+        ("auth:badBasic", basic("rie-integration-test", uuid.uuid4().hex), False),
+        ("auth:badBearer", "Bearer " + uuid.uuid4().hex, False),
+    ]
+    try:
+        attempts.append(("auth:oauth2Bearer", "Bearer " + get_fhir_bearer_token(session), True))
+    except (requests.RequestException, ValueError, KeyError) as e:
+        result.record("auth:oauth2Bearer", False, f"couldn't get an OAuth2 token: {e}")
+    v2_user, v2_password = os.getenv("V2_AUTH_USER"), os.getenv("V2_AUTH_PASSWORD")
+    if v2_user and v2_password:
+        attempts.append(("auth:basic", basic(v2_user, v2_password), True))
+    else:
+        result.warn("auth:basic", "not tried - set V2_AUTH_USER/V2_AUTH_PASSWORD (an IRIS user) in .env")
+
+    for stage, authorization, accept in attempts:
+        headers = {"Authorization": authorization} if authorization else {}
+        log(f"POST {url} ({stage})")
+        try:
+            r = session.post(url, data=v2_bytes, headers=headers, verify=False, timeout=SEND_TIMEOUT)
+        except requests.RequestException as e:
+            result.record(stage, False, f"request error: {e}")
+            continue
+        if not accept:
+            challenge = r.headers.get("WWW-Authenticate", "")
+            if r.status_code == 401 and "MSA|" not in r.text and challenge:
+                result.record(stage, True, f"HTTP 401, WWW-Authenticate: {challenge}")
+            else:
+                result.record(stage, False, f"expected HTTP 401 with a challenge and no ACK, got HTTP "
+                                            f"{r.status_code} {r.text[:150]!r}")
+            continue
+        if r.status_code != 200:
+            result.record(stage, False, f"HTTP {r.status_code}: {r.text[:200]}")
+            continue
+        ack_code, detail = parse_ack(r.text)
+        result.record(stage, ack_code in ("AA", "CA"), f"ACK {ack_code or 'unparseable'}"
+                      + ("" if ack_code in ("AA", "CA") else f": {detail}"))
+    return result
 
 
 def record_ack(result, ack_text):
@@ -4326,7 +4598,11 @@ def main():
                 except (OSError, ValueError, requests.RequestException) as e:
                     log(f"cdr pre-check failed for {filename}: {e}")
                     cdr_exp = None
-            if group.get("esb_validate"):
+            if group.get("http_auth_port"):
+                results.append(run_http_auth_case(
+                    session, group_name, msg_type, filename, group["http_auth_port"],
+                    group.get("input_dir") or os.path.join("Input", "V2"), args.skip_send))
+            elif group.get("esb_validate"):
                 results.append(run_validate_case(
                     session, group_name, msg_type, filename, group.get("input_dir") or "Input"))
             elif group.get("input_format") == "fhir":
@@ -4345,6 +4621,8 @@ def main():
                     input_flat=group.get("input_flat", False),
                     mllp_port=group.get("v2_mllp_port"),
                     expect_no_nhs_number=filename in group.get("expect_no_nhs_number", ()),
+                    expect_org_codes=group.get("expect_org_codes", {}).get(filename),
+                    expect_epic_placer=filename in group.get("expect_epic_placer", ()),
                 ))
             if cdr_exp is not None:
                 sent = [p for s, p, d in results[-1].stages if s == "sendToServer"]
