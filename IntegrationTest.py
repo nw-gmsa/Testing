@@ -30,8 +30,9 @@ For each registered test case (a raw HL7 v2 file under Input/V2/<messageType>/):
      check_message_focus).
      A PV1 with a Visit Number (PV1-19) but no Discharge Date/Time (PV1-45) is an open spell -
      e.g. diagnostic testing within it - so its Encounter must be in-progress, not finished;
-     with PV1-45 it must be finished with that period.end (encounterStatus - see
-     check_encounter_status).
+     with PV1-45 it must be finished with that period.end. An ADT event instead gets the status
+     the IHE UK PAM ITI-31 table gives its trigger event, e.g. A05 planned, A21 onleave
+     (encounterStatus - see check_encounter_status).
   2. POST that Bundle to {V2_TOOLS}/transformToV2 -> expect a valid v2 (MSH-led) message back.
      Also checks that an Encounter/Patient/Specimen resource in the Bundle produces a
      corresponding PV1/PID/SPM segment in this output - see check_expected_segments_present.
@@ -2120,23 +2121,70 @@ def check_message_focus(bundle):
     return True, problems
 
 
+# Encounter.status after an ADT event, from the IHE UK PAM IG's ITI-31 "Trigger Events and Encounter
+# Status" table (https://nw-gmsa.github.io/IHEUK-PAM-Unofficial/en/ITI-31.html#trigger-events-and-encounter-status).
+# None = the event leaves the status unchanged (A08, A06/A07 change only the class), so a single message
+# can't say what it should be - only the PV1-45 rule applies. Events not listed (A28/A31/A40 - patient,
+# not encounter, events) fall back to the PV1-45 rule too.
+ADT_ENCOUNTER_STATUS = {
+    "A01": ("in-progress",),
+    "A04": ("arrived", "in-progress"),
+    "A03": ("finished",),
+    "A11": ("cancelled", "entered-in-error"),
+    "A13": ("in-progress",),
+    "A05": ("planned",),
+    "A38": ("cancelled",),
+    "A02": ("in-progress",),
+    "A12": ("in-progress",),
+    "A06": None,
+    "A07": None,
+    "A14": ("planned",),
+    "A27": ("cancelled",),
+    "A15": ("in-progress",),
+    "A26": ("in-progress",),
+    "A16": ("in-progress",),
+    "A25": ("in-progress",),
+    "A21": ("onleave",),
+    "A52": ("in-progress",),
+    "A22": ("in-progress",),
+    "A53": ("onleave",),
+    "A08": None,
+}
+# Statuses for a spell that hasn't ended, so no period.end
+_OPEN_ENCOUNTER_STATUSES = ("planned", "arrived", "in-progress", "onleave")
+
+
 def check_encounter_status(v2_text, bundle):
     """Each PV1 with a Visit Number (PV1-19) maps to the Encounter carrying that identifier
-    value. With no Discharge Date/Time (PV1-45) the spell is still open, so the Encounter's
-    status must be in-progress (not finished) and period.end must be absent; with PV1-45 it
-    must be finished, with a period.end.
+    value.
+
+    For an ADT event in ADT_ENCOUNTER_STATUS (the IHE UK PAM ITI-31 table), Encounter.status must
+    be one the table gives for that trigger event (MSH-9.2): e.g. A05 planned, A04 arrived or
+    in-progress, A11 cancelled, A21 onleave. An open status (planned/arrived/in-progress/onleave)
+    must have no period.end, and finished must have one.
+
+    Otherwise (orders, reports, and ADT events that leave the status unchanged) the status follows
+    PV1-45 Discharge Date/Time: with none the spell is still open, so the Encounter must be
+    in-progress with no period.end; with PV1-45 it must be finished, with a period.end. For
+    unchanged-status ADT events (A08) only "not finished without PV1-45" and "finished with
+    PV1-45" are checked, since the status before the event isn't in the message.
 
     Returns (applicable, problems): applicable is False when no PV1 has a PV1-19.
     """
     if not isinstance(bundle, dict):
         return False, []
-    spells = {}
+    spells, msg_type, trigger = {}, "", ""
     for fields in _v2_segment_fields(v2_text):
+        if fields[0] == "MSH":
+            msh9 = _v2_msh_field(fields, 9)
+            msg_type, trigger = _v2_component(msh9, 1), _v2_component(msh9, 2)
         visit = _v2_component(_v2_field(fields, 19), 1) if fields[0] == "PV1" else ""
         if visit:
             spells[visit] = spells.get(visit) or _v2_field(fields, 45)
     if not spells:
         return False, []
+    is_adt = msg_type == "ADT" and trigger in ADT_ENCOUNTER_STATUS
+    expected = ADT_ENCOUNTER_STATUS.get(trigger) if is_adt else None
     problems = []
     for visit, discharged in sorted(spells.items()):
         encounters = [r for r in _fhir_resources(bundle, "Encounter")
@@ -2145,7 +2193,24 @@ def check_encounter_status(v2_text, bundle):
             problems.append(f"no Encounter with identifier {visit} (PV1-19)")
         for enc in encounters:
             status, end = enc.get("status"), (enc.get("period") or {}).get("end")
-            if discharged and (status != "finished" or not end):
+            if expected:
+                if status not in expected:
+                    problems.append(f"Encounter {visit} is status={status} - ADT^{trigger} should leave it "
+                                    f"{' or '.join(expected)} (IHE UK PAM ITI-31)")
+                elif status in _OPEN_ENCOUNTER_STATUSES and end:
+                    problems.append(f"Encounter {visit} is status={status} but has period.end={end}")
+                elif status == "finished" and not end:
+                    problems.append(f"Encounter {visit} is finished but has no period.end"
+                                    + ("" if discharged else " (no PV1-45 in the message)"))
+            elif is_adt:
+                # status unchanged by the event (A08, A06/A07): only check it agrees with PV1-45
+                if discharged and (status != "finished" or not end):
+                    problems.append(f"Encounter {visit} is status={status}, period.end={end or '(none)'} - "
+                                    f"PV1-45 {discharged} says the spell has finished")
+                elif not discharged and status == "finished":
+                    problems.append(f"Encounter {visit} is finished - no PV1-45, and ADT^{trigger} doesn't "
+                                    "change the status")
+            elif discharged and (status != "finished" or not end):
                 problems.append(f"Encounter {visit} is status={status}, period.end={end or '(none)'} - "
                                 f"PV1-45 {discharged} says the spell has finished")
             elif not discharged and (status != "in-progress" or end):
@@ -2153,7 +2218,6 @@ def check_encounter_status(v2_text, bundle):
                                 + (f", period.end={end}" if end else "")
                                 + " - no PV1-45, so the spell is still open (expected in-progress)")
     return True, problems
-
 
 ISO3166_SYSTEM = "urn:iso:std:iso:3166"
 # RIE.FHIR.Library.NormaliseODSCode's built-in corrections (RIE-SourceCode 373f22a); the RIE's
@@ -3536,7 +3600,7 @@ def run_case(session, group, msg_type, filename, skip_send, input_dir=None,
         if enc_problems:
             result.record("encounterStatus", False, "; ".join(enc_problems))
         else:
-            result.record("encounterStatus", True, "Encounter.status matches PV1-45 (open spell or discharged)")
+            result.record("encounterStatus", True, "Encounter.status matches the trigger event/PV1-45")
 
     # --- Organisation codes normalised (ROA -> R0A, SH_OLDHAM -> RM3) and ISO 3166 for countries
     # outside the UK (see check_ods_codes); "expect_org_codes"/"expect_epic_placer" per file.
